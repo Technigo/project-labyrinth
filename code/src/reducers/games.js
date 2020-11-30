@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { ui } from './ui';
+
 export const games = createSlice({
 	name: 'games',
 	initialState: {
@@ -29,6 +31,7 @@ export const games = createSlice({
 
 export const thunk = (userName) => {
 	return (dispatch) => {
+		dispatch(ui.actions.setLoading(true));
 		fetch('https://wk16-backend.herokuapp.com/start', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
@@ -37,6 +40,7 @@ export const thunk = (userName) => {
 			.then((res) => res.json())
 			.then((data) => {
 				dispatch(games.actions.playGame(data));
+				dispatch(ui.actions.setLoading(false));
 			});
 	};
 };
@@ -44,6 +48,7 @@ export const thunk = (userName) => {
 export const actionThunk = (userName, action) => {
 	console.log(action);
 	return (dispatch) => {
+		dispatch(ui.actions.setLoading(true));
 		fetch('https://wk16-backend.herokuapp.com/action', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
@@ -56,6 +61,7 @@ export const actionThunk = (userName, action) => {
 			.then((res) => res.json())
 			.then((data) => {
 				dispatch(games.actions.playGame(data));
+				dispatch(ui.actions.setLoading(false));
 			});
 	};
 };
