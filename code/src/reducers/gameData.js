@@ -11,8 +11,8 @@ export const generateInstructions = () => {
       body: JSON.stringify({ "username": "MasterControlProgram" })
 	  })
     .then(res => res.json())
-    .then(data=> {
+    .then(data => {
       dispatch(game.actions.startGame(data))
-    })
-  } 
-  }
+    });
+  };
+};

@@ -12,11 +12,12 @@ export const StartGame = () => {
   const onStartGame = () => { 
     dispatch(generateInstructions());
   }
-  return(
-    <div>
-      <div>{gameState.description}</div>
-      <button onClick={onStartGame}> Start Game!</button>
-    </div>
+
+    return(
+      <div>
+        <div>{gameState.description}</div>
+        <button onClick={onStartGame}> Start Game!</button>
+      </div>
   )
 
 }
