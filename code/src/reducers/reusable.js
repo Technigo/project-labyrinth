@@ -6,13 +6,14 @@ import { game } from './game'
 // FETCH FOR START 
 export const GenerateAction = (userName) => {
 
-  return(dispatch) => {
-    fetch("https://wk16-backend.herokuapp.com/start", {
+  return (dispatch) => {
+    fetch("https://wk16-backend.herokuapp.com/start", 
+    {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ "username": userName })
-	})
+	  })
   .then(res => res.json())
-  .then(data => dispatch(game.actions.GenerateAction(data)))
+  .then(data => dispatch(game.actions.generateNextAction(data)))
   }
 }

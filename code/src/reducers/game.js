@@ -10,9 +10,8 @@ export const game = createSlice({
   name: 'game',
   initialState,
   reducers: {
-    generateAction: (state, action) => {
+    generateNextAction: (state, action) => {
       state.game = action.payload
-      console.log(action.payload)
       state.isGameStarted = true
     },
     addUsername: (state, action) => {
