@@ -16,7 +16,7 @@ export const GameRoom = () => {
 	  {gameData.actions.map((item) => (
       return( <p></p>)
     })} */}
-  	<button></button>
+  	<button>test</button>
     </div>
   )
 }
