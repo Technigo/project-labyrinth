@@ -1,30 +1,40 @@
 import React, {useState} from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { game } from '../reducers/game';
 import { StartGame } from '../reducers/fetch';
 
 const StartControls = () => {
-  const [name, setName] = useState('');
+  // const [name, setName] = useState('');
   const dispatch = useDispatch();
+  const userName = useSelector((store) => store.game.name)
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(StartGame(name));
+    dispatch(StartGame(userName));
   }
 
   const onChangeEvent = (value) => {
-    setName(value);
+    dispatch(game.actions.addUser(value));
   }
 
   return (
     <div>
-      <p>{name}</p>
+      <p>{userName}</p>
       <form onSubmit={handleSubmit}>
-        <input type='text' placeholder='input name' onChange={event => onChangeEvent(event.target.value)}></input>
-        <button type='submit'>Start the game</button>
-      </form>
 
+        <input 
+          type='text' 
+          placeholder='input name' 
+          onChange={event => onChangeEvent(event.target.value)}>
+        </input>
+
+        <button 
+            type='submit'>
+            Start the game
+          </button>
+      </form>
+    
     </div>
   )
 }

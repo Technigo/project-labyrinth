@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { game } from '../reducers/game';
 
 import StartControls from './StartControls';
 
@@ -8,6 +9,16 @@ const GameContainer = () => {
   return (
     <div>
       <p>{gameState.description}</p>
+      
+      
+      {/* {state.actions.map(item => {
+          return (
+            <button>{item.direction}</button>
+            )
+          })
+        }
+   */}
+
 
       <StartControls />
     </div>
