@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   username: "",
-  current: {},
+  currentStep: {},
   history: []
 }
 
@@ -11,8 +11,11 @@ export const game = createSlice({
   initialState,
   reducers: {
     enterUsername: (state, action) => {
-      console.log(action.payload)
       state.username = action.payload
+    },
+    enterGame: (state, action) => {
+      console.log(action.payload)
+      state.currentStep = action.payload
     }
   }
 })

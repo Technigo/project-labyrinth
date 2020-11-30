@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
 import { Start } from './components/Start';
+import { Board } from './components/Board';
 import { game } from './reducers/game';
 
 const reducer = combineReducers({ game: game.reducer });
@@ -13,6 +14,7 @@ export const App = () => {
   return (
     <Provider store={store}>
       <Start />
+      <Board />
     </Provider>
   )
 }
