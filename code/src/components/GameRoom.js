@@ -10,14 +10,19 @@ export const GameRoom = () => {
   
   const gameData = useSelector((store) => store.game.game)
   const addUsername = useSelector((store) => store.game.name)
-  const array = useSelector((store) => store.game.game.actions)
+  const arrayGame = useSelector((store) => store.game.game.actions)
   
   console.log(gameData)
   
   return (
     <div>
     <p>{gameData.description}</p>
-  	<button>test</button>
+    {arrayGame && (arrayGame.map((item, index, array) => {
+      return (
+        	<button onClick={item.direction}>{item.direction}</button>
+      )
+    }))}
+  
     </div>
   )
 }
