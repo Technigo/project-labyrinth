@@ -1,21 +1,21 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   name: "",
   game: {},
-  isGameStarted: false
-}
+  isGameStarted: false,
+};
 
 export const game = createSlice({
-  name: 'game',
+  name: "game",
   initialState,
   reducers: {
     generateNextAction: (state, action) => {
-      state.game = action.payload
-      state.isGameStarted = true
+      state.game = action.payload;
+      state.isGameStarted = true;
     },
     addUsername: (state, action) => {
-      state.name = action.payload
-    }
-  }
-})
+      state.name = action.payload;
+    },
+  },
+});
