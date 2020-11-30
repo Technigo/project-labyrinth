@@ -19,7 +19,6 @@ export const StartRoom = () => {
 		dispatch(game.actions.addUsername(value))
 	}
 
-
   return(
     <div>
 		  <p>Welcome {userName}</p>

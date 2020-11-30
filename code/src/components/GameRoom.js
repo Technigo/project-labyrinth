@@ -6,12 +6,17 @@ import {game} from '../reducers/game'
 
 export const GameRoom = () => {
 	//const dispatch = useDispatch()
-	const gameData = useSelector((store) => 
-    store.game.game
-    )
+  const gameData = useSelector((store) => store.game.game)
+  
   console.log(gameData)
   
   return (
-    <div>gameroom</div>
+    <div>
+      {/* <p>{gameData.description}</p>
+	  {gameData.actions.map((item) => (
+      return( <p></p>)
+    })} */}
+  	<button></button>
+    </div>
   )
 }
