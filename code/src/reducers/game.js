@@ -4,7 +4,8 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   name: "",
   game: {
-  }
+  },
+  isGameStarted: false
 }
 
 export const game = createSlice({
@@ -15,6 +16,7 @@ export const game = createSlice({
     nextAction: (state, action) => {
       state.game = action.payload;
       console.log(action.payload)
+      state.isGameStarted = true;
     },
     addUser: (state, action) => {
       state.name = action.payload

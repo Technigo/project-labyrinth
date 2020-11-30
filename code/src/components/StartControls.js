@@ -5,7 +5,6 @@ import { game } from '../reducers/game';
 import { StartGame } from '../reducers/fetch';
 
 const StartControls = () => {
-  // const [name, setName] = useState('');
   const dispatch = useDispatch();
   const userName = useSelector((store) => store.game.name)
 

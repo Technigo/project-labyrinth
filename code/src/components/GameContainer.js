@@ -3,30 +3,15 @@ import { useSelector } from 'react-redux';
 import { game } from '../reducers/game';
 
 import StartControls from './StartControls';
+import GameControls from './GameControls';
 
 const GameContainer = () => {
-  const gameState = useSelector((state) => state.game.game)
-  const gamePlayer = useSelector((state) => state.game.name)
-
-  // Plocka ut arrayen
-  const gameArray = useSelector((state) => state.game.game.actions)
+  const gameStarted = useSelector((store) => store.game.isGameStarted)
 
   return (
     <div>
-      <p>{gameState.description}</p>
-      
-       {gameArray && (gameArray.map(item => {
-      
-          return (
-            <button>
-              {item.direction}
-            </button>
-            )
-          })
-        )
-}
-
-      <StartControls />
+      {!gameStarted && <StartControls />}
+      <GameControls />   
     </div>
   )
 }

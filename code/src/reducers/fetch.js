@@ -13,3 +13,20 @@ export const StartGame = (userName) => {
       .then(data => dispatch(game.actions.nextAction(data)))
   }
 }
+
+export const chooseDirection = (userName, direction) => {
+  return (dispatch) => {
+    fetch('https://wk16-backend.herokuapp.com/action',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+                  "username": userName, 
+                  "type": "move", 
+                  "direction": direction
+                })
+      })
+      .then(res => res.json())
+      .then(data => dispatch(game.actions.nextAction(data)))
+  }
+}
