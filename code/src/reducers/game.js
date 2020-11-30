@@ -1,18 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  username: {},
-  currentGameState: {},
-  pastActions: [],
-};
-
 export const game = createSlice({
   name: "game",
-  initialState,
+  initialState: {
+    username: {},
+    currentGameState: {},
+    pastActions: [],
+  },
   reducers: {
     addUserName: (store, action) => {
-      const { name } = action.payload;
-      store.username = name;
+      const { username } = action.payload;
+      store.username = username;
+    },
+    setCurrentGameState: (store, action) => {
+      store.currentGameState = action.payload;
     },
   },
 });
