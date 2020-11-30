@@ -1,27 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+const initialState = {
+  name: "",
+  game: [],
+  isGameStarted: false
+}
+
 export const game = createSlice({
   name: 'game',
-  initialState: {
-    game: 
-      {username: "Kat",
-      direction: "North"}
-    ,
-    history: []
-  },
+  initialState,
   reducers: {
-    generateDirection: (state, action)=> {
-      if (state.game.game) {
-        state.history = [...state.history, state.game]
-      }
+    generateAction: (state, action) => {
       state.game = action.payload
+      console.log(action.payload)
+      state.isGameStarted = true
     },
-    historyGoBack: (state, action) => {
-      if (state.history.length > 0) {
-        state.game = state.history[state.history.length - 1]
-        state.history = state.history.slice(0, state.history.length - 1)
+    addUsername: (state, action) => {
+      state.name = action.payload
     }
   }
-}
 })
-

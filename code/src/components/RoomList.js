@@ -1,16 +1,18 @@
 import React from 'react'
-
 import { useSelector } from 'react-redux'
 
-export const RoomList = () => {
+import {game} from '../reducers/game'
 
-  const game = useSelector (
-    (store) => store.game.game)
+import { StartRoom } from './StartRoom'
+import { GameRoom } from './GameRoom'
 
-  console.log(game) // REMOVE LATER
+export const RoomList = () => { 
 
   return (
-    <p>{game.username}</p>
+    <>
+    <StartRoom />
+    <GameRoom />
+    </>
   )
 }
 
