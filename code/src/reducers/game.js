@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { useDispatch } from 'react-redux'
+
 
 export const game = createSlice({
   name: 'game',
   initialState: {
+    loading: false,
     username: '',
     gameState: {
       description: '',
@@ -21,12 +22,16 @@ export const game = createSlice({
       const newState = state
       newState.username = action.payload
       return newState
-    }
+    },
+    // setLoading: (state, action) => {
+    //     state.isLoading = action.payload;
+    //   },
 }
 });
 
 export const startNewGame = (username) => {
   return (dispatch) => {
+    //set loadin
     dispatch(game.actions.setUserName(username))
 
     fetch("https://wk16-backend.herokuapp.com/start", {
@@ -37,6 +42,9 @@ export const startNewGame = (username) => {
       .then((res) => res.json())
       .then((json) => {
         dispatch(game.actions.setGameState(json))
+       //unset loading
+       
+
       })
   }
 }
@@ -60,3 +68,18 @@ export const executeAction = (username, type, direction) => {
   }
 }
 
+
+
+
+//   export const fetchTodos = () => {
+//     return (dispatch) => {
+//       dispatch(ui.actions.setLoading(true));
+//       fetch("http://jsonplaceholder.typicode.com/todos")
+//         .then((res) => res.json())
+//         .then((json) => {
+//           dispatch(todos.actions.setTodos(json));
+//           dispatch(ui.actions.setLoading(false));
+//         });
+//     };
+//   };
+  

@@ -1,9 +1,14 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { startNewGame } from 'reducers/game';
-
 import swal from "sweetalert";
+import styled from 'styled-components'
 
+const StartButton = styled.button`
+  background: black;
+  color: #4CFF42;
+  font-family: 'Inconsolata', monospace;
+`
 
 export const UserName = () => {
   const dispatch = useDispatch();
@@ -28,7 +33,7 @@ export const UserName = () => {
 
   return (
     <div>
-      <button onClick={handleOnClick}>Click here to start the game</button>
+      <StartButton onClick={handleOnClick}>Click here to start the game</StartButton>
     </div>
   )
 }
