@@ -1,9 +1,11 @@
 import { gameReducer } from './gameReducer'
+import { ui } from './ui'
 
 export const HandleMove = (direction) => {
   return (dispatch, getState) => {
+    console.log('ui.actions', ui.actions);
+    dispatch(ui.actions.setLoading(true))
     const player = getState().gameReducer.playerName
-    console.log(player, 'getState')
     const body = JSON.stringify({
       username: player,
       type: 'move',
@@ -19,6 +21,7 @@ export const HandleMove = (direction) => {
       .then((res) => res.json())
       .then((json) => {
         dispatch(gameReducer.actions.makeMove(json))
+        dispatch(ui.actions.setLoading(false))
       })
   }
 }

@@ -7,10 +7,6 @@ export const Step = () => {
   const currentStep = useSelector((store) => {
     return store.gameReducer.currentStep
   })
-  const playerName = useSelector((store) => {
-    return store.gameReducer.playerName
-  })
-  console.log(playerName, 'playerName')
   const dispatch = useDispatch()
   return (
     <div>
