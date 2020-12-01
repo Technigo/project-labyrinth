@@ -1,9 +1,11 @@
 import { gameReducer } from './gameReducer'
 
-export const handleClick = (direction) => {
-  return (dispatch) => {
+export const HandleMove = (direction) => {
+  return (dispatch, getState) => {
+    const player = getState().gameReducer.playerName
+    console.log(player, 'getState')
     const body = JSON.stringify({
-      username: '2ndPlayer',
+      username: player,
       type: 'move',
       direction
     })

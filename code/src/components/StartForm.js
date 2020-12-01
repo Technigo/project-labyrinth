@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { gameReducer } from '../reducers/gameReducer'
 
 export const StartForm = () => {
-  const [playerName, setPlayerName] = useState('')
+  const playerName = useSelector((store) => store.gameReducer.playerName)
   const playerInputId = 'playerId'
-  const handlePlayerName = (event) => {
-    setPlayerName(event.target.value)
-  }
+
   const dispatch = useDispatch()
+
+  const handlePlayerName = (event) => {
+    dispatch(gameReducer.actions.addPlayerName(event.target.value))
+  }
+
   const startGame = () => {
     const body = JSON.stringify({ username: playerName })
     fetch('https://wk16-backend.herokuapp.com/start', {
@@ -20,7 +23,6 @@ export const StartForm = () => {
     })
       .then((res) => res.json())
       .then((json) => {
-        console.log('fetch', json)
         dispatch(gameReducer.actions.gameBegin(json))
       })
   }
