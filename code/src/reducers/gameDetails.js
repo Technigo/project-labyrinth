@@ -22,5 +22,12 @@ export const gameDetails = createSlice({
 
         //   }
         // }
-        }
+        },
+          generateMoves: (state, action) => {
+         // if (state.gameDetails.gameDetails) {
+           // state.history = [...state.history, state.gameDetails]
+          //}
+            state.gameDetails = action.payload;   
+        },
+
 });
