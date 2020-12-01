@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 /* 
 Vår data: 
@@ -24,17 +24,24 @@ Vår data:
 export const gameState = createSlice({
   name: "gameState",
   initialState: {
-
-    gameDetails: {}
-    //  coordinates: "",
-    // //  description: "",
-    //  actions: [],
-    //  userName: "Technigo player"
+    gameDetails: {},
+    //coordinates: "",
+    // description: "",
+    // actions: [],
+    userName: "Technigo player",
   },
   reducers: {
     startGame: (state, action) => {
-        state.gameDetails = action.payload;
-    
-  }
-  }
-})
+      state.gameDetails = action.payload;
+      console.log("payload: " + action.payload);
+      console.log("userName: " + state.userName);
+      console.log("coordinates: " + state.gameDetails.coordinates);
+      console.log("description: " + state.gameDetails.description);
+      console.log("actions: " + state.gameDetails.actions[0]);
+    },
+    commitAction: (state, action) => {
+      state.gameDetails = action.payload;
+      console.log("Here now!" + action.payload);
+    },
+  },
+});

@@ -1,17 +1,37 @@
 // import { gameState } from './gameState';
 
-export const startFetch = () => {
-    return (dispatch) => {
-    fetch("https://wk16-backend.herokuapp.com/start", {
-        method: "POST",
-        headers: { "Content-Type": "application/JSON" },
-        body: JSON.stringify({ "username": "TechnigoPlayer" }),
-    })
-    .then((res) => res.json())
-         .then(data => dispatch(console.log(data)));
-    }
+import { gameState } from "./gameState";
 
+export const startFetch = () => {
+  return (dispatch) => {
+    fetch("https://wk16-backend.herokuapp.com/start", {
+      method: "POST",
+      headers: { "Content-Type": "application/JSON" },
+      body: JSON.stringify({ username: "TechnigoPlayer" }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        dispatch(gameState.actions.startGame(data));
+      });
+  };
 };
 
-
-// (gameState.actions.startGame(data))   - efter (data => dispatch...????
+export const actionFetch = (userName, direction) => {
+  return (dispatch) => {
+    fetch("https://wk16-backend.herokuapp.com/action", {
+      method: "POST",
+      headers: { "Content-Type": "application/JSON" },
+      body: JSON.stringify({
+        username: "TechnigoPlayer",
+        type: "move",
+        direction,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        dispatch(gameState.actions.commitAction(data));
+      });
+  };
+};
