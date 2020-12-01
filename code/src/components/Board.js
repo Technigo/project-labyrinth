@@ -1,14 +1,17 @@
-import { current } from '@reduxjs/toolkit';
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-// import { onStartGame } from '../reducers/reusable';
-import { game } from '../reducers/game';
+import { nextStepFetch } from "../reducers/reusable";
+import { game } from "../reducers/game";
 
 export const Board = () => {
   const dispatch = useDispatch();
   const stateUsername = useSelector((state) => state.game.username);
-  const currentStep = useSelector((state) => state.game.currentStep)
+  const currentStep = useSelector((state) => state.game.currentStep);
+
+  const onNextStep = (direction) => {
+    dispatch(nextStepFetch(stateUsername, "move", direction));
+  };
 
   return (
     <div>
@@ -18,11 +21,19 @@ export const Board = () => {
           <p>Description: {currentStep.description}</p>
           {currentStep.actions.map((action) => {
             return (
-              <button>{action.direction}</button>
-            )
+              <div>
+                <button
+                  value={action.direction}
+                  onClick={(event) => onNextStep(event.target.value)}
+                >
+                  {action.direction}
+                </button>
+                <p>{action.description}</p>
+              </div>
+            );
           })}
         </>
       )}
     </div>
-  )
-}
+  );
+};
