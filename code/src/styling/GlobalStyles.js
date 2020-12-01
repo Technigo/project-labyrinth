@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const Wrapper = styled.div`
   margin: 20px auto;
@@ -12,7 +12,7 @@ export const InnerFlexWrapper = styled.div`
 `;
 
 export const OuterFlexWrapper = styled.div`
-  margin: 20px 20px;
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
