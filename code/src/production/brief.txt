@@ -1,0 +1,162 @@
+Project Labyrinth
+(https://www.notion.so/Project-Labyrinth-5e425db3042e4526a2955abd33d3e4f4)
+
+> This week's project is all about tying together the skills you've learnt to build an app which retrieves a list of actions from the backend and presents them to the user as interactable items.
+
+
+This week's project comes in the form of a text-based adventure. Classic games like this usually present the user with a description of where they are and provide several alternatives about what they can do.
+
+Example:
+
+```css
+You find yourself in a room with one door leading East and a small 
+opening in the wall leading South.
+
+- Go East
+- Go South
+```
+
+Based on the choice (Go East or Go South), the state of the game (where the player is) will update. Then, a new description and set of actions can be displayed to the player.
+
+## Start the Game
+
+In this project, you will start the game by doing a POST request to 
+`https://wk16-backend.herokuapp.com/start`
+
+**Request**
+
+In the request **body** you will need to include a username so the backend can track the state of your game. You are free to change this value to something specific/unique to your frontend.
+
+```css
+{
+  "username": "TechnigoPlayer"
+}
+```
+
+**Response**
+
+The response you receive will contain:
+**description -** A text description that should be presented to the player
+
+**actions** - An array of actions that should be presented to the player as interactable options (buttons or something clickable)
+
+```css
+{
+	"coordinates": "0,0",
+	"description": "You find yourself in under a large archway opening into a cavern.  A sense of purpose fills you.",
+	"actions": [{
+		"type": "move",
+		"direction": "East",
+		"description": "A worn sign 'The Temple of *ech*igo'. Some of the letters are missing. An overgrown paved path leads to the East"
+	}]
+}
+```
+
+## Continue the game
+
+When the user clicks/chooses any action, you should send a POST request to
+
+`https://wk16-backend.herokuapp.com/action`
+This POST request needs a JSON body (like the /start request) containing the same **username** you started the game with.
+
+In addition your JSON body will specify what action was done by the player:
+**type -** the type of action (currently only move)
+**direction** - the direction to move
+
+```css
+{
+  username: "TechnigoPlayer", 
+  type: "move", 
+  direction: "East"
+}
+```
+
+You will receive a **response** with a new **description** and the next set of **actions** to show to the player.  
+
+---
+
+## What you will learn 🧠
+
+- How to make API calls around Redux using thunks
+- How to structure your redux store to suit your data
+- To send JSON in the body of a request
+
+---
+
+## How to get started 💪🏼
+
+1. Fork this repo
+1. Clone this repo into your projects folder on your computer
+1. Open up VS Code
+1. In the terminal, run `cd code` to change into the code folder
+1. Install the dependencies needed for react by running `npm install`
+1. Run the react development server by running `npm start`
+
+
+## **Hints and tips to complete the project 🤓**
+
+1. Try starting the game with Postman
+1. Get the game started in your code using fetch
+1. Display the description and actions from the response
+1. Allow the user/player to select an action
+1. Perform a POST request based on the action selected
+1. Handle the response from the `POST /action` to update the game state
+
+Don't be afraid of storing lots of information in redux - you can store the username, the current game state, and even a history of past actions that the player has made.
+
+### Description and Actions UI
+
+How you present the description and the actions is completely up to you.  Maybe you want to sort the directions (East, North, West, South) or put them in some graphical order.  Perhaps you would like to add interactable compass.
+
+### Request response time
+
+This project's backend is designed so that there is some delay until the request returns from the server.  Using thunks is a good way of making sure that the user doesn't do another action until the response is received from the server.
+
+If you notice that your request takes some time, this is intentional
+
+---
+
+## **How to hand in the code 🎯**
+
+- When you’re finished with the project, push your code to GitHub with these commands:
+- Navigate to your repo and create a Pull Request into the Technigo repo (Add a link to your deployed project.) Since you are working in pairs - remember that one of you has to do a pull request and include both your names in the title.
+- Wait for the code review
+
+
+## Requirements 🧪
+
+Your project should fulfill the **🔵  Blue Level** and all of the **General Requirements.** Use the **🔴  Red Level** and **⚫  Black Level** to push your knowledge to the next level!
+
+**General Requirements**
+
+- Contribute by helping others with this project on Stack Overflow.
+- If selected; demo your solution for your team.
+- Code follows Technigo’s code guidelines:
+
+[Copy of Guidelines for how to write good code](https://www.notion.so/40ce18066a454b5b92c29e55b593610d)
+
+- Publish your site on Netlify.
+
+**🔵 Blue Level (Minimum Requirements)**
+
+- Your page should be responsive.
+- Use redux to store the current state of the game
+- Focus on making the UX of your app good. Handle the response delay
+- Use thunks to wrap your API calls (but you don't have to if you don't want to).
+
+Make sure you've committed and pushed a version of your project before starting with the intermediary and advanced goals.
+
+**🔴 Red Level (Intermediary Goals)**
+
+- Show the descriptions of the directions in the main description of the current room.  Present clear and simple actions.  For example, your button would say *"Go East"*.  Instead of *"East -A worn sign 'The Temple of *ech*igo'. Some of the letters are missing. An overgrown paved path leads to the East"*
+- Use redux to store a history of what the player has done
+- If you want to focus more on design and make or use a design library (for example [material-ui](https://material-ui.com/))
+
+**⚫ Black Level (Advanced Goals)**
+
+- Style each room/state based on the description.  For instance, if it contains the word "forest" you may want to change the background to a forest
+- Display a history of all the actions a player has taken
+- Persist redux store to localStorage, so the app data remains when you reload the page
+- Create a visual representation (drawing) of the map/labyrinth that the player is navigating.  It could update after each action.  The coordinates might be helpful here, or you can track the directions yourself
+
+🚨 Don't forget to add, commit and push the changes to GitHub when you're done. 🏁
