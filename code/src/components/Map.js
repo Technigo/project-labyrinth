@@ -5,9 +5,9 @@ import { useSelector } from "react-redux";
 import { Square } from "./Square";
 
 export const Map = () => {
-  const gamePosition = useSelector(
-    store => store.game.currentGameState.gameData.coordinates
-  );
+  // const gamePosition = useSelector(
+  //   store => store.game.currentGameState.gameData.coordinates
+  // );
   const squares = useSelector(store => store.game.squares);
 
   return (
