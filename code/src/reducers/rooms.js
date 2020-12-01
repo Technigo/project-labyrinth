@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+const username = "NewUserClaudiaAxel1337"
 const START_URL = "https://wk16-backend.herokuapp.com/start";
 const ACTION_URL = "https://wk16-backend.herokuapp.com/action";
 
@@ -9,18 +10,25 @@ const initialState = {
   actions: []
 }
 
+const startGameFetchInfo = {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ username: username })
+}
+
+
 export const rooms = createSlice({
   name: 'rooms',
   initialState,
-  
   reducers: {
-
-    generateRoom: (state, action) => {
-      fetch('')
-        .then(res => res.json())
-        .then(data => {
-          // Här gör vi något med datan
-        })
+    // Reducer that starts the game. 
+    startGame: (state, action) => {
+      fetch(START_URL, startGameFetchInfo)
+      .then(response => response.json())
+      .then(data => 
+        // Här vill vi spara information till state:t. 
+        console.log(data)
+      );
     }
   }
 })
