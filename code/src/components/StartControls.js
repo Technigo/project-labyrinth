@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import styled from 'styled-components';
+import { Button, Form, TextInput, Background, MainText } from './styling';
+
 import { game } from '../reducers/game';
 import { StartGame } from '../reducers/fetch';
 
@@ -18,24 +21,24 @@ const StartControls = () => {
   }
 
   return (
-    <div>
-      <p>{userName}</p>
-      <form onSubmit={handleSubmit}>
+    <Background>
+      <MainText>{userName}</MainText>
+      <Form onSubmit={handleSubmit}>
 
-        <input 
+        <TextInput 
           type='text' 
           placeholder='input name' 
           onChange={event => onChangeEvent(event.target.value)}>
-        </input>
+        </TextInput>
 
-        <button 
+        <Button 
             type='submit'>
             Start the game
-          </button>
-      </form>
+          </Button>
+      </Form>
     
-    </div>
-  )
-}
+    </Background>
+  );
+};
 
 export default StartControls;
