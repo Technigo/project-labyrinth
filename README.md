@@ -1,13 +1,22 @@
-# Project Labyrinth
-
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
+🗺  Project Labyrinth
+This project is an app which retrieves a list of actions from the backend and presents them to the user as interactable items.
+Mobile first approach. 
+ 
 ## The problem
+How to make the API calls around Redux using thunks.To process request and response effectively. How to structure the redux store to suit the data.To be able to send JSON in the body of a request. This project has been made as a pair-programming project.
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The project's backend is designed so that there is some delay until the request returns from the server. Therfore the usage of thunks is a good way of making sure that the user doesn't make another action until the response is received from the server.
+
+Tools and techniques used:
+Redux-toolkit
+React
+Redux
+JavaScript vanillia
+Postman
+API
+Thunks
+Styled components
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+
