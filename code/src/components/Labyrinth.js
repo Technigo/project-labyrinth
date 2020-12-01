@@ -5,6 +5,7 @@ import styled from "styled-components/macro";
 import { MainWrapper } from "./Welcome";
 import { Loading } from "./Loading";
 import { Button } from "../lib/Button";
+import { game } from "../reducers/game";
 import { selectNextStep } from "../reducers/reusable";
 
 export const Labyrinth = () => {
@@ -18,6 +19,10 @@ export const Labyrinth = () => {
     dispatch(selectNextStep(username, type, direction));
   };
 
+  const handleGameRestart = () => {
+    dispatch(game.actions.restartGame());
+  };
+
   if (isLoading) {
     return <Loading />;
   } else {
@@ -28,18 +33,30 @@ export const Labyrinth = () => {
             Your current position: {gameData.coordinates}
           </DescriptionText>
           <DescriptionText>{gameData.description}</DescriptionText>
-          <InstructionText>Choose your next direction</InstructionText>
+          {gameData.actions.length > 0 ? (
+            <InstructionText>Choose your next direction</InstructionText>
+          ) : (
+            <InstructionText>
+              You have completed the Labyrinth <br /> End of game!
+            </InstructionText>
+          )}
         </TopSection>
-        <BottomSection>
-          {gameData.actions.map(item => (
-            <GameDescription key={item.direction}>
-              <Button onClick={() => handleNextStep(item.type, item.direction)}>
-                Head {item.direction}
-              </Button>
-              <DescriptionText>{item.description}</DescriptionText>
-            </GameDescription>
-          ))}
-        </BottomSection>
+        {gameData.actions.length > 0 ? (
+          <BottomSection>
+            {gameData.actions.map(item => (
+              <GameDescription key={item.direction}>
+                <Button
+                  onClick={() => handleNextStep(item.type, item.direction)}
+                >
+                  Head {item.direction}
+                </Button>
+                <DescriptionText>{item.description}</DescriptionText>
+              </GameDescription>
+            ))}
+          </BottomSection>
+        ) : (
+          <Button onClick={handleGameRestart}>Restart</Button>
+        )}
       </MainWrapper>
     );
   }

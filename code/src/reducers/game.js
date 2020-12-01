@@ -15,5 +15,10 @@ export const game = createSlice({
     setCurrentGameState: (store, action) => {
       store.currentGameState = action.payload;
     },
+    restartGame: store => {
+      store.username = {};
+      store.currentGameState = {};
+      store.pastActions = [];
+    },
   },
 });
