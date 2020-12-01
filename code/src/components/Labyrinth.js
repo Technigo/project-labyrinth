@@ -8,6 +8,7 @@ import { fetchDirectionData, fetchLabyrinthData } from '../reducers/labyrinth';
 // Components
 import { Button } from './Button';
 import { NameInput } from './NameInput';
+import { DirectionButtons } from './DirectionButtons';
 import {
   Wrapper,
   InnerFlexWrapper,
@@ -16,7 +17,7 @@ import {
 
 // ----------------------------------------------------------------
 
-export const Labyrinth = () => {
+export const Labyrinth = ({ setCurrentCoordinates }) => {
   const content = useSelector((store) => store.labyrinth.content);
   const username = useSelector((store) => store.labyrinth.username);
   const isLoading = useSelector((state) => state.ui.isLoading);
@@ -30,6 +31,8 @@ export const Labyrinth = () => {
   //     setNameInputVisible(false);
   //   });
   // };
+
+  setCurrentCoordinates(content.coordinates);
 
   return (
     isLoading === false && (
@@ -56,21 +59,32 @@ export const Labyrinth = () => {
 
           {/* Coordinates */}
           {content.coordinates && <p>Coordinates:{content.coordinates}</p>}
-
-          {/* Direction-buttons ---- conditionally rendering on the coordinates */}
-          {content.coordinates !== undefined &&
-            content.actions.map((action) => (
-              <Button
-                action={() =>
-                  fetchDirectionData({
-                    direction: action.direction,
-                    username: username,
-                  })
-                }
-                text={`Go ${action.direction}`}
-                key={action.description}
-              />
-            ))}
+          <InnerFlexWrapper>
+            {/* Direction-buttons ---- conditionally rendering on the coordinates */}
+            {content.coordinates !== undefined &&
+              content.actions.map((action) => (
+                <DirectionButtons
+                  key={action.description}
+                  direction={action.direction}
+                  action={() =>
+                    fetchDirectionData({
+                      direction: action.direction,
+                      username: username,
+                    })
+                  }
+                />
+                // <Button
+                //   action={() =>
+                //     fetchDirectionData({
+                //       direction: action.direction,
+                //       username: username,
+                //     })
+                //   }
+                //   text={`Go ${action.direction}`}
+                //   key={action.description}
+                // />
+              ))}
+          </InnerFlexWrapper>
 
           {/* Restart-button */}
           {content.coordinates === '1,3' && (

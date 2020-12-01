@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import styled from 'styled-components';
@@ -6,7 +6,6 @@ import styled from 'styled-components';
 // Components
 import { Loading } from './components/Loading';
 import { Labyrinth } from './components/Labyrinth';
-import { DirectionButtons } from './components/DirectionButtons';
 
 // Reducers
 import { labyrinth } from './reducers/labyrinth';
@@ -20,34 +19,38 @@ const reducer = combineReducers({
 const store = configureStore({ reducer });
 // ----------------------------------------------------------------
 
-export const App = ({ coordinates }) => {
+export const App = () => {
+  // Keep record of current coordinates for styling props
+  const [currentCoordinates, setCurrentCoordinates] = useState('');
+
   return (
-    <Container coordinates='1,2'>
+    <Container coordinates={currentCoordinates}>
       <Provider store={store}>
         <Loading />
-        <Labyrinth />
-        <DirectionButtons />
+        <Labyrinth setCurrentCoordinates={setCurrentCoordinates} />
       </Provider>
     </Container>
   );
 };
 
+// ----------------------------------------------------------------
+
 const Container = styled.section`
   width: 100vw;
   height: 100vh;
-  background: ${(props) =>
-    props.coordinates === '0,0'
+  position: relative;
+  background: ${({ coordinates }) =>
+    coordinates === '0,0' // Set background color depending on coordinates
       ? `#fff`
-      : props.coordinates === '0,1'
+      : coordinates === '0,1'
       ? `#383838`
-      : props.coordinates === '0,2'
+      : coordinates === '0,2'
       ? `#585858`
-      : props.coordinates === '0,3'
+      : coordinates === '0,3'
       ? `pink`
-      : props.coordinates === '1,0'
+      : coordinates === '1,0'
       ? `#f0b837`
-      : props.coordinates === '1,1'
+      : coordinates === '1,1'
       ? `#f5d282`
-      : `#fff`
-    };
+      : `#fff`};
 `;
