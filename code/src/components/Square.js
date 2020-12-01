@@ -8,6 +8,13 @@ export const Square = ({ value }) => {
     store => store.game.currentGameState.gameData.coordinates
   );
   return (
-    <div className={value === gamePosition ? "red" : "black"}>{value}</div>
+    <MapSquare value={value} gamePosition={gamePosition}>
+      {value}
+    </MapSquare>
   );
 };
+
+const MapSquare = styled.div`
+  border: 1px solid black;
+  color: ${props => (props.value === props.gamePosition ? "red" : "black")};
+`;

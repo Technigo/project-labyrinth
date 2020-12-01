@@ -18,7 +18,6 @@ export const UserInput = () => {
         username: username,
       })
     );
-    console.log(username);
     setUsername(""); // Clearing the input
   };
 

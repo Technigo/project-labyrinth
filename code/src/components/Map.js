@@ -9,7 +9,6 @@ export const Map = () => {
     store => store.game.currentGameState.gameData.coordinates
   );
   const squares = useSelector(store => store.game.squares);
-  console.log(gamePosition);
 
   return (
     <MapContainer>
@@ -38,6 +37,6 @@ const MapContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   width: 100%;
-  border: solid 2px #000000;
+  border: 2px solid #000;
   height: 300px;
 `;

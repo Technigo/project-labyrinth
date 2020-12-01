@@ -9,8 +9,6 @@ export const StartGame = () => {
   const username = useSelector(store => store.game.username);
   const dispatch = useDispatch();
 
-  console.log(username.length);
-
   const handleGameStart = () => {
     dispatch(getStartGame(username));
   };
@@ -24,7 +22,6 @@ export const StartGame = () => {
 };
 
 const BottomSection = styled.section`
-  border: 2px solid #e8e8e8;
   display: flex;
   flex-direction: column;
   justify-content: center;

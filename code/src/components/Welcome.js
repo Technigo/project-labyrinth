@@ -8,7 +8,6 @@ import { Labyrinth } from "./Labyrinth";
 
 export const Welcome = () => {
   const currentGameState = useSelector(store => store.game.currentGameState);
-  console.log("Game state:" + currentGameState);
 
   if (!currentGameState.gameData) {
     return (
