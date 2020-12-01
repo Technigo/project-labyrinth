@@ -1,8 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import styled from "styled-components/macro";
+
 import { UserInput } from "./UserInput";
 import { StartGame } from "./StartGame";
-
 import { Labyrinth } from "./Labyrinth";
 
 export const Welcome = () => {
@@ -11,13 +12,25 @@ export const Welcome = () => {
 
   if (!currentGameState.gameData) {
     return (
-      <div>
-        <h1>Welcome to the Labyrinth room</h1>
+      <MainWrapper>
         <UserInput />
+        <Image src="./assets/Labyrinth2.png" alt="labyrinth" />
         <StartGame />
-      </div>
+      </MainWrapper>
     );
   } else {
     return <Labyrinth />;
   }
 };
+
+export const MainWrapper = styled.main`
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const Image = styled.img`
+  width: 300px;
+  margin: 10px 0;
+`;

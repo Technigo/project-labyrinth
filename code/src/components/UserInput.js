@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { game } from "reducers/game";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 import { Button } from "lib/Button";
 
@@ -23,28 +23,41 @@ export const UserInput = () => {
   };
 
   return (
-    <Wrapper>
+    <TopSection>
+      <MainHeading>Welcome to the Labyrinth room</MainHeading>
+      <SubHeading>Enter username below</SubHeading>
       <Form onSubmit={handleSubmit}>
-        <Button disabled={!username} type="submit">
-          Add
-        </Button>
         <Label>
           <InputField
             type="text"
             placeholder="Username"
-            required
             value={username}
             onChange={event => setUsername(event.target.value)}
           />
         </Label>
+        <Button disabled={!username} type="submit">
+          Add
+        </Button>
       </Form>
-    </Wrapper>
+    </TopSection>
   );
 };
 
-const Wrapper = styled.article`
-  padding: 10px 0;
-  border-bottom: 2px solid #e8e8e8;
+const TopSection = styled.section`
+  border: 2px solid #e8e8e8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const MainHeading = styled.h1`
+  text-align: center;
+  font-size: 24px;
+`;
+
+const SubHeading = styled.h2`
+  font-size: 16px;
 `;
 
 const Form = styled.form``;
@@ -56,7 +69,7 @@ const InputField = styled.input`
   width: 140px;
   border: none;
   border-bottom: 2px dotted #e8e8e8;
-  margin-left: 10px;
+  margin-right: 5px;
   font-size: 18px;
 
   @media (min-width: 768px) {

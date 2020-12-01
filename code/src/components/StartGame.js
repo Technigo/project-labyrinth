@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import styled from "styled-components/macro";
 
 import { Button } from "../lib/Button";
 import { getStartGame } from "../reducers/reusable";
@@ -12,9 +13,19 @@ export const StartGame = () => {
     dispatch(getStartGame(username));
   };
   return (
-    <div>
-      <p>Start Game Component</p>
-      <Button onClick={handleGameStart}>Start Game</Button>
-    </div>
+    <BottomSection>
+      <Button disabled={!username.length} onClick={handleGameStart}>
+        Start Game
+      </Button>
+    </BottomSection>
   );
 };
+
+const BottomSection = styled.section`
+  border: 2px solid #e8e8e8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+`;
