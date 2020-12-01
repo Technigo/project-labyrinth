@@ -38,3 +38,6 @@ export const fetchStart = () => {
       })
   }
 }
+
+// reducer to advance to next step
+// nextStep
