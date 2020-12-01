@@ -13,7 +13,7 @@ export const GameControl = () => {
 
   return (
     <>
-      <button onClick={onGameGenerate}>CLICK</button>
+      <button onClick={onGameGenerate}>Click</button>
 
     </>
   )
