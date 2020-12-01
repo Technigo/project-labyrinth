@@ -7,6 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Card from '@material-ui/core/Card';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
 
 import { thunk, actionThunk, games } from './reducers/games';
 
@@ -15,6 +17,11 @@ export const Game = () => {
 	const loader = useSelector((store) => store.ui.isLoading);
 	const [newUserName, setNewUserName] = useState('');
 	const [showStart, setShowStart] = useState(true);
+	const historyArr = gameDetails.history.slice(
+		0,
+		gameDetails.history.length - 1
+	);
+	const sortedHistoryArr = historyArr.reverse();
 
 	const dispatch = useDispatch();
 	const onStart = () => {
@@ -51,17 +58,16 @@ export const Game = () => {
 				</Box>
 			)}
 
-			{loader && (
-				<Box display="flex" justifyContent="center">
-					<CircularProgress />
-				</Box>
-			)}
-
 			{!showStart && (
 				<Card style={{ padding: 20 }}>
 					<Box style={{ marginBottom: 10 }}>
 						<Typography variant="body1" align="center">
 							{gameDetails.description}
+							{gameDetails.actions.map((action) => (
+								<p>
+									Towards {action.direction} {action.description}
+								</p>
+							))}
 						</Typography>
 					</Box>
 					<Box display="flex" justifyContent="center">
@@ -78,6 +84,18 @@ export const Game = () => {
 					</Box>
 				</Card>
 			)}
+
+			{loader && (
+				<Box display="flex" justifyContent="center" style={{ margin: 20 }}>
+					<CircularProgress />
+				</Box>
+			)}
+
+			<List>
+				{sortedHistoryArr.map((item, index) => (
+					<ListItem key={index}>{item.description}</ListItem>
+				))}
+			</List>
 		</Container>
 	);
 };

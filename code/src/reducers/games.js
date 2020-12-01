@@ -9,9 +9,11 @@ export const games = createSlice({
 		actions: [],
 		description: '',
 		coordinates: '',
+		history: [],
 	},
 	reducers: {
 		playGame: (store, action) => {
+			store.history = [...store.history, action.payload];
 			store.description = action.payload.description;
 			store.actions = action.payload.actions;
 			store.coordinates = action.payload.coordinates;
@@ -20,6 +22,8 @@ export const games = createSlice({
 		setUsername: (store, action) => {
 			store.username = action.payload;
 		},
+
+		setHistory: (store, action) => {},
 
 		// resetGame: (store, action) => {
 		// 	store.description = '';
