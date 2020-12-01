@@ -10,11 +10,12 @@ export const generateNewMove = () => {
       })
     })
       .then(res => res.json())
-      .then(data => {
+      .then((data) => {
         dispatch(game.actions.generateDirection(data))
       })
   }
 }
+
 
 /* export const generateNewDirections = () => {
   return (dispatch) => {
