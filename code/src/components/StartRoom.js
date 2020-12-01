@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { game } from "../reducers/game";
-import { GenerateAction } from "../reducers/reusable";
+import { generateAction } from "../reducers/reusable";
 
 export const StartRoom = () => {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ export const StartRoom = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(GenerateAction(userName));
+    dispatch(generateAction(userName));
   };
 
   const onChangeEvent = (value) => {

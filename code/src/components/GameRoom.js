@@ -2,7 +2,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-//import { game } from "../reducers/game";
+import { gameDirection } from "../reducers/reusable";
 
 export const GameRoom = () => {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ export const GameRoom = () => {
   const userName = useSelector((store) => store.game.name);
   const arrayGame = useSelector((store) => store.game.game.actions);
 
-  const gameDirection = (direction) => {
+  const onGameDirection = (direction) => {
     dispatch(gameDirection(userName, direction));
   };
 
@@ -19,9 +19,9 @@ export const GameRoom = () => {
     <div>
       <p>{gameData.description}</p>
       {arrayGame &&
-        arrayGame.map((item, index, array) => {
+        arrayGame.map((item, index) => {
           return (
-            <button onClick={() => gameDirection(item.direction)} key={index}>
+            <button onClick={() => onGameDirection(item.direction)} key={index}>
               {item.direction}
             </button>
           );

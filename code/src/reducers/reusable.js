@@ -4,7 +4,7 @@ const START_URL = "https://wk16-backend.herokuapp.com/start";
 const ACTION_URL = "https://wk16-backend.herokuapp.com/action";
 
 // FETCH FOR START
-export const GenerateAction = (userName) => {
+export const generateAction = (userName) => {
   return (dispatch) => {
     fetch(START_URL, {
       method: "POST",
