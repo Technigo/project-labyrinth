@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
-export const ui = createSlice({
-  name: 'ui',
+export const ui = createSlice({ //this reducer shows the loading state
+  name: "ui",
   initialState: {
     loading: false,
   },

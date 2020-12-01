@@ -1,8 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { ui } from './ui';
+import { createSlice } from "@reduxjs/toolkit";
+import { ui } from "./ui";
 
 export const labyrinth = createSlice({
-  name: 'labyrinth',
+  name: "labyrinth",
   initialState: {
     content: {},
   },
@@ -16,13 +16,13 @@ export const labyrinth = createSlice({
 export const fetchLabyrinthData = () => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
-    fetch('https://wk16-backend.herokuapp.com/start', {
-      method: 'POST',
+    fetch("https://wk16-backend.herokuapp.com/start", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-        body: JSON.stringify({
-        username: 'Moa',
+      body: JSON.stringify({
+        username: "Moa",
       }),
     })
       .then((results) => results.json())
@@ -36,14 +36,14 @@ export const fetchLabyrinthData = () => {
 export const fetchDirectionData = (direction) => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
-    fetch('https://wk16-backend.herokuapp.com/action', {
-      method: 'POST',
+    fetch("https://wk16-backend.herokuapp.com/action", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: 'Moa',
-        type: 'move',
+        username: "Moa",
+        type: "move",
         direction: direction,
       }),
     })
