@@ -1,8 +1,9 @@
 import React from 'react'
-import Provider from 'react-redux'
+import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
 import { game } from './reducers/game'
+import { GameList} from './components/GameList'
 
 const reducer = combineReducers({ game: game.reducer})
 const store = configureStore({ reducer })
@@ -10,7 +11,7 @@ const store = configureStore({ reducer })
 export const App = () => {
   return (
     <Provider store={store}>
-      Find me in src/app.js!
+      <GameList />
     </Provider>
   )
 }
