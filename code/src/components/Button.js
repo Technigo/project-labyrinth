@@ -2,13 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components/macro';
 
-const MainButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  padding: 3px 5px;
-`;
+import { MainButton } from '../styling/GlobalStyles';
 
 // ----------------------------------------------------------------
 

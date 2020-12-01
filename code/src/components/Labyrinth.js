@@ -8,6 +8,11 @@ import { fetchDirectionData, fetchLabyrinthData } from '../reducers/labyrinth';
 // Components
 import { Button } from './Button';
 import { NameInput } from './NameInput';
+import {
+  Wrapper,
+  InnerFlexWrapper,
+  OuterFlexWrapper,
+} from '../styling/GlobalStyles';
 
 // ----------------------------------------------------------------
 
@@ -28,64 +33,67 @@ export const Labyrinth = () => {
 
   return (
     isLoading === false && (
-      <Wrapper>
-        {/* Name-input */}
-        {nameInputVisible && (
-          <NameInput setStartButtonVisible={setStartButtonVisible} />
-        )}
+      <MainWrapper>
+        <InnerWrapper>
+          {/* Name-input */}
+          {nameInputVisible && (
+            <NameInput setStartButtonVisible={setStartButtonVisible} />
+          )}
 
-        {/* Start-button */}
-        {startButtonVisible && (
-          <>
-            <p>Hello {username}, are you ready to start your journey?</p>
+          {/* Start-button */}
+          {startButtonVisible && (
+            <InnerFlexWrapper>
+              <p>Hello {username}, are you ready to start your journey?</p>
+              <Button
+                action={() => fetchLabyrinthData(username)}
+                text="Start button"
+              />
+            </InnerFlexWrapper>
+          )}
+
+          {/* Descriptive text */}
+          <p>{content.description}</p>
+
+          {/* Coordinates */}
+          {content.coordinates && <p>Coordinates:{content.coordinates}</p>}
+
+          {/* Direction-buttons ---- conditionally rendering on the coordinates */}
+          {content.coordinates !== undefined &&
+            content.actions.map((action) => (
+              <Button
+                action={() =>
+                  fetchDirectionData({
+                    direction: action.direction,
+                    username: username,
+                  })
+                }
+                text={`Go ${action.direction}`}
+                key={action.description}
+              />
+            ))}
+
+          {/* Restart-button */}
+          {content.coordinates === '1,3' && (
             <Button
-              action={() => fetchLabyrinthData(username)}
-              text="Start button"
+              text="Restart journey"
+              action={() => window.location.reload()}
             />
-          </>
-        )}
-
-        {/* Descriptive text */}
-        <p>{content.description}</p>
-
-        {/* Coordinates */}
-        {content.coordinates && <p>Coordinates:{content.coordinates}</p>}
-
-        {/* Direction-buttons ---- conditionally rendering on the coordinates */}
-        {content.coordinates !== undefined &&
-          content.actions.map((action) => (
-            <Button
-              action={() =>
-                fetchDirectionData({
-                  direction: action.direction,
-                  username: username,
-                })
-              }
-              text={`Go ${action.direction}`}
-              key={action.description}
-            >
-              {action.direction}
-            </Button>
-          ))}
-
-        {/* Restart-button */}
-        {content.coordinates === '1,3' && (
-          <Button
-            text="Restart journey"
-            action={() => window.location.reload()}
-          />
-        )}
-      </Wrapper>
+          )}
+        </InnerWrapper>
+      </MainWrapper>
     )
   );
 };
 
 // ----------------------------------------------------------------
 
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const MainWrapper = styled(OuterFlexWrapper)`
   height: 100vh;
   width: 100vw;
+  flex-direction: column;
+  text-align: center;
+`;
+
+const InnerWrapper = styled.div`
+  max-width: 80vw;
 `;

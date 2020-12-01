@@ -5,6 +5,8 @@ import styled from 'styled-components';
 // Components
 import { labyrinth } from 'reducers/labyrinth';
 
+import { MainButton } from '../styling/GlobalStyles';
+
 // ----------------------------------------------------------------
 
 export const NameInput = ({ setStartButtonVisible }) => {
@@ -25,15 +27,15 @@ export const NameInput = ({ setStartButtonVisible }) => {
     <FormWrapper>
       <LabelWrapper>
         What is your name?
-        <input
+        <Input
           type="text"
           value={username}
           onChange={(event) => handleNameChange(event)}
         />
       </LabelWrapper>
-      <button type="submit" onClick={(event) => handleSubmitName(event)}>
+      <MainButton type="submit" onClick={(event) => handleSubmitName(event)}>
         OK!
-      </button>
+      </MainButton>
     </FormWrapper>
   );
 };
@@ -52,4 +54,12 @@ const LabelWrapper = styled.label`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+`;
+
+const Input = styled.input`
+  margin: 30px 0;
+`;
+
+const Button = styled.button`
+  margin: auto;
 `;
