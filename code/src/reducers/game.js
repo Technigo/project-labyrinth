@@ -1,18 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const game = createSlice ({
-    name: 'game',
-    initialState: {},
-    history: [],
 
-reducers: {
-    saveGame: (state, action) => {
-        state.history = [...state.history, state.quote]
-        state.quote = action.payload
-    }
+const initialState = {
+    game: {}, 
+    history: [],
+    username: {}
 }
 
+export const game = createSlice ({
+    name: 'game', initialState,
+    
+    reducers: {
+    saveGame: (state, action) => {
+        state.history = [...state.history, state.game]
+        state.game = action.payload
+    },
+
+    addUserName: (state, action) => {
+        state.username = action.payload
+    }
+}
 })
+
 
 export const createPlayer = () => {
     return (dispatch) => {
@@ -21,12 +30,11 @@ export const createPlayer = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ "username": "TechnigoPlayer" })
+            body: JSON.stringify({ "username": 'Ingela Löfgren' })
         })
         .then((res) => res.json())
         .then((json) => {
             dispatch(game.actions.saveGame(json))
-            console.log(json)
         })
     }
 }
