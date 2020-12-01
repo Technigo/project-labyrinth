@@ -19,17 +19,15 @@ export const Action = ({ props }) => {
   const username = useSelector((store) => store.game.username);
 
   const handleOnClick = () => {
-    console.log("WHO CLICKED ME!?")
     dispatch(executeAction(username, type, direction))
   }
-  
+
   return (
     <div>
-      <p>____</p>
+      <h3>Go {direction} </h3>
       <p>{description}</p>
-      <p>{direction}</p>
-      <MoveButton onClick={handleOnClick}>do eeet</MoveButton>
-      <p>____</p>
+      <p></p>
+      <MoveButton onClick={handleOnClick}>Proceed</MoveButton>
     </div>
   )
 }

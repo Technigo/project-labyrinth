@@ -5,12 +5,15 @@ import swal from "sweetalert";
 import styled from 'styled-components'
 
 const StartButton = styled.button`
+  display: flex;
   background: black;
   color: #4CFF42;
   font-family: 'Inconsolata', monospace;
+  font-size: 25px;
+  padding: 10px;
 `
 
-export const UserName = () => {
+export const StartGame = () => {
   const dispatch = useDispatch();
 
   const handleOnClick = () => {
@@ -24,16 +27,15 @@ export const UserName = () => {
       },
     }).then((value) => {
       if (value) {
-        const name =
-          value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
-        dispatch(startNewGame(name));
+        dispatch(startNewGame(value));
       }
     });
   };
 
   return (
     <div>
-      <StartButton onClick={handleOnClick}>Click here to start the game</StartButton>
+      <StartButton onClick={handleOnClick}>Play</StartButton>
     </div>
   )
 }
+// Sen vill vi att denna knapp ska försvinna/bli mindre och en restart-knapp.
