@@ -4,14 +4,18 @@ export const moves = createSlice({
     name: "moves",
     initialState: {
         username: "",
-        move: {            
-            actions: [{}],
-        },
+        move: {},
         history: []
     },
      reducers: {
+        addUser: (state, action) => {
+            state.username = action.payload
+        },
         generateMove: (state, action) => {
             state.history = [...state.history, state.move]
+            state.move = action.payload
+        },
+        generateAction: (state, action) => {
             state.move = action.payload
         },
         historyGoBack: (state, action) => {

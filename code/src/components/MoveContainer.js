@@ -1,18 +1,33 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-import { moves } from "../reducers/moves";
-import StartGame from  "./StartGame";
+import { initiateAction } from "../reducers/reusable";
 
 const MoveContainer = () => {
-    const move = useSelector ((store) => store.moves.move)
+
+    //Accessing what get's stored in the move object including the initial action array object from the first post request that has the start endpoint. 
+    const move = useSelector ((state) => state.moves.move);
+    const universalUsername = useSelector ((state) => state.moves.username);
+    const dispatch = useDispatch();
+
+    //When the user clicks the button, which is made up of the action type and direction, the onNextMove function is called and the post request is sent to the action end point in the initiateAction function is reusable.js. This will happen for each of the action array elements returned when the post request is clicked and the direction has been chosen. Also sending in the direction that we click on so the post request knows which direction the user wants to go and also what to return when the post request is completed. 
+    const onNextMove = (direction, universalUsername) => {
+        dispatch(initiateAction(direction, universalUsername));
+    };
 
     return (
         <div>
-            <p>{move.coordinates}</p>
             <p>{move.description}</p>
-            <p>{move.actions[0].description}</p>
-            <button>{move.actions[0].type} {move.actions[0].direction}</button>
+                {move.actions.map(action => (
+                    <div key={action.description}>
+                      <p>{action.description}</p>
+                      <button 
+                          onClick={function () {onNextMove(action.direction, universalUsername)}}>
+                          {action.type}  
+                          {action.direction}
+                      </button>
+                  </div >
+                ))}
         </div>
     );
 };
