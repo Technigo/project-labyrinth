@@ -3,7 +3,9 @@ import { createSlice } from '@reduxjs/toolkit'
 export const game = createSlice({  
     name: 'game',
     initialState: {
-        gameinfo: {},
+        gameinfo: {
+            actions: [{}]
+        },
         history: [],
     },
 
@@ -16,4 +18,3 @@ reducers: {
 
 })
 
-//reducer

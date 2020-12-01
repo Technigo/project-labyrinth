@@ -1,8 +1,10 @@
 import { game } from './game'
 
-export const generateNewMove = () => {
+export const generateStartMove = () => {
+  const START_URL = 'https://wk16-backend.herokuapp.com/start'
+
   return (dispatch) => {
-    fetch('https://wk16-backend.herokuapp.com/start', {
+    fetch( START_URL , {
       method: "POST",
       headers: { "Content-Type": "application/json" },//tells the server that this is json
       body: JSON.stringify({//turns json in to text
@@ -16,20 +18,24 @@ export const generateNewMove = () => {
   }
 }
 
+export const generateActionMove = () => {
+  const ACTION_URL='https://wk16-backend.herokuapp.com/action'
 
-/* export const generateNewDirections = () => {
   return (dispatch) => {
-    fetch("https://wk16-backend.herokuapp.com/start", {
+    fetch( ACTION_URL , {
       method: "POST",
       headers: { "Content-Type": "application/json" },//tells the server that this is json
       body: JSON.stringify({//turns json in to text
-        username: "ellen"
+        username: "starGirl",
+        type: "move",
+        direction: "East"
       })
     })
-      .then((res) => res.json())
+      .then(res => res.json())
       .then((data) => {
-        dispatch(directions.actions.generateDirections(data));
-      });
-  };
-};
-*/
+        dispatch(game.actions.generateDirection(data))
+      })
+  }
+}
+
+
