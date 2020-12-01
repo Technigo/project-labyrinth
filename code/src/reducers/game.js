@@ -17,7 +17,6 @@ export const game = createSlice({
       state.currentStep = action.payload;
     },
     takeNextStep: (state, action) => {
-      console.log(action.payload);
       state.history = [...state.history, state.currentStep];
       state.currentStep = action.payload;
     },
