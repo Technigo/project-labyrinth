@@ -41,6 +41,7 @@ export const selectNextStep = (username, type, direction) => {
       .then(res => res.json())
       .then(gameData => {
         dispatch(game.actions.setCurrentGameState({ gameData }));
+        dispatch(game.actions.setPastActions(direction));
         dispatch(ui.actions.setLoading(false));
       });
   };

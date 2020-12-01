@@ -7,12 +7,14 @@ import { Loading } from "./Loading";
 import { Button } from "../lib/Button";
 import { game } from "../reducers/game";
 import { selectNextStep } from "../reducers/reusable";
+import { Map } from "./Map";
 
 export const Labyrinth = () => {
   const gameData = useSelector(store => store.game.currentGameState.gameData);
   const username = useSelector(store => store.game.username);
   const isLoading = useSelector(store => store.ui.isLoading);
-
+  const pastActions = useSelector(store => store.game.pastActions);
+  const positionHistory = useSelector(store => store.game.positionHistory);
   const dispatch = useDispatch();
 
   const handleNextStep = (type, direction) => {
@@ -28,7 +30,22 @@ export const Labyrinth = () => {
   } else {
     return (
       <MainWrapper>
+        <Map />
         <TopSection>
+          {pastActions.length > 0 && (
+            <PositionText>
+              Previous position:{" "}
+              <SpanText>
+                {
+                  positionHistory[positionHistory.length - 1].gameData
+                    .coordinates
+                }
+              </SpanText>{" "}
+              you just moved:{" "}
+              <SpanText>{pastActions[pastActions.length - 1]}</SpanText>
+            </PositionText>
+          )}
+
           <DescriptionText>
             Your current position: {gameData.coordinates}
           </DescriptionText>
@@ -76,8 +93,17 @@ const GameDescription = styled.article`
   border: 2px solid #e8e8e8;
 `;
 
+const PositionText = styled.p`
+  font-size: 14px;
+  color: #ffffff;
+`;
+
 const DescriptionText = styled.p`
   font-size: 16px;
+`;
+
+const SpanText = styled.span`
+  font-weight: bold;
 `;
 
 const InstructionText = styled.p`

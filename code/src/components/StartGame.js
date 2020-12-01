@@ -9,6 +9,8 @@ export const StartGame = () => {
   const username = useSelector(store => store.game.username);
   const dispatch = useDispatch();
 
+  console.log(username.length);
+
   const handleGameStart = () => {
     dispatch(getStartGame(username));
   };
