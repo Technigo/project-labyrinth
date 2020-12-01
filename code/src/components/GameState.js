@@ -13,7 +13,7 @@ export const GameState = () => {
   return (
     <div>
 
-      <p>{username && username}</p>
+      <p>{username && `Player: ${username}`}</p>
       <p>{coordinates && `Your coordinates: ${coordinates}`}</p>
       <p>{description && description}</p>
       <p>{actions.length > 0 && `You have ${actions.length} option(s):`}</p>

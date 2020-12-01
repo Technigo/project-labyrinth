@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { startNewGame } from 'reducers/game';
 import swal from "sweetalert";
 import styled from 'styled-components'
@@ -15,13 +15,15 @@ const StartButton = styled.button`
 
 export const StartGame = () => {
   const dispatch = useDispatch();
+  const username = useSelector((store) => store.game.username);
+
 
   const handleOnClick = () => {
     swal({
       content: {
         element: "input",
         attributes: {
-          placeholder: "Type your name",
+          placeholder: "What's your name, brave adventurer?",
           type: "text",
         },
       },
@@ -34,7 +36,7 @@ export const StartGame = () => {
 
   return (
     <div>
-      <StartButton onClick={handleOnClick}>Play</StartButton>
+      <StartButton onClick={handleOnClick}>{username === '' ? 'Play' : 'Restart'}</StartButton>
     </div>
   )
 }

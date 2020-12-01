@@ -8,6 +8,8 @@ const MoveButton = styled.button`
   background: black;
   color: #4CFF42;
   font-family: 'Inconsolata', monospace;
+  font-size: 15px;
+  padding: 10px;
 `
 
 export const Action = ({ props }) => {
