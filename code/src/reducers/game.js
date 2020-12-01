@@ -4,18 +4,19 @@ import { createSlice } from '@reduxjs/toolkit'
 
 import { ui } from './ui'
 
-const initialState = {
-  username: '',
+const newUser = {
+  username: null,
   currenStep: {},
   history: []
 }
 
 export const game = createSlice({
   name: 'game',
-  initialState,
+  initialState: newUser,
   reducers: {
     startGame: (state, action) => {
-      state.username = action.payload
+      const { username } = action.payload
+      state.username.push({ username })
     }
   }
 })
@@ -32,8 +33,8 @@ export const fetchStart = () => {
       .then((res) => res.json())
       .then((json) => {
         console.log(json)
+        dispatch(game.actions.startGame)
         dispatch(ui.actions.setLoading(false))
       })
   }
 }
-//  dispatch(todos.actions.setTodos(json))

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { game, fetchStart } from 'reducers/game'
+import { fetchStart } from 'reducers/game'
 import { Button } from 'lib/Button'
 
 export const Start = () => {
@@ -10,7 +10,7 @@ export const Start = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    dispatch(game.action.startGame({ username }))
+    dispatch(fetchStart({ username }))
   }
   return (
     <div>
@@ -21,8 +21,8 @@ export const Start = () => {
           onChange={(event) => setUsername(event.target.value)}
           placeholder="enter your name and start the game"
           required />
-        <Button type="submit" onClick={() => dispatch(fetchStart())}>
-          Start Game
+        <Button type="submit">
+          Start
         </Button>
       </form>
     </div>
