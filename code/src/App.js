@@ -1,17 +1,20 @@
 import React from 'react'
-import image from './assets/2792203.jpg'
-import styled from 'styled-components/macro'
+import { Provider } from 'react-redux'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
-import { SelectionButton } from './components/SelectionButtons'
+import { games } from './reducers/games'
+import { Game } from './components/Game'
+import { ui } from './reducers/ui'
+
+const reducer = combineReducers({ games: games.reducer, ui: ui.reducer })
+
+const store = configureStore({ reducer })
+console.log(store.initialState)
+
 export const App = () => {
-  return (
-    <div className='container'>
-      <img className='bodyImage' src={image} alt="pills"/>
-      <div>
-        <SelectionButton type='blue'>Click Me!</SelectionButton>
-        <SelectionButton type='red'>Click Me!</SelectionButton>
-      </div>
-
-    </div>
-  )
+	return (
+		<Provider store={store}>
+			<Game />
+		</Provider>
+	)
 }
