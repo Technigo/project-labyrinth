@@ -6,7 +6,8 @@ const initialState = {
   game: {
   },
   isGameStarted: false,
-  isLoading: false
+  isLoading: false,
+  history: []
 }
 
 export const game = createSlice({
@@ -16,7 +17,6 @@ export const game = createSlice({
   reducers: {
     nextAction: (state, action) => {
       state.game = action.payload;
-      console.log(action.payload)
       state.isGameStarted = true;
     },
     addUser: (state, action) => {
@@ -24,6 +24,10 @@ export const game = createSlice({
     },
     setLoader: (state, action) => {
       state.isLoading = action.payload;
+    },
+    setHistory: (state, action) => {
+      state.history = [...state.history, action.payload]
+      console.log(state.history);
     }
   }
 })

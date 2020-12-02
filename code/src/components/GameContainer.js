@@ -13,6 +13,7 @@ const GameContainer = () => {
     <div>
       {!gameStarted && <StartControls />}
       <GameControls />   
+      
     </div>
   )
 }

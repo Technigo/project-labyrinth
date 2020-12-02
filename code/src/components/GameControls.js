@@ -5,7 +5,7 @@ import { game } from '../reducers/game';
 import { chooseDirection, StartGame } from '../reducers/fetch';
 
 import styled from 'styled-components';
-import { Button, Background, ButtonWrapper, MainText } from './styling';
+import { Button, Background, ButtonWrapper, MainText, History } from './styling';
 import Loader from './Loader';
 
 const GameControls = () => {
@@ -14,10 +14,12 @@ const GameControls = () => {
   const gameState = useSelector((state) => state.game.game)
   const gameArray = useSelector((state) => state.game.game.actions)
   const loader = useSelector((state) => state.game.isLoading)
+  const history = useSelector((state) => state.game.history)
 
   const onChooseDirection = (direction) => {
     dispatch(chooseDirection(userName, direction));
     dispatch(game.actions.setLoader(true));
+    dispatch(game.actions.setHistory(direction));
   }
 
   return (
@@ -31,13 +33,21 @@ const GameControls = () => {
       {!loader && gameArray && (gameArray.map((item, index) => {
           return (
             <Button onClick={() => onChooseDirection(item.direction)} key={index}>
-              {item.direction}
-            </Button>
+              <p>Go {item.direction}</p>
+            </Button>            
             )
           })
         )
       }
       </ButtonWrapper>
+      {history.length > 0 && <MainText>Your journey</MainText>}
+    <History>{history.map((item, index) => {
+      return ( 
+        <MainText>
+          {index +1}) {item}
+        </MainText>
+      )
+    })}</History>
       </Background>
   </>
   );

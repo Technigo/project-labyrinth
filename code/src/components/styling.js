@@ -79,3 +79,7 @@ export const Background = styled.section`
   }
 `;
 
+export const History = styled.div`
+
+`;
+
