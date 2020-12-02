@@ -9,6 +9,8 @@ export const StartRoom = () => {
   const dispatch = useDispatch();
   const userName = useSelector((store) => store.game.name);
 
+  //const emptyTask = (value) => value.replace(/\s/g, "").length === 0
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(generateAction(userName));

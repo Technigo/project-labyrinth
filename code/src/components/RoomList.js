@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 
 import { StartRoom } from "./StartRoom";
 import { GameRoom } from "./GameRoom";
+import { LoadingIndicator } from "./LoadingIndicator";
 
 export const RoomList = () => {
   const startGame = useSelector((store) => store.game.isGameStarted)
@@ -13,6 +14,7 @@ export const RoomList = () => {
     <div>
       {!startGame && <StartRoom />}
       <GameRoom />
+      <LoadingIndicator />
     </div>
   );
 };
