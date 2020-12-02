@@ -1,57 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { startFetch, actionFetch } from "../reducers/gameFetch";
 
-import { TextContainer, Button, Text } from '../styling/styling';
-
+import { startFetch } from "../reducers/gameFetch";
+import { gameState } from "../reducers/gameState";
+import { Divider, Group, UserInput, Button, Text } from "../styling/styling";
 
 export const StartGame = () => {
+  const [nameInput, setNameInput] = useState("");
   const gameDetails = useSelector((store) => store.gameState.gameDetails);
   const dispatch = useDispatch();
 
   const onGameStart = () => {
-    dispatch(startFetch());
-  };
-
-  const onNextMove = (direction) => {
-    dispatch(actionFetch(gameDetails.userName, direction));
+    dispatch(gameState.actions.setUserName(nameInput));
+    dispatch(startFetch(nameInput));
   };
 
   return (
-    <TextContainer>
+    <>
       {!gameDetails.coordinates && (
         <>
-          <Text>Welcome {userName}! </Text>
-          <Button onClick={onGameStart}>Start game</Button>
+          <Text>Welcome to Labyrinth!</Text>
+          <Divider />
+          <p>Do you think you can find your way out?</p>
+          <p>Type in your name and press start.</p>
+          <Group>
+            <UserInput
+              className="userName"
+              type="text"
+              value={nameInput}
+              onChange={(event) => setNameInput(event.target.value)}
+            ></UserInput>
+            <Button onClick={onGameStart}>Start game</Button>
+          </Group>
         </>
       )}
-
-      {gameDetails.coordinates &&
-        gameDetails.coordinates !==
-          "1,3" && (
-            <>
-              <p>{gameDetails.description}</p>
-              <p>Possible actions:</p>
-              {gameDetails.actions.map((action, index) => (
-                <div key={index}>
-                  <p>{action.description}</p>
-                  <Button onClick={() => onNextMove(action.direction)}>
-                    Move {action.direction}
-                  </Button>
-                </div>
-              ))}
-            </>
-          )}
-      {gameDetails.coordinates === "1,3" && (
-        <>
-          <p>{gameDetails.description}</p>
-          <p>Congratulations, you finished the game!</p>
-        </>
-      )}
-    </TextContainer>
+    </>
   );
 };
-
-
-
