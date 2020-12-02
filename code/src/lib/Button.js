@@ -19,10 +19,14 @@ export const Button = styled.button`
   // PAPER BORDER:
   border-image-source: linear-gradient(to left,#AA9471,#7A6755, #675444, #7A6755, #AA9471);
   
-  ${({headerBtn}) => headerBtn &&`
-  box-shadow: 2px 5px 15px -1px rgba(0,0,0,0.85);`}
+  ${({ headerBtn }) => headerBtn && `
+  box-shadow: 2px 5px 15px -1px rgba(0,0,0,0.85);
+  height: 100%;
+  width: 30%;
+  padding: 5px;
+  `}
 
-  ${({startBtn}) => startBtn &&`
+  ${({ startBtn }) => startBtn && `
     width: 80%;
     padding: 5px;`}
 
