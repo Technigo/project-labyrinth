@@ -25,7 +25,6 @@ const Box = styled.div`
 	justify-content: center;
 	background: rgba(191, 191, 191, 0.5);
 	padding: 20px 20px 60px 20px;
-	border-radius: 20px;
 `
 
 export const Game = () => {
