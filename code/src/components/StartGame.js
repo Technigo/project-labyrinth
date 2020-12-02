@@ -14,8 +14,7 @@ export const StartGame = () => {
   const handleGameStarterClick = () => {
         dispatch(fetchGameData(username)) 
       }
-<<<<<<< HEAD
-
+      
       if (isLoading) {
         return (
           <div>
@@ -25,16 +24,8 @@ export const StartGame = () => {
       } else {
         return (
           <div>
-            <p>Here is the startGame component</p>
             <Button onClick={handleGameStarterClick}>Start Game</Button>
           </div>
         )
       }
-=======
-  return (
-    <div>
-      <Button onClick={handleGameStarterClick}>Start Game</Button>
-    </div>
-  )
->>>>>>> Pi
 }

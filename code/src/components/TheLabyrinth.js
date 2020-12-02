@@ -42,16 +42,12 @@ const DirectionDescription = styled.p`
 export const TheLabyrinth = () => {
   const gameData = useSelector(state => state.game.all.data)
   const username = useSelector(state => state.game.username)
-<<<<<<< HEAD
+
   const isLoading = useSelector(state => state.ui.isLoading)
-  
-  const outer = true
-=======
 
   const carddeck = true
   const movedeck = true
->>>>>>> Pi
-
+  
   const dispatch = useDispatch()
 
   // this is the actions found previously in button
@@ -61,7 +57,6 @@ export const TheLabyrinth = () => {
     dispatch(fetchActionData(username, type, direction))
   }
 
-<<<<<<< HEAD
   if (isLoading) {
     return (
       <CardContainer>
@@ -71,29 +66,6 @@ export const TheLabyrinth = () => {
   } else {
     return (
       <>
-        <CardContainer>
-          <p>{gameData.coordinates}</p>
-          <p>{gameData.description}</p>
-          <p>You chose to go: {gameData.direction}</p>
-          {/* //this was originally in Card */}
-          {/* // The mapfunction needs to have a key */}
-        </CardContainer>
-        <Wrapper>
-          {gameData.actions.map(item => (
-            <CardContainer key={item.direction}>
-              <p>{item.description}</p>
-              <Button onClick={() => handleActionClick(item.type, item.direction)}>
-                {item.direction}
-              </Button>
-            </CardContainer>
-          ))}
-        </Wrapper>
-      </>
-    )
-  }
-=======
-  return (
-    <>
       <CardContainer carddeck={carddeck}>
         <Coordinates>Coordinates: {gameData.coordinates}</Coordinates>
         <ImageAndDescriptionWrapper>
@@ -117,12 +89,38 @@ export const TheLabyrinth = () => {
         ))}
       </Wrapper>
     </>
-  )
+    )
+  }
+  // return (
+  //   <>
+  //     <CardContainer carddeck={carddeck}>
+  //       <Coordinates>Coordinates: {gameData.coordinates}</Coordinates>
+  //       <ImageAndDescriptionWrapper>
+  //       <Thumbnail />
+  //       <DescriptionWrapper>
+  //       <RoomDescription>"{gameData.description}"</RoomDescription>
+  //       </DescriptionWrapper>
+  //       </ImageAndDescriptionWrapper>
+  //       <p>Maybe this should not be laying here though? You chose to go: {gameData.direction}</p>
+  //       {/* //this was originally in Card */}
+  //       {/* // The mapfunction needs to have a key */}
+  //     </CardContainer>
+  //     <Wrapper>
+  //       {gameData.actions.map(item => (
+  //         <CardContainer key={item.direction} movedeck={movedeck}>
+  //           <DirectionDescription>{item.description}</DirectionDescription>
+  //           <Button onClick={() => handleActionClick(item.type, item.direction)}>
+  //             Head {item.direction}
+  //           </Button>
+  //         </CardContainer>
+  //       ))}
+  //     </Wrapper>
+  //   </>
+  // )
 
-  // 
+  
 
 
->>>>>>> Pi
 }
 
 

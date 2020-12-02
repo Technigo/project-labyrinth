@@ -5,11 +5,6 @@ import { useSelector } from 'react-redux'
 import { UserInput } from '../components/UserInput'
 import { StartGame } from '../components/StartGame'
 import { TheLabyrinth } from '../components/TheLabyrinth'
-<<<<<<< HEAD
-import { LoadingIndicator } from 'components/LoadingIndicator'
-// import { Button } from './Button'
-=======
->>>>>>> Pi
 
 export const CardContainer = styled.section`
   box-sizing: border-box;
@@ -51,16 +46,7 @@ text-align: center;
 
 export const Card = () => {
   const gamePlay = useSelector(state => state.game.all)
-<<<<<<< HEAD
   
-  console.log(gamePlay) // remove later
-  console.log(gamePlay.actions) // remove later
-  
-=======
-  
-  // && setLoading(false)
-
->>>>>>> Pi
   if (!gamePlay.data) {
   return (
     <CardContainer>
