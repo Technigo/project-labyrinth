@@ -5,7 +5,7 @@ import { fetchLabyrinthData, fetchDirectionData } from "../reducers/labyrinth";
 
 import { PlayerInput } from "./PlayerInput";
 import { StartLabyrinthButton } from "./StartLabyrinthButton";
-import { DirectionButton } from "./DirectionButtons";
+import { DirectionButtons } from "./DirectionButtons";
 
 export const LabyrinthGame = ({ setGameCoordinates }) => {
   const description = useSelector((store) => store.labyrinth.content);
@@ -48,8 +48,9 @@ export const LabyrinthGame = ({ setGameCoordinates }) => {
           ///Buttons for move in different directions
           description.coordinates !== undefined &&
             description.actions.map((action) => (
+              
               <div key={action.description}>
-                <DirectionButton
+                <DirectionButtons
                   direction={action.direction}
                   action={() =>
                     fetchDirectionData({
@@ -58,7 +59,7 @@ export const LabyrinthGame = ({ setGameCoordinates }) => {
                     })
                   }
                 />
-                <p>{action.description}</p>
+                {/* <p>{action.description}</p> */}
               </div>
             ))
         }

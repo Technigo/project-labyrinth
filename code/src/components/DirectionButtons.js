@@ -1,13 +1,13 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-export const DirectionButton = ({ direction, action }) => {
+export const DirectionButtons = ({ direction, action }) => {
   const dispatch = useDispatch();
 
   return (
-    <button onClick={(event) => dispatch(action(event))} direction={direction}>
-      {" "}
-      Go {direction}
+    <button onClick={(event) => dispatch(action(event))} 
+      direction={direction}>
+      <p direction={direction}>Go {direction}</p>
     </button>
   );
 };
