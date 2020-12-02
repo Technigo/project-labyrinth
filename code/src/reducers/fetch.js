@@ -1,6 +1,5 @@
 import { game } from './game';
 
-
 export const StartGame = (userName) => {
   return (dispatch) => {
     fetch('https://wk16-backend.herokuapp.com/start',
@@ -15,6 +14,7 @@ export const StartGame = (userName) => {
 }
 
 export const chooseDirection = (userName, direction) => {
+
   return (dispatch) => {
     fetch('https://wk16-backend.herokuapp.com/action',
       {
@@ -27,6 +27,9 @@ export const chooseDirection = (userName, direction) => {
                 })
       })
       .then(res => res.json())
-      .then(data => dispatch(game.actions.nextAction(data)))
+      .then(data => { 
+        dispatch(game.actions.nextAction(data))
+        dispatch(game.actions.setLoader(false))
+      })
   }
 }

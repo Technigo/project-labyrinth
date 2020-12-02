@@ -5,7 +5,8 @@ const initialState = {
   name: "",
   game: {
   },
-  isGameStarted: false
+  isGameStarted: false,
+  isLoading: false
 }
 
 export const game = createSlice({
@@ -20,6 +21,9 @@ export const game = createSlice({
     },
     addUser: (state, action) => {
       state.name = action.payload
+    },
+    setLoader: (state, action) => {
+      state.isLoading = action.payload;
     }
   }
 })
