@@ -29,62 +29,77 @@ export const Labyrinth = () => {
     return <Loading />;
   } else {
     return (
-      <MainWrapper>
+      <LabyrinthWrapper>
         <Map />
-        <TopSection>
-          {pastActions.length > 0 && (
-            <PositionText>
-              (Previous position:{" "}
-              <SpanText>
-                {
-                  positionHistory[positionHistory.length - 1].gameData
-                    .coordinates
-                }
-              </SpanText>{" "}
-              | you just moved:{" "}
-              <SpanText>{pastActions[pastActions.length - 1]}</SpanText>)
-            </PositionText>
-          )}
+        <TextWrapper>
+          <TopSection>
+            {pastActions.length > 0 && (
+              <PositionText>
+                (Previous position:{" "}
+                <SpanText>
+                  {
+                    positionHistory[positionHistory.length - 1].gameData
+                      .coordinates
+                  }
+                </SpanText>{" "}
+                | you just moved:{" "}
+                <SpanText>{pastActions[pastActions.length - 1]}</SpanText>)
+              </PositionText>
+            )}
 
-          <DescriptionText>
-            <RegularText>
-              Your current position: <SpanText>{gameData.coordinates}</SpanText>
-            </RegularText>
-            <br />
-            <br />
-            {gameData.description}
-          </DescriptionText>
+            <DescriptionText>
+              <RegularText>
+                Your current position:{" "}
+                <SpanText>{gameData.coordinates}</SpanText>
+              </RegularText>
+              {gameData.description}
+            </DescriptionText>
+            {gameData.actions.length > 0 ? (
+              <InstructionText>Choose your next direction:</InstructionText>
+            ) : (
+              <InstructionText>
+                Congratulations you have completed the Labyrinth
+              </InstructionText>
+            )}
+          </TopSection>
           {gameData.actions.length > 0 ? (
-            <InstructionText>Choose your next direction:</InstructionText>
+            <BottomSection>
+              {gameData.actions.map(item => (
+                <GameDescription key={item.direction}>
+                  <ButtonWrapper>
+                    <Button
+                      onButtonClick={() =>
+                        handleNextStep(item.type, item.direction)
+                      }
+                      text={`Head ${item.direction}`}
+                    />
+                  </ButtonWrapper>
+                  <DescriptionText>{item.description}</DescriptionText>
+                </GameDescription>
+              ))}
+            </BottomSection>
           ) : (
-            <InstructionText>
-              You have completed the Labyrinth <br /> End of game!
-            </InstructionText>
+            <Button onButtonClick={handleGameRestart} text="Restart" />
           )}
-        </TopSection>
-        {gameData.actions.length > 0 ? (
-          <BottomSection>
-            {gameData.actions.map(item => (
-              <GameDescription key={item.direction}>
-                <ButtonWrapper>
-                  <Button
-                    onButtonClick={() =>
-                      handleNextStep(item.type, item.direction)
-                    }
-                    text={item.direction}
-                  />
-                </ButtonWrapper>
-                <DescriptionText>{item.description}</DescriptionText>
-              </GameDescription>
-            ))}
-          </BottomSection>
-        ) : (
-          <Button onButtonClick={handleGameRestart} text="Restart" />
-        )}
-      </MainWrapper>
+        </TextWrapper>
+      </LabyrinthWrapper>
     );
   }
 };
+
+export const LabyrinthWrapper = styled.main`
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+`;
 
 const TopSection = styled.section`
   margin-top: 4px;
@@ -92,16 +107,41 @@ const TopSection = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: 768px) {
+    width: 500px;
+  }
+`;
+
+const TextWrapper = styled.div`
+  @media (min-width: 1024px) {
+    margin-left: 30px;
+  }
 `;
 
 const BottomSection = styled.section`
   margin: 2px 0;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
 `;
 
 const GameDescription = styled.article`
-  background: #fff;
+  background: #e3e5f1;
   border-radius: 4px;
   margin-bottom: 6px;
+  padding: 4px;
+
+  @media (min-width: 768px) {
+    width: 250px;
+    margin: 0 4px;
+    min-height: 180px;
+  }
 `;
 
 const ButtonWrapper = styled.div`
@@ -116,17 +156,24 @@ const PositionText = styled.p`
 `;
 
 const DescriptionText = styled.p`
-  background: #fff;
+  background: #e3e5f1;
   padding: 4px;
   border-radius: 4px;
   margin: 2px 0;
   font-style: italic;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    padding: 4px 10px;
+  }
 `;
 
 const RegularText = styled.span`
   font-style: normal;
   font-size: 14px;
   font-family: sans-serif;
+  display: block;
+  margin-bottom: 10px;
 `;
 
 const SpanText = styled.span`

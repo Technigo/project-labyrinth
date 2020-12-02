@@ -24,8 +24,8 @@ const ActionButton = styled.button`
   border-radius: 20px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   &:hover {
-    background: #bbbfca;
-    color: #495464;
+    background: #5865ac;
+    color: #e3e5f1;
     cursor: pointer;
   }
   &:disabled {

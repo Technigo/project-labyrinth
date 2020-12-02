@@ -26,13 +26,10 @@ export const Square = ({ coordinates }) => {
 const MapSquare = styled.div`
   border: 1px solid black;
   padding: 5px;
-  color: ${props =>
-    props.coordinates === props.gamePosition //this can be removed
-      ? "black"
-      : "black"};
+  color: "black";
   font-weight: 500;
   background: ${props =>
-    props.coordinates === props.gamePosition
+    props.coordinates === props.gamePosition || props.gamePosition === "1,3"
       ? "rgba(0, 0, 0, 0.0)"
       : "rgba(0, 0, 0, 0.9)"};
 `;
