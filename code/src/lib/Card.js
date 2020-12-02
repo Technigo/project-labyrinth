@@ -28,7 +28,7 @@ export const Card = () => {
   console.log(gamePlay.actions)
   
 
-
+  // && setLoading(false)
 
   if (!gamePlay.data) {
   return (
