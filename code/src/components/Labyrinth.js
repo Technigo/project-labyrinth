@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { fetchNext } from 'reducers/game'
 import { Button } from 'lib/Button'
+import { Card } from 'lib/Card'
+import { Container } from 'lib/Container'
 
 export const Labyrinth = () => {
   const currentStep = useSelector((state) => state.game.currentStep)
@@ -20,13 +22,12 @@ export const Labyrinth = () => {
       {!isLoading && (
         <div>
           {currentStep.coordinates && (
-            <>
+            <Container>
               <p>Coordinates: {currentStep.coordinates}</p>
-              <p>{currentStep.description}</p>
-              <p>Choose:</p>
+              <h1>{currentStep.description}</h1>
               {currentStep.actions.map((action) => {
                 return (
-                  <div key={action.description}>
+                  <Card key={action.description}>
                     <p>{action.description}</p>
                     <Button
                       type="button"
@@ -34,10 +35,10 @@ export const Labyrinth = () => {
                       onClick={(event) => handleSubmit(event.target.value)}>
                       Go {action.direction}
                     </Button>
-                  </div>
+                  </Card>
                 )
               })}
-            </>
+            </Container>
           )}
         </div>
       )}
