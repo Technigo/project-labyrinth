@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { ui } from './ui'
 
 
 export const game = createSlice({
   name: 'game',
   initialState: {
-    loading: false,
     username: '',
     gameState: {
       description: '',
@@ -23,27 +23,25 @@ export const game = createSlice({
       newState.username = action.payload
       return newState
     },
-    // setLoading: (state, action) => {
-    //     state.isLoading = action.payload;
-    //   },
-}
+  }
 });
 
 export const startNewGame = (username) => {
   return (dispatch) => {
     //set loadin
+    dispatch(ui.actions.setLoading(true))
     dispatch(game.actions.setUserName(username))
 
     fetch("https://wk16-backend.herokuapp.com/start", {
-      method:'POST',
-      headers: { "content-Type": "application/json" }, 
+      method: 'POST',
+      headers: { "content-Type": "application/json" },
       body: JSON.stringify({ username: username })
     })
       .then((res) => res.json())
       .then((json) => {
         dispatch(game.actions.setGameState(json))
-       //unset loading
-       
+        //unset loading
+        dispatch(ui.actions.setLoading(false))
 
       })
   }
@@ -51,7 +49,7 @@ export const startNewGame = (username) => {
 
 export const executeAction = (username, type, direction) => {
   return (dispatch) => {
-    console.log(username, type, direction)
+    dispatch(ui.actions.setLoading(true))
     fetch("https://wk16-backend.herokuapp.com/action", {
       method: 'POST',
       headers: { "content-Type": "application/json" },
@@ -64,6 +62,8 @@ export const executeAction = (username, type, direction) => {
       .then((res) => res.json())
       .then((json) => {
         dispatch(game.actions.setGameState(json))
+        dispatch(ui.actions.setLoading(false))
+
       })
   }
 }
@@ -82,4 +82,3 @@ export const executeAction = (username, type, direction) => {
 //         });
 //     };
 //   };
-  

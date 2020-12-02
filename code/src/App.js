@@ -1,24 +1,20 @@
 import React from 'react'
-import { Provider } from 'react-redux'
+import { Provider, useSelector } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
 import { StartGame } from './components/StartGame'
 import { GameState } from './components/GameState'
-import { game } from './reducers/game'
+import { Loading } from './components/Loading'
 
-
-const reducer = combineReducers({
-  game: game.reducer
-});
-
-export const store = configureStore({ reducer });
 
 export const App = () => {
+  const isLoading = useSelector((store) => store.ui.isLoading)
 
   return (
-    <Provider store={store} >
-      <StartGame />
-      <GameState />
-    </Provider>
+    <>
+      <Loading />
+      {!isLoading && <StartGame />}
+      {!isLoading && <GameState />}
+    </>
   )
 }

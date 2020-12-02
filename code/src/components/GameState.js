@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Action } from "./Action"
- 
+
 export const GameState = () => {
 
   const username = useSelector((store) => store.game.username);
