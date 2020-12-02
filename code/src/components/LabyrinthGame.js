@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
-import { fetchDirectionData, fetchLabyrinthData } from "../reducers/labyrinth";
+import { fetchDirectionData } from "../reducers/labyrinth";
 
 import { FetchLabyrinthButton } from "./FetchLabyrinthButton";
 
 export const LabyrinthGame = () => {
   const description = useSelector((store) => store.labyrinth.content);
   const loading = useSelector((state) => state.ui.loading);
-
-  const [startButtonVisible, setStartButtonVisible] = useState(false);
 
   return (
     loading === false && (
