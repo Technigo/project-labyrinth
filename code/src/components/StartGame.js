@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { initiateStart } from "../reducers/reusable";
 import { moves } from "../reducers/moves";
-import MoveContainer from './MoveContainer';
+import StartButton from './StartButton';
 
 const MoveControls = () => {
     const dispatch = useDispatch();
-    const move = useSelector ((state) => state.moves.move);
-
     //UseSelector stores the username inputted by the user and when they click the button form is submitted and the addUsername is called which dispatches the username to the addUser reducer by way of the payload. This then updates the username in the initialstate
     const [ username, setUsername ] = useState("");
 
@@ -17,12 +14,13 @@ const MoveControls = () => {
 
     const addUsername = (event) => {
         event.preventDefault();
-        dispatch(moves.actions.addUser(username))
+        dispatch(moves.actions.addUser(username));
+        setUsername("");
     };
 
-    const handleOnClickStart = () => {
-        dispatch(initiateStart(universalUsername));
-    };
+    if (universalUsername) { 
+        return <StartButton /> 
+    }
 
     return (
         <div>
@@ -32,16 +30,13 @@ const MoveControls = () => {
                     type="text" 
                     placeholder="username"
                     value={username}
-                    onChange={(event) => setUsername(event.target.value)}>
+                    onChange={(event) => setUsername(event.target.value)}
+                >
                 </input>
                 <button type="submit" id="startgame">
-                    Add username
+                    Enter username
                 </button>
-            </form>
-            {/* Object.keys(moves) is a way to check if an object is empty or not and here we're comparing if the length of the object move in the global store is higher than 0 then the MoveContainer should be shown  */}       
-            <p>Enter START to start the game!</p>              
-            <button onClick={handleOnClickStart}>START</button>
-            {Object.keys(move).length > 0 && <MoveContainer /> }                       
+            </form>                      
         </div>
     );
 };

@@ -4,7 +4,10 @@ export const moves = createSlice({
     name: "moves",
     initialState: {
         username: "",
-        move: {},
+        move: {
+            
+            actions: [{}]
+        },
         history: []
     },
      reducers: {
