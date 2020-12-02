@@ -43,7 +43,7 @@ const GameControls = () => {
       {history.length > 0 && <MainText>Your journey</MainText>}
     <History>{history.map((item, index) => {
       return ( 
-        <MainText>
+        <MainText key={index}>
           {index +1}) {item}
         </MainText>
       )
