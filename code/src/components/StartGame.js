@@ -11,12 +11,10 @@ export const StartGame = () => {
   const isLoading = useSelector(state => state.ui.isLoading)
   const dispatch = useDispatch()
 
-  // this is the username-info found previously in button
-  // updated thunk so it has the param of username
-  // and so username is not hardcorded into 'xxxx'
   const handleGameStarterClick = () => {
         dispatch(fetchGameData(username)) 
       }
+<<<<<<< HEAD
 
       if (isLoading) {
         return (
@@ -32,4 +30,11 @@ export const StartGame = () => {
           </div>
         )
       }
+=======
+  return (
+    <div>
+      <Button onClick={handleGameStarterClick}>Start Game</Button>
+    </div>
+  )
+>>>>>>> Pi
 }

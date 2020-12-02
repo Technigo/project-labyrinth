@@ -1,14 +1,15 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { game } from "reducers/game";
-import styled from "styled-components/macro";
+import React, { useState } from "react"
+import { useDispatch } from "react-redux"
+import { game } from "reducers/game"
+import styled from "styled-components/macro"
 
 
-import { Button } from "lib/Button";
+import { Button } from "lib/Button"
 
-
+// but maybe this could be imported from main wrapper instead?
 const Wrapper = styled.div`
-border: 2px solid #000;
+  display: flex;
+  justify-content: center;
 `
 const Form = styled.form`
 
@@ -41,9 +42,6 @@ export const UserInput = () => {
   return (
     <Wrapper>
       <Form onSubmit={handleUserSubmit}>
-        <Button disabled={!username} type="submit">
-          Username-Test
-        </Button>
         <Label>
           <InputField
             type="text"
@@ -53,6 +51,9 @@ export const UserInput = () => {
             onChange={event => setUsername(event.target.value)}
           />
         </Label>
+        <Button disabled={!username} type="submit">
+          Username-Test
+        </Button>
       </Form>
     </Wrapper>
   )

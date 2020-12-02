@@ -5,10 +5,14 @@ import { useSelector } from 'react-redux'
 import { UserInput } from '../components/UserInput'
 import { StartGame } from '../components/StartGame'
 import { TheLabyrinth } from '../components/TheLabyrinth'
+<<<<<<< HEAD
 import { LoadingIndicator } from 'components/LoadingIndicator'
 // import { Button } from './Button'
+=======
+>>>>>>> Pi
 
 export const CardContainer = styled.section`
+  box-sizing: border-box;
   background: #ccc;
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 
               0px 1px 1px 0px rgba(0, 0, 0, 0.14), 
@@ -17,25 +21,53 @@ export const CardContainer = styled.section`
   //width: 100vw;
   height: auto;
   margin-bottom: 10px;
+  ${({carddeck}) => carddeck && `
+  background: #f0e7d1;
+  border-radius: 5px;
+  outline: 1px solid grey;
+  outline-offset: -7px;
+  `}
+  ${({movedeck}) => movedeck && `
+  height: 300px;
+  margin: 2px;
+  background: #f0e7d1;
+  border-radius: 5px;
+  outline: 1px solid grey;
+  outline-offset: -7px;
+  `}
   `
 
-const Text = styled.p`
-  font-size: 20px;
-  color: #000;
+  const Title = styled.h2`
+  font-size: 25px;
+  padding: 10px;
+  text-align: center;
+`
+
+const Subtitle = styled.p`
+font-size: 15px;
+color: #000;
+text-align: center;
 `
 
 export const Card = () => {
   const gamePlay = useSelector(state => state.game.all)
+<<<<<<< HEAD
   
   console.log(gamePlay) // remove later
   console.log(gamePlay.actions) // remove later
   
+=======
+  
+  // && setLoading(false)
+
+>>>>>>> Pi
   if (!gamePlay.data) {
   return (
     <CardContainer>
-      {/* This is the initial text when opening the page */}
-      {!gamePlay.description && <Text>Start game!</Text>}
+      <Title>Welcome to the Labyrinth </Title>
+      <Subtitle> Choose your username </Subtitle>
       <UserInput />
+      <Subtitle> Let's begin! </Subtitle>
       <StartGame />
     </CardContainer>
   )} else {
