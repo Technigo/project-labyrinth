@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { game } from '../reducers/game';
+import { labyrinth } from '../reducers/labyrinth';
 import { StartGame } from './StartGame';
+import { GameContinue } from './GameContinue';
+import { Container, Button } from '../StyledComponents/GlobalStyles';
+import { MainHeader, Form, InputText } from '../StyledComponents/CreatePlayerStyling';
 
 
 export const CreatePlayer = () => { 
-  const playerName = useSelector((state)=>state.game.username)
+  const playerName = useSelector((state)=>state.labyrinth.username)
+  const gameState = useSelector((state) => state.labyrinth.game)
   const dispatch = useDispatch();
   const [username, setUsername] = useState('');
 
@@ -16,24 +20,38 @@ export const CreatePlayer = () => {
 
   const handleSubmitPlayerName = (event) => { 
     event.preventDefault();
-    dispatch(game.actions.setPlayerName(username));
+    dispatch(labyrinth.actions.setPlayerName(username));
   };
 
-  if (playerName) {
+  const isStartingGame = () => { 
+    return playerName && !gameState.coordinates;
+  }
+
+  const isContinuingGame = () => { 
+    return playerName && gameState.coordinates;
+  }
+
+  if (isStartingGame()) {
     return <StartGame/>
-  };
+  } else if (isContinuingGame()) { 
+    return <GameContinue/>
+  }
 
-  return (
-    <>
-    <h1>Welcome User!</h1>
-    <form onSubmit={handleSubmitPlayerName}>
-      <label>Create your Player</label>
-      <input
+  return(
+    <Container>
+    <MainHeader>Welcome User!</MainHeader>
+    <Form onSubmit={handleSubmitPlayerName}>
+      <InputText
         type = "text"
         value = {username}
         onChange={(event) => handleCreatePlayer(event)}
-        />
-    </form>
-    </>
-  )
-}
+        placeholder="Type your alias name"
+        required/>
+        <Button type="submit">
+          Create Player
+        </Button>
+    </Form>
+    </Container>
+  );
+};
+

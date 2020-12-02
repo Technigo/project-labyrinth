@@ -1,7 +1,7 @@
 import  { createSlice } from '@reduxjs/toolkit';
 
-export const game = createSlice({
-    name: 'game',
+export const labyrinth = createSlice({
+    name: 'labyrinthGame',
     initialState: {
         username:"",
         game: { 
@@ -24,11 +24,10 @@ export const game = createSlice({
       //   console.log(state.game) 
       // },
 
-      continueGame:(state,action) => { 
+      continueGame: (state,action) => { 
         const currentGameState = action.payload;
         state.history = [...state.history, state.game];
         state.game = currentGameState;
-
       },
 
       historyGoBack: (state, action) => {

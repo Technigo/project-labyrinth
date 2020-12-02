@@ -1,4 +1,4 @@
-import { game } from './game';
+import { labyrinth } from './labyrinth';
 import { ui } from './ui'; 
 
 const START_URL = "https://wk16-backend.herokuapp.com/start"
@@ -14,7 +14,7 @@ export const generateStartInstructions = (playerName) => {
 	  })
     .then(res => res.json())
     .then(json => {
-      dispatch(game.actions.continueGame(json))
+      dispatch(labyrinth.actions.continueGame(json))
       dispatch(ui.actions.setLoading(false))
     });
   };
@@ -36,7 +36,7 @@ export const generateGameProgress = (playerName, direction) => {
 	  })
     .then(res => res.json())
     .then(json => {
-      dispatch(game.actions.continueGame(json))
+      dispatch(labyrinth.actions.continueGame(json))
       dispatch(ui.actions.setLoading(false))
     });
   };

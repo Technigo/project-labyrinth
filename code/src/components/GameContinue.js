@@ -1,15 +1,14 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { game } from 'reducers/game';
+import { labyrinth } from 'reducers/labyrinth';
 
 import { generateGameProgress } from '../reducers/gameData';
 
 export const GameContinue = () => { 
   const dispatch = useDispatch(); 
-  const CurrentState = useSelector((state) => state);
-  // const historyState = state.game.history;
-  const playerName =  CurrentState.game.username;
-  const actions = CurrentState.game.game.actions;
+  const currentState = useSelector((state) => state);
+  const playerName =  currentState.labyrinth.username;
+  const actions = currentState.labyrinth.game.actions;
   
 
   const onGameContinue = (direction) => { 
@@ -17,12 +16,12 @@ export const GameContinue = () => {
   }
 
   const onGoBack = () => { 
-    dispatch(game.actions.historyGoBack())
+    dispatch(labyrinth.actions.historyGoBack())
   }
 
   return(
     <>
-      <h2>{CurrentState.description}</h2>
+      <h2>{currentState.labyrinth.game.description}</h2>
       {actions.map((action)=> 
      <button key={action.description} onClick={() => onGameContinue(action.direction)}>{action.direction}</button>
     )}
