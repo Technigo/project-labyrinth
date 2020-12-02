@@ -1,10 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { game } from '../reducers/game';
 import { chooseDirection, StartGame } from '../reducers/fetch';
 
-import styled from 'styled-components';
 import { Button, Background, ActionWrapper, MainText, HeaderText, History } from './styling';
 import Loader from './Loader';
 
@@ -31,15 +30,13 @@ const GameControls = () => {
   <>
     {loader && <Loader />}
     <Background>
-      
       <HeaderText>{gameState.description}</HeaderText>
-    
         {!loader && gameArray && (gameArray.map((item, index) => {
             return (
               <ActionWrapper>
               <MainText>{item.description}</MainText>
               <Button onClick={() => onChooseDirection(item.direction)} key={index}>
-                <p>Go {item.direction}</p>
+                Go {item.direction}
               </Button>  
               </ActionWrapper>          
               )
@@ -48,15 +45,15 @@ const GameControls = () => {
           }
           {gameState.coordinates === '1,3' && <Button onClick={() => restartGame()}>Restart game</Button>}
        
-
-      {history.length > 0 && <MainText>Your journey</MainText>}
+      {history.length > 0 && <MainText>Your journey so far</MainText>}
         <History>{history.map((item, index) => {
           return ( 
             <MainText key={index}>
               {index +1}) {item}
             </MainText>
-          )
-        })}</History>
+            )
+          })}
+        </History>
       </Background>
   </>
   );

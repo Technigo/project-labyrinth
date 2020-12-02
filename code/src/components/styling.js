@@ -1,25 +1,30 @@
 import styled from 'styled-components';
 
-
 export const MainText = styled.p`
-font-size: 18px;
+font-size: 14px;
+font-family: 'Castoro', serif;
+margin: 2px;
 
 @media (min-width: 667px){
-    font-size: 24px;
+    font-size: 16px;
   }
 `;
 
 export const HeaderText = styled.h1`
+  font-family: 'Montserrat', sans-serif;
+  margin: 50px;
+  width: 60%;
 `;
 
 export const Button = styled.button`
 border: none;
 margin: 10px;
-padding: 13px;
+padding: 6px 20px;
 border-radius: 15px;
 justify-self: flex-end;
 font-weight: bold;
 font-size: 16px;
+font-family: 'Montserrat', sans-serif;
 transition: all 150ms;
 cursor: pointer;
 background: #3FBEA1;

@@ -8,6 +8,7 @@ const Loader = () => {
     <> {
       loader && (
         <section className="loader-background">
+          <h1 className="loader-text">Loading next step...</h1>
           <div className="loader"></div>
         </section> 
       )

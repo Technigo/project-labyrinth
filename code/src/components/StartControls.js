@@ -1,9 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import styled from 'styled-components';
 import { Button, Form, TextInput, Background, MainText } from './styling';
-
 import { game } from '../reducers/game';
 import { StartGame } from '../reducers/fetch';
 
@@ -22,21 +20,19 @@ const StartControls = () => {
 
   return (
     <Background>
-      <MainText>{userName}</MainText>
+      <img src="https://media.giphy.com/media/ACLCA6bvwBEvC/giphy.gif"></img>
       <Form onSubmit={handleSubmit}>
-
         <TextInput 
           type='text' 
-          placeholder='input name' 
+          placeholder='Input your name' 
           onChange={event => onChangeEvent(event.target.value)}>
         </TextInput>
-
         <Button 
             type='submit'>
             Start the game
           </Button>
       </Form>
-    
+
     </Background>
   );
 };
