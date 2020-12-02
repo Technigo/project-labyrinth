@@ -1,30 +1,28 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+/* eslint-disable no-unused-vars */
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { game, fetchStart } from 'reducers/game'
+import { fetchStart } from 'reducers/game'
 import { Button } from 'lib/Button'
+import { Labyrinth } from 'components/Labyrinth'
 
 export const Start = () => {
-  const [username, setUsername] = useState('')
+  const User = useSelector((state) => state.game.username)
+  const Coordinates = useSelector((state) => state.game.currentStep.coordinates)
   const dispatch = useDispatch()
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    dispatch(game.action.startGame({ username }))
+  if (Coordinates) {
+    return <Labyrinth />
   }
+
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-          placeholder="enter your name and start the game"
-          required />
-        <Button type="submit" onClick={() => dispatch(fetchStart())}>
-          Start Game
-        </Button>
-      </form>
+      <h1>{`We've got you as ${User}`}</h1>
+      <Button
+        type="button"
+        onClick={() => dispatch(fetchStart(User))}>
+        Start Game
+      </Button>
     </div>
   )
 }
