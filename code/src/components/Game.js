@@ -1,6 +1,14 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+import { 
+	Button,
+	TextField,
+	Card,
+	CircularProgress
+} from '@material-ui/core'
+import AirplanemodeActiveSharpIcon from '@material-ui/icons/AirplanemodeActiveSharp';
+
 import { thunk, actionThunk, games } from '../reducers/games'
 
 export const Game = () => {
@@ -22,38 +30,47 @@ export const Game = () => {
 	}
 
 	return (
-		<div>
+		<div className='app-container'>
 			{showStart && (
-				<div>
-					<input
+				<form className='form' onSubmit={() => onStart()}>
+					<TextField
+						variant='filled' 
 						placeholder="Write a username"
+						color ="secondary"
 						type="text"
+						label="Type Name Here"
+						required
 						onChange={(event) => setNewUserName(event.target.value)}
 						value={newUserName}
 					/>
-					<button
-						onClick={() => onStart()}>
+					<Button
+						className='button'
+						startIcon = {< AirplanemodeActiveSharpIcon/>}
+						variant="contained" 
+						color="primary"
+						type='submit'>
 						Start game
-					</button>
-				</div>
+					</Button>
+				</form>
 			)}
 
 			{loader && (
 				<div>
+					<CircularProgress/>
 					<p>Loading...</p>
 				</div>
 			)}
 
 			{!showStart && (
-				<div>
-					<div>
+				<div className="discreption-container">
+					<div className='discription'>
 						<p>{gameDetails.description}</p>
 					</div>
 					<div>
 						{gameDetails.actions.map((action) => (
-							<button key={action.description} onClick={() => onAction(action)}>
+							<Button variant="contained" color="primary" key={action.description} onClick={() => onAction(action)}>
 								{action.type} {action.direction}
-							</button>
+							</Button>
 						))}
 					</div>
 				</div>

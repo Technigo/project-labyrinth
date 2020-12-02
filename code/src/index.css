@@ -5,6 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(./assets/background.jpg);
+  max-width: 100%;
+  height: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 code {
@@ -12,21 +17,24 @@ code {
     monospace;
 }
 
-.container {
- 
-  height: 1000px 
+/* .app-container {
 }
 
-.bodyImage {
-  width:100%;
-  height: auto;
-  background-size: contain;
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.blue {
-  border: 2px solid blue;
+.discription-container{
+  width: 300px;
+  height: 200px;
 }
 
-.red {
-  background-color: red;
+.discription{
+  width: 100%;
 }
+
+.button {
+  margin: 10px;
+} */
