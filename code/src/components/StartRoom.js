@@ -43,7 +43,6 @@ export const StartRoom = () => {
 };
 
 const Container = styled.section`
-  margin: 20px;
   padding: 20px;
   border: 1px solid red;
   text-align:center;
@@ -58,7 +57,8 @@ const Textfield = styled.input`
   color: #00ff7f;
   background-color: #000000;
   font-family: 'Inconsolata', monospace;
-  padding: 5px;
+  font-size: 20px;
+  padding: 10px 20px;
   text-decoration: none;
   border: 1px solid #00ff7f;
   margin: 5px;
@@ -75,6 +75,7 @@ const Button = styled.button`
   font-family: 'Inconsolata', monospace;
   border: 1px solid #00ff7f;
   margin: 5px;
+  font-size: 18px;
 
   &:focus {
     outline: 2px solid red;
