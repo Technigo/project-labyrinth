@@ -6,10 +6,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url(./assets/background.jpg);
-  max-width: 100%;
-  height: auto;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 code {
