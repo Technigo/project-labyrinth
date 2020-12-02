@@ -42,7 +42,7 @@ export const fetchDirectionData = (direction) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: "Moa",
+        username: "moa",
         type: "move",
         direction: direction,
       }),

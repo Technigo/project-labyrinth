@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+
 import { fetchLabyrinthData } from "reducers/labyrinth";
 
 export const FetchLabyrinthButton = () => {

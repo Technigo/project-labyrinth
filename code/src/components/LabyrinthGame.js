@@ -1,5 +1,5 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import { fetchDirectionData, fetchLabyrinthData } from "../reducers/labyrinth";
 
@@ -9,16 +9,33 @@ export const LabyrinthGame = () => {
   const description = useSelector((store) => store.labyrinth.content);
   const loading = useSelector((state) => state.ui.loading);
 
+  const [startButtonVisible, setStartButtonVisible] = useState(false);
+
   return (
+    loading === false && (
     <section>
       <FetchLabyrinthButton />
+
       <p>
-        {
+        {//den första description refererar till consten, den andra hämtar värdet för description i api:t
           description.description
-          //den första description refererar till consten, den andra hämtar värdet för description i api:t
         }
       </p>
       {description.coordinates && <p>Coordinates:{description.coordinates}</p>}
+
+      {description.coordinates !== undefined &&
+        description.actions.map((action) => (
+          <button
+            action={() =>
+              fetchDirectionData({
+                direction: action.direction,
+              })
+            }
+            text={`Go ${action.direction}`}
+            key={action.description}
+          >Go {action.direction}{action.description}</button>
+        ))}
     </section>
+    )
   );
 };
