@@ -24,8 +24,8 @@ const Text = styled.p`
 export const Card = () => {
   const gamePlay = useSelector(state => state.game.all)
 
-   console.log(gamePlay)
-  console.log(gamePlay.actions)
+  console.log(gamePlay) // remove later
+  console.log(gamePlay.actions) // remove later
   
 
   // && setLoading(false)
