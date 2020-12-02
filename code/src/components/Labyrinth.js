@@ -34,24 +34,28 @@ export const Labyrinth = () => {
         <TopSection>
           {pastActions.length > 0 && (
             <PositionText>
-              Previous position:{" "}
+              (Previous position:{" "}
               <SpanText>
                 {
                   positionHistory[positionHistory.length - 1].gameData
                     .coordinates
                 }
               </SpanText>{" "}
-              you just moved:{" "}
-              <SpanText>{pastActions[pastActions.length - 1]}</SpanText>
+              | you just moved:{" "}
+              <SpanText>{pastActions[pastActions.length - 1]}</SpanText>)
             </PositionText>
           )}
 
           <DescriptionText>
-            Your current position: {gameData.coordinates}
+            <RegularText>
+              Your current position: <SpanText>{gameData.coordinates}</SpanText>
+            </RegularText>
+            <br />
+            <br />
+            {gameData.description}
           </DescriptionText>
-          <DescriptionText>{gameData.description}</DescriptionText>
           {gameData.actions.length > 0 ? (
-            <InstructionText>Choose your next direction</InstructionText>
+            <InstructionText>Choose your next direction:</InstructionText>
           ) : (
             <InstructionText>
               You have completed the Labyrinth <br /> End of game!
@@ -62,12 +66,14 @@ export const Labyrinth = () => {
           <BottomSection>
             {gameData.actions.map(item => (
               <GameDescription key={item.direction}>
-                <Button
-                  onButtonClick={() =>
-                    handleNextStep(item.type, item.direction)
-                  }
-                  text={item.direction}
-                />
+                <ButtonWrapper>
+                  <Button
+                    onButtonClick={() =>
+                      handleNextStep(item.type, item.direction)
+                    }
+                    text={item.direction}
+                  />
+                </ButtonWrapper>
                 <DescriptionText>{item.description}</DescriptionText>
               </GameDescription>
             ))}
@@ -81,26 +87,46 @@ export const Labyrinth = () => {
 };
 
 const TopSection = styled.section`
-  border: 2px solid #e8e8e8;
-  padding: 10px;
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const BottomSection = styled.section`
-  border: 2px solid #e8e8e8;
-  padding: 10px;
+  margin: 2px 0;
 `;
 
 const GameDescription = styled.article`
-  border: 2px solid #e8e8e8;
+  background: #fff;
+  border-radius: 4px;
+  margin-bottom: 6px;
+`;
+
+const ButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const PositionText = styled.p`
   font-size: 14px;
-  color: #ffffff;
 `;
 
 const DescriptionText = styled.p`
-  font-size: 16px;
+  background: #fff;
+  padding: 4px;
+  border-radius: 4px;
+  margin: 2px 0;
+  font-style: italic;
+`;
+
+const RegularText = styled.span`
+  font-style: normal;
+  font-size: 14px;
+  font-family: sans-serif;
 `;
 
 const SpanText = styled.span`
@@ -111,4 +137,5 @@ const InstructionText = styled.p`
   font-size: 20px;
   font-weight: 500;
   text-align: center;
+  margin: 10px 0;
 `;

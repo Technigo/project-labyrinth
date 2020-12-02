@@ -3,9 +3,9 @@ import styled, { keyframes } from "styled-components/macro";
 
 export const Loading = () => {
   return (
-    <Container>
-      <Load> </Load>
-    </Container>
+    <LoaderContainer>
+      <Load></Load>
+    </LoaderContainer>
   );
 };
 
@@ -28,12 +28,12 @@ const Load = styled.div`
   animation-iteration-count: infinite;
 `;
 
-const Container = styled.div`
+const LoaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 450px;
+  min-height: 100vh;
 `;
 
 /*import React from "react";

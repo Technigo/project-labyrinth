@@ -21,6 +21,7 @@ const MapContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   width: 100%;
+  max-width: 350px;
   border: 2px solid #000;
   height: 350px;
   background-image: url("./assets/game-map.jpg");

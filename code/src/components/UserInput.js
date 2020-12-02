@@ -23,8 +23,8 @@ export const UserInput = () => {
 
   return (
     <TopSection>
-      <MainHeading>Welcome to the Labyrinth room</MainHeading>
-      <SubHeading>Enter username below</SubHeading>
+      <MainHeading>Welcome to the Labyrinth</MainHeading>
+      <SubHeading>Submit username and begin</SubHeading>
       <Form onSubmit={handleSubmit}>
         <Label>
           <InputField
@@ -41,35 +41,64 @@ export const UserInput = () => {
 };
 
 const TopSection = styled.section`
-  border: 2px solid #e8e8e8;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #fff;
+  width: 100%;
+  max-width: 530px;
 `;
 
 const MainHeading = styled.h1`
   text-align: center;
   font-size: 24px;
+
+  @media (min-width: 768px) {
+    font-size: 36px;
+    margin: 10px 0;
+  }
 `;
 
 const SubHeading = styled.h2`
   font-size: 16px;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+    margin: 10px 0;
+  }
 `;
 
-const Form = styled.form``;
+const Form = styled.form`
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+
+  @media (min-width: 1024px) {
+    margin: 10px 0;
+  }
+`;
 
 const Label = styled.label``;
 
 const InputField = styled.input`
   height: 40px;
-  width: 140px;
+  width: 160px;
   border: none;
-  border-bottom: 2px dotted #e8e8e8;
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
   margin-right: 5px;
   font-size: 18px;
+  background: transparent;
+  color: #fff;
+  padding: 0 3px;
+  ::placeholder {
+    color: #e8e8e8;
+    font-size: 14px;
+  }
 
   @media (min-width: 768px) {
-    width: 340px;
+    width: 260px;
   }
 `;

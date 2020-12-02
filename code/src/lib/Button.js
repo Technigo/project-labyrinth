@@ -3,28 +3,29 @@ import styled from "styled-components/macro";
 
 export const Button = ({ text, onButtonClick, buttonDisabled, buttonType }) => {
   return (
-    <ButtonB
+    <ActionButton
       onClick={onButtonClick}
       disabled={buttonDisabled}
       type={buttonType}
     >
       {text}
-    </ButtonB>
+    </ActionButton>
   );
 };
 
-const ButtonB = styled.button`
+const ActionButton = styled.button`
   padding: 8px;
   margin: 6px 0px;
   width: 120px;
-  background: ${props => props.background || "#bbbfca"};
-  color: #495464;
+  background: ${props => props.background || "#b97597"};
+  color: #fff;
   font-size: 18px;
   border: none;
   border-radius: 20px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   &:hover {
-    background: linear-gradient(to bottom, #b97597, #5865ac);
-    color: white;
+    background: #bbbfca;
+    color: #495464;
     cursor: pointer;
   }
   &:disabled {

@@ -16,7 +16,7 @@ export const Welcome = () => {
         <UserInput />
         <Image src="./assets/labyrinth-poster.jpg" alt="labyrinth" />
         {username.length && (
-          <WelcomeP>Hi {username}, ready to start playing!</WelcomeP>
+          <WelcomeP>Hi {username}, you are ready to start playing!</WelcomeP>
         )}
         <StartGame />
       </MainWrapper>
@@ -31,12 +31,17 @@ export const MainWrapper = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 `;
 
 const Image = styled.img`
-  width: 300px;
+  width: 100%;
+  max-width: 530px;
   margin: 10px 0;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  @media (min-width: 768px) {
+    max-width: 500px;
+  }
 `;
 
 const WelcomeP = styled.p`
