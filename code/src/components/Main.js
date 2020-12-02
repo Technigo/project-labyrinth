@@ -14,3 +14,10 @@ export const Main = styled.main`
         grid-template-columns: 1fr 1fr;
     }
     `
+export const Wrapper = styled.div`
+    display: flex;
+    align-items: center;
+    height: 100%;
+    ;
+`
+//    ${({outer}) => outer && `background: blue;`}

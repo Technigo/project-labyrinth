@@ -7,19 +7,13 @@ import { StartGame } from '../components/StartGame'
 import { TheLabyrinth } from '../components/TheLabyrinth'
 // import { Button } from './Button'
 
-const CardContainer = styled.section`
+export const CardContainer = styled.section`
   background: #ccc;
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 
               0px 1px 1px 0px rgba(0, 0, 0, 0.14), 
               0px 1px 3px 0px rgba(0,0,0,.12);
   width: 100%;
-  height: 400px;
-
-  @media (min-width: 768px) {
-    grid-column: 1;
-    max-width: 600px;
-  }
-
+  margin-bottom: 10px;
   `
 
 const Text = styled.p`
@@ -56,9 +50,7 @@ export const Card = () => {
     </CardContainer>
   )} else {
     return (
-      <CardContainer>
         <TheLabyrinth/>
-      </CardContainer>
     )
   }
   }
