@@ -1,15 +1,17 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
+import { game } from '../reducers/game'
 import { getFirstPosition } from '../reducers/reusable'
 
-export const Start = () => {
+export const StartButton = () => {
 
-  const userName = useSelector(store => store.game.userName)
   const dispatch = useDispatch()
 
   const onStart = () => {
+    const userName = Math.random()
     console.log(userName)
+    dispatch(game.actions.setUserName(userName))
     dispatch(getFirstPosition(userName))
   }
 

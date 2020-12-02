@@ -1,7 +1,6 @@
 import { game } from './game'
 
 export const getFirstPosition = (userName) => {
-  console.log(userName)
   return (dispatch) => {
     fetch('https://wk16-backend.herokuapp.com/start', {
       method: 'POST',
@@ -32,6 +31,7 @@ export const getNextPosition = (action, userName) => {
     })
       .then(response => response.json())
       .then(data => {
+        console.log(data)
         dispatch(game.actions.setNextPosition(data))
       })
   }

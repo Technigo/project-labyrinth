@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import { Start } from './Start'
-import { Description } from './Description'
+import { StartButton } from './StartButton'
+import { RoomDescription } from './RoomDescription'
 import { ActionList } from './ActionList'
 
 export const GameContainer = () => {
@@ -11,10 +11,10 @@ export const GameContainer = () => {
 
   return (
     <>
-      {!started && <Start />}
+      {!started && <StartButton />}
       {started &&
         <>
-          <Description />
+          <RoomDescription />
           <ActionList />
         </>
       }
