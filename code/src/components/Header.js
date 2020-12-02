@@ -5,8 +5,11 @@ import { useDispatch } from 'react-redux'
 import { game } from "reducers/game";
 import { Button } from "lib/Button";
 
+// ah maybe this also can be imported via main?
 const Wrapper = styled.section`
-  display: flex
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
   
 `
 
@@ -23,7 +26,7 @@ export const Header = () => {
 
   return (
     <Wrapper>
-      <Title>ADVENTURE TIME</Title>
+      <Title>THE LABYRINTH </Title>
       <Button onClick={onHistoryBack}>
         Go back
     </Button>
