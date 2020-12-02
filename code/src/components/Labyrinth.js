@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components/macro';
 
 // Functions
@@ -10,18 +10,21 @@ import { Button } from './Button';
 import { NameInput } from './NameInput';
 import { DirectionButtons } from './DirectionButtons';
 import { InnerFlexWrapper, OuterFlexWrapper } from '../styling/GlobalStyles';
+import { labyrinth } from '../reducers/labyrinth';
+
+// images
+import { img_0_1 } from '../styling/ImageSources';
 
 // ----------------------------------------------------------------
 
 export const Labyrinth = ({ setCurrentCoordinates }) => {
+  const dispatch = useDispatch();
   const content = useSelector((store) => store.labyrinth.content);
-  //const localContent = localStorage.getItem('labyrinth')
-  //console.log(localContent)
   const username = useSelector((store) => store.labyrinth.username);
   const isLoading = useSelector((state) => state.ui.isLoading);
 
   const [startButtonVisible, setStartButtonVisible] = useState(false);
-  const [nameInputVisible] = useState(true);
+  const [nameInputVisible, setNameInputVisible] = useState(true);
 
   // const handleStartButton = () => {
   //   fetchLabyrinthData(username).then(() => {
@@ -30,6 +33,20 @@ export const Labyrinth = ({ setCurrentCoordinates }) => {
   //   });
   // };
 
+  // Check if username is stored in local storage
+  const currentUsername = localStorage.getItem('username')
+    ? localStorage.getItem('username')
+    : username;
+
+  // Restart game - reset all values and reload
+  const handleRestartButton = () => {
+    dispatch(labyrinth.actions.setUsername(''));
+    localStorage.setItem('labyrinth', '{}');
+    localStorage.setItem('username', '');
+    window.location.reload();
+  };
+
+  // Send current coordinates to parent component for styling
   setCurrentCoordinates(content.coordinates);
 
   return (
@@ -37,62 +54,63 @@ export const Labyrinth = ({ setCurrentCoordinates }) => {
       <MainWrapper>
         <InnerWrapper>
           {/* Removes the NameInput and start buttons when the journey has started */}
-          {content.coordinates === undefined &&  
-          <>
-            {/* Name-input */}
-            {nameInputVisible && (
-              <NameInput setStartButtonVisible={setStartButtonVisible} />
-            )} 
-            
-            {/* Start-button */}
-            {startButtonVisible && (
-              <InnerFlexWrapper>
-                <p>Hello {username}, are you ready to start your journey?</p>
-                <Button
-                  action={() => fetchLabyrinthData(username)}
-                  text="Start button"
-                />
-              </InnerFlexWrapper>
-            )}
-          </>
-          }
+          {content.coordinates === undefined && (
+            <>
+              {/* Name-input */}
+              {nameInputVisible && (
+                <NameInput setStartButtonVisible={setStartButtonVisible} />
+              )}
+
+              {/* Start-button */}
+              {startButtonVisible && (
+                <InnerFlexWrapper>
+                  <p>{currentUsername}, are you ready to start your journey?</p>
+                  <Button
+                    action={() => fetchLabyrinthData(currentUsername)}
+                    text="Yes, start the game"
+                  />
+                </InnerFlexWrapper>
+              )}
+            </>
+          )}
 
           {/* Nice picture when coming to the end! */}
-          {content.coordinates === '1,3' &&  (
-            <TreasureImage src='https://images.unsplash.com/photo-1449049607083-e29383d58423?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fHRyZWFzdXJlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'/>
+          {content.coordinates === '1,3' && (
+            <TreasureImage src="https://images.unsplash.com/photo-1449049607083-e29383d58423?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fHRyZWFzdXJlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
           )}
+
+          {/* Coordinates */}
+          {/* {content.coordinates && (
+            <CoordinatesText>
+              Coordinates: {content.coordinates}
+            </CoordinatesText>
+          )} */}
 
           {/* Descriptive text */}
           <DescriptionText>{content.description}</DescriptionText>
 
-          {/* Coordinates */}
-          {content.coordinates && <CoordinatesText>Coordinates: {content.coordinates}</CoordinatesText>}
-          <InnerFlexWrapper>
-            {/* Direction-buttons ---- conditionally rendering on the coordinates */}
-            {content.coordinates !== undefined &&
-              content.actions.map((action) => (
-                    
-                <div key={action.description}>
-                  <DirectionButtons
-                    direction={action.direction}
-                    action={() =>
-                      fetchDirectionData({
-                        direction: action.direction,
-                        username: username,
-                      })
-                    }
-                />  
-                {/* <p>{action.description}</p> */}
-                </div>
-              ))}
-          </InnerFlexWrapper>      
-          
+          {/* Direction-buttons */}
+          {content.coordinates !== undefined &&
+            content.actions.map((action) => (
+              <InnerFlexWrapper key={action.description}>
+                <DirectionButtons
+                  direction={action.direction}
+                  action={() =>
+                    fetchDirectionData({
+                      direction: action.direction,
+                      username: currentUsername,
+                    })
+                  }
+                />
+                <ActionText>
+                  You look to the {action.direction}. {action.description}
+                </ActionText>
+              </InnerFlexWrapper>
+            ))}
+
           {/* Restart-button */}
           {content.coordinates === '1,3' && (
-            <Button
-              text="Restart journey"
-              action={() => window.location.reload()}
-            />
+            <Button text="Restart journey" action={handleRestartButton} />
           )}
         </InnerWrapper>
       </MainWrapper>
@@ -107,10 +125,20 @@ const MainWrapper = styled(OuterFlexWrapper)`
   width: 100vw;
   flex-direction: column;
   text-align: center;
+  background-size: cover;
+  background-image: url(${img_0_1});
+
+  & p {
+    line-height: 1.4;
+    color: #fff;
+  }
 `;
 
 const InnerWrapper = styled.div`
-  max-width: 80vw;
+  max-width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const TreasureImage = styled.img`
@@ -121,7 +149,11 @@ const TreasureImage = styled.img`
 `;
 
 const DescriptionText = styled.p`
-  width: 200px;
+  line-height: 1.4;
+`;
+
+const ActionText = styled(DescriptionText)`
+  font-size: 12px;
   font-style: italic;
 `;
 

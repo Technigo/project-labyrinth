@@ -4,13 +4,12 @@ import { ui } from './ui';
 const initialContent = localStorage.getItem('labyrinth')
   ? JSON.parse(localStorage.getItem('labyrinth'))
   : {};
-  console.log(initialContent)
 
 export const labyrinth = createSlice({
   name: 'labyrinth',
   initialState: {
     username: '',
-    content: {}
+    content: initialContent,
   },
   reducers: {
     setLabyrinthData: (state, action) => {
@@ -22,7 +21,7 @@ export const labyrinth = createSlice({
   },
 });
 
-export const fetchLabyrinthData = username => {
+export const fetchLabyrinthData = (username) => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
     fetch('https://wk16-backend.herokuapp.com/start', {

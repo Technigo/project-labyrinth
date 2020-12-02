@@ -5,14 +5,15 @@ NEXT UP:
 [X] Hide start-button after step 1
 [X] Create a restart-button
 [X] Fix Loading (blue)
+[X] Set up local store
+[X] Direction button-text + direction description
 
-[ ] Style page (blue)
-[ ] Set up local store
-[ ] Text vid knapp om direction samt beskrivning
+[ ] Find images for all coordinates - add them to the code
+[ ] Find 'Goal' image, or style finish-page exclusively
+[ ] Add restart-button to access mid-game
+[ ] Hide name input when name has been entered, only show start button
+[ ] Do we want a logo?
 ---
-
-Red level:
-
 
 Extras:
 [ ] Combine the 2 thunk-functions into one (They look the same)

@@ -11,13 +11,10 @@ export const DirectionButtons = ({ direction, action }) => {
       onClick={(event) => dispatch(action(event))}
       direction={direction}
     >
-      <Arrow 
-        role='img'
-        aria-label={direction + `-arrow`} 
-        direction={direction}>
+      <Arrow role="img" aria-label={direction + `-arrow`} direction={direction}>
         ➤
       </Arrow>
-      <DirectionText direction={direction}>Go {direction}</DirectionText> 
+      <DirectionText direction={direction}>Go {direction}</DirectionText>
     </DirectionButton>
   );
 };
@@ -27,6 +24,7 @@ export const DirectionButtons = ({ direction, action }) => {
 const Arrow = styled.span`
   display: inline-block;
   font-size: 45px;
+  color: #fff;
   transform: ${(props) =>
     props.direction === 'North'
       ? `rotate(-90deg)`
@@ -47,11 +45,17 @@ const DirectionButton = styled.button`
   margin: 0;
   padding: 0;
   position: fixed;
-  display: ${(props) => props.direction === 'East' || props.direction === 'West' ? 'flex' : ''};
-  flex-direction: ${(props) => props.direction === 'East' ? 'row-reverse' : props.direction === 'West' ? 'row' : ''};
+  display: flex;
+  flex-direction: ${(props) =>
+    props.direction === 'East'
+      ? 'row-reverse'
+      : props.direction === 'West'
+      ? 'row'
+      : props.direction === 'North'
+      ? 'column'
+      : 'column-reverse'};
   align-items: center;
-  justify-content: center; 
-  
+  justify-content: center;
   transform: translateY(-50%); // To center vertically
   top: ${(props) =>
     props.direction === 'North'
@@ -69,5 +73,10 @@ const DirectionButton = styled.button`
 `;
 
 const DirectionText = styled.p`
-transform: ${(props)=> (props.direction === 'East' ? 'rotate(90deg)': props.direction === 'West' ? 'rotate(-90deg)':'')}
+  transform: ${(props) =>
+    props.direction === 'East'
+      ? 'rotate(90deg)'
+      : props.direction === 'West'
+      ? 'rotate(-90deg)'
+      : ''};
 `;

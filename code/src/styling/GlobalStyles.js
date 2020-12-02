@@ -26,8 +26,12 @@ export const MainButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
-  padding: 4px;
+  border: 3px solid #fff;
+  color: #fff;
+  background: none;
+  padding: 8px 40px;
   cursor: pointer;
   border-radius: 4px;
+  font-family: 'Montserrat';
+  font-weight: 800;
 `;

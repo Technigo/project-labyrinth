@@ -20,14 +20,19 @@ export const NameInput = ({ setStartButtonVisible }) => {
 
   const handleSubmitName = (event) => {
     event.preventDefault();
-    dispatch(labyrinth.actions.setUsername(username));
-    setStartButtonVisible(true);
+    if (username.length === 0) {
+      alert('Please enter your name first');
+    } else {
+      dispatch(labyrinth.actions.setUsername(username));
+      localStorage.setItem('username', username);
+      setStartButtonVisible(true);
+    }
   };
 
   return (
     <FormWrapper>
       <LabelWrapper>
-        What is your name?
+        Please enter your name
         <Input
           type="text"
           value={username}
@@ -55,8 +60,16 @@ const LabelWrapper = styled.label`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  color: #fff;
 `;
 
 const Input = styled.input`
   margin: 30px 0;
+  width: 40vw;
+  border: none;
+  background: none;
+  border-bottom: 2px solid #fff;
+  font-family: 'Montserrat';
+  font-weight: 800;
+  color: #fff;
 `;
