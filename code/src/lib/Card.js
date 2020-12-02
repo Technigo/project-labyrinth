@@ -34,7 +34,6 @@ export const CardContainer = styled.section`
 
   @media (min-width: 768px) {
     height: 80%;
-    grid-column: 3;
   }  `}
 
   ${({carddeck}) => carddeck && `
@@ -56,16 +55,7 @@ font-size: 15px;
 color: #000;
 text-align: center;
 `
-/* I commented out this to see if it was 
-needed when the starting card hade the same styling.
-It wasn't, so maybe we could skip it? 
-${({carddeck}) => carddeck && `
-  background: #f0e7d1;
-  border-radius: 5px;
-  outline: 1px solid grey;
-  outline-offset: -7px;
 
-  `}  */
 export const Card = () => {
   const gamePlay = useSelector(state => state.game.all)
   

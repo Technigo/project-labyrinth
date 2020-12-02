@@ -11,6 +11,8 @@ export const StartGame = () => {
   const isLoading = useSelector(state => state.ui.isLoading)
   const dispatch = useDispatch()
 
+  const startBtn = true
+
   const handleGameStarterClick = () => {
         dispatch(fetchGameData(username)) 
       }
@@ -24,7 +26,7 @@ export const StartGame = () => {
       } else {
         return (
           <div>
-            <Button onClick={handleGameStarterClick}>Start Game</Button>
+            <Button startBtn={startBtn} onClick={handleGameStarterClick}>Start Game</Button>
           </div>
         )
       }

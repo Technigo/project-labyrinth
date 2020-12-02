@@ -7,11 +7,6 @@ import { game } from "reducers/game"
 import { Wrapper } from './Main'
 import { Button } from "lib/Button"
 
-// but maybe this could be imported from main wrapper instead?
-/* const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-` */
 const Form = styled.form`
 
 `
@@ -26,7 +21,7 @@ const InputField = styled.input`
 
 export const UserInput = () => {
   const [username, setUsername] = useState("")
-
+  
   const dispatch = useDispatch()
 
   // adding the username into the state/store

@@ -16,6 +16,7 @@ const Wrapper = styled.section`
 const Title = styled.h1`
 
 `
+const headerBtn = true
 
 export const Header = () => {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ export const Header = () => {
   return (
     <Wrapper>
       <Title>THE LABYRINTH </Title>
-      <Button onClick={onHistoryBack}>
+      <Button headerBtn={headerBtn} onClick={onHistoryBack}>
         Go back
     </Button>
     </Wrapper>
