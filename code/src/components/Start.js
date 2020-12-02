@@ -14,6 +14,6 @@ export const Start = () => {
   }
 
   return (
-    <button onClick={() => onStart()}>Start game</button>
+    <button onClick={() => onStart()}>Play game</button>
   )
 }

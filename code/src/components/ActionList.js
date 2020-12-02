@@ -16,11 +16,11 @@ export const ActionList = () => {
 
   return (
     <>
-      {actions && actions.map(item => {
+      {actions.map(action => {
         return (
           <>
-            <p>{item.description}</p>
-            <button onClick={() => onAction(item)}>Go {item.direction}</button>
+            <p>{action.description}</p>
+            <button onClick={() => onAction(action)}>Go {action.direction}</button>
           </>
         )
       })}
