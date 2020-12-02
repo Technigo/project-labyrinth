@@ -21,6 +21,11 @@ const GameControls = () => {
     dispatch(game.actions.setLoader(true));
     dispatch(game.actions.setHistory(direction));
   }
+  console.log(gameState)
+
+  const restartGame = () => {
+    dispatch(game.actions.restartGame())
+  }
 
   return (
   <>
@@ -30,24 +35,26 @@ const GameControls = () => {
       <MainText>{gameState.description}</MainText>
       
       <ButtonWrapper>
-      {!loader && gameArray && (gameArray.map((item, index) => {
-          return (
-            <Button onClick={() => onChooseDirection(item.direction)} key={index}>
-              <p>Go {item.direction}</p>
-            </Button>            
-            )
-          })
-        )
-      }
-      </ButtonWrapper>
+        {!loader && gameArray && (gameArray.map((item, index) => {
+            return (
+              <Button onClick={() => onChooseDirection(item.direction)} key={index}>
+                <p>Go {item.direction}</p>
+              </Button>            
+              )
+            })
+          )
+          }
+          {gameState.coordinates === '1,3' && <Button onClick={() => restartGame()}>Restart game</Button>}
+        </ButtonWrapper>
+
       {history.length > 0 && <MainText>Your journey</MainText>}
-    <History>{history.map((item, index) => {
-      return ( 
-        <MainText key={index}>
-          {index +1}) {item}
-        </MainText>
-      )
-    })}</History>
+        <History>{history.map((item, index) => {
+          return ( 
+            <MainText key={index}>
+              {index +1}) {item}
+            </MainText>
+          )
+        })}</History>
       </Background>
   </>
   );

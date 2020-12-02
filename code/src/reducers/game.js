@@ -3,10 +3,10 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   name: "",
-  game: {
-  },
+  game: {},
   isGameStarted: false,
   isLoading: false,
+  isGameOver: false,
   history: []
 }
 
@@ -27,7 +27,9 @@ export const game = createSlice({
     },
     setHistory: (state, action) => {
       state.history = [...state.history, action.payload]
-      console.log(state.history);
+    },
+    restartGame: (state, action) => {
+      return initialState
     }
   }
 })

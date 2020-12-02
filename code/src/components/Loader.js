@@ -8,7 +8,7 @@ const Loader = () => {
     <> {
       loader && (
         <section className="loader-background">
-          <div class="loader"></div>
+          <div className="loader"></div>
         </section> 
       )
     }
