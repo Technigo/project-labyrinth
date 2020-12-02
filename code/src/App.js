@@ -4,6 +4,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
 import { GameBegin } from './components/GameBegin'
 import { gameDetails} from 'reducers/gameDetails'
+import { Buttons } from './components/Buttons'
 
 const reducer = combineReducers({gameDetails: gameDetails.reducer });
 
@@ -13,6 +14,7 @@ export const App = () => {
   return (
     <Provider store={store}>
       <GameBegin />
+      <Buttons />
     </Provider>
   )
 }

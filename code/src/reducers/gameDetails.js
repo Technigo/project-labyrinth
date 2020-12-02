@@ -8,7 +8,7 @@ export const gameDetails = createSlice({
        // history: []
     },
     reducers: {
-        generateDescription: (state, action) => {
+        setDescription: (state, action) => {
          // if (state.gameDetails.gameDetails) {
            // state.history = [...state.history, state.gameDetails]
           //}
@@ -23,7 +23,7 @@ export const gameDetails = createSlice({
         //   }
         // }
         },
-          generateMoves: (state, action) => {
+          setMoves: (state, action) => {
          // if (state.gameDetails.gameDetails) {
            // state.history = [...state.history, state.gameDetails]
           //}

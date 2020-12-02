@@ -1,7 +1,7 @@
 import { gameDetails } from './gameDetails';
 
 
-export const generateDescription = () => {
+export const getDescription = () => {
   //const URL_START_GAME = "https://wk16-backend.herokuapp.com/start"
 
   return (dispatch) => {
@@ -12,14 +12,14 @@ export const generateDescription = () => {
     }
       ).then(res => res.json())
       .then(data => 
-        dispatch(gameDetails.actions.generateDescription(data)));
+        dispatch(gameDetails.actions.setDescription(data)));
 
       };
 };
 
 
-export const generateMoves = () => {
-  //const URL_START_GAME = "https://wk16-backend.herokuapp.com/start"
+export const getMoves = (username, action) => {
+  const URL_START_GAME = "https://wk16-backend.herokuapp.com/start"
 
   return (dispatch) => {
     fetch('https://wk16-backend.herokuapp.com/action',{
@@ -27,11 +27,11 @@ export const generateMoves = () => {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
         'username':'TestUser',
-      type:'move',
-    direction:"East"})
+        type: action.type,
+        direction: action.direction})
     }
       ).then(res => res.json())
       .then(data => 
-        dispatch(gameDetails.actions.generateMoves(data)));
+        dispatch(gameDetails.actions.setMoves(data)));
       };
 };
