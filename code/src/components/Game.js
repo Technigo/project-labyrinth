@@ -5,8 +5,8 @@ import {
 	Container,
 	Button,
 	TextField,
-	Box,
 	CircularProgress,
+	ButtonGroup
 } from '@material-ui/core'
 import AirplanemodeActiveSharpIcon from '@material-ui/icons/AirplanemodeActiveSharp';
 import styled from 'styled-components'
@@ -18,17 +18,7 @@ const Discription = styled.p`
 	font-weight: 500;
 	text-align: center;
 `
-const StartForm = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	background: rgba(191, 191, 191, 0.5);
-	padding: 20px 20px 60px 20px;
-	border-radius: 20px;
-`
-
-const GameContainer = styled.div `
+const Box = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -59,7 +49,7 @@ export const Game = () => {
 	return (
 		<Container style={{ marginTop: 100, paddingTop: 100, maxWidth: 700 }}>
 			{showStart && (
-				<StartForm>
+				<Box>
 					<Discription>Enter you name to start...</Discription>
 					<form  onSubmit={() => onStart()}>
 						<TextField
@@ -81,7 +71,7 @@ export const Game = () => {
 							Start game
 						</Button>
 					</form>
-				</StartForm>
+				</Box>
 			)}
 
 			{loader && (
@@ -92,16 +82,17 @@ export const Game = () => {
 			)}
 
 			{!showStart && (
-				<GameContainer>
+				<Box>
 					<Discription>{gameDetails.description}</Discription>
-					<div>
+					<ButtonGroup>
 						{gameDetails.actions.map((action) => (
-						<Button variant="contained" color="primary" key={action.description} onClick={() => onAction(action)}>
-							{action.type} {action.direction}
-						</Button>
+						
+							<Button variant="contained" color="primary" key={action.description} onClick={() => onAction(action)}>
+								{action.type} {action.direction}
+							</Button>
 						))}
-					</div>
-				</GameContainer>
+					</ButtonGroup>
+				</Box>
 			)}
 		</Container>
 	)
