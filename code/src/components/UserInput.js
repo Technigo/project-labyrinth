@@ -1,16 +1,17 @@
 import React, { useState } from "react"
 import { useDispatch } from "react-redux"
-import { game } from "reducers/game"
 import styled from "styled-components/macro"
 
+import { game } from "reducers/game"
 
+import { Wrapper } from './Main'
 import { Button } from "lib/Button"
 
 // but maybe this could be imported from main wrapper instead?
-const Wrapper = styled.div`
+/* const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-`
+` */
 const Form = styled.form`
 
 `

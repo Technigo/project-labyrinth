@@ -12,12 +12,24 @@ export const Main = styled.main`
 
   @media (min-width: 1024px) {
     grid-template-columns: 1fr 1fr;
+    align-items: center;
   }
   `
 
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  height: 100%;`
+  justify-content: center;
+  text-align: center;
 
-  // ${({outer}) => outer && `background: blue;`}`
+  @media(min-width:768px) {
+      grid-column: span 2;
+  }
+
+  @media(min-width: 1024px) {
+    flex-direction: column;
+    grid-column: 2;
+  }
+  `
+
+  // ${({outer}) => outer && `background: blue;`}`height: 100%;
