@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const game = createSlice({
   name: "game",
   initialState: {
-    userName: "Annika12345",
+    userName: Math.random(),
     gameState:
       {},
     gameStarted: false

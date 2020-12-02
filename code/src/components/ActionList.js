@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { getNextPosition } from '../reducers/reusable'
+import { Start } from './Start'
 
 export const ActionList = () => {
 
@@ -15,7 +16,7 @@ export const ActionList = () => {
 
   return (
     <>
-      {actions.map(item => {
+      {actions && actions.map(item => {
         return (
           <>
             <p>{item.description}</p>
@@ -23,6 +24,9 @@ export const ActionList = () => {
           </>
         )
       })}
+      {actions.length === 0 &&
+        <Start />
+      }
     </>
   )
 }
