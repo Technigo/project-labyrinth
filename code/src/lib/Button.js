@@ -1,15 +1,16 @@
 import styled from 'styled-components/macro'
 
 export const Button = styled.button`
-  margin: 6px;
+  margin: 8px 0;
   padding: 8px;
   font-size: 16px;
-  font-weight: 650;
-  background: ${(props) => props.background || '#2284CD'};
+  font-weight: 600;
+  letter-spacing: 1.12px;
+  background: ${(props) => props.background || '#4d4d4d'};
   border: none;
-  border-radius: 6px;
+  border-radius: 3px;
   cursor: pointer;
-  color:white;
+  color: white;
 
   &:hover {
     background: #007fff;

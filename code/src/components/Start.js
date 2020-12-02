@@ -5,9 +5,9 @@ import { game, fetchStart } from 'reducers/game'
 import { Labyrinth } from 'components/Labyrinth'
 import { Button } from 'lib/Button'
 import { Input } from 'lib/Input'
-// import { Container } from 'lib/Container'
+import { ScreenContainer, FormStyle } from 'lib/Container'
 
-export const PlayerStart = () => {
+export const Start = () => {
   const User = useSelector((state) => state.game.username)
   const [username, setUsername] = useState('')
   const dispatch = useDispatch()
@@ -18,12 +18,14 @@ export const PlayerStart = () => {
     dispatch(fetchStart(username))
   }
   if (User) {
-    return <Labyrinth />
+    return (
+      <Labyrinth />
+    )
   }
   return (
-    <>
+    <ScreenContainer>
       {!User && (
-        <form onSubmit={handleSubmit}>
+        <FormStyle onSubmit={handleSubmit}>
           <Input
             type="text"
             value={username}
@@ -31,10 +33,10 @@ export const PlayerStart = () => {
             placeholder="enter a player name"
             required />
           <Button type="submit">
-            Start ALREADY!
+            Start
           </Button>
-        </form>
+        </FormStyle>
       )}
-    </>
+    </ScreenContainer>
   )
 }

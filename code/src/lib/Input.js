@@ -1,12 +1,13 @@
 import styled from 'styled-components/macro'
 
 export const Input = styled.input`
-  width: 230px;
+  width: 250px;
   height: 30px;
-  margin: 20px 0;
+  margin: 0;
   padding: 5px;
   border: none;
-  border-radius: 7px;
-  background: #F4F4F4;
+  border-radius: 3px;
+  background: pink;
   font-size: 16px;
+  cursor: pointer;
 `
