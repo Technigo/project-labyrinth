@@ -27,7 +27,7 @@ export const PlayerInput = ({ setStartButtonVisible }) => {
           onChange={(event) => handleNameChange(event)}
         ></input>
       </label>
-      <button type="submit" onClick={(event) => handleSubmitName (event)}>
+      <button type="submit" onClick={(event) => handleSubmitName(event)}>
         Ready to start playing!
       </button>
     </div>

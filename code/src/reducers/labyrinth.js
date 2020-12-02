@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ui } from "./ui";
 
-
 export const labyrinth = createSlice({
   name: "labyrinth",
   initialState: {
@@ -14,11 +13,11 @@ export const labyrinth = createSlice({
     },
     setUsername: (state, action) => {
       state.username = action.payload;
-    }  
+    },
   },
 });
 
-export const fetchLabyrinthData = username => {
+export const fetchLabyrinthData = (username) => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
     fetch("https://wk16-backend.herokuapp.com/start", {
@@ -26,7 +25,7 @@ export const fetchLabyrinthData = username => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ 
+      body: JSON.stringify({
         username: username,
       }),
     })
