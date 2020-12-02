@@ -3,9 +3,11 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { startFetch, actionFetch } from "../reducers/gameFetch";
 
+import { TextContainer } from '../styling/styling';
+
+
 export const StartGame = () => {
-  // const userName = useSelector((store) => store.gameState.userName);
-  const gameState = useSelector((store) => store.gameState.gameDetails);
+  const gameDetails = useSelector((store) => store.gameState.gameDetails);
   const dispatch = useDispatch();
 
   const onGameStart = () => {
@@ -13,25 +15,25 @@ export const StartGame = () => {
   };
 
   const onNextMove = (direction) => {
-    dispatch(actionFetch(gameState.userName, direction));
+    dispatch(actionFetch(gameDetails.userName, direction));
   };
 
   return (
-    <>
-      {!gameState.coordinates && (
+    <TextContainer>
+      {!gameDetails.coordinates && (
         <>
-          <div>Welcome {gameState.userName}! </div>
+          <div>Welcome {gameDetails.userName}! </div>
           <button onClick={onGameStart}>Start game</button>
         </>
       )}
 
-      {gameState.coordinates &&
-        gameState.coordinates !==
+      {gameDetails.coordinates &&
+        gameDetails.coordinates !==
           "1,3" && (
             <>
-              <p>{gameState.description}</p>
+              <p>{gameDetails.description}</p>
               <p>Possible actions:</p>
-              {gameState.actions.map((action, index) => (
+              {gameDetails.actions.map((action, index) => (
                 <div key={index}>
                   <p>{action.description}</p>
                   <button onClick={() => onNextMove(action.direction)}>
@@ -41,12 +43,12 @@ export const StartGame = () => {
               ))}
             </>
           )}
-      {gameState.coordinates === "1,3" && (
+      {gameDetails.coordinates === "1,3" && (
         <>
-          <p>{gameState.description}</p>
+          <p>{gameDetails.description}</p>
           <p>Congratulations, you finished the game!</p>
         </>
       )}
-    </>
+    </TextContainer>
   );
 };

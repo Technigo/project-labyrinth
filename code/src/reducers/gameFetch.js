@@ -7,7 +7,7 @@ export const startFetch = () => {
     fetch("https://wk16-backend.herokuapp.com/start", {
       method: "POST",
       headers: { "Content-Type": "application/JSON" },
-      body: JSON.stringify({ username: "TechnigoPlayer" }),
+      body: JSON.stringify({ username: "TechnigoPlayer1" }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -23,7 +23,7 @@ export const actionFetch = (userName, direction) => {
       method: "POST",
       headers: { "Content-Type": "application/JSON" },
       body: JSON.stringify({
-        username: "TechnigoPlayer",
+        username: "TechnigoPlayer1",
         type: "move",
         direction,
       }),

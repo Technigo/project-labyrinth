@@ -28,7 +28,7 @@ export const gameState = createSlice({
     //coordinates: "",
     // description: "",
     // actions: [],
-    userName: "Technigo player",
+    userName: "Technigo player5",
   },
   reducers: {
     startGame: (state, action) => {

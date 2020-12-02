@@ -5,6 +5,8 @@ import { gameState } from "./reducers/gameState";
 // import { gameFetch } from './reducers/gameFetch'
 
 import { StartGame } from "./components/StartGame";
+import { BackgroundContainer } from './styling/styling';
+
 
 const reducer = combineReducers({ gameState: gameState.reducer });
 const store = configureStore({ reducer });
@@ -12,7 +14,9 @@ const store = configureStore({ reducer });
 export const App = () => {
   return (
     <Provider store={store}>
-      <StartGame />
+      <BackgroundContainer>
+        <StartGame />
+      </BackgroundContainer>
     </Provider>
   );
 };
