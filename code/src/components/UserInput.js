@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { game } from "reducers/game";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 
 import { Button } from "lib/Button";
