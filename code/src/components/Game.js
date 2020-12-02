@@ -61,7 +61,7 @@ export const Game = () => {
 		<Container style={{ marginTop: 100, paddingTop: 100, maxWidth: 700 }}>
 			{showStart && (
 				<StartForm>
-					<Discription>Enter you name to start ...</Discription>
+					<Discription>Enter you name to start...</Discription>
 					<form  onSubmit={() => onStart()}>
 						<TextField
 							variant='filled' 
@@ -88,7 +88,7 @@ export const Game = () => {
 			{loader && (
 				<Box display="flex" justifyContent="center">
 					<CircularProgress/>
-					<Discription>Loading...</Discription>
+					<p>LOADING...</p>
 				</Box>
 			)}
 
