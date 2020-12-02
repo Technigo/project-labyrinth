@@ -33,11 +33,11 @@ const GameControls = () => {
       <HeaderText>{gameState.description}</HeaderText>
         {!loader && gameArray && (gameArray.map((item, index) => {
             return (
-              <ActionWrapper>
-              <MainText>{item.description}</MainText>
-              <Button onClick={() => onChooseDirection(item.direction)} key={index}>
-                Go {item.direction}
-              </Button>  
+              <ActionWrapper key={index}>
+                <MainText>{item.description}</MainText>
+                <Button onClick={() => onChooseDirection(item.direction)}>
+                  Go {item.direction}
+                </Button>  
               </ActionWrapper>          
               )
             })
