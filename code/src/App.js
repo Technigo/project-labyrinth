@@ -6,7 +6,7 @@ import { game } from './reducers/game'
 import { ui } from './reducers/ui'
 
 import { Header } from './components/Header'
-import { LoadingIndicator } from './components/LoadingIndicator'
+// import { LoadingIndicator } from './components/LoadingIndicator'
 import { Card } from './lib/Card'
 import { Main } from './components/Main'
 
@@ -20,7 +20,7 @@ export const App = () => {
     <Provider store={store}>
       <Header />
       <Main>
-      <LoadingIndicator />
+      {/* <LoadingIndicator /> */}
       <Card />
       </Main>
     </Provider>

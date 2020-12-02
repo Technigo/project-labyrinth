@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro'
-
+// This should maybe be moved into lib-folder since it is only styling
 export const Main = styled.main`
     display: grid;
     grid-template-rows: min-content;

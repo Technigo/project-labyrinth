@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import { UserInput } from '../components/UserInput'
 import { StartGame } from '../components/StartGame'
 import { TheLabyrinth } from '../components/TheLabyrinth'
+import { LoadingIndicator } from 'components/LoadingIndicator'
 // import { Button } from './Button'
 
 export const CardContainer = styled.section`
@@ -13,6 +14,8 @@ export const CardContainer = styled.section`
               0px 1px 1px 0px rgba(0, 0, 0, 0.14), 
               0px 1px 3px 0px rgba(0,0,0,.12);
   width: 100%;
+  //width: 100vw;
+  height: auto;
   margin-bottom: 10px;
   `
 
@@ -23,13 +26,10 @@ const Text = styled.p`
 
 export const Card = () => {
   const gamePlay = useSelector(state => state.game.all)
-
+  
   console.log(gamePlay) // remove later
   console.log(gamePlay.actions) // remove later
   
-
-  // && setLoading(false)
-
   if (!gamePlay.data) {
   return (
     <CardContainer>
@@ -37,16 +37,6 @@ export const Card = () => {
       {!gamePlay.description && <Text>Start game!</Text>}
       <UserInput />
       <StartGame />
-
-      {/* // this renders the description text
-      {gamePlay.description && <Text>{gamePlay.description}</Text>}
-      
-      {!gamePlay.description && <Button><Text>Start game</Text></Button>}
-      
-      {gamePlay.description &&  gamePlay.actions.map(item => {
-      return (
-      <Button key={item.direction}>{item.direction}</Button> */}
-      {/* })} */}
     </CardContainer>
   )} else {
     return (
