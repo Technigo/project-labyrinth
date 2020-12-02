@@ -11,10 +11,10 @@ export const RoomList = () => {
   const startGame = useSelector((store) => store.game.isGameStarted)
 
   return (
-    <div>
+    <section>
       {!startGame && <StartRoom />}
       <GameRoom />
       <LoadingIndicator />
-    </div>
+    </section>
   );
 };
