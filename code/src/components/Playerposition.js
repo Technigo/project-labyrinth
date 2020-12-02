@@ -22,7 +22,7 @@ export const Playerposition = () => {
 
     return(
         <MyPosition>
-        ❌
+            <span role="img" aria-label="location">❌</span>
         </MyPosition>
     )
 
