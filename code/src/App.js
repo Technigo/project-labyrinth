@@ -5,7 +5,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { game } from './reducers/game'
 import { ui } from './reducers/ui'
 
-import { GameBackground } from './components/GameBackground'
+//import { GameBackground } from './components/GameBackground'
 import { Header } from './components/Header'
 import { Main } from './components/Main'
 import { Card } from './lib/Card'
@@ -19,14 +19,13 @@ const store = configureStore({ reducer })
 export const App = () => {
   return (
     <Provider store={store}>
-      
+      {/* <GameBackground>  */}
       <Header />
       <Main>
       <Card />
       </Main>
-      <GameBackground> 
+      {/* </GameBackground> */}
       <Footer/>
-      </GameBackground>
     </Provider>
   )
 }
