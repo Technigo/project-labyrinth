@@ -27,12 +27,10 @@ const StartControls = () => {
           placeholder='Input your name' 
           onChange={event => onChangeEvent(event.target.value)}>
         </TextInput>
-        <Button 
-            type='submit'>
-            Start the game
-          </Button>
+        <Button type='submit'>
+          Start the game
+        </Button>
       </Form>
-
     </Background>
   );
 };

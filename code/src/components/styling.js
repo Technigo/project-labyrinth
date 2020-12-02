@@ -54,19 +54,17 @@ border-radius: 25px;
 @media (min-width: 667px){
     width: 400px;
     margin: 40px;
-    padding: 40px;
+    padding: 15px;
   }
 `;
 
 export const TextInput = styled.input`
   padding: 12px;
-  border: none;
-  border-radius: 15px;
+  border: 1px solid grey;
+  border-radius: 5px;
   background: #E6E4E4;
   font-size: 13px;
-  align-self: center;
-  justify-self: center;
-  margin-left: 25px;
+  outline: none;
 
   @media (min-width: 667px){
     font-size: 16px;
