@@ -1,6 +1,5 @@
 import React from 'react'
-import { Provider, useSelector } from 'react-redux'
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import {  useSelector } from 'react-redux'
 
 import { StartGame } from './components/StartGame'
 import { GameState } from './components/GameState'

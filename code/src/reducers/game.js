@@ -28,7 +28,6 @@ export const game = createSlice({
 
 export const startNewGame = (username) => {
   return (dispatch) => {
-    //set loadin
     dispatch(ui.actions.setLoading(true))
     dispatch(game.actions.setUserName(username))
 
@@ -40,7 +39,6 @@ export const startNewGame = (username) => {
       .then((res) => res.json())
       .then((json) => {
         dispatch(game.actions.setGameState(json))
-        //unset loading
         dispatch(ui.actions.setLoading(false))
 
       })
@@ -68,17 +66,3 @@ export const executeAction = (username, type, direction) => {
   }
 }
 
-
-
-
-//   export const fetchTodos = () => {
-//     return (dispatch) => {
-//       dispatch(ui.actions.setLoading(true));
-//       fetch("http://jsonplaceholder.typicode.com/todos")
-//         .then((res) => res.json())
-//         .then((json) => {
-//           dispatch(todos.actions.setTodos(json));
-//           dispatch(ui.actions.setLoading(false));
-//         });
-//     };
-//   };
