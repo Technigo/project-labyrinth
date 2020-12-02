@@ -19,10 +19,7 @@ const StartGameContainer = styled.div`
   text-align: center;
   max-width: 400px;
   margin: auto;
-`;
-
-const WelcomeText = styled.h1`
-  color: white;
+  margin-top: 100px;
 `;
 
 const StartImage = styled.img`
@@ -53,7 +50,7 @@ export const StartGamePage = () => {
   return (
     <StartGameBackground>
       <StartGameContainer>
-        <WelcomeText>{`Welcome! ${globalUsername} to this Maze Game!`}</WelcomeText>
+        <h1>{`Welcome, ${globalUsername} to this Maze Game!`}</h1>
         {/* This start game button should trigger the first fetch thunk to fetch the first set of instructions
         received from the response when doing the first POST request, we send in the current username as prop
         so we can send that data on our POST request*/}

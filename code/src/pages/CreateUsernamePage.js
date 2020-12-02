@@ -15,6 +15,11 @@ const CreateUsernameBackground = styled.div`
   max-width: 1350px;
   margin: auto;
   margin-top: 100px;
+
+  // Mobile query
+  @media (max-width: 767px) {
+    margin-top: 0;
+  }
 `;
 
 const UsernameFormContainer = styled.div`
@@ -22,7 +27,6 @@ const UsernameFormContainer = styled.div`
   flex-direction: column;
   padding: 20%;
   text-align: center;
-  color: white;
   max-width: 250px;
   margin: auto;
 

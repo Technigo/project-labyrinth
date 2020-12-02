@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StartGameButton = styled.button`
   background-color: rgb(32, 8, 191);
@@ -7,4 +7,10 @@ export const StartGameButton = styled.button`
   margin-top: 20px;
   padding: 20px;
   cursor: pointer;
+
+  ${props => props.buttonwidth && css`
+    width: 200px;
+    margin: auto;
+    margin-top: 30px;
+  `}
 `;
