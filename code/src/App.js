@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Provider } from 'react-redux';
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore, createStore } from '@reduxjs/toolkit';
+import thunk from 'redux-thunk';
+import {applyMiddleware, compose} from '@reduxjs/toolkit';
 import styled from 'styled-components';
 
 // Components
@@ -11,12 +13,38 @@ import { Labyrinth } from './components/Labyrinth';
 import { labyrinth } from './reducers/labyrinth';
 import { ui } from './reducers/ui';
 
+
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const reducer = combineReducers({
   labyrinth: labyrinth.reducer,
   ui: ui.reducer,
 });
 
-const store = configureStore({ reducer });
+// Store the code
+// Retrieve the local storage and use it as initial state
+const persistedStateJSON = localStorage.getItem('reduxState');
+console.log(`persistedStateJSON: ${persistedStateJSON}`);
+let persistedState = {};
+
+if (persistedStateJSON) {
+  persistedState = JSON.parse(persistedStateJSON);
+}
+console.log(`persistedState: ${persistedState}`)
+
+// Create the store using the initial state and retrieved state
+const store = createStore(
+  reducer,
+  persistedState,
+  composeEnhancer(applyMiddleware(thunk))
+);
+
+// Store the state in local storage on any redux state change
+store.subscribe(() => {
+  localStorage.setItem('reduxStates', JSON.stringify(store.getState()));
+});
+
+//const store = configureStore({ reducer });
 // ----------------------------------------------------------------
 
 export const App = () => {
@@ -54,7 +82,8 @@ const Container = styled.section`
       ? `#f5d282`
       : `#fff`};
   color: ${({ coordinates }) =>
-    coordinates === '0,1' // Set background color depending on coordinates
+    coordinates === '0,1' // Set text color depending on coordinates, 
+    //to match the background color
       ? `#fff`
       : coordinates === '0,2'
       ? `#fff`

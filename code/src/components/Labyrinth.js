@@ -54,10 +54,13 @@ export const Labyrinth = ({ setCurrentCoordinates }) => {
             )}
           </>
           }
-          {/* Descriptive text */}
+
+          {/* Nice picture when coming to the end! */}
           {content.coordinates === '1,3' &&  (
             <TreasureImage src='https://images.unsplash.com/photo-1449049607083-e29383d58423?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fHRyZWFzdXJlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'/>
-            )}
+          )}
+
+          {/* Descriptive text */}
           <DescriptionText>{content.description}</DescriptionText>
 
           {/* Coordinates */}
