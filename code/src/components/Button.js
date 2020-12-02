@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
+// Components
 import { MainButton } from '../styling/GlobalStyles';
 
 // ----------------------------------------------------------------

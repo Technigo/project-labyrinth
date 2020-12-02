@@ -2,6 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
+// ----------------------------------------------------------------
+
 export const DirectionButtons = ({ direction, action }) => {
   const dispatch = useDispatch();
   return (
@@ -9,12 +11,17 @@ export const DirectionButtons = ({ direction, action }) => {
       onClick={(event) => dispatch(action(event))}
       direction={direction}
     >
-      <Arrow role="img" aria-label={direction + `-arrow`} direction={direction}>
+      <Arrow 
+        role='img'
+        aria-label={direction + `-arrow`} 
+        direction={direction}>
         ➤
       </Arrow>
     </DirectionButton>
   );
 };
+
+// ----------------------------------------------------------------
 
 const Arrow = styled.span`
   display: inline-block;

@@ -9,10 +9,7 @@ import { fetchDirectionData, fetchLabyrinthData } from '../reducers/labyrinth';
 import { Button } from './Button';
 import { NameInput } from './NameInput';
 import { DirectionButtons } from './DirectionButtons';
-import {
-  InnerFlexWrapper,
-  OuterFlexWrapper,
-} from '../styling/GlobalStyles';
+import { InnerFlexWrapper, OuterFlexWrapper } from '../styling/GlobalStyles';
 
 // ----------------------------------------------------------------
 

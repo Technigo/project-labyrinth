@@ -21,8 +21,7 @@ export const labyrinth = createSlice({
   },
 });
 
-
-export const fetchLabyrinthData = (username) => {
+export const fetchLabyrinthData = username => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
     fetch('https://wk16-backend.herokuapp.com/start', {

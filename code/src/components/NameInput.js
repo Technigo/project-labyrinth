@@ -3,9 +3,10 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
 // Components
-import { labyrinth } from 'reducers/labyrinth';
-
 import { MainButton } from '../styling/GlobalStyles';
+
+// Reducer
+import { labyrinth } from 'reducers/labyrinth';
 
 // ----------------------------------------------------------------
 
