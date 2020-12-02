@@ -5,7 +5,7 @@ import { game } from '../reducers/game';
 import { chooseDirection, StartGame } from '../reducers/fetch';
 
 import styled from 'styled-components';
-import { Button, Background, ButtonWrapper, MainText, History } from './styling';
+import { Button, Background, ActionWrapper, MainText, HeaderText, History } from './styling';
 import Loader from './Loader';
 
 const GameControls = () => {
@@ -32,20 +32,22 @@ const GameControls = () => {
     {loader && <Loader />}
     <Background>
       
-      <MainText>{gameState.description}</MainText>
-      
-      <ButtonWrapper>
+      <HeaderText>{gameState.description}</HeaderText>
+    
         {!loader && gameArray && (gameArray.map((item, index) => {
             return (
+              <ActionWrapper>
+              <MainText>{item.description}</MainText>
               <Button onClick={() => onChooseDirection(item.direction)} key={index}>
                 <p>Go {item.direction}</p>
-              </Button>            
+              </Button>  
+              </ActionWrapper>          
               )
             })
           )
           }
           {gameState.coordinates === '1,3' && <Button onClick={() => restartGame()}>Restart game</Button>}
-        </ButtonWrapper>
+       
 
       {history.length > 0 && <MainText>Your journey</MainText>}
         <History>{history.map((item, index) => {

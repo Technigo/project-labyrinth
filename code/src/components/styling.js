@@ -9,6 +9,9 @@ font-size: 18px;
   }
 `;
 
+export const HeaderText = styled.h1`
+`;
+
 export const Button = styled.button`
 border: none;
 margin: 10px;
@@ -65,8 +68,22 @@ export const TextInput = styled.input`
   }
   `;
 
-export const ButtonWrapper = styled.div`
+export const ActionWrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  border: 2px solid #FAF9F9;
+  background-color: #FAF9F9;
+  width: 80%;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 25px;
+  align-items: center;
+  justify-content: center; 
+  text-align: center; 
+
+  @media (min-width: 667px){
+    width: 50%;
+  }
 `;
 
 export const Background = styled.section`
@@ -74,6 +91,7 @@ export const Background = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center; 
+  text-align: center; 
   
   @media (min-width: 667px){
   }
