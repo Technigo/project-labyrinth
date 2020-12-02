@@ -1,27 +1,46 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
-import { fetchDirectionData } from "../reducers/labyrinth";
+import { fetchLabyrinthData, fetchDirectionData } from "../reducers/labyrinth";
 
 import { PlayerInput } from "./PlayerInput"
-import { FetchLabyrinthButton } from "./FetchLabyrinthButton";
+import { StartLabyrinthButton } from "./StartLabyrinthButton";
 import { DirectionButton } from "./DirectionButtons";
 
 export const LabyrinthGame = ({ setGameCoordinates }) => {
   const description = useSelector((store) => store.labyrinth.content);
   const loading = useSelector((state) => state.ui.loading);
+  const username = useSelector((store) => store.labyrinth.content);
+
+  const [startButtonVisible, setStartButtonVisible] = useState(false);
+  const [nameInputVisible] = useState(true);
+
+  setGameCoordinates(description.coordinates);
 
   return (
     loading === false && (
       <section>
-        <FetchLabyrinthButton />
+        {/*Player-input*/}
+        {nameInputVisible && (
+          <PlayerInput setStartButtonVisible={setStartButtonVisible} />
+        )}
+      {startButtonVisible && (
+        <div>
+          <p>Hello</p>
+          <StartLabyrinthButton 
+            action={() => fetchLabyrinthData(username)}
+            text="Start"
+          />
+        </div>
+      )}
+
         <p>{description.description}</p>
         {description.coordinates && (
           <p>Coordinates:{description.coordinates}</p>
         )}
 
         {
-          ///Knappar för att gå vidare
+          ///Buttons for move in different directions
           description.coordinates &&
             description.actions.map((action) => (
               <>

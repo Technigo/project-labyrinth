@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import { fetchLabyrinthData } from "reducers/labyrinth";
 
-export const FetchLabyrinthButton = () => {
+export const StartLabyrinthButton = () => {
   const dispatch = useDispatch();
 
   return (
