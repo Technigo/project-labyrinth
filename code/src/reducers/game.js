@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const game = createSlice({
     name: 'game',
     initialState: {
+        username: '',
         direction: {},
         history: []
     },
@@ -11,8 +12,11 @@ export const game = createSlice({
             // Check if quote from Redux store is not empty object.
             // If it is, do not push empty object to history array
             // If it is not, do it
-           
+        
             state.direction = action.payload;   
+        },
+        updateUserName: (state, action) => {
+            state.username = action.payload;
         },
         generateDirection: (state, action) => {
             // Check if quote from Redux store is not empty object.
