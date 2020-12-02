@@ -18,7 +18,7 @@ export const generateStartMove = () => {
   }
 }
 
-export const generateActionMove = () => {
+export const generateActionMove = (type, direction) => {
   const ACTION_URL='https://wk16-backend.herokuapp.com/action'
 
   return (dispatch) => {
@@ -27,8 +27,8 @@ export const generateActionMove = () => {
       headers: { "Content-Type": "application/json" },//tells the server that this is json
       body: JSON.stringify({//turns json in to text
         username: "starGirl",
-        type: "move",
-        direction: "East"
+        type: type,
+        direction: direction
       })
     })
       .then(res => res.json())

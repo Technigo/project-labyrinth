@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
-import { GameControl } from './components/GameControl'
+import { GameStart } from './components/GameStart'
 import { GameContainer } from './components/GameContainer'
 import { game } from './reducers/game'
 
@@ -13,7 +13,7 @@ export const App = () => {
   return (
     <Provider store={store}>
       <GameContainer/>
-      <GameControl />
+      <GameStart />
     </Provider>
   )
 }

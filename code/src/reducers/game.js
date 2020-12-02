@@ -10,6 +10,12 @@ export const game = createSlice({
     },
 
 reducers: {
+    /*generateStart: (state, action) => {
+        state.gameinfo = action.payload 
+        console.log(state.gameinfo)
+    },*/
+
+
     generateDirection: (state, action) => {
         state.gameinfo = action.payload
         console.log(state.gameinfo)

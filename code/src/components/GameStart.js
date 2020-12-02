@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { game } from '../reducers/game'
 import { generateStartMove } from '../reducers/fetch'
 
-export const GameControl = () => {
+export const GameStart = () => {
   const dispatch = useDispatch()
 
   const onGameGenerate = () => {

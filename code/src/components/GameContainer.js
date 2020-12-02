@@ -8,20 +8,22 @@ export const GameContainer = () => {
 
   const game = useSelector((store) => store.game.gameinfo);
 
-  const onActionMoveGenerate = () => {
-    dispatch(generateActionMove())
+  const onActionMoveGenerate = (direction, type) => {
+    dispatch(generateActionMove(direction, type))
   }
 
   return (
     <div>
-      <div>{game.description}</div>
+      <h2>{game.description}</h2>
       {console.log(game.actions)}
       {game.actions.map((item) => (
         <div>
           <p>{item.description}</p>
-          <button onClick={onActionMoveGenerate}>{item.direction}</button>
+          <button onClick={()=> onActionMoveGenerate(item.type, item.direction)}>Go {item.direction}</button> 
         </div>
       ))}
     </div>
   );
 };
+
+//If action [] than make refresh button appear
