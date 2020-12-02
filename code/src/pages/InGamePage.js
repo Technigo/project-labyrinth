@@ -5,13 +5,14 @@ import styled from 'styled-components';
 import { fetchSecondaryInstructions, gamestate } from 'reducers/gamestate';
 
 import { EndGamePage } from 'pages/EndGamePage';
+import { StartGameButton } from 'styled-components/StartGameButton';
+
 import cave from '../assets/00.png';
 import workshop from '../assets/01.png';
 import colorroom from '../assets/02.png';
 import books from '../assets/03.png';
 import light from '../assets/10.png';
 import colorful from '../assets/11.png';
-import { StartGameButton } from 'styled-components/StartGameButton';
 
 const InGameMainDiv = styled.div`
   display: flex;

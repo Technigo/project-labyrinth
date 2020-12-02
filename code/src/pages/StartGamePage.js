@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 import { fetchInitialInstructions } from 'reducers/gamestate';
-
 import { InGamePage } from 'pages/InGamePage';
 
 import { StartGameButton } from 'styled-components/StartGameButton';
