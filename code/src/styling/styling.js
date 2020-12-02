@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import backgroundImage from "img/dungeon.jpg";
+import backgroundImage from "img/creepy_treehouse.png";
 
 // Global styling goes here
 
@@ -16,6 +16,18 @@ export const BackgroundContainer = styled.main`
  justify-content: center;
  
 `;
+
+export const Button = styled.button`
+   background: #0d71b9;
+   border-radius: 5px;
+   padding-bottom: 5px;
+   color: #fff;
+   font-size: 20px;
+   font-family: 'Texturina', serif
+`
+export const Text = styled.h2`
+  font-size: 25px;
+`
 
 export const TextContainer = styled.section`
   background: #000000;

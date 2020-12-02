@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { startFetch, actionFetch } from "../reducers/gameFetch";
 
-import { TextContainer } from '../styling/styling';
+import { TextContainer, Button, Text } from '../styling/styling';
 
 
 export const StartGame = () => {
@@ -22,8 +22,8 @@ export const StartGame = () => {
     <TextContainer>
       {!gameDetails.coordinates && (
         <>
-          <div>Welcome {gameDetails.userName}! </div>
-          <button onClick={onGameStart}>Start game</button>
+          <Text>Welcome {userName}! </Text>
+          <Button onClick={onGameStart}>Start game</Button>
         </>
       )}
 
@@ -36,9 +36,9 @@ export const StartGame = () => {
               {gameDetails.actions.map((action, index) => (
                 <div key={index}>
                   <p>{action.description}</p>
-                  <button onClick={() => onNextMove(action.direction)}>
+                  <Button onClick={() => onNextMove(action.direction)}>
                     Move {action.direction}
-                  </button>
+                  </Button>
                 </div>
               ))}
             </>
@@ -52,3 +52,6 @@ export const StartGame = () => {
     </TextContainer>
   );
 };
+
+
+
