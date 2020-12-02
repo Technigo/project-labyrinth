@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable comma-dangle */
 /* eslint-disable quotes */
 /* eslint-disable no-unused-vars */
@@ -56,7 +57,10 @@ export const fetchNext = (User, direction) => {
     fetch(NEXT_API, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username: User, type: "move", direction: direction }),
+      body: JSON.stringify({
+        username: User,
+        type: "move",
+        direction: direction }),
     })
       .then((res) => res.json())
       .then((json) => {
