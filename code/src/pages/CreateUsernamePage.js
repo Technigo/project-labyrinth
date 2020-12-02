@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import { gamestate } from 'reducers/gamestate';
 import { StartGamePage } from './StartGamePage';
 
+import { StartGameButton } from 'styled-components/StartGameButton';
+
 const CreateUsernameBackground = styled.div`
   background-image: url("https://walterbaiamonte.files.wordpress.com/2015/11/cabinet1.gif?w=372");
   background-size: cover;
@@ -33,15 +35,6 @@ const UsernameFormContainer = styled.div`
   @media (min-width: 769px) and (max-width: 1024px) {
     padding-top: 270px;    
   }
-`;
-
-const UsernameButton = styled.button`
-  background-color: rgb(32, 8, 191);
-  color: white;
-  font-family: 'Press Start 2P', cursive;
-  margin-top: 20px;
-  padding: 20px;
-  cursor: pointer;
 `;
 
 // In this component there is a text input field for the user to enter a username
@@ -80,7 +73,7 @@ export const CreateUsernamePage = () => {
                 onChange={(event) => setUsername(event.target.value)}
                 />
             </label>
-            <UsernameButton type="submit">Create Username</UsernameButton>
+            <StartGameButton type="submit">Create Username</StartGameButton>
           </form>
       </UsernameFormContainer>
     </CreateUsernameBackground>
