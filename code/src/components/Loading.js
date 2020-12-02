@@ -18,7 +18,8 @@ export const Loading = () => {
 // -----------------------------------------------------------------------
 
 const LoadingWrapper = styled.div`
-  margin: 0;
+  height: 100vh;
+  background: none;
   display: flex;
   align-items: center;
   justify-content: center;

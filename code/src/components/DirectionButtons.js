@@ -17,6 +17,7 @@ export const DirectionButtons = ({ direction, action }) => {
         direction={direction}>
         ➤
       </Arrow>
+      <DirectionText direction={direction}>Go {direction}</DirectionText> 
     </DirectionButton>
   );
 };
@@ -26,7 +27,6 @@ export const DirectionButtons = ({ direction, action }) => {
 const Arrow = styled.span`
   display: inline-block;
   font-size: 45px;
-  margin-top: 20px;
   transform: ${(props) =>
     props.direction === 'North'
       ? `rotate(-90deg)`
@@ -47,18 +47,27 @@ const DirectionButton = styled.button`
   margin: 0;
   padding: 0;
   position: fixed;
+  display: ${(props) => props.direction === 'East' || props.direction === 'West' ? 'flex' : ''};
+  flex-direction: ${(props) => props.direction === 'East' ? 'row-reverse' : props.direction === 'West' ? 'row' : ''};
+  align-items: center;
+  justify-content: center; 
+  
   transform: translateY(-50%); // To center vertically
   top: ${(props) =>
     props.direction === 'North'
-      ? '30px'
+      ? '70px'
       : props.direction === 'East' || props.direction === 'West'
-      ? 'calc(50%)'
+      ? '50%'
       : ''};
-  bottom: ${(props) => (props.direction === 'South' ? '20px' : '')};
+  bottom: ${(props) => (props.direction === 'South' ? '-30px' : '')};
   left: ${(props) => (props.direction === 'West' ? '20px' : '')};
   right: ${(props) => (props.direction === 'East' ? '20px' : '')};
 
   &:hover {
     cursor: pointer;
   }
+`;
+
+const DirectionText = styled.p`
+transform: ${(props)=> (props.direction === 'East' ? 'rotate(90deg)': props.direction === 'West' ? 'rotate(-90deg)':'')}
 `;

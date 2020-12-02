@@ -5,19 +5,19 @@ NEXT UP:
 [X] Hide start-button after step 1
 [X] Create a restart-button
 [X] Fix Loading (blue)
-[ ] Style page (blue)
 
+[ ] Style page (blue)
+[ ] Set up local store
+[ ] Text vid knapp om direction samt beskrivning
 ---
 
 Red level:
-[ ] Create history array + button
 
 
 Extras:
 [ ] Combine the 2 thunk-functions into one (They look the same)
 [ ] Maybe a typewriter-function for the text?
 
-[ ] Find different conditional thingy for rendering button
 ----------------------------------------------------------------
 
 Coordinates:

@@ -1,18 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ui } from './ui';
 
+const initialContent = localStorage.getItem('labyrinth')
+  ? JSON.parse(localStorage.getItem('labyrinth'))
+  : {};
+  console.log(initialContent)
+
 export const labyrinth = createSlice({
   name: 'labyrinth',
   initialState: {
     username: '',
-    content: {},
-    history: [],
+    content: {}
   },
   reducers: {
     setLabyrinthData: (state, action) => {
-      if (state.content.description) {
-        state.history = [...state.history, state.content];
-      }
       state.content = action.payload;
     },
     setUsername: (state, action) => {
@@ -35,6 +36,7 @@ export const fetchLabyrinthData = username => {
     })
       .then((results) => results.json())
       .then((json) => {
+        localStorage.setItem('labyrinth', JSON.stringify(json));
         dispatch(labyrinth.actions.setLabyrinthData(json));
         dispatch(ui.actions.setLoading(false));
       });
@@ -57,6 +59,7 @@ export const fetchDirectionData = ({ direction, username }) => {
     })
       .then((results) => results.json())
       .then((json) => {
+        localStorage.setItem('labyrinth', JSON.stringify(json));
         dispatch(labyrinth.actions.setLabyrinthData(json));
         dispatch(ui.actions.setLoading(false));
       });

@@ -15,6 +15,8 @@ import { InnerFlexWrapper, OuterFlexWrapper } from '../styling/GlobalStyles';
 
 export const Labyrinth = ({ setCurrentCoordinates }) => {
   const content = useSelector((store) => store.labyrinth.content);
+  //const localContent = localStorage.getItem('labyrinth')
+  //console.log(localContent)
   const username = useSelector((store) => store.labyrinth.username);
   const isLoading = useSelector((state) => state.ui.isLoading);
 
@@ -69,8 +71,9 @@ export const Labyrinth = ({ setCurrentCoordinates }) => {
             {/* Direction-buttons ---- conditionally rendering on the coordinates */}
             {content.coordinates !== undefined &&
               content.actions.map((action) => (
+                    
+                <div key={action.description}>
                   <DirectionButtons
-                    key={action.description}
                     direction={action.direction}
                     action={() =>
                       fetchDirectionData({
@@ -78,18 +81,9 @@ export const Labyrinth = ({ setCurrentCoordinates }) => {
                         username: username,
                       })
                     }
-                  />
-                // <Button
-                //   action={() =>
-                //     fetchDirectionData({
-                //       direction: action.direction,
-                //       username: username,
-                //     })
-                //   }
-                //   text={`Go ${action.direction}`}
-                //   key={action.description}
-                // />
-                
+                />  
+                {/* <p>{action.description}</p> */}
+                </div>
               ))}
           </InnerFlexWrapper>      
           
