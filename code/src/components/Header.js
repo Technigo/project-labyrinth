@@ -6,7 +6,8 @@ import { game } from "reducers/game";
 import { Button } from "lib/Button";
 
 const Wrapper = styled.section`
-display: flex
+  display: flex
+  
 `
 
 const Title = styled.h1`
@@ -22,9 +23,9 @@ export const Header = () => {
 
   return (
     <Wrapper>
-    <Title>ADVENTURE TIME</Title>
-    <Button onClick={onHistoryBack}>
-      Go back
+      <Title>ADVENTURE TIME</Title>
+      <Button onClick={onHistoryBack}>
+        Go back
     </Button>
     </Wrapper>
   )
