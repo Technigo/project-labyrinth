@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components/macro"
 
-import myImage from '../media/skull_head.png'
+import myImage from '../assets/skull_head.png'
 
 
 const Img = styled.img`
