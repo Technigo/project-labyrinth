@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components/macro";
 
-import { MainWrapper } from "./Welcome";
 import { Loading } from "./Loading";
 import { Button } from "../lib/Button";
 import { game } from "../reducers/game";
@@ -58,7 +57,7 @@ export const Labyrinth = () => {
               <InstructionText>Choose your next direction:</InstructionText>
             ) : (
               <InstructionText>
-                Congratulations you have completed the Labyrinth
+                Congratulations you have completed the Labyrinth!
               </InstructionText>
             )}
           </TopSection>
