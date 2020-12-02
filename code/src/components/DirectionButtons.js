@@ -18,7 +18,8 @@ export const DirectionButtons = ({ direction, action }) => {
 
 const Arrow = styled.span`
   display: inline-block;
-  font-size: 55px;
+  font-size: 45px;
+  margin-top: 20px;
   transform: ${(props) =>
     props.direction === 'North'
       ? `rotate(-90deg)`
@@ -28,8 +29,8 @@ const Arrow = styled.span`
       ? `rotate(90deg)`
       : `rotate(180deg)`};
 
-  @media (max-width: 320px) {
-    font-size: 40px;
+  @media (min-width: 580px) {
+    font-size: 60px;
   }
 `;
 
@@ -42,7 +43,7 @@ const DirectionButton = styled.button`
   transform: translateY(-50%); // To center vertically
   top: ${(props) =>
     props.direction === 'North'
-      ? '20px'
+      ? '30px'
       : props.direction === 'East' || props.direction === 'West'
       ? 'calc(50%)'
       : ''};

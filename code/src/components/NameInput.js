@@ -59,7 +59,3 @@ const LabelWrapper = styled.label`
 const Input = styled.input`
   margin: 30px 0;
 `;
-
-const Button = styled.button`
-  margin: auto;
-`;

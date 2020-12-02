@@ -41,7 +41,7 @@ const Container = styled.section`
   position: relative;
   background: ${({ coordinates }) =>
     coordinates === '0,0' // Set background color depending on coordinates
-      ? `#fff`
+      ? `#f5f5f5`
       : coordinates === '0,1'
       ? `#383838`
       : coordinates === '0,2'
@@ -53,4 +53,10 @@ const Container = styled.section`
       : coordinates === '1,1'
       ? `#f5d282`
       : `#fff`};
+  color: ${({ coordinates }) =>
+    coordinates === '0,1' // Set background color depending on coordinates
+      ? `#fff`
+      : coordinates === '0,2'
+      ? `#fff`
+      : `#000`};
 `;

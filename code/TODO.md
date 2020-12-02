@@ -1,7 +1,7 @@
 
 NEXT UP:
 [X] Enter name at start (component, backgroundfunction)
-[ ] Let name input and start button disappear
+[X] Let name input and start button disappear
 [X] Hide start-button after step 1
 [X] Create a restart-button
 [X] Fix Loading (blue)

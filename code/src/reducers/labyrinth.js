@@ -6,9 +6,13 @@ export const labyrinth = createSlice({
   initialState: {
     username: '',
     content: {},
+    history: [],
   },
   reducers: {
     setLabyrinthData: (state, action) => {
+      if (state.content.description) {
+        state.history = [...state.history, state.content];
+      }
       state.content = action.payload;
     },
     setUsername: (state, action) => {
@@ -16,6 +20,7 @@ export const labyrinth = createSlice({
     },
   },
 });
+
 
 export const fetchLabyrinthData = (username) => {
   return (dispatch) => {

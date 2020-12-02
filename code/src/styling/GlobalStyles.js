@@ -25,5 +25,7 @@ export const MainButton = styled.button`
   align-items: center;
   justify-content: center;
   border: none;
-  padding: 3px 5px;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 4px;
 `;
