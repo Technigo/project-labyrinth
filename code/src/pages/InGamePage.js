@@ -148,7 +148,14 @@ export const InGamePage = () => {
       {/*This button will allow the user to go back to their previous move, it calls the onHistoryBack function which dispatches
       the historyGoBack action from our reducer. This button will only be enabled after the user has clicked past the first set
       of instructions, so when the history array is longer than 1*/}
-      <StartGameButton buttonwidth type="button" onClick={onHistoryBack} disabled={historyArrray.length === 1}>GO BACK</StartGameButton>
+      <StartGameButton 
+        buttonwidth 
+        gobackbutton 
+        type="button" onClick={onHistoryBack} 
+        disabled={historyArrray.length === 1} 
+        background={historyArrray.length === 1 ? "grey" : "rgb(32, 8, 191)"}>
+          GO BACK
+      </StartGameButton>
     </InGameMainDiv>
   );
 };

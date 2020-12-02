@@ -13,4 +13,8 @@ export const StartGameButton = styled.button`
     margin: auto;
     margin-top: 30px;
   `}
+
+  ${props => props.gobackbutton && css`
+    background-color: ${(props) => props.background};
+  `}
 `;
