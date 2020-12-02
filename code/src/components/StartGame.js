@@ -14,7 +14,7 @@ export const StartGame = () => {
 
     return(
     <>
-      <h1>Hello {playerName} press the Start button to get your first instruction</h1>
+        <h1>Hello {playerName} press the Start button to get your first instruction</h1>
         <div>
           <div>{gameState.description}</div>
           <button className="start-button" onClick={onStartGame}> Start Game!</button>

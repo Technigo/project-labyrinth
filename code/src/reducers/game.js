@@ -5,8 +5,9 @@ export const game = createSlice({
     initialState: {
         username:"",
         game: { 
-          actions: [] 
+          actions: [],
         },
+
         history: []
     },
 
@@ -15,13 +16,13 @@ export const game = createSlice({
         state.username = action.payload;
       },
 
-      startGame:(state, action) => { 
-        if (state.game.game) {
-          state.history = [...state.history, state.game];
-        }
-        state.game = action.payload;  
-        console.log(state.game) 
-      },
+      // startGame:(state, action) => { 
+      //   if (state.game.game) {
+      //     state.history = [...state.history, state.game];
+      //   }
+      //   state.game = action.payload;  
+      //   console.log(state.game) 
+      // },
 
       continueGame:(state,action) => { 
         const currentGameState = action.payload;
@@ -29,7 +30,6 @@ export const game = createSlice({
         state.game = currentGameState;
 
       },
-
 
       historyGoBack: (state, action) => {
         if (state.history.length > 0) {

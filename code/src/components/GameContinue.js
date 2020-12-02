@@ -6,27 +6,27 @@ import { generateGameProgress } from '../reducers/gameData';
 
 export const GameContinue = () => { 
   const dispatch = useDispatch(); 
-  const state = useSelector((state) => state);
-  const historyState = state.game.history;
-  const playerName =  state.game.username;
-  const actions = state.game.game.actions;
+  const CurrentState = useSelector((state) => state);
+  // const historyState = state.game.history;
+  const playerName =  CurrentState.game.username;
+  const actions = CurrentState.game.game.actions;
   
 
   const onGameContinue = () => { 
-    dispatch(generateGameProgress(playerName));
-  }
+    dispatch(generateGameProgress(playerName, actions.direction));
+  };
 
   const onGoBack = () => { 
-    dispatch(game.actions.historyGoBack())
-  }
+    dispatch(game.actions.historyGoBack());
+  };
 
   return(
     <>
-    {actions.map((action)=> 
+        <h2>{CurrentState.description}</h2>
+      {actions.map((action)=> 
       <button key={action.description} onClick={onGameContinue}>{action.direction}</button>
     )}
     <button onClick={onGoBack}>BACK </button>
     </>
-  )
-
-}
+  );
+};

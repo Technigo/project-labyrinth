@@ -13,8 +13,8 @@ export const generateStartInstructions = (playerName) => {
       body: JSON.stringify({username: playerName})
 	  })
     .then(res => res.json())
-    .then(data => {
-      dispatch(game.actions.startGame(data))
+    .then(json => {
+      dispatch(game.actions.continueGame(json))
       dispatch(ui.actions.setLoading(false))
     });
   };
@@ -23,21 +23,20 @@ export const generateStartInstructions = (playerName) => {
 const CONTINUE_URL = "https://wk16-backend.herokuapp.com/action"
 
 export const generateGameProgress = (playerName, direction) => {
-
   return (dispatch) => { 
     dispatch(ui.actions.setLoading(true))
     fetch(CONTINUE_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ 
         username: playerName,
         type: "move", 
-        direction: direction
-      })
+        direction:direction
+      }),
+      headers: { "Content-Type": "application/json" },
 	  })
     .then(res => res.json())
-    .then(data => {
-      dispatch(game.actions.continueGame(data))
+    .then(json => {
+      dispatch(game.actions.continueGame(json))
       dispatch(ui.actions.setLoading(false))
     });
   };
