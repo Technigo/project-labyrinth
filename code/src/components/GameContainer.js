@@ -6,7 +6,8 @@ import { generateActionMove } from '../reducers/fetch'
 export const GameContainer = () => {
   const dispatch = useDispatch()
 
-  const game = useSelector((store) => store.game.gameinfo);
+  const game = useSelector((store) => store.game.gameinfo)
+  console.log(game)
 
   const onActionMoveGenerate = (direction, type) => {
     dispatch(generateActionMove(direction, type))
