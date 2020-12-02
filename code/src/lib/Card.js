@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 
 import { UserInput } from '../components/UserInput'
 import { StartGame } from '../components/StartGame'
-import { TheLabyrinte } from '../components/TheLabyrinth'
+import { TheLabyrinth } from '../components/TheLabyrinth'
 // import { Button } from './Button'
 
 const CardContainer = styled.section`
@@ -12,8 +12,14 @@ const CardContainer = styled.section`
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 
               0px 1px 1px 0px rgba(0, 0, 0, 0.14), 
               0px 1px 3px 0px rgba(0,0,0,.12);
-  width: 400px;
+  width: 100%;
   height: 400px;
+
+  @media (min-width: 768px) {
+    grid-column: 1;
+    max-width: 600px;
+  }
+
   `
 
 const Text = styled.p`
@@ -26,9 +32,6 @@ export const Card = () => {
 
    console.log(gamePlay)
   console.log(gamePlay.actions)
-  
-
-
 
   if (!gamePlay.data) {
   return (
@@ -51,7 +54,7 @@ export const Card = () => {
   )} else {
     return (
       <CardContainer>
-        <TheLabyrinte/>
+        <TheLabyrinth/>
       </CardContainer>
     )
   }

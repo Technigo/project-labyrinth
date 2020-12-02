@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Button } from '../lib/Button'
 import { fetchActionData } from '../reducers/thunk'
 
-export const TheLabyrinte = () => {
+export const TheLabyrinth = () => {
   const gameData = useSelector(state => state.game.all.data)
   const username = useSelector(state => state.game.username)
 
