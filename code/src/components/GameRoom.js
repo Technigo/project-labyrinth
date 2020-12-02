@@ -7,6 +7,8 @@ import {GameOver} from "./GameOver"
 import {game} from '../reducers/game'
 
 import forest from '../img/forest.jpg'
+import nature from '../img/nature.jpg'
+
 
 import styled from 'styled-components'
 
@@ -30,7 +32,7 @@ export const GameRoom = () => {
     if (gameData.coordinates === "0,0") {
       return forest;
     } else if (gameData.coordinates === "0,1") {
-      return forest;
+      return nature;
     } else if (gameData.coordinates === "0,2") {
       return forest;
     } else if (gameData.coordinates === "0,3") {
@@ -49,9 +51,9 @@ export const GameRoom = () => {
   }
   return (
     <GameImage style={{backgroundImage: `url(${gameImages()})`}}>
-       <p>{gameData.description}</p>
+       <Description>{gameData.description}</Description>
+       
       {arrayGame &&
-        
         arrayGame.map((item, index) => {
           return (
             <div>
@@ -61,9 +63,12 @@ export const GameRoom = () => {
               <p>{item.description}</p>
             </div>
           );
-        })}   
-        <button type="button" onClick={onHistoryBack} disabled={historyGame.length === 1} background={historyGame.length === 1 ? "grey" : "rgb(32, 8, 191)"}>back</button>
+        })} 
+        <BackButton>
+        <button type="button" onClick={onHistoryBack} disabled={historyGame.length === 1} background={historyGame.length === 1 ? "grey" : "rgb(32, 8, 191)"}>BACK</button>
+    </BackButton>  
     </GameImage>
+    
   );
 }
 const GameImage = styled.div`
@@ -81,4 +86,19 @@ const GameImage = styled.div`
       height: 1000px;
       margin-top: 0;
     }
+`;
+
+const Description = styled.h3`
+  justify-content:center;
+`;
+
+export const BackButton = styled.button`
+  font-size: 40px;
+  color: white;
+  font-family: 'Inconsolata', monospace;
+  margin-top: 20px;
+  padding: 20px;
+  cursor: pointer;
+  border: none;
+  }
 `;
