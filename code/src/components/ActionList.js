@@ -1,11 +1,16 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+
+import { nextPosition } from '../reducers/reusable'
 
 export const ActionList = () => {
 
   const actions = useSelector(store => store.game.gameState.actions)
+  const userName = useSelector(store => store.game.userName)
+  const dispatch = useDispatch()
 
-  const onAction = () => {
+  const onAction = (action) => {
+    dispatch(nextPosition(action, userName))
   }
 
   return (
@@ -14,7 +19,7 @@ export const ActionList = () => {
         return (
           <>
             <p>{item.description}</p>
-            <button onClick={onAction}>Go {item.direction}</button>
+            <button onClick={() => onAction(item)}>Go {item.direction}</button>
           </>
         )
       })}
