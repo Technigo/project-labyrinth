@@ -74,9 +74,7 @@ export const TheLabyrinth = () => {
         <RoomDescription>"{gameData.description}"</RoomDescription>
         </DescriptionWrapper>
         </ImageAndDescriptionWrapper>
-        <p>Maybe this should not be laying here though? You chose to go: {gameData.direction}</p>
-        {/* //this was originally in Card */}
-        {/* // The mapfunction needs to have a key */}
+        {/*//<p>Maybe this should not be laying here though? You chose to go: {gameData.direction}</p>*/}
       </CardContainer>
       <Wrapper>
         {gameData.actions.map(item => (

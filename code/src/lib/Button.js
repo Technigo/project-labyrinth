@@ -7,8 +7,7 @@ import styled from "styled-components/macro"
 // import { fetchGameData, fetchActionData } from '../reducers/thunk'
 
 export const Button = styled.button`
-  width: 100px;
-  height: 70px;
+
   border-radius: 4px;
   box-sizing: content-box;
 `
