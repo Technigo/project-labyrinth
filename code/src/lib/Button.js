@@ -1,6 +1,19 @@
+import React from "react";
 import styled from "styled-components/macro";
 
-export const Button = styled.button`
+export const Button = ({ text, onButtonClick, buttonDisabled, buttonType }) => {
+  return (
+    <ButtonB
+      onClick={onButtonClick}
+      disabled={buttonDisabled}
+      type={buttonType}
+    >
+      {text}
+    </ButtonB>
+  );
+};
+
+const ButtonB = styled.button`
   padding: 8px;
   margin: 6px 0px;
   width: 120px;

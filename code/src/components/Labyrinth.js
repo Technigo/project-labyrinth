@@ -63,16 +63,17 @@ export const Labyrinth = () => {
             {gameData.actions.map(item => (
               <GameDescription key={item.direction}>
                 <Button
-                  onClick={() => handleNextStep(item.type, item.direction)}
-                >
-                  Head {item.direction}
-                </Button>
+                  onButtonClick={() =>
+                    handleNextStep(item.type, item.direction)
+                  }
+                  text={item.direction}
+                />
                 <DescriptionText>{item.description}</DescriptionText>
               </GameDescription>
             ))}
           </BottomSection>
         ) : (
-          <Button onClick={handleGameRestart}>Restart</Button>
+          <Button onButtonClick={handleGameRestart} text="Restart" />
         )}
       </MainWrapper>
     );

@@ -27,7 +27,9 @@ const MapSquare = styled.div`
   border: 1px solid black;
   padding: 5px;
   color: ${props =>
-    props.coordinates === props.gamePosition ? "black" : "black"};
+    props.coordinates === props.gamePosition //this can be removed
+      ? "black"
+      : "black"};
   font-weight: 500;
   background: ${props =>
     props.coordinates === props.gamePosition

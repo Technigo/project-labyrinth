@@ -34,9 +34,7 @@ export const UserInput = () => {
             onChange={event => setUsername(event.target.value)}
           />
         </Label>
-        <Button disabled={!username} type="submit">
-          Add
-        </Button>
+        <Button buttonDisabled={!username} buttonType="submit" text="Add" />
       </Form>
     </TopSection>
   );

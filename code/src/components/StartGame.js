@@ -14,9 +14,11 @@ export const StartGame = () => {
   };
   return (
     <BottomSection>
-      <Button disabled={!username.length} onClick={handleGameStart}>
-        Start Game
-      </Button>
+      <Button
+        buttonDisabled={!username.length}
+        onButtonClick={handleGameStart}
+        text="Start Game"
+      />
     </BottomSection>
   );
 };
