@@ -1,6 +1,24 @@
 import { game } from './game'
 
-export const nextPosition = (action, userName) => {
+export const getFirstPosition = (userName) => {
+  console.log(userName)
+  return (dispatch) => {
+    fetch('https://wk16-backend.herokuapp.com/start', {
+      method: 'POST',
+      headers: { 'content-type': 'application/JSON' },
+      body: JSON.stringify({
+        username: userName
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        dispatch(game.actions.setStartPosition(data))
+      })
+  }
+}
+
+export const getNextPosition = (action, userName) => {
 
   return (dispatch) => {
     fetch('https://wk16-backend.herokuapp.com/action', {

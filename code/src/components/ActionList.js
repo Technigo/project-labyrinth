@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { nextPosition } from '../reducers/reusable'
+import { getNextPosition } from '../reducers/reusable'
 
 export const ActionList = () => {
 
@@ -10,7 +10,7 @@ export const ActionList = () => {
   const dispatch = useDispatch()
 
   const onAction = (action) => {
-    dispatch(nextPosition(action, userName))
+    dispatch(getNextPosition(action, userName))
   }
 
   return (
