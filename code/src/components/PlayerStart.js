@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { game, fetchStart } from 'reducers/game'
-import { Button } from 'lib/Button'
 import { Labyrinth } from 'components/Labyrinth'
+import { Button } from 'lib/Button'
+import { Input } from 'lib/Input'
+// import { Container } from 'lib/Container'
 
 export const PlayerStart = () => {
   const User = useSelector((state) => state.game.username)
@@ -19,10 +21,10 @@ export const PlayerStart = () => {
     return <Labyrinth />
   }
   return (
-    <div>
+    <>
       {!User && (
         <form onSubmit={handleSubmit}>
-          <input
+          <Input
             type="text"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
@@ -33,6 +35,6 @@ export const PlayerStart = () => {
           </Button>
         </form>
       )}
-    </div>
+    </>
   )
 }
