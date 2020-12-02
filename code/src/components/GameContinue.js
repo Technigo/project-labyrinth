@@ -12,21 +12,21 @@ export const GameContinue = () => {
   const actions = CurrentState.game.game.actions;
   
 
-  const onGameContinue = () => { 
-    dispatch(generateGameProgress(playerName, actions.direction));
-  };
+  const onGameContinue = (direction) => { 
+    dispatch(generateGameProgress(playerName,direction));
+  }
 
   const onGoBack = () => { 
-    dispatch(game.actions.historyGoBack());
-  };
+    dispatch(game.actions.historyGoBack())
+  }
 
   return(
     <>
-        <h2>{CurrentState.description}</h2>
+      <h2>{CurrentState.description}</h2>
       {actions.map((action)=> 
-      <button key={action.description} onClick={onGameContinue}>{action.direction}</button>
+     <button key={action.description} onClick={() => onGameContinue(action.direction)}>{action.direction}</button>
     )}
     <button onClick={onGoBack}>BACK </button>
     </>
-  );
-};
+  )
+}
