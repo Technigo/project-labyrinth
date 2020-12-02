@@ -1,41 +1,51 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 
-import { fetchDirectionData, fetchLabyrinthData } from "../reducers/labyrinth";
+import { fetchDirectionData } from "../reducers/labyrinth";
 
 import { FetchLabyrinthButton } from "./FetchLabyrinthButton";
+import { DirectionButton } from "./DirectionButtons";
 
-export const LabyrinthGame = () => {
+export const LabyrinthGame = ({ setGameCoordinates }) => {
   const description = useSelector((store) => store.labyrinth.content);
   const loading = useSelector((state) => state.ui.loading);
 
-  const [startButtonVisible, setStartButtonVisible] = useState(false);
+  setGameCoordinates(description.coordinates);
 
   return (
     loading === false && (
-    <section>
-      <FetchLabyrinthButton />
+      <section>
+        <FetchLabyrinthButton />
+        <p>{description.description}</p>
+        {description.coordinates && (
+          <p>Coordinates:{description.coordinates}</p>
+        )}
 
-      <p>
-        {//den första description refererar till consten, den andra hämtar värdet för description i api:t
-          description.description
+        {
+          ///Knappar för att gå vidare
+          description.coordinates &&
+            description.actions.map((action) => (
+              <>
+                <DirectionButton
+                  direction={action.direction}
+                  key={action.description}
+                  action={() =>
+                    fetchDirectionData({
+                      direction: action.direction,
+                    })
+                  }
+                />
+                <p>{action.description}</p>
+              </>
+            ))
         }
-      </p>
-      {description.coordinates && <p>Coordinates:{description.coordinates}</p>}
-
-      {description.coordinates !== undefined &&
-        description.actions.map((action) => (
+        {description.coordinates === "1,3" && (
           <button
-            action={() =>
-              fetchDirectionData({
-                direction: action.direction,
-              })
-            }
-            text={`Go ${action.direction}`}
-            key={action.description}
-          >Go {action.direction}{action.description}</button>
-        ))}
-    </section>
+            text="Restart journey"
+            action={() => window.location.reload()}
+          ></button>
+        )}
+      </section>
     )
   );
 };
