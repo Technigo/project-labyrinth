@@ -8,6 +8,6 @@ const LoadingText = styled.h1`
 
 export const LoadingPage = () => {
   return (
-      <LoadingText>LOADING PAGE !!</LoadingText>
+      <LoadingText>LOADING...!!</LoadingText>
   );
 };
