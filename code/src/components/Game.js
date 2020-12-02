@@ -88,7 +88,7 @@ export const Game = () => {
 			{loader && (
 				<Box display="flex" justifyContent="center">
 					<CircularProgress/>
-					<p>Loading...</p>
+					<Discription>Loading...</Discription>
 				</Box>
 			)}
 
