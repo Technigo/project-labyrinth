@@ -5,8 +5,13 @@ export const DirectionButton = ({ direction, action }) => {
   const dispatch = useDispatch();
 
   return (
-    <DirectionButton type="button" onClick={(event) => dispatch (action(event))}>
-      direction={direction}
-    </DirectionButton>
+    <button 
+    type="button" 
+    onClick={(event) => dispatch (action(event))}
+    direction={direction}
+    > Go {direction} 
+    </button>
   );
 };
+
+

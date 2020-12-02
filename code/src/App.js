@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
@@ -16,10 +16,12 @@ const reducer = combineReducers({
 const store = configureStore({ reducer });
 
 export const App = () => {
+  const [gameCoordinates, setGameCoordinates] = useState('');
+
   return (
     <Provider store={store}>
       <GameLoading/>
-      <LabyrinthGame/>
+      <LabyrinthGame setGameCoordinates={setGameCoordinates}/>
     </Provider>
   )
 }
