@@ -17,7 +17,7 @@ export const game = createSlice({
       state.gameStarted = true;
     },
     setNextPosition: (state, action) => {
-      state.gameState = action.payload
+      state.gameState = action.payload;
     }
   }
 })
