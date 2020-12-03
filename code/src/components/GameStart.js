@@ -22,13 +22,21 @@ export const GameStart = () => {
     dispatch(game.actions.uppDateUsername(inputValue)) 
   }
 
+    
+  
   return (
-    <section>
-     <input
+    <section className="start-container">
+     <input class="input-box"
       value={inputValue} 
       onChange={e => setInputValue(e.target.value)}
       placeholder="Write your username"
-
+      maxLength="20"
+      minLength="1"
+      size="40"
+      // rows="8" 
+      // cols="50"
+      required
+      
 
       />
       <button onClick={uppDateUsername} disabled={inputValue.length < 1}>Start</button>

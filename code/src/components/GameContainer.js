@@ -16,12 +16,12 @@ export const GameContainer = () => {
 
 
   return (
-    <div>
-      <h2>{game.description}</h2>
+    <div className="direction-container">
+      <h2 className="start-text">{game.description}</h2>
       {console.log(game.description)}
       {game.actions.map((item) => (
         <div>
-          <p>{item.description}</p>
+          <p className="description-text">{item.description}</p>
           <button onClick={()=> onActionMoveGenerate(item.type, item.direction)}>Go {item.direction}</button> 
         </div>
       ))}

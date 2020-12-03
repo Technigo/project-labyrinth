@@ -16,10 +16,15 @@ const store = configureStore({ reducer })
 
 export const App = () => {
   return (
+
     <Provider store={store}>
+    <main>
+      <div className="gif-box">
       <LoadingIndicator />
       <GameContainer/>
       <GameStart />
+      </div> 
+    </main>
     </Provider>
   )
 }
