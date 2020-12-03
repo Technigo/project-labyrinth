@@ -9,27 +9,31 @@ export const games = createSlice({
 		actions: [],
 		description: '',
 		coordinates: '',
-		history: []
+		history: [],
+		currentStep:{}
 	},
 	reducers: {
-		generateDescription: (state, action) => {
-            // Check if description from Redux store is not empty obj.
-            // If it is, do not push empty str to history array
-            // If it is not, do it
-            if (state.description) {
-                state.history = [...state.history, state.description];
-            }
-            state.description = action.payload;   
-		},	
-		
+
 		history: state => {
-            if (state.history.length > 0) {
-                state.description = state.history[state.history.length - 1];
-                state.history = state.history.slice(0, state.history.length -1);
-            }
-        },	
+      if (state.history.length > 0) {
+				state.currentStep = state.history[state.history.length - 1]
+				state.description = state.currentStep.description
+				state.actions = state.currentStep.actions
+				state.coordinates = state.currentStep.coordinates
+				state.history = state.history.slice(0, state.history.length -1)
+      }
+    },	
 
 		playGame: (store, action) => {
+			store.currentStep = action.payload
+			store.description = action.payload.description
+			store.actions = action.payload.actions
+			store.coordinates = action.payload.coordinates
+		},
+
+		continueGame: (store, action) => {
+			store.history = [...store.history, store.currentStep]
+			store.currentStep = action.payload
 			store.description = action.payload.description
 			store.actions = action.payload.actions
 			store.coordinates = action.payload.coordinates
@@ -72,8 +76,7 @@ export const actionThunk = (userName, action) => {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				dispatch(games.actions.playGame(data))
+				dispatch(games.actions.continueGame(data))
 				dispatch(ui.actions.setLoading(false))
-				dispatch(games.actions.generateDescription(data.description))
 			}
 			)}}
