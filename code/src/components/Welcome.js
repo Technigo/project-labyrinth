@@ -1,21 +1,21 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import styled from "styled-components/macro";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import styled from 'styled-components/macro';
 
-import { UserInput } from "./UserInput";
-import { StartGame } from "./StartGame";
-import { Labyrinth } from "./Labyrinth";
+import { UserInput } from './UserInput';
+import { StartGame } from './StartGame';
+import { Labyrinth } from './Labyrinth';
 
 export const Welcome = () => {
-  const currentGameState = useSelector(store => store.game.currentGameState);
-  const username = useSelector(store => store.game.username);
+  const currentGameState = useSelector((store) => store.game.currentGameState);
+  const username = useSelector((store) => store.game.username);
 
   if (!currentGameState.gameData) {
     return (
       <MainWrapper>
         <UserInput />
         <Image src="./assets/labyrinth-poster.jpg" alt="labyrinth" />
-        {username.length && (
+        {username && (
           <WelcomeP>Hi {username}, you are ready to start playing!</WelcomeP>
         )}
         <StartGame />

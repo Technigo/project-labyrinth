@@ -1,24 +1,44 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { game } from "reducers/game";
-import styled from "styled-components/macro";
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { game } from 'reducers/game';
+import styled from 'styled-components/macro';
 
-import { Button } from "lib/Button";
+import { Button } from 'lib/Button';
+import { getStartGame } from '../reducers/reusable';
 
 export const UserInput = () => {
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState('');
+  const username = useSelector((store) => store.game.username);
 
   const dispatch = useDispatch();
 
-  const handleSubmit = event => {
+  // We get this error when using the code below.
+  // The 'handleGameStart' function makes the dependencies of useEffect Hook
+  // (at line 27) change on every render. Move it inside the useEffect callback.
+  // Alternatively, wrap the 'handleGameStart' definition into its own useCallback() Hook
+
+  // const handleGameStart = (username) => {
+  //   dispatch(getStartGame(username));
+  // };
+
+  useEffect(() => {
+    if (username) {
+      // handleGameStart(username);
+      dispatch(getStartGame(username));
+      console.log('Is this executed at reload of page, YES IT IS !!!');
+    }
+    console.log('UeseEffect First time');
+  }, [dispatch, username]);
+
+  const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(username);
+    console.log(name);
     dispatch(
       game.actions.addUserName({
-        username: username,
+        username: name
       })
     );
-    setUsername(""); // Clearing the input
+    setName(''); // Clearing the input
   };
 
   return (
@@ -29,12 +49,12 @@ export const UserInput = () => {
         <Label>
           <InputField
             type="text"
-            placeholder="Username"
-            value={username}
-            onChange={event => setUsername(event.target.value)}
+            placeholder="Enter your name"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
           />
         </Label>
-        <Button buttonDisabled={!username} buttonType="submit" text="Add" />
+        <Button buttonDisabled={!name} buttonType="submit" text="Add" />
       </Form>
     </TopSection>
   );
