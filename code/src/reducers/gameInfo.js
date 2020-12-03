@@ -8,10 +8,11 @@ export const getDescription = (userName) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: userName })
-    }
-    ).then(res => res.json())
-      .then(data =>
-        dispatch(gameDetails.actions.setDescription(data)));
+    }).then(res => res.json())
+      .then(data => {
+        dispatch(gameDetails.actions.setDescription(data))
+        dispatch(gameDetails.actions.setLoading(false));
+      });
   };
 };
 
@@ -30,6 +31,7 @@ export const getMoves = (action) => {
       })
     }).then(res => res.json())
       .then(data => {
+        dispatch(gameDetails.actions.setLoading(false));
         if (data.actions.length === 0) {
           dispatch(gameDetails.actions.gameFinished())
         }
