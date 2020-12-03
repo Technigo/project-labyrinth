@@ -26,7 +26,7 @@ export const StartRoom = () => {
 
   return (
     <Container>
-      <p>Welcome {userName}</p>
+      <h2>Welcome {userName}</h2>
       <Form onSubmit={handleSubmit}>
         <Textfield
           onChange={(event) => onChangeEvent(event.target.value)}
@@ -43,8 +43,6 @@ export const StartRoom = () => {
 };
 
 const Container = styled.section`
-  padding: 20px;
-  border: 1px solid red;
   text-align:center;
 `;
 
@@ -55,31 +53,41 @@ const Form = styled.form`
 
 const Textfield = styled.input`
   color: #00ff7f;
-  background-color: #000000;
+  background-color: transparent;
   font-family: 'Inconsolata', monospace;
-  font-size: 20px;
+  font-size: 26px;
   padding: 10px 20px;
   text-decoration: none;
   border: 1px solid #00ff7f;
-  margin: 5px;
+  margin-right: 10px;
+  transition: 0.3s ease;
 
   &:focus {
     outline: 2px solid red;
     border: none;
   }
+
+  &:hover {
+    background-color: rgb(0, 255, 127, 0.2); 
+  }
   `;
 
 const Button = styled.button`
   color: #00ff7f;
-  background-color: #000000;
+  background-color: transparent;
   font-family: 'Inconsolata', monospace;
   border: 1px solid #00ff7f;
-  margin: 5px;
-  font-size: 18px;
+  font-size: 22px;
+  transition: 0.3s ease;
+  cursor: pointer;
 
   &:focus {
     outline: 2px solid red;
     border: none;
+  }
+
+  &:hover {
+    background-color: rgb(0, 255, 127, 0.2); 
   }
 `;
 
