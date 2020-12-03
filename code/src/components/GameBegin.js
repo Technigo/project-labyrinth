@@ -35,7 +35,7 @@ return(
   </>
   ) 
   } 
-  {gameOff && <div>Game over</div>}
+  {gameOff && <button onClick={()=>window.location.reload()}>One more time</button>}
 </div>
 )
 }
