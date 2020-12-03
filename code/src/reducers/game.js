@@ -23,6 +23,11 @@ export const game = createSlice({
       newState.history = [...newState.history, action.payload];
       return newState;
     },
+    resetHistory: (state) => {
+      const newState = state;
+      newState.history = [];
+      return newState;
+    },
     setUserName: (state, action) => {
       const newState = state;
       newState.username = action.payload;
@@ -37,6 +42,7 @@ export const startNewGame = (username) => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
     dispatch(game.actions.setUserName(username));
+    dispatch(game.actions.resetHistory());
 
     fetch("https://wk16-backend.herokuapp.com/start", {
       method: "POST",

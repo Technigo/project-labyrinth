@@ -2,15 +2,16 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { executeAction, game } from "../reducers/game";
 import styled from "styled-components";
+import { CardButton } from "lib/Buttons";
 
-const MoveButton = styled.button`
-  background: black;
-  color: #4cff42;
-  font-family: "Inconsolata", monospace;
-  font-size: 15px;
-  padding: 10px;
-  text-transform: capitalize;
-`;
+// const MoveButton = styled.button`
+//   background: black;
+//   color: #4cff42;
+//   font-family: "Inconsolata", monospace;
+//   font-size: 15px;
+//   padding: 10px;
+//   text-transform: capitalize;
+// `;
 const GameCard = styled.div`
   border: 4px solid red;
   /* background: white; */
@@ -32,9 +33,9 @@ export const Action = ({ description, type, direction }) => {
   return (
     <GameCard>
       <p>{description}</p>
-      <MoveButton onClick={handleOnClick}>
+      <CardButton onClick={handleOnClick}>
         {type} {direction}
-      </MoveButton>
+      </CardButton>
     </GameCard>
   );
 };
