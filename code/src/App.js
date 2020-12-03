@@ -20,9 +20,10 @@ const reducer = combineReducers({
 const store = configureStore({ reducer });
 
 const Grid = styled.main`
-  padding: 0 5vw;
+  padding: 0 10px;
   display: grid;
   grid-template-rows: 10vh 80vh 10vh;
+  grid-template-columns: auto;
 `;
 
 export const App = () => {

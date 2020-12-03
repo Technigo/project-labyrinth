@@ -3,6 +3,7 @@ body {
   font-family: 'Quicksand', sans-serif;
   /* font-family: 'Texturina', serif;
   font-family: 'Trochut', cursive; */
+  font-size: 15px;
   background-color: black;
   color: white;
 }
@@ -12,3 +13,4 @@ code {
   /* font-family: 'Texturina', serif;
   font-family: 'Trochut', cursive; */
 }
+

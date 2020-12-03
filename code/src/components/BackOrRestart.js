@@ -18,7 +18,9 @@ export const BackOrRestart = () => {
   };
 
   const ButtonContainer = styled.div`
-    width: 100%
+    /* width: 100%; */
+    grid-area: back;
+    justify-self: center;
   `
 
   if (coordinates === '1,3') {
@@ -27,7 +29,7 @@ export const BackOrRestart = () => {
         Great! You made it out of the maze. Want to try again?
         <Button onClick={onRestart}>
           Play again
-        </Button> 
+        </Button>
       </ButtonContainer>
     )
   } else if (coordinates === '0,0') {
@@ -41,7 +43,7 @@ export const BackOrRestart = () => {
         Does this feel wrong?
         <Button onClick={onGoBack}>
           Go back
-        </Button> 
+        </Button>
       </ButtonContainer>
     )
   }

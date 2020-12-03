@@ -23,12 +23,12 @@ const StyledButton = styled(Button)`
   height: 50%;
 `;
 
-const DescriptionPlaceholder = styled.div`
-  grid-area: description;
-  justify-self: center;
-  align-self: center;
-  text-align: center;
-`;
+// const DescriptionPlaceholder = styled.div`
+//   grid-area: description;
+//   justify-self: center;
+//   align-self: center;
+//   text-align: center;
+// `;
 
 export const Direction = () => {
   const dispatch = useDispatch();
@@ -48,7 +48,7 @@ export const Direction = () => {
             onClick={(event) => onNextStep(event.target.value)}>
             Go to {action.direction}
           </StyledButton>
-          <DescriptionPlaceholder>{action.description}</DescriptionPlaceholder>
+          {/* <DescriptionPlaceholder>{action.description}</DescriptionPlaceholder> */}
         </DirectionContainer>
       ))}
     </>

@@ -5,18 +5,17 @@ import styled from 'styled-components';
 import { game } from "../reducers/game";
 import { startGameFetch } from "../reducers/reusable";
 
-import { Centered, Button } from '../lib/Styling';
+import { Centered, Button, Text } from '../lib/Styling';
 
 const InsertUsername = styled.input`
-  padding: 1vw 2vw;
-  font-size: 1.5vw;
-  margin: 1vw;
-  font-family: 'Quicksand', sans-serif;
+  padding: 10px;
+  font-size: inherit;
+  font-family: inherit;
 `
 
-const StartText = styled.p`
-  margin: 2vw;
-  font-size: 1.5vw;
+const StartText = styled(Text)`
+  margin: 40px 0;
+  font-size: 20px;
 `
 
 export const Start = () => {
@@ -40,11 +39,14 @@ export const Start = () => {
       {!stateUsername && (
         <Centered>
           <StartText>
-            Welcome to the labyrinth! What's your name?
+            Welcome to the labyrinth!
           </StartText>
+          <Text>
+            What's your name?
+          </Text>
           <InsertUsername
             type="text"
-            placeholder="Choose a username"
+            placeholder="Choose username"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
           ></InsertUsername>

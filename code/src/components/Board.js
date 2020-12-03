@@ -2,24 +2,36 @@ import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components/macro";
 
-import { Username } from "./Username";
 import { Description } from "./Description";
-import { Position } from "./Position";
+import { Status } from "./Status";
 import { Avatar } from "./Avatar";
-import { Direction } from "./Direction";
+import { Direction } from "./Action";
+import { BackOrRestart } from './BackOrRestart';
 
 const BoardGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 2fr 1fr 2fr 1fr 2fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas:
-    "username . position"
+    "status status status"
     "description description description"
     ". North ."
-    ". avatar ."
     "West avatar East"
-    ". avatar ."
-    ". South .";
+    ". South ."
+    "instructions instructions instructions"
+    "back back back";
+  @media (min-width: 769px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 2fr 1fr 2fr 1fr 2fr;
+    grid-template-areas:
+      "username . position"
+      "description description description"
+      ". North ."
+      ". avatar ."
+      "West avatar East"
+      ". avatar ."
+      ". South .";
+  }
 `;
 
 export const Board = () => {
@@ -30,11 +42,11 @@ export const Board = () => {
     <>
       {!isLoading && stateUsername && (
         <BoardGrid>
-          <Username />
+          <Status />
           <Description />
-          <Position />
           <Avatar />
           <Direction />
+          <BackOrRestart />
         </BoardGrid>
       )}
     </>

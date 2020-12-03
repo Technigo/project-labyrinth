@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import styled from "styled-components/macro";
 
 const UsernamePlaceholder = styled.div`
-  grid-area: username;
+  grid-area: status;
   justify-self: start;
 `;
 

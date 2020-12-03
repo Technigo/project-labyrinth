@@ -2,8 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components/macro";
 
-import { BackButton, BackOrRestart } from './BackOrRestart';
-
 const DescriptionPlaceholder = styled.div`
   grid-area: description;
   justify-self: center;
@@ -20,7 +18,6 @@ export const Description = () => {
     <>
       <DescriptionPlaceholder>
         {currentStep.description}
-        <BackOrRestart />
       </DescriptionPlaceholder>
     </>
   )

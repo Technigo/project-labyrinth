@@ -12,12 +12,28 @@ export const Button = styled.button`
   color: black;
   border: none;
   border-radius: 5%;
-  padding: 1vw;
-  margin: 1vw;
-  font-family: 'Quicksand', sans-serif;
+  padding: 10px;
+  margin: 0 10px;
+  font-family: inherit;
+  font-size: inherit;
 
   &:hover {
     cursor: pointer;
     background-color: #e4d08a;
   }
+`;
+
+export const Title = styled.h1`
+  font-family: 'Texturina', serif;
+  font-size: 40px;
+  margin: 0;
+`
+
+export const Text = styled.p`
+  margin: 10px 0;
+`
+
+export const SmallText = styled(Text)`
+  margin: 0;
+  font-size: 12px;
 `;

@@ -13,10 +13,14 @@ const AvatarPlaceholder = styled.div`
   align-items: center;
 `;
 
+const Image = styled.img`
+  width: 100px;
+`;
+
 export const Avatar = () => {
   return (
     <AvatarPlaceholder>
-      <img src={fox} alt='Avatar Foxy'/>
+      <Image src={fox} alt='Avatar Foxy'></Image>
     </AvatarPlaceholder>
   );
 };
