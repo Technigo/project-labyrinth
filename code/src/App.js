@@ -1,9 +1,22 @@
-import React from 'react'
+import React from 'react';
+import { combineReducers } from 'redux';
+import { Provider } from 'react-redux'
+import { StartBoard } from './components/StartBoard'
+import { gameReducer } from 'reducers/gameReducer';
+import { configureStore } from '@reduxjs/toolkit';
+
+
+const reducer = combineReducers({
+  gameReducer: gameReducer.reducer
+});
+
+const store = configureStore({ reducer });
+
 
 export const App = () => {
   return (
-    <div>
-      Find me in src/app.js!
-    </div>
+    <Provider store={store}>
+      <StartBoard />
+    </Provider>
   )
 }

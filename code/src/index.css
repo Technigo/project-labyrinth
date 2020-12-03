@@ -1,13 +1,238 @@
+* {
+	box-sizing: border-box;
+}
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: "Grenze Gotisch", serif, -apple-system, BlinkMacSystemFont,
+		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+		"Droid Sans", "Helvetica Neue", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	padding: 10px;
+	background-color: #262d31;
+	color: #d3d3d3;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
+}
+
+/*START BOARD*/
+.start-board {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	justify-content: center;
+}
+
+.start-board-game-title {
+	font-size: 32px;
+	margin-bottom: 20px;
+	font-family: "Grenze Gotisch", serif;
+	text-align: center;
+	color: #d37b04;
+}
+
+/*GAMEBOARD*/
+
+.board-wrapper {
+	display: flex;
+	justify-content: center;
+}
+.game-board-wrapper {
+	max-width: 600px;
+}
+.gameboard {
+	display: flex;
+	flex-direction: column;
+}
+
+.gameboard-loading {
+	filter: opacity(0.2);
+}
+
+.location-current-details-description {
+	font-size: 21px;
+	margin-bottom: 20px;
+	font-family: "Grenze Gotisch", serif;
+	text-align: center;
+	color: #e6a348;
+	font-weight: normal;
+}
+
+.location-current-details-sub {
+	font-size: 18px;
+	font-family: "Grenze Gotisch", serif;
+	text-align: center;
+	margin: 0;
+	font-weight: normal;
+}
+
+/*HISTORY*/
+
+.previous-steps {
+	margin-top: 20px;
+	font-family: "Grenze Gotisch", serif;
+}
+
+.previous-steps-header {
+	font-size: 16px;
+	text-align: center;
+	font-weight: normal;
+}
+
+.previous-steps-list {
+	list-style: none;
+	display: flex;
+	flex-direction: row-reverse;
+	padding: none;
+	padding: 0;
+	justify-content: center;
+}
+
+.previous-steps-list > li {
+	border: 1px solid #727272;
+	padding: 4px;
+	margin: 3px;
+	width: 31px;
+	border-radius: 50%;
+	height: 31px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
+	font-family: "Unica One", serif;
+}
+
+/*ACTION*/
+.action-wrapper {
+	border: 1px solid #262f34;
+	padding: 10px;
+}
+
+.gameboard-action-button,
+.gameboard-end-button,
+.startboard-start-button {
+	width: 100%;
+	height: 30px;
+	cursor: pointer;
+	background-color: #354f52;
+	color: #d3d3d3;
+	border: none;
+	font-size: 18px;
+	font-family: "Grenze Gotisch", serif;
+}
+
+button:hover {
+	background-color: #1d2a37;
+	color: #fff;
+}
+
+.gameboard-game-over-description {
+	font-size: 32px;
+	text-align: center;
+	color: #e6a348;
+}
+
+.gameboard-game-over-sub-description {
+	text-align: center;
+	font-size: 28px;
+}
+.action-description {
+	font-size: 16px;
+	font-weight: normal;
+	font-family: "Grenze", serif;
+}
+
+/*MAP*/
+.row {
+	display: flex;
+}
+
+.cell,
+.cell-current-position {
+	background-color: #354f52;
+	width: 40px;
+	height: 40px;
+	border: 2px solid #727272;
+	border-radius: 50%;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+}
+
+.cell-id {
+	font-size: 14px;
+	color: #a8a8a8;
+	font-family: "Unica One", serif;
+}
+
+.cell-current-position {
+	background-color: #e6a348;
+}
+
+.cell-current-position > .cell-id {
+	color: #262f34;
+}
+
+.maze-map {
+	display: flex;
+	flex-direction: column;
+	margin-left: 38px;
+}
+
+.map-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 10px;
+	flex-direction: row;
+}
+
+.compass-wrapper {
+	display: flex;
+	align-items: center;
+}
+
+.game-compass {
+	font-size: 13px;
+	margin-left: 10px;
+}
+
+/*LOADER*/
+.loader {
+	/* display: inline-block; */
+	width: 80px;
+	height: 80px;
+	margin: auto;
+}
+.loader:after {
+	content: " ";
+	display: block;
+	width: 64px;
+	height: 64px;
+	margin: 8px;
+	border-radius: 50%;
+	border: 6px solid #fff;
+	border-color: #fff transparent #fff transparent;
+	animation: loader 1.2s linear infinite;
+}
+@keyframes loader {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@media only screen and (min-width: 600px) {
+	.location-current-details-description {
+		font-size: 30px;
+	}
+
+	.action-description {
+		font-size: 22px;
+	}
 }
