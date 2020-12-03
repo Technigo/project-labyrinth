@@ -11,7 +11,7 @@ export const Loading = () => {
         <MainContainer>
             {isLoading &&  
             <>           
-                <Loader>Labyrinth is loading!</Loader>           
+                <Loader>Rainbow Labyrinth is loading!</Loader>           
                 <Animation />
             </>
             }
