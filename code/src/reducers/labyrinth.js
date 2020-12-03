@@ -16,14 +16,6 @@ export const labyrinth = createSlice({
         state.username = action.payload;
       },
 
-      // startGame:(state, action) => { 
-      //   if (state.game.game) {
-      //     state.history = [...state.history, state.game];
-      //   }
-      //   state.game = action.payload;  
-      //   console.log(state.game) 
-      // },
-
       continueGame: (state,action) => { 
         const currentGameState = action.payload;
         state.history = [...state.history, state.game];

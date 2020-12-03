@@ -17,4 +17,4 @@ export const Button = styled.button`
   border: solid 1px #fd20e3;
   background-color: rgb(19, 19, 19);
   color:white;
-`
+`;

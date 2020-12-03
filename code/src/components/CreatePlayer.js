@@ -9,8 +9,8 @@ import { MainHeader, Form, InputText } from '../StyledComponents/CreatePlayerSty
 
 
 export const CreatePlayer = () => { 
-  const playerName = useSelector((state)=>state.labyrinth.username)
-  const gameState = useSelector((state) => state.labyrinth.game)
+  const playerName = useSelector((state)=>state.labyrinth.username);
+  const gameState = useSelector((state) => state.labyrinth.game);
   const dispatch = useDispatch();
   const [username, setUsername] = useState('');
 
@@ -25,17 +25,17 @@ export const CreatePlayer = () => {
 
   const isStartingGame = () => { 
     return playerName && !gameState.coordinates;
-  }
+  };
 
   const isContinuingGame = () => { 
     return playerName && gameState.coordinates;
-  }
+  };
 
   if (isStartingGame()) {
     return <StartGame/>
   } else if (isContinuingGame()) { 
     return <GameContinue/>
-  }
+  };
 
   return(
     <Container>
