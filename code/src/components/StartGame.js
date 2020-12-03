@@ -45,6 +45,10 @@ const Icon = styled.img`
     margin-bottom: 25px;
     margin-left: auto;
     margin-right: auto;
+
+    @media (min-width: 667px) {
+        width: 130px;
+    }
 `
 
 const Form = styled.form`
