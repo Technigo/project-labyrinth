@@ -14,15 +14,18 @@ export const game = createSlice({
     enterUsername: (state, action) => {
       state.username = action.payload;
     },
+
     enterGame: (state, action) => {
       state.currentStep = action.payload;
       state.stepCounter += 1;
     },
+
     takeNextStep: (state, action) => {
       state.history = [...state.history, state.currentStep];
       state.currentStep = action.payload;
       state.stepCounter += 1;
     },
+
     oneStepBack: (state, action) => {
       if (state.history.length > 0) {
         state.currentStep = state.history[state.history.length - 1];
@@ -32,6 +35,7 @@ export const game = createSlice({
         alert('You need to take a step before you can go back')
       }
     },
+
     restartGame: (state, action) => {
       state.username = "";
       state.currentStep = {};

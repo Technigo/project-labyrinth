@@ -24,6 +24,10 @@ const Grid = styled.main`
   display: grid;
   grid-template-rows: 10vh 1fr 10vh;
   grid-template-columns: auto;
+
+  @media (min-width: 768px) {
+    padding: 0 30px;
+  }
 `;
 
 export const App = () => {

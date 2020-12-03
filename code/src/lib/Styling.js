@@ -30,14 +30,21 @@ export const Button = styled.button`
 export const ActionButton = styled(Button)`
   padding: 5px;
   grid-area: button;
-  font-size: 13px;
   margin: 0;
+
+  @media (min-width: 768px) {
+    padding: 10px;
+  }
 `;
 
 export const Title = styled.h1`
   font-family: 'Texturina', serif;
   font-size: 40px;
   margin: 0;
+
+  @media (min-width: 768px) {
+    font-size: 60px;
+  }
 `
 
 export const Text = styled.p`
@@ -45,6 +52,5 @@ export const Text = styled.p`
 `
 
 export const SmallText = styled(Text)`
-  font-size: 13px;
-  margin: 0 0 5px 0;
+  margin: 0 0 15px 0;
 `;

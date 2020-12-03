@@ -8,7 +8,13 @@ const DescriptionPlaceholder = styled.div`
   align-self: end;
   text-align: center;
   border: 3px solid #ff6932;
-  padding: 1vw;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px grey;
+  padding: 5px;
+
+  @media (min-width: 768px) {
+    font-size: 25px;
+  }
 `;
 
 export const Description = () => {

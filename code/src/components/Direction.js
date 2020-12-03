@@ -9,20 +9,7 @@ const DirectionContainer = styled.div`
   grid-area: ${(props) => props.direction};
   justify-self: center;
   align-self: center;
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas:
-    ". button ."
-    "description description description"; */
 `;
-
-// const DescriptionPlaceholder = styled.div`
-//   grid-area: description;
-//   justify-self: center;
-//   align-self: center;
-//   text-align: center;
-// `;
 
 export const Direction = () => {
   const dispatch = useDispatch();
@@ -42,7 +29,6 @@ export const Direction = () => {
             onClick={(event) => onNextStep(event.target.value)}>
             Go to {action.direction}
           </ActionButton>
-          {/* <DescriptionPlaceholder>{action.description}</DescriptionPlaceholder> */}
         </DirectionContainer>
       ))}
     </>

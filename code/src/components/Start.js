@@ -16,6 +16,10 @@ const InsertUsername = styled.input`
 const StartText = styled(Text)`
   margin: 40px 0;
   font-size: 20px;
+
+  @media (min-width: 768px) {
+    font-size: 30px;
+  }
 `
 
 export const Start = () => {

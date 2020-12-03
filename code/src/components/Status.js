@@ -9,8 +9,11 @@ const StatusPlaceholder = styled.div`
   align-self: flex-end;
   display: flex;
   flex-direction: column;
-  /* justify-self: end;
-  text-align: right; */
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 
 export const Status = () => {
