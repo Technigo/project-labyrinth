@@ -4,6 +4,7 @@ const initialState = {
   username: "",
   currentStep: {},
   history: [],
+  stepCounter: 1
 };
 
 export const game = createSlice({
@@ -19,6 +20,20 @@ export const game = createSlice({
     takeNextStep: (state, action) => {
       state.history = [...state.history, state.currentStep];
       state.currentStep = action.payload;
+      state.stepCounter += 1;
     },
+    oneStepBack: (state, action) => {
+      if (state.history.length > 0) {
+          state.currentStep = state.history[state.history.length - 1];
+          state.history = state.history.slice(0, state.history.length - 1);
+          state.stepCounter += 1;
+      }
+    },
+    restartGame: (state, action) => {
+      state.username = "";
+      state.currentStep = {};
+      state.history = [];
+      state.stepCounter = 1;
+    }
   },
 });

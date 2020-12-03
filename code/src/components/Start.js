@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { game } from "../reducers/game";
 import { startGameFetch } from "../reducers/reusable";
 
-import { Centred } from './Styling';
+import { Centred } from '../lib/Styling';
 
 export const Start = () => {
   const [username, setUsername] = useState("");

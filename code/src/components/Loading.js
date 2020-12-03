@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { Centred } from './Styling';
+import { Centred } from '../lib/Styling';
 
 export const Loading = () => {
   const isLoading = useSelector((state) => state.ui.isLoading);

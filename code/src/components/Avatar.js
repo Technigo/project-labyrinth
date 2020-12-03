@@ -1,14 +1,13 @@
 import React from "react";
 import styled from "styled-components/macro";
 
+import fox from '../assets/fox_1.svg'
+
 const AvatarPlaceholder = styled.div`
   grid-area: avatar;
-  width: 50%;
-  height: 50%;
   align-self: center;
   justify-self: center;
   text-align: center;
-  background: yellow;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,7 +16,7 @@ const AvatarPlaceholder = styled.div`
 export const Avatar = () => {
   return (
     <AvatarPlaceholder>
-      <p>Avatar</p>
+      <img src={fox} alt='Avatar Foxy'/>
     </AvatarPlaceholder>
   );
 };
