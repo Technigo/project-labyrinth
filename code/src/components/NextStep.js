@@ -14,7 +14,11 @@ export const NextStep = () => {
   };
 
   
+<<<<<<< HEAD
   return (
+=======
+  return (   
+>>>>>>> a68edcb53b7ca09c31ca2817cec4fbece4985413
     <>    
       <p>{gameDetails.description}</p>
       <Divider />

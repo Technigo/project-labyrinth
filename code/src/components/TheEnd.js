@@ -8,7 +8,6 @@ export const TheEnd = ({ description }) => {
 
   return (
     <>
-      
       <p>Congratulations {currentUser}, you finished the game!</p>
       <Divider />
       <p>{description}</p>

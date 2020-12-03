@@ -78,13 +78,14 @@ export const TextContainer = styled.section`
   color: #ffffff;
   font-size: 16px;
   border-radius: 10px;
-  width: 90%;
+  width: 80%;
   padding: 30px;
   opacity: 0.8;
   text-align: center;
 
   @media (min-width: 667px) {
     width: 50%;
+    padding: 10px;
   }
 
   @media (min-width: 1024px) {

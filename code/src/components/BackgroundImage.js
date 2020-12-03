@@ -2,10 +2,12 @@ import React, { useSelector } from "react";
 import { BackgroundContainer } from "../styling/styling";
 
 export const Background = () => {
-  const coordinates = useSelector(
+  const gameDetails = useSelector(
     (store) => store.gameState.gameDetails.coordinates
   );
 
+  return (
+    <>
       {coordinates === "0,0" &&
         (backgroundImage =
           "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f49b7fed-bb8c-4ce3-b207-f7ea09481dc9/d9u7oxs-24f33531-3420-45e8-8f70-ab8bb9cc62c0.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZjQ5YjdmZWQtYmI4Yy00Y2UzLWIyMDctZjdlYTA5NDgxZGM5XC9kOXU3b3hzLTI0ZjMzNTMxLTM0MjAtNDVlOC04ZjcwLWFiOGJiOWNjNjJjMC5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.5KugH5SPj0oyEzeCrcpgipBPtOtNMzxH1MyRqvmiFro")}
@@ -27,7 +29,10 @@ export const Background = () => {
       {coordinates === "1,3" &&
         (backgroundImage =
           "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db92e269-d292-4890-9058-43a1e04c8f98/daoai5z-d7ebcbff-c0af-4527-9238-11f6b24be8c8.png/v1/fill/w_1024,h_615,q_80,strp/mountain_shrine___game_scene_by_aleksandr_osm_daoai5z-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD02MTUiLCJwYXRoIjoiXC9mXC9kYjkyZTI2OS1kMjkyLTQ4OTAtOTA1OC00M2ExZTA0YzhmOThcL2Rhb2FpNXotZDdlYmNiZmYtYzBhZi00NTI3LTkyMzgtMTFmNmIyNGJlOGM4LnBuZyIsIndpZHRoIjoiPD0xMDI0In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.6TXPBIvxT89HAVCwvLg1cOt3a_0l8oMd0xgEVx6tLk4")}
-
-          console.log(backgroundImage)
-          return backgroundImage;
+    </>
+  );
+    </>
+  );
+    </>
+  );
 };
