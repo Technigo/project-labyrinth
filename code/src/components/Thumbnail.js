@@ -9,12 +9,19 @@ const Img = styled.img`
   height: 50px;
   border-radius: 50%;
   margin: 15px 15px 0 30px;
+
+  @media (min-width: 768px) {
+    width: 100px;
+    height: 100px;
+    margin: 15px 15px 30px 30px;
+  }
+
 `
 
 export const Thumbnail = () => {
 
   return (
-    <Img alt={`alt`} src={myImage}/>
+    <Img alt={`Illustration of skull`} src={myImage} />
   )
 
 }

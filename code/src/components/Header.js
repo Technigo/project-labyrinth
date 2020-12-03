@@ -7,13 +7,19 @@ import { Button } from "lib/Button";
 
 // ah maybe this also can be imported via main?
 const Wrapper = styled.section`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
   padding: 20px;
-  
+  justify-items: flex-start;
+  margin-bottom: 30px;
 `
 
 const Title = styled.h1`
+  font-size: 24px;
+
+  @media (min-width: 768px) {
+    font-size: 34px;
+  }
 
 `
 const headerBtn = true

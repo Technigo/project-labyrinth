@@ -7,7 +7,7 @@ export const Main = styled.main`
   padding: 10px;
 
   @media (min-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
   }
 
   @media (min-width: 1024px) {
@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
   text-align: center;
 
   @media(min-width:768px) {
-      grid-column: span 2;
+    grid-column: span 2;
   }
 
   @media(min-width: 1024px) {

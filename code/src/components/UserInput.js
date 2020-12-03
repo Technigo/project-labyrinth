@@ -11,10 +11,17 @@ const Form = styled.form`
 
 `
 const Label = styled.label`
-
-`
+  margin-right: 5px;
+  `
 
 const InputField = styled.input`
+  font-size: 100%;
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 5px;
+
+@media (min-width: 768px) {
+} 
 `
 
 
@@ -24,7 +31,6 @@ export const UserInput = () => {
   
   const dispatch = useDispatch()
 
-  // adding the username into the state/store
   const handleUserSubmit = event => {
     event.preventDefault()
     dispatch(
@@ -48,7 +54,7 @@ export const UserInput = () => {
           />
         </Label>
         <Button disabled={!username} type="submit">
-          Username-Test
+          Pick!
         </Button>
       </Form>
     </Wrapper>

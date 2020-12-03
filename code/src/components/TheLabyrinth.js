@@ -12,7 +12,13 @@ import { LoadingIndicator } from './LoadingIndicator'
 const Coordinates = styled.p`
   font-size: 20px;
   text-align: center;
-  background: #fff;
+  // background: #fff;
+  // background: linear-gradient(180deg, #f0e7d1, #fffdf0, #f0e7d1, #f0e7d1);
+  background: linear-gradient(180deg, rgba(255,253,240,0.8), rgba(240,231,209, 1), rgba(255,253,240,0.8));
+
+  @media (min-width: 768px) {
+    font-size: 30px;
+    }
 `
 
 const ImageAndDescriptionWrapper = styled.div`
@@ -27,16 +33,26 @@ const DescriptionWrapper = styled.div`
 `
 
 const RoomDescription = styled.p`
-  font-size: 15px;
+  font-size: 16px;
   text-align: center;
   padding: 5px;
   font-style: italic;
+
+  @media (min-width: 768px) {
+  font-size: 24px;
+  }
 `
 const DirectionDescription = styled.p`
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 500;
   text-align: left;
   padding: 10px;
   margin: 5px;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+    text-align: justify;
+    }
 `
 
 export const TheLabyrinth = () => {
@@ -50,9 +66,6 @@ export const TheLabyrinth = () => {
 
   const dispatch = useDispatch()
 
-  // this is the actions found previously in button
-  // updated thunk so it has the params of username, move, direction
-  // so username, direction and type is not hardcorded into 'xxxx'
   const handleActionClick = (type, direction) => {
     dispatch(fetchActionData(username, type, direction))
   }

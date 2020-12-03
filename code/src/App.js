@@ -9,10 +9,9 @@ import { ui } from './reducers/ui'
 import { Header } from './components/Header'
 import { Main } from './components/Main'
 import { Card } from './lib/Card'
-import { Footer } from './components/Footer'
+
 
 const reducer = combineReducers({ game: game.reducer, ui: ui.reducer})
-
 
 const store = configureStore({ reducer })
 
@@ -25,7 +24,6 @@ export const App = () => {
       <Card />
       </Main>
       {/* </GameBackground> */}
-      <Footer/>
     </Provider>
   )
 }
