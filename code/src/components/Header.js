@@ -1,7 +1,26 @@
 import React from "react";
+import styled from 'styled-components';
 
-import { Centred } from '../lib/Styling';
+import { Centered } from '../lib/Styling';
+
+// const TitleBox = styled(Centered)`
+//   border: 2px solid tomato;
+// `
+
+const Title = styled.h1`
+  font-family: 'Texturina', serif;
+  font-size: 8vw;
+  margin: 7vw;
+  border: 10px solid #fe480a;
+  padding: 1vw 4vw;
+`
 
 export const Header = () => {
-  return <Centred>Header</Centred>;
+  return (
+    <Centered>
+      <Title>
+        LABYRINTH
+      </Title>
+    </Centered>
+  )
 };

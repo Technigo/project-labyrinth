@@ -1,10 +1,23 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import styled from 'styled-components';
 
 import { game } from "../reducers/game";
 import { startGameFetch } from "../reducers/reusable";
 
-import { Centred } from '../lib/Styling';
+import { Centered, Button } from '../lib/Styling';
+
+const InsertUsername = styled.input`
+  padding: 1vw 2vw;
+  font-size: 1.5vw;
+  margin: 1vw;
+  font-family: 'Quicksand', sans-serif;
+`
+
+const StartText = styled.p`
+  margin: 2vw;
+  font-size: 1.5vw;
+`
 
 export const Start = () => {
   const [username, setUsername] = useState("");
@@ -12,28 +25,36 @@ export const Start = () => {
   const dispatch = useDispatch();
 
   const onUsernameChange = (event) => {
-    dispatch(game.actions.enterUsername(username));
-    dispatch(startGameFetch(username));
-    setUsername("");
-    event.preventDefault();
+    if (username === '') {
+      alert('Please choose a name!')
+    } else {
+      dispatch(game.actions.enterUsername(username));
+      dispatch(startGameFetch(username));
+      setUsername("");
+      event.preventDefault();
+    }
   };
 
   return (
     <>
       {!stateUsername && (
-        <Centred>
-          <input
+        <Centered>
+          <StartText>
+            Welcome to the labyrinth! What's your name?
+          </StartText>
+          <InsertUsername
             type="text"
-            placeholder="Enter username"
+            placeholder="Choose a username"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
-          ></input>
-          <button
-            type="button"
-            onClick={onUsernameChange}>
-            Submit
-          </button>
-        </Centred>
+          ></InsertUsername>
+          <StartText>
+            Ready to play?
+          </StartText>
+          <Button onClick={onUsernameChange}>
+            Start the game
+          </Button>
+        </Centered>
       )}
     </>
   );
