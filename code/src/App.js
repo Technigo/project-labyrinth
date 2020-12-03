@@ -8,10 +8,16 @@ const reducer = combineReducers({ gameDetails: gameDetails.reducer });
 
 const store = configureStore({ reducer });
 
+// const Wrapper = styled.section`
+
+// `
+
 export const App = () => {
   return (
     <Provider store={store}>
+
       <GameBegin />
+
     </Provider>
   )
 }
