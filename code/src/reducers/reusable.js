@@ -1,22 +1,25 @@
 import { game } from './game';
 
+
 export const gameStart = () => {
+    console.log("hellog")
     return (dispatch) => {
-        fetch("https://wk16-backend.herokuapp.com/start", {
+        console.log("return")
+        fetch('https://wk16-backend.herokuapp.com/start', {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                username: TechnigoPlayer,
-                type: "move",
-                direction: direction
+                'username': 'TechnigoPlayer',
             }),
-            headers: { 'Content-Type': 'application/json'}
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                localStorage.setItem("game", JSON.stringify(data[0]));
-                dispatch(game.actions.gameStart(data[0]));
+ //               localStorage.setItem("game", JSON.stringify(json[0]));
+                dispatch(game.actions.nextStep(data));
             })
+            .catch((error) => console.error(error));
+
     }
 }
 
