@@ -13,10 +13,12 @@ export const GameContainer = () => {
     dispatch(generateActionMove(direction, type))
   }
 
+
+
   return (
     <div>
       <h2>{game.description}</h2>
-      {console.log(game.actions)}
+      {console.log(game.description)}
       {game.actions.map((item) => (
         <div>
           <p>{item.description}</p>

@@ -1,12 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+
+
+
 export const game = createSlice({  
     name: 'game',
-    initialState: {
+    initialState:  {
+        username:"username",
         gameinfo: {
-            actions: [{}]
-        },
-        username:"",
+            actions: [{}],
+           
+        }
+        
     },
 
 reducers: {

@@ -27,10 +27,12 @@ export const GameStart = () => {
      <input
       value={inputValue} 
       onChange={e => setInputValue(e.target.value)}
+      placeholder="Write your username"
+
+
       />
-      <button onClick={uppDateUsername}></button>
-      <button onClick={onGameGenerate}>Click</button>
+      <button onClick={uppDateUsername} disabled={inputValue.length < 1}>Start</button>
     </section>
-    
   )
+  
 }
