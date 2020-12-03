@@ -9,7 +9,6 @@ import Card from '@material-ui/core/Card';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import styled from 'styled-components';
 
 import { thunk, actionThunk, games } from './reducers/games';
 import { Map } from './components/Map';
