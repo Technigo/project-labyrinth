@@ -14,7 +14,16 @@ import { Header } from './Header';
 
 // Styling & Images
 import { InnerFlexWrapper, OuterFlexWrapper } from '../styling/GlobalStyles';
-import { imgURL_0_1, imgURL_1_3 } from '../styling/ImageSources';
+import { 
+  imgURL_start, 
+  imgURL_0_0, 
+  imgURL_0_1, 
+  imgURL_0_2, 
+  imgURL_0_3, 
+  imgURL_1_0, 
+  imgURL_1_1, 
+  imgURL_1_3 
+  } from '../styling/ImageSources';
 
 // ----------------------------------------------------------------
 
@@ -59,7 +68,7 @@ export const Labyrinth = ({ setCurrentCoordinates }) => {
               {/* Start-button */}
               {startButtonVisible && (
                 <InnerFlexWrapper>
-                  <ReadyText>{currentUsername}, are you ready to start your journey?</ReadyText>
+                  <p>{currentUsername}, are you ready to start your journey?</p>
                   <Button
                     action={() => fetchLabyrinthData({
                       url: 'https://wk16-backend.herokuapp.com/start',
@@ -74,15 +83,15 @@ export const Labyrinth = ({ setCurrentCoordinates }) => {
 
           {/* Nice picture when coming to the end! */}
           {content.coordinates === '1,3' && (
-            <TreasureImage src="https://images.unsplash.com/photo-1449049607083-e29383d58423?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fHRyZWFzdXJlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
+            <TreasureImage src="./assets/diamond-icon.png" />
           )}
 
           {/* Coordinates */}
-          {/* {content.coordinates && (
+          {content.coordinates && (
             <CoordinatesText>
               Coordinates: {content.coordinates}
             </CoordinatesText>
-          )} */}
+          )} 
 
           {/* Descriptive text */}
           <DescriptionText>{content.description}</DescriptionText>
@@ -126,7 +135,7 @@ const MainWrapper = styled(OuterFlexWrapper)`
   flex-direction: column;
   text-align: center;
   background-size: cover;
-  background-image: url(${props => props.coordinates === '1,3'? imgURL_1_3 : imgURL_0_1});
+  background-image: url( ${(props) => props.coordinates === '1,3' ? imgURL_1_3 : props.coordinates === '1,1' ? imgURL_1_1 : props.coordinates === '1,0' ? imgURL_1_0 : props.coordinates === '0,3' ? imgURL_0_3 : props.coordinates === '0,2' ? imgURL_0_2 : props.coordinates === '0,1' ? imgURL_0_1 : props.coordinates === '0,0' ? imgURL_0_0 : imgURL_start } );
   
   & p {
     line-height: 1.4;
@@ -142,19 +151,15 @@ const InnerWrapper = styled.div`
 `;
 
 const TreasureImage = styled.img`
-  width: 200px;
-  height: 210px;
-  margin: 0;
-  border-radius: 50%;
-`;
-
-const ReadyText = styled.p`
-  margin-bottom: 30px;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
 `;
 
 const DescriptionText = styled.p`
   color: #fff;
   line-height: 1.4;
+  margin-bottom: 20px;
 
   @media (max-width: 376px) {
     margin-top: 60px;
@@ -168,6 +173,7 @@ const DescriptionText = styled.p`
 const ActionText = styled.p`
   font-size: 12px;
   font-style: italic;
+  margin-bottom: 20px;
 
   @media (max-width: 320px) {
     font-size: 11px;

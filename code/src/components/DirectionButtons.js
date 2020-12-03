@@ -63,7 +63,7 @@ const DirectionButton = styled.button`
       : props.direction === 'East' || props.direction === 'West'
       ? '50%'
       : ''};
-  bottom: ${(props) => (props.direction === 'South' ? '-30px' : '')};
+  bottom: ${(props) => (props.direction === 'South' ? '20px' : '')};
   left: ${(props) => (props.direction === 'West' ? '20px' : '')};
   right: ${(props) => (props.direction === 'East' ? '20px' : '')};
 
