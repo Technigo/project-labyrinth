@@ -19,10 +19,10 @@ const store = configureStore({ reducer })
 export const App = () => {
   return (
     <Provider store={store}>
-      <Container>
-        <Start />
-        <Loading />
-      </Container>
+        <Container>
+          <Start />
+          <Loading />
+        </Container>
     </Provider>
   )
 }

@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable space-infix-ops */
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {

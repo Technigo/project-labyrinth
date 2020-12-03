@@ -34,7 +34,7 @@ Learning Objectives:
 <!-- - Use redux to store a history of what the player has done -->
 <!-- - If you want to focus more on design and make or use a design library (for example [material-ui](https://material-ui.com/)) -->
 
-⚫  Black Level (Advanced Goals)
+<!-- ⚫  Black Level (Advanced Goals) -->
 <!-- - Style each room/state based on the description.  For instance, if it contains the word "forest" you may want to change the background to a forest -->
 <!-- - Display a history of all the actions a player has taken -->
 <!-- - Persist redux store to localStorage, so the app data remains when you reload the page -->
