@@ -1,8 +1,8 @@
 import React from 'react'
 import { game } from './reducers/game';
 
-import GameControls from './component/GameControls'
-import GameContainer from './component/GameContainer'
+// import GameControls from './component/GameControls'
+import {GameContainer} from './component/GameContainer'
 import { Provider } from 'react-redux';
 
 
@@ -18,7 +18,7 @@ export const App = () => {
   
       
       <GameContainer />
-      <GameControls />
+      {/* <GameControls /> */}
       
     </div>
     </Provider>

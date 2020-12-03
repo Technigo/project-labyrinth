@@ -12,7 +12,7 @@ export const generateGameStart = () => {
     }
 }
 
-export const generateNewDirection = (a) => {    
+export const generateNewDirection = (action) => {    
    
     return (dispatch, getStore) => {
         fetch('https://wk16-backend.herokuapp.com/action', {
@@ -20,8 +20,8 @@ export const generateNewDirection = (a) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
                 username: getStore().game.username, 
-                type: a.type, 
-                direction: a.direction })
+                type: action.type, 
+                direction: action.direction })
         })
                 .then(res => res.json())
                 .then(data => dispatch(game.actions.generateGameStart(data)));
