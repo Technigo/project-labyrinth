@@ -19,7 +19,7 @@ export const App = () => {
 
     <Provider store={store}>
     <main>
-      <div className="gif-box">
+      <div className="all-info-box">
       <LoadingIndicator />
       <GameContainer/>
       <GameStart />

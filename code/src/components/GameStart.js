@@ -22,23 +22,32 @@ export const GameStart = () => {
     dispatch(game.actions.uppDateUsername(inputValue)) 
   }
 
-    
+  // setInputValue("") clean text are after input not working yet;
   
   return (
     <section className="start-container">
-     <input class="input-box"
+      <form className="username-text">
+        <h2>Username:</h2>  
+        <textarea className="input-box"
+         size="70"
+         maxLength="20"
+         minLength="1"
+        value={inputValue} 
+        onChange={e => setInputValue(e.target.value)}
+        >
+        </textarea>
+     {/* <input className="input-box"
+      type="text"
       value={inputValue} 
       onChange={e => setInputValue(e.target.value)}
-      placeholder="Write your username"
+      placeholder="Write your username ....."
       maxLength="20"
       minLength="1"
-      size="40"
-      // rows="8" 
-      // cols="50"
+      // size="40"
+      font-size="60"
       required
-      
-
-      />
+      /> */}
+      </form>
       <button onClick={uppDateUsername} disabled={inputValue.length < 1}>Start</button>
     </section>
   )

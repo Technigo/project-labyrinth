@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
+  cursor: pointer;
   animation: myanimation 15s infinite;
   /* background-color: rgba(0, 0, 0, 0.89); */
   /* background-size: 800px; */
@@ -34,60 +35,117 @@ code {
     monospace;
 }
 
+h1,
+h2,
+p {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
 
 main {
+  border: 5px solid rgb(68, 65, 65);
+  border-radius: 130px 130px 130px 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 800px;
-  height: 1000px;
+  width: 1000px;
+  height: 550px;
   color: white;
-  border: 3px solid red;
-  background-image: url('./components/assets/magic_forest_gif.gif');
+  background-image: url("./components/assets/magic_forest_gif.gif");
   background-size: cover;
   background-repeat: no-repeat;
-  margin-left: 300px;
-  margin-top: 100px;
-  background-color: rgba(0, 0, 0, 0.603);
+  margin-left: 100px;
+  margin-top: 250px;
+  cursor: pointer;
 }
 
-
-.gif-box {
-  border: 3px solid red;
+.all-info-box {
+  /* border: 3px solid lime; */
   padding: 30px;
-  
-}
-
-.start-text {
-  border: 3px solid green;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-  monospace;
-}
-
-.start-container {
-  border: 3px solid green;
   display: flex;
   flex-direction: column;
   justify-content: center;
   justify-content: space-between;
-  padding: 20px;
 }
 
-.input-box{
-  margin:10px;
+.start-text {
+  /* border: 3px solid white; */
+  padding: 10px;
 }
 
+.start-container {
+  /* border: 3px solid pink; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-between;
+  padding-left: 200px;
+  padding-right: 200px;
+}
 
+input {
+  font-size: 10px;
+}
+
+.username-text {
+  font-size: 20px;
+  font-weight: 50px;
+  color: lime;
+}
+.input-box {
+  margin: 0px;
+  padding: 5px;
+  border-radius: 20px;
+  color: darkblue;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New";
+}
 
 .direction-container {
-  border: 3px solid yellow;
+  /* border: 3px solid yellow; */
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-  monospace;
+    monospace;
+  display: flex;
+  flex-direction: column;
 }
 
 .description-text {
-  border: 3px solid green;
+  /* border: 3px solid blue; */
+  display: flex;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-  monospace;
+    monospace;
 }
+
+.loader {
+  font-size: 40px;
+  font-weight: 90px;
+  color: lime;
+}
+
+/* TEST
+@media (min-width: 600px) {
+  
+  main {
+    width: 400px;
+    height: 500px;
+  }
+
+  .all-info-box{
+    width: 400px;
+    height: 500px;
+  }
+  }
+
+
+@media (min-width: 1200px) {
+ 
+  main {
+  width: 800px;
+  height: 1000px;
+}
+
+.all-info-box{
+  width: 800px;
+  height: 1000px;
+  }
+ }  */
