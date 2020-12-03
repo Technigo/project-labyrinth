@@ -1,4 +1,6 @@
 //Here lives our username data and game initiation
+//We are leaving the emptyUsername function as we would like to implement it in the near future. 
+
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 

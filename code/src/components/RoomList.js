@@ -3,8 +3,6 @@ import { useSelector } from "react-redux";
 
 import styled from "styled-components";
 
-//import {game} from '../reducers/game'
-
 import { StartRoom } from "./StartRoom";
 import { GameRoom } from "./GameRoom";
 import { LoadingIndicator } from "./LoadingIndicator";
