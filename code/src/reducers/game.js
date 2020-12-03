@@ -29,7 +29,7 @@ export const game = createSlice ({
 
 export const createPlayer = (username) => {
     return (dispatch, getState) => {
-        const state = getState()
+       /*  const state = getState() */
         fetch('https://wk16-backend.herokuapp.com/start', {
             method: 'POST',
             headers: {

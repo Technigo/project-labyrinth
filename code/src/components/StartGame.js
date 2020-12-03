@@ -2,15 +2,15 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector, batch } from 'react-redux'
 import styled from 'styled-components'
 
-import { createPlayer, continueGame } from '../reducers/game'
+import { createPlayer } from '../reducers/game'
 import { game } from 'reducers/game'
+import { GameDescription } from './GameDescription'
+import { WelcomePlayer } from './WelcomePlayer'
 
 const Button = styled.button`
 
 `
-const DirectionButton = styled.button`
 
-`
 
 const Form = styled.form`
 `
@@ -18,18 +18,17 @@ const Form = styled.form`
 const Input = styled.input`
 `
 
-export const UserName = () => {
+export const StartGame = () => {
     const [inputValue, setInputValue] = useState('')
-    const start = useSelector((store) => store.game.game)
     const dispatch = useDispatch()
+    const userName = useSelector((store) => store.game.username)
 
     const onSubmit = (e) => {
         e.preventDefault()
         batch(() => {
             dispatch(game.actions.addUserName(inputValue))
             dispatch(createPlayer(inputValue))
-          })
-        
+          })      
     }
 
 return (
@@ -43,16 +42,8 @@ return (
             ></Input>
             <Button>Start game</Button>
         </Form>
-        <div>{start.description}</div>
-        {start.actions?.map((direction, index) => {
-        return ( 
-            <div key={index}> 
-            <div>{direction.description}</div>
-            <div>{direction.coordinates}</div>
-            <DirectionButton onClick={() => dispatch(continueGame(direction.direction, inputValue))}>{direction.direction}</DirectionButton>
-            </div>
-        )
-    })}
+        { userName && <WelcomePlayer userName={userName} />}
+        <GameDescription inputValue={inputValue} />
     </>
 )
 }
