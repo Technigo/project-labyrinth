@@ -31,8 +31,9 @@ const GameControls = () => {
     {loader && <Loader />}
     <Background>
       <HeaderText>{gameState.description}</HeaderText>
+        
         {!loader && gameArray && (gameArray.map((item, index) => {
-            return (
+          return (
               <ActionWrapper key={index}>
                 <MainText>{item.description}</MainText>
                 <Button onClick={() => onChooseDirection(item.direction)}>
@@ -42,10 +43,11 @@ const GameControls = () => {
               )
             })
           )
-          }
-          {gameState.coordinates === '1,3' && <Button onClick={() => restartGame()}>Restart game</Button>}
+        }
+
+      {gameState.coordinates === '1,3' && <Button onClick={() => restartGame()}>Restart game</Button>}
        
-      {history.length > 0 && <MainText>Your journey so far</MainText>}
+      {history.length > 0 && <MainText>Your journey so far:</MainText>}
         <History>{history.map((item, index) => {
           return ( 
             <MainText key={index}>

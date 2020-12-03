@@ -1,19 +1,25 @@
 import styled from 'styled-components';
 
 export const MainText = styled.p`
-font-size: 14px;
-font-family: 'Castoro', serif;
-margin: 2px;
+  font-size: 14px;
+  font-family: 'Castoro', serif;
+  margin: 2px;
+  width: 80%;
 
-@media (min-width: 667px){
-    font-size: 16px;
-  }
+  @media (min-width: 667px){
+      font-size: 16px;
+    }
 `;
 
 export const HeaderText = styled.h1`
   font-family: 'Montserrat', sans-serif;
-  margin: 50px;
-  width: 60%;
+  font-size: 22px;
+  width: 80%;
+
+  @media (min-width: 667px) {
+    width: 400px;
+   font-size: 28px;
+  }
 `;
 
 export const Button = styled.button`
@@ -29,6 +35,7 @@ transition: all 150ms;
 cursor: pointer;
 background: #3FBEA1;
 color: #fff;
+box-shadow: 2px 2px 2px grey;
 
 &:hover {
     background: #0B8565;
@@ -39,22 +46,31 @@ color: #fff;
   }
 `;
 
+export const Gif = styled.img`
+  width: 100%;
+
+  @media (min-width: 667px) {
+    width: 400px;
+  }
+`;
+
 export const Form = styled.form`
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: space-between;
-width: 300px;
+width: 100%;
 height: 100px;
 margin: 12px;
 padding: 12px;
 background: #E6E4E4;
-border-radius: 25px;
+
 
 @media (min-width: 667px){
     width: 400px;
     margin: 40px;
     padding: 15px;
+    border-radius: 25px;
   }
 `;
 
@@ -69,23 +85,23 @@ export const TextInput = styled.input`
   @media (min-width: 667px){
     font-size: 16px;
   }
-  `;
+`;
 
 export const ActionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   border: 2px solid #FAF9F9;
   background-color: #FAF9F9;
-  width: 80%;
+  width: 100%;
   margin: 20px;
-  padding: 15px;
-  border-radius: 25px;
+  padding: 20px;
   align-items: center;
   justify-content: center; 
   text-align: center; 
 
   @media (min-width: 667px){
     width: 50%;
+    border-radius: 25px;
   }
 `;
 
