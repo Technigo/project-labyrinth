@@ -10,6 +10,7 @@ import { generateGameStart} from '../reducers/reusable';
 export const GameContainer = () => {
     const description = useSelector(store => store.game.description);
     const gameStore = useSelector(store => store.game);
+    const loading = useSelector(store => store.game.isLoading)
     const dispatch = useDispatch();
     const [inputValue, setInputValue] = useState('')
     const username = useSelector(store => store.game.username)
@@ -18,9 +19,11 @@ export const GameContainer = () => {
         onGameGenerate()
     }, [username]) 
 
+
     const onGameGenerate = () => {
         dispatch(generateGameStart())
     }
+
 
     const setUserName = () => {
         dispatch(game.actions.updateUserName(inputValue))
@@ -32,6 +35,12 @@ export const GameContainer = () => {
 
     const onGameMoveUpdate = (action) => {
         dispatch(generateNewDirection(action))
+    }
+    
+    if(loading) {
+        return (
+            <div>Whiiwho</div>
+        )
     }
 
     if(description) {
@@ -45,7 +54,7 @@ export const GameContainer = () => {
                 {gameStore.direction.map(action => {
                     return (
                         <>
-                            <button   
+                            <button
                                 key={action.description}
                                 onClick={() => onGameMoveUpdate(action)}
                             >
@@ -71,7 +80,7 @@ export const GameContainer = () => {
                 onButtonClick={setUserName}
                 text='Start game'
             />
-          
+        
         </div>
     );
 }

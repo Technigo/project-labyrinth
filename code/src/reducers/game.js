@@ -7,7 +7,8 @@ export const game = createSlice({
         description: '',
         direction: [],
         coordinates: '',
-        history: []
+        history: [],
+        isLoading: false
     },
     reducers: {
         generateGameStart: (state, action) => {
@@ -39,6 +40,9 @@ export const game = createSlice({
                 state.direction = state.history[state.history.length - 1];
                 state.history = state.history.slice(0, state.history.length - 1);
             }
+        },
+        generateLoading: (state, action) => {
+            state.isLoading = action.payload;
         }
     }
 });
