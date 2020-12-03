@@ -24,6 +24,10 @@ export const CardContainer = styled.section`
   padding: 10px;
   text-align: center;
 
+  @media (min-width: 1024px) {
+    grid-column: 2;
+  }
+
   ${({movedeck}) => movedeck && `
   height: 300px;
   margin: 2px;
@@ -33,13 +37,16 @@ export const CardContainer = styled.section`
   outline-offset: -7px;
 
   @media (min-width: 768px) {
-    // height: 80%;
     margin: 25px 5px 0 5px;
   }  `}
 
   ${({carddeck}) => carddeck && `
   @media (min-width: 768px) {
     height: 100%;
+  }
+  @media (min-width: 1024px) {
+    grid-column-start: 1;
+    grid-column-end: 3;
   }
   `}
   `

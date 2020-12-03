@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import styled from "styled-components/macro"
 
-import { Button } from '../lib/Button'
+import { Button, ButtonWrap } from '../lib/Button'
 import { CardContainer } from '../lib/Card'
 import { Thumbnail } from '../components/Thumbnail'
 import { Wrapper } from '../components/Main'
@@ -79,27 +79,28 @@ export const TheLabyrinth = () => {
   } else {
     return (
       <>
-      <CardContainer carddeck={carddeck}>
-        <Coordinates>Coordinates: {gameData.coordinates}</Coordinates>
-        <ImageAndDescriptionWrapper>
-        <Thumbnail />
-        <DescriptionWrapper>
-        <RoomDescription>"{gameData.description}"</RoomDescription>
-        </DescriptionWrapper>
-        </ImageAndDescriptionWrapper>
-        {/*//<p>Maybe this should not be laying here though? You chose to go: {gameData.direction}</p>*/}
-      </CardContainer>
-      <Wrapper>
-        {gameData.actions.map(item => (
-          <CardContainer key={item.direction} movedeck={movedeck}>
-            <DirectionDescription>{item.description}</DirectionDescription>
-            <Button onClick={() => handleActionClick(item.type, item.direction)}>
-              Head {item.direction}
-            </Button>
-          </CardContainer>
-        ))}
-      </Wrapper>
-    </>
+        <CardContainer carddeck={carddeck}>
+          <Coordinates>Coordinates: {gameData.coordinates}</Coordinates>
+          <ImageAndDescriptionWrapper>
+            <Thumbnail />
+            <DescriptionWrapper>
+              <RoomDescription>"{gameData.description}"</RoomDescription>
+            </DescriptionWrapper>
+          </ImageAndDescriptionWrapper>
+        </CardContainer>
+        <Wrapper>
+          {gameData.actions.map(item => (
+            <CardContainer key={item.direction} movedeck={movedeck}>
+              <DirectionDescription>{item.description}</DirectionDescription>
+              <ButtonWrap>
+                <Button onClick={() => handleActionClick(item.type, item.direction)}>
+                  Head {item.direction}
+                </Button>
+              </ButtonWrap>
+            </CardContainer>
+          ))}
+        </Wrapper>
+      </>
     )
   }
 }

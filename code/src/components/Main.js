@@ -11,7 +11,9 @@ export const Main = styled.main`
   }
 
   @media (min-width: 1024px) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 60px;
+    gap: 15px;
     align-items: center;
   }
   `
@@ -28,8 +30,6 @@ export const Wrapper = styled.div`
 
   @media(min-width: 1024px) {
     flex-direction: column;
-    grid-column: 2;
+    grid-column: 3;
   }
   `
-
-  // ${({outer}) => outer && `background: blue;`}`height: 100%;
