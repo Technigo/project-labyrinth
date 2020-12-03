@@ -8,8 +8,8 @@ import { Wrapper } from './Main'
 import { Button } from "lib/Button"
 
 const Form = styled.form`
-
 `
+
 const Label = styled.label`
   margin-right: 5px;
   `
@@ -23,8 +23,6 @@ const InputField = styled.input`
 @media (min-width: 768px) {
 } 
 `
-
-
 
 export const UserInput = () => {
   const [username, setUsername] = useState("")

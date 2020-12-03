@@ -3,7 +3,6 @@ import styled from "styled-components/macro"
 
 import myImage from '../assets/skull_head.png'
 
-
 const Img = styled.img`
   width: 50px;
   height: 50px;
@@ -15,11 +14,9 @@ const Img = styled.img`
     height: 100px;
     margin: 15px 15px 30px 30px;
   }
-
 `
 
 export const Thumbnail = () => {
-
   return (
     <Img alt={`Illustration of skull`} src={myImage} />
   )

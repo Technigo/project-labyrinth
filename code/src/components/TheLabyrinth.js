@@ -102,36 +102,6 @@ export const TheLabyrinth = () => {
     </>
     )
   }
-  // return (
-  //   <>
-  //     <CardContainer carddeck={carddeck}>
-  //       <Coordinates>Coordinates: {gameData.coordinates}</Coordinates>
-  //       <ImageAndDescriptionWrapper>
-  //       <Thumbnail />
-  //       <DescriptionWrapper>
-  //       <RoomDescription>"{gameData.description}"</RoomDescription>
-  //       </DescriptionWrapper>
-  //       </ImageAndDescriptionWrapper>
-  //       <p>Maybe this should not be laying here though? You chose to go: {gameData.direction}</p>
-  //       {/* //this was originally in Card */}
-  //       {/* // The mapfunction needs to have a key */}
-  //     </CardContainer>
-  //     <Wrapper>
-  //       {gameData.actions.map(item => (
-  //         <CardContainer key={item.direction} movedeck={movedeck}>
-  //           <DirectionDescription>{item.description}</DirectionDescription>
-  //           <Button onClick={() => handleActionClick(item.type, item.direction)}>
-  //             Head {item.direction}
-  //           </Button>
-  //         </CardContainer>
-  //       ))}
-  //     </Wrapper>
-  //   </>
-  // )
-
-  
-
-
 }
 
 
