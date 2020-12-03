@@ -3,8 +3,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { gameDirection } from "../reducers/reusable";
-import {GameOver} from "./GameOver"
-import {game} from '../reducers/game'
+import { GameOver } from "./GameOver"
+import { game } from '../reducers/game'
 import { Button } from "../lib/Buttons"
 
 import forest from '../img/forest.jpg'
@@ -44,6 +44,12 @@ export const GameRoom = () => {
     }
   };
 
+  const endGame = () => {
+    if (gameData.coordinates === "1,3") {
+      return <GameOver/>
+    }
+  }
+
   if (game.actions.length === 0) {
     return ( 
         <GameOver/>
@@ -67,13 +73,14 @@ export const GameRoom = () => {
           );
         })}
       </Wrapper>
-        <BackButton 
-          type="button" 
-          onClick={onHistoryBack} 
-          disabled={historyGame.length === 1} 
-          background={historyGame.length === 1 ? "grey" : "rgb(32, 8, 191)"}
-          title={"back"}
-        />
+      {endGame()}
+      <BackButton 
+        type="button" 
+        onClick={onHistoryBack} 
+        disabled={historyGame.length === 1} 
+        background={historyGame.length === 1 ? "grey" : "rgb(32, 8, 191)"}
+        title={"back"}
+      />
     </GameImage>
     
   );
