@@ -12,14 +12,19 @@ export const GameContinue = () => {
   const playerName =  currentState.labyrinth.username;
   const actions = currentState.labyrinth.game.actions;
   
+  //Thunk that gets invoked by clicking the direction button and dispatches an action 
+  // to make post requests and advance the game
   const onGameContinue = (direction) => { 
     dispatch(generateGameProgress(playerName,direction));
   };
 
+  // Function that gets invoked by clicking the back button
   const onGoBack = () => { 
     dispatch(labyrinth.actions.historyGoBack());
   };
 
+  // Conditional rendering of the end page, if the lenght of the actions 
+  // array reaches 0 then the end page component will be mounted 
   if (actions.length === 0) { 
     return <EndPage/>
   };
@@ -37,3 +42,6 @@ export const GameContinue = () => {
     </Container>
   );
 };
+
+// Flow Map
+// GameContinue > EndPage

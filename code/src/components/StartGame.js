@@ -8,6 +8,8 @@ export const StartGame = () => {
   const dispatch = useDispatch(); 
   const playerName = useSelector((state)=>state.labyrinth.username);
 
+  // Thunk that performs the first POST request. Gets invoked by the start button 
+  // and then dispatches an action so we get the first set of instructions.
   const onStartGame = () => { 
     dispatch(generateStartInstructions(playerName));
   };
@@ -24,3 +26,6 @@ export const StartGame = () => {
     </Container>
   );
 };
+
+//Flow Map: 
+// StartGame > Game Continue

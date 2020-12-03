@@ -20,3 +20,6 @@ export const App = () => {
     </Provider>
   );
 };
+
+// Full Flow Map: 
+// HomePage > CreatePlayer > StartGame > ContinueGame > EndPage 
