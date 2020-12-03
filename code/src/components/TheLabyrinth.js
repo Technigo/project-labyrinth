@@ -7,6 +7,7 @@ import { CardContainer } from '../lib/Card'
 import { Thumbnail } from '../components/Thumbnail'
 import { Wrapper } from '../lib/Main'
 import { fetchActionData } from '../reducers/thunk'
+import { game } from '../reducers/game'
 import { LoadingIndicator } from './LoadingIndicator'
 
 const Coordinates = styled.p`
@@ -69,6 +70,7 @@ export const TheLabyrinth = () => {
 
   const handleActionClick = (type, direction) => {
     dispatch(fetchActionData(username, type, direction))
+    dispatch(game.actions.setPastActions(direction))
   }
 
   if (isLoading) {
@@ -85,6 +87,7 @@ export const TheLabyrinth = () => {
           <ImageAndDescriptionWrapper>
             <Thumbnail />
             <DescriptionWrapper>
+              {console.log(gameData.pastActions)}
               <RoomDescription>"{gameData.description}"</RoomDescription>
             </DescriptionWrapper>
           </ImageAndDescriptionWrapper>

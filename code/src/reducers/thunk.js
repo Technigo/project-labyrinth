@@ -25,6 +25,7 @@ export const fetchGameData = username => {
 export const fetchActionData = (username, type, direction) => {    
   console.log(username, type, direction)
     return (dispatch) => {
+      
       dispatch(ui.actions.setLoading(true))
         fetch('https://wk16-backend.herokuapp.com/action', {
             method: 'POST',

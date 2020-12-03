@@ -9,8 +9,8 @@ export const Button = styled.button`
   background: #C9B692;
   box-sizing: content-box;
   //WOODEN COLOR: color: #f0e7d1;
-  //PAPER COLOR: 
-  color: #594638;
+  //PAPER COLOR: #594638 
+  color: #FEF7E5;
   font-weight: 600;
   //BRIGHT PAPER COLOR: color: #fff5dd;
 
@@ -42,7 +42,18 @@ export const Button = styled.button`
 
   ${({ startBtn }) => startBtn && `
     width: 10em;
-    padding: 5px;`}
+    padding: 5px;
+    &:hover {
+      animation: grow 2s ease-in-out;
+      color: #fff;
+  
+      @keyframes grow {
+        50% {
+          transform: scale(1.1);
+        }
+      }
+    }
+    `}
 
     ${({moveBtn}) => moveBtn &&`
     width: 5em;
