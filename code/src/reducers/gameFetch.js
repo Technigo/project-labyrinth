@@ -1,18 +1,16 @@
-// import { gameState } from './gameState';
-
 import { gameState } from "./gameState";
 
-export const startFetch = () => {
+export const startFetch = (userName) => {
   return (dispatch) => {
     fetch("https://wk16-backend.herokuapp.com/start", {
       method: "POST",
       headers: { "Content-Type": "application/JSON" },
-      body: JSON.stringify({ username: "TechnigoPlayer1" }),
+      body: JSON.stringify({ username: userName }),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        dispatch(gameState.actions.startGame(data));
+        dispatch(gameState.actions.commitAction(data));
       });
   };
 };
@@ -23,7 +21,7 @@ export const actionFetch = (userName, direction) => {
       method: "POST",
       headers: { "Content-Type": "application/JSON" },
       body: JSON.stringify({
-        username: "TechnigoPlayer1",
+        username: userName,
         type: "move",
         direction,
       }),
