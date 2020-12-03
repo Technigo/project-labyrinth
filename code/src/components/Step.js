@@ -99,6 +99,11 @@ const ActionDes = styled.p`
   margin: 0;
   transition-timing-function: ease-in-out;
   visibility: hidden;
+  @media (any-hover: hover) {
+    &:hover + ${ActionDes} {
+      visibility: visible;
+    }
+  }
 `
 const Button = styled.button`
   background-color: #50055E;
