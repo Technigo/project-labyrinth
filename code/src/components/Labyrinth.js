@@ -206,8 +206,3 @@ const ActionText = styled.p`
     font-size: 9px;
   }
 `;
-
-const CoordinatesText = styled.p`
-  font-size: 12px;
-  color: #595959;
-`;
