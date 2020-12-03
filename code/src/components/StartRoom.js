@@ -3,18 +3,18 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import styled from "styled-components";
-import TextAnimation from 'react-animate-text';
+import TextAnimation from "react-animate-text";
 
 import { game } from "../reducers/game";
 import { generateAction } from "../reducers/reusable";
-import { Button } from "../lib/Buttons"
-import { Textfield } from "../lib/Textfields"
+import { Button } from "../lib/Buttons";
+import { Textfield } from "../lib/Textfields";
 
 export const StartRoom = () => {
   const userName = useSelector((store) => store.game.name);
   // const [newUsername, setNewUsername] = useState("")
   const dispatch = useDispatch();
-  
+
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(generateAction(userName));
@@ -31,21 +31,22 @@ export const StartRoom = () => {
     <Container>
       <Title>
         Welcome to the labyrinth of Maze.
-          <TextAnimation>
-            <span>Write your name and press start to enter the labyrinth, if you dare...</span>
-          </TextAnimation>
+        <TextAnimation>
+          <span>
+            Write your name and press start to enter the labyrinth, if you
+            dare...
+          </span>
+        </TextAnimation>
       </Title>
       <Form onSubmit={handleSubmit}>
         <Textfield
           onChange={(event) => onChangeEvent(event.target.value)}
           type="text"
-		      placeholder="enter your name here..."
+          placeholder="enter your name here..."
           //onChange={(event) => setNewUsername(event.target.value)}
           required
         />
-        <Button 
-          type="submit" 
-          title="start game"/>
+        <Button type="submit" title="start game" />
         {/* disabled={newUsername.length<5 || newUsername.length>20 || emptyUsername(newUsername)} */}
       </Form>
     </Container>
@@ -59,7 +60,7 @@ const Title = styled.h2`
   @media (min-width: 768px) {
     font-size: 40px;
   }
-`
+`;
 
 const Container = styled.section`
   display: flex;
@@ -76,5 +77,3 @@ const Form = styled.form`
     flex-direction: row;
   }
 `;
-
-

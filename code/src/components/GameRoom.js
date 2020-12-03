@@ -3,14 +3,19 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { gameDirection } from "../reducers/reusable";
-import { GameOver } from "./GameOver"
-import { game } from '../reducers/game'
-import { Button } from "../lib/Buttons"
+import { GameOver } from "./GameOver";
+import { game } from "../reducers/game";
+import { Button } from "../lib/Buttons";
 
-import forest from '../img/forest.jpg'
-import nature from '../img/nature.jpg'
+import light from "../img/light.jpg";
+import cavern from "../img/cavern.jpg";
+import bridge from "../img/bridge.jpg";
+import stone from "../img/stone.jpg";
+import robot from "../img/robot.jpg";
+import chest from "../img/chest.jpg";
+import content from "../img/content.jpg";
 
-import styled from 'styled-components/macro'
+import styled from "styled-components/macro";
 
 export const GameRoom = () => {
   const dispatch = useDispatch();
@@ -18,7 +23,7 @@ export const GameRoom = () => {
   const gameData = useSelector((state) => state.game.game);
   const userName = useSelector((state) => state.game.name);
   const arrayGame = useSelector((state) => state.game.game.actions);
-  const historyGame = useSelector((state) => state.game.history)
+  const historyGame = useSelector((state) => state.game.history);
 
   const onGameDirection = (direction) => {
     dispatch(gameDirection(userName, direction));
@@ -30,61 +35,60 @@ export const GameRoom = () => {
 
   const gameImages = () => {
     if (gameData.coordinates === "0,0") {
-      return forest;
+      return cavern;
     } else if (gameData.coordinates === "0,1") {
-      return nature;
+      return robot;
     } else if (gameData.coordinates === "0,2") {
-      return forest;
+      return chest;
     } else if (gameData.coordinates === "0,3") {
-      return forest;
+      return light;
     } else if (gameData.coordinates === "1,0") {
-      return forest;
+      return bridge;
     } else if (gameData.coordinates === "1,1") {
-      return forest;
+      return stone;
+    } else if (gameData.coordinates === "1,3") {
+      return content;
     }
   };
 
   const endGame = () => {
     if (gameData.coordinates === "1,3") {
-      return <GameOver/>
+      return <GameOver />;
     }
-  }
+  };
 
   if (game.actions.length === 0) {
-    return ( 
-        <GameOver/>
-    ) 
+    return <GameOver />;
   }
   return (
-    <GameImage style={{backgroundImage: `url(${gameImages()})`}}>
+    <GameImage style={{ backgroundImage: `url(${gameImages()})` }}>
       <Description>{gameData.description}</Description>
       <Wrapper>
-      {arrayGame &&
-        arrayGame.map((item, index) => {
-          return (
-            <Container>
-              <Button 
-                onClick={() => onGameDirection(item.direction)} 
-                key={index} 
-                title={`GO ${item.direction}`}
-              />
-              <p>{item.description}</p>
-            </Container>
-          );
-        })}
+        {arrayGame &&
+          arrayGame.map((item, index) => {
+            return (
+              <Container>
+                <Button
+                  onClick={() => onGameDirection(item.direction)}
+                  key={index}
+                  title={`GO ${item.direction}`}
+                />
+                <p>{item.description}</p>
+              </Container>
+            );
+          })}
       </Wrapper>
       {endGame()}
-      <BackButton 
-        type="button" 
-        onClick={onHistoryBack} 
-        disabled={historyGame.length === 1} 
+      <BackButton
+        type="button"
+        onClick={onHistoryBack}
+        disabled={historyGame.length === 1}
         background={historyGame.length === 1 ? "grey" : "rgb(32, 8, 191)"}
         title={"back"}
       />
     </GameImage>
-    
   );
-}
+};
 const GameImage = styled.div`
   display: flex;
   flex-direction: column;
@@ -94,15 +98,15 @@ const GameImage = styled.div`
   text-align: center;
   background-size: cover;
   background-position: center;
-  //height: 400px;
+  //height: 600px;
   max-width: 1000px;
   margin: auto;
   //margin-top: 100px;
 
-    @media (min-width: 768px) {
-      //height: 1000px;
-      margin-top: 0;
-    }
+  @media (min-width: 768px) {
+    //height: 1000px;
+    margin-top: 0;
+  }
 `;
 
 const Description = styled.h3`
@@ -111,16 +115,17 @@ const Description = styled.h3`
 
 const Wrapper = styled.div`
   @media (min-width: 768px) {
-      display: flex;
-    }
-`
+    display: flex;
+  }
+`;
 
 const Container = styled.div`
-  padding: 20px;
+  padding: 10px;
   font-size: 18px;
+  background-color: rgba(0, 0, 0, 0.253);
 
   @media (min-width: 768px) {
-    min-width: 50%
+    min-width: 50%;
   }
 `;
 
@@ -131,7 +136,7 @@ const BackButton = styled(Button)`
   border: solid 1px #ffffff;
 
   &:hover {
-    background-color: rgb(255, 255, 255, 0.4); 
+    background-color: rgb(255, 255, 255, 0.4);
   }
 
   @media (min-width: 768px) {

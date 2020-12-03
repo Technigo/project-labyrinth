@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 import styled from "styled-components";
 
@@ -10,7 +10,7 @@ import { GameRoom } from "./GameRoom";
 import { LoadingIndicator } from "./LoadingIndicator";
 
 export const RoomList = () => {
-  const startGame = useSelector((store) => store.game.isGameStarted)
+  const startGame = useSelector((store) => store.game.isGameStarted);
 
   return (
     <Section>
@@ -22,4 +22,4 @@ export const RoomList = () => {
 
 const Section = styled.section`
   position: relative;
-`
+`;
