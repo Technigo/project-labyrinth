@@ -43,5 +43,6 @@ const Btn = styled.button`
   @media (min-width: 768px) {
     width: 100%;
     align-self: unset;
+    max-width: 200px;
   }
 `;

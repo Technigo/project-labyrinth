@@ -51,8 +51,8 @@ export const GameRoom = () => {
   }
   return (
     <GameImage style={{backgroundImage: `url(${gameImages()})`}}>
-       <Description>{gameData.description}</Description>
-       
+      <Description>{gameData.description}</Description>
+      <Wrapper>
       {arrayGame &&
         arrayGame.map((item, index) => {
           return (
@@ -65,7 +65,8 @@ export const GameRoom = () => {
               <p>{item.description}</p>
             </Container>
           );
-        })} 
+        })}
+      </Wrapper>
         <BackButton 
           type="button" 
           onClick={onHistoryBack} 
@@ -79,8 +80,9 @@ export const GameRoom = () => {
 }
 const GameImage = styled.div`
   display: flex;
-  //flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 5% 10% 15% 10%;
   text-align: center;
   background-size: cover;
@@ -100,11 +102,19 @@ const Description = styled.h3`
   justify-content: center;
 `;
 
+const Wrapper = styled.div`
+  @media (min-width: 768px) {
+      display: flex;
+    }
+`
+
 const Container = styled.div`
-  width: 50%;
   padding: 20px;
   font-size: 18px;
 
+  @media (min-width: 768px) {
+    min-width: 50%
+  }
 `;
 
 const BackButton = styled(Button)`
@@ -115,5 +125,9 @@ const BackButton = styled(Button)`
 
   &:hover {
     background-color: rgb(255, 255, 255, 0.4); 
+  }
+
+  @media (min-width: 768px) {
+    max-width: 200px;
   }
 `;
