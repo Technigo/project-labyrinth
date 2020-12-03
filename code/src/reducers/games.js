@@ -22,14 +22,6 @@ export const games = createSlice({
 		setUsername: (store, action) => {
 			store.username = action.payload;
 		},
-
-		setHistory: (store, action) => {},
-
-		// resetGame: (store, action) => {
-		// 	store.description = '';
-		// 	store.actions = [];
-		// 	store.coordinates = '';
-		// },
 	},
 });
 

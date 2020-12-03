@@ -9,6 +9,7 @@ import Card from '@material-ui/core/Card';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
+import styled from 'styled-components';
 
 import { thunk, actionThunk, games } from './reducers/games';
 import { Map } from './components/Map';
@@ -38,7 +39,7 @@ export const Game = () => {
 	return (
 		<Container
 			style={{
-				paddingTop: 100,
+				paddingTop: 20,
 				maxWidth: 600,
 				display: 'flex',
 				justifyContent: 'center',
@@ -62,9 +63,6 @@ export const Game = () => {
 						onClick={() => onStart()}>
 						Start game
 					</Button>
-					{/* <button onClick={() => dispatch(games.actions.resetGame())}>
-				Reset game
-			</button> */}
 				</Box>
 			)}
 
@@ -104,7 +102,7 @@ export const Game = () => {
 			<List>
 				{sortedHistoryArr.map((item, index) => (
 					<ListItem key={index}>
-						<Typography variant="caption" align="center" color="secondary">
+						<Typography variant="caption" align="center" color="textSecondary">
 							{item.description}
 						</Typography>
 					</ListItem>
