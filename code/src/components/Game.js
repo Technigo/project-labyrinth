@@ -18,6 +18,7 @@ const Discription = styled.p`
 	font-weight: 500;
 	text-align: center;
 `
+
 const Box = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -43,6 +44,10 @@ export const Game = () => {
 
 	const onAction = (action) => {
 		dispatch(actionThunk(newUserName, action))
+	}
+
+	const onHistory = () => {
+		dispatch(games.actions.history())
 	}
 
 	return (
@@ -85,12 +90,17 @@ export const Game = () => {
 					<Discription>{gameDetails.description}</Discription>
 					<ButtonGroup>
 						{gameDetails.actions.map((action) => (
-						
-							<Button variant="contained" color="primary" key={action.description} onClick={() => onAction(action)}>
+							<Button 
+								variant="contained" 
+								color="primary" 
+								key={action.description} 
+								onClick={() => onAction(action)}
+							>
 								{action.type} {action.direction}
 							</Button>
 						))}
 					</ButtonGroup>
+					<Button variant="contained" color="primary" onClick={onHistory}>Go Back</Button>
 				</Box>
 			)}
 		</Container>

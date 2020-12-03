@@ -9,8 +9,26 @@ export const games = createSlice({
 		actions: [],
 		description: '',
 		coordinates: '',
+		history: []
 	},
 	reducers: {
+		generateDescription: (state, action) => {
+            // Check if description from Redux store is not empty obj.
+            // If it is, do not push empty str to history array
+            // If it is not, do it
+            if (state.description) {
+                state.history = [...state.history, state.description];
+            }
+            state.description = action.payload;   
+		},	
+		
+		history: state => {
+            if (state.history.length > 0) {
+                state.description = state.history[state.history.length - 1];
+                state.history = state.history.slice(0, state.history.length -1);
+            }
+        },	
+
 		playGame: (store, action) => {
 			store.description = action.payload.description
 			store.actions = action.payload.actions
@@ -56,6 +74,6 @@ export const actionThunk = (userName, action) => {
 			.then((data) => {
 				dispatch(games.actions.playGame(data))
 				dispatch(ui.actions.setLoading(false))
-			})
-	}
-}
+				dispatch(games.actions.generateDescription(data.description))
+			}
+			)}}
