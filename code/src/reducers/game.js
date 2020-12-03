@@ -4,33 +4,33 @@ import { createSlice } from '@reduxjs/toolkit';
 // ? JSON.parse(localStorage.getItem('game'))
 // : {};
 
-// const initialState = {
-//     name: "",
-//     game: {},
-//     isGameStarted: false
-// }
 
 
 export const game = createSlice({
     name: 'game',
     initialState: {
-        game: {},
+        gameDetails: {},
         userName: "",
         history: [],
-     //   isGameStarted: false,
+        isGameStarted: false,
     },
     reducers: {
         updateUserName: (state, action) => {
             state.userName = action.payload;
         },
         nextStep: (state, action) => {
-            
-            state.game = action.payload;
-  //          state.isGameStarted = true;
+            state.isGameStarted = true;
+            state.gameDetails = action.payload;
+            state.isGameStarted = true;
             console.group("Here" + action.payload)
          },
+         restartGame: (state, action) => {
+             return game.initialState
+         },
+         
         // historyGoBack: state => {
 
         // }
     }
 })
+
