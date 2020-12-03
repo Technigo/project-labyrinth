@@ -12,10 +12,10 @@ NEXT UP:
 [X] Hide name input when name has been entered, only show start button
 [X] Margin-bottom på nedersta 
 [X] Find 'Goal' image, or style finish-page exclusively
+[X] Publish on Netlify
 
 [ ] Find images for all coordinates - add them to the code
 [ ] Write READ ME text
-[ ] Publish on Netlify
 
 [-] Typewriter text
 [-] Try to put the direction button-text vertical

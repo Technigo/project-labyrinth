@@ -72,10 +72,10 @@ export const Labyrinth = ({ setCurrentCoordinates }) => {
               {/* Start-button */}
               {startButtonVisible && (
                 <InnerFlexWrapper>
-                  <p>
+                  <IntroText>
                     Welcome {currentUsername}, are you ready to start your
                     journey?
-                  </p>
+                  </IntroText>
                   <Button
                     action={() =>
                       fetchLabyrinthData({
@@ -144,7 +144,8 @@ const MainWrapper = styled(OuterFlexWrapper)`
   flex-direction: column;
   text-align: center;
   background-size: cover;
-  background-position: center;
+  background-position: ${(props) =>
+    props.coordinates === '1,3' ? 'right' : 'center'};
   background-image: url(${(props) =>
     props.coordinates === '1,3'
       ? imgURL_1_3
@@ -162,6 +163,10 @@ const MainWrapper = styled(OuterFlexWrapper)`
       ? imgURL_0_0
       : imgURL_start});
 
+  // Black & White-filter if needed
+  /* filter: ${(props) =>
+    props.coordinates === '1,3' ? 'grayscale(100)' : ''}; */
+
   & p {
     line-height: 1.4;
     color: #fff;
@@ -175,20 +180,29 @@ const InnerWrapper = styled.div`
   align-items: center;
 `;
 
+const IntroText = styled.p`
+  font-size: 36px;
+`;
+
 const TreasureImage = styled.img`
   width: 80px;
   height: 80px;
   margin-bottom: 40px;
+  @media (max-width: 376px) {
+    margin-bottom: 10px;
+  }
 `;
 
 const DescriptionText = styled.p`
+  font-size: 36px;
   color: #fff;
   line-height: 1.4;
   margin-bottom: 20px;
   max-width: 600px;
 
   @media (max-width: 376px) {
-    margin-top: 60px;
+    margin-top: 20px;
+    font-size: 18px;
   }
 
   @media (max-width: 321px) {
@@ -197,12 +211,12 @@ const DescriptionText = styled.p`
 `;
 
 const ActionText = styled.p`
-  font-size: 12px;
+  font-size: 14px;
   font-style: italic;
   margin-bottom: 20px;
   max-width: 600px;
 
-  @media (max-width: 37px) {
+  @media (max-width: 376px) {
     font-size: 9px;
   }
 `;
