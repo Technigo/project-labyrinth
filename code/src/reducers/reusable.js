@@ -1,15 +1,14 @@
 import { game } from './game';
 
 
-export const gameStart = () => {
+export const startFetch = () => {
     console.log("hellog")
     return (dispatch) => {
-        console.log("return")
         fetch('https://wk16-backend.herokuapp.com/start', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                'username': 'TechnigoPlayer',
+                username: 'TechnigoPlayer',
             }),
         })
             .then(res => res.json())
@@ -21,5 +20,6 @@ export const gameStart = () => {
             .catch((error) => console.error(error));
 
     }
+    
 }
 
