@@ -107,9 +107,9 @@ const Button = styled.button`
   font-family: 'Mystery Quest', cursive;
   font-size: 18px;
   margin-bottom: 30px;
-  height: 40px;
-  width: 120px;
-  &:hover + ${ActionDes} {
-    visibility: visible;
+  @media (any-hover: hover) {
+    :hover+ ${ActionDes} {
+      visibility: visible;
+    }
   }
 `

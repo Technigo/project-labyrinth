@@ -40,21 +40,24 @@ export const StartForm = () => {
     <Home imgUrl={heroImage}>
       <LoadingIndicator />
       <Wrapper>
-        <Label
-          htmlFor={playerInputId}>
-          Type your name
-          <Input
-            id={playerInputId}
-            type="text"
-            value={playerName}
-            onChange={(event) => handlePlayerName(event)} />
-        </Label>
-        <Button
-          type="button"
-          disabled={playerName.length < 1}
-          onClick={() => startGame()}>
-            Start Game
-        </Button>
+        <Title>Are you sure you want to do this?</Title>
+        <Content>
+          <Label
+            htmlFor={playerInputId}>
+            Type your name to start
+            <Input
+              id={playerInputId}
+              type="text"
+              value={playerName}
+              onChange={(event) => handlePlayerName(event)} />
+          </Label>
+          <Button
+            type="button"
+            disabled={playerName.length < 1}
+            onClick={() => startGame()}>
+              Start Game
+          </Button>
+        </Content>
       </Wrapper>
     </Home>
   )
@@ -69,26 +72,35 @@ const Home = styled.main`
   color: #ffffff;  
   display: flex;
   flex-direction: column;
+  font-family: 'Mystery Quest', cursive;
   min-height: 100vh;
   justify-content: center;
   width: 100vw;
 `
-
+const Title = styled.h1`
+  font-size: 30px;
+  color: #222222;
+  margin-bottom: 90px;
+  margin-top: 0;
+  text-align: center;
+  text-shadow: 1px 1px 1px #fff, 4px 4px 7px rgba(0,0,0,0.3);
+`
 const Wrapper = styled.div`
   align-items: center;
   display: flex;
-  font-family: 'Mystery Quest', cursive;
   flex-direction: column;
 `
-
+const Content = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+`
 const Button = styled.button`
   background-color: #50055E;
   color: #ffffff;
   font-family: 'Mystery Quest', cursive;
   font-size: 18px;
   margin-top: 20px;
-  height: 40px;
-  width: 120px;
 `
 const Input = styled.input`
   height: 30px;
@@ -100,4 +112,5 @@ const Label = styled.label`
   display: flex;
   flex-direction: column;
   font-size: 25px;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
 `
