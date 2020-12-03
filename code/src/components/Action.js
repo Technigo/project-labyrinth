@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { executeAction } from "../reducers/game";
+import { executeAction, game } from "../reducers/game";
 import styled from "styled-components";
 
 const MoveButton = styled.button`
@@ -9,6 +9,7 @@ const MoveButton = styled.button`
   font-family: "Inconsolata", monospace;
   font-size: 15px;
   padding: 10px;
+  text-transform: capitalize;
 `;
 const GameCard = styled.div`
   border: 4px solid red;
@@ -16,23 +17,24 @@ const GameCard = styled.div`
   margin-bottom: 20px;
 `;
 
-export const Action = ({ props }) => {
+export const Action = ({ description, type, direction }) => {
   const dispatch = useDispatch();
-  const [description, setDescription] = useState(props.description);
-  const [direction, setDirection] = useState(props.direction);
-  const [type, setType] = useState(props.type);
+
   const username = useSelector((store) => store.game.username);
 
   const handleOnClick = () => {
+    // thunk:
     dispatch(executeAction(username, type, direction));
+    // action:
+    dispatch(game.actions.setHistory({ type, direction }));
   };
 
   return (
     <GameCard>
-      <h3>Go {direction} </h3>
       <p>{description}</p>
-      <p></p>
-      <MoveButton onClick={handleOnClick}>Proceed</MoveButton>
+      <MoveButton onClick={handleOnClick}>
+        {type} {direction}
+      </MoveButton>
     </GameCard>
   );
 };

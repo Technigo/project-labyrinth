@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Action } from "./Action";
 import styled from "styled-components";
+import { History } from "./History";
 
 export const GameState = () => {
   const username = useSelector((store) => store.game.username);
@@ -20,9 +21,11 @@ export const GameState = () => {
       <div>
         {actions &&
           actions.map((action) => {
-            return <Action key={action.description} props={action} />;
+            return <Action key={action.description} {...action} />;
+            // Spreading action keys as props ---> i.e. description, type, direction
           })}
       </div>
+      <History />
     </div>
   );
 };
