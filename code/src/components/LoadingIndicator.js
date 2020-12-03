@@ -19,7 +19,7 @@ export const LoadingIndicator = () => {
       width={100}
       timeout={5000}
    />
-      }
+      } 
     </Container>
   )
 }

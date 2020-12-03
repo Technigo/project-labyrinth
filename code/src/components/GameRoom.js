@@ -5,6 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { gameDirection } from "../reducers/reusable";
 import {GameOver} from "./GameOver"
 import {game} from '../reducers/game'
+
+import forest from '../img/forest.jpg'
+import nature from '../img/nature.jpg'
+
+
+import styled from 'styled-components'
+
 export const GameRoom = () => {
   const dispatch = useDispatch();
 
@@ -12,7 +19,6 @@ export const GameRoom = () => {
   const userName = useSelector((state) => state.game.name);
   const arrayGame = useSelector((state) => state.game.game.actions);
   const historyGame = useSelector((state) => state.game.history)
-  const statusGame = useSelector((state) => state.game.game.status)
 
   const onGameDirection = (direction) => {
     dispatch(gameDirection(userName, direction));
@@ -22,20 +28,32 @@ export const GameRoom = () => {
     dispatch(game.actions.historyGoBack());
   };
 
+  const gameImages = () => {
+    if (gameData.coordinates === "0,0") {
+      return forest;
+    } else if (gameData.coordinates === "0,1") {
+      return nature;
+    } else if (gameData.coordinates === "0,2") {
+      return forest;
+    } else if (gameData.coordinates === "0,3") {
+      return forest;
+    } else if (gameData.coordinates === "1,0") {
+      return forest;
+    } else if (gameData.coordinates === "1,1") {
+      return forest;
+    }
+  };
+
   if (game.actions.length === 0) {
-    return (
-      <div>  
+    return ( 
         <GameOver/>
-    <h2>{statusGame.description}</h2>
-      </div>
-    
     ) 
   }
   return (
-    <>
-       <p>{gameData.description}</p>
+    <GameImage style={{backgroundImage: `url(${gameImages()})`}}>
+       <Description>{gameData.description}</Description>
+       
       {arrayGame &&
-        
         arrayGame.map((item, index) => {
           return (
             <div>
@@ -45,9 +63,42 @@ export const GameRoom = () => {
               <p>{item.description}</p>
             </div>
           );
-        })}   
-        <button type="button" onClick={onHistoryBack} disabled={historyGame.length === 1}>back</button>
-   
-    </>
+        })} 
+        <BackButton>
+        <button type="button" onClick={onHistoryBack} disabled={historyGame.length === 1} background={historyGame.length === 1 ? "grey" : "rgb(32, 8, 191)"}>BACK</button>
+    </BackButton>  
+    </GameImage>
+    
   );
 }
+const GameImage = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 5% 10% 15% 10%;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 100px;
+    @media (max-width: 768px) {
+      height: 1000px;
+      margin-top: 0;
+    }
+`;
+
+const Description = styled.h3`
+  justify-content:center;
+`;
+
+export const BackButton = styled.button`
+  font-size: 40px;
+  color: white;
+  font-family: 'Inconsolata', monospace;
+  margin-top: 20px;
+  padding: 20px;
+  cursor: pointer;
+  border: none;
+  }
+`;

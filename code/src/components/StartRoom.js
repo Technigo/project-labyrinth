@@ -31,7 +31,7 @@ export const StartRoom = () => {
         <Textfield
           onChange={(event) => onChangeEvent(event.target.value)}
           type="text"
-          placeholder="enter your name here..."
+		  placeholder="enter your name here..."
           //onChange={(event) => setNewUsername(event.target.value)}
           required
         />
