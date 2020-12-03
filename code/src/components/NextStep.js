@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { actionFetch } from "../reducers/gameFetch";
-import { Divider, Button, Text } from "../styling/styling";
+import { Divider, Button } from "../styling/styling";
 
 export const NextStep = () => {
   const gameDetails = useSelector((store) => store.gameState.gameDetails);
@@ -13,13 +13,8 @@ export const NextStep = () => {
     dispatch(actionFetch(currentUser, direction));
   };
 
-  
-<<<<<<< HEAD
   return (
-=======
-  return (   
->>>>>>> a68edcb53b7ca09c31ca2817cec4fbece4985413
-    <>    
+    <>
       <p>{gameDetails.description}</p>
       <Divider />
       <p>Possible actions:</p>
@@ -31,8 +26,6 @@ export const NextStep = () => {
           </Button>
         </div>
       ))}
-      
     </>
   );
 };
-
