@@ -1,12 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+import { Centred } from './Styling';
+
 export const Loading = () => {
   const isLoading = useSelector((state) => state.ui.isLoading);
 
   return (
     <>
-      {isLoading && <div>Loading!!</div>}
+      {isLoading && <Centred>Loading!!</Centred>}
     </>
   )
 }

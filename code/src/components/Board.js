@@ -1,42 +1,41 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import styled from "styled-components/macro";
 
-import { nextStepFetch } from "../reducers/reusable";
+import { Username } from "./Username";
+import { Description } from "./Description";
+import { Position } from "./Position";
+import { Avatar } from "./Avatar";
+import { Direction } from "./Direction";
+
+const BoardGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 2fr 1fr 2fr 1fr 2fr;
+  grid-template-areas:
+    "username . position"
+    "description description description"
+    ". North ."
+    ". avatar ."
+    "West avatar East"
+    ". avatar ."
+    ". South .";
+`;
 
 export const Board = () => {
-  const dispatch = useDispatch();
   const stateUsername = useSelector((state) => state.game.username);
-  const currentStep = useSelector((state) => state.game.currentStep);
   const isLoading = useSelector((state) => state.ui.isLoading);
-
-  const onNextStep = (direction) => {
-    dispatch(nextStepFetch(stateUsername, "move", direction));
-  };
 
   return (
     <>
-      {!isLoading && (
-        <div>
-          {currentStep.coordinates && (
-            <>
-              <p>Coordinates: {currentStep.coordinates}</p>
-              <p>Description: {currentStep.description}</p>
-              {currentStep.actions.map((action) => {
-                return (
-                  <div>
-                    <button
-                      value={action.direction}
-                      onClick={(event) => onNextStep(event.target.value)}
-                    >
-                      {action.direction}
-                    </button>
-                    <p>{action.description}</p>
-                  </div>
-                );
-              })}
-            </>
-          )}
-        </div>
+      {!isLoading && stateUsername && (
+        <BoardGrid>
+          <Username />
+          <Description />
+          <Position />
+          <Avatar />
+          <Direction />
+        </BoardGrid>
       )}
     </>
   );
