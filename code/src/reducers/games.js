@@ -42,7 +42,6 @@ export const thunk = (userName) => {
 };
 
 export const actionThunk = (userName, action) => {
-	console.log(action);
 	return (dispatch) => {
 		dispatch(ui.actions.setLoading(true));
 		fetch('https://wk16-backend.herokuapp.com/action', {
