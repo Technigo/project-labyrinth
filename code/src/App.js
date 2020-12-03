@@ -5,13 +5,19 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { GameStart } from './components/GameStart'
 import { GameContainer } from './components/GameContainer'
 import { game } from './reducers/game'
+import { loader } from './reducers/Loader'
+import { LoadingIndicator } from './components/LoadingIndicator'
 
-const reducer = combineReducers({ game: game.reducer })
+const reducer = combineReducers({ 
+  game: game.reducer,
+  loader: loader.reducer
+})
 const store = configureStore({ reducer })
 
 export const App = () => {
   return (
     <Provider store={store}>
+      <LoadingIndicator />
       <GameContainer/>
       <GameStart />
     </Provider>
