@@ -21,10 +21,13 @@ export const HeaderText = styled.h1`
   font-family: 'Montserrat', sans-serif;
   font-size: 22px;
   width: 80%;
+  text-align: center;
+  font-weight: bold;
 
   @media (min-width: 667px) {
     width: 50%;
     font-size: 28px;
+    top: 50px;
   }
 `;
 
@@ -48,10 +51,10 @@ export const Button = styled.button`
   cursor: pointer;
   background: #3FBEA1;
   color: #fff;
-  box-shadow: 2px 2px 2px grey;
+  box-shadow: 3px 3px 2px #B8B4B4;
 
   &:hover {
-      background: #0B8565;
+      background: #69DFC7;
   }
 
   @media (min-width: 667px){
@@ -128,10 +131,30 @@ export const Background = styled.section`
 `;
 
 export const History = styled.div`
-
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px 0;
 `;
 
 export const FooterContainer = styled.footer`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const EndImage = styled.img`
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 5px;
+
+  @media (min-width: 667px) {
+    width: 50%;
+  }
+`;
+
+export const HeaderWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

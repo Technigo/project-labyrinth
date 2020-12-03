@@ -26,6 +26,7 @@ const StartControls = () => {
         <Gif src="https://media.giphy.com/media/ACLCA6bvwBEvC/giphy.gif" alt="labyrinth"></Gif>
         <Form onSubmit={handleSubmit}>
           <TextInput 
+            required
             type='text' 
             placeholder='Input username...' 
             onChange={event => onChangeEvent(event.target.value)}>

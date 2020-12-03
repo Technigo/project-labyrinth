@@ -3,16 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { game } from '../reducers/game';
 import { chooseDirection } from '../reducers/fetch';
+import endImage from '../assets/pexels-ray-bilcliff-1533483.jpg';
 
-import { Button, Background, ActionWrapper, MainText, HeaderText, History } from './styling';
-import Loader from './Loader';
+import { Button, Background, ActionWrapper, MainText, HeaderText, History, EndImage, HeaderWrapper} from './styling';
 
 const GameControls = () => {
   const dispatch = useDispatch();
   const userName = useSelector((store) => store.game.name)
   const gameState = useSelector((state) => state.game.game)
   const gameArray = useSelector((state) => state.game.game.actions)
-  const loader = useSelector((state) => state.game.isLoading)
   const history = useSelector((state) => state.game.history)
 
   const onChooseDirection = (direction) => {
@@ -28,11 +27,12 @@ const GameControls = () => {
 
   return (
   <>
-    {loader && <Loader />}
-    <Background>
-      <HeaderText>{gameState.description}</HeaderText>
-        
-        {!loader && gameArray && (gameArray.map((item, index) => {
+      <Background>
+        <HeaderWrapper>
+          <HeaderText>{gameState.description}</HeaderText>
+          {gameState.coordinates === '1,3' && <EndImage src={endImage} alt="The end"></EndImage>}
+        </HeaderWrapper>
+        {gameArray && (gameArray.map((item, index) => {
           return (
               <ActionWrapper key={index}>
                 <MainText>{item.description}</MainText>
@@ -44,18 +44,21 @@ const GameControls = () => {
             })
           )
         }
-
+      
       {gameState.coordinates === '1,3' && <Button onClick={() => restartGame()}>Restart game</Button>}
        
-      {history.length > 0 && <MainText>Your journey so far:</MainText>}
-        <History>{history.map((item, index) => {
+      {gameState.coordinates !== '1,3' &&
+        <History>
+          {history.length > 0 && <MainText>Your journey so far:</MainText>}
+          {history.map((item, index) => {
           return ( 
             <MainText key={index}>
               {index +1}) {item}
             </MainText>
             )
           })}
-        </History>
+          </History>
+        }
       </Background>
   </>
   );
