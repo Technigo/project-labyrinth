@@ -30,9 +30,9 @@ export const chooseNextStep = (userName, direction) => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                "username": userName,
-                "type": "move",
-                "direction": direction,
+                username: userName,
+                type: "move",
+                direction: direction,
             })
         })
         .then(res => res.json())
