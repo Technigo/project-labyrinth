@@ -23,7 +23,7 @@ export const DirectionButtons = ({ direction, action }) => {
 
 const Arrow = styled.span`
   display: inline-block;
-  font-size: 45px;
+  font-size: 30px;
   color: #fff;
   transform: ${(props) =>
     props.direction === 'North'
@@ -35,7 +35,7 @@ const Arrow = styled.span`
       : `rotate(180deg)`};
 
   @media (min-width: 580px) {
-    font-size: 60px;
+    font-size: 45px;
   }
 `;
 
@@ -73,10 +73,15 @@ const DirectionButton = styled.button`
 `;
 
 const DirectionText = styled.p`
+  display: none;
   transform: ${(props) =>
     props.direction === 'East'
       ? 'rotate(90deg)'
       : props.direction === 'West'
       ? 'rotate(-90deg)'
       : ''};
+  
+  @media (min-width: 490px) {
+    display: block;
+  }
 `;

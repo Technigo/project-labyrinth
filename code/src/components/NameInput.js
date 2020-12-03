@@ -10,7 +10,7 @@ import { labyrinth } from 'reducers/labyrinth';
 
 // ----------------------------------------------------------------
 
-export const NameInput = ({ setStartButtonVisible }) => {
+export const NameInput = ({ setStartButtonVisible, setNameInputVisible }) => {
   const dispatch = useDispatch();
   const [username, setUsername] = useState('');
 
@@ -26,6 +26,7 @@ export const NameInput = ({ setStartButtonVisible }) => {
       dispatch(labyrinth.actions.setUsername(username));
       localStorage.setItem('username', username);
       setStartButtonVisible(true);
+      setNameInputVisible(false);
     }
   };
 
@@ -64,6 +65,7 @@ const LabelWrapper = styled.label`
 `;
 
 const Input = styled.input`
+  line-height: 1.5;
   margin: 30px 0;
   width: 40vw;
   border: none;

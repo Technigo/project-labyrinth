@@ -26,7 +26,7 @@ export const MainButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 3px solid #fff;
+  border: 2px solid #fff;
   color: #fff;
   background: none;
   padding: 8px 40px;

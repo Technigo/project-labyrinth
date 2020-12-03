@@ -21,39 +21,18 @@ export const labyrinth = createSlice({
   },
 });
 
-export const fetchLabyrinthData = (username) => {
+export const fetchLabyrinthData = ({ url, username, type, direction }) => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
-    fetch('https://wk16-backend.herokuapp.com/start', {
+    fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        username: username,
-      }),
-    })
-      .then((results) => results.json())
-      .then((json) => {
-        localStorage.setItem('labyrinth', JSON.stringify(json));
-        dispatch(labyrinth.actions.setLabyrinthData(json));
-        dispatch(ui.actions.setLoading(false));
-      });
-  };
-};
-
-export const fetchDirectionData = ({ direction, username }) => {
-  return (dispatch) => {
-    dispatch(ui.actions.setLoading(true));
-    fetch('https://wk16-backend.herokuapp.com/action', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        username: username,
-        type: 'move',
-        direction: direction,
+          username: username,
+          type: type,
+          direction: direction,
       }),
     })
       .then((results) => results.json())

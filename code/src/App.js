@@ -41,25 +41,5 @@ export const App = () => {
 const Container = styled.section`
   width: 100vw;
   height: 100vh;
-  background: ${({ coordinates }) =>
-    coordinates === '0,0' // Set background color depending on coordinates
-      ? `#f5f5f5`
-      : coordinates === '0,1'
-      ? `#383838`
-      : coordinates === '0,2'
-      ? `#828282`
-      : coordinates === '0,3'
-      ? `pink`
-      : coordinates === '1,0'
-      ? `#f0b837`
-      : coordinates === '1,1'
-      ? `#f5d282`
-      : `#fff`};
-  color: ${({ coordinates }) =>
-    coordinates === '0,1' // Set text color depending on coordinates,
-      ? //to match the background color
-        `#fff`
-      : coordinates === '0,2'
-      ? `#fff`
-      : `#000`};
+  background: #000;
 `;

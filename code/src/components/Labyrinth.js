@@ -2,18 +2,19 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components/macro';
 
-// Functions
-import { fetchDirectionData, fetchLabyrinthData } from '../reducers/labyrinth';
+// Reducers & Functions
+import { fetchLabyrinthData } from '../reducers/labyrinth';
+import { labyrinth } from '../reducers/labyrinth';
 
 // Components
 import { Button } from './Button';
 import { NameInput } from './NameInput';
 import { DirectionButtons } from './DirectionButtons';
-import { InnerFlexWrapper, OuterFlexWrapper } from '../styling/GlobalStyles';
-import { labyrinth } from '../reducers/labyrinth';
+import { Header } from './Header';
 
-// images
-import { img_0_1 } from '../styling/ImageSources';
+// Styling & Images
+import { InnerFlexWrapper, OuterFlexWrapper } from '../styling/GlobalStyles';
+import { imgURL_0_1, imgURL_1_3 } from '../styling/ImageSources';
 
 // ----------------------------------------------------------------
 
@@ -25,13 +26,6 @@ export const Labyrinth = ({ setCurrentCoordinates }) => {
 
   const [startButtonVisible, setStartButtonVisible] = useState(false);
   const [nameInputVisible, setNameInputVisible] = useState(true);
-
-  // const handleStartButton = () => {
-  //   fetchLabyrinthData(username).then(() => {
-  //     setStartButtonVisible(false);
-  //     setNameInputVisible(false);
-  //   });
-  // };
 
   // Check if username is stored in local storage
   const currentUsername = localStorage.getItem('username')
@@ -51,22 +45,26 @@ export const Labyrinth = ({ setCurrentCoordinates }) => {
 
   return (
     isLoading === false && (
-      <MainWrapper>
+      <MainWrapper coordinates={content.coordinates}>
+        <Header />
         <InnerWrapper>
           {/* Removes the NameInput and start buttons when the journey has started */}
           {content.coordinates === undefined && (
             <>
               {/* Name-input */}
               {nameInputVisible && (
-                <NameInput setStartButtonVisible={setStartButtonVisible} />
+                <NameInput setStartButtonVisible={setStartButtonVisible} setNameInputVisible={setNameInputVisible} />
               )}
 
               {/* Start-button */}
               {startButtonVisible && (
                 <InnerFlexWrapper>
-                  <p>{currentUsername}, are you ready to start your journey?</p>
+                  <ReadyText>{currentUsername}, are you ready to start your journey?</ReadyText>
                   <Button
-                    action={() => fetchLabyrinthData(currentUsername)}
+                    action={() => fetchLabyrinthData({
+                      url: 'https://wk16-backend.herokuapp.com/start',
+                      username: currentUsername,
+                    })}
                     text="Yes, start the game"
                   />
                 </InnerFlexWrapper>
@@ -96,9 +94,11 @@ export const Labyrinth = ({ setCurrentCoordinates }) => {
                 <DirectionButtons
                   direction={action.direction}
                   action={() =>
-                    fetchDirectionData({
-                      direction: action.direction,
+                    fetchLabyrinthData({
+                      url: 'https://wk16-backend.herokuapp.com/action',
                       username: currentUsername,
+                      type: 'move',
+                      direction: action.direction,
                     })
                   }
                 />
@@ -126,8 +126,8 @@ const MainWrapper = styled(OuterFlexWrapper)`
   flex-direction: column;
   text-align: center;
   background-size: cover;
-  background-image: url(${img_0_1});
-
+  background-image: url(${props => props.coordinates === '1,3'? imgURL_1_3 : imgURL_0_1});
+  
   & p {
     line-height: 1.4;
     color: #fff;
@@ -135,7 +135,7 @@ const MainWrapper = styled(OuterFlexWrapper)`
 `;
 
 const InnerWrapper = styled.div`
-  max-width: 50vw;
+  max-width: 55vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -148,13 +148,30 @@ const TreasureImage = styled.img`
   border-radius: 50%;
 `;
 
-const DescriptionText = styled.p`
-  line-height: 1.4;
+const ReadyText = styled.p`
+  margin-bottom: 30px;
 `;
 
-const ActionText = styled(DescriptionText)`
+const DescriptionText = styled.p`
+  color: #fff;
+  line-height: 1.4;
+
+  @media (max-width: 376px) {
+    margin-top: 60px;
+  }
+
+  @media (max-width: 321px) {
+    font-size: 13px;
+  }
+`;
+
+const ActionText = styled.p`
   font-size: 12px;
   font-style: italic;
+
+  @media (max-width: 320px) {
+    font-size: 11px;
+  }
 `;
 
 const CoordinatesText = styled.p`

@@ -10,7 +10,7 @@ export const Loading = () => {
 
   return isLoading === true && (
     <LoadingWrapper>
-      <Circular color="#000" size="80px" />
+      <Circular color="#fff" size="80px" />
     </LoadingWrapper>
   );
 };
