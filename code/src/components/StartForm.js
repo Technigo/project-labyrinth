@@ -103,6 +103,7 @@ const Button = styled.button`
   margin-top: 20px;
 `
 const Input = styled.input`
+  font-size: 17px;  
   height: 30px;
   margin-top: 20px;
   width: 200px;
