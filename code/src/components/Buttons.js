@@ -1,8 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { getMoves } from 'reducers/gameInfo';
-//why this is not necessary
-import { gameDetails } from 'reducers/gameDetails';
 
 export const Buttons = () => {
 
@@ -14,7 +12,8 @@ export const Buttons = () => {
   const handleOnClick = (action) => {
   dispatch(getMoves(action,userName));
   }
-
+//here we map over an array of actions and show them in the predefined order
+//each button includes directions and on click fires up the getMoves fetch 
   return (
     <>
       {actions.map((action, index) => {

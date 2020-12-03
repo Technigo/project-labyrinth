@@ -10,44 +10,32 @@ export const gameDetails = createSlice({
         history: []
     },
     reducers: {
+      //this action sets the description in the beginning og the game
         setDescription: (state, action) => {
-         // if (state.gameDetails.gameDetails) {
-           // state.history = [...state.history, state.gameDetails]
-          //}
             state.gameDetails = action.payload; 
         },
-
-        // historyGoBack: (state, action) => {
-        //   if(state.history.length > 0) {
-        //     state.gameDetails = state.history[state.history.length - 1];
-        //     state.history = state.history.slice(0, state.history.length - 1);
-
-        //   }
-        // }
-        //},
-          setMoves: (state, action) => {
+    //this action sets the following moves and takes care of the history 
+        setMoves: (state, action) => {
             if(state.gameDetails) {
               state.history = [...state.history,state.gameDetails]
             }
-         // if (state.gameDetails.gameDetails) {
-           // state.history = [...state.history, state.gameDetails]
-          //}
             state.gameDetails = action.payload;   
         },
+    //action that helps us to get back to the previous position by modifying history array
         historyGoBack: state => {
           if(state.history.length > 0) {
             state.gameDetails = state.history[state.history.length - 1]
             state.history = state.history.slice(0,state.history.length)
           }
         },
-
+  //helps to render content depending on where we are in the game
         startGame: (state) => { 
           state.gameStarted = true},
-        
+  //takes care of the Play over again process
         gameFinished: (state) => { 
           state.gameFinished = true},
-          
-        setUserName: (state, action) => {
+  //sets the userName with the dispatch onGameBegin in GameBegin      
+      setUserName: (state, action) => {
       state.userName = action.payload;
         }
     },

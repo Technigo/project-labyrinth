@@ -2,8 +2,6 @@ import { gameDetails } from './gameDetails';
 
 //fetch to start the game and find the first description
 export const getDescription = (userName) => {
-  //const URL_START_GAME = "https://wk16-backend.herokuapp.com/start"
-
   return (dispatch, getState) => {
     fetch('https://wk16-backend.herokuapp.com/start',{
       method:'POST',
@@ -11,19 +9,13 @@ export const getDescription = (userName) => {
       body: JSON.stringify({username: userName})
     }
       ).then(res => res.json())
-      .then(data => {
-          if (data.actions.length === 0) {
-            dispatch(gameDetails.actions.gameFinished())
-      }
-        dispatch(gameDetails.actions.setDescription(data));
-        console.log(data);
-        });
+      .then(data => 
+        dispatch(gameDetails.actions.setDescription(data)));
       };
 };
 
-//what is action here
+//this fetch reaches the array of actions that includes directions, it's own descriptions and type which is alwasy move
 export const getMoves = (action) => {
-  //const URL_START_GAME = "https://wk16-backend.herokuapp.com/action"
 
   return (dispatch, getState) => {
     fetch('https://wk16-backend.herokuapp.com/action',{
