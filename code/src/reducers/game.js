@@ -4,7 +4,7 @@ const initialState = {
   username: "",
   currentStep: {},
   history: [],
-  stepCounter: 1
+  stepCounter: 0
 };
 
 export const game = createSlice({

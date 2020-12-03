@@ -11,7 +11,6 @@ const Title = styled.h1`
   font-family: 'Texturina', serif;
   font-size: 8vw;
   margin: 7vw;
-  border: 10px solid #fe480a;
   padding: 1vw 4vw;
 `
 

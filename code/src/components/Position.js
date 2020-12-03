@@ -10,12 +10,12 @@ const PositionPlaceholder = styled.div`
 
 export const Position = () => {
   const currentStep = useSelector((state) => state.game.currentStep);
-  const history = useSelector((state) => state.game.history);
+  const steps = useSelector((state) => state.game.stepCounter);
 
   return (
     <PositionPlaceholder>
-      <p>Coordinates: {currentStep.coordinates}</p>
-      <p>Round: {history.length + 1}</p>
+      <p>Current position: {currentStep.coordinates}</p>
+      <p>Steps made: {steps}</p>
     </PositionPlaceholder>
   );
 };

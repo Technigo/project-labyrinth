@@ -30,6 +30,11 @@ export const BackOrRestart = () => {
         </Button> 
       </ButtonContainer>
     )
+  } else if (coordinates === '0,0') {
+    return (
+      <>
+      </>
+    )
   } else {
     return (
       <ButtonContainer>
