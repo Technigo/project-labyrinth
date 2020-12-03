@@ -11,7 +11,6 @@ import maze from '../assets/maze.svg'
 const GameContainer = styled.div`
     background-color: #76a4ab;
     opacity: 0.9;
-    height: 100vh;
     border-radius: 20px;
     width: 350px;
     margin-top: 10px;
@@ -21,7 +20,7 @@ const GameContainer = styled.div`
 
     @media (min-width: 667px) {
         width: 600px;
-        height: 80vh;
+        height: 100%;
         margin-top: 120px;
     }
 `
@@ -66,7 +65,8 @@ const Button = styled.button`
     padding: 8px;
     border-radius: 10px;
     border: none;
-    background-color: #dbcac7
+    background-color: #dbcac7;
+    margin-bottom: 50px;
 `
 
 

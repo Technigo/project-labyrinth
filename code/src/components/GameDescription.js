@@ -13,22 +13,17 @@ const StartDescription = styled.div`
         font-size: 20px;
     }
 `
-const NextDescription = styled.div`
-  text-align: center;
-  padding: 0 30px 0 30px;
-
-  @media (min-width: 667px) {
-        font-size: 20px;
-    }
+const NextDescription = styled(StartDescription)`
+  margin-bottom: 0px; 
 `
 
 const DirectionButton = styled.button`
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   font-size: 18px;
   padding: 8px;
   border-radius: 10px;
-  bordeR: none;
+  border: none;
   background-color: #dbcac7;
 `
 
