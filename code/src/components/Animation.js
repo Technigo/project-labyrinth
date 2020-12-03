@@ -1,15 +1,23 @@
-import React from "react"
-import LottieView from "lottie-react-native"
+import React from 'react';
+import Lottie from "react-lottie";
+import animationData from '../assets/31366-fun-rainbow.json';
 
-const Lottie = () => {
+export const Animation = () => {
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }
+  };
+
     return (
-        <LottieView
-        loop={true}
-        source={require('../assets/31366-fun-rainbow.json')}
-        autoPlay
-        style={{ width: 300, height: 300}}
+        <Lottie
+          options={defaultOptions}
+          height={300}
+          width={300}
       />
-    )
-}
-
-export default Lottie
+    );
+};

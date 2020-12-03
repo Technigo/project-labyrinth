@@ -1,32 +1,22 @@
-import React from "react";
-import styled from "styled-components";
-import { Provider } from "react-redux";
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import React from 'react';
+import { Provider } from 'react-redux';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
-import StartGame from "components/StartGame";
-import { moves } from "./reducers/moves";
-import { ui } from "./reducers/ui";
+import { Home } from 'components/Home';
+import { moves } from './reducers/moves';
+import { ui } from './reducers/ui';
 import { HeaderContainer } from './components/HeaderContainer';
+import { MainBody } from './styled-components/App';
 
 const reducer = combineReducers ({ moves: moves.reducer, ui: ui.reducer });
 const store = configureStore ({ reducer: reducer });
-
-const MainBody = styled.main`
-    min-height: 500px;
-    width: 90%;
-    margin: auto;
-
-    @media(min-width: 1024px) {
-        width: 70%;
-    }
-`;
 
 export const App = () => {
     return (
         <Provider store={store}>
             <HeaderContainer />
             <MainBody>
-                <StartGame />
+                <Home />
              </MainBody>
         </Provider>
     );
