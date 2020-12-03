@@ -10,6 +10,7 @@ import { StartButton } from 'components/StartButton'
 import { StartGame } from 'components/StartGame'
 import { Playerposition } from 'components/Playerposition'
 import { LoadingIndicator } from 'components/LoadingIndicator'
+import { Playerhistory } from 'components/Playerhistory'
 
 
 const reducer = combineReducers ({ 
@@ -26,7 +27,13 @@ const MyPaper = styled(Paper)`
   align-items: center;
   padding: 10px;
   margin-top:30px;
-}`; 
+}`;
+
+const MyContainer = styled(Container)`
+&& {
+  height: 800px;
+}
+`
  
 
 export const App = () => {
@@ -34,7 +41,7 @@ export const App = () => {
 
   return (
     <Provider store={store}>
-    <Container maxWidth= "xs">
+    <MyContainer maxWidth= "xs">
     <MyPaper>
      <StartButton /> 
      <StartGame />
@@ -42,8 +49,9 @@ export const App = () => {
      </MyPaper>
      <Paper>
      <Playerposition/>
+     <Playerhistory/>
      </Paper>
-     </Container>
+     </MyContainer>
     </Provider>
   )
 }

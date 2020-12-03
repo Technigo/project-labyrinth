@@ -13,7 +13,6 @@ export const game = createSlice({
     initialState: initialGame,
     reducers: {
         startGame: (state, action) => {
-        console.log(action.payload)
         state.user.username = action.payload.username
         state.currentPosition = {...action.payload.json} 
         state.position = [...state.position, action.payload.json]    
@@ -30,7 +29,6 @@ export const game = createSlice({
 export const fetchStart = (username) => {
 
     return(dispatch) => {
-    console.log(username) 
     dispatch(ui.actions.setLoading(true))
     dispatch(ui.actions.setStarted(true))          
     fetch('https://wk16-backend.herokuapp.com/start',{
@@ -40,7 +38,6 @@ export const fetchStart = (username) => {
         })
         .then(result => result.json())
         .then((json) => {
-            console.log(json)
             dispatch(game.actions.startGame({json, username}))
             dispatch(ui.actions.setLoading(false))  
         })   
@@ -52,7 +49,6 @@ export const fetchMove = (username, type, direction) => {
     /* const gameUser = useSelector(store => store.user) */
      
      return(dispatch) => {
-     console.log('test') 
      dispatch(ui.actions.setLoading(true))         
      fetch('https://wk16-backend.herokuapp.com/action',{
          method: 'POST',
@@ -61,7 +57,6 @@ export const fetchMove = (username, type, direction) => {
          })
          .then(result => result.json())
          .then((json) => {
-             console.log(json)
              dispatch(game.actions.startGame({json, username}))
              dispatch(ui.actions.setLoading(false))  
          })   

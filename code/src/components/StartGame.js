@@ -10,9 +10,6 @@ import { fetchMove } from 'reducers/game'
 export const StartGame = () => {
     const startPosition = useSelector( store => store.game);
     const dispatch = useDispatch()
-
-    console.log(startPosition)
-
     const handleFirstMove = (type, direction) => {
         dispatch(fetchMove(startPosition.user.username, type, direction))
         console.log(startPosition.currentPosition.actions)
@@ -47,22 +44,11 @@ export const StartGame = () => {
                       onClick={() => handleFirstMove(item.type, item.direction)}>{item.direction}
                       </Button>)
               })}
-              {startPosition.currentPosition.coordinates === "1,3" && <button type='button' onClick={() => {dispatch(ui.actions.restart())
+              {startPosition.currentPosition.coordinates === "1,3" && <Button type='button' onClick={() => {dispatch(ui.actions.restart())
              dispatch(game.actions.restart())}
-            }>Restart game</button>}
+            }>Restart game</Button>}
               </ButtonGroup>  
         </Paper>)}</>
-        // <div>
-        //     {startPosition.position.map((item, index) => (
-        //     <>
-        //     <p key={index}> Description: {item.description}</p>
-        //     <p key={index}> Coordinates: {item.coordinates}</p>
-        //       <div>{item.actions.map((item, index) => (
-        //             <button type='button' onClick={() => handleFirstMove(item.type, item.direction)}>{item.direction}</button>
-        //         ))}</div>  
-        //     </>))}
-        // </div>
-     
     )
 
 }

@@ -1,15 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
-import { useSelector, useDispatch } from 'react-redux'
-import { StartGame } from './StartGame'
+import { useSelector } from 'react-redux'
 import { HistoryBox } from './HistoryBox'
 
 export const Playerhistory = () => {
-
     const position = useSelector( store => store.game.position);
-    //position.slice(0, position.length - 1)
-    console.log(position)
-
 
     return(
         <>

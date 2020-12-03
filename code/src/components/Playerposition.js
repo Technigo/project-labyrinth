@@ -14,9 +14,12 @@ export const Playerposition = () => {
     
 
     const MyPosition = styled.div`
+    border: 2px solid;
+    height: 100px;
+    width: 100px;
     position: absolute;
-    bottom: ${500 + coordinates[1]*100}px;
-    left: ${200 + coordinates[0]*100}px;
+    bottom: ${150 + coordinates[1]*100}px;
+    left: ${400 + coordinates[0]*100}px;
     `
 
 
