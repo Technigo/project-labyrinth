@@ -25,7 +25,11 @@ const NextDescription = styled.div`
 const DirectionButton = styled.button`
   margin-top: 20px;
   margin-bottom: 20px;
-
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 10px;
+  bordeR: none;
+  background-color: #dbcac7;
 `
 
 export const GameDescription = ({inputValue}) => {

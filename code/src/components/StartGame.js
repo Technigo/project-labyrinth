@@ -56,11 +56,17 @@ const Form = styled.form`
 `
 
 const Input = styled.input`
-
+    width: 130px;
+    height: 25px;
 `
 
 const Button = styled.button`
     margin-top: 25px; 
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    background-color: #dbcac7
 `
 
 
@@ -81,7 +87,7 @@ return (
     <>
     <GameContainer>
         <HeaderContainer>
-            <Header>Labyrinth game</Header>
+            <Header>La<span style={{color: '#314834'}}>by</span>rinth game</Header>
             <Icon src={maze} alt='maze' /> 
         </HeaderContainer>
             <Form onSubmit={onSubmit}>
