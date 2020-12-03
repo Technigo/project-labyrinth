@@ -3,7 +3,7 @@ body {
   font-family: 'Quicksand', sans-serif;
   /* font-family: 'Texturina', serif;
   font-family: 'Trochut', cursive; */
-  font-size: 15px;
+  font-size: 13px;
   background-color: black;
   color: white;
 }
@@ -14,3 +14,8 @@ code {
   font-family: 'Trochut', cursive; */
 }
 
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+}

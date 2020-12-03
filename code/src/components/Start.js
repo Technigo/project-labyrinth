@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { game } from "../reducers/game";
 import { startGameFetch } from "../reducers/reusable";
 
-import { Centered, Button, Text } from '../lib/Styling';
+import { CenteredScreen, Button, Text } from '../lib/Styling';
 
 const InsertUsername = styled.input`
   padding: 10px;
@@ -37,7 +37,7 @@ export const Start = () => {
   return (
     <>
       {!stateUsername && (
-        <Centered>
+        <CenteredScreen>
           <StartText>
             Welcome to the labyrinth!
           </StartText>
@@ -56,7 +56,7 @@ export const Start = () => {
           <Button onClick={onUsernameChange}>
             Start the game
           </Button>
-        </Centered>
+        </CenteredScreen>
       )}
     </>
   );

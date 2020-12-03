@@ -7,6 +7,10 @@ export const Centered = styled.div`
   flex-direction: column;
 `;
 
+export const CenteredScreen = styled(Centered)`
+  min-height: 80vh;
+`;
+
 export const Button = styled.button`
   background-color: #f1e3b0;
   color: black;
@@ -23,6 +27,13 @@ export const Button = styled.button`
   }
 `;
 
+export const ActionButton = styled(Button)`
+  padding: 5px;
+  grid-area: button;
+  font-size: 13px;
+  margin: 0;
+`;
+
 export const Title = styled.h1`
   font-family: 'Texturina', serif;
   font-size: 40px;
@@ -34,6 +45,6 @@ export const Text = styled.p`
 `
 
 export const SmallText = styled(Text)`
-  margin: 0;
-  font-size: 12px;
+  font-size: 13px;
+  margin: 0 0 5px 0;
 `;

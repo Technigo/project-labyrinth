@@ -6,9 +6,11 @@ import { Description } from "./Description";
 import { Status } from "./Status";
 import { Avatar } from "./Avatar";
 import { Direction } from "./Action";
+import { ActionDescription } from "./ActionDescription";
 import { BackOrRestart } from './BackOrRestart';
 
 const BoardGrid = styled.div`
+  height: 80vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -20,7 +22,7 @@ const BoardGrid = styled.div`
     ". South ."
     "instructions instructions instructions"
     "back back back";
-  @media (min-width: 769px) {
+  @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 2fr 1fr 2fr 1fr 2fr;
     grid-template-areas:
@@ -46,6 +48,7 @@ export const Board = () => {
           <Description />
           <Avatar />
           <Direction />
+          <ActionDescription />
           <BackOrRestart />
         </BoardGrid>
       )}

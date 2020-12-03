@@ -6,7 +6,7 @@ import { SmallText } from '../lib/Styling';
 
 const StatusPlaceholder = styled.div`
   grid-area: status;
-  justify-self: start;
+  align-self: flex-end;
   display: flex;
   flex-direction: column;
   /* justify-self: end;

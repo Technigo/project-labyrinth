@@ -14,7 +14,7 @@ const AvatarPlaceholder = styled.div`
 `;
 
 const Image = styled.img`
-  width: 100px;
+  width: 80px;
 `;
 
 export const Avatar = () => {

@@ -22,7 +22,7 @@ const store = configureStore({ reducer });
 const Grid = styled.main`
   padding: 0 10px;
   display: grid;
-  grid-template-rows: 10vh 80vh 10vh;
+  grid-template-rows: 10vh 1fr 10vh;
   grid-template-columns: auto;
 `;
 
