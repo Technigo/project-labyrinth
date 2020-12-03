@@ -14,8 +14,7 @@ export const RoomList = () => {
 
   return (
     <Section>
-      {!startGame && <StartRoom />}
-      <GameRoom />
+      {!startGame ? <StartRoom /> : <GameRoom />}
       <LoadingIndicator />
     </Section>
   );

@@ -60,7 +60,7 @@ export const GameRoom = () => {
               <Button 
                 onClick={() => onGameDirection(item.direction)} 
                 key={index} 
-                title={item.direction}
+                title={`GO ${item.direction}`}
               />
               <p>{item.description}</p>
             </Container>

@@ -36,6 +36,11 @@ const Text = styled.input`
     background-color: rgb(0, 255, 127, 0.2); 
   }
 
+  &::-webkit-input-placeholder {
+    color: #ffffff;
+    opacity: 0.8;
+  }
+
   @media (max-width: 280px) {
     font-size: 22px;
   }
