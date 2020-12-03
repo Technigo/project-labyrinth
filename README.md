@@ -1,13 +1,18 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week's project was a pair-programming project made by Sara Stjernberg, Petra Almgren and Emmma Urman. The task was to build an app in the form of a text-based adventure/Labyrinth game. In the project we use an API which retrieves a list of actions from the backend and presents them to the user as interactable items. The users is presented with a description of where they are, and also get two options for which direction they can take go go forward in the labyrinth. 
 
 ## The problem
+-
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+## Tech
+- React
+- Redux
+- API:s
+- JSX
+- Styled components
+- Lottie animations
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Link to deployed project on Netlify: 
