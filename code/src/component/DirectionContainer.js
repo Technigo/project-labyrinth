@@ -4,8 +4,14 @@ import { useSelector } from 'react-redux';
 import {Button} from './Button'
 
 const GameContainer = () => {
-    const direction = useSelector(store => store.game.direction);
-    console.log(direction)
+    // const direction = useSelector(store => store.game.direction);
+    // console.log(direction)
+    return (
+        <>
+        <div>Play the game</div>
+        <Button />
+    </>
+    )
 
 if(direction.actions) {
     return (
@@ -14,7 +20,7 @@ if(direction.actions) {
             <Button />
         </>
     ); } else {
-        return <div>Play the game</div>
+        return 
     }
 };
 

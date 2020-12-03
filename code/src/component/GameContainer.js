@@ -1,21 +1,37 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
-import {Button} from './Button'
+import { Button } from './Button'
+import { generateNewDirection } from '../reducers/reusable';
 
 const GameContainer = () => {
-    const direction = useSelector(store => store.game.direction);
-    console.log(direction)
+    const description = useSelector(store => store.game.description);
+    const game = useSelector(store => store.game);
+    const dispatch = useDispatch()
 
-if(direction.actions) {
-    return (
-        <>
-            <div>My Direction: {direction.description}</div>
-            <Button />
-        </>
-    ); } else {
-        return <div>Play the game</div>
+    const onGameMoveUpdate = (a) => {
+        dispatch(generateNewDirection(a))
     }
-};
+
+    if(description) {
+        return (
+            <>
+                <div>{game.description}</div>
+                {game.direction.map(a => {
+                    
+                    return (
+                        <button   
+                            key={a.description}
+                            onClick={() => onGameMoveUpdate(a)}
+                            >{a.direction}
+                        </button> 
+                    )
+                    
+                })}
+            </>
+        ); } else {
+            return <div>Play the game</div>
+        }}
+    ;
 
 export default GameContainer;

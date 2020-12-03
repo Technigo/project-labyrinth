@@ -15,8 +15,11 @@ export const App = () => {
   return (
     <Provider store={store}>
     <div>
+  
+      
       <GameContainer />
       <GameControls />
+      
     </div>
     </Provider>
   )

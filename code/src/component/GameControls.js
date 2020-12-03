@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-
+import { Button } from './Button'
 import { game } from '../reducers/game';
 import { generateGameStart} from '../reducers/reusable';
 
@@ -10,19 +10,21 @@ const GameControls = () => {
     const [inputValue, setInputValue] = useState('')
     const username = useSelector(store => store.game.username)
 
+    useEffect(() => {
+        onGameGenerate()
+    }, [username]) 
+
     const onGameGenerate = () => {
-        dispatch(game.actions.updateUserName(inputValue))
+        dispatch(generateGameStart())
     }
 
-    const updateUserName = () => {
+    const setUserName = () => {
         dispatch(game.actions.updateUserName(inputValue))
-        console.log(inputValue);
     }
 
     const onHistoryBack = () => {
         dispatch(game.actions.historyGoBack());
     }
-
 
     return (
         <div> 
@@ -32,15 +34,18 @@ const GameControls = () => {
                 value={inputValue}
                 required
                 onChange={e => setInputValue(e.target.value)}
-                />
-            <button onClick={onGameGenerate}>
-                Enter
-            </button>
-            <button onClick={onHistoryBack}>
-                Go back
-            </button>
+            />
+            <Button
+                onButtonClick={setUserName}
+                text='Start game'
+            />
+            <Button
+                onButtonClick={onHistoryBack}
+                text='Go back'
+            />
         </div>
     );
 };
 
 export default GameControls;
+

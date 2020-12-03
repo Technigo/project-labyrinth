@@ -1,30 +1,29 @@
-import React from 'react';
 import { game } from './game';
-import { useSelector } from 'react-redux';
 
-
-export const generateGameStart = (username) => { 
-    
-    console.log(username)   
-    return (dispatch, getState) => {
+export const generateGameStart = () => { 
+    return (dispatch, getStore) => {
         fetch('https://wk16-backend.herokuapp.com/start', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({username: username })
+            body: JSON.stringify({username: getStore().game.username })
         })
                 .then(res => res.json())
                 .then(data => dispatch(game.actions.generateGameStart(data)));
     }
 }
 
-export const generateNewDirection = () => {    
-    return (dispatch, getState) => {
+export const generateNewDirection = (a) => {    
+   
+    return (dispatch, getStore) => {
         fetch('https://wk16-backend.herokuapp.com/action', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username: "ni", type: 'move', direction: 'East' })
+            body: JSON.stringify({ 
+                username: getStore().game.username, 
+                type: a.type, 
+                direction: a.direction })
         })
                 .then(res => res.json())
-                .then(data => dispatch(game.actions.generateDirection(data)));
+                .then(data => dispatch(game.actions.generateGameStart(data)));
     }
 }

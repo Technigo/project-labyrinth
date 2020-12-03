@@ -4,7 +4,9 @@ export const game = createSlice({
     name: 'game',
     initialState: {
         username: '',
-        direction: {},
+        description: '',
+        direction: [],
+        coordinates: '',
         history: []
     },
     reducers: {
@@ -12,8 +14,13 @@ export const game = createSlice({
             // Check if quote from Redux store is not empty object.
             // If it is, do not push empty object to history array
             // If it is not, do it
-        
-            state.direction = action.payload;   
+            state.history = [...state.history, action.payload];
+
+            state.direction = action.payload.actions;   
+
+            
+			state.description = action.payload.description;
+			state.coordinates = action.payload.coordinates;
         },
         updateUserName: (state, action) => {
             state.username = action.payload;
@@ -22,10 +29,10 @@ export const game = createSlice({
             // Check if quote from Redux store is not empty object.
             // If it is, do not push empty object to history array
             // If it is not, do it
-            if (state.direction.direction) {
-                state.history = [...state.history, state.direction];
-            }
-            state.direction = action.payload;   
+            // if (state.direction.direction) {
+            //     state.history = [...state.history, state.direction];
+            // }
+            // state.direction = action.payload;   
         },
         historyGoBack: (state, action) => {
             if (state.history.length > 0) {
