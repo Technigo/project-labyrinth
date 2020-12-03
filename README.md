@@ -3,7 +3,7 @@ This weeks project was aimed to help us tie together skills we've previously lea
 
 ## What we created
 Of course we created the text-based adventure, rainbow labyrinth, but we implemented alot of differnent logic and code to achieve out end goal. This included:
-1. Doing a two different post requests to the labyrinth start and action endpoints and using thunks to help with the asynchronous nature of the fetch request. This was because once the post was done and he data was returned we were storing the data in the redux store. 
+1. Doing two different post requests to the labyrinth start and action endpoints and using thunks to help with the asynchronous nature of the fetch request. This was because once the post was done and he data was returned we were storing the data in the redux store. 
 2. Created the redux global store for where we would store the player name inputted by the user, the data returned from the post request and the history of where the user has been so we could create a back button. 
 3. React components and a flow which works in sync with the data being returned from the post request. 
 4. Displaying the data to the user at the right time in the game.
