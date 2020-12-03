@@ -23,7 +23,7 @@ const DescriptionWrapper = styled.div`
   background: #fff;
   text-align: center;
   border-radius: 5px;
-  margin-right: 30px;
+  margin: 0 30px 20px 0;
 `
 
 const RoomDescription = styled.p`
@@ -47,7 +47,7 @@ export const TheLabyrinth = () => {
 
   const carddeck = true
   const movedeck = true
-  
+
   const dispatch = useDispatch()
 
   // this is the actions found previously in button
