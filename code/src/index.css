@@ -25,7 +25,6 @@ p, h1, h2, h3, h4 {
 main {
   width: 100%;
   max-width: 988px;
-  border: 1px dashed salmon;
   margin: 0 auto;
 }
 
