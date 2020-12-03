@@ -95,7 +95,7 @@ input {
 }
 .input-box {
   margin: 0px;
-  padding: 5px;
+  padding: 7px;
   border-radius: 20px;
   color: darkblue;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New";
@@ -122,7 +122,8 @@ input {
   color: lime;
 }
 
-/* TEST
+
+/* Not working yet
 @media (min-width: 600px) {
   
   main {

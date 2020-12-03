@@ -14,9 +14,11 @@ export const GameStart = () => {
     dispatch(generateStartMove())
   }
 
+
   useEffect(() => {
     onGameGenerate()
   }, [username]) 
+  
   
   const uppDateUsername = () => {
     dispatch(game.actions.uppDateUsername(inputValue)) 
