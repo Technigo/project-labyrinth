@@ -1,9 +1,15 @@
-import React, { useState, useEffect } from 'react'
+gimport React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { game } from '../reducers/game'
 import { generateStartMove } from '../reducers/fetch'
+import { StyledButton } from '../lib/Button'
+import styled from 'styled-components'
 
+const StartButton = styled(StyledButton)`
+  margin-top: 20px;
+  width: 35%;
+`
 export const GameStart = () => {
   const dispatch = useDispatch()
   const [inputValue,  setInputValue] = useState("")
@@ -50,7 +56,7 @@ export const GameStart = () => {
       required
       /> */}
       </form>
-      <button onClick={uppDateUsername} disabled={inputValue.length < 1}>Start</button>
+      <StartButton onClick={uppDateUsername} disabled={inputValue.length < 1}>Start</StartButton>
     </section>
   )
   

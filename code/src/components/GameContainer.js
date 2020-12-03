@@ -2,6 +2,7 @@ import React from "react"
 import { useSelector, useDispatch } from "react-redux"
 
 import { generateActionMove } from '../reducers/fetch'
+import { Button } from '../lib/Button'
 
 export const GameContainer = () => {
   const dispatch = useDispatch()
@@ -22,7 +23,7 @@ export const GameContainer = () => {
       {game.actions.map((item) => (
         <div>
           <p className="description-text">{item.description}</p>
-          <button onClick={()=> onActionMoveGenerate(item.type, item.direction)}>Go {item.direction}</button> 
+          <Button onButtonClick={()=> onActionMoveGenerate(item.type, item.direction)} text={`Go ${item.direction}`}/>
         </div>
       ))}
     </div>

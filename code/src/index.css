@@ -42,27 +42,32 @@ p {
     monospace;
 }
 
+p {
+ font-size: 20px;
+}
+
 main {
-  border: 5px solid rgb(68, 65, 65);
+  border: 5px solid rgb(233, 220, 220);
   border-radius: 130px 130px 130px 0px;
   display: flex;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 1000px;
-  height: 550px;
+  /*width: 1100px;
+  height: 600px;*/
   color: white;
   background-image: url("./components/assets/magic_forest_gif.gif");
   background-size: cover;
   background-repeat: no-repeat;
   margin-left: 100px;
-  margin-top: 250px;
+  margin-top: 200px;
   cursor: pointer;
 }
 
 .all-info-box {
   /* border: 3px solid lime; */
-  padding: 30px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -80,8 +85,7 @@ main {
   flex-direction: column;
   justify-content: center;
   justify-content: space-between;
-  padding-left: 200px;
-  padding-right: 200px;
+  align-items: center;
 }
 
 input {
@@ -98,13 +102,10 @@ input {
   padding: 7px;
   border-radius: 20px;
   color: darkblue;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New";
 }
 
 .direction-container {
   /* border: 3px solid yellow; */
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
   display: flex;
   flex-direction: column;
 }
@@ -112,41 +113,43 @@ input {
 .description-text {
   /* border: 3px solid blue; */
   display: flex;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  
 }
 
 .loader {
   font-size: 40px;
-  font-weight: 90px;
+  font-weight: bolder;
   color: lime;
+  text-shadow: 0 0 20px  rgb(138, 243, 138);
+  text-align: center;
 }
 
 
-/* Not working yet
+
+/* 
 @media (min-width: 600px) {
   
   main {
+    width: 500px;
+    height: 800px;
+    flex: 50%; 
+  }
+
+  .all-info-box {
     width: 400px;
     height: 500px;
   }
 
-  .all-info-box{
-    width: 400px;
-    height: 500px;
-  }
-  }
 
-
+/* 
 @media (min-width: 1200px) {
  
   main {
-  width: 800px;
-  height: 1000px;
+  flex: 100%;
 }
 
 .all-info-box{
   width: 800px;
   height: 1000px;
-  }
- }  */
+  }  */
+  
