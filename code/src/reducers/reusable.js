@@ -3,7 +3,6 @@ import { ui } from './ui'
 
 export const HandleMove = (direction) => {
   return (dispatch, getState) => {
-    console.log('ui.actions', ui.actions);
     dispatch(ui.actions.setLoading(true))
     const player = getState().gameReducer.playerName
     const body = JSON.stringify({

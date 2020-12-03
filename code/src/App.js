@@ -6,6 +6,7 @@ import { ui } from 'reducers/ui'
 import { LoadingIndicator } from 'components/LoadingIndicator'
 import { gameReducer } from './reducers/gameReducer'
 import { GameWrapper } from './components/GameWrapper'
+import { History } from './components/History'
 
 const reducer = combineReducers({
   ui: ui.reducer,
@@ -20,6 +21,7 @@ export const App = () => {
       <div>
         <LoadingIndicator />
         <GameWrapper />
+        <History />
       </div>
     </Provider>
   )

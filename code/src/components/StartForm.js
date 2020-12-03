@@ -15,8 +15,6 @@ export const StartForm = () => {
   }
 
   const startGame = () => {
-    console.log('ui', ui);
-    console.log('gameReducer', gameReducer);
     dispatch(ui.actions.setLoading(true))
     const body = JSON.stringify({ username: playerName })
     fetch('https://wk16-backend.herokuapp.com/start', {
