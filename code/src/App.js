@@ -1,10 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux'; 
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { labyrinth } from 'reducers/labyrinth';
 
-import { HomePage } from './components/HomePage';
+import { labyrinth } from 'reducers/labyrinth';
 import { ui } from 'reducers/ui';
+import { HomePage } from './components/HomePage';
 
 const reducer = combineReducers({
   labyrinth:labyrinth.reducer,

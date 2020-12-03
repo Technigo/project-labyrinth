@@ -8,6 +8,18 @@ export const Container = styled.div`
   margin-top:10%;
 `;
 
+export const BoxShadow = styled.div`
+  width:80%;
+  display: flex;
+  justify-content:center;
+  flex-direction: row;
+  flex-wrap:wrap;
+  border: 1px solid #fd20e3;
+  padding: 10px;
+  box-shadow: 5px 10px #fd20e3;
+  margin:20px;
+`
+
 export const Header = styled.h2`
   margin:25px;
   font-family: 'Source Code Pro', monospace;  
@@ -26,8 +38,9 @@ export const Button = styled.button`
   font-size: 35px;
   font-family:'Source Code Pro', monospace;
   margin-top:50px;
+  margin-left:10px;
   border: none;
-  padding: 10px;
+  padding: 20px;
   border: solid 1px #fd20e3;
   background-color: rgb(19, 19, 19);
   color:white;
