@@ -25,7 +25,7 @@ const Text = styled.p`
 
 const Bold = styled.span`
     font-weight: bold;
-    color: #b13ff3;
+    color: #d89ff9;
 `;
 
 const ButtonWrapper = styled.div`
