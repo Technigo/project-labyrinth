@@ -5,8 +5,22 @@ export const Container = styled.div`
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  margin-top:60%;
+  margin-top:10%;
 `;
+
+export const Header = styled.h2`
+  margin:25px;
+  font-family: 'Source Code Pro', monospace;  
+  font-size: 30px;
+`
+export const Text = styled.p`
+  text-align: left;
+  line-height: 35px;
+  font-size: 20px;
+  font-family: monospace,sans-serif;
+  padding: 20px;
+  margin-left: 10px;
+`
 
 export const Button = styled.button`
   font-size: 35px;
@@ -25,3 +39,8 @@ export const Button = styled.button`
   background: #fd20e3;
 }
 `;
+
+export const Hint = styled.p`
+  font-size:9px;
+  padding:20px;
+`

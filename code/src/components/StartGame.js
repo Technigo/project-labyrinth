@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector} from 'react-redux';
+import { Text, Header, Button, Container } from 'StyledComponents/GlobalStyles';
 
 import { generateStartInstructions } from '../reducers/gameData';
 
 export const StartGame = () => { 
   const dispatch = useDispatch(); 
-  const gameState = useSelector((state) =>state.labyrinth.game);
   const playerName = useSelector((state)=>state.labyrinth.username);
 
   const onStartGame = () => { 
@@ -13,13 +13,13 @@ export const StartGame = () => {
   }
 
   return(
-    <>
-      <h2>Hello {playerName} press the Start button to get your first instruction</h2>
-        <div>
-          <div>{gameState.description}</div>
-          <button className="start-button" onClick={onStartGame}> Start Game!</button>
-        </div>
-    </>
+    <Container>
+      <Header>Hello {playerName}!</Header>
+      <Text>Press the Start button to get your first instructions 
+        and then use the buttons to navigate through the Labyrinth. Have fun!
+      </Text>
+          <Button className="start-button" onClick={onStartGame}> Start Game!</Button>
+    </Container>
   
   );
 

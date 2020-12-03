@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { labyrinth } from 'reducers/labyrinth';
+import { Container, Text, Button, Hint } from '../StyledComponents/GlobalStyles';
 
 import { generateGameProgress } from '../reducers/gameData';
 
@@ -20,12 +21,13 @@ export const GameContinue = () => {
   }
 
   return(
-    <>
-      <h2>{currentState.labyrinth.game.description}</h2>
+    <Container>
+      <Text>{currentState.labyrinth.game.description}</Text>
       {actions.map((action)=> 
-     <button key={action.description} onClick={() => onGameContinue(action.direction)}>{action.direction}</button>
+     <Button key= {action.description} onClick={() => onGameContinue(action.direction)}> Go {action.direction}</Button>
     )}
-    <button onClick={onGoBack}>BACK </button>
-    </>
+    <Button onClick={onGoBack}>BACK</Button>
+    <Hint> *HINT* {currentState.labyrinth.game.actions[0].description}</Hint>
+    </Container>
   );
 };

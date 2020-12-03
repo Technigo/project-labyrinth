@@ -2,9 +2,6 @@ body {
   width: 100%;
   margin: 0;
   background-color: rgb(19, 19, 19);
-  /* background-image: url("./assets/neonmaze1.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover; */
   color:whitesmoke;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -18,7 +15,3 @@ code {
     monospace;
 }
 
-h1 { 
-  color:white;
-  font-size: 100px;
-}
