@@ -5,10 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { gameDirection } from "../reducers/reusable";
 import {GameOver} from "./GameOver"
 import {game} from '../reducers/game'
+import { Button } from "../lib/Buttons"
 
 import forest from '../img/forest.jpg'
 import nature from '../img/nature.jpg'
-
 
 import styled from 'styled-components'
 
@@ -57,16 +57,23 @@ export const GameRoom = () => {
         arrayGame.map((item, index) => {
           return (
             <div>
-              <button onClick={() => onGameDirection(item.direction)} key={index}>
-                {item.direction}
-              </button>
+              <Button 
+                onClick={() => onGameDirection(item.direction)} 
+                key={index} 
+                title={item.direction}
+              />
               <p>{item.description}</p>
             </div>
           );
         })} 
-        <BackButton>
-        <button type="button" onClick={onHistoryBack} disabled={historyGame.length === 1} background={historyGame.length === 1 ? "grey" : "rgb(32, 8, 191)"}>BACK</button>
-    </BackButton>  
+      
+        <BackButton 
+          type="button" 
+          onClick={onHistoryBack} 
+          disabled={historyGame.length === 1} 
+          background={historyGame.length === 1 ? "grey" : "rgb(32, 8, 191)"}
+          title={"back"}
+        />
     </GameImage>
     
   );
@@ -92,13 +99,16 @@ const Description = styled.h3`
   justify-content:center;
 `;
 
-export const BackButton = styled.button`
-  font-size: 40px;
+
+export const BackButton = styled(Button)`
+  font-size: 36px;
   color: white;
-  font-family: 'Inconsolata', monospace;
   margin-top: 20px;
-  padding: 20px;
-  cursor: pointer;
-  border: none;
+  border: solid 1px #ffffff;
+  width: 200px;
+  align-self: center;
+
+  &:hover {
+    background-color: rgb(255, 255, 255, 0.4); 
   }
 `;

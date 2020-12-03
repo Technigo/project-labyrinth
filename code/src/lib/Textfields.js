@@ -2,32 +2,30 @@ import React from "react";
 
 import styled from "styled-components/macro";
 
-export const Button = ({title, type, disabled, className, onClick, key, background}) => {
+export const Textfield = ({title, type, onChange, placeholder, required}) => {
 
   return (
-    <Btn 
+    <Text 
       type={type} 
-      disabled={disabled} 
-      className={className}
-      onClick={onClick}
-      key={key}
-      background={background}
+      onChange={onChange} 
+      placeholder={placeholder} 
+      required={required}
     >
       {title}
-    </Btn>
+    </Text>
   )
 }
 
-const Btn = styled.button`
+const Text = styled.input`
   color: #00ff7f;
   background-color: transparent;
   font-family: 'Inconsolata', monospace;
-  text-transform: uppercase;
-  border: 1px solid #00ff7f;
-  font-size: 22px;
+  font-size: 26px;
   padding: 10px 20px;
+  text-decoration: none;
+  border: 1px solid #00ff7f;
+  margin-right: 10px;
   transition: 0.3s ease;
-  cursor: pointer;
 
   &:focus {
     outline: 2px solid red;
@@ -37,4 +35,4 @@ const Btn = styled.button`
   &:hover {
     background-color: rgb(0, 255, 127, 0.2); 
   }
-`;
+  `;
