@@ -15,17 +15,17 @@ export const Playerposition = () => {
 
     const MyPosition = styled.div`
     border: 2px solid;
-    height: 100px;
-    width: 100px;
+    height: 75px;
+    width: 75px;
     position: absolute;
-    bottom: ${150 + coordinates[1]*100}px;
-    left: ${400 + coordinates[0]*100}px;
+    bottom: ${100 + coordinates[1]*75}px;
+    left: ${150 + coordinates[0]*75}px;
     `
 
 
     return(
         <MyPosition>
-            <span role="img" aria-label="location">❌</span>
+            <span role="img" aria-label="location" style={{position: 'relative', top:'26px', left: '26px'}}>❌</span>
         </MyPosition>
     )
 

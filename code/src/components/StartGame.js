@@ -12,7 +12,6 @@ export const StartGame = () => {
     const dispatch = useDispatch()
     const handleFirstMove = (type, direction) => {
         dispatch(fetchMove(startPosition.user.username, type, direction))
-        console.log(startPosition.currentPosition.actions)
     }
 
     return (

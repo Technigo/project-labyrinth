@@ -29,29 +29,20 @@ const MyPaper = styled(Paper)`
   margin-top:30px;
 }`;
 
-const MyContainer = styled(Container)`
-&& {
-  height: 800px;
-}
-`
- 
-
 export const App = () => {
 
 
   return (
-    <Provider store={store}>
-    <MyContainer maxWidth= "xs">
+    <Provider store={store} >
+    <Container maxWidth= "xs" style={{ height: '90vh', backgroundColor: 'white', position: 'relative', top:'0px', left: '0px'}}>
     <MyPaper>
      <StartButton /> 
      <StartGame />
      <LoadingIndicator />
      </MyPaper>
-     <Paper>
      <Playerposition/>
      <Playerhistory/>
-     </Paper>
-     </MyContainer>
+     </Container>
     </Provider>
   )
 }
