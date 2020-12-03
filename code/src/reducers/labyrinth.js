@@ -30,9 +30,9 @@ export const fetchLabyrinthData = ({ url, username, type, direction }) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-          username: username,
-          type: type,
-          direction: direction,
+        username: username,
+        type: type,
+        direction: direction,
       }),
     })
       .then((results) => results.json())

@@ -33,6 +33,8 @@ const Arrow = styled.span`
       : props.direction === 'South'
       ? `rotate(90deg)`
       : `rotate(180deg)`};
+  margin-top: ${(props) => (props.direction === 'South' ? '10px' : '')};
+  margin-bottom: ${(props) => (props.direction === 'North' ? '10px' : '')};
 
   @media (min-width: 580px) {
     font-size: 45px;
@@ -80,7 +82,7 @@ const DirectionText = styled.p`
       : props.direction === 'West'
       ? 'rotate(-90deg)'
       : ''};
-  
+
   @media (min-width: 490px) {
     display: block;
   }

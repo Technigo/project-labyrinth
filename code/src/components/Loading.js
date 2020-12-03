@@ -8,10 +8,12 @@ import styled from 'styled-components';
 export const Loading = () => {
   const isLoading = useSelector((state) => state.ui.isLoading);
 
-  return isLoading === true && (
-    <LoadingWrapper>
-      <Circular color="#fff" size="80px" />
-    </LoadingWrapper>
+  return (
+    isLoading === true && (
+      <LoadingWrapper>
+        <Circular color="#fff" size="80px" />
+      </LoadingWrapper>
+    )
   );
 };
 

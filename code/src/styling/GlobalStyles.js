@@ -34,5 +34,5 @@ export const MainButton = styled.button`
   border-radius: 4px;
   font-family: 'Montserrat';
   font-weight: 800;
-  margin-top: 15px;
+  margin-top: 30px;
 `;

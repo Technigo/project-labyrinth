@@ -14,16 +14,16 @@ import { Header } from './Header';
 
 // Styling & Images
 import { InnerFlexWrapper, OuterFlexWrapper } from '../styling/GlobalStyles';
-import { 
-  imgURL_start, 
-  imgURL_0_0, 
-  imgURL_0_1, 
-  imgURL_0_2, 
-  imgURL_0_3, 
-  imgURL_1_0, 
-  imgURL_1_1, 
-  imgURL_1_3 
-  } from '../styling/ImageSources';
+import {
+  imgURL_start,
+  imgURL_0_0,
+  imgURL_0_1,
+  imgURL_0_2,
+  imgURL_0_3,
+  imgURL_1_0,
+  imgURL_1_1,
+  imgURL_1_3,
+} from '../styling/ImageSources';
 
 // ----------------------------------------------------------------
 
@@ -49,6 +49,7 @@ export const Labyrinth = ({ setCurrentCoordinates }) => {
     window.location.reload();
   };
 
+  console.log(content.coordinates);
   // Send current coordinates to parent component for styling
   setCurrentCoordinates(content.coordinates);
 
@@ -62,18 +63,26 @@ export const Labyrinth = ({ setCurrentCoordinates }) => {
             <>
               {/* Name-input */}
               {nameInputVisible && (
-                <NameInput setStartButtonVisible={setStartButtonVisible} setNameInputVisible={setNameInputVisible} />
+                <NameInput
+                  setStartButtonVisible={setStartButtonVisible}
+                  setNameInputVisible={setNameInputVisible}
+                />
               )}
 
               {/* Start-button */}
               {startButtonVisible && (
                 <InnerFlexWrapper>
-                  <p>{currentUsername}, are you ready to start your journey?</p>
+                  <p>
+                    Welcome {currentUsername}, are you ready to start your
+                    journey?
+                  </p>
                   <Button
-                    action={() => fetchLabyrinthData({
-                      url: 'https://wk16-backend.herokuapp.com/start',
-                      username: currentUsername,
-                    })}
+                    action={() =>
+                      fetchLabyrinthData({
+                        url: 'https://wk16-backend.herokuapp.com/start',
+                        username: currentUsername,
+                      })
+                    }
                     text="Yes, start the game"
                   />
                 </InnerFlexWrapper>
@@ -87,11 +96,11 @@ export const Labyrinth = ({ setCurrentCoordinates }) => {
           )}
 
           {/* Coordinates */}
-          {content.coordinates && (
+          {/* {content.coordinates && (
             <CoordinatesText>
               Coordinates: {content.coordinates}
             </CoordinatesText>
-          )} 
+          )} */}
 
           {/* Descriptive text */}
           <DescriptionText>{content.description}</DescriptionText>
@@ -135,8 +144,24 @@ const MainWrapper = styled(OuterFlexWrapper)`
   flex-direction: column;
   text-align: center;
   background-size: cover;
-  background-image: url( ${(props) => props.coordinates === '1,3' ? imgURL_1_3 : props.coordinates === '1,1' ? imgURL_1_1 : props.coordinates === '1,0' ? imgURL_1_0 : props.coordinates === '0,3' ? imgURL_0_3 : props.coordinates === '0,2' ? imgURL_0_2 : props.coordinates === '0,1' ? imgURL_0_1 : props.coordinates === '0,0' ? imgURL_0_0 : imgURL_start } );
-  
+  background-position: center;
+  background-image: url(${(props) =>
+    props.coordinates === '1,3'
+      ? imgURL_1_3
+      : props.coordinates === '1,1'
+      ? imgURL_1_1
+      : props.coordinates === '1,0'
+      ? imgURL_1_0
+      : props.coordinates === '0,3'
+      ? imgURL_0_3
+      : props.coordinates === '0,2'
+      ? imgURL_0_2
+      : props.coordinates === '0,1'
+      ? imgURL_0_1
+      : props.coordinates === '0,0'
+      ? imgURL_0_0
+      : imgURL_start});
+
   & p {
     line-height: 1.4;
     color: #fff;
@@ -144,7 +169,7 @@ const MainWrapper = styled(OuterFlexWrapper)`
 `;
 
 const InnerWrapper = styled.div`
-  max-width: 55vw;
+  max-width: 60vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -153,13 +178,14 @@ const InnerWrapper = styled.div`
 const TreasureImage = styled.img`
   width: 80px;
   height: 80px;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
 `;
 
 const DescriptionText = styled.p`
   color: #fff;
   line-height: 1.4;
   margin-bottom: 20px;
+  max-width: 600px;
 
   @media (max-width: 376px) {
     margin-top: 60px;
@@ -174,9 +200,10 @@ const ActionText = styled.p`
   font-size: 12px;
   font-style: italic;
   margin-bottom: 20px;
+  max-width: 600px;
 
-  @media (max-width: 320px) {
-    font-size: 11px;
+  @media (max-width: 37px) {
+    font-size: 9px;
   }
 `;
 
