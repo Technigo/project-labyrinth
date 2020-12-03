@@ -98,11 +98,8 @@ const ActionDes = styled.p`
   font-size: 17px;
   margin: 0;
   transition-timing-function: ease-in-out;
-  visibility: hidden;
   @media (any-hover: hover) {
-    &:hover + ${ActionDes} {
-      visibility: visible;
-    }
+    visibility: hidden;
   }
 `
 const Button = styled.button`
