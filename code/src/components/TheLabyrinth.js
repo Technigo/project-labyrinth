@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import styled from "styled-components/macro"
 
-import { Button, ButtonWrap } from '../lib/Button'
+import { Button} from '../lib/Button'
 import { CardContainer } from '../lib/Card'
 import { Thumbnail } from '../components/Thumbnail'
 import { Wrapper } from '../lib/Main'
@@ -93,11 +93,9 @@ export const TheLabyrinth = () => {
           {gameData.actions.map(item => (
             <CardContainer key={item.direction} movedeck={movedeck}>
               <DirectionDescription>{item.description}</DirectionDescription>
-              <ButtonWrap>
                 <Button moveBtn={moveBtn} onClick={() => handleActionClick(item.type, item.direction)}>
                   Head {item.direction}
                 </Button>
-              </ButtonWrap>
             </CardContainer>
           ))}
         </Wrapper>

@@ -1,13 +1,5 @@
 import styled from "styled-components/macro"
 
-//This ButtonWrap is only for making it possible to add the keyframes-animation on the directions-btn. 
-//It didn't work with only sending in a prop. You'd have to target the parentelement the button was rendered in.
-//Since the buttons are rendered inside the CardContainer, all buttons adopted the animation.
-//Hence the span, so that only the directions-btns would be targeted.
-
-export const ButtonWrap = styled.span`
-`
-
 export const Button = styled.button`
   width: 2.3rem;
   height: 2rem;
@@ -35,6 +27,17 @@ export const Button = styled.button`
   height: 3em;
   width: 7em;
   padding: 5px;
+
+  &:hover {
+    animation: grow 2s ease-in-out;
+    color: #fff;
+
+    @keyframes grow {
+      50% {
+        transform: scale(1.1);
+      }
+    }
+  }
   `}
 
   ${({ startBtn }) => startBtn && `
@@ -43,38 +46,38 @@ export const Button = styled.button`
 
     ${({moveBtn}) => moveBtn &&`
     width: 5em;
-    height: 3em;`}
-  
-  ${ButtonWrap}:hover & {
-    animation: wiggle 2s infinite;
-    color: #fff;
-    
-    @keyframes wiggle {
-      5%, 50% {
-        transform: scale(1);
-      }
-      10% {
-        transform: scale(0.9);
-      }
-      15% {
-        transform: scale(1.15);
-      }
-      20% {
-        transform: scale(1.15) rotate(-5deg);
-      }
-      25% {
-        transform: scale(1.15) rotate(-3deg);
-      }
-      30% {
-        transform: scale(1.15) rotate(2deg);
-      }
-      35% {
-        transform: scale(1.15) rotate(2deg);
-      }
-      40% {
-        transform: scale(1.15) rotate(0);
+    height: 3em;
+    &:hover {
+      animation: wiggle 2s infinite;
+      color: #fff;
+      
+      @keyframes wiggle {
+        5%, 50% {
+          transform: scale(1);
+        }
+        10% {
+          transform: scale(0.9);
+        }
+        15% {
+          transform: scale(1.15);
+        }
+        20% {
+          transform: scale(1.15) rotate(-5deg);
+        }
+        25% {
+          transform: scale(1.15) rotate(-3deg);
+        }
+        30% {
+          transform: scale(1.15) rotate(2deg);
+        }
+        35% {
+          transform: scale(1.15) rotate(2deg);
+        }
+        40% {
+          transform: scale(1.15) rotate(0);
+        }
       }
     }
-  }
+    `}
 
 ` //#8B541B #C88627
