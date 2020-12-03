@@ -1,6 +1,8 @@
-- history? + back button
 - should styles be broken out more?
 
+
+favicon:
+Icons made by <a href="https://www.flaticon.com/free-icon/maze_2532545?term=maze&page=2&position=48&related_item_id=2532545" title="Good Ware">Good Ware</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
 
 coordinates:
 0,0 - [start] - 
@@ -34,10 +36,7 @@ color change bg:
   100% {background-color: red;}
 }
 
-
-
-
-Project Labyrinth
+background-image: ;
 
 ### Description and Actions UI
 How you present the description and the actions is completely up to you.  Maybe you want to sort the directions (East, North, West, South) or put them in some graphical order.  Perhaps you would like to add interactable compass.

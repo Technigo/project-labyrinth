@@ -6,12 +6,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 18px;
   font-weight: 600;
-  background: #c2d6cc;
+  background: #38393d;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
   align-content: center;
+  @keyframes startkey {
+    0% {backgroundPosition: 0 50%;}
+    50% {backgroundPosition: 100% 50%;}
+    100% {backgroundPosition: 0 50%;}
+  }
 }
 
 code {
