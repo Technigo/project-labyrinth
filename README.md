@@ -19,4 +19,5 @@ Of course we created the text-based adventure, rainbow labyrinth, but we impleme
 3. Sought help and advice from peers.
 
 ## View it live
-View and play out very colourful raibow labyrinth game https://ecstatic-wing-fa166d.netlify.app/ 🌈🌈🌈🌈
+View and play out very colourful rainbow labyrinth game https://ecstatic-wing-fa166d.netlify.app/ 🌈🌈🌈🌈
+Project by Liliána Anna Réger-Horváth and Claire Caudwell.
