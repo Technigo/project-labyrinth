@@ -108,7 +108,7 @@ const Button = styled.button`
   font-size: 18px;
   margin-bottom: 30px;
   @media (any-hover: hover) {
-    :hover+ ${ActionDes} {
+    &:hover + ${ActionDes} {
       visibility: visible;
     }
   }
