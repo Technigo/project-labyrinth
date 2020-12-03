@@ -1,5 +1,7 @@
 import { gameReducer } from './gameReducer';
-import { UserName } from '../assets/userName'
+import { UserName } from '../assets/userName';
+import { useSelector } from 'react-redux';
+
 //Thunk
 export const requestStartGame = (inUserName) => {
   return (dispatch) => {
@@ -31,9 +33,9 @@ export const requestStartGame = (inUserName) => {
   } 
 }
 
-export const moveForwardInGame = (inDirection) => {
+export const moveForwardInGame = (inDirection,inUserName) => {
   return (dispatch) => {
-    const userName = UserName;
+    const userName = inUserName;
     const move_URL = "https://wk16-backend.herokuapp.com/action";
     const myHeaders = new Headers();
     const type = "move";

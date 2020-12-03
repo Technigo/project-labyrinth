@@ -9,10 +9,12 @@ export const GameBoardChoices = () =>{
   const gameIsLoading = useSelector(store => store.gameReducer.gameLoading);
   const currentGameState = useSelector(store => store.gameReducer.gameDetails);
   const actions = currentGameState.actions;
+  const userName = useSelector(state => state.gameReducer.userName);
 
   const handleButtonClick = (direction,event) =>{ 
     event.preventDefault();
-    dispatch(moveForwardInGame(direction));
+    console.log("In handlebuttonclick. Direction chosen:",direction);
+    dispatch(moveForwardInGame(direction,userName));
   }
 
   return(
