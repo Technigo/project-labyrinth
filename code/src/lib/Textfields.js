@@ -28,7 +28,7 @@ const Text = styled.input`
   transition: 0.3s ease;
 
   &:focus {
-    outline: 2px solid red;
+    outline: 2px solid #ff0000;
     border: none;
   }
 

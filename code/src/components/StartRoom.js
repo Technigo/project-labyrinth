@@ -28,7 +28,7 @@ export const StartRoom = () => {
 
   return (
     <Container>
-      <h2>Welcome {userName}</h2>
+      <Title>Welcome {userName}</Title>
       <Form onSubmit={handleSubmit}>
         <Textfield
           onChange={(event) => onChangeEvent(event.target.value)}
@@ -45,6 +45,14 @@ export const StartRoom = () => {
     </Container>
   );
 };
+
+const Title = styled.h2`
+  font-size: 32px;
+
+  @media (min-width: 768px) {
+    font-size: 40px;
+  }
+`
 
 const Container = styled.section`
   text-align: center;

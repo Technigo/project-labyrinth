@@ -32,7 +32,7 @@ const Btn = styled.button`
   cursor: pointer;
 
   &:focus {
-    outline: 2px solid red;
+    outline: 2px solid #ff0000;
     border: none;
   }
 
@@ -42,7 +42,7 @@ const Btn = styled.button`
 
   @media (min-width: 768px) {
     width: 100%;
-    align-self: unset;
     max-width: 200px;
+    align-self: unset;
   }
 `;

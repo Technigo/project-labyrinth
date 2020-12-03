@@ -1,5 +1,7 @@
 import React from "react";
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
+
+import styled from "styled-components";
 
 //import {game} from '../reducers/game'
 
@@ -11,10 +13,14 @@ export const RoomList = () => {
   const startGame = useSelector((store) => store.game.isGameStarted)
 
   return (
-    <section>
+    <Section>
       {!startGame && <StartRoom />}
       <GameRoom />
       <LoadingIndicator />
-    </section>
+    </Section>
   );
 };
+
+const Section = styled.section`
+  position: relative;
+`

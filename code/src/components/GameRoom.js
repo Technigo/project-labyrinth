@@ -118,7 +118,7 @@ const Container = styled.div`
 `;
 
 const BackButton = styled(Button)`
-  font-size: 36px;
+  font-size: 30px;
   color: white;
   margin-top: 20px;
   border: solid 1px #ffffff;
@@ -129,5 +129,6 @@ const BackButton = styled(Button)`
 
   @media (min-width: 768px) {
     max-width: 200px;
+    font-size: 36px;
   }
 `;
