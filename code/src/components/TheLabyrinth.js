@@ -59,6 +59,7 @@ const DirectionDescription = styled.p`
 export const TheLabyrinth = () => {
   const gameData = useSelector(state => state.game.all.data)
   const username = useSelector(state => state.game.username)
+  const pastMove = useSelector(state => state.game.pastActions)
 
   const isLoading = useSelector(state => state.ui.isLoading)
 
@@ -87,7 +88,7 @@ export const TheLabyrinth = () => {
           <ImageAndDescriptionWrapper>
             <Thumbnail />
             <DescriptionWrapper>
-              {console.log(gameData.pastActions)}
+              {console.log(pastMove)}
               <RoomDescription>"{gameData.description}"</RoomDescription>
             </DescriptionWrapper>
           </ImageAndDescriptionWrapper>
