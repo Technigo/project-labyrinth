@@ -27,6 +27,8 @@ export const game = createSlice({
           state.currentStep = state.history[state.history.length - 1];
           state.history = state.history.slice(0, state.history.length - 1);
           state.stepCounter += 1;
+      } else {
+        alert('You need to take a step before you can go back')
       }
     },
     restartGame: (state, action) => {

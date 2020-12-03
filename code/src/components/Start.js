@@ -14,6 +14,7 @@ export const Start = () => {
   const onUsernameChange = (event) => {
     dispatch(game.actions.enterUsername(username));
     dispatch(startGameFetch(username));
+    setUsername("");
     event.preventDefault();
   };
 
