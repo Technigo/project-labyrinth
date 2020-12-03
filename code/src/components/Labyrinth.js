@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { fetchNext } from 'reducers/fetch'
+import { game } from 'reducers/game'
 import { Button } from 'lib/Button'
 import { Card } from 'lib/Card'
 
@@ -16,10 +17,16 @@ export const Labyrinth = () => {
   const currentStep = useSelector((state) => state.game.currentStep)
   const User = useSelector((state) => state.game.username)
   const isLoading = useSelector((state) => state.ui.isLoading)
+  const choices = useSelector((state) => state.game.currentStep.actions)
+  const Back = useSelector((state) => state.game.history)
   const dispatch = useDispatch()
 
   const handleSubmit = (direction) => {
     dispatch(fetchNext(User, direction))
+  }
+
+  const goBack = () => {
+    dispatch(game.actions.back())
   }
 
   return (
@@ -46,6 +53,12 @@ export const Labyrinth = () => {
                   </Card>
                 )
               })}
+              <Button
+                type="button"
+                onClick={goBack}
+                disabled={Back.length === 1}>
+                Go Back
+              </Button>
             </>
           )}
         </>
