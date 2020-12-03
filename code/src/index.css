@@ -10,7 +10,7 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	padding: 10px;
 	background-color: #262d31;
-	color: #d3d3d3;
+	color: #c1c1c1;
 }
 
 code {
@@ -26,6 +26,22 @@ code {
 	justify-content: center;
 }
 
+.start-board-user-input {
+	width: 100%;
+	height: 45px;
+	background: transparent;
+	color: #f3f3f3;
+	border: 1px solid #1c2023;
+	font-family: "Grenze Gotisch", serif;
+	font-size: 21px;
+	padding: 5px;
+	text-align: center;
+}
+
+input::placeholder {
+	color: #d6d4d4;
+}
+
 .start-board-game-title {
 	font-size: 32px;
 	margin-bottom: 20px;
@@ -35,6 +51,16 @@ code {
 }
 
 /*GAMEBOARD*/
+
+.gameboard-current-details {
+	display: flex;
+	flex-direction: column;
+}
+
+.gameboard-player-name {
+	align-self: flex-end;
+	margin-bottom: 0;
+}
 
 .board-wrapper {
 	display: flex;
@@ -46,6 +72,8 @@ code {
 .gameboard {
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
+	min-height: 97vh;
 }
 
 .gameboard-loading {
@@ -53,7 +81,7 @@ code {
 }
 
 .location-current-details-description {
-	font-size: 21px;
+	font-size: 23px;
 	margin-bottom: 20px;
 	font-family: "Grenze Gotisch", serif;
 	text-align: center;
@@ -80,6 +108,7 @@ code {
 	font-size: 16px;
 	text-align: center;
 	font-weight: normal;
+	margin-bottom: 0;
 }
 
 .previous-steps-list {
@@ -89,6 +118,7 @@ code {
 	padding: none;
 	padding: 0;
 	justify-content: center;
+	margin-top: 0;
 }
 
 .previous-steps-list > li {
@@ -107,8 +137,9 @@ code {
 
 /*ACTION*/
 .action-wrapper {
-	border: 1px solid #262f34;
+	border: 1px solid #4f585d;
 	padding: 10px;
+	margin: 5px 0px;
 }
 
 .gameboard-action-button,
@@ -120,8 +151,12 @@ code {
 	background-color: #354f52;
 	color: #d3d3d3;
 	border: none;
-	font-size: 18px;
+	font-size: 19px;
 	font-family: "Grenze Gotisch", serif;
+}
+
+.startboard-start-button {
+	height: 45px;
 }
 
 button:hover {
@@ -140,9 +175,10 @@ button:hover {
 	font-size: 28px;
 }
 .action-description {
-	font-size: 16px;
+	font-size: 19px;
 	font-weight: normal;
 	font-family: "Grenze", serif;
+	margin-top: 0;
 }
 
 /*MAP*/
@@ -152,10 +188,10 @@ button:hover {
 
 .cell,
 .cell-current-position {
-	background-color: #354f52;
-	width: 40px;
-	height: 40px;
-	border: 2px solid #727272;
+	background-color: #262d31;
+	width: 30px;
+	height: 30px;
+	border: 1px solid #727272;
 	border-radius: 50%;
 	align-items: center;
 	justify-content: center;
@@ -186,7 +222,7 @@ button:hover {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-top: 10px;
+	margin-top: 15px;
 	flex-direction: row;
 }
 
@@ -202,7 +238,6 @@ button:hover {
 
 /*LOADER*/
 .loader {
-	/* display: inline-block; */
 	width: 80px;
 	height: 80px;
 	margin: auto;
@@ -234,5 +269,11 @@ button:hover {
 
 	.action-description {
 		font-size: 22px;
+	}
+
+	.cell,
+	.cell-current-position {
+		height: 45px;
+		width: 45px;
 	}
 }

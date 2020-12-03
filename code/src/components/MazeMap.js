@@ -8,16 +8,12 @@ export const MazeMap = ({coordinates}) => {
   const y = parseInt(coordinatesArray[1]);
   const rows = [0,1];
   const columns = [0,1,2,3];
-  console.log(coordinatesArray);
-  console.log("x:",typeof x);
-  console.log("y:", typeof y);
 
   return ( 
     <section className="map-wrapper">
     <section className="maze-map">
       {
         rows.map((rowIndex) => (
-
             <div
             key={rowIndex}
             className="row">
@@ -25,11 +21,11 @@ export const MazeMap = ({coordinates}) => {
                 <div 
                   key={`${rowIndex}:${cellIndex}`}
                   className={rowIndex === x && cellIndex === y ? "cell-current-position" : "cell"}
-                  ><span className="cell-id">{rowIndex},{cellIndex}</span></div> 
-               
+                  >
+                    <span className="cell-id">{rowIndex},{cellIndex}</span>
+                </div> 
               ))}
             </div>
-
         ))
       }
     </section>

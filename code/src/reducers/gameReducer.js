@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
+  userName : '',
   gameDetails : [],
   gameStarted : false,
-  gameOver : false,
+ // gameOver : false,
   gameLoading : false,
   history : []
 };
@@ -22,8 +23,8 @@ export const gameReducer = createSlice({
     setGameStarted : (state,action) => {
       state.gameStarted = action.payload;
     },
-    setGameOver : (state,action) => {
-      state.gameOver = action.payload;
+    setUserName : (state,action) => {
+      state.userName = action.payload;
     },
     endGame : () => {
         return initialState;

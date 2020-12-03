@@ -1,13 +1,15 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { gameReducer } from './gameReducer';
 import { UserName } from '../assets/userName'
 //Thunk
-export const requestStartGame = () => {
+export const requestStartGame = (inUserName) => {
   return (dispatch) => {
-      const userName = UserName;
+      
+      const userName = inUserName;
       const start_URL = "https://wk16-backend.herokuapp.com/start";
       const myHeaders = new Headers();
       
+      dispatch(gameReducer.actions.setUserName(userName));
+
       myHeaders.append("Content-Type", "application/json");
       const messageToPost = JSON.stringify({username: userName});
       const requestOptions = {
@@ -55,5 +57,3 @@ export const moveForwardInGame = (inDirection) => {
     });
 } 
 }
-
-//Function på knappen anropar thunken. Thunken hämtar data i fetch. sedan anropar den reducern med datat, som sätter state. 

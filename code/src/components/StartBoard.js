@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux';
 import { requestStartGame } from 'reducers/reusable';
@@ -9,10 +9,16 @@ export const StartBoard = () => {
 
   const gameStarted = useSelector(store => store.gameReducer.gameStarted);
   const dispatch = useDispatch();
+  const [userInput, setUserInput] = useState('');
 
   const handleStartClick = () => {
     console.log("in handlestart")
     dispatch(requestStartGame());
+  }
+
+  const submitForm = (event) => {
+    event.preventDefault();
+    dispatch(requestStartGame(userInput))
   }
 
   return (
@@ -22,10 +28,30 @@ export const StartBoard = () => {
         <h1 className="start-board-game-title">
           Maze adventure
         </h1>
-        <button className="startboard-start-button"
-        onClick={() => handleStartClick()}
-        type="button">Start the game</button>
-      </section>
+
+        <form onSubmit={e => submitForm(e)}>
+            <input 
+              className="start-board-user-input"
+              required
+              value={userInput}
+              onChange={e => setUserInput(e.target.value)}
+              type="text"
+              placeholder="Player name"
+              pattern="[a-zA-Z0-9-]+"
+              title="Make sure your username contains only letters and numbers."
+              >
+            </input>
+            <button 
+          className="startboard-start-button"
+         // onClick={() => handleStartClick()}
+          //onclick={(event) => {validateUserInput()}}
+          type="submit">
+          Start the game
+        </button>
+        </form>
+        
+       
+        </section>
       }
       <section className="game-board-wrapper">
        {gameStarted && <GameBoard />}
