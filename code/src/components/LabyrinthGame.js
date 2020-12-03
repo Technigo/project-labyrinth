@@ -5,7 +5,7 @@ import { fetchDirectionData } from "../reducers/labyrinth";
 
 import { PlayerInput } from "./PlayerInput"
 import { FetchLabyrinthButton } from "./FetchLabyrinthButton";
-import { DirectionButton } from "./DirectionButtons";
+import { DirectionButtons } from "./DirectionButtons";
 
 export const LabyrinthGame = ({ setGameCoordinates }) => {
   const description = useSelector((store) => store.labyrinth.content);
