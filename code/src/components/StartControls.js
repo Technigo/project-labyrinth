@@ -1,9 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Button, Form, TextInput, Background, Gif } from './styling';
+import { Button, Form, TextInput, Background, Gif, StartHeader } from './styling';
 import { game } from '../reducers/game';
 import { StartGame } from '../reducers/fetch';
+import Footer from './Footer';
 
 const StartControls = () => {
   const dispatch = useDispatch();
@@ -19,19 +20,23 @@ const StartControls = () => {
   }
 
   return (
-    <Background>
-      <Gif src="https://media.giphy.com/media/ACLCA6bvwBEvC/giphy.gif" alt="labyrinth"></Gif>
-      <Form onSubmit={handleSubmit}>
-        <TextInput 
-          type='text' 
-          placeholder='Input username...' 
-          onChange={event => onChangeEvent(event.target.value)}>
-        </TextInput>
-        <Button type='submit'>
-          Enter the labyrinth >>
-        </Button>
-      </Form>
-    </Background>
+    <>
+      <Background>
+        <StartHeader>Labyrinth</StartHeader>
+        <Gif src="https://media.giphy.com/media/ACLCA6bvwBEvC/giphy.gif" alt="labyrinth"></Gif>
+        <Form onSubmit={handleSubmit}>
+          <TextInput 
+            type='text' 
+            placeholder='Input username...' 
+            onChange={event => onChangeEvent(event.target.value)}>
+          </TextInput>
+          <Button type='submit'>
+            Enter the labyrinth >>
+          </Button>
+        </Form>
+      </Background>
+      <Footer />
+    </>
   );
 };
 
