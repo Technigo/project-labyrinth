@@ -23,6 +23,11 @@ const Text = styled.p`
     color: hotpink;
 `;
 
+const Bold = styled.span`
+    font-weight: bold;
+    color: #b13ff3;
+`;
+
 const ButtonWrapper = styled.div`
     margin: auto;
     display: flex;
@@ -98,7 +103,7 @@ const StartButton = () => {
     return (
         <MainContainer>
             <Loading />
-            <Text>Greetings {universalUsername}! Press start to begin your labyrinth journey!</Text>  
+            <Text>Greetings <Bold>{universalUsername}</Bold>! Press start to begin your labyrinth journey!</Text>  
             <ButtonWrapper>
                 <ButtonShape>           
                     <Button onClick={() => dispatch(initiateStart(universalUsername))}>START</Button>

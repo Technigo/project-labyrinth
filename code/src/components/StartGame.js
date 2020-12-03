@@ -43,6 +43,8 @@ const FormInput = styled.input`
         font-size: 22px;
         font-family: 'Raleway', sans-serif;
         color: #ffc16b;
+        font-weight: bold;
+        text-align: center;
     };
 `;
 
@@ -133,7 +135,7 @@ const MoveControls = () => {
                 <PlayerInput onSubmit={addUsername} id="startgame">
                     <FormInput 
                         type="text" 
-                        placeholder="Avatar"
+                        placeholder="Enter your avatar"
                         value={username}
                         onChange={(event) => setUsername(event.target.value)}
                     >

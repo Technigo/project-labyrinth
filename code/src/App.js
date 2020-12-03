@@ -12,9 +12,13 @@ const reducer = combineReducers ({ moves: moves.reducer, ui: ui.reducer });
 const store = configureStore ({ reducer: reducer });
 
 const MainBody = styled.main`
-    height: 500px;
+    min-height: 500px;
     width: 90%;
     margin: auto;
+
+    @media(min-width: 1024px) {
+        width: 70%;
+    }
 `;
 
 export const App = () => {

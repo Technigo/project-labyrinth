@@ -60,7 +60,7 @@ const MovingWrapper = styled.div`
 `;
 
 const DirectionWrapper = styled.div` 
-    border: 3px solid;
+    border: 5px solid;
     border-color: #b2f7db #f4dbb8 #e6c2fb #c1cafb;
     margin-top: 20px;
     margin-bottom: 10px;

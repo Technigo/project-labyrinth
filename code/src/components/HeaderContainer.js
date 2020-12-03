@@ -17,6 +17,9 @@ const HeaderDiv = styled.div`
     margin: auto;
     border: 3px solid white;
     padding: 10px 0;
+    @media(min-width: 1024px) {
+        width: 70%;
+    }
 `;
 
 const Text = styled.h1`
