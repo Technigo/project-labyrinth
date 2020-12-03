@@ -1,10 +1,7 @@
-//import React, { useState } from "react";
 import { gameState } from "./gameState";
 
 
 export const startFetch = (userName) => {
-  //const [loader, setLoader] = useState(true);
-
   return (dispatch) => {
     fetch("https://wk16-backend.herokuapp.com/start", {
       method: "POST",

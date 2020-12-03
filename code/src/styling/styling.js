@@ -19,7 +19,6 @@ export const BackgroundContainer = styled.main`
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-image: url(${(props) =>
@@ -59,17 +58,22 @@ export const UserInput = styled.input`
   border-radius: 5px;
   padding: 8px;
   margin-bottom: 10px;
+  font-family: "Texturina", serif;
 `;
 
 export const Button = styled.button`
   background: #0d71b9;
   border-radius: 5px;
+  border: none;
   padding-bottom: 5px;
+  margin-top: 10px;
   color: #fff;
   font-size: 20px;
   font-family: "Texturina", serif;
+  text-align: center;
 `;
-export const Text = styled.h2`
+
+export const Heading = styled.h1`
   font-size: 25px;
 `;
 
@@ -78,17 +82,37 @@ export const TextContainer = styled.section`
   color: #ffffff;
   font-size: 16px;
   border-radius: 10px;
-  width: 80%;
   padding: 30px;
   opacity: 0.8;
   text-align: center;
 
   @media (min-width: 667px) {
-    width: 50%;
+    width: 70%;
     padding: 10px;
   }
 
   @media (min-width: 1024px) {
-    width: 500px;
+    width: 50%;
   }
+`;
+
+export const ActionHeading = styled.h2`
+ font-weight: bold;
+ `;
+
+ export const Description = styled.p`
+  font-style: italic;
+ `;
+
+export const GroupRow = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+
+export const GroupCol = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 5px;
+  width: 45%;
 `;

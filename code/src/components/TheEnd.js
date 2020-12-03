@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import { Divider, TextContainer, Text } from "../styling/styling";
+import { Description, Divider } from "../styling/styling";
 
 export const TheEnd = ({ description }) => {
   const currentUser = useSelector((store) => store.gameState.userName);
@@ -10,7 +10,7 @@ export const TheEnd = ({ description }) => {
     <>
       <p>Congratulations {currentUser}, you finished the game!</p>
       <Divider />
-      <p>{description}</p>
+      <Description>{description}</Description>
     </>
   );
 };
