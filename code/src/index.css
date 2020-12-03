@@ -29,11 +29,11 @@ body {
     background-color: #100327;
   }
 }
-
+/* 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
+} */
 
 h1,
 h2,
@@ -43,14 +43,14 @@ p {
 }
 
 p {
- font-size: 20px;
+  font-size: 20px;
 }
 
 main {
-  border: 5px solid rgb(233, 220, 220);
+  border: 5px solid rgb(46, 42, 42);
   border-radius: 130px 130px 130px 0px;
   display: flex;
-  width: 100%;
+  width: 90%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -60,8 +60,7 @@ main {
   background-image: url("./components/assets/magic_forest_gif.gif");
   background-size: cover;
   background-repeat: no-repeat;
-  margin-left: 100px;
-  margin-top: 200px;
+  margin: 20px auto;
   cursor: pointer;
 }
 
@@ -74,10 +73,9 @@ main {
   justify-content: space-between;
 }
 
-.start-text {
+/* .start-text {
   /* border: 3px solid white; */
-  padding: 10px;
-}
+/* }  */
 
 .start-container {
   /* border: 3px solid pink; */
@@ -93,63 +91,55 @@ input {
 }
 
 .username-text {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 50px;
   color: lime;
 }
 .input-box {
   margin: 0px;
-  padding: 7px;
+  font-size: 20px;
+  font-weight: 50px;
+  padding-left: 20px;
+  padding-top: 20px;
   border-radius: 20px;
-  color: darkblue;
+  color: black;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  monospace;
 }
 
 .direction-container {
   /* border: 3px solid yellow; */
   display: flex;
   flex-direction: column;
+  padding-left: 20px; 
 }
 
 .description-text {
   /* border: 3px solid blue; */
   display: flex;
-  
 }
 
 .loader {
   font-size: 40px;
   font-weight: bolder;
   color: lime;
-  text-shadow: 0 0 20px  rgb(138, 243, 138);
+  text-shadow: 0 0 20px rgb(138, 243, 138);
   text-align: center;
 }
 
 
 
-/* 
-@media (min-width: 600px) {
-  
+
+@media (min-width: 700px) {
   main {
-    width: 500px;
-    height: 800px;
-    flex: 50%; 
+    width: 80%;
+    margin-top: 100px;
   }
-
-  .all-info-box {
-    width: 400px;
-    height: 500px;
-  }
-
-
-/* 
-@media (min-width: 1200px) {
- 
-  main {
-  flex: 100%;
 }
 
-.all-info-box{
-  width: 800px;
-  height: 1000px;
-  }  */
-  
+@media (min-width: 1200px) {
+  main {
+    width: 70%;
+    margin-top: 200px;
+  }
+}

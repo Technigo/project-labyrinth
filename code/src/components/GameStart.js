@@ -1,4 +1,4 @@
-gimport React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { game } from '../reducers/game'
@@ -8,7 +8,7 @@ import styled from 'styled-components'
 
 const StartButton = styled(StyledButton)`
   margin-top: 20px;
-  width: 35%;
+  width: 100px;
 `
 export const GameStart = () => {
   const dispatch = useDispatch()
@@ -34,8 +34,8 @@ export const GameStart = () => {
   
   return (
     <section className="start-container">
-      <form className="username-text">
-        <h2>Username:</h2>  
+      <form className="form-wrapper">
+        <h2 className="username-text">Username:</h2>  
         <textarea className="input-box"
          size="70"
          maxLength="20"
@@ -44,17 +44,6 @@ export const GameStart = () => {
         onChange={e => setInputValue(e.target.value)}
         >
         </textarea>
-     {/* <input className="input-box"
-      type="text"
-      value={inputValue} 
-      onChange={e => setInputValue(e.target.value)}
-      placeholder="Write your username ....."
-      maxLength="20"
-      minLength="1"
-      // size="40"
-      font-size="60"
-      required
-      /> */}
       </form>
       <StartButton onClick={uppDateUsername} disabled={inputValue.length < 1}>Start</StartButton>
     </section>
