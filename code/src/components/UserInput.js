@@ -4,7 +4,7 @@ import styled from "styled-components/macro"
 
 import { game } from "reducers/game"
 
-import { Wrapper } from './Main'
+import { Wrapper } from '../lib/Main'
 import { Button } from "lib/Button"
 
 const Form = styled.form`
@@ -34,7 +34,7 @@ export const UserInput = () => {
     dispatch(
       game.actions.addUserName({
         username: username,
-      })
+      }) 
     )
     setUsername("")
   }

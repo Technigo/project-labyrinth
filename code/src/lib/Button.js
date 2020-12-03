@@ -9,8 +9,8 @@ export const ButtonWrap = styled.span`
 `
 
 export const Button = styled.button`
-  width: 20%;
-  height: 10%;
+  width: 2.3rem;
+  height: 2rem;
   //background: rgb(88,59,52);
   // WOODEN BACKGROUND: background: radial-gradient(circle, rgba(88,59,52,1) 0%, rgba(126,86,68,1) 84%, rgba(167,114,84,1) 100%);
   // PAPER BAKGROUND:
@@ -32,14 +32,18 @@ export const Button = styled.button`
   
   ${({ headerBtn }) => headerBtn && `
   box-shadow: 2px 5px 15px -1px rgba(0,0,0,0.85);
-  height: 100%;
-  width: 30%;
+  height: 3em;
+  width: 7em;
   padding: 5px;
   `}
 
   ${({ startBtn }) => startBtn && `
-    width: 80%;
+    width: 10em;
     padding: 5px;`}
+
+    ${({moveBtn}) => moveBtn &&`
+    width: 5em;
+    height: 3em;`}
   
   ${ButtonWrap}:hover & {
     animation: wiggle 2s infinite;

@@ -7,7 +7,7 @@ import { ui } from './reducers/ui'
 
 //import { GameBackground } from './components/GameBackground'
 import { Header } from './components/Header'
-import { Main } from './components/Main'
+import { Main } from './lib/Main'
 import { Card } from './lib/Card'
 
 

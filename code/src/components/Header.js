@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { game } from "reducers/game";
 import { Button } from "lib/Button";
 
-const Wrapper = styled.section`
+const HeaderWrapper = styled.section`
   display: grid;
   grid-template-columns: 1fr 0.5fr;
   padding: 20px;
@@ -31,12 +31,12 @@ export const Header = () => {
   }
 
   return (
-    <Wrapper>
+    <HeaderWrapper>
       <Title>THE LABYRINTH </Title>
       <Button headerBtn={headerBtn} onClick={onHistoryBack}>
         Go back
     </Button>
-    </Wrapper>
+    </HeaderWrapper>
   )
 
 }
