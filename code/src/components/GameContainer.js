@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { game } from '../reducers/game';
 
 import StartControls from './StartControls';
 import GameControls from './GameControls';

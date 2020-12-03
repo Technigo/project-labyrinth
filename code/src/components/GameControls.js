@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { game } from '../reducers/game';
-import { chooseDirection, StartGame } from '../reducers/fetch';
+import { chooseDirection } from '../reducers/fetch';
 
 import { Button, Background, ActionWrapper, MainText, HeaderText, History } from './styling';
 import Loader from './Loader';

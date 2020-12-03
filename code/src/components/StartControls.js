@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Button, Form, TextInput, Background, MainText } from './styling';
+import { Button, Form, TextInput, Background } from './styling';
 import { game } from '../reducers/game';
 import { StartGame } from '../reducers/fetch';
 
@@ -20,7 +20,7 @@ const StartControls = () => {
 
   return (
     <Background>
-      <img src="https://media.giphy.com/media/ACLCA6bvwBEvC/giphy.gif"></img>
+      <img src="https://media.giphy.com/media/ACLCA6bvwBEvC/giphy.gif" alt="labyrinth"></img>
       <Form onSubmit={handleSubmit}>
         <TextInput 
           type='text' 
