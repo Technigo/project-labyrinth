@@ -32,9 +32,7 @@ const Container = styled.main`
   flex-direction: column;
   max-height: 30%;
   padding: 10px;
-
 `
-
 const Title = styled.h2`
   color: #ffff00;
   font-family: 'Mystery Quest', cursive;
@@ -44,7 +42,7 @@ const Title = styled.h2`
 const Content = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   border: 3px solid white;
-  height: 30vh;
+  height: 200px;
   overflow: auto;
 `
 const Wrapper = styled.div`
@@ -56,6 +54,7 @@ const Wrapper = styled.div`
   margin-top: 20px;
   padding-left: 10px;
   padding-right: 10px;
+  padding-bottom: 20px;
 `
 const Description = styled.p`
   margin: 0;
