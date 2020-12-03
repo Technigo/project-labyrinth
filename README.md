@@ -2,11 +2,10 @@
 Project done as a part of Technigo bootcamp.
 
 <!-- description -->
-> This week's project is all about tying together the skills you've learnt to build an app which retrieves a list of actions from the backend and presents them to the user as interactable items.
+This project was all about tying together the skills I have learned to build an app which retrieves a list of actions from the backend and presents them to the user as interactable items.
 
 
-This week's project comes in the form of a text-based adventure. Classic games like this usually present the user with a description of where they are and provide several alternatives about what they can do.
-
+This week's project comes in the form of a text-based adventure.
 
 Learning Objectives:
 - How to make API calls around Redux using thunks
@@ -27,10 +26,10 @@ Learning Objectives:
 
 ## Requirements Completed
 🔵  Blue Level
-<!-- - Your page should be responsive. -->
+<!-- - The page should be responsive. -->
 - Use redux to store the current state of the game
-- Focus on making the UX of your app good. Handle the response delay
-- Use thunks to wrap your API calls (but you don't have to if you don't want to).
+- Focus on making the UX of the app good. Handle the response delay
+- Use thunks to wrap API calls.
 
 🔴  Red Level (Intermediary Goals)
 - Show the descriptions of the directions in the main description of the current room.  Present clear and simple actions. 

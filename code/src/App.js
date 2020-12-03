@@ -5,7 +5,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
 import { game } from './reducers/game'
 import { ui } from './reducers/ui'
-import { PlayerStart } from './components/PlayerStart'
+import { Start } from './components/Start'
 import { Loading } from './components/Loading'
 import { Container } from './lib/Container'
 
@@ -20,7 +20,7 @@ export const App = () => {
   return (
     <Provider store={store}>
       <Container>
-        <PlayerStart />
+        <Start />
         <Loading />
       </Container>
     </Provider>

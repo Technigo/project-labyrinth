@@ -1,9 +1,17 @@
 import styled from 'styled-components/macro'
 
 export const Card = styled.div`
-  background-color:#f9f2ec;
-  width:50%;
-  padding:10px;
-  margin-bottom:5px; 
+  width: 100%;
+  margin: 0 0 33px 0;
+  padding: 16px;
+  background: ${(props) => props.background || '#afeeee'};
+  ${'' /* border: 1px solid #4d4d4d; */}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
+  @media (min-width: 500px) {
+    padding: 32px;
+  }
 `
+// lab

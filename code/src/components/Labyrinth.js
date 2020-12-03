@@ -1,11 +1,16 @@
+/* eslint-disable indent */
 /* eslint-disable no-unused-vars */
 import React from 'react'
+import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { fetchNext } from 'reducers/game'
 import { Button } from 'lib/Button'
 import { Card } from 'lib/Card'
-import { Container } from 'lib/Container'
+
+const Description = styled.h1`
+  font-size: 25px;
+`
 
 export const Labyrinth = () => {
   const currentStep = useSelector((state) => state.game.currentStep)
@@ -20,11 +25,14 @@ export const Labyrinth = () => {
   return (
     <>
       {!isLoading && (
-        <div>
+        <>
           {currentStep.coordinates && (
-            <Container>
-              <p>Coordinates: {currentStep.coordinates}</p>
-              <h1>{currentStep.description}</h1>
+            <>
+              <Card>
+                <p>{currentStep.coordinates}</p>
+                <Description>{currentStep.description}</Description>
+              </Card>
+
               {currentStep.actions.map((action) => {
                 return (
                   <Card key={action.description}>
@@ -38,9 +46,9 @@ export const Labyrinth = () => {
                   </Card>
                 )
               })}
-            </Container>
+            </>
           )}
-        </div>
+        </>
       )}
     </>
   )
