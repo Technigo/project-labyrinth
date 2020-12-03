@@ -11,6 +11,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 
 import { thunk, actionThunk, games } from './reducers/games';
+import { Map } from './components/Map';
 
 export const Game = () => {
 	const gameDetails = useSelector((store) => store.games);
@@ -35,7 +36,16 @@ export const Game = () => {
 	};
 
 	return (
-		<Container style={{ paddingTop: 100, maxWidth: 600 }}>
+		<Container
+			style={{
+				paddingTop: 100,
+				maxWidth: 600,
+				display: 'flex',
+				justifyContent: 'center',
+				alignItems: 'center',
+				flexDirection: 'column',
+			}}>
+			<Map history={historyArr} gameDetails={gameDetails} />
 			{showStart && (
 				<Box display="flex" flexDirection="column" alignItems="center">
 					<TextField
@@ -93,7 +103,11 @@ export const Game = () => {
 
 			<List>
 				{sortedHistoryArr.map((item, index) => (
-					<ListItem key={index}>{item.description}</ListItem>
+					<ListItem key={index}>
+						<Typography variant="caption" align="center" color="secondary">
+							{item.description}
+						</Typography>
+					</ListItem>
 				))}
 			</List>
 		</Container>

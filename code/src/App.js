@@ -9,7 +9,7 @@ import { ui } from 'reducers/ui';
 const reducer = combineReducers({ games: games.reducer, ui: ui.reducer });
 
 const store = configureStore({ reducer });
-console.log(store.initialState);
+// console.log(store.initialState);
 
 export const App = () => {
 	return (
