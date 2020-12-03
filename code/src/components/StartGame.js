@@ -5,8 +5,8 @@ import { generateStartInstructions } from '../reducers/gameData';
 
 export const StartGame = () => { 
   const dispatch = useDispatch(); 
-  const gameState = useSelector((state) =>state.labyrinth.game)
-  const playerName = useSelector((state)=>state.labyrinth.username)
+  const gameState = useSelector((state) =>state.labyrinth.game);
+  const playerName = useSelector((state)=>state.labyrinth.username);
 
   const onStartGame = () => { 
     dispatch(generateStartInstructions(playerName));
@@ -21,6 +21,6 @@ export const StartGame = () => {
         </div>
     </>
   
-  )
+  );
 
-}
+};

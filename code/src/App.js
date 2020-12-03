@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Provider } from 'react-redux'; 
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { labyrinth } from 'reducers/labyrinth';
@@ -18,5 +18,5 @@ export const App = () => {
     <Provider store={store}>
       <HomePage/>
     </Provider>
-  )
-}
+  );
+};

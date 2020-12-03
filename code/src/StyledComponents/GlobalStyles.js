@@ -5,16 +5,23 @@ export const Container = styled.div`
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  margin-top:50%;
+  margin-top:60%;
 `;
 
 export const Button = styled.button`
   font-size: 35px;
   font-family:'Source Code Pro', monospace;
-  margin-top:30px;
+  margin-top:50px;
   border: none;
   padding: 10px;
   border: solid 1px #fd20e3;
   background-color: rgb(19, 19, 19);
   color:white;
+  cursor: pointer;
+
+  :hover {
+  color: #191414;
+  border: 1px inset #fd20e3;
+  background: #fd20e3;
+}
 `;

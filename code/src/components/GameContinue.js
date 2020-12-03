@@ -16,7 +16,7 @@ export const GameContinue = () => {
   }
 
   const onGoBack = () => { 
-    dispatch(labyrinth.actions.historyGoBack())
+    dispatch(labyrinth.actions.historyGoBack());
   }
 
   return(
@@ -27,5 +27,5 @@ export const GameContinue = () => {
     )}
     <button onClick={onGoBack}>BACK </button>
     </>
-  )
-}
+  );
+};

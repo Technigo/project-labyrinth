@@ -47,9 +47,9 @@ export const CreatePlayer = () => {
         onChange={(event) => handleCreatePlayer(event)}
         placeholder="Type your alias name"
         required/>
-        <Button type="submit">
+      <Button type="submit">
           Create Player
-        </Button>
+      </Button>
     </Form>
     </Container>
   );
