@@ -50,9 +50,10 @@ export const Text = styled.h2`
 export const TextContainer = styled.section`
   background: #000000;
   color: #ffffff;
+  font-size: 16px;
   border-radius: 10px;
   width: 90%;
-  padding: 5px 5px 30px 5px;
+  padding: 30px;
   opacity: 0.8;
   text-align: center;
 
@@ -61,6 +62,6 @@ export const TextContainer = styled.section`
   }
 
   @media (min-width: 1024px) {
-    width: 350px;
+    width: 500px;
   }
 `;
