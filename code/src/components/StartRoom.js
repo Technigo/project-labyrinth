@@ -6,6 +6,7 @@ import styled from "styled-components";
 
 import { game } from "../reducers/game";
 import { generateAction } from "../reducers/reusable";
+import { Button } from "../lib/Buttons"
 
 export const StartRoom = () => {
   const userName = useSelector((store) => store.game.name);
@@ -35,7 +36,7 @@ export const StartRoom = () => {
           //onChange={(event) => setNewUsername(event.target.value)}
           required
         />
-        <Button type="submit">START GAME</Button>
+        <Button type="submit" title="start game"/>
         {/* disabled={newUsername.length<5 || newUsername.length>20 || emptyUsername(newUsername)} */}
       </Form>
     </Container>
@@ -71,25 +72,6 @@ const Textfield = styled.input`
     background-color: rgb(0, 255, 127, 0.2); 
   }
   `;
-
-const Button = styled.button`
-  color: #00ff7f;
-  background-color: transparent;
-  font-family: 'Inconsolata', monospace;
-  border: 1px solid #00ff7f;
-  font-size: 22px;
-  transition: 0.3s ease;
-  cursor: pointer;
-
-  &:focus {
-    outline: 2px solid red;
-    border: none;
-  }
-
-  &:hover {
-    background-color: rgb(0, 255, 127, 0.2); 
-  }
-`;
 
 
 
