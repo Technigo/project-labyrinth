@@ -21,14 +21,14 @@ const InGameMainDiv = styled.div`
   text-align: center;
   background-size: cover;
   background-position: center;
-  height: 400px;
+  height: 450px;
   max-width: 1000px;
   margin: auto;
   margin-top: 100px;
 
   // Mobile query
   @media (max-width: 768px) {
-    height: 1000px;
+    height: 1200px;
     margin-top: 0;
   }
 `;
