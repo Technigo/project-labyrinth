@@ -35,10 +35,3 @@ const LoaderContainer = styled.div`
   flex-direction: column;
   min-height: 100vh;
 `;
-
-/*import React from "react";
-
-export const Loading = () => {
-  return <div>Page Loading!</div>;
-};
-*/

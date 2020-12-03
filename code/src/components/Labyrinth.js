@@ -48,6 +48,9 @@ export const Labyrinth = () => {
 
             <DescriptionText>
               <RegularText>
+                <SpanText> {username}</SpanText>
+              </RegularText>
+              <RegularText>
                 Your current position:{" "}
                 <SpanText>{gameData.coordinates}</SpanText>
               </RegularText>
@@ -57,7 +60,9 @@ export const Labyrinth = () => {
               <InstructionText>Choose your next direction:</InstructionText>
             ) : (
               <InstructionText>
-                Congratulations you have completed the Labyrinth!
+                {gameData.coordinates === "1,3" && pastActions.length <= 0
+                  ? `${username} has already completed the Labyrinth. Enter a new username and try again!`
+                  : `Congratulations ${username}! You have completed the Labyrinth!`}
               </InstructionText>
             )}
           </TopSection>
@@ -73,7 +78,7 @@ export const Labyrinth = () => {
                       text={`Head ${item.direction}`}
                     />
                   </ButtonWrapper>
-                  <DescriptionText>{item.description}</DescriptionText>
+                  <DirectionText>{item.description}</DirectionText>
                 </GameDescription>
               ))}
             </BottomSection>
@@ -113,6 +118,9 @@ const TopSection = styled.section`
 `;
 
 const TextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   @media (min-width: 1024px) {
     margin-left: 30px;
   }
@@ -154,7 +162,7 @@ const PositionText = styled.p`
   font-size: 14px;
 `;
 
-const DescriptionText = styled.p`
+const DirectionText = styled.p`
   background: #e3e5f1;
   padding: 4px;
   border-radius: 4px;
@@ -164,6 +172,15 @@ const DescriptionText = styled.p`
 
   @media (min-width: 768px) {
     padding: 4px 10px;
+  }
+`;
+
+const DescriptionText = styled(DirectionText)`
+  @media (min-width: 1024px) {
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 `;
 

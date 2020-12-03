@@ -33,4 +33,9 @@ const ActionButton = styled.button`
     color: #aaaaaa;
     cursor: not-allowed;
   }
+  &:active {
+    background-color: #b97597;
+    box-shadow: 0 10px #666;
+    transform: translateY(9px);
+  }
 `;

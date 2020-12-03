@@ -1,24 +1,18 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import styled from 'styled-components/macro';
+import React from "react";
+import { useSelector } from "react-redux";
+import styled from "styled-components/macro";
 
-import { UserInput } from './UserInput';
-import { StartGame } from './StartGame';
-import { Labyrinth } from './Labyrinth';
+import { UserInput } from "./UserInput";
+import { Labyrinth } from "./Labyrinth";
 
 export const Welcome = () => {
-  const currentGameState = useSelector((store) => store.game.currentGameState);
-  const username = useSelector((store) => store.game.username);
+  const currentGameState = useSelector(store => store.game.currentGameState);
 
   if (!currentGameState.gameData) {
     return (
       <MainWrapper>
         <UserInput />
         <Image src="./assets/labyrinth-poster.jpg" alt="labyrinth" />
-        {username && (
-          <WelcomeP>Hi {username}, you are ready to start playing!</WelcomeP>
-        )}
-        <StartGame />
       </MainWrapper>
     );
   } else {
@@ -42,9 +36,4 @@ const Image = styled.img`
   @media (min-width: 768px) {
     max-width: 500px;
   }
-`;
-
-const WelcomeP = styled.p`
-  color: #fff;
-  font-weight: 500;
 `;

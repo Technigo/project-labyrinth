@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { game } from 'reducers/game';
-import styled from 'styled-components/macro';
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { game } from "reducers/game";
+import styled from "styled-components/macro";
 
-import { Button } from 'lib/Button';
-import { getStartGame } from '../reducers/reusable';
+import { Button } from "lib/Button";
+import { getStartGame } from "../reducers/reusable";
 
 export const UserInput = () => {
-  const [name, setName] = useState('');
-  const username = useSelector((store) => store.game.username);
+  const [name, setName] = useState("");
+  const username = useSelector(store => store.game.username);
 
   const dispatch = useDispatch();
 
@@ -25,20 +25,18 @@ export const UserInput = () => {
     if (username) {
       // handleGameStart(username);
       dispatch(getStartGame(username));
-      console.log('Is this executed at reload of page, YES IT IS !!!');
     }
-    console.log('UeseEffect First time');
   }, [dispatch, username]);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
     console.log(name);
     dispatch(
       game.actions.addUserName({
-        username: name
+        username: name,
       })
     );
-    setName(''); // Clearing the input
+    setName(""); // Clearing the input
   };
 
   return (
@@ -49,12 +47,12 @@ export const UserInput = () => {
         <Label>
           <InputField
             type="text"
-            placeholder="Enter your name"
+            placeholder="Enter your username"
             value={name}
-            onChange={(event) => setName(event.target.value)}
+            onChange={event => setName(event.target.value)}
           />
         </Label>
-        <Button buttonDisabled={!name} buttonType="submit" text="Add" />
+        <Button buttonDisabled={!name} buttonType="submit" text="Start Game" />
       </Form>
     </TopSection>
   );
@@ -94,6 +92,7 @@ const Form = styled.form`
   width: 100%;
   justify-content: space-evenly;
   align-items: center;
+  margin: 5px 0;
 
   @media (min-width: 1024px) {
     margin: 10px 0;
