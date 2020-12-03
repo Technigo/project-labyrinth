@@ -30,6 +30,7 @@ const Btn = styled.button`
   width: 60%;
   align-self: center;
   cursor: pointer;
+  z-index: 2;
 
   &:focus {
     outline: 2px solid #ff0000;

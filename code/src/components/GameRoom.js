@@ -62,15 +62,16 @@ export const GameRoom = () => {
   }
   return (
     <GameImage style={{ backgroundImage: `url(${gameImages()})` }}>
+      <Overlay />
       <Description>{gameData.description}</Description>
       <Wrapper>
         {arrayGame &&
           arrayGame.map((item, index) => {
+
             return (
-              <Container>
+              <Container key={item.description}>
                 <Button
                   onClick={() => onGameDirection(item.direction)}
-                  key={index}
                   title={`GO ${item.direction}`}
                 />
                 <p>{item.description}</p>
@@ -89,6 +90,7 @@ export const GameRoom = () => {
     </GameImage>
   );
 };
+
 const GameImage = styled.div`
   display: flex;
   flex-direction: column;
@@ -98,19 +100,28 @@ const GameImage = styled.div`
   text-align: center;
   background-size: cover;
   background-position: center;
-  //height: 600px;
   max-width: 1000px;
   margin: auto;
-  //margin-top: 100px;
+  position: relative;
 
   @media (min-width: 768px) {
-    //height: 1000px;
     margin-top: 0;
   }
 `;
 
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.4;
+  z-index: 1;
+`
+
 const Description = styled.h3`
   justify-content: center;
+  z-index: 2;
 `;
 
 const Wrapper = styled.div`
@@ -123,6 +134,7 @@ const Container = styled.div`
   padding: 10px;
   font-size: 18px;
   background-color: rgba(0, 0, 0, 0.253);
+  z-index: 2;
 
   @media (min-width: 768px) {
     min-width: 50%;
