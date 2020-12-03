@@ -34,10 +34,10 @@ export const FormStyle = styled.form`
 `
 // start
 
-export const CardDiv = styled.div`
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-`
-// lab
+// export const CardDiv = styled.div`
+//   margin: 0;
+//   padding: 0;
+//   display: flex;
+//   flex-direction: row;
+// `
+// // labs

@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { game, fetchStart } from 'reducers/game'
+import { game } from 'reducers/game'
+import { fetchStart } from 'reducers/fetch'
 import { Labyrinth } from 'components/Labyrinth'
 import { Button } from 'lib/Button'
 import { Input } from 'lib/Input'

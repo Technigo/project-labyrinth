@@ -1,15 +1,4 @@
-https://fonts.google.com/specimen/Playfair+Display#standard-styles
-
-- move api calls to individual thunk components
 - history? + back button
-- responsive styling
-media breaks
-@media (min-width: 600px) {
-
-}
-900
-1200
-
 - should styles be broken out more?
 
 
@@ -56,9 +45,6 @@ How you present the description and the actions is completely up to you.  Maybe 
 ---
 Requirements 🧪
 - Publish your site on Netlify.
-
-🔵 Blue Level (Minimum Requirements)**
-- Your page should be responsive.
 
 
 🔴 Red Level (Intermediary Goals)**

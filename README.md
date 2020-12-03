@@ -1,9 +1,7 @@
 # Project Labyrinth - Overview
 Project done as a part of Technigo bootcamp.
 
-<!-- description -->
 This project was all about tying together the skills I have learned to build an app which retrieves a list of actions from the backend and presents them to the user as interactable items.
-
 
 This week's project comes in the form of a text-based adventure.
 
@@ -26,7 +24,7 @@ Learning Objectives:
 
 ## Requirements Completed
 🔵  Blue Level
-<!-- - The page should be responsive. -->
+- The page should be responsive.
 - Use redux to store the current state of the game
 - Focus on making the UX of the app good. Handle the response delay
 - Use thunks to wrap API calls.
