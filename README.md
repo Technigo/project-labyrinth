@@ -1,13 +1,28 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
+### This project was made as part of the Technigo front-end developer bootcamp, Fall 2020
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+In this project, a text-based adventure game app retrieving a list of actions from the backend and presents them to the user as interactable items is built.
 
-## The problem
+Based on user choices, the state of the game will update. Then, a new description and set of actions are displayed to the user.
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+## Tech used
+
+* React
+* Redux
+* API
+* Thunks
+* JSX
+* Styled components
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Wanna play?
+
+## Authors and contact
+This project was made as a group assignment.
+
+Authors: 
+* <a href="https://github.com/emeliesv">Emelie Svensson</a>
+* <a href="https://github.com/Hanna-Skeppe">Hanna Skeppe</a>
+* <a href="https://github.com/idsintehittapa">Johanna Blom</a>
