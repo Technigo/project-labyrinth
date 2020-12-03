@@ -27,6 +27,8 @@ const Btn = styled.button`
   font-size: 22px;
   padding: 10px 20px;
   transition: 0.3s ease;
+  width: 60%;
+  align-self: center;
   cursor: pointer;
 
   &:focus {
@@ -36,5 +38,10 @@ const Btn = styled.button`
 
   &:hover {
     background-color: rgb(0, 255, 127, 0.2); 
+  }
+
+  @media (min-width: 768px) {
+    width: 100%;
+    align-self: unset;
   }
 `;

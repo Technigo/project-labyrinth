@@ -10,7 +10,7 @@ import { Button } from "../lib/Buttons"
 import forest from '../img/forest.jpg'
 import nature from '../img/nature.jpg'
 
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 export const GameRoom = () => {
   const dispatch = useDispatch();
@@ -56,17 +56,16 @@ export const GameRoom = () => {
       {arrayGame &&
         arrayGame.map((item, index) => {
           return (
-            <div>
+            <Container>
               <Button 
                 onClick={() => onGameDirection(item.direction)} 
                 key={index} 
                 title={item.direction}
               />
               <p>{item.description}</p>
-            </div>
+            </Container>
           );
         })} 
-      
         <BackButton 
           type="button" 
           onClick={onHistoryBack} 
@@ -80,33 +79,39 @@ export const GameRoom = () => {
 }
 const GameImage = styled.div`
   display: flex;
-  flex-direction: column;
+  //flex-wrap: wrap;
+  justify-content: center;
   padding: 5% 10% 15% 10%;
   text-align: center;
   background-size: cover;
   background-position: center;
-  height: 400px;
+  //height: 400px;
   max-width: 1000px;
   margin: auto;
-  margin-top: 100px;
-    @media (max-width: 768px) {
-      height: 1000px;
+  //margin-top: 100px;
+
+    @media (min-width: 768px) {
+      //height: 1000px;
       margin-top: 0;
     }
 `;
 
 const Description = styled.h3`
-  justify-content:center;
+  justify-content: center;
 `;
 
+const Container = styled.div`
+  width: 50%;
+  padding: 20px;
+  font-size: 18px;
 
-export const BackButton = styled(Button)`
+`;
+
+const BackButton = styled(Button)`
   font-size: 36px;
   color: white;
   margin-top: 20px;
   border: solid 1px #ffffff;
-  width: 200px;
-  align-self: center;
 
   &:hover {
     background-color: rgb(255, 255, 255, 0.4); 

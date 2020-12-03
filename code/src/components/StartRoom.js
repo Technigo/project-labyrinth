@@ -47,12 +47,16 @@ export const StartRoom = () => {
 };
 
 const Container = styled.section`
-  text-align:center;
+  text-align: center;
 `;
 
 const Form = styled.form`
   display: flex;
-  //flex-direction: column;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 
