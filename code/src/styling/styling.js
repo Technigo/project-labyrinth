@@ -16,6 +16,8 @@ export const BackgroundContainer = styled.main`
   justify-content: center;
 `;
 
+ /* background-image: url(${props.background}) */
+
 export const Divider = styled.div`
   margin: 16px 0;
   border-bottom: 1px solid;
