@@ -6,8 +6,8 @@ export const gameDetails = createSlice({
         userName: "0",
         gameDetails:{},
         gameStarted:false,
-        gameFinished: false
-       // history: []
+        gameFinished: false,
+        history: []
     },
     reducers: {
         setDescription: (state, action) => {
@@ -26,11 +26,21 @@ export const gameDetails = createSlice({
         // }
         //},
           setMoves: (state, action) => {
+            if(state.gameDetails) {
+              state.history = [...state.history,state.gameDetails]
+            }
          // if (state.gameDetails.gameDetails) {
            // state.history = [...state.history, state.gameDetails]
           //}
             state.gameDetails = action.payload;   
         },
+        historyGoBack: state => {
+          if(state.history.length > 0) {
+            state.gameDetails = state.history[state.history.length - 1]
+            state.history = state.history.slice(0,state.history.length)
+          }
+        },
+
         startGame: (state) => { 
           state.gameStarted = true},
         

@@ -16,12 +16,18 @@ export const GameBegin = () => {
   //userName is undefinied
   const onGameBegin = () => {
     const userName = Math.random().toString();
-    dispatch(gameDetails.actions.setUserName(userName))
+    dispatch(gameDetails.actions.setUserName(userName));
     dispatch(getDescription(userName));
     dispatch(gameDetails.actions.startGame());
   }
-  const gameOn = useSelector(store => store.gameDetails.gameStarted)
-  const gameOff = useSelector(store => store.gameDetails.gameFinished)
+  const handleHistoryBack = () => {
+    dispatch(gameDetails.actions.historyGoBack());
+  }
+
+  const gameOn = useSelector(store => store.gameDetails.gameStarted);
+  const gameOff = useSelector(store => store.gameDetails.gameFinished);
+  const historyContainer = useSelector(store => store.gameDetails.history);
+
 return(
 <div>
     {!gameOn ? (
@@ -32,6 +38,8 @@ return(
   ) : (
   <>
       {gameData.description && <Buttons />} 
+      {!gameOff && <button onClick={handleHistoryBack}
+              disabled={historyContainer === 1}> Go Back</button>}
   </>
   ) 
   } 
