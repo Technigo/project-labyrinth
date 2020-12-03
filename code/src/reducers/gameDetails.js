@@ -3,8 +3,9 @@ import { createSlice } from '@reduxjs/toolkit';
 export const gameDetails = createSlice({
     name: 'gameDetails',
     initialState: {
-        userName: "TestUser",
+        userName: "0",
         gameDetails:{},
+        gameStarted:false
        // history: []
     },
     reducers: {
@@ -12,7 +13,7 @@ export const gameDetails = createSlice({
          // if (state.gameDetails.gameDetails) {
            // state.history = [...state.history, state.gameDetails]
           //}
-            state.gameDetails = action.payload;   
+            state.gameDetails = action.payload; 
         },
 
         // historyGoBack: (state, action) => {
@@ -22,12 +23,20 @@ export const gameDetails = createSlice({
 
         //   }
         // }
-        },
+        //},
           setMoves: (state, action) => {
          // if (state.gameDetails.gameDetails) {
            // state.history = [...state.history, state.gameDetails]
           //}
             state.gameDetails = action.payload;   
         },
+        startGame: (state) => { 
+          state.gameStarted = true},
+          
+
+        setUserName: (state, action) => {
+      state.userName = action.payload;
+        }
+    },
 
 });
