@@ -5,7 +5,10 @@ import { Button } from "../lib/Buttons";
 export const GameOver = () => {
   return (
     <>
-      <Button onClick={() => window.location.reload()} title="play again" />
+      <Button onClick={() => {
+        window.location.reload();
+        localStorage.clear();
+        }} title="play again" />
     </>
   );
 };
