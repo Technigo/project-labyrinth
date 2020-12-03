@@ -1,8 +1,14 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components/macro'
+
+// import HeroVideoDemo from './testing/BackgroundVideo'
+import { LoadingIndicator } from 'components/LoadingIndicator'
+import heroImage from '../assets/startImage.jpg'
 import { gameReducer } from '../reducers/gameReducer'
 import { ui } from '../reducers/ui'
+
+// import VideoBackground from './BgVideo'
 
 export const StartForm = () => {
   const playerName = useSelector((store) => store.gameReducer.playerName)
@@ -31,23 +37,24 @@ export const StartForm = () => {
       })
   }
   return (
-    <Home>
+    <Home imgUrl={heroImage}>
+      <LoadingIndicator />
       <Wrapper>
-        <label
+        <Label
           htmlFor={playerInputId}>
           Type your name
-          <input
+          <Input
             id={playerInputId}
             type="text"
             value={playerName}
             onChange={(event) => handlePlayerName(event)} />
-        </label>
-        <button
+        </Label>
+        <Button
           type="button"
           disabled={playerName.length < 1}
           onClick={() => startGame()}>
             Start Game
-        </button>
+        </Button>
       </Wrapper>
     </Home>
   )
@@ -55,12 +62,42 @@ export const StartForm = () => {
 
 const Home = styled.main`
   align-items: center;
-  background-color: papayawhip;
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
-`
-const Wrapper = styled.div`
+  background: url(${(props) => props.imgUrl});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;  
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+  width: 100vw;
+`
+
+const Wrapper = styled.div`
+  align-items: center;
+  display: flex;
+  font-family: 'Mystery Quest', cursive;
+  flex-direction: column;
+`
+
+const Button = styled.button`
+  background-color: #50055E;
+  color: #ffffff;
+  font-family: 'Mystery Quest', cursive;
+  font-size: 18px;
+  margin-top: 20px;
+  height: 40px;
+  width: 120px;
+`
+const Input = styled.input`
+  height: 30px;
+  margin-top: 20px;
+  width: 200px;
+`
+const Label = styled.label`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 25px;
 `
