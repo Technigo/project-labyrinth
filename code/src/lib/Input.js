@@ -7,7 +7,7 @@ export const Input = styled.input`
   padding: 5px;
   border: none;
   border-radius: 3px;
-  background: pink;
+  background: snow;
   font-size: 16px;
   cursor: pointer;
 `

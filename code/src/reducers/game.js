@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable space-infix-ops */
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
@@ -11,6 +9,7 @@ const initialState = {
 export const game = createSlice({
   name: 'game',
   initialState,
+
   reducers: {
     setUser: (state, action) => {
       state.username = action.payload

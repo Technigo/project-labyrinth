@@ -10,3 +10,7 @@ export const Footer = () => {
     </footer>  
   )
 }
+
+
+// favicon:
+// Icons made by <a href="https://www.flaticon.com/free-icon/maze_2532545?term=maze&page=2&position=48&related_item_id=2532545" title="Good Ware">Good Ware</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>

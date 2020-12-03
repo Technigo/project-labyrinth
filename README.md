@@ -32,10 +32,10 @@ Learning Objectives:
 🔴  Red Level (Intermediary Goals)
 - Show the descriptions of the directions in the main description of the current room.  Present clear and simple actions. 
 <!-- - Use redux to store a history of what the player has done -->
-<!-- - If you want to focus more on design and make or use a design library (for example [material-ui](https://material-ui.com/)) -->
+- Focus more on design and make or use a design library
 
-<!-- ⚫  Black Level (Advanced Goals) -->
-<!-- - Style each room/state based on the description.  For instance, if it contains the word "forest" you may want to change the background to a forest -->
+⚫  Black Level (Advanced Goals)
+- Style each room/state based on the description.  For instance, if it contains the word "forest" you may want to change the background to a forest
 <!-- - Display a history of all the actions a player has taken -->
 <!-- - Persist redux store to localStorage, so the app data remains when you reload the page -->
 <!-- - Create a visual representation (drawing) of the map/labyrinth that the player is navigating.  It could update after each action.  The coordinates might be helpful here, or you can track the directions yourself -->
