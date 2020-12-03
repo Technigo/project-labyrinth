@@ -29,9 +29,8 @@ export const GameStart = () => {
   const uppDateUsername = () => {
     dispatch(game.actions.uppDateUsername(inputValue)) 
   }
-
-  // setInputValue("") clean text are after input not working yet;
   
+  // setInputValue("") clean text are after input not working yet;
   return (
     <section className="start-container">
       <form className="form-wrapper">
