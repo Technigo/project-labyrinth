@@ -6,25 +6,47 @@ import { createPlayer } from '../reducers/game'
 import { game } from 'reducers/game'
 import { GameDescription } from './GameDescription'
 import { WelcomePlayer } from './WelcomePlayer'
-
+import maze from '../assets/maze.svg'
+ 
 const GameContainer = styled.div`
     background-color: #76a4ab;
+    opacity: 0.9;
     height: 100vh;
+    border-radius: 20px;
+    width: 350px;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
+    box-shadow: 11px 11px 14px -1px #141414;
 
     @media (min-width: 667px) {
-        max-width: 600px;
-        height: 60vh;
+        width: 600px;
+        height: 80vh;
+        margin-top: 120px;
     }
+`
+const HeaderContainer = styled.div`
+    display: flex;
+    flex-direction: column;
 `
 
 const Header = styled.h1`
     font-size: 28px;
     text-align: center;
     padding-top: 20px;
+
+    @media (min-width: 667px) {
+        font-size: 36px;
+    }
 `
 
+const Icon = styled.img`
+    width: 80px; 
+    justify-content: center;
+    margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
+`
 
 const Form = styled.form`
     display: flex;
@@ -34,8 +56,8 @@ const Form = styled.form`
 `
 
 const Input = styled.input`
-`
 
+`
 
 const Button = styled.button`
     margin-top: 25px; 
@@ -58,20 +80,23 @@ export const StartGame = () => {
 return (
     <>
     <GameContainer>
-        <Header>Labyrinth game</Header>
-        <Form onSubmit={onSubmit}>
-            <Input 
-                aria-label='text area'
-                type= 'text' 
-                onChange={e => setInputValue(e.target.value)}
-                value={inputValue}
-                placeholder='Type your username'
-            ></Input>
+        <HeaderContainer>
+            <Header>Labyrinth game</Header>
+            <Icon src={maze} alt='maze' /> 
+        </HeaderContainer>
+            <Form onSubmit={onSubmit}>
+                <Input 
+                    aria-label='text area'
+                    type= 'text' 
+                    onChange={e => setInputValue(e.target.value)}
+                    value={inputValue}
+                    placeholder='Type your username'
+                ></Input>
             <Button>Start game</Button>
-        </Form>
+            </Form>
         { userName && <WelcomePlayer userName={userName} />}
         <GameDescription inputValue={inputValue} />
-        </GameContainer>
+    </GameContainer>
     </>
 )
 }

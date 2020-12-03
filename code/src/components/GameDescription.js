@@ -7,9 +7,19 @@ import { continueGame } from '../reducers/game'
 const StartDescription = styled.div`
   text-align: center;
   margin-bottom: 30px; 
+  padding: 0 30px 0 30px;
+
+  @media (min-width: 667px) {
+        font-size: 20px;
+    }
 `
 const NextDescription = styled.div`
   text-align: center;
+  padding: 0 30px 0 30px;
+
+  @media (min-width: 667px) {
+        font-size: 20px;
+    }
 `
 
 const DirectionButton = styled.button`
