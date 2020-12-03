@@ -3,6 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import styled from "styled-components";
+import TextAnimation from 'react-animate-text';
 
 import { game } from "../reducers/game";
 import { generateAction } from "../reducers/reusable";
@@ -28,7 +29,12 @@ export const StartRoom = () => {
 
   return (
     <Container>
-      <Title>Welcome {userName}</Title>
+      <Title>
+        Welcome to the labyrinth of Maze.
+          <TextAnimation>
+            <span>Write your name and press start to enter the labyrinth, if you dare...</span>
+          </TextAnimation>
+      </Title>
       <Form onSubmit={handleSubmit}>
         <Textfield
           onChange={(event) => onChangeEvent(event.target.value)}
@@ -48,6 +54,7 @@ export const StartRoom = () => {
 
 const Title = styled.h2`
   font-size: 32px;
+  margin: 20px 0;
 
   @media (min-width: 768px) {
     font-size: 40px;
@@ -55,6 +62,9 @@ const Title = styled.h2`
 `
 
 const Container = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 `;
 
