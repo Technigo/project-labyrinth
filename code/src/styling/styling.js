@@ -1,22 +1,6 @@
 import styled from "styled-components/macro";
 
-import backgroundImage from "img/creepy_treehouse.png";
 
-// Global styling goes here
-
-export const BackgroundContainer = styled.main`
-  background-image: url(${backgroundImage});
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
- /* background-image: url(${props.background}) */
 
 export const Divider = styled.div`
   margin: 16px 0;
@@ -54,13 +38,14 @@ export const TextContainer = styled.section`
   color: #ffffff;
   font-size: 16px;
   border-radius: 10px;
-  width: 90%;
+  width: 80%;
   padding: 30px;
   opacity: 0.8;
   text-align: center;
 
   @media (min-width: 667px) {
     width: 50%;
+    padding: 10px;
   }
 
   @media (min-width: 1024px) {
