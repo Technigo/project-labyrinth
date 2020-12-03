@@ -21,7 +21,7 @@ export const GameBegin = () => {
     dispatch(gameDetails.actions.startGame());
   }
   const gameOn = useSelector(store => store.gameDetails.gameStarted)
-
+  const gameOff = useSelector(store => store.gameDetails.gameFinished)
 return(
 <div>
     {!gameOn ? (
@@ -31,11 +31,11 @@ return(
   </>
   ) : (
   <>
-    <div>Game over</div>
       {gameData.description && <Buttons />} 
   </>
   ) 
   } 
+  {gameOff && <div>Game over</div>}
 </div>
 )
 }

@@ -5,7 +5,8 @@ export const gameDetails = createSlice({
     initialState: {
         userName: "0",
         gameDetails:{},
-        gameStarted:false
+        gameStarted:false,
+        gameFinished: false
        // history: []
     },
     reducers: {
@@ -32,8 +33,10 @@ export const gameDetails = createSlice({
         },
         startGame: (state) => { 
           state.gameStarted = true},
+        
+        gameFinished: (state) => { 
+          state.gameFinished = true},
           
-
         setUserName: (state, action) => {
       state.userName = action.payload;
         }

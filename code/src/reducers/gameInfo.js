@@ -11,9 +11,13 @@ export const getDescription = (userName) => {
       body: JSON.stringify({username: userName})
     }
       ).then(res => res.json())
-      .then(data => 
-        dispatch(gameDetails.actions.setDescription(data)));
+      .then(data => {
+          if (data.actions.length === 0) {
+            dispatch(gameDetails.actions.gameFinished())
+      }
+        dispatch(gameDetails.actions.setDescription(data));
         console.log(data);
+        });
       };
 };
 
@@ -31,7 +35,12 @@ export const getMoves = (action) => {
         direction: action.direction
       })
     }).then(res => res.json())
-      .then(data => 
-        dispatch(gameDetails.actions.setMoves(data)));
+      .then(data => {
+        if (data.actions.length === 0) {
+          dispatch(gameDetails.actions.gameFinished())
+        }
+        dispatch(gameDetails.actions.setMoves(data));
+    });
       };
 };
+
