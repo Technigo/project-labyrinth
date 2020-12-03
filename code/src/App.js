@@ -6,7 +6,18 @@ import { game } from "./reducers/game";
 import { RoomList } from "./components/RoomList";
 
 const reducer = combineReducers({ game: game.reducer });
-const store = configureStore({ reducer });
+const persistedState = localStorage.getItem("reduxState")
+  ? JSON.parse(localStorage.getItem("reduxState"))
+  : {};
+
+const store = configureStore({
+  reducer,
+  preloadedState: persistedState,
+});
+
+store.subscribe(() => {
+  localStorage.setItem("reduxState", JSON.stringify(store.getState()));
+});
 
 export const App = () => {
   return (
