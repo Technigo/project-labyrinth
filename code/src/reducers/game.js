@@ -30,7 +30,7 @@ export const game = createSlice({
                 store.history = store.history.slice(0, store.history.length - 1);
             }
         },
-        // Updates loading true or false
+        //Updates loading true or false
         generateLoading: (store, action) => {
             store.isLoading = action.payload;
         },

@@ -5,54 +5,56 @@ import styled from "styled-components";
 import { Typewriter } from 'react-typewriting-effect'
 import 'react-typewriting-effect/dist/index.css'
 
+
+import { GameStartContainer } from './GameStartContainer'
 import { game } from '../reducers/game';
 import { generateNewDirection } from '../reducers/reusable';
 import { generateGameStart } from '../reducers/reusable';
 import { Button } from './Button';
-
+import { Wrapper } from '../styling/typewriter'
 
 
 const GameScreen = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100vh;
     background-color: black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-`
-
-const StartGameCard = styled.div`
-    width: 300px;
-    height: 500px;
-    background-color: #901F32;
-    border: 3px solid #fff;
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-`
-
-const StartText = styled.h1`
-    color: #fff;
+    text-align: center;
 `
 
 const DescriptionText = styled.p`
     color: #fff;
+    line-height: 1.6;
+    padding: 30px;
+`
+const ButtonsContainer = styled.div`
+display:flex;
 `
 
 const MoveButton = styled.button`
-    
-`
+    font-family: 'Press Start 2P', cursive;
+    font-size: 13px;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: #2A0EB2;
+    width: 160px;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #fff;
+    border-radius: 20px;
 
-const Wrapper = styled.div`
-    color: black;
+    :hover {
+        transform: scale(1.1);
+        background-color: #2FF631;
+    }
 `
 
 export const GameContainer = () => {
     const dispatch = useDispatch();
-    const [inputValue, setInputValue] = useState('');
     const [actionDescription, setActionDescription] = useState('');
 
     // Get from store(redux) 
@@ -63,18 +65,12 @@ export const GameContainer = () => {
 
     const fetching = useSelector(store => store.game.fetching);
     const timing = useSelector(store => store.game.timer);
-
     
     // onGameGenerate renders when username is updated
     useEffect(() => {
         onGameGenerate();
     }, [username]) 
     
-    // Update store with given username
-    const setUserName = () => {
-        dispatch(game.actions.updateUserName(inputValue));
-    }
-
     const onGameGenerate = () => {
         // Runs the fetch function generateGameStart from reusable
         dispatch(generateGameStart());
@@ -102,6 +98,13 @@ export const GameContainer = () => {
     if(fetching || timing) {
         return (
             <Wrapper>
+                <lottie-player
+                autoplay
+                    loop
+                    mode="normal"
+                    src={'https://assets8.lottiefiles.com/packages/lf20_RYwVrc.json'}
+                    style={{ height: 100 }}
+                    />
                 <Typewriter 
                     string={actionDescription} 
                     delay={20}/>
@@ -118,36 +121,23 @@ export const GameContainer = () => {
                     onButtonClick={onHistoryBack}
                     text='Go Back'
                 /> */}
-                {gameStore.direction.map(action => {
-                    return (
-                            <MoveButton
-                                key={action.description}
-                                onClick={() => onGameMoveUpdate(action)}
-                            >
-                                Go {action.direction}
-                            </MoveButton>
-                    )
-                })}  
+                <ButtonsContainer>
+                    {gameStore.direction.map(action => {
+                        return (
+                                <MoveButton
+                                    key={action.description}
+                                    onClick={() => onGameMoveUpdate(action)}
+                                >
+                                    Go {action.direction}
+                                </MoveButton>
+                        )
+                    })}
+                </ButtonsContainer>
             </GameScreen>
         )} 
     
-    // When game is not started (there is no description) display username input field and start game button
+    // When game is not started display first page with username input field & start game button
     return (
-        <GameScreen>
-            <StartGameCard>
-                <StartText>Play the game</StartText> 
-                <input
-                    type='text'
-                    placeholder='Type your username'
-                    value={inputValue}
-                    required
-                    onChange={e => setInputValue(e.target.value)}
-                />
-                <Button
-                    onButtonClick={setUserName}
-                    text='Start game'
-                />
-            </StartGameCard>    
-        </GameScreen>
+        <GameStartContainer />
     );
 }

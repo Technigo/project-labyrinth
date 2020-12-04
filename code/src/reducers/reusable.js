@@ -12,7 +12,7 @@ export const generateGameStart = () => {
                 .then(res => res.json())
                 .then(data => {
                     dispatch(game.actions.generateGame(data));
-                    // dispatch(game.actions.generateLoading(false));
+                    dispatch(game.actions.generateLoading(false));
                 })
     }
 }
@@ -20,7 +20,6 @@ export const generateGameStart = () => {
 // Fetch coordinates, description & direction
 export const generateNewDirection = (action) => {    
     return (dispatch, getStore) => {
-        dispatch(game.actions.generateLoading(true))
         dispatch(game.actions.setFetching(true));;
         fetch('https://wk16-backend.herokuapp.com/action', {
             method: 'POST',
@@ -33,7 +32,6 @@ export const generateNewDirection = (action) => {
                 .then(res => res.json())
                 .then(data => {
                     dispatch(game.actions.generateGame(data));
-                    // dispatch(game.actions.generateLoading(false));
                     dispatch(game.actions.setFetching(false));
                 })
     };
