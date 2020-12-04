@@ -35,11 +35,7 @@ export const Loader = () => {
   );
 };
 
-/*
-import { Loader } from "./components/Loader";
-        <Loader />
-*/
-
+/* Styling for loader */
 const LoaderBackground = styled.main`
  background: #1B233D;
  height: 100vh;

@@ -13,7 +13,6 @@ export const gameState = createSlice({
     },
     commitAction: (state, action) => {
       state.gameDetails = action.payload;
-      console.log("Here now!" + action.payload);
     },
     setLoader: (state, action) => {
       state.loader = action.payload;

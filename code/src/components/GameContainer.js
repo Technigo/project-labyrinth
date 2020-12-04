@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { StartGame } from "./StartGame";
 import { NextStep } from "./NextStep";
 import { TheEnd } from "./TheEnd";
-import { Loader } from './Loader';
+import { Loader } from "./Loader";
 import { BackgroundContainer, TextContainer, Button } from "../styling/styling";
 
 export const GameContainer = () => {
