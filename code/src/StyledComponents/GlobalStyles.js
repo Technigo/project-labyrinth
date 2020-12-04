@@ -18,6 +18,10 @@ export const BoxShadow = styled.div`
   padding: 10px;
   box-shadow: 5px 10px #fd20e3;
   margin:20px;
+
+  @media (min-width: 1024px) {
+    max-width:50%;
+  }
 `
 
 export const Header = styled.h2`
@@ -32,8 +36,8 @@ export const Text = styled.p`
   font-size: 20px;
   font-family: monospace,sans-serif;
   padding: 20px;
-  margin-left: 75px;
-  margin-right: 75px;
+  margin-left: 15%;
+  margin-right: 15%;
 `
 
 export const Button = styled.button`
@@ -43,7 +47,7 @@ export const Button = styled.button`
   border: none;
   padding: 20px;
   border: solid 1px #fd20e3;
-  background-color: rgb(19, 19, 19);
+  background-color: rgb(255,255,255, 0); 
   color:white;
   cursor: pointer;
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-
 import { BoxShadow, Container, Button, Text, Header} from 'StyledComponents/GlobalStyles';
 
 export const EndPage = () => {
