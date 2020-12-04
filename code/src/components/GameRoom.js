@@ -54,16 +54,21 @@ export const GameRoom = () => {
   const endGame = () => {
     if (gameData.coordinates === "1,3") {
       return <GameOver />;
+    } else {
+      return <BackButton
+      type="button"
+      onClick={onHistoryBack}
+      disabled={historyGame.length === 1}
+      background={historyGame.length === 1 ? "grey" : "rgb(32, 8, 191)"}
+      title={"back"}/>;
     }
   };
 
-  if (game.actions.length === 0) {
-    return <GameOver />;
-  }
   return (
     <GameImage style={{ backgroundImage: `url(${gameImages()})` }}>
       <Overlay />
       <Description>{gameData.description}</Description>
+      <Description>CHOOSE DIRECTION:</Description>
       <Wrapper>
         {arrayGame &&
           arrayGame.map((item, index) => {
@@ -80,13 +85,6 @@ export const GameRoom = () => {
           })}
       </Wrapper>
       {endGame()}
-      <BackButton
-        type="button"
-        onClick={onHistoryBack}
-        disabled={historyGame.length === 1}
-        background={historyGame.length === 1 ? "grey" : "rgb(32, 8, 191)"}
-        title={"back"}
-      />
     </GameImage>
   );
 };
@@ -96,16 +94,18 @@ const GameImage = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 5% 10% 15% 10%;
+  padding: 10% 10% 10% 10%;
   text-align: center;
   background-size: cover;
   background-position: center;
   max-width: 1000px;
   margin: auto;
   position: relative;
+  min-height: 100vh;
 
   @media (min-width: 768px) {
     margin-top: 0;
+    min-height: initial;
   }
 `;
 
@@ -125,6 +125,9 @@ const Description = styled.h3`
 `;
 
 const Wrapper = styled.div`
+  z-index: 2;
+  border: dashed 2px #ffffff;
+
   @media (min-width: 768px) {
     display: flex;
   }
@@ -133,7 +136,8 @@ const Wrapper = styled.div`
 const Container = styled.div`
   padding: 10px;
   font-size: 18px;
-  background-color: rgba(0, 0, 0, 0.253);
+  //border: dashed 2px #00ff7f;
+  //background-color: rgba(0, 0, 0, 0.253);
   z-index: 2;
 
   @media (min-width: 768px) {
@@ -153,6 +157,6 @@ const BackButton = styled(Button)`
 
   @media (min-width: 768px) {
     max-width: 200px;
-    font-size: 36px;
+    font-size: 32px;
   }
 `;
