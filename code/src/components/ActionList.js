@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
 import { getNextPosition } from '../reducers/reusable'
-import { StartButton } from './StartButton'
 
 const Button = styled.button`
   display: flex;
