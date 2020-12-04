@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import { Provider } from 'react-redux'
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import React, { useState } from "react";
+import { Provider } from "react-redux";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
-import { GameLoading } from 'components/GameLoading'
-import { LabyrinthGame } from 'components/LabyrinthGame'
+import { GameLoading } from "components/GameLoading";
+import { LabyrinthGame } from "components/LabyrinthGame";
 
-import { labyrinth } from './reducers/labyrinth';
-import { ui } from './reducers/ui';
+import { labyrinth } from "./reducers/labyrinth";
+import { ui } from "./reducers/ui";
 
 const reducer = combineReducers({
   labyrinth: labyrinth.reducer,
@@ -16,12 +16,12 @@ const reducer = combineReducers({
 const store = configureStore({ reducer });
 
 export const App = () => {
-  const [gameCoordinates, setGameCoordinates] = useState('');
+  const [gameCoordinates, setGameCoordinates] = useState("");
 
   return (
     <Provider store={store}>
-      <GameLoading/>
-      <LabyrinthGame setGameCoordinates={setGameCoordinates}/>
+      <GameLoading />
+      <LabyrinthGame setGameCoordinates={setGameCoordinates} />
     </Provider>
-  )
-}
+  );
+};

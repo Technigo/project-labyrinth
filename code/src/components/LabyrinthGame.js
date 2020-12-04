@@ -1,41 +1,66 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
-import { fetchDirectionData } from "../reducers/labyrinth";
+import { fetchLabyrinthData, fetchDirectionData } from "../reducers/labyrinth";
 
 import { PlayerInput } from "./PlayerInput"
-import { FetchLabyrinthButton } from "./FetchLabyrinthButton";
+import { StartLabyrinthButton } from "./StartLabyrinthButton";
 import { DirectionButtons } from "./DirectionButtons";
 
 export const LabyrinthGame = ({ setGameCoordinates }) => {
   const description = useSelector((store) => store.labyrinth.content);
+  const username = useSelector((store) => store.labyrinth.content);
   const loading = useSelector((state) => state.ui.loading);
+
+  const [startButtonVisible, setStartButtonVisible] = useState(false);
+  const [nameInputVisible] = useState(true);
+
+  setGameCoordinates(description.coordinates);
 
   return (
     loading === false && (
       <section>
-        <FetchLabyrinthButton />
+        {description.coordinates === undefined && (
+          <>
+            {/*Player-input*/}
+            {nameInputVisible && (
+              <PlayerInput setStartButtonVisible={setStartButtonVisible} />
+            )}
+            {startButtonVisible && (
+              <div>
+                <p>Hello</p>
+                <StartLabyrinthButton
+                  action={() => fetchLabyrinthData(username)}
+                  text="Go"
+                />
+              </div>
+            )}
+          </>
+        )}
+
         <p>{description.description}</p>
+
         {description.coordinates && (
           <p>Coordinates:{description.coordinates}</p>
         )}
 
         {
-          ///Knappar för att gå vidare
-          description.coordinates &&
+          ///Buttons for move in different directions
+          description.coordinates !== undefined &&
             description.actions.map((action) => (
-              <>
-                <DirectionButton
+              
+              <div key={action.description}>
+                <DirectionButtons
                   direction={action.direction}
-                  key={action.description}
                   action={() =>
                     fetchDirectionData({
                       direction: action.direction,
+                      username: username,
                     })
                   }
                 />
-                <p>{action.description}</p>
-              </>
+                {/* <p>{action.description}</p> */}
+              </div>
             ))
         }
         {description.coordinates === "1,3" && (

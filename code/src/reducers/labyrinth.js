@@ -4,16 +4,20 @@ import { ui } from "./ui";
 export const labyrinth = createSlice({
   name: "labyrinth",
   initialState: {
+    username: "",
     content: {},
   },
   reducers: {
     setLabyrinthData: (state, action) => {
       state.content = action.payload;
     },
+    setUsername: (state, action) => {
+      state.username = action.payload;
+    },
   },
 });
 
-export const fetchLabyrinthData = () => {
+export const fetchLabyrinthData = (username) => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
     fetch("https://wk16-backend.herokuapp.com/start", {
@@ -21,8 +25,8 @@ export const fetchLabyrinthData = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ 
-        username: "Moa",
+      body: JSON.stringify({
+        username: username,
       }),
     })
       .then((results) => results.json())
@@ -33,7 +37,7 @@ export const fetchLabyrinthData = () => {
   };
 };
 
-export const fetchDirectionData = (direction) => {
+export const fetchDirectionData = ({ direction, username }) => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
     fetch("https://wk16-backend.herokuapp.com/action", {
@@ -42,7 +46,7 @@ export const fetchDirectionData = (direction) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: "moa",
+        username: username,
         type: "move",
         direction: direction,
       }),
@@ -51,7 +55,6 @@ export const fetchDirectionData = (direction) => {
       .then((json) => {
         dispatch(labyrinth.actions.setLabyrinthData(json));
         dispatch(ui.actions.setLoading(false));
-        console.log(json);
       });
   };
 };
