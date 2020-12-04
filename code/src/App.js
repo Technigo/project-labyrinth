@@ -1,13 +1,13 @@
-import React from 'react'
-import {  useSelector } from 'react-redux'
+import React from "react";
+import { useSelector } from "react-redux";
+import styled from "styled-components/macro";
 
-import { StartGame } from './components/StartGame'
-import { GameState } from './components/GameState'
-import { Loading } from './components/Loading'
-
+import { StartGame } from "./components/StartGame";
+import { GameState } from "./components/GameState";
+import { Loading } from "./components/Loading";
 
 export const App = () => {
-  const isLoading = useSelector((store) => store.ui.isLoading)
+  const isLoading = useSelector((store) => store.ui.isLoading);
 
   return (
     <>
@@ -15,5 +15,5 @@ export const App = () => {
       {!isLoading && <StartGame />}
       {!isLoading && <GameState />}
     </>
-  )
-}
+  );
+};
