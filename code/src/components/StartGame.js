@@ -1,53 +1,61 @@
-import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { ui } from 'reducers/ui'
-import { game } from 'reducers/game'
-import { ArrowBack as West, ArrowForward as East, ArrowUpward as North, ArrowDownward as South } from '@material-ui/icons/';
-import { Button, ButtonGroup, Paper } from '@material-ui/core'
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import styled from 'styled-components'
+import { Button, Input, Typography } from '@material-ui/core'
 
-import { fetchMove } from 'reducers/game'
+import { fetchStart } from "reducers/game";
+
+const H1Typography = styled(Typography)`
+ font-size: 30px;
+ padding: 10px;
+ text-align: center;
+`;
+
+const H2Typography = styled(Typography)`
+ font-size: 20px;
+ padding: 10px;
+`;
+
+const MyButton = styled(Button)`
+  margin: 20px 0px;
+`;
 
 export const StartGame = () => {
-    const startPosition = useSelector( store => store.game);
-    const dispatch = useDispatch()
-    const handleFirstMove = (type, direction) => {
-        dispatch(fetchMove(startPosition.user.username, type, direction))
-    }
+  const dispatch = useDispatch();
+  const [value, setValue] = useState("");
+  const started = useSelector(state => state.ui.isStarted)
 
-    return (
+  return (
+    <>
+      {!started && (
         <>
-        {startPosition.currentPosition.description && (
-        <Paper>
-            <p> Description: {startPosition.currentPosition.description}</p>
-            <p> Coordinates: {startPosition.currentPosition.coordinates}</p>
-              <ButtonGroup fullWidth variant='contained'>{startPosition.currentPosition.actions.map((item, index) => {
-                  let buttonDir = null
-                  switch(item.direction){
-                    case 'East': buttonDir=<East/>
-                      break;
-                    case 'West': buttonDir=<West/>
-                      break;
-                    case 'North': buttonDir=<North/>
-                      break;
-                    case 'South': buttonDir=<South/>
-                      break;
-                    default:
-                    
-                  }
-                  return(
-                    <Button
-                      variant='contained'
-                      startIcon={buttonDir}
-                        size='small'
-                      type='button' 
-                      onClick={() => handleFirstMove(item.type, item.direction)}>{item.direction}
-                      </Button>)
-              })}
-              {startPosition.currentPosition.coordinates === "1,3" && <Button type='button' onClick={() => {dispatch(ui.actions.restart())
-             dispatch(game.actions.restart())}
-            }>Restart game</Button>}
-              </ButtonGroup>  
-        </Paper>)}</>
-    )
-
-}
+            <H1Typography variant="h1" component="h3"> 
+              Labyrinth game
+            </H1Typography>
+            <H2Typography variant="h2" component="h4">
+              Start game by entering username
+            </H2Typography>
+          <Input
+            type="text"
+            variant='contained'
+            placeholder='enter username'
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+          />
+          <MyButton
+            fullWidth
+            variant='contained'
+            type="button"
+            size='small'
+            disabled={value.length < 1}
+            onClick={() => {
+              dispatch(fetchStart(value));
+            }}
+          >
+            Start Game
+          </MyButton>
+        </>
+      )}
+    </>
+  );
+};

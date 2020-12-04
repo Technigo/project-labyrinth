@@ -6,8 +6,8 @@ import styled from 'styled-components'
 
 import { game } from '../src/reducers/game'
 import { ui } from '../src/reducers/ui'
-import { MovePlayer } from 'components/MovePlayer'
 import { StartGame } from 'components/StartGame'
+import { MovePlayer} from 'components/MovePlayer'
 import { Playerposition } from 'components/Playerposition'
 import { LoadingIndicator } from 'components/LoadingIndicator'
 import { Playerhistory } from 'components/Playerhistory'
@@ -36,8 +36,8 @@ export const App = () => {
     <Provider store={store} >
     <Container maxWidth= "xs" style={{ height: '90vh', backgroundColor: 'white', position: 'relative', top:'0px', left: '0px'}}>
     <MyPaper>
-     <MovePlayer /> 
-     <StartGame />
+     <StartGame /> 
+     <MovePlayer />
      <LoadingIndicator />
      </MyPaper>
      <Playerposition/>
