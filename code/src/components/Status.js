@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components/macro";
 
-import { SmallText } from '../lib/Styling';
+import { SmallText } from "../lib/Styling";
 
 const StatusPlaceholder = styled.div`
   grid-area: status;

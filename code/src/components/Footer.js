@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-import { Centered, SmallText } from '../lib/Styling';
+import { Centered, SmallText } from "../lib/Styling";
 
 const FooterText = styled(SmallText)`
   margin: 0;

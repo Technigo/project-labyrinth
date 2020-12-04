@@ -1,17 +1,13 @@
 body {
   margin: 0;
-  font-family: 'Quicksand', sans-serif;
-  /* font-family: 'Texturina', serif;
-  font-family: 'Trochut', cursive; */
+  font-family: "Quicksand", sans-serif;
   font-size: 13px;
   background-color: black;
   color: white;
 }
 
 code {
-  font-family: 'Quicksand', sans-serif;
-  /* font-family: 'Texturina', serif;
-  font-family: 'Trochut', cursive; */
+  font-family: "Quicksand", sans-serif;
 }
 
 @media (min-width: 768px) {

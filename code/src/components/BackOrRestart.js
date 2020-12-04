@@ -1,9 +1,9 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
 
-import { game } from '../reducers/game';
-import { Text, ActionButton } from '../lib/Styling';
+import { game } from "../reducers/game";
+import { Text, ActionButton } from "../lib/Styling";
 
 const ButtonContainer = styled.div`
   grid-area: back;
@@ -11,11 +11,11 @@ const ButtonContainer = styled.div`
   align-self: center;
   display: flex;
   align-items: baseline;
-`
+`;
 
 const GoBackText = styled(Text)`
   margin: 0 10px 0 0;
-`
+`;
 
 export const BackOrRestart = () => {
   const dispatch = useDispatch();
@@ -25,20 +25,16 @@ export const BackOrRestart = () => {
     dispatch(game.actions.oneStepBack());
   };
 
-  const onRestart = () => {
-    dispatch(game.actions.restartGame())
-  };
-
-  if (coordinates === '1,3') {
+  if (coordinates === "1,3") {
     return (
       <ButtonContainer>
         <GoBackText>Great! You made it out of the maze. Want to try again?</GoBackText>
-        <ActionButton onClick={onRestart}>
+        <ActionButton onClick={() => window.location.reload()}>
           Play again
         </ActionButton>
       </ButtonContainer>
     )
-  } else if (coordinates === '0,0') {
+  } else if (coordinates === "0,0") {
     return (
       <>
       </>

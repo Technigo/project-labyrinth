@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components/macro";
 
 import { nextStepFetch } from "../reducers/reusable";
-import { ActionButton } from '../lib/Styling';
+import { ActionButton } from "../lib/Styling";
 
 const DirectionContainer = styled.div`
   grid-area: ${(props) => props.direction};

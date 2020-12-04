@@ -1,16 +1,16 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import React from "react";
+import { Provider } from "react-redux";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import styled from "styled-components/macro";
 
-import { Header } from './components/Header';
-import { Start } from './components/Start';
-import { Loading } from './components/Loading';
-import { Board } from './components/Board';
-import { Footer } from './components/Footer';
+import { Header } from "./components/Header";
+import { Start } from "./components/Start";
+import { Loading } from "./components/Loading";
+import { Board } from "./components/Board";
+import { Footer } from "./components/Footer";
 
-import { game } from './reducers/game';
-import { ui } from './reducers/ui';
+import { game } from "./reducers/game";
+import { ui } from "./reducers/ui";
 
 const reducer = combineReducers({
   game: game.reducer,
@@ -42,4 +42,4 @@ export const App = () => {
       </Grid>
     </Provider>
   )
-}
+};

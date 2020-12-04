@@ -7,7 +7,7 @@ import { Status } from "./Status";
 import { Avatar } from "./Avatar";
 import { Direction } from "./Direction";
 import { ActionDescription } from "./ActionDescription";
-import { BackOrRestart } from './BackOrRestart';
+import { BackOrRestart } from "./BackOrRestart";
 
 const BoardGrid = styled.div`
   height: 80vh;

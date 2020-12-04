@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 import { game } from "../reducers/game";
 import { startGameFetch } from "../reducers/reusable";
 
-import { CenteredScreen, Button, StartText, Text } from '../lib/Styling';
+import { CenteredScreen, Button, StartText, Text } from "../lib/Styling";
 
 const InsertUsername = styled.input`
   padding: 10px;
   font-size: inherit;
   font-family: inherit;
-`
+`;
 
 export const Start = () => {
   const [username, setUsername] = useState("");
@@ -19,8 +19,8 @@ export const Start = () => {
   const dispatch = useDispatch();
 
   const onUsernameChange = (event) => {
-    if (username === '') {
-      alert('Please choose a name!')
+    if (username === "") {
+      alert("Please choose a name!")
     } else {
       dispatch(game.actions.enterUsername(username));
       dispatch(startGameFetch(username));

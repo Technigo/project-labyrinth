@@ -38,7 +38,7 @@ export const ActionButton = styled(Button)`
 `;
 
 export const Title = styled.h1`
-  font-family: 'Texturina', serif;
+  font-family: "Texturina", serif;
   font-size: 40px;
   margin: 0;
 
