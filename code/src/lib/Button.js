@@ -13,7 +13,7 @@ export const Button = styled.button`
   color: white;
 
   &:hover {
-    background: #132cfa;
+    background: #3d99f5;
     color: #fff;
     cursor: pointer;
     transition-duration: 0.3s;

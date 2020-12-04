@@ -63,7 +63,8 @@ export const Labyrinth = () => {
           {currentStep.coordinates && (
             <>
               <Card>
-                <p>{currentStep.coordinates}</p>
+                <p>△</p>
+                {/* <p>{currentStep.coordinates}</p> */}
                 <Description>{currentStep.description}</Description>
               </Card>
 
