@@ -61,11 +61,7 @@ export const UserInput = styled.input`
 `;
 
 export const Button = styled.button`
-<<<<<<< HEAD
-  cursor: pointer;
-=======
   width: 200px;
->>>>>>> 5ed5d55823fca09c217dd8b4cf4e788c63028b1a
   background: #0d71b9;
   border-radius: 5px;
   border: none;
