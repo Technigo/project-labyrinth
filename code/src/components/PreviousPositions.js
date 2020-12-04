@@ -20,7 +20,7 @@ console.log("History array lenght: ",history.length);
               </li>
             ))}
           </ol> </>:
-          <div></div>
+          <></>
           }
       </aside>
     </div>

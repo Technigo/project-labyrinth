@@ -1,7 +1,5 @@
 import { gameReducer } from './gameReducer';
 
-
-//Thunk
 export const requestStartGame = (inUserName) => {
   return (dispatch) => {
       
@@ -24,7 +22,6 @@ export const requestStartGame = (inUserName) => {
       fetch(start_URL,requestOptions)
       .then((res) => res.json())
       .then((data) => {
-       console.log(data);
         dispatch(gameReducer.actions.setCurrentState(data));
         dispatch(gameReducer.actions.setGameLoading(false));
         dispatch(gameReducer.actions.setGameStarted(true));
@@ -52,7 +49,6 @@ export const moveForwardInGame = (inDirection,inUserName) => {
     fetch(move_URL,requestOptions)
     .then((res) => res.json())
     .then((data) => {
-     console.log("Move request, new data:",data);
       dispatch(gameReducer.actions.setCurrentState(data));
       dispatch(gameReducer.actions.setGameLoading(false));
     });

@@ -36,16 +36,12 @@ export const StartBoard = () => {
               >
             </input>
             <button 
-          className="startboard-start-button"
-         // onClick={() => handleStartClick()}
-          //onclick={(event) => {validateUserInput()}}
-          type="submit">
-          Start the game
-        </button>
+              className="startboard-start-button"
+              type="submit">
+              Start the game
+            </button>
         </form>
-        
-       
-        </section>
+      </section>
       }
       <section className="game-board-wrapper">
        {gameStarted && <GameBoard />}

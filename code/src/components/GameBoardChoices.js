@@ -13,7 +13,6 @@ export const GameBoardChoices = () =>{
 
   const handleButtonClick = (direction,event) =>{ 
     event.preventDefault();
-    console.log("In handlebuttonclick. Direction chosen:",direction);
     dispatch(moveForwardInGame(direction,userName));
   }
 

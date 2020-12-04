@@ -4,7 +4,6 @@ const initialState = {
   userName : '',
   gameDetails : [],
   gameStarted : false,
- // gameOver : false,
   gameLoading : false,
   history : []
 };
@@ -28,10 +27,6 @@ export const gameReducer = createSlice({
     },
     endGame : () => {
         return initialState;
-    },
-    historyGoBack : (state,action) => {
-      state.gameDetails = state.history[state.history.length-1]
-      state.history = state.history.slice(0, state.history.length -1);
     }
   }
 })

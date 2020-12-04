@@ -5,13 +5,11 @@ import { StartBoard } from './components/StartBoard'
 import { gameReducer } from 'reducers/gameReducer';
 import { configureStore } from '@reduxjs/toolkit';
 
-
 const reducer = combineReducers({
   gameReducer: gameReducer.reducer
 });
 
 const store = configureStore({ reducer });
-
 
 export const App = () => {
   return (

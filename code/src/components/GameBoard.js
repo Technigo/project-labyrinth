@@ -10,7 +10,6 @@ import { GameBoardChoices } from './GameBoardChoices';
 
 
 export const GameBoard = () => {
-//Include the coordinates here and set the classname of gameboard-main using them.
   const currentGameState = useSelector(store => store.gameReducer.gameDetails);
   const coordinates = currentGameState.coordinates;
   const locationDescription = currentGameState.description;
