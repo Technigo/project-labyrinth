@@ -1,24 +1,27 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 const Loading = styled.p`
   display: flex;
-  align-items:  center;
+  align-items: center;
   justify-content: center;
   color: #00ff00;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
+`
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
 `
 
 export const Loader = () => {
-  const isLoading = useSelector(store => store.game.isLoading)
 
   return (
-    <>
-      {isLoading &&
-        <Loading>Loading...</Loading>
-      }
-    </>
+    <Container>
+      <Loading>Loading...</Loading>
+    </Container>
   )
 }

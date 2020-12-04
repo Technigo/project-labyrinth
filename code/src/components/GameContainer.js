@@ -17,15 +17,20 @@ const Container = styled.div`
 export const GameContainer = () => {
 
   const started = useSelector(store => store.game.gameStarted)
+  const isLoading = useSelector(store => store.game.isLoading)
 
   return (
     <Container>
       {!started && <StartButton />}
       {started &&
         <>
-          <RoomDescription />
-          <ActionList />
-          <Loader />
+          {!isLoading &&
+            <>
+              <RoomDescription />
+              <ActionList />
+            </>
+          }
+          {isLoading && <Loader />}
         </>
       }
     </Container>
