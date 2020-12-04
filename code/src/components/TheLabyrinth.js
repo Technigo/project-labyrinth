@@ -2,10 +2,10 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import styled from "styled-components/macro"
 
-import { Button} from '../lib/Button'
-import { CardContainer } from '../lib/Card'
+import { Button } from '../lib/Button'
+import { CardContainer } from '../lib/Containers'
 import { Thumbnail } from '../components/Thumbnail'
-import { Wrapper } from '../lib/Main'
+import { Wrapper } from '../lib/Containers'
 import { fetchActionData } from '../reducers/thunk'
 import { game } from '../reducers/game'
 import { LoadingIndicator } from './LoadingIndicator'
@@ -54,6 +54,7 @@ const RoomDescription = styled.p`
     font-size: 1.8rem;
   }
 `
+
 const DirectionDescription = styled.p`
   font-size: 0.9rem;
   font-weight: 600;
@@ -85,6 +86,11 @@ export const TheLabyrinth = () => {
     dispatch(game.actions.setPastActions(direction))
   }
 
+  const displayLastMove = () => {
+    const i = pastMove.length-1
+    return <RoomDescription>You moved {pastMove[i]}</RoomDescription>
+  }
+
   if (isLoading) {
     return (
       <CardContainer>
@@ -99,7 +105,7 @@ export const TheLabyrinth = () => {
           <ImageAndDescriptionWrapper>
             <Thumbnail />
             <DescriptionWrapper>
-              {console.log(pastMove)}
+              {pastMove.length > 0 && displayLastMove()}
               <RoomDescription>"{gameData.description}"</RoomDescription>
             </DescriptionWrapper>
           </ImageAndDescriptionWrapper>
@@ -108,9 +114,9 @@ export const TheLabyrinth = () => {
           {gameData.actions.map(item => (
             <CardContainer key={item.direction} movedeck={movedeck}>
               <DirectionDescription>{item.description}</DirectionDescription>
-                <Button moveBtn={moveBtn} onClick={() => handleActionClick(item.type, item.direction)}>
-                  Head {item.direction}
-                </Button>
+              <Button moveBtn={moveBtn} onClick={() => handleActionClick(item.type, item.direction)}>
+                Head {item.direction}
+              </Button>
             </CardContainer>
           ))}
         </Wrapper>

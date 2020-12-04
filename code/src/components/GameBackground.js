@@ -1,9 +1,6 @@
-// the logic in this component works, 
-//but it can't be used as a background picture.
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { GameContainer } from '../lib/GameContainer'
-//import { Main } from './Main'
+import { GameContainer } from '../lib/Containers'
 
 import { 
   imgUrl_00,
