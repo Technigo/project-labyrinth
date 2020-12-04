@@ -1,3 +1,5 @@
+// This reducer 
+
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
@@ -13,13 +15,12 @@ export const rooms = createSlice({
   name: 'rooms',
   initialState,
   reducers: {
+    // Sets the username to the payload sent in (from CreateUsername.js)
     setUsername: (state, action) => {
-      console.log("Inne i setUsername-reducen")
       state.username = action.payload
     },
 
     setGameState: (state, action) => {
-      console.log("Inne i setGameState")
       const currentGameState = action.payload
       state.gameState = currentGameState
     },

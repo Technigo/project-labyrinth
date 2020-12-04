@@ -9,13 +9,11 @@ import arrow_one from '../assets/arrow-one.svg'
 import arrow_split from '../assets/arrow-split.svg'
 
 export const Game = () => {
-  const username = useSelector(state => state.rooms.username)
-
+  // Define some base variables
+  const username = useSelector(store => store.rooms.username)
   const room = useSelector(store => store.rooms)
-
   // We'll use this variable to check if things are loading or not.
   const isLoading = useSelector(store => store.loader.isLoading)
-
   const dispatch = useDispatch();
   const START_URL = "https://wk16-backend.herokuapp.com/start";
   const ACTION_URL = "https://wk16-backend.herokuapp.com/action";
@@ -27,25 +25,21 @@ export const Game = () => {
     })
   }
 
+  // This function starts the game, by doing the first fetch from the API.
   const startGame = () => {
-    console.log("Kör startGame")
-    
     dispatch(loader.actions.setLoading(true))
     // Fetcha, och sedan skicka in responsen (data) till setGameState. Typ.
     fetch(START_URL, startGameFetchInfo)
       .then(response => response.json())
       .then(data => {
-        console.log("Ok the data is: ")
-        console.log(data)
-        // OK SÅ DEN HÄR SÄTTER GAMESTATE TILL DET FÖRSTA. NAJS.
+        // Pass "data" (the response from the API containing the coordinates, direction, etc) to the Game State.
         dispatch(rooms.actions.setGameState(data))
         dispatch(loader.actions.setLoading(false))
       })
   }
 
+  // This function is called on each click of a "Direction" button – i.e. the buttons in each action box with north, east, west or south.
   const continueGame = (direction) => {
-    console.log("Kör continueGame")
-    console.log("direction: " + direction)
     dispatch(loader.actions.setLoading(true))
     fetch(ACTION_URL, {
       method: 'POST',
@@ -78,20 +72,32 @@ export const Game = () => {
       </div>
       {
         // If there's one action, display the arrow image with only one arrow. Else, the split arrow.
-        (room.gameState.actions.length === 1) ? <img src={arrow_one} alt="arrow" /> : <img src={arrow_split} alt="arrow" />
+        (room.gameState.coordinates === "1,3")
+          ? <p>Game over!</p>
+          : <p>Game is NOT over! </p>
+      }
+      {
+        // If there's one action, display the arrow image with only one arrow. Else, the split arrow.
+        (room.gameState.actions.length === 1)
+          ? <img src={arrow_one} alt="arrow" />
+          : <img src={arrow_split} alt="arrow" />
       }
 
       <div className="container-actions">
+        {/* // For every action that's possible, push out a "box-action" box – the box containing an action description and direction. */}
         {room.gameState.actions.map((action, index) =>
           <div className="box-action">
             <p>"{action.description}"</p>
-            <button 
-              key={action.direction} 
-              // If it's loading, set disabled to true
+            {/* WHAT'S THE KEY? */}
+            {/* When clicking, run the "continueGame" function, and pass the direction as an argument. */}
+            <button
+              key={action.direction}
+              // If the game is loading (using the global "isLoading" variable), set disabled to true to prevent multiple clicks.
               disabled={isLoading}
               onClick={() => continueGame(action.direction)}
             >
-                &gt; {action.direction}
+              {/* &gt; (gt = greater than) is the HTML entity for printing a ">" character, since the buttons have one of those. */}
+              &gt; {action.direction}
             </button>
           </div>
         )}

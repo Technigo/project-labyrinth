@@ -1,3 +1,5 @@
+// The purpose of this reducer is to handle a global "Loading" state variable. When a fetch starts, the isLoading is set to true. When a fetch is completed, isLoading is set to false.
+
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
@@ -10,7 +12,6 @@ export const loader = createSlice({
   reducers: {
     setLoading: (state, action) => 
     {
-      console.log("Inne i setLoading. Sätter till: " + action.payload)
       state.isLoading = action.payload
     }
   }

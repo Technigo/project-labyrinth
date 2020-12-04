@@ -5,7 +5,7 @@
 }
 
 body {
-  margin: 48px 24px 0 24px;
+  margin: 64px 24px 0 24px;
 }
 
 body, button, input {
@@ -90,7 +90,7 @@ main {
   margin-top: 24px;
 }
 
-/* BUTTON STYLES */
+/* ======================== BUTTON STYLES ======================== */
 button {
   border: 2px solid #FFECDE;
   outline: none;
@@ -125,7 +125,7 @@ button:disabled:hover {
   color: #6D5F6D;
   background: #2E233D;
 }
-
+/* ======================== TEXT INPUT STYLES ======================== */
 input[type=text] {
   outline: 0;
   border: 0;

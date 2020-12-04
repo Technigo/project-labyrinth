@@ -16,13 +16,17 @@ export const CreateUsername = () => {
     return (
       <div className="box-username">
             <input 
-            type="text" 
-            placeholder="What's your name?"
-            value={username} 
-            onChange={event => setUsername(event.target.value)}
+              type="text" 
+              placeholder="What's your name?"
+              value={username} 
+              onChange={event => setUsername(event.target.value)}
             />
-            <button type="button" disabled={username.length < 1} onClick={() => dispatchUsername()}>Confirm</button>
+            <button type="button" 
+              disabled={username.length < 1} 
+              onClick={() => dispatchUsername()}
+            >
+              Confirm
+            </button>
         </div>
-        
     )
 }

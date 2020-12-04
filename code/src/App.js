@@ -7,6 +7,7 @@ import { rooms } from 'reducers/rooms'
 import { loader } from 'reducers/loader'
 import { GameWrapper } from './components/GameWrapper'
 
+// We have two recuders – the rooms, and the loader. The rooms is responsible for handling the game state, and the username.
 const reducer = combineReducers({ 
   rooms: rooms.reducer,
   loader: loader.reducer
@@ -14,8 +15,6 @@ const reducer = combineReducers({
 const store = configureStore({ reducer });
 
 export const App = () => {
-  
-
   return (
     <Provider store={store}>
       <main>

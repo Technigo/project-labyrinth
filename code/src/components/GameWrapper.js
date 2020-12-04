@@ -9,13 +9,13 @@ export const GameWrapper = () => {
 
   return (
     <div className="game-container">
-      {/* Om username är "" i initialState, visa upp createUsername  */}
-      {console.log(username)}
+      {/* If the username hasn't been set, show "CreateUsername" component */}
       {
         username === "" &&
         <CreateUsername />
       }
       {
+        // If username has been set, go to "Game".
         username !== "" &&
         <Game />
       }
