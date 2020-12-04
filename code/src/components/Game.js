@@ -70,17 +70,21 @@ export const Game = () => {
         <p className="spacer-description">◆</p>
         <p>"{room.gameState.description}"</p>
       </div>
+
       {
-        // If there's one action, display the arrow image with only one arrow. Else, the split arrow.
-        (room.gameState.coordinates === "1,3")
-          ? <p>Game over!</p>
-          : <p>Game is NOT over! </p>
-      }
-      {
-        // If there's one action, display the arrow image with only one arrow. Else, the split arrow.
         (room.gameState.actions.length === 1)
           ? <img src={arrow_one} alt="arrow" />
-          : <img src={arrow_split} alt="arrow" />
+          : null
+      }
+      {
+        (room.gameState.actions.length === 2)
+          ? <img src={arrow_split} alt="arrow" />
+          : null
+      }
+      {
+        (room.gameState.actions.length === 0)
+          ? <><h2 className="gameover-text">Game over!</h2><button onClick={() => window.location.reload()}>&gt; Restart game</button></>
+          : null
       }
 
       <div className="container-actions">
