@@ -5,6 +5,7 @@ import styled from "styled-components/macro";
 
 import { Button } from "lib/Button";
 import { getStartGame } from "../reducers/reusable";
+import { Animationtext } from "lib/Animationtext";
 
 export const UserInput = () => {
   const [name, setName] = useState("");
@@ -24,7 +25,7 @@ export const UserInput = () => {
   useEffect(() => {
     if (username) {
       // handleGameStart(username);
-      dispatch(getStartGame(username));
+      dispatch(getStartGame());
     }
   }, [dispatch, username]);
 
@@ -41,8 +42,7 @@ export const UserInput = () => {
 
   return (
     <TopSection>
-      <MainHeading>Welcome to the Labyrinth</MainHeading>
-      <SubHeading>Submit username and begin</SubHeading>
+      <Animationtext />
       <Form onSubmit={handleSubmit}>
         <Label>
           <InputField
@@ -66,24 +66,8 @@ const TopSection = styled.section`
   color: #fff;
   width: 100%;
   max-width: 530px;
-`;
-
-const MainHeading = styled.h1`
-  text-align: center;
-  font-size: 24px;
-
   @media (min-width: 768px) {
-    font-size: 36px;
-    margin: 10px 0;
-  }
-`;
-
-const SubHeading = styled.h2`
-  font-size: 16px;
-
-  @media (min-width: 768px) {
-    font-size: 20px;
-    margin: 10px 0;
+    max-width: 800px;
   }
 `;
 

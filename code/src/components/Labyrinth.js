@@ -10,6 +10,9 @@ import { Map } from "./Map";
 
 export const Labyrinth = () => {
   const gameData = useSelector(store => store.game.currentGameState.gameData);
+  const coordinates = useSelector(
+    store => store.game.currentGameState.gameData.coordinates
+  );
   const username = useSelector(store => store.game.username);
   const isLoading = useSelector(store => store.ui.isLoading);
   const pastActions = useSelector(store => store.game.pastActions);
@@ -17,7 +20,7 @@ export const Labyrinth = () => {
   const dispatch = useDispatch();
 
   const handleNextStep = (type, direction) => {
-    dispatch(selectNextStep(username, type, direction));
+    dispatch(selectNextStep(type, direction, coordinates));
   };
 
   const handleGameRestart = () => {
@@ -100,7 +103,7 @@ export const LabyrinthWrapper = styled.main`
 
   @media (min-width: 1024px) {
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
   }
 `;
@@ -140,9 +143,10 @@ const BottomSection = styled.section`
 
 const GameDescription = styled.article`
   background: #e3e5f1;
-  border-radius: 4px;
+  border-radius: 10px;
   margin-bottom: 6px;
   padding: 4px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   @media (min-width: 768px) {
     width: 250px;
@@ -165,7 +169,7 @@ const PositionText = styled.p`
 const DirectionText = styled.p`
   background: #e3e5f1;
   padding: 4px;
-  border-radius: 4px;
+  border-radius: 10px;
   margin: 2px 0;
   font-style: italic;
   width: 100%;

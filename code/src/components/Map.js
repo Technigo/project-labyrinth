@@ -20,7 +20,6 @@ const MapContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  width: 100%;
   width: 350px;
   border: 2px solid #000;
   height: 350px;
@@ -35,6 +34,11 @@ const MapContainer = styled.div`
   }
 
   @media (min-width: 1024px) {
+    width: 500px;
+    height: 500px;
+  }
+
+  @media (min-width: 1200px) {
     width: 600px;
     height: 600px;
   }

@@ -7,8 +7,19 @@ export const Square = ({ coordinates }) => {
   const gamePosition = useSelector(
     store => store.game.currentGameState.gameData.coordinates
   );
+  const coordinatesArray = useSelector(store => store.game.coordinatesArray);
+  // const previousCoordinates = useSelector(
+  //   store =>
+  //     store.game.positionHistory[positionHistory.length - 1].gamedata
+  //       .coordinates
+  // );
+
   return (
-    <MapSquare coordinates={coordinates} gamePosition={gamePosition}>
+    <MapSquare
+      coordinates={coordinates}
+      gamePosition={gamePosition}
+      coordinatesArray={coordinatesArray}
+    >
       <MapSquareP coordinates={coordinates} gamePosition={gamePosition}>
         {coordinates}{" "}
         {coordinates === gamePosition && gamePosition === "1,3" ? (
@@ -29,7 +40,7 @@ const MapSquare = styled.div`
   color: "black";
   font-weight: 500;
   background: ${props =>
-    props.coordinates === props.gamePosition || props.gamePosition === "1,3"
+    props.coordinates === props.gamePosition || props.gamePosition === "1,3" //props.gamePosition === props.coordinatesArray.includes(props.gamePosition)
       ? "rgba(0, 0, 0, 0.0)"
       : "rgba(0, 0, 0, 0.9)"};
 `;

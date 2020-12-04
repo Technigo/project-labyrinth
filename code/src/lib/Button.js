@@ -36,6 +36,6 @@ const ActionButton = styled.button`
   &:active {
     background-color: #b97597;
     box-shadow: 0 10px #666;
-    transform: translateY(9px);
+    transform: translateY(5px);
   }
 `;

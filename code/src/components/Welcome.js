@@ -21,7 +21,7 @@ export const Welcome = () => {
 };
 
 export const MainWrapper = styled.main`
-  padding: 10px;
+  margin: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,7 +31,7 @@ export const MainWrapper = styled.main`
 const Image = styled.img`
   width: 100%;
   max-width: 530px;
-  margin: 10px 0;
+  margin: 40px 0;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   @media (min-width: 768px) {
     max-width: 500px;
