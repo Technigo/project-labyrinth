@@ -11,38 +11,27 @@ export const game = createSlice({
         isLoading: false
     },
     reducers: {
-        generateGameStart: (state, action) => {
-            // Check if quote from Redux store is not empty object.
-            // If it is, do not push empty object to history array
-            // If it is not, do it
-            state.history = [...state.history, action.payload];
-
-            state.direction = action.payload.actions;   
-
+        generateGame: (store, action) => {
+            //Update direction, description, coordinates after fetch.
+            store.direction = action.payload.actions;   
+			store.description = action.payload.description;
+            store.coordinates = action.payload.coordinates;
             
-			state.description = action.payload.description;
-			state.coordinates = action.payload.coordinates;
+            //Saves direction, description, coordinates after fetch in history.
+            store.history = [...store.history, action.payload]; 
         },
-        updateUserName: (state, action) => {
-            state.username = action.payload;
+        updateUserName: (store, action) => {
+            store.username = action.payload;
         },
-        generateDirection: (state, action) => {
-            // Check if quote from Redux store is not empty object.
-            // If it is, do not push empty object to history array
-            // If it is not, do it
-            // if (state.direction.direction) {
-            //     state.history = [...state.history, state.direction];
-            // }
-            // state.direction = action.payload;   
-        },
-        historyGoBack: (state, action) => {
-            if (state.history.length > 0) {
-                state.direction = state.history[state.history.length - 1];
-                state.history = state.history.slice(0, state.history.length - 1);
+        historyGoBack: (store, action) => {
+            if (store.history.length > 0) {
+                store.direction = store.history[store.history.length - 1];
+                store.history = store.history.slice(0, store.history.length - 1);
             }
         },
-        generateLoading: (state, action) => {
-            state.isLoading = action.payload;
+        // Updates loading true or false
+        generateLoading: (store, action) => {
+            store.isLoading = action.payload;
         }
     }
 });
