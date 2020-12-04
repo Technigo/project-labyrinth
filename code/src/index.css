@@ -8,8 +8,6 @@ body {
   margin: 0;
   cursor: pointer;
   animation: myanimation 15s infinite;
-  /* background-color: rgba(0, 0, 0, 0.89); */
-  /* background-size: 800px; */
 }
 
 @keyframes myanimation {
@@ -29,11 +27,6 @@ body {
     background-color: #100327;
   }
 }
-/* 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-} */
 
 h1,
 h2,
@@ -126,9 +119,6 @@ input {
   text-shadow: 0 0 20px rgb(138, 243, 138);
   text-align: center;
 }
-
-
-
 
 @media (min-width: 700px) {
   main {

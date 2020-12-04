@@ -21,7 +21,7 @@ export const GameContainer = () => {
       <h2 className="start-text">{game.description}</h2>
       {console.log(game.description)}
       {game.actions.map((item) => (
-        <div>
+        <div key={Math.random()}>
           <p className="description-text">{item.description}</p>
           <Button onButtonClick={()=> onActionMoveGenerate(item.type, item.direction)} text={`Go ${item.direction}`}/>
         </div>

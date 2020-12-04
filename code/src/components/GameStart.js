@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { game } from '../reducers/game'
 import { generateStartMove } from '../reducers/fetch'
-import { StyledButton } from '../lib/Button'
+import { Button, StyledButton } from '../lib/Button'
 import styled from 'styled-components'
 
 const StartButton = styled(StyledButton)`
@@ -20,7 +20,7 @@ export const GameStart = () => {
     dispatch(generateStartMove())
   }
 
-
+ 
   useEffect(() => {
     onGameGenerate()
   }, [username]) 
@@ -30,7 +30,15 @@ export const GameStart = () => {
     dispatch(game.actions.uppDateUsername(inputValue)) 
   }
   
-  // setInputValue("") clean text are after input not working yet;
+  if (username !== "username") {
+    return (
+      <section className="start-container">
+        <p>Active user: {inputValue}</p>
+        <Button text="Restart" onButtonClick={() => window.location.reload()}/>
+      </section>
+    )
+  }
+
   return (
     <section className="start-container">
       <form className="form-wrapper">

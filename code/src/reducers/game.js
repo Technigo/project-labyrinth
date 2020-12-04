@@ -15,13 +15,13 @@ export const game = createSlice({
 reducers: {
     uppDateUsername: (state, action) => {
         state.username = action.payload 
-        console.log(state.username)
+        // console.log(state.username)
     },
 
 
     generateDirection: (state, action) => {
         state.gameinfo = action.payload
-        console.log(state.gameinfo)
+        // console.log(state.gameinfo)
     }
 }
 
