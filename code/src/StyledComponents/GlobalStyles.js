@@ -22,13 +22,13 @@ export const BoxShadow = styled.div`
   @media (min-width: 1024px) {
     max-width:50%;
   }
-`
+`;
 
 export const Header = styled.h2`
   margin:25px;
   font-family: 'Source Code Pro', monospace;  
   font-size: 30px;
-`
+`;
 
 export const Text = styled.p`
   text-align: left;
@@ -38,7 +38,7 @@ export const Text = styled.p`
   padding: 20px;
   margin-left: 15%;
   margin-right: 15%;
-`
+`;
 
 export const Button = styled.button`
   font-size: 35px;
@@ -69,4 +69,4 @@ export const Hint = styled.p`
     margin-left: 20%;
     margin-right: 20%;
   }
-`
+`;
