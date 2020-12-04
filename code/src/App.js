@@ -9,7 +9,7 @@ import { Card } from './lib/Card'
 
 const reducer = combineReducers({ game: game.reducer, ui: ui.reducer})
 const store = configureStore({ reducer })
-
+//Ading comment
 export const App = () => {
   return (
     <Provider store={store}>
