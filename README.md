@@ -6,4 +6,3 @@ Built using React and Redux using thunks to async fetches from APIs.
 
 ## View it live
 
-
