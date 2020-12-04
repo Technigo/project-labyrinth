@@ -19,4 +19,4 @@ Styled components
 
 ## View it live
 
-
+https://cocky-nightingale-37b35d.netlify.app/ 
