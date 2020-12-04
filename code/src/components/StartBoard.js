@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux';
 import { requestStartGame } from 'reducers/reusable';
-import { gameReducer } from '../reducers/gameReducer';
 import { GameBoard } from '../components/GameBoard';
 
 export const StartBoard = () => {
@@ -10,11 +9,6 @@ export const StartBoard = () => {
   const gameStarted = useSelector(store => store.gameReducer.gameStarted);
   const dispatch = useDispatch();
   const [userInput, setUserInput] = useState('');
-
-  const handleStartClick = () => {
-    console.log("in handlestart")
-    dispatch(requestStartGame());
-  }
 
   const submitForm = (event) => {
     event.preventDefault();

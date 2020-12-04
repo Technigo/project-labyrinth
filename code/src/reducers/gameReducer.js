@@ -14,7 +14,7 @@ export const gameReducer = createSlice({
   initialState : initialState,
   reducers : {
     setCurrentState : (state,action) => {
-      state.history = [... state.history, state.gameDetails];
+      state.history = [...state.history, state.gameDetails];
       state.gameDetails = action.payload;
     },
     setGameLoading : (state,action) => {

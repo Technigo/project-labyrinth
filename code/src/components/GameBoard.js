@@ -33,7 +33,6 @@ export const GameBoard = () => {
                 <MazeMap inx={x} iny={y} />
                 <PreviousPositions />
                 <GameBoardFooter />  
-
             </>
             }
           </section>

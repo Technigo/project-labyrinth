@@ -1,6 +1,5 @@
 import { gameReducer } from './gameReducer';
-import { UserName } from '../assets/userName';
-import { useSelector } from 'react-redux';
+
 
 //Thunk
 export const requestStartGame = (inUserName) => {
