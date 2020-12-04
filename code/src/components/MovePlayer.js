@@ -20,7 +20,7 @@ const MyButton = styled(Button)`
   margin: 20px 0px;
 `;
 
-export const StartButton = () => {
+export const MovePlayer = () => {
   const dispatch = useDispatch();
   const [value, setValue] = useState("");
   const started = useSelector(state => state.ui.isStarted)

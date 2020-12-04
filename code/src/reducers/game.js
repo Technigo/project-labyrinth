@@ -14,9 +14,8 @@ export const game = createSlice({
     reducers: {
         startGame: (state, action) => {
         state.user.username = action.payload.username
-        state.currentPosition = {...action.payload.json} 
-        state.position = [...state.position, action.payload.json]    
-          
+        state.currentPosition = {...action.payload.json}
+        state.position = [...state.position, action.payload.json]
         },
         restart: () => {
             return initialGame
@@ -24,7 +23,6 @@ export const game = createSlice({
     }
 })
 
-//Create fetchMove function to let user move in the pyramid
 
 export const fetchStart = (username) => {
 
@@ -46,7 +44,6 @@ export const fetchStart = (username) => {
 }
 
 export const fetchMove = (username, type, direction) => {
-    /* const gameUser = useSelector(store => store.user) */
      
      return(dispatch) => {
      dispatch(ui.actions.setLoading(true))         

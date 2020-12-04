@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 import { game } from '../src/reducers/game'
 import { ui } from '../src/reducers/ui'
-import { StartButton } from 'components/StartButton'
+import { MovePlayer } from 'components/MovePlayer'
 import { StartGame } from 'components/StartGame'
 import { Playerposition } from 'components/Playerposition'
 import { LoadingIndicator } from 'components/LoadingIndicator'
@@ -36,7 +36,7 @@ export const App = () => {
     <Provider store={store} >
     <Container maxWidth= "xs" style={{ height: '90vh', backgroundColor: 'white', position: 'relative', top:'0px', left: '0px'}}>
     <MyPaper>
-     <StartButton /> 
+     <MovePlayer /> 
      <StartGame />
      <LoadingIndicator />
      </MyPaper>
