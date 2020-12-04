@@ -64,15 +64,22 @@ export const GameRoom = () => {
     }
   };
 
+  const chooseDirection = () => {
+    if (gameData.coordinates !== "1,3") {
+      return (
+        <Description>CHOOSE DIRECTION:</Description>
+      )
+    }
+  }
+
   return (
     <GameImage style={{ backgroundImage: `url(${gameImages()})` }}>
       <Overlay />
       <Description>{gameData.description}</Description>
-      <Description>CHOOSE DIRECTION:</Description>
+      {chooseDirection()}
       <Wrapper>
         {arrayGame &&
-          arrayGame.map((item, index) => {
-
+          arrayGame.map((item) => {
             return (
               <Container key={item.description}>
                 <Button
@@ -136,8 +143,6 @@ const Wrapper = styled.div`
 const Container = styled.div`
   padding: 10px;
   font-size: 18px;
-  //border: dashed 2px #00ff7f;
-  //background-color: rgba(0, 0, 0, 0.253);
   z-index: 2;
 
   @media (min-width: 768px) {

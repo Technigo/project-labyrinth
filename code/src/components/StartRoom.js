@@ -14,16 +14,12 @@ import { Textfield } from "../lib/Textfields";
 
 export const StartRoom = () => {
   const userName = useSelector((store) => store.game.name);
-  // const [newUsername, setNewUsername] = useState("")
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(generateAction(userName));
   };
-  // setNewUsername("")
-
-  //const emptyUsername = (value) => value.replace(/\s/g, "").length === 0
 
   const onChangeEvent = (value) => {
     dispatch(game.actions.addUsername(value));
@@ -45,11 +41,9 @@ export const StartRoom = () => {
           onChange={(event) => onChangeEvent(event.target.value)}
           type="text"
           placeholder="enter your name here..."
-          //onChange={(event) => setNewUsername(event.target.value)}
           required
         />
         <Button type="submit" title="start game" />
-        {/* disabled={newUsername.length<5 || newUsername.length>20 || emptyUsername(newUsername)} */}
       </Form>
     </Container>
   );

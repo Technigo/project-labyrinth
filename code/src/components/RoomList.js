@@ -20,9 +20,4 @@ export const RoomList = () => {
 
 const Section = styled.section`
   position: relative;
-  
-
-  @media (min-width: 768px) {
-    min-height: initial;
-  }
 `;
