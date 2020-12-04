@@ -26,15 +26,17 @@ export const GameContainer = () => {
     const fetching = useSelector(store => store.game.fetching);
     const timing = useSelector(store => store.game.timer);
     
-    // onGameGenerate renders when username is updated
-    useEffect(() => {
-        onGameGenerate();
-    }, [username]) 
+
     
     const onGameGenerate = () => {
         // Runs the fetch function generateGameStart from reusable
         dispatch(generateGameStart());
     }
+
+    // onGameGenerate renders when username is updated
+        // onGameGenerate renders when username is updated
+    useEffect(onGameGenerate, [username])
+
 
     const onGameMoveUpdate = (action) => {
         setActionDescription(action.description)
