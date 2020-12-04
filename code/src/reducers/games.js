@@ -78,5 +78,6 @@ export const actionThunk = (userName, action) => {
 			.then((data) => {
 				dispatch(games.actions.continueGame(data))
 				dispatch(ui.actions.setLoading(false))
-			}
-			)}}
+			})
+	}
+}

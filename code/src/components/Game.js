@@ -8,7 +8,7 @@ import {
 	CircularProgress,
 	ButtonGroup
 } from '@material-ui/core'
-import AirplanemodeActiveSharpIcon from '@material-ui/icons/AirplanemodeActiveSharp';
+import AirplanemodeActiveSharpIcon from '@material-ui/icons/AirplanemodeActiveSharp'
 import styled from 'styled-components'
 
 import { thunk, actionThunk, games } from '../reducers/games'
@@ -58,10 +58,10 @@ export const Game = () => {
 					<form  onSubmit={() => onStart()}>
 						<TextField
 							variant='filled' 
-							placeholder="Write a username"
-							color ="secondary"
-							type="text"
-							label="Type Name Here"
+							placeholder='Write a username'
+							color ='secondary'
+							type='text'
+							label='Type Name Here'
 							required
 							onChange={(event) => setNewUserName(event.target.value)}
 							value={newUserName}
@@ -69,8 +69,8 @@ export const Game = () => {
 						<Button
 							style={{ margin: 10, maxWidth: 200 }}
 							startIcon = {< AirplanemodeActiveSharpIcon/>}
-							variant="contained" 
-							color="primary"
+							variant='contained'
+							color='primary'
 							type='submit'>
 							Start game
 						</Button>
@@ -79,7 +79,7 @@ export const Game = () => {
 			)}
 
 			{loader && (
-				<Box display="flex" justifyContent="center">
+				<Box display='flex' justifyContent='center'>
 					<CircularProgress/>
 					<p>LOADING...</p>
 				</Box>
@@ -91,8 +91,8 @@ export const Game = () => {
 					<ButtonGroup>
 						{gameDetails.actions.map((action) => (
 							<Button 
-								variant="contained" 
-								color="primary" 
+								variant='contained' 
+								color='primary' 
 								key={action.description} 
 								onClick={() => onAction(action)}
 							>
@@ -100,7 +100,7 @@ export const Game = () => {
 							</Button>
 						))}
 					</ButtonGroup>
-					<Button variant="contained" color="primary" onClick={onHistory}>Go Back</Button>
+					<Button variant='contained' color='primary' onClick={onHistory}>Go Back</Button>
 				</Box>
 			)}
 		</Container>
