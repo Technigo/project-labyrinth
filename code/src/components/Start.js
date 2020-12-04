@@ -5,21 +5,12 @@ import styled from 'styled-components';
 import { game } from "../reducers/game";
 import { startGameFetch } from "../reducers/reusable";
 
-import { CenteredScreen, Button, Text } from '../lib/Styling';
+import { CenteredScreen, Button, StartText, Text } from '../lib/Styling';
 
 const InsertUsername = styled.input`
   padding: 10px;
   font-size: inherit;
   font-family: inherit;
-`
-
-const StartText = styled(Text)`
-  margin: 40px 0;
-  font-size: 20px;
-
-  @media (min-width: 768px) {
-    font-size: 30px;
-  }
 `
 
 export const Start = () => {

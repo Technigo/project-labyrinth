@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 import { game } from '../reducers/game';
-import { SmallText, ActionButton } from '../lib/Styling';
+import { Text, ActionButton } from '../lib/Styling';
 
 const ButtonContainer = styled.div`
   grid-area: back;
@@ -13,7 +13,7 @@ const ButtonContainer = styled.div`
   align-items: baseline;
 `
 
-const GoBackText = styled(SmallText)`
+const GoBackText = styled(Text)`
   margin: 0 10px 0 0;
 `
 

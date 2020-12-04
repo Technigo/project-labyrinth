@@ -45,12 +45,31 @@ export const Title = styled.h1`
   @media (min-width: 768px) {
     font-size: 60px;
   }
-`
+`;
 
 export const Text = styled.p`
-  margin: 10px 0;
-`
+  margin: 0 0 5px 0;
+
+  @media (min-width: 768px) {
+    margin: 0 0 15px 0;
+  }
+`;
+
+export const StartText = styled(Text)`
+  margin: 40px 0;
+  font-size: 20px;
+
+  @media (min-width: 768px) {
+    font-size: 30px;
+  }
+`;
 
 export const SmallText = styled(Text)`
-  margin: 0 0 15px 0;
+  font-size: 10px;
+  margin: 0 0 5px 0;
+
+  @media (min-width: 768px) {
+    font-size: 13px;
+    margin: 0 0 15px 0;
+  }
 `;

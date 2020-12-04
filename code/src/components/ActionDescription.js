@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components/macro";
 
-import { SmallText } from '../lib/Styling';
+import { Text } from '../lib/Styling';
 
 const ActionDescriptionPlaceholder = styled.div`
   grid-area: instructions;
@@ -14,9 +14,9 @@ export const ActionDescription = () => {
   return (
     <ActionDescriptionPlaceholder>
       {actions.map((action) => (
-        <SmallText key={action.direction}>
+        <Text key={action.direction}>
           {action.direction}: {action.description}
-        </SmallText>
+        </Text>
       ))}
     </ActionDescriptionPlaceholder>
   );

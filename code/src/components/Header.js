@@ -6,7 +6,7 @@ export const Header = () => {
   return (
     <Centered>
       <Title>
-        LABYRINTH
+        LOST IN MAZE
       </Title>
     </Centered>
   )
