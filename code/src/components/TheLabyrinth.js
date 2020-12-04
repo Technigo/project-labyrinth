@@ -58,7 +58,6 @@ const DirectionDescription = styled.p`
 export const TheLabyrinth = () => {
   const gameData = useSelector(state => state.game.all.data)
   const username = useSelector(state => state.game.username)
- console.log(gameData.coordinates)
   const isLoading = useSelector(state => state.ui.isLoading)
 
   const carddeck = true

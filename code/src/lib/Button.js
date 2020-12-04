@@ -28,6 +28,7 @@ export const Button = styled.button`
 
   ${({ startBtn }) => startBtn && `
     width: 80%;
-    padding: 5px;`}
-
-` //#8B541B #C88627
+    padding: 5px;
+    `}
+  ` 
+//#8B541B #C88627
