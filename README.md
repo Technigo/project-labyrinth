@@ -1,13 +1,13 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Text based adventure where the user navigates a Labyrinth. Built in React and Redux in pairs.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Started analyzing the game requirements and what the backend API provides using Postman. Thereafter we built the Redux store, and set up the component structure. When the basic structure was in place, we continued building thunks fetching the API data from backend. Styling was done inspired by the traditional text based game adventure games, and we added functionality of Loading and responsive styling in the end.
+
+Next step if revisiting: implement user input for user name.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://cranky-curie-c29c53.netlify.app/
