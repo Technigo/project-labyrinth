@@ -95,13 +95,6 @@ export const Labyrinth = ({ setCurrentCoordinates }) => {
             <TreasureImage src="./assets/diamond-icon.png" />
           )}
 
-          {/* Coordinates */}
-          {/* {content.coordinates && (
-            <CoordinatesText>
-              Coordinates: {content.coordinates}
-            </CoordinatesText>
-          )} */}
-
           {/* Descriptive text */}
           <DescriptionText>{content.description}</DescriptionText>
 
@@ -194,7 +187,7 @@ const TreasureImage = styled.img`
 `;
 
 const DescriptionText = styled.p`
-  font-size: 36px;
+  font-size: 28px;
   color: #fff;
   line-height: 1.4;
   margin-bottom: 20px;
