@@ -1,6 +1,19 @@
 import React from 'react';
 import styled from "styled-components";
 
+export const Button = props => {
+    const { text, onButtonClick } = props;
+    
+    return (
+      <StyledButton 
+            onClick={onButtonClick}>
+            {text}
+      </StyledButton>
+  ) 
+}
+
+export default Button;
+
 const StyledButton = styled.button`
 font-family: 'Press Start 2P', cursive;
 font-size: 13px;
@@ -14,16 +27,3 @@ padding: 8px;
 border: none;
 border-radius: 20px;
 `
-
-export const Button = props => {
-    const { text, onButtonClick } = props;
-    
-    return (
-      <StyledButton 
-            onClick={onButtonClick}>
-            {text}
-      </StyledButton>
-  ) 
-}
-
-export default Button;

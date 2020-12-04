@@ -1,57 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import styled from "styled-components";
 
-import { Typewriter } from 'react-typewriting-effect'
-import 'react-typewriting-effect/dist/index.css'
-
+import { Typewriter } from 'react-typewriting-effect';
+import 'react-typewriting-effect/dist/index.css';
+import '@lottiefiles/lottie-player';
 
 import { GameStartContainer } from './GameStartContainer'
 import { game } from '../reducers/game';
 import { generateNewDirection } from '../reducers/reusable';
 import { generateGameStart } from '../reducers/reusable';
-import { Button } from './Button';
-import { Wrapper } from '../styling/typewriter'
+import { Wrapper } from '../styling/typewriter';
+import { GameScreen, DescriptionText, ButtonsContainer, MoveButton } from '../styling/gamecontainer';
 
-
-const GameScreen = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    background-color: black;
-    text-align: center;
-`
-
-const DescriptionText = styled.p`
-    color: #fff;
-    line-height: 1.6;
-    padding: 30px;
-`
-const ButtonsContainer = styled.div`
-display:flex;
-`
-
-const MoveButton = styled.button`
-    font-family: 'Press Start 2P', cursive;
-    font-size: 13px;
-    color: #fff;
-    font-weight: 700;
-    text-transform: uppercase;
-    background-color: #2A0EB2;
-    width: 160px;
-    margin: 10px;
-    padding: 10px;
-    border: 2px solid #fff;
-    border-radius: 20px;
-
-    :hover {
-        transform: scale(1.1);
-        background-color: #2FF631;
-    }
-`
 
 export const GameContainer = () => {
     const dispatch = useDispatch();
@@ -92,7 +52,7 @@ export const GameContainer = () => {
         dispatch(game.actions.setTimer(true))
         setTimeout(() => {
             dispatch(game.actions.setTimer(false))
-        }, 5000);
+        }, 7000);
     }
 
     if(fetching || timing) {
@@ -102,8 +62,8 @@ export const GameContainer = () => {
                 autoplay
                     loop
                     mode="normal"
-                    src={'https://assets8.lottiefiles.com/packages/lf20_RYwVrc.json'}
-                    style={{ height: 100 }}
+                    src={'https://assets10.lottiefiles.com/packages/lf20_RYwVrc.json'}
+                    style={{ height: 200 }}
                     />
                 <Typewriter 
                     string={actionDescription} 

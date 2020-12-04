@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { Button } from './Button'
+import { Button } from './Button';
 import { game } from '../reducers/game';
-import { StartGameScreen, StartGameCard, StartText, Input } from '../styling/startscreen'
+import { StartGameScreen, StartGameCard, StartText, Input } from '../styling/startscreen';
 
 export const GameStartContainer = () => {
     const dispatch = useDispatch();
@@ -31,7 +31,7 @@ export const GameStartContainer = () => {
                 />
             </StartGameCard>    
         </StartGameScreen>
-    )
-}
+    );
+};
 
 
