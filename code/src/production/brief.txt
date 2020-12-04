@@ -36,7 +36,7 @@ body {
 ----------
 
 @keyframes animation {
-  0% {background-position: red;}
+  0% {background-position: see above;}
   25% {background-position: yellow;}
   50% {background-position: green;}
   75% {background-position: brown;}
