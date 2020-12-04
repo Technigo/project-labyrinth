@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import styled from 'styled-components'
+import Granim from "react-granim";
 
 import { labyrinth } from "reducers/labyrinth";
+
+import { InputContainer } from "styling/GlobalStyle"
+import { StartButton } from "styling/lib/Buttons"
 
 export const PlayerInput = ({ setStartButtonVisible }) => {
   const dispatch = useDispatch();
@@ -17,19 +22,40 @@ export const PlayerInput = ({ setStartButtonVisible }) => {
     setStartButtonVisible(true);
   };
 
+  const TextInput = styled.input`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: none;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    border-bottom: 2px solid #FBC490;
+    width: 50%;
+      &:focus {
+        outline: none;
+    }
+  `;
+  const Label = styled.label`
+  display: box;
+  align-items: center;
+  justify-content: center;
+  }
+`
+
   return (
-    <div>
-      <label>
+    <InputContainer>
+      <Label>
         Who is playing?
-        <input
+        <TextInput
           type="text"
           value={username}
           onChange={(event) => handleNameChange(event)}
-        ></input>
-      </label>
-      <button type="submit" onClick={(event) => handleSubmitName(event)}>
-        Ready to start playing!
-      </button>
-    </div>
+        />
+      </Label>
+      <StartButton type="submit" onClick={(event) => handleSubmitName(event)}>
+        Inner Trip Center
+      </StartButton>
+    </InputContainer>
   );
 };

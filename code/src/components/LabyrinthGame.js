@@ -1,25 +1,29 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
+
 import { fetchLabyrinthData, fetchDirectionData } from "../reducers/labyrinth";
 
 import { PlayerInput } from "./PlayerInput";
 import { StartLabyrinthButton } from "./StartLabyrinthButton";
 import { DirectionButtons } from "./DirectionButtons";
 
+import { Container, InnerContainer, StartContainer } from "styling/GlobalStyle";
+
 export const LabyrinthGame = ({ setGameCoordinates }) => {
   const description = useSelector((store) => store.labyrinth.content);
-  const username = useSelector((store) => store.labyrinth.content);
+  const username = useSelector((store) => store.labyrinth.username);
   const loading = useSelector((state) => state.ui.loading);
-
+  
   const [startButtonVisible, setStartButtonVisible] = useState(false);
   const [nameInputVisible] = useState(true);
-
+  
   setGameCoordinates(description.coordinates);
-
+  
   return (
     loading === false && (
-      <section>
+      <Container>
+        <InnerContainer>
         {description.coordinates === undefined && (
           <>
             {/*Player-input*/}
@@ -27,13 +31,13 @@ export const LabyrinthGame = ({ setGameCoordinates }) => {
               <PlayerInput setStartButtonVisible={setStartButtonVisible} />
             )}
             {startButtonVisible && (
-              <div>
-                <p>Hello</p>
+              <StartContainer>
+                <p>Leave them all behind</p>
                 <StartLabyrinthButton
                   action={() => fetchLabyrinthData(username)}
                   text="Go"
                 />
-              </div>
+              </StartContainer>
             )}
           </>
         )}
@@ -69,7 +73,9 @@ export const LabyrinthGame = ({ setGameCoordinates }) => {
             action={() => window.location.reload()}
           ></button>
         )}
-      </section>
+        </InnerContainer>
+      </Container>
     )
   );
 };
+
