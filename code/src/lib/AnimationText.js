@@ -27,17 +27,17 @@ export const AnimationText = () => {
 };
 
 const smoky = keyframes`
-60% {
-  text-shadow: 0 0 40px whitesmoke;
-}
-to {
-  transform:
-    translate3d(15rem,-8rem,0)
-    rotate(-40deg)
-    skewX(70deg)
-    scale(1.5);
-  text-shadow: 0 0 20px whitesmoke;
-  opacity: 0;
+  60% {
+    text-shadow: 0 0 40px whitesmoke;
+  }
+  to {
+    transform:
+      translate3d(15rem,-8rem,0)
+      rotate(-40deg)
+      skewX(70deg)
+      scale(1.5);
+    text-shadow: 0 0 20px whitesmoke;
+    opacity: 0;
 }
 `;
 
