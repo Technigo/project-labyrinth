@@ -20,8 +20,8 @@ export const StyledButton = styled.button`
 
 export const Button = ({ text, onButtonClick}) => {
   return (
-  <StyledButton onClick={onButtonClick}>
-    {text}
-  </StyledButton>
+    <StyledButton onClick={onButtonClick}>
+      {text}
+    </StyledButton>
   )
 }

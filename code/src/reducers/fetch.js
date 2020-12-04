@@ -1,5 +1,5 @@
 import { game } from './game'
-import { loader } from './Loader'
+import { loader } from './loader'
 
 export const generateStartMove = () => {
   const START_URL = 'https://wk16-backend.herokuapp.com/start'
@@ -7,9 +7,9 @@ export const generateStartMove = () => {
   return (dispatch, getStore) => {
     dispatch(loader.actions.setLoading(true))
     fetch( START_URL , {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },//tells the server that this is json
-      body: JSON.stringify({//turns json in to text
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
         username: getStore().game.username,
       })
     })
@@ -27,9 +27,9 @@ export const generateActionMove = (type, direction) => {
   return (dispatch, getStore) => {
     dispatch(loader.actions.setLoading(true))
     fetch( ACTION_URL , {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },//tells the server that this is json
-      body: JSON.stringify({//turns json in to text
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },//tells the server that this is json
+      body: JSON.stringify({
         username: getStore().game.username,
         type: type,
         direction: direction

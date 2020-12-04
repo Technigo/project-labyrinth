@@ -1,12 +1,10 @@
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
-  cursor: pointer;
   animation: myanimation 15s infinite;
 }
 
@@ -33,6 +31,7 @@ h2,
 p {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+  font-weight: 30px;
 }
 
 p {
@@ -47,8 +46,6 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /*width: 1100px;
-  height: 600px;*/
   color: white;
   background-image: url("./components/assets/magic_forest_gif.gif");
   background-size: cover;
@@ -58,36 +55,35 @@ main {
 }
 
 .all-info-box {
-  /* border: 3px solid lime; */
   padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  justify-content: space-between;
 }
 
-/* .start-text {
-  /* border: 3px solid white; */
-/* }  */
+.start-text {
+  font-size: 50px;
+  font-weight: bolder;
+  color: lime;
+  text-shadow: 0 0 20px rgb(138, 243, 138);
+  text-align: center;
+}
 
 .start-container {
-  /* border: 3px solid pink; */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  justify-content: space-between;
   align-items: center;
 }
 
-input {
-  font-size: 10px;
-}
-
-.username-text {
+.username-text,
+.active-user,
+span {
   font-size: 30px;
-  font-weight: 50px;
+  font-weight: bold;
   color: lime;
 }
+
 .input-box {
   margin: 0px;
   font-size: 20px;
@@ -97,19 +93,23 @@ input {
   border-radius: 20px;
   color: black;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-  monospace;
+    monospace;
+}
+
+span {
+  text-shadow: 0 0 20px rgb(138, 243, 138);
+  text-align: center;
 }
 
 .direction-container {
-  /* border: 3px solid yellow; */
   display: flex;
   flex-direction: column;
-  padding-left: 20px; 
+  padding-left: 20px;
 }
 
 .description-text {
-  /* border: 3px solid blue; */
   display: flex;
+  margin-top: 40px;
 }
 
 .loader {

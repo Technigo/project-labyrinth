@@ -20,11 +20,9 @@ export const GameStart = () => {
     dispatch(generateStartMove())
   }
 
- 
   useEffect(() => {
     onGameGenerate()
   }, [username]) 
-  
   
   const uppDateUsername = () => {
     dispatch(game.actions.uppDateUsername(inputValue)) 
@@ -33,7 +31,7 @@ export const GameStart = () => {
   if (username !== "username") {
     return (
       <section className="start-container">
-        <p>Active user: {inputValue}</p>
+        <p className="active-user">Active user: <span>{inputValue}</span></p>
         <Button text="Restart" onButtonClick={() => window.location.reload()}/>
       </section>
     )
@@ -41,14 +39,15 @@ export const GameStart = () => {
 
   return (
     <section className="start-container">
+      <h2 className="start-text">Welcome to our labyrinth, enter your username below.</h2>
       <form className="form-wrapper">
         <h2 className="username-text">Username:</h2>  
         <textarea className="input-box"
-         size="70"
-         maxLength="20"
-         minLength="1"
-        value={inputValue} 
-        onChange={e => setInputValue(e.target.value)}
+          size="70"
+          maxLength="20"
+          minLength="1"
+          value={inputValue} 
+          onChange={e => setInputValue(e.target.value)}
         >
         </textarea>
       </form>

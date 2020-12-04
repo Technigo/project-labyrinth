@@ -1,29 +1,21 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit"
 
-
-export const game = createSlice({  
-    name: 'game',
-    initialState:  {
-        username:"username",
-        gameinfo: {
-            actions: [{}],
-           
-        }
-        
+export const game = createSlice({
+  name: "game",
+  initialState: {
+    username: "username",
+    gameinfo: {
+      actions: [{}],
     },
+  },
 
-reducers: {
+  reducers: {
     uppDateUsername: (state, action) => {
-        state.username = action.payload 
-        // console.log(state.username)
+      state.username = action.payload;
     },
-
 
     generateDirection: (state, action) => {
-        state.gameinfo = action.payload
-        // console.log(state.gameinfo)
-    }
-}
-
+      state.gameinfo = action.payload;
+    },
+  },
 })
-
