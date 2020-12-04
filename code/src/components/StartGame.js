@@ -21,7 +21,7 @@ export const StartGame = () => {
         <Text>Press the Start button to get your first instructions 
           and then use the buttons to navigate through the Labyrinth. Have fun!
         </Text>
-        <Button className="start-button" onClick={onStartGame}> Start Game!</Button>
+        <Button onClick={onStartGame}> Start Game!</Button>
       </BoxShadow>
     </Container>
   );

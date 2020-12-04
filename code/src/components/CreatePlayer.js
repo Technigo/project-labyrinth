@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { labyrinth } from '../reducers/labyrinth';
 import { StartGame } from './StartGame';
 import { GameContinue } from './GameContinue';
-import { Container, Button } from '../StyledComponents/GlobalStyles';
+import { Container, Button, BoxShadow } from '../StyledComponents/GlobalStyles';
 import { MainHeader, Form, InputText } from '../StyledComponents/CreatePlayerStyling';
 
 
@@ -51,18 +51,20 @@ export const CreatePlayer = () => {
 
   return(
     <Container>
-    <MainHeader>Welcome User!</MainHeader>
-    <Form onSubmit={handleSubmitPlayerName}>
-      <InputText
-        type = "text"
-        value = {username}
-        onChange={(event) => handleCreatePlayer(event)}
-        placeholder="Type your alias name"
-        required/>
-      <Button type="submit">
-          Create Player
-      </Button>
-    </Form>
+      <MainHeader>Welcome User!</MainHeader>
+      <BoxShadow>
+        <Form onSubmit={handleSubmitPlayerName}>
+         <InputText
+            type = "text"
+            value = {username}
+            onChange={(event) => handleCreatePlayer(event)}
+            placeholder="Type your player name!"
+            required/>
+          <Button type="submit">
+            Create Player
+          </Button>
+        </Form>
+      </BoxShadow>
     </Container>
   );
 };

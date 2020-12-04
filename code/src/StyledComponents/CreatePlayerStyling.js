@@ -10,16 +10,32 @@ export const MainHeader = styled.h1`
   color: rgba(255,255,255);
   animation: animated-text 3s steps(29,end) 0.07s 1 normal both,
   animated-cursor 600ms steps(29,end) infinite;
+  
   /* text animation */
-  @keyframes animated-text{
+  @keyframes animated-text {
     from{width: 0;}
     to{width:83%;}
   };
 /* cursor animations */
-  @keyframes animated-cursor{
+  @keyframes animated-cursor {
     from{border-right-color: rgba(242, 2, 255, 0.92);}
     to{border-right-color: transparent;}
-}`;
+  };
+
+  @media (min-width: 768px) {
+    @keyframes animated-text{
+      from{width: 0;}
+      to{width:40%;}
+    };
+  };
+    
+  @media (min-width: 1024px) {
+    @keyframes animated-text {
+      from{width: 0;}
+      to{width:25%;}
+    }; 
+  };
+`;
 
 export const Form = styled.form`
   display:flex;
@@ -28,6 +44,10 @@ export const Form = styled.form`
   flex-direction:row;
   flex-wrap:wrap;
   justify-content:center;
+
+  @media (min-width: 768px) {
+   width:70%;
+};
 `;
 
 export const InputText = styled.input`

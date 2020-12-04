@@ -25,20 +25,21 @@ export const Header = styled.h2`
   font-family: 'Source Code Pro', monospace;  
   font-size: 30px;
 `
+
 export const Text = styled.p`
   text-align: left;
   line-height: 35px;
   font-size: 20px;
   font-family: monospace,sans-serif;
   padding: 20px;
-  margin-left: 10px;
+  margin-left: 75px;
+  margin-right: 75px;
 `
 
 export const Button = styled.button`
   font-size: 35px;
   font-family:'Source Code Pro', monospace;
-  margin-top:50px;
-  margin-left:10px;
+  margin: 30px 0px 20px 10px;
   border: none;
   padding: 20px;
   border: solid 1px #fd20e3;
@@ -51,9 +52,17 @@ export const Button = styled.button`
   border: 1px inset #fd20e3;
   background: #fd20e3;
 }
+  @media (min-width: 768px) {
+    margin:40px;
+  }
 `;
 
 export const Hint = styled.p`
   font-size:9px;
   padding:20px;
+
+  @media (min-width: 768px) {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
 `
