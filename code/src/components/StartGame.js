@@ -13,22 +13,6 @@ import { fetchGameData } from '../reducers/thunk'
 const ButtonWrapper = styled.div`
   margin: 0 0 30px 0;
 `
-const Form = styled.form`
-`
-
-const Label = styled.label`
-  margin-right: 5px;
-  `
-
-const InputField = styled.input`
-  font-size: 100%;
-  padding: 5px;
-  border: 1px solid grey;
-  border-radius: 5px;
-
-@media (min-width: 768px) {
-} 
-`
 
 export const StartGame = () => {
   const username = useSelector(state => state.game.username)
