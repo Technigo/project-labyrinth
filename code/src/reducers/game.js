@@ -15,7 +15,6 @@ export const game = createSlice({
     },
     setGame: (state, action) => {
       state.history = [...state.history, state.all]
-      console.log('History:',state.history)
       state.all = action.payload
     },
     historyGoBack: (state) => {
@@ -25,9 +24,7 @@ export const game = createSlice({
       }
     },
     setPastActions: (state, action) => {
-      console.log('Payload:',action.payload)
       state.pastActions = [...state.pastActions, action.payload]
-      console.log('Past Action state is:',state.pastActions)
     }
   }
 })

@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import styled from "styled-components/macro"
 
 import { Button } from '../lib/Button'
-import { CardContainer } from '../lib/Card'
+import { CardContainer } from '../lib/Containers'
 import { Thumbnail } from '../components/Thumbnail'
-import { Wrapper } from '../lib/Main'
+import { Wrapper } from '../lib/Containers'
 import { fetchActionData } from '../reducers/thunk'
 import { game } from '../reducers/game'
 import { LoadingIndicator } from './LoadingIndicator'

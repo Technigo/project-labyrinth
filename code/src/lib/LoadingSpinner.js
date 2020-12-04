@@ -1,8 +1,5 @@
-//import React from 'react'
 import styled from "styled-components/macro"
 
-// left: calc(50% - 70px);
-//   top: calc(50% - 70px);
 export const LoadingSpinner = styled.div`
   border: 25px solid #ffadad;
   border-radius: 50%;

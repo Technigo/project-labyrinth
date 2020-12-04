@@ -14,10 +14,10 @@ const HeaderWrapper = styled.section`
 `
 
 const Title = styled.h1`
-  font-size: 24px;
+  font-size: 1.7em;
 
   @media (min-width: 768px) {
-    font-size: 34px;
+    font-size: 2.5em;
   }
 `
 
