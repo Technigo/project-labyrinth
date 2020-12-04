@@ -93,9 +93,7 @@ export const TheLabyrinth = () => {
 
   if (isLoading) {
     return (
-      <CardContainer>
-        <LoadingIndicator />
-      </CardContainer>
+      <LoadingIndicator />
     )
   } else {
     return (

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components/macro"
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { game } from "reducers/game";
 import { Button } from "lib/Button";
@@ -30,7 +30,7 @@ const Title = styled.h1`
 `
 
 export const Header = () => {
-
+  const gameData = useSelector(state => state.game.all.data)
   const headerBtn = true
   const dispatch = useDispatch();
 
@@ -40,10 +40,10 @@ export const Header = () => {
 
   return (
     <HeaderWrapper>
-      <Title>The labyrinth </Title>
-      <Button headerBtn={headerBtn} onClick={onHistoryBack}>
+      <Title>THE LABYRINTH </Title>
+      {gameData && <Button headerBtn={headerBtn} onClick={onHistoryBack}>
         Go back
-    </Button>
+    </Button>}
     </HeaderWrapper>
   )
 
