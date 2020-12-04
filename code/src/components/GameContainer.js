@@ -13,9 +13,10 @@ export const GameContainer = () => {
 
 
   return (
-   
+   <>
+    {loader && <Loader /> }
+    {!loader &&
     <BackgroundContainer coordinates={gameDetails.coordinates}>
-     {loader && <Loader />}
       <TextContainer>
         {!gameDetails.coordinates && <StartGame />}
 
@@ -26,6 +27,8 @@ export const GameContainer = () => {
           <TheEnd description={gameDetails.description} />
         )}
       </TextContainer>
-    </BackgroundContainer>
+    </BackgroundContainer> 
+  }
+  </>
   );
 };

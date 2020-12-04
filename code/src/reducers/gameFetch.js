@@ -1,6 +1,5 @@
 import { gameState } from "./gameState";
 
-
 export const startFetch = (userName) => {
   return (dispatch) => {
     fetch("https://wk16-backend.herokuapp.com/start", {
@@ -10,7 +9,6 @@ export const startFetch = (userName) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         dispatch(gameState.actions.commitAction(data));
       });
   };
@@ -29,8 +27,10 @@ export const actionFetch = (userName, direction) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        setTimeout(() => {
         dispatch(gameState.actions.commitAction(data));
-      });
+        dispatch(gameState.actions.setLoader(false));
+      }, 2000);
+    });
   };
 };
