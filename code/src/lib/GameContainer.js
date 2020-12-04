@@ -3,18 +3,19 @@
 //Tried to make a new page GamePage where this would be rendered,
 //but trouble with sending coordinates as props because it reads 
 //undefined at startpage (since no coordinates then)
-
 import styled from "styled-components/macro"
-// import { 
-//   imgUrl_00,
-//   imgUrl_10,
-//   imgUrl_11,
-//   imgUrl_01,
-//   imgUrl_02,
-//   imgUrl_03,
-//   imgUrl_13,
-//   imgUrl_start
-//  } from '../lib/ImageUrls'
+//import { Main } from './lib/Main'
+import { 
+  imgUrl_00,
+  imgUrl_10,
+  imgUrl_11,
+  imgUrl_01,
+  imgUrl_02,
+  imgUrl_03,
+  imgUrl_13,
+  imgUrl_start
+ } from '../lib/ImageUrls'
+
 
 export const GameContainer = styled.section`
   width: 100vw;

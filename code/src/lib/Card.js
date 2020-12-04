@@ -8,6 +8,17 @@ import { UserInput } from '../components/UserInput'
 import { StartGame } from '../components/StartGame'
 import { TheLabyrinth } from '../components/TheLabyrinth'
 import { LoadingIndicator } from '../components/LoadingIndicator'
+import { Main } from './Main'
+import {
+  imgUrl_00,
+  imgUrl_10,
+  imgUrl_11,
+  imgUrl_01,
+  imgUrl_02,
+  imgUrl_03,
+  imgUrl_13,
+  imgUrl_start
+} from '../lib/ImageUrls'
 
 export const CardContainer = styled.section`
   box-sizing: border-box;
@@ -33,7 +44,7 @@ export const CardContainer = styled.section`
     grid-column: 2;
   }
 
-  ${({movedeck}) => movedeck && `
+  ${({ movedeck }) => movedeck && `
   height: 300px;
   margin: 2px;
   // background: #f0e7d1;
@@ -81,24 +92,55 @@ text-align: center;
 export const Card = () => {
   const gamePlay = useSelector(state => state.game.all)
   const isLoading = useSelector(state => state.ui.isLoading)
-  
+  const gameData = useSelector(state => state.game.all.data)
+
+  const ImagePicker = () => {
+    if (!gameData) {
+      return (imgUrl_start)
+    } else if (gameData.coordinates === "0,0") {
+      return (imgUrl_00)
+    } else if (gameData.coordinates === "1,0") {
+      return (imgUrl_10)
+    } else if (gameData.coordinates === "1,1") {
+      return (imgUrl_11)
+    } else if (gameData.coordinates === "0,1") {
+      return (imgUrl_01)
+    } else if (gameData.coordinates === "0,2") {
+      return (imgUrl_02)
+    } else if (gameData.coordinates === "0,3") {
+      return (imgUrl_03)
+    } else if (gameData.coordinates === "1,3") {
+      return (imgUrl_13)
+    } else return (imgUrl_00)
+  }
+
   if (!gamePlay.data && !isLoading) {
     return (
-      <CardContainer>
-        <Title>Welcome to the Labyrinth </Title>
-        <Subtitle> Choose your username </Subtitle>
-        <UserInput />
-        <Subtitle> Let's begin! </Subtitle>
-        <StartGame />
-      </CardContainer>
+      <Main style={{ backgroundImage: `url(${ImagePicker()})` }}>
+        {!isLoading
+          ? <CardContainer>
+            <Title>Welcome to the Labyrinth </Title>
+            <Subtitle> Choose your username </Subtitle>
+            <UserInput />
+            <Subtitle> Let's begin! </Subtitle>
+            <StartGame />
+          </CardContainer>
+          : <LoadingIndicator />}
+      </Main>
     )
-  } else if (isLoading) {
+  }
+  //else if (isLoading) {
+  //   return (
+  //     <LoadingIndicator />
+  //   )
+  // } 
+  else {
     return (
-      <LoadingIndicator />
-    )
-  } else {
-    return (
-      <TheLabyrinth />
+      <Main style={{ backgroundImage: `url(${ImagePicker()})` }}>
+        {!isLoading
+          ? <TheLabyrinth />
+          : <LoadingIndicator />}
+      </Main>
     )
   }
 }

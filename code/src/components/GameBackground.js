@@ -1,3 +1,4 @@
+// This component is currently not used.
 // the logic in this component works, 
 //but it can't be used as a background picture.
 import React from 'react'
