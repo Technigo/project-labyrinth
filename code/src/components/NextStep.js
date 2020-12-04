@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { gameState } from "../reducers/gameState";
 import { actionFetch } from "../reducers/gameFetch";
 
-import { Divider, Button, Description, ActionHeading, GroupCol, GroupRow } from "../styling/styling";
+import { Divider, DirectionButton, Description, ActionHeading, GroupCol, GroupRow } from "../styling/styling";
 
 export const NextStep = () => {
   const gameDetails = useSelector((store) => store.gameState.gameDetails);
@@ -26,9 +26,9 @@ export const NextStep = () => {
       {gameDetails.actions.map((action, index) => (
         <GroupCol key={index}>
           <p>{action.description}</p>
-          <Button onClick={() => onNextMove(action.direction)}>
+          <DirectionButton onClick={() => onNextMove(action.direction)}>
             Go {action.direction.toLowerCase()}
-          </Button>
+          </DirectionButton>
           </GroupCol>
       ))}
       </GroupRow>

@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Texturina&display=swap');
 
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -14,7 +10,7 @@ body {
     font-family: 'Texturina', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  letter-spacing: 0.3px;
+  /*letter-spacing: 0.3px; */
 }
 
 code {
