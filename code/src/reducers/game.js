@@ -8,7 +8,8 @@ export const game = createSlice({
         direction: [],
         coordinates: '',
         history: [],
-        isLoading: false
+        fetching: false,
+        timer: false
     },
     reducers: {
         generateGame: (store, action) => {
@@ -32,6 +33,12 @@ export const game = createSlice({
         // Updates loading true or false
         generateLoading: (store, action) => {
             store.isLoading = action.payload;
-        }
+        },
+        setFetching: (store, action) => {
+            store.fetching = action.payload;
+        },
+        setTimer: (store, action) => {
+            store.timer = action.payload;
+        },
     }
 });

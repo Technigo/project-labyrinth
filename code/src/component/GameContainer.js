@@ -2,10 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from "styled-components";
 
+import { Typewriter } from 'react-typewriting-effect'
+import 'react-typewriting-effect/dist/index.css'
+
 import { game } from '../reducers/game';
 import { generateNewDirection } from '../reducers/reusable';
 import { generateGameStart } from '../reducers/reusable';
 import { Button } from './Button';
+
 
 
 const GameScreen = styled.div`
@@ -34,16 +38,32 @@ const StartText = styled.h1`
     color: #fff;
 `
 
+const DescriptionText = styled.p`
+    color: #fff;
+`
+
+const MoveButton = styled.button`
+    
+`
+
+const Wrapper = styled.div`
+    color: black;
+`
 
 export const GameContainer = () => {
     const dispatch = useDispatch();
     const [inputValue, setInputValue] = useState('');
+    const [actionDescription, setActionDescription] = useState('');
 
     // Get from store(redux) 
     const gameStore = useSelector(store => store.game);
     const username = useSelector(store => store.game.username);
     const description = useSelector(store => store.game.description);
-    const loading = useSelector(store => store.game.isLoading);
+
+
+    const fetching = useSelector(store => store.game.fetching);
+    const timing = useSelector(store => store.game.timer);
+
     
     // onGameGenerate renders when username is updated
     useEffect(() => {
@@ -61,19 +81,31 @@ export const GameContainer = () => {
     }
 
     const onGameMoveUpdate = (action) => {
+        setActionDescription(action.description)
+        onTimer();
         // Runs fetch function generateNewDirection with action prop from reusable
         dispatch(generateNewDirection(action));
     }
 
-    const onHistoryBack = () => {
+/*     const onHistoryBack = () => {
         // Not implemented yet but should return history
         dispatch(game.actions.historyGoBack());
+    } */
+
+    const onTimer = () => {
+        dispatch(game.actions.setTimer(true))
+        setTimeout(() => {
+            dispatch(game.actions.setTimer(false))
+        }, 5000);
     }
 
-    // When loading is true, show loading
-    if(loading) {
+    if(fetching || timing) {
         return (
-            <div>Loading...</div>
+            <Wrapper>
+                <Typewriter 
+                    string={actionDescription} 
+                    delay={20}/>
+            </Wrapper>
         )
     }
 
@@ -81,21 +113,19 @@ export const GameContainer = () => {
     if(description) {
         return (
             <GameScreen>
-                <div>{gameStore.description}</div>
+                <DescriptionText>{gameStore.description}</DescriptionText>
                 {/* <Button
                     onButtonClick={onHistoryBack}
                     text='Go Back'
                 /> */}
                 {gameStore.direction.map(action => {
                     return (
-                        <>
-                            <button
+                            <MoveButton
                                 key={action.description}
                                 onClick={() => onGameMoveUpdate(action)}
                             >
                                 Go {action.direction}
-                            </button>
-                        </>
+                            </MoveButton>
                     )
                 })}  
             </GameScreen>
