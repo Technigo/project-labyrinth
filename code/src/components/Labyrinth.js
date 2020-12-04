@@ -199,7 +199,7 @@ const DescriptionText = styled.p`
   }
 
   @media (max-width: 321px) {
-    font-size: 13px;
+    font-size: 11px;
   }
 `;
 

@@ -66,7 +66,7 @@ const LabelWrapper = styled.label`
 
 const Input = styled.input`
   line-height: 1.5;
-  margin: 30px 0;
+  margin: 50px 0 30px 0;
   width: 40vw;
   border: none;
   background: none;
