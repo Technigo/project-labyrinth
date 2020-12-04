@@ -59,7 +59,6 @@ export const ActionList = () => {
           </Container>
         )
       })}
-      {actions.length === 0 && <StartButton />}
     </>
   )
 }
