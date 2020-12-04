@@ -22,7 +22,6 @@ export const fetchGameData = username => {
 }
 
 export const fetchActionData = (username, type, direction) => {    
-  console.log(username, type, direction)
     return (dispatch) => {
       
       dispatch(ui.actions.setLoading(true))
