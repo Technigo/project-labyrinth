@@ -5,7 +5,7 @@ export const gameState = createSlice({
   initialState: {
     gameDetails: {},
     userName: "",
-    loader: true
+    loader: false
   },
   reducers: {
     setUserName: (state, action) => {
