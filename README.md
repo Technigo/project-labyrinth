@@ -1,6 +1,6 @@
 # Lost in maze
 
-This is a simple, text-based adventure game where the user needs to navigate through a maze following hints. I built it together with Sandrine Elander during the Technigo Bootcamp for frontend developers in fall 2020. 
+This is a simple, text-based adventure game where the user needs to navigate through a maze following hints. I built it together with Sandrine Elander (https://github.com/MindstormingAB) during the Technigo Bootcamp for frontend developers in fall 2020. 
 
 ## What it does
 
@@ -58,4 +58,4 @@ The game is responsive and works on mobile, tablet and desktop view. As there is
 
 ## View it live
 
-You can see the site up and running here:
+You can see the site up and running here: https://lostinmaze.netlify.app/
