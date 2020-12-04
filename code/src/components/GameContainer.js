@@ -11,7 +11,6 @@ export const GameContainer = () => {
   const gameDetails = useSelector((store) => store.gameState.gameDetails);
   const loader = useSelector((store) => store.gameState.loader);
 
-
   return (
    <>
     {loader && <Loader /> }
@@ -25,8 +24,8 @@ export const GameContainer = () => {
         )}
         {gameDetails.coordinates === "1,3" && (
           <>
-          <TheEnd description={gameDetails.description} />
-          <Button onClick={() => window.location.reload()}>Restart</Button>
+            <TheEnd description={gameDetails.description} />
+            <Button onClick={() => window.location.reload()}>Restart</Button>
           </>
         )}
       </TextContainer>

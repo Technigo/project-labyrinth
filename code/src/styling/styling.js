@@ -45,7 +45,7 @@ export const BackgroundContainer = styled.main`
 `;
 
 export const Divider = styled.div`
-  margin: 10px 0;
+  margin: 5px 0;
   border-bottom: 1px solid;
   border-image: linear-gradient(to right, transparent, #999, transparent) 5;
 `;
@@ -67,7 +67,7 @@ export const UserInput = styled.input`
 
 // Style for buttons
 export const Button = styled.button`
-  width: 40%;
+  width: 50%;
   background: #0d71b9;
   border-radius: 5px;
   border: none;
@@ -85,6 +85,19 @@ export const Button = styled.button`
     letter-spacing: 1px;
     background: #0d91b9;
     font-weight:bold;
+  }
+
+  @media (min-width: 667px) {
+    width: 30%;
+    padding: 10px;
+  }
+
+  @media (min-width: 1100px) {
+    width: 40%;
+  }
+
+  @media (min-width: 1200px) {
+    width: 30%;
   }
 `;
 
@@ -111,13 +124,11 @@ export const DirectionButton = styled.button`
 `;
 
 export const TextContainer = styled.section`
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
+  max-width: 600px;
   text-align: center;
   background: #000000;
   color: #ffffff;
-  font-size: 16px;
+  font-size: 14px;
   border-radius: 10px;
   opacity: 0.7;
   border: 1px solid;
