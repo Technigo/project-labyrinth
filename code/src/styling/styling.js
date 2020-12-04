@@ -22,23 +22,21 @@ export const BackgroundContainer = styled.main`
   align-items: center;
   justify-content: center;
   background-image: url(${(props) =>
-    !props.coordinates
-      ? startImage
-      : props.coordinates === "1,3"
-      ? imgUrl_00
-      : props.coordinates === "0,0"
-      ? imgUrl_01
-      : props.coordinates === "0,1"
-      ? imgUrl_02
-      : props.coordinates === "0,2"
-      ? imgUrl_03
-      : props.coordinates === "0,3"
-      ? imgUrl_10
-      : props.coordinates === "1,0"
-      ? imgUrl_11
-      : props.coordinates === "1,1"
+      props.coordinates === "1,3"
       ? imgUrl_13
-      : props.coordinates === "1,3"});
+      : props.coordinates === "0,0"
+      ? imgUrl_00
+      : props.coordinates === "0,1"
+      ? imgUrl_01
+      : props.coordinates === "0,2"
+      ? imgUrl_02
+      : props.coordinates === "0,3"
+      ? imgUrl_03
+      : props.coordinates === "1,0"
+      ? imgUrl_10
+      : props.coordinates === "1,1"
+      ? imgUrl_11 
+      : startImage });
 `;
 
 export const Divider = styled.div`
@@ -59,19 +57,33 @@ export const UserInput = styled.input`
   padding: 8px;
   margin-bottom: 10px;
   font-family: "Texturina", serif;
+  width: 200px;
 `;
 
 export const Button = styled.button`
+<<<<<<< HEAD
   cursor: pointer;
+=======
+  width: 200px;
+>>>>>>> 5ed5d55823fca09c217dd8b4cf4e788c63028b1a
   background: #0d71b9;
   border-radius: 5px;
   border: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
   padding-bottom: 5px;
-  margin-top: 10px;
   color: #fff;
   font-size: 20px;
   font-family: "Texturina", serif;
   text-align: center;
+  transition: letter-spacing 200ms ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    letter-spacing: 1px;
+    background: #0d91b9;
+    font-weight:bold;
+  }
 `;
 
 export const Heading = styled.h1`
@@ -84,8 +96,10 @@ export const TextContainer = styled.section`
   font-size: 16px;
   border-radius: 10px;
   padding: 30px;
-  opacity: 0.8;
+  opacity: 0.7;
   text-align: center;
+  border: 1px solid;
+  border-image: linear-gradient(to right, transparent, #999, transparent) 5;
 
   @media (min-width: 667px) {
     width: 70%;
@@ -106,8 +120,8 @@ export const ActionHeading = styled.h2`
  `;
 
 export const GroupRow = styled.div`
-  display: flex;
-  justify-content: space-around;
+    flex-direction: row;
+    justify-content: space-around;
 `;
 
 export const GroupCol = styled.div`

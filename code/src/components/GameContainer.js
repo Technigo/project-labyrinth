@@ -4,13 +4,18 @@ import { useSelector } from "react-redux";
 import { StartGame } from "./StartGame";
 import { NextStep } from "./NextStep";
 import { TheEnd } from "./TheEnd";
+import { Loader } from './Loader';
 import { BackgroundContainer, TextContainer } from "../styling/styling";
 
 export const GameContainer = () => {
   const gameDetails = useSelector((store) => store.gameState.gameDetails);
+  const loader = useSelector((store) => store.gameState.loader);
+
 
   return (
+   
     <BackgroundContainer coordinates={gameDetails.coordinates}>
+     {loader && <Loader />}
       <TextContainer>
         {!gameDetails.coordinates && <StartGame />}
 

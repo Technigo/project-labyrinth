@@ -1,13 +1,43 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+
 import styled from 'styled-components';
 
 import Lottie from 'react-lottie';
 import animationData from '../lotties/spinning-compass';
 
+
+export const Loader = () => {
+  const loader = useSelector((store) => store.gameState.loader);
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
+
+  return (
+    <> {
+      loader && (
+        <LoaderBackground>
+          <LoaderText>Finding your way...</LoaderText>
+          <Lottie
+            options={defaultOptions}
+            height={250}
+            width={250} />
+        </LoaderBackground>
+      )
+    }
+    </>
+  );
+};
+
 /*
 import { Loader } from "./components/Loader";
         <Loader />
-
 */
 
 const LoaderBackground = styled.main`
@@ -26,24 +56,3 @@ const LoaderText = styled.p`
  color: #ffffff;
  font-size: 16px;
 `;
-
-export const Loader = () => {
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice'
-    }
-  };
-
-  return (
-    <LoaderBackground>
-      <LoaderText>Finding your way...</LoaderText>
-      <Lottie
-        options={defaultOptions}
-        height={250}
-        width={250} />
-    </LoaderBackground>
-  );
-}
