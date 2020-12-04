@@ -9,18 +9,17 @@ import Card from '@material-ui/core/Card';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import styled from 'styled-components';
 
-import { thunk, actionThunk, games } from './reducers/games';
-import { Map } from './components/Map';
+import { thunk, actionThunk, games } from '../reducers/games';
+import { Map } from './Map';
 
-import calm from './assets/calm-light-flow.jpg';
-import caveopening from './assets/cave-opening.jpg';
-import caveroom from './assets/cave-room.jpg';
-import colorful from './assets/colorful.jpg';
-import gizmos from './assets/gizmos.jpg';
-import papers from './assets/papers.jpg';
-import ray from './assets/ray.jpg';
+import calm from '../assets/calm-light-flow.jpg';
+import caveopening from '../assets/cave-opening.jpg';
+import caveroom from '../assets/cave-room.jpg';
+import colorful from '../assets/colorful.jpg';
+import gizmos from '../assets/gizmos.jpg';
+import papers from '../assets/papers.jpg';
+import ray from '../assets/ray.jpg';
 
 export const Game = () => {
 	const gameDetails = useSelector((store) => store.games);
@@ -72,14 +71,6 @@ export const Game = () => {
 	const onAction = (action) => {
 		dispatch(actionThunk(newUserName, action));
 	};
-
-	const MainContainer = styled.div`
-		width: 100%;
-		height: 100vh;
-		background-image: url(${backgroundImage});
-	`;
-
-	console.log(backgroundImage);
 
 	return (
 		<div
