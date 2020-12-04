@@ -1,5 +1,3 @@
-/* eslint-disable object-shorthand */
-/* eslint-disable object-curly-newline */
 import { game } from './game'
 import { ui } from './ui'
 
@@ -17,7 +15,6 @@ export const fetchStart = (User) => {
       .then((json) => {
         dispatch(game.actions.setCurrentStep(json))
         dispatch(ui.actions.setLoading(false))
-        console.log(json)
       })
   }
 }
@@ -30,16 +27,14 @@ export const fetchNext = (User, direction) => {
     fetch(NEXT_API, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        username: User,
+      body: JSON.stringify({ username: User,
         type: 'move',
-        direction: direction })
+        direction })
     })
       .then((res) => res.json())
       .then((json) => {
         dispatch(game.actions.setCurrentStep(json))
         dispatch(ui.actions.setLoading(false))
-        console.log(json)
       })
   }
 }

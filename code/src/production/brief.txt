@@ -1,42 +1,48 @@
 - should styles be broken out more?
 
-
-favicon:
-Icons made by <a href="https://www.flaticon.com/free-icon/maze_2532545?term=maze&page=2&position=48&related_item_id=2532545" title="Good Ware">Good Ware</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
-
-coordinates:
-0,0 - [start] - 
-an entryway to cave, shadowy, maybe grey greens,
-
-1,0 - rays of light penetrate ceiling, light warm yellow
-
-1,1 - growing light, more colors seem visible
-
-0,1 - You emerge into a large, four-walled room with mechanical gadgets and bronze metal gizmos laying in a mess on the floor. They seem to have once been part of some larger moving mechanism.
-      metalic gradients?
-0,2 - walls change color with every step
-0,3 - The mouth of the chest swings open. The papers spring from the chest, whirling around your head. You shield your face, but an instant later all is calm. The papers, books and scrolls from the chest are now neatly arranged on the bookshelves around the room.
-1,3 - [end] a bright light, relief and calm
-
-color change bg: 
-[CSS]
-.mydiv {
-  width:100%;
-  height:100%;
-  color:black;
-  font-weight:bold;
-  animation: myanimation 10s infinite;
-}
-
 @keyframes myanimation {
   0% {background-color: red;}
-  25%{background-color:yellow;}
-  50%{background-color:green;}
-  75%{background-color:brown;}
+  25% {background-color:yellow;}
+  50% {background-color:green;}
+  75% {background-color:brown;}
   100% {background-color: red;}
 }
+----------
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #8ec5fc;
+  background-image: linear-gradient(
+    120deg,
+    #8ec5fc 0%,
+    #e0c3fc 66%,
+    #8ec5fc 0%,
+    #e0c3fc 66%
+  );
+  background-size: 400%;
+  animation: gradient-bg 5s infinite;
+}
 
-background-image: ;
+@keyframes gradient-bg {
+  0% {background-position: 0 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0 50%;}
+}
+----------
+
+@keyframes animation {
+  0% {background-position: see above;}
+  25% {background-position: yellow;}
+  50% {background-position: green;}
+  75% {background-position: brown;}
+  100% {background-position: red;}
+}
+
 
 ### Description and Actions UI
 How you present the description and the actions is completely up to you.  Maybe you want to sort the directions (East, North, West, South) or put them in some graphical order.  Perhaps you would like to add interactable compass.
@@ -48,11 +54,8 @@ Requirements 🧪
 
 🔴 Red Level (Intermediary Goals)**
 - Use redux to store a history of what the player has done
-- If you want to focus more on design and make or use a design library
-
 
 ⚫ Black Level (Advanced Goals)**
-- Style each room/state based on the description.  For instance, if it contains the word "forest" you may want to change the background to a forest
 - Display a history of all the actions a player has taken
 - Persist redux store to localStorage, so the app data remains when you reload the page
 - Create a visual representation (drawing) of the map/labyrinth that the player is navigating.  It could update after each action.  The coordinates might be helpful here, or you can track the directions yourself
