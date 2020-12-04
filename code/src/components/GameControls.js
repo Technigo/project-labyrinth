@@ -30,6 +30,7 @@ const GameControls = () => {
       <Background>
         <HeaderWrapper>
           <HeaderText>{gameState.description}</HeaderText>
+          {gameState.coordinates !== '1,3' && <MainText>Choose a direction!</MainText>}
           {gameState.coordinates === '1,3' && <EndImage src={endImage} alt="The end"></EndImage>}
         </HeaderWrapper>
         {gameArray && (gameArray.map((item, index) => {

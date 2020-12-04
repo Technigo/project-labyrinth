@@ -64,6 +64,7 @@ export const Button = styled.button`
 
 export const Gif = styled.img`
   width: 100%;
+  border-radius: 15px;
 
   @media (min-width: 667px) {
     width: 400px;
