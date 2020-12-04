@@ -25,4 +25,4 @@ This week's project was a pair-programming project made by Sara Stjernberg, Petr
 
 ## View it live 👩‍💻
 
-Link to the deployed project on Netlify: 
+https://the-maze-game.netlify.app/
