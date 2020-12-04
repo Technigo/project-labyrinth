@@ -10,17 +10,17 @@ Learning Objectives:
 - How to structure your redux store to suit your data
 - To send JSON in the body of a request
 
-## Approach
+<!-- ## Approach -->
 
 
 ## Core Tech
-<!-- - CSS
-- API
+- Redux
 - React
 - React Hooks
-- JSX -->
-
-
+- JSX
+- thunks
+- Styled Components
+- API
 
 ## Requirements Completed
 🔵  Blue Level
