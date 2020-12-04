@@ -52,7 +52,7 @@ export const MoveContainer = () => {
                     </DirectionWrapper>
                 ))}
                 </MovingWrapper>
-            {move.actions.length > 0 &&
+            {move.actions.length > 1 &&
                 <ButtonWrapper>
                     <BackButtonShape>
                         <BackButton onClick={onHistoryBack}>Back</BackButton>

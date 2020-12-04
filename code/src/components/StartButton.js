@@ -15,12 +15,16 @@ export const StartButton = () => {
         return <MoveContainer />
     };
 
+    const onClickStart = () => {
+        dispatch(initiateStart(universalUsername));
+    };
+
     return (
         <MainContainer>
             <Text>Greetings <Bold>{universalUsername}</Bold>! Press start to begin your rainbow labyrinth journey!</Text>  
             <ButtonWrapper>
                 <ButtonShape>           
-                    <Button onClick={() => dispatch(initiateStart(universalUsername))}>START</Button>
+                    <Button onClick={onClickStart}>START</Button>
                 </ButtonShape>
             </ButtonWrapper>
         </MainContainer>

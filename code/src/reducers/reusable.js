@@ -37,7 +37,7 @@ export const initiateAction = (direction, universalUsername) => {
         })
         .then(res => res.json())
         .then(data => {
-            dispatch(moves.actions.generateAction(data))
+            dispatch(moves.actions.generateMove(data))
             dispatch(ui.actions.gameIsLoading(false))
         })
     };
