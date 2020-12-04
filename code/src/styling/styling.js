@@ -62,6 +62,7 @@ export const UserInput = styled.input`
 `;
 
 export const Button = styled.button`
+  cursor: pointer;
   background: #0d71b9;
   border-radius: 5px;
   border: none;
