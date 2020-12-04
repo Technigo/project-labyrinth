@@ -1,10 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import styled from "styled-components";
 
 import { game } from '../reducers/game';
 import { generateNewDirection } from '../reducers/reusable';
 import { generateGameStart } from '../reducers/reusable';
 import { Button } from './Button';
+
+
+const GameScreen = styled.div`
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+
+const StartGameCard = styled.div`
+    width: 300px;
+    height: 500px;
+    background-color: #901F32;
+    border: 3px solid #fff;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+
+const StartText = styled.h1`
+    color: #fff;
+`
+
 
 export const GameContainer = () => {
     const dispatch = useDispatch();
@@ -51,12 +80,12 @@ export const GameContainer = () => {
     // When there is a description display description, direction and go back buttons.
     if(description) {
         return (
-            <>
+            <GameScreen>
                 <div>{gameStore.description}</div>
-                <Button
+                {/* <Button
                     onButtonClick={onHistoryBack}
                     text='Go Back'
-                />
+                /> */}
                 {gameStore.direction.map(action => {
                     return (
                         <>
@@ -69,24 +98,26 @@ export const GameContainer = () => {
                         </>
                     )
                 })}  
-            </>
+            </GameScreen>
         )} 
     
     // When game is not started (there is no description) display username input field and start game button
     return (
-        <div>
-            <div>Play the game</div> 
-            <input
-                type='text'
-                placeholder='Type your username'
-                value={inputValue}
-                required
-                onChange={e => setInputValue(e.target.value)}
-            />
-            <Button
-                onButtonClick={setUserName}
-                text='Start game'
-            />       
-        </div>
+        <GameScreen>
+            <StartGameCard>
+                <StartText>Play the game</StartText> 
+                <input
+                    type='text'
+                    placeholder='Type your username'
+                    value={inputValue}
+                    required
+                    onChange={e => setInputValue(e.target.value)}
+                />
+                <Button
+                    onButtonClick={setUserName}
+                    text='Start game'
+                />
+            </StartGameCard>    
+        </GameScreen>
     );
 }
