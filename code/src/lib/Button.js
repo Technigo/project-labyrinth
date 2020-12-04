@@ -22,6 +22,10 @@ export const Button = styled.button`
   // PAPER BORDER:
   border-image-source: linear-gradient(to left,#AA9471,#7A6755, #675444, #7A6755, #AA9471);
   
+  @media (min-width: 768px) {
+    font-size: 1.3rem;
+    }
+
   ${({ headerBtn }) => headerBtn && `
   box-shadow: 2px 5px 15px -1px rgba(0,0,0,0.85);
   height: 3em;
@@ -41,7 +45,6 @@ export const Button = styled.button`
   `}
 
   ${({ startBtn }) => startBtn && `
-<<<<<<< HEAD
     width: 10em;
     padding: 5px;
     &:hover {
@@ -93,10 +96,3 @@ export const Button = styled.button`
     `}
 
 ` //#8B541B #C88627
-=======
-    width: 80%;
-    padding: 5px;
-    `}
-  ` 
-//#8B541B #C88627
->>>>>>> hanna

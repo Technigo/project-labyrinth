@@ -6,7 +6,7 @@ import { game } from './reducers/game'
 import { ui } from './reducers/ui'
 
 //import { GamePage } from './pages/GamePage'
-import { GameBackground } from './components/GameBackground'
+// import { GameBackground } from './components/GameBackground'
 //import { GameContainer } from './components/GameBackground'
 import { Header } from './components/Header'
 import { Main } from './lib/Main'
@@ -22,7 +22,7 @@ export const App = () => {
       <Header />
       <Main>
       <Card />
-      <GameBackground />
+      {/* <GameBackground /> */}
       </Main>
     </Provider>
   )

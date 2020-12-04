@@ -11,19 +11,26 @@ import { game } from '../reducers/game'
 import { LoadingIndicator } from './LoadingIndicator'
 
 const Coordinates = styled.p`
-  font-size: 20px;
+  font-size: 1.3rem;
   text-align: center;
-  // background: #fff;
-  // background: linear-gradient(180deg, #f0e7d1, #fffdf0, #f0e7d1, #f0e7d1);
+  font-weight: 500;
   background: linear-gradient(180deg, rgba(255,253,240,0.8), rgba(240,231,209, 1), rgba(255,253,240,0.8));
 
   @media (min-width: 768px) {
-    font-size: 30px;
-    }
+    font-size: 1.7rem;
+  }
+
+  @media(min-width: 1024px) {
+    font-size: 2.5rem;
+  }
 `
 
 const ImageAndDescriptionWrapper = styled.div`
   display: flex;
+
+  @media(min-width: 1024px) {
+    margin: 90px 0 0 0;
+  }
 `
 
 const DescriptionWrapper = styled.div`
@@ -34,24 +41,28 @@ const DescriptionWrapper = styled.div`
 `
 
 const RoomDescription = styled.p`
-  font-size: 16px;
+  font-size: 1rem;
   text-align: center;
   padding: 5px;
   font-style: italic;
 
   @media (min-width: 768px) {
-  font-size: 24px;
+    font-size: 1.5rem;
+  }
+
+  @media(min-width: 1024px) {
+    font-size: 1.8rem;
   }
 `
 const DirectionDescription = styled.p`
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
   text-align: left;
   padding: 10px;
   margin: 5px;
 
   @media (min-width: 768px) {
-    font-size: 20px;
+    font-size: 1.3rem;
     text-align: justify;
     }
 `
@@ -59,11 +70,8 @@ const DirectionDescription = styled.p`
 export const TheLabyrinth = () => {
   const gameData = useSelector(state => state.game.all.data)
   const username = useSelector(state => state.game.username)
-<<<<<<< HEAD
   const pastMove = useSelector(state => state.game.pastActions)
 
-=======
->>>>>>> hanna
   const isLoading = useSelector(state => state.ui.isLoading)
 
   const carddeck = true

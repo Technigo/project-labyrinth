@@ -14,10 +14,18 @@ const HeaderWrapper = styled.section`
 `
 
 const Title = styled.h1`
-  font-size: 24px;
+  text-transform: uppercase; 
+  text-align: left; 
+  font-size: 1.5rem;
+  margin: 0;
+  font-family: 'Monoton', cursive;
 
   @media (min-width: 768px) {
-    font-size: 34px;
+    font-size: 3.0rem;
+  }
+
+  @media(min-width: 1024px) {
+    font-size: 3.5rem;
   }
 `
 
@@ -32,7 +40,7 @@ export const Header = () => {
 
   return (
     <HeaderWrapper>
-      <Title>THE LABYRINTH </Title>
+      <Title>The labyrinth </Title>
       <Button headerBtn={headerBtn} onClick={onHistoryBack}>
         Go back
     </Button>

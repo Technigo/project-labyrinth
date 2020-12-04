@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from "styled-components/macro"
 
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -7,6 +8,10 @@ import { fetchGameData } from '../reducers/thunk'
 import { LoadingIndicator } from './LoadingIndicator'
 //import { GameContainer } from '../lib/GameContainer'
 //import { imgUrl_start } from '../lib/ImageUrls'
+
+const ButtonWrapper = styled.div`
+  margin: 0 0 30px 0;
+`
 
 export const StartGame = () => {
   const username = useSelector(state => state.game.username)
@@ -31,9 +36,9 @@ export const StartGame = () => {
       } else {
         return (
           // <GameContainer backgroundImage={imgUrl_start}>
-            <div>
+            <ButtonWrapper>
               <Button startBtn={startBtn} onClick={handleGameStarterClick}>Start Game</Button>
-            </div>
+            </ButtonWrapper>
           // </GameContainer>
         )
       }

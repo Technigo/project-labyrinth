@@ -3,7 +3,8 @@ import styled from 'styled-components/macro'
 export const Main = styled.main`
   display: grid;
   grid-template-rows: min-content;
-  justify-content: center;
+  justify-items: center;
+  align-items: center;
   padding: 10px;
   background-size: cover;
   background-position: center;
@@ -28,7 +29,7 @@ export const Wrapper = styled.div`
   text-align: center;
 
   @media(min-width:768px) {
-    grid-column: span 2;
+    grid-column: span 1;
   }
 
   @media(min-width: 1024px) {
