@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import Lottie from 'react-lottie';
 import animationData from '../lotties/spinning-compass';
 
-
 export const Loader = () => {
   const loader = useSelector((store) => store.gameState.loader);
 
@@ -27,7 +26,8 @@ export const Loader = () => {
           <Lottie
             options={defaultOptions}
             height={250}
-            width={250} />
+            width={250} 
+          />
         </LoaderBackground>
       )
     }

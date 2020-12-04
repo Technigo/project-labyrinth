@@ -5,6 +5,7 @@ import { StartGame } from "./StartGame";
 import { NextStep } from "./NextStep";
 import { TheEnd } from "./TheEnd";
 import { Loader } from "./Loader";
+
 import { BackgroundContainer, TextContainer, Button } from "../styling/styling";
 
 export const GameContainer = () => {
@@ -12,25 +13,23 @@ export const GameContainer = () => {
   const loader = useSelector((store) => store.gameState.loader);
 
   return (
-   <>
-    {loader && <Loader /> }
-    {!loader &&
-    <BackgroundContainer coordinates={gameDetails.coordinates}>
-      <TextContainer>
-        {!gameDetails.coordinates && <StartGame />}
-
-        {gameDetails.coordinates && gameDetails.coordinates !== "1,3" && (
-          <NextStep />
-        )}
-        {gameDetails.coordinates === "1,3" && (
+    <>
+      {loader && <Loader /> }
+      {!loader &&
+      <BackgroundContainer coordinates={gameDetails.coordinates}>
+        <TextContainer>
+          {!gameDetails.coordinates && <StartGame />}
+          {gameDetails.coordinates && gameDetails.coordinates !== "1,3" && (
+            <NextStep />
+          )}
+          {gameDetails.coordinates === "1,3" && (
           <>
             <TheEnd description={gameDetails.description} />
             <Button onClick={() => window.location.reload()}>Restart</Button>
-          </>
-        )}
-      </TextContainer>
-    </BackgroundContainer> 
-  }
-  </>
+          </> )}
+        </TextContainer>
+      </BackgroundContainer>
+      }
+    </>
   );
 };
