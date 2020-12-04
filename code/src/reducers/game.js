@@ -23,11 +23,6 @@ export const game = createSlice({
         state.all = state.history[state.history.length - 1]
         state.history = state.history.slice(0, state.history.length - 1)
       }
-
-      // if (history.length > 0) {
-      //   state.all = state.history[state.history.length - 1]
-      //   state.history = state.all.slice(0, state.history.length - 1)
-      // }
     },
     setPastActions: (state, action) => {
       console.log('Payload:',action.payload)

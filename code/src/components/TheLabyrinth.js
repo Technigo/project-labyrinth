@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import styled from "styled-components/macro"
 
-import { Button} from '../lib/Button'
+import { Button } from '../lib/Button'
 import { CardContainer } from '../lib/Card'
 import { Thumbnail } from '../components/Thumbnail'
 import { Wrapper } from '../lib/Main'
@@ -43,6 +43,7 @@ const RoomDescription = styled.p`
   font-size: 24px;
   }
 `
+
 const DirectionDescription = styled.p`
   font-size: 14px;
   font-weight: 500;
@@ -59,11 +60,8 @@ const DirectionDescription = styled.p`
 export const TheLabyrinth = () => {
   const gameData = useSelector(state => state.game.all.data)
   const username = useSelector(state => state.game.username)
-<<<<<<< HEAD
   const pastMove = useSelector(state => state.game.pastActions)
 
-=======
->>>>>>> hanna
   const isLoading = useSelector(state => state.ui.isLoading)
 
   const carddeck = true
@@ -75,6 +73,11 @@ export const TheLabyrinth = () => {
   const handleActionClick = (type, direction) => {
     dispatch(fetchActionData(username, type, direction))
     dispatch(game.actions.setPastActions(direction))
+  }
+
+  const displayLastMove = () => {
+    const i = pastMove.length-1
+    return <RoomDescription>You moved {pastMove[i]}</RoomDescription>
   }
 
   if (isLoading) {
@@ -91,7 +94,7 @@ export const TheLabyrinth = () => {
           <ImageAndDescriptionWrapper>
             <Thumbnail />
             <DescriptionWrapper>
-              {console.log(pastMove)}
+              {pastMove.length > 0 && displayLastMove()}
               <RoomDescription>"{gameData.description}"</RoomDescription>
             </DescriptionWrapper>
           </ImageAndDescriptionWrapper>
@@ -100,9 +103,9 @@ export const TheLabyrinth = () => {
           {gameData.actions.map(item => (
             <CardContainer key={item.direction} movedeck={movedeck}>
               <DirectionDescription>{item.description}</DirectionDescription>
-                <Button moveBtn={moveBtn} onClick={() => handleActionClick(item.type, item.direction)}>
-                  Head {item.direction}
-                </Button>
+              <Button moveBtn={moveBtn} onClick={() => handleActionClick(item.type, item.direction)}>
+                Head {item.direction}
+              </Button>
             </CardContainer>
           ))}
         </Wrapper>
