@@ -3,7 +3,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 import { game } from '../reducers/game';
-import { Button } from '../lib/Styling';
+import { Text, ActionButton } from '../lib/Styling';
+
+const ButtonContainer = styled.div`
+  grid-area: back;
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  align-items: baseline;
+`
+
+const GoBackText = styled(Text)`
+  margin: 0 10px 0 0;
+`
 
 export const BackOrRestart = () => {
   const dispatch = useDispatch();
@@ -17,17 +29,13 @@ export const BackOrRestart = () => {
     dispatch(game.actions.restartGame())
   };
 
-  const ButtonContainer = styled.div`
-    width: 100%
-  `
-
   if (coordinates === '1,3') {
     return (
       <ButtonContainer>
-        Great! You made it out of the maze. Want to try again?
-        <Button onClick={onRestart}>
+        <GoBackText>Great! You made it out of the maze. Want to try again?</GoBackText>
+        <ActionButton onClick={onRestart}>
           Play again
-        </Button> 
+        </ActionButton>
       </ButtonContainer>
     )
   } else if (coordinates === '0,0') {
@@ -38,10 +46,10 @@ export const BackOrRestart = () => {
   } else {
     return (
       <ButtonContainer>
-        Does this feel wrong?
-        <Button onClick={onGoBack}>
+        <GoBackText>Does this feel wrong?</GoBackText>
+        <ActionButton onClick={onGoBack}>
           Go back
-        </Button> 
+        </ActionButton>
       </ButtonContainer>
     )
   }
