@@ -1,10 +1,32 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+    sans-serif; */
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(88, 101, 172);
+  background: linear-gradient(
+    45deg,
+    rgba(88, 101, 172, 1) 0%,
+    rgba(88, 101, 172, 1) 60%,
+    rgba(191, 118, 149, 1) 100%
+  );
+  background-repeat: no-repeat;
+}
+
+.grid {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 code {
