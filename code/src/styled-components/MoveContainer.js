@@ -150,6 +150,7 @@ export const Button = styled.button`
     color:  #ffc16b;
     background-clip: text;
     -webkit-background-clip: text;
+    cursor: pointer;
 `;
 
 export const BackButtonShape = styled.div`   
