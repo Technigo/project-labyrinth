@@ -42,6 +42,8 @@ const Title = styled.h2`
 const Content = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   border: 3px solid white;
+  height: 200px;
+  overflow: auto;
 `
 const Wrapper = styled.div`
   display: flex;
