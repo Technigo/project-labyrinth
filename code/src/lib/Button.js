@@ -41,6 +41,7 @@ export const Button = styled.button`
   `}
 
   ${({ startBtn }) => startBtn && `
+<<<<<<< HEAD
     width: 10em;
     padding: 5px;
     &:hover {
@@ -92,3 +93,10 @@ export const Button = styled.button`
     `}
 
 ` //#8B541B #C88627
+=======
+    width: 80%;
+    padding: 5px;
+    `}
+  ` 
+//#8B541B #C88627
+>>>>>>> hanna

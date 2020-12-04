@@ -1,3 +1,5 @@
+//Card should maybe be moved to ./components?
+
 import React from 'react'
 import styled from "styled-components/macro"
 import { useSelector } from 'react-redux'
@@ -40,7 +42,7 @@ export const CardContainer = styled.section`
     margin: 25px 5px 0 5px;
   }  `}
 
-  ${({carddeck}) => carddeck && `
+  ${({ carddeck }) => carddeck && `
   @media (min-width: 768px) {
     height: 100%;
   }
@@ -51,7 +53,7 @@ export const CardContainer = styled.section`
   `}
   `
 
-  const Title = styled.h2`
+const Title = styled.h2`
   font-size: 25px;
   padding: 10px;
   margin: 5px;
@@ -75,19 +77,20 @@ text-align: center;
 
 export const Card = () => {
   const gamePlay = useSelector(state => state.game.all)
-  
+
   if (!gamePlay.data) {
-  return (
-    <CardContainer>
-      <Title>Welcome to the Labyrinth </Title>
-      <Subtitle> Choose your username </Subtitle>
-      <UserInput />
-      <Subtitle> Let's begin! </Subtitle>
-      <StartGame />
-    </CardContainer>
-  )} else {
     return (
-        <TheLabyrinth/>
+      <CardContainer>
+        <Title>Welcome to the Labyrinth </Title>
+        <Subtitle> Choose your username </Subtitle>
+        <UserInput />
+        <Subtitle> Let's begin! </Subtitle>
+        <StartGame />
+      </CardContainer>
+    )
+  } else {
+    return (
+      <TheLabyrinth />
     )
   }
-  }
+}

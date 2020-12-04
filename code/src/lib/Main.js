@@ -5,6 +5,9 @@ export const Main = styled.main`
   grid-template-rows: min-content;
   justify-content: center;
   padding: 10px;
+  background-size: cover;
+  background-position: center;
+  background-image: url(${(props) => props.backgroundImage })
 
   @media (min-width: 768px) {
     grid-template-columns: 1fr;
