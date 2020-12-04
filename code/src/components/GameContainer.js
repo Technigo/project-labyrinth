@@ -5,9 +5,9 @@ import styled from 'styled-components'
 import { StartButton } from './StartButton'
 import { RoomDescription } from './RoomDescription'
 import { ActionList } from './ActionList'
+import { Loader } from './Loader'
 
 const Container = styled.div`
-  background-color: black;
   color: white;
   width: 100vw;
   height: 100%;
@@ -25,6 +25,7 @@ export const GameContainer = () => {
         <>
           <RoomDescription />
           <ActionList />
+          <Loader />
         </>
       }
     </Container>

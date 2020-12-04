@@ -2,6 +2,7 @@ import { game } from './game'
 
 export const getFirstPosition = (userName) => {
   return (dispatch) => {
+    dispatch(game.actions.setLoading(true))
     fetch('https://wk16-backend.herokuapp.com/start', {
       method: 'POST',
       headers: { 'content-type': 'application/JSON' },
@@ -13,6 +14,7 @@ export const getFirstPosition = (userName) => {
       .then(data => {
         console.log(data)
         dispatch(game.actions.setStartPosition(data))
+        dispatch(game.actions.setLoading(false))
       })
   }
 }
@@ -20,6 +22,7 @@ export const getFirstPosition = (userName) => {
 export const getNextPosition = (action, userName) => {
 
   return (dispatch) => {
+    dispatch(game.actions.setLoading(true))
     fetch('https://wk16-backend.herokuapp.com/action', {
       method: 'POST',
       headers: { 'content-type': 'application/JSON' },
@@ -33,6 +36,7 @@ export const getNextPosition = (action, userName) => {
       .then(data => {
         console.log(data)
         dispatch(game.actions.setNextPosition(data))
+        dispatch(game.actions.setLoading(false))
       })
   }
 }

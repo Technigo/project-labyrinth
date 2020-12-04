@@ -6,7 +6,8 @@ export const game = createSlice({
     userName: 0,
     gameState:
       {},
-    gameStarted: false
+    gameStarted: false,
+    isLoading: false,
   },
   reducers: {
     setUserName: (state, action) => {
@@ -18,6 +19,9 @@ export const game = createSlice({
     },
     setNextPosition: (state, action) => {
       state.gameState = action.payload;
+    },
+    setLoading: (state, action) => {
+      state.isLoading = action.payload;
     }
   }
 })
