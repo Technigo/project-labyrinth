@@ -66,7 +66,7 @@ export const UserInput = styled.input`
 `;
 
 // Style for buttons
-export const StartButton = styled.button`
+export const Button = styled.button`
   width: 40%;
   background: #0d71b9;
   border-radius: 5px;

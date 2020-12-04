@@ -5,7 +5,7 @@ import { StartGame } from "./StartGame";
 import { NextStep } from "./NextStep";
 import { TheEnd } from "./TheEnd";
 import { Loader } from './Loader';
-import { BackgroundContainer, TextContainer } from "../styling/styling";
+import { BackgroundContainer, TextContainer, Button } from "../styling/styling";
 
 export const GameContainer = () => {
   const gameDetails = useSelector((store) => store.gameState.gameDetails);
@@ -24,7 +24,10 @@ export const GameContainer = () => {
           <NextStep />
         )}
         {gameDetails.coordinates === "1,3" && (
+          <>
           <TheEnd description={gameDetails.description} />
+          <Button onClick={() => window.location.reload()}>Restart</Button>
+          </>
         )}
       </TextContainer>
     </BackgroundContainer> 

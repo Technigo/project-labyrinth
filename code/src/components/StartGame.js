@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 import { startFetch } from "../reducers/gameFetch";
 import { gameState } from "../reducers/gameState";
-import { Divider, Group, UserInput, StartButton, Heading } from "../styling/styling";
+import { Divider, Group, UserInput, Button, Heading } from "../styling/styling";
 
 export const StartGame = () => {
   const [nameInput, setNameInput] = useState("");
@@ -32,7 +32,7 @@ export const StartGame = () => {
               placeholder="Enter player name..."
               onChange={(event) => setNameInput(event.target.value)}
             ></UserInput>
-            <StartButton onClick={onGameStart}>Start game</StartButton>
+            <Button onClick={onGameStart}>Start game</Button>
           </Group>
         </>
       )}
