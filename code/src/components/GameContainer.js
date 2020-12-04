@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { UserInput } from './UserInput';
-import { GameControls } from './GameControls';
-
+import { GameContinue } from './GameContinue';
+import { StartGameContainer } from '../lib/GameContainerStyle';
+import { GameStart } from './GameStart'
 
 
 const GameContainer = () => {
@@ -11,13 +11,11 @@ const GameContainer = () => {
     const gameStart = useSelector((store) => store.game.isGameStarted); 
 
     return (
-        <div>
-            <h2>Want to play?</h2>
-            <UserInput />
-            {gameStart ? <GameControls /> : <></>
-        }
+        <StartGameContainer>
+            <GameStart />
+            {gameStart ? <GameContinue /> : <></>}
             
-        </div>
+        </StartGameContainer>
     )
 }
 

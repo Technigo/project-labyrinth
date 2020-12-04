@@ -3,12 +3,16 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { game } from '../reducers/game';
 import { startFetch } from '../reducers/reusable';
+import { GameHeader } from '../lib/GameContainerStyle';
+import { GameButton } from '../lib/Button';
+import { InputForm } from '../lib/GameStartStyle';
 
-export const UserInput = () => {
+export const GameStart = () => {
     const [userNameInput, setUserNameInput] = useState("");
     const dispatch = useDispatch();
     const userName = useSelector(store => store.game.userName)
-
+    const gameDetails = useSelector(store => store.game.gameDetails)
+    
     const handleSubmit = e => {
         e.preventDefault();
         dispatch(game.actions.updateUserName(userNameInput))
@@ -17,7 +21,11 @@ export const UserInput = () => {
 
 
     return (
-        <form>
+        <>
+        {!gameDetails.coordinates && ( 
+            <section>
+        <GameHeader>Want to play?</GameHeader>
+        <InputForm>
             <label
                 value='username'
             />
@@ -26,7 +34,10 @@ export const UserInput = () => {
                 placeholder='Type username'
                 onChange={e => setUserNameInput(e.target.value)}
             />
-            <button onClick={handleSubmit}> Game start</button>
-        </form>
+            <GameButton onClick={handleSubmit} width={100}>Let's go!</GameButton>
+        </InputForm>
+        </section>
+        )}
+        </>
     )
-}
+}    
