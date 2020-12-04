@@ -15,9 +15,9 @@ const MoveButton = styled.button`
 export const Action = ({ props }) => {
 
   const dispatch = useDispatch();
-  const [description, setDescription] = useState(props.description)
-  const [direction, setDirection] = useState(props.direction)
-  const [type, setType] = useState(props.type)
+  const [description] = useState(props.description)
+  const [direction] = useState(props.direction)
+  const [type] = useState(props.type)
   const username = useSelector((store) => store.game.username);
 
   const handleOnClick = () => {
