@@ -82,7 +82,7 @@ const DirectionText = styled.p`
       : props.direction === 'West'
       ? 'rotate(-90deg)'
       : ''};
-
+  color: #fff;
   @media (min-width: 490px) {
     display: block;
   }

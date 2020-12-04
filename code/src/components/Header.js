@@ -12,6 +12,7 @@ export const Header = () => {
     dispatch(labyrinth.actions.setUsername(''));
     localStorage.setItem('labyrinth', '{}');
     localStorage.setItem('username', '');
+    localStorage.setItem('history', '[]');
     window.location.reload();
   };
 
@@ -51,6 +52,7 @@ const RestartButtonText = styled.p`
   text-transform: uppercase;
   font-size: 10px;
   letter-spacing: 1px;
+  color: #fff;
 `;
 
 const HeaderImageRight = styled.img`
