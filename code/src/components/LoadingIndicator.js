@@ -1,15 +1,20 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import styled from "styled-components/macro"
 
 import { LoadingSpinner } from '../lib/LoadingSpinner'
-import { LoadingContainer } from '../lib/Containers'
 
+const LoadingContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
 export const LoadingIndicator = () => {
   const isLoading = useSelector((state) => state.ui.isLoading)
 
   return (
-    // what should be the container here?
-    // Cardcontainer?
     <LoadingContainer>
     {isLoading && <LoadingSpinner />}
     </LoadingContainer>
