@@ -3,7 +3,7 @@ import styled from "styled-components/macro"
 export const Button = styled.button`
   width: 2.7em;
   height: 2.3em;
-  background: #C9B692;
+  background: rgb(141, 97, 67);
   box-sizing: content-box;
   color: #FEF7E5;
   font-weight: 600;
