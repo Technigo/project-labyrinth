@@ -20,7 +20,7 @@ export const GameState = () => {
 
       {actions && actions.map(action => {
         return (
-          <Action key={action.description} props={action} /> 
+          <Action key={action.description} props={action} />
         )
       })}
 

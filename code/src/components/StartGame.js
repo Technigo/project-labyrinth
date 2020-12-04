@@ -40,4 +40,3 @@ export const StartGame = () => {
     </div>
   )
 }
-// Sen vill vi att denna knapp ska försvinna/bli mindre och en restart-knapp.

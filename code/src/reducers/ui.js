@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export const ui = createSlice({
-  name:'ui',
+  name: 'ui',
   initialState: {
-    isLoading: false, 
+    isLoading: false,
   },
   reducers: {
     setLoading: (state, action) => {

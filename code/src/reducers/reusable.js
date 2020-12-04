@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { game } from './game';
 
 export const moveForward = () => {
   const [description, setDescription] = useState('')
@@ -9,8 +8,8 @@ export const moveForward = () => {
     headers: { "content-Type": "application/json" },
     body: JSON.stringify({ username: username })
   })
-  .then(response => response.json())
-  .then(json => {
-    setDescription(json.description)
-  })
+    .then(response => response.json())
+    .then(json => {
+      setDescription(json.description)
+    })
 }

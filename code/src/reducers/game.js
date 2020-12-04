@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ui } from './ui'
 
-
 export const game = createSlice({
   name: 'game',
   initialState: {
@@ -16,7 +15,6 @@ export const game = createSlice({
       const newState = state
       newState.gameState = action.payload
       return newState
-
     },
     setUserName: (state, action) => {
       const newState = state
