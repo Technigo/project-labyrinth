@@ -42,4 +42,4 @@ Learning Objectives:
 
 
 ## View it live
-<!-- link goes here -->
+https://technigo-labyrinth.netlify.app/
