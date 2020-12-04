@@ -1,7 +1,8 @@
 //Tried to make this only as a style since  GameBackground 
 //couldn't be used.
 //Tried to make a new page GamePage where this would be rendered,
-//but trouble with sending coordinates as props because it reads undefined at startpage
+//but trouble with sending coordinates as props because it reads 
+//undefined at startpage (since no coordinates then)
 
 import styled from "styled-components/macro"
 // import { 

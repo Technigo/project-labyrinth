@@ -59,11 +59,8 @@ const DirectionDescription = styled.p`
 export const TheLabyrinth = () => {
   const gameData = useSelector(state => state.game.all.data)
   const username = useSelector(state => state.game.username)
-<<<<<<< HEAD
   const pastMove = useSelector(state => state.game.pastActions)
 
-=======
->>>>>>> hanna
   const isLoading = useSelector(state => state.ui.isLoading)
 
   const carddeck = true
@@ -79,9 +76,7 @@ export const TheLabyrinth = () => {
 
   if (isLoading) {
     return (
-      <CardContainer>
-        <LoadingIndicator />
-      </CardContainer>
+      <LoadingIndicator />
     )
   } else {
     return (

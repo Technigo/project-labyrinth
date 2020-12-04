@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 import { UserInput } from '../components/UserInput'
 import { StartGame } from '../components/StartGame'
 import { TheLabyrinth } from '../components/TheLabyrinth'
+import { LoadingIndicator } from '../components/LoadingIndicator'
 
 export const CardContainer = styled.section`
   box-sizing: border-box;
@@ -15,7 +16,9 @@ export const CardContainer = styled.section`
               0px 1px 3px 0px rgba(0,0,0,.12);
   width: 100%;
   //width: 100vw;
+  max-width: 1024px;
   height: auto;
+  //min-height: 405px;
   margin-bottom: 10px;
 
   // background: #f0e7d1;
@@ -77,8 +80,9 @@ text-align: center;
 
 export const Card = () => {
   const gamePlay = useSelector(state => state.game.all)
-
-  if (!gamePlay.data) {
+  const isLoading = useSelector(state => state.ui.isLoading)
+  
+  if (!gamePlay.data && !isLoading) {
     return (
       <CardContainer>
         <Title>Welcome to the Labyrinth </Title>
@@ -87,6 +91,10 @@ export const Card = () => {
         <Subtitle> Let's begin! </Subtitle>
         <StartGame />
       </CardContainer>
+    )
+  } else if (isLoading) {
+    return (
+      <LoadingIndicator />
     )
   } else {
     return (
