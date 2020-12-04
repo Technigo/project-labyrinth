@@ -139,7 +139,7 @@ const MainWrapper = styled(OuterFlexWrapper)`
   background-size: cover;
   background-position: ${(props) =>
     props.coordinates === '1,3' ? 'right' : 'center'};
-  background-image: url(${(props) =>
+  background-image: ${(props) =>
     props.coordinates === '1,3'
       ? imgURL_1_3
       : props.coordinates === '1,1'
@@ -154,7 +154,7 @@ const MainWrapper = styled(OuterFlexWrapper)`
       ? imgURL_0_1
       : props.coordinates === '0,0'
       ? imgURL_0_0
-      : imgURL_start});
+      : imgURL_start};
 
   // Black & White-filter if needed
   /* filter: ${(props) =>
