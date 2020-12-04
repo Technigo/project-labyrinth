@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
 import { game } from './reducers/game'
-import { loader } from './reducers/loader'
+import { loader } from './reducers/Loader'
 import { GameStart } from './components/GameStart'
 import { GameContainer } from './components/GameContainer'
 import { LoadingIndicator } from './components/LoadingIndicator'

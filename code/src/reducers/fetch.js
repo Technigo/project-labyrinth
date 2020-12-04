@@ -1,5 +1,5 @@
 import { game } from './game'
-import { loader } from './loader'
+import { loader } from './Loader'
 
 export const generateStartMove = () => {
   const START_URL = 'https://wk16-backend.herokuapp.com/start'
