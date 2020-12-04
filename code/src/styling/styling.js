@@ -22,23 +22,21 @@ export const BackgroundContainer = styled.main`
   align-items: center;
   justify-content: center;
   background-image: url(${(props) =>
-    !props.coordinates
-      ? startImage
-      : props.coordinates === "1,3"
-      ? imgUrl_00
-      : props.coordinates === "0,0"
-      ? imgUrl_01
-      : props.coordinates === "0,1"
-      ? imgUrl_02
-      : props.coordinates === "0,2"
-      ? imgUrl_03
-      : props.coordinates === "0,3"
-      ? imgUrl_10
-      : props.coordinates === "1,0"
-      ? imgUrl_11
-      : props.coordinates === "1,1"
+      props.coordinates === "1,3"
       ? imgUrl_13
-      : props.coordinates === "1,3"});
+      : props.coordinates === "0,0"
+      ? imgUrl_00
+      : props.coordinates === "0,1"
+      ? imgUrl_01
+      : props.coordinates === "0,2"
+      ? imgUrl_02
+      : props.coordinates === "0,3"
+      ? imgUrl_03
+      : props.coordinates === "1,0"
+      ? imgUrl_10
+      : props.coordinates === "1,1"
+      ? imgUrl_11 
+      : startImage });
 `;
 
 export const Divider = styled.div`
