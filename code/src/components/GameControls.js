@@ -19,7 +19,6 @@ const GameControls = () => {
     dispatch(game.actions.setLoader(true));
     dispatch(game.actions.setHistory(direction));
   }
-  console.log(gameState)
 
   const restartGame = () => {
     dispatch(game.actions.restartGame())
@@ -58,7 +57,7 @@ const GameControls = () => {
             </MainText>
             )
           })}
-          </History>
+        </History>
         }
       </Background>
   </>

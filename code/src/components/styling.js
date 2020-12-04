@@ -72,22 +72,22 @@ export const Gif = styled.img`
 `;
 
 export const Form = styled.form`
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: space-between;
-width: 100%;
-height: 100px;
-margin: 0 0 12px 0;
-padding: 12px;
-background: #E6E4E4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100px;
+  margin: 0 0 12px 0;
+  padding: 12px;
+  background: #E6E4E4;
 
-@media (min-width: 667px){
-    width: 400px;
-    margin: 40px;
-    padding: 15px;
-    border-radius: 25px;
-  }
+  @media (min-width: 667px){
+      width: 400px;
+      margin: 40px;
+      padding: 15px;
+      border-radius: 25px;
+    }
 `;
 
 export const TextInput = styled.input`

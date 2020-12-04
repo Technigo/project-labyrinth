@@ -17,7 +17,6 @@ body {
 }`;
 
 const reducer = combineReducers({ game: game.reducer });
-// const store = configureStore({ reducer });
 
 // Store the code 
 // 1) Retrieve the local storage and use it as out initial state

@@ -28,7 +28,7 @@ export const game = createSlice({
     setHistory: (state, action) => {
       state.history = [...state.history, action.payload]
     },
-    restartGame: (state, action) => {
+    restartGame: () => {
       return initialState
     }
   }

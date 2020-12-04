@@ -32,7 +32,7 @@ const StartControls = () => {
             onChange={event => onChangeEvent(event.target.value)}>
           </TextInput>
           <Button type='submit'>
-            Enter the labyrinth >>
+            Enter the labyrinth
           </Button>
         </Form>
       </Background>
