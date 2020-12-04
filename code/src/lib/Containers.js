@@ -2,6 +2,7 @@ import styled from 'styled-components/macro'
 
 export const Main = styled.main`
   display: grid;
+  min-height: 100vh;
   grid-template-rows: min-content;
   justify-content: center;
   padding: 10px;
@@ -11,6 +12,7 @@ export const Main = styled.main`
 
   @media (min-width: 768px) {
     grid-template-columns: 1fr;
+    align-content: center;
   }
 
   @media (min-width: 1024px) {
@@ -28,7 +30,7 @@ export const Wrapper = styled.div`
   text-align: center;
 
   @media(min-width:768px) {
-    grid-column: span 2;
+    grid-column: 1;
   }
 
   @media(min-width: 1024px) {
@@ -44,6 +46,7 @@ export const Wrapper = styled.div`
   width: 90%;
   height: auto;
   margin-bottom: 10px;
+  justify-self: center;
 
   background: linear-gradient(to right, #DECBA4, #f0e7d1);
   border-radius: 5px;

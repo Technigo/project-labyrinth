@@ -1,5 +1,3 @@
-
-
 import React from 'react'
 import styled from "styled-components/macro"
 import { useSelector } from 'react-redux'
@@ -22,7 +20,7 @@ import {
 } from '../lib/ImageUrls'
 
 const Title = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1.5em;
   padding: 10px;
   margin: 5px;
   text-align: center;

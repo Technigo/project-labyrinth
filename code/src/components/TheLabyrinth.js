@@ -41,18 +41,26 @@ const DescriptionWrapper = styled.div`
 `
 
 const RoomDescription = styled.p`
-  font-size: 1rem;
+  font-size: 1em;
   text-align: center;
   padding: 5px;
   font-style: italic;
 
   @media (min-width: 768px) {
-    font-size: 1.5rem;
+    font-size: 1.5em;
   }
 
   @media(min-width: 1024px) {
-    font-size: 1.8rem;
+    font-size: 1.8em;
   }
+`
+const PreviousMove = styled.p`
+font-size: 0.7em;
+font-weight: 600;
+
+@media(min-width: 768px) {
+  font-size: 1em;
+}
 `
 
 const DirectionDescription = styled.p`
@@ -88,7 +96,7 @@ export const TheLabyrinth = () => {
 
   const displayLastMove = () => {
     const i = pastMove.length-1
-    return <RoomDescription>You moved {pastMove[i]}</RoomDescription>
+    return <PreviousMove>You moved {pastMove[i]}</PreviousMove>
   }
 
   if (isLoading) {

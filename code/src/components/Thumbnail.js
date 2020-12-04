@@ -18,7 +18,7 @@ const Img = styled.img`
 
 export const Thumbnail = () => {
   return (
-    <Img alt={`Illustration of skull`} src={myImage} />
+    <Img alt={`Bowie as Jareth`} src={myImage} />
   )
 
 }
