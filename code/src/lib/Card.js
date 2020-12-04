@@ -43,7 +43,7 @@ const Bowie = styled.img`
   } 
 `
 
-const Subtitle = styled.p`
+export const Subtitle = styled.h3`
 font-size: 1em;
 color: #000;
 text-align: center;
@@ -90,7 +90,7 @@ export const Card = () => {
               alt={`GIF of Bowie from movie Labyrinth (1986)`}
               src={'https://media.giphy.com/media/y97hzmaDLeO4w/giphy.gif'}
             />
-            <Subtitle> Choose your username </Subtitle>
+            
             <UserInput />
             <Subtitle> Let's begin! </Subtitle>
             <StartGame />

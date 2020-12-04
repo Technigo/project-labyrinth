@@ -6,6 +6,7 @@ import { game } from "reducers/game"
 
 import { Wrapper } from '../lib/Containers'
 import { Button } from "lib/Button"
+import { Subtitle } from '../lib/Card'
 
 const Form = styled.form`
 `
@@ -42,7 +43,7 @@ export const UserInput = () => {
   return (
     <Wrapper>
       <Form onSubmit={handleUserSubmit}>
-        <Label>
+        <Label><Subtitle> Choose your username </Subtitle>
           <InputField
             type="text"
             placeholder="Username"
