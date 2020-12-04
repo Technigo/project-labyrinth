@@ -21,4 +21,4 @@ Tech-stack:
 
 ## View it live
 
-Our live project may be viewed here: https://the-labyrinth-game.netlify.app/
+Our live project may be viewed here:
