@@ -30,7 +30,7 @@ export const GameBoard = () => {
               <>
                 <GameBoardHeader />
                 <GameBoardChoices />
-                <MazeMap coordinates = {coordinates} />
+                <MazeMap inx={x} iny={y} />
                 <PreviousPositions />
                 <GameBoardFooter />  
 

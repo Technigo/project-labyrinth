@@ -8,8 +8,8 @@ body {
 		"Droid Sans", "Helvetica Neue", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	padding: 10px;
-	background-color: #262d31;
+	/* padding: 10px; */
+	background-color: #010507;
 	color: #fff;
 }
 
@@ -24,8 +24,17 @@ code {
 	flex-direction: column;
 	min-height: 100vh;
 	justify-content: center;
+	background-image: url("./assets/startpage.jpg");
+	background-size: cover;
+	background-position: center;
+	width: 100%;
 }
 
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 .start-board-user-input {
 	width: 100%;
 	height: 45px;
@@ -36,6 +45,7 @@ code {
 	font-size: 21px;
 	padding: 5px;
 	text-align: center;
+	max-width: 345px;
 }
 
 input::placeholder {
@@ -118,6 +128,11 @@ input::placeholder {
 	filter: opacity(0.2);
 }
 
+.gameboard-choices {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 .location-current-details-description {
 	font-size: 23px;
 	margin-bottom: 20px;
@@ -176,6 +191,7 @@ input::placeholder {
 
 /*ACTION*/
 .action-wrapper {
+	width: 100%;
 	border: 1px solid #4f585d;
 	padding: 10px;
 	margin: 5px 0px;
@@ -183,8 +199,7 @@ input::placeholder {
 }
 
 .gameboard-action-button,
-.gameboard-end-button,
-.startboard-start-button {
+.gameboard-end-button {
 	width: 100%;
 	height: 30px;
 	cursor: pointer;
@@ -196,9 +211,20 @@ input::placeholder {
 }
 
 .startboard-start-button {
+	width: 100%;
 	height: 45px;
+	max-width: 350px;
+	cursor: pointer;
+	border: none;
+	font-size: 21px;
+	font-family: "Grenze Gotisch", serif;
+	background-color: #475736;
+	color: #fff;
 }
 
+.gameboard-end-button {
+	background-color: #262f34;
+}
 button:hover {
 	background-color: #1d2a37;
 	color: #fff;
@@ -213,6 +239,7 @@ button:hover {
 .gameboard-game-over-sub-description {
 	text-align: center;
 	font-size: 28px;
+	margin: 10px;
 }
 .action-description {
 	font-size: 19px;
@@ -250,6 +277,7 @@ button:hover {
 
 .cell-current-position > .cell-id {
 	color: #262f34;
+	font-weight: bold;
 }
 
 .maze-map {
@@ -306,14 +334,23 @@ button:hover {
 	.location-current-details-description {
 		font-size: 30px;
 	}
-
+	.gameboard-wrapper {
+		max-width: 70%;
+	}
 	.action-description {
 		font-size: 22px;
 	}
 
+	.action-wrapper {
+		width: 540px;
+	}
 	.cell,
 	.cell-current-position {
 		height: 45px;
 		width: 45px;
+	}
+
+	.previous-steps-header {
+		font-size: 20px;
 	}
 }

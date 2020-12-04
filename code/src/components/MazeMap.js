@@ -1,11 +1,10 @@
 import React from 'react';
 import { Compass } from './Compass';
 
-export const MazeMap = ({coordinates}) => {
+export const MazeMap = ({inx,iny}) => {
 
-  const coordinatesArray = coordinates.split(',');
-  const x = parseInt(coordinatesArray[0]);
-  const y = parseInt(coordinatesArray[1]);
+  const x = parseInt(inx);
+  const y = parseInt(iny);
   const rows = [0,1];
   const columns = [0,1,2,3];
 
