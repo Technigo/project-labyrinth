@@ -3,7 +3,7 @@
 This week we were doing a pair-programming project and the assignment was to build a Labyrinth game in React Redux fetching the data from an API. 
 The group contained of Anna Hellqvist and Agnes Harrysson Hansson. 
 
-## Learning Objectives
+## Learning Objectives :pencil2:
 
 How to structure the Redux store to suit the data
 
