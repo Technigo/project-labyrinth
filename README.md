@@ -16,8 +16,8 @@ Based on user choices, the state of the game will update. Then, a new descriptio
 * Styled components
 
 ## View it live
-
-Wanna play?
+### _"It's only forever, not long at all.."_
+<a href="https://the-labyrinth.netlify.app">Wanna Play?</a>
 
 ## Authors and contact
 This project was made as a group assignment.
