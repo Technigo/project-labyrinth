@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-import fox from '../assets/fox_1.svg'
+import fox from '../assets/fox_1.svg';
 
 const AvatarPlaceholder = styled.div`
   grid-area: avatar;
@@ -14,12 +14,11 @@ const AvatarPlaceholder = styled.div`
 `;
 
 const Image = styled.img`
-  width: 80px;
+  width: 70px;
 
   @media (min-width: 768px) {
     width: 160px;
   }
-  
 `;
 
 export const Avatar = () => {

@@ -8,6 +8,7 @@ import { Avatar } from "./Avatar";
 import { Direction } from "./Direction";
 import { ActionDescription } from "./ActionDescription";
 import { BackOrRestart } from './BackOrRestart';
+import { Fireworks } from './Fireworks';
 
 const BoardGrid = styled.div`
   height: 80vh;
@@ -31,14 +32,17 @@ export const Board = () => {
   return (
     <>
       {!isLoading && stateUsername && (
-        <BoardGrid>
-          <Status />
-          <Description />
-          <Avatar />
-          <Direction />
-          <ActionDescription />
-          <BackOrRestart />
-        </BoardGrid>
+        <>
+          <BoardGrid>
+            <Status />
+            <Description />
+            <Avatar />
+            <Direction />
+            <ActionDescription />
+            <BackOrRestart />
+          </BoardGrid>
+          <Fireworks />
+        </>
       )}
     </>
   );

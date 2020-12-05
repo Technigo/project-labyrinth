@@ -69,7 +69,7 @@ export const SmallText = styled(Text)`
   margin: 0 0 5px 0;
 
   @media (min-width: 768px) {
-    font-size: 13px;
+    font-size: 15px;
     margin: 0 0 15px 0;
   }
 `;

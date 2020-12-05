@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 import { game } from "../reducers/game";
 import { startGameFetch } from "../reducers/reusable";
 
+import { Fireworks } from './Fireworks';
 import { CenteredScreen, Button, StartText, Text } from '../lib/Styling';
+
+const CenteredStartScreen = styled(CenteredScreen)`
+  position: relative;
+`;
 
 const InsertUsername = styled.input`
   padding: 10px;
@@ -32,7 +37,8 @@ export const Start = () => {
   return (
     <>
       {!stateUsername && (
-        <CenteredScreen>
+        <CenteredStartScreen>
+          <Fireworks />
           <StartText>
             Welcome to the labyrinth!
           </StartText>
@@ -51,7 +57,7 @@ export const Start = () => {
           <Button onClick={onUsernameChange}>
             Start the game
           </Button>
-        </CenteredScreen>
+        </CenteredStartScreen>
       )}
     </>
   );
