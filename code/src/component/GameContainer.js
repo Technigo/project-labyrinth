@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Typewriter } from 'react-typewriting-effect';
 import 'react-typewriting-effect/dist/index.css';
+import Zoom from 'react-reveal/Zoom';
 
 import { GameStartContainer } from './GameStartContainer'
 import { game } from '../reducers/game';
@@ -9,7 +10,7 @@ import { generateNewDirection } from '../reducers/reusable';
 import { generateGameStart } from '../reducers/reusable';
 import { Wrapper } from '../styling/typewriter';
 import { GameScreen, DescriptionText, ButtonsContainer, MoveButton } from '../styling/gamecontainer';
-
+import Compass from '../img/compass.png';
 
 export const GameContainer = () => {
     const dispatch = useDispatch();
@@ -50,6 +51,9 @@ export const GameContainer = () => {
     if(fetching || timing) {
         return (
             <Wrapper>
+                 <Zoom> 
+                    <img src={Compass} alt='wind-rose' height='200px'/>
+                </Zoom>
                 <Typewriter 
                     string={actionDescription} 
                     delay={20}
