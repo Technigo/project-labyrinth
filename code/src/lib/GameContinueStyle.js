@@ -10,13 +10,17 @@ export const Section = styled.div`
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: center;
+  align-items: space-between;
 `;
 
 export const Text = styled.p`
+  display: flex;
+  justify-content: center;
   font-size: 18px;
   width: 100%;
+  text-align: center;
+  
 `;
 
 export const Button = styled.button`
@@ -28,15 +32,15 @@ export const Button = styled.button`
 export const Description = styled.p`
   font-size: 15px;
   padding: 10px;
-  width: 200px;
+  height: 45%;
 `;
 
 export const Wrapper = styled.div`
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
+  align-items: center;
   width: 45%;
   flex-direction: column;
-  min-height: 25%
 `;
 
 export const GameButtonWrapper = styled.div`

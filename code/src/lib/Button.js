@@ -7,5 +7,6 @@ export const GameButton = styled.button`
     background-color: #eeff41;
     text-transform: uppercase;
     font-size: 16px;
-`
+    margin-top: 7px;
+`;
 
