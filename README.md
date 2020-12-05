@@ -10,5 +10,5 @@ Describe how you approached to problem, and what tools and techniques you used t
  If we had more time we would implemnet a go back button and a visual presentation of the maze map.
 
 ## View it live
-
+https://blissful-noether-c5e8fc.netlify.app/
 
