@@ -24,4 +24,4 @@ export const Loader = () => {
       />
     </LoaderContainer>
   );
-}
+};
