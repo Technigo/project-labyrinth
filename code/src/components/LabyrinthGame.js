@@ -4,7 +4,7 @@ import Granim from 'react-granim'
 
 import { fetchLabyrinthData, fetchDirectionData } from "../reducers/labyrinth";
 
-import { PlayerInput } from "./PlayerInput";
+import { PlayerInput } from "./PlayerInput"
 import { StartLabyrinthButton } from "./StartLabyrinthButton";
 import { DirectionButtons } from "./DirectionButtons";
 
