@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { Button } from './Button';
 import { game } from '../reducers/game';
+import { Button } from './Button';
 import { StartGameScreen, StartGameCard, StartText, Input } from '../styling/startscreen';
 
 export const GameStartContainer = () => {
@@ -11,8 +11,8 @@ export const GameStartContainer = () => {
 
     // Update store with given username
     const setUserName = () => {
-    dispatch(game.actions.updateUserName(inputValue));
-}
+        dispatch(game.actions.updateUserName(inputValue));
+    }
 
     return (
         <StartGameScreen>

@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
 import { Typewriter } from 'react-typewriting-effect';
-import 'react-typewriting-effect/dist/index.css';
-import '@lottiefiles/lottie-player';
 
 import { GameStartContainer } from './GameStartContainer'
 import { game } from '../reducers/game';
@@ -21,12 +18,8 @@ export const GameContainer = () => {
     const gameStore = useSelector(store => store.game);
     const username = useSelector(store => store.game.username);
     const description = useSelector(store => store.game.description);
-
-
     const fetching = useSelector(store => store.game.fetching);
     const timing = useSelector(store => store.game.timer);
-    
-
     
     const onGameGenerate = () => {
         // Runs the fetch function generateGameStart from reusable
@@ -34,22 +27,17 @@ export const GameContainer = () => {
     }
 
     // onGameGenerate renders when username is updated
-        // onGameGenerate renders when username is updated
     useEffect(onGameGenerate, [username])
-
 
     const onGameMoveUpdate = (action) => {
         setActionDescription(action.description)
         onTimer();
+
         // Runs fetch function generateNewDirection with action prop from reusable
         dispatch(generateNewDirection(action));
     }
 
-/*     const onHistoryBack = () => {
-        // Not implemented yet but should return history
-        dispatch(game.actions.historyGoBack());
-    } */
-
+    // Set timer to true when funtions start and after 7 sec sets it to false.
     const onTimer = () => {
         dispatch(game.actions.setTimer(true))
         setTimeout(() => {
@@ -57,48 +45,39 @@ export const GameContainer = () => {
         }, 7000);
     }
 
+    //If the fetch or timer is still going, render the choosen action description.
     if(fetching || timing) {
         return (
             <Wrapper>
-                <lottie-player
-                autoplay
-                    loop
-                    mode="normal"
-                    src={'https://assets10.lottiefiles.com/packages/lf20_RYwVrc.json'}
-                    style={{ height: 200 }}
-                    />
                 <Typewriter 
                     string={actionDescription} 
-                    delay={20}/>
+                    delay={20}
+                />
             </Wrapper>
         )
     }
 
-    // When there is a description display description, direction and go back buttons.
+    // When there is a description render description, direction and go back buttons.
     if(description) {
         return (
             <GameScreen>
                 <DescriptionText>{gameStore.description}</DescriptionText>
-                {/* <Button
-                    onButtonClick={onHistoryBack}
-                    text='Go Back'
-                /> */}
                 <ButtonsContainer>
                     {gameStore.direction.map(action => {
                         return (
-                                <MoveButton
-                                    key={action.description}
-                                    onClick={() => onGameMoveUpdate(action)}
-                                >
-                                    Go {action.direction}
-                                </MoveButton>
+                            <MoveButton
+                                key={action.description}
+                                onClick={() => onGameMoveUpdate(action)}
+                            >
+                                Go {action.direction}
+                            </MoveButton>
                         )
                     })}
                 </ButtonsContainer>
             </GameScreen>
         )} 
     
-    // When game is not started display first page with username input field & start game button
+    // When game is not started render first page with username input field & start game button
     return (
         <GameStartContainer />
     );
