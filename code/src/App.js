@@ -34,6 +34,7 @@ export const App = () => {
 const Wrapper = styled.main`
   display: flex;
   flex-direction: column;
+  background: blue;
   justify-content: space-around;
   align-items: center;
   margin-top: 20px;
