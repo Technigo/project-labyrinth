@@ -11,14 +11,13 @@ export const GameContinue = () => {
   const userName = useSelector((store) => store.game.userName);
   const games = useSelector((store) => store.game.gameDetails);
   const loader = useSelector(store => store.game.isLoading);
-  //const history = useSelector((store) => store.game.history);
+
   
 
   
   const nextStep = direction => {
     dispatch(chooseNextStep(userName, direction));
     dispatch(game.actions.setLoader(true));
-    //dispatch(game.actions.setHistory(direction));
   }
   const restartGame = () => {
     dispatch(game.actions.restartGame())

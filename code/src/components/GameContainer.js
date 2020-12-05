@@ -1,5 +1,4 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { GameContinue } from './GameContinue';
 import { StartGameContainer } from '../lib/GameContainerStyle';
