@@ -8,8 +8,6 @@ const DescriptionContainer = styled.div`
   display: flex;
 `;
 
-const DescriptionText = styled.p``;
-
 export const ActionsDescription = () => {
   const actionDescription = useSelector((store) => store.game.play.actions);
   console.log(`Actions array: ${actionDescription}`);

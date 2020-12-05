@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { Coordinates } from "components/Coordinates";
 import { Actions } from "./Actions";
 import { Button } from "lib/Button";
-import { ActionsDescription } from "components/ActionsDescription";
+
 // import { LoadingIndicator } from "components/LoadingIndicator"
 
 const Description = styled.div`

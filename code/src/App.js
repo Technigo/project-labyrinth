@@ -9,7 +9,7 @@ import { ui } from "./reducers/ui";
 // -- components --
 import { GameDescription } from "./components/GameDescription";
 import { LoadingIndicator } from "./components/LoadingIndicator";
-import { Input } from "./components/Input";
+
 import { Header } from "./components/Header";
 
 const reducer = combineReducers({
