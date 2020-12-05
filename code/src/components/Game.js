@@ -75,8 +75,10 @@ const GamePage = () => {
                           className="nes-dialog is-rounded"
                           id="dialog-rounded"
                         >
-                          <DirectionText className="title">{`Looking ${gameData.actions[directionIndex].direction}:`}</DirectionText>
-                          <DirectionText>{gameData.actions[directionIndex].description}</DirectionText>
+                          <DirectionText>
+                            <p className="title">{`Looking ${gameData.actions[directionIndex].direction}:`}</p>
+                            <p>{gameData.actions[directionIndex].description}</p>
+                          </DirectionText>
                           <Menu className="dialog-menu">
                             <Button
                               click={toggleDialog}
