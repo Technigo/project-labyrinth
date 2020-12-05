@@ -11,6 +11,8 @@ import { Button } from './Button';
 import { NameInput } from './NameInput';
 import { DirectionButtons } from './DirectionButtons';
 import { Header } from './Header';
+import { Footer } from './Footer';
+import { History } from './History';
 
 // Styling & Images
 import { InnerFlexWrapper, OuterFlexWrapper } from '../styling/GlobalStyles';
@@ -32,9 +34,15 @@ export const Labyrinth = ({ setCurrentCoordinates }) => {
   const content = useSelector((store) => store.labyrinth.content);
   const username = useSelector((store) => store.labyrinth.username);
   const isLoading = useSelector((state) => state.ui.isLoading);
+  const filteredHistory = useSelector((state) =>
+    state.labyrinth.history.filter((item) => item.direction !== undefined)
+  );
+
+  console.log(filteredHistory);
 
   const [startButtonVisible, setStartButtonVisible] = useState(false);
   const [nameInputVisible, setNameInputVisible] = useState(true);
+  const [historyVisible, setHistoryVisible] = useState(false);
 
   // Check if username is stored in local storage
   const currentUsername = localStorage.getItem('username')
@@ -46,10 +54,10 @@ export const Labyrinth = ({ setCurrentCoordinates }) => {
     dispatch(labyrinth.actions.setUsername(''));
     localStorage.setItem('labyrinth', '{}');
     localStorage.setItem('username', '');
+    localStorage.setItem('history', '[]');
     window.location.reload();
   };
 
-  console.log(content.coordinates);
   // Send current coordinates to parent component for styling
   setCurrentCoordinates(content.coordinates);
 
@@ -95,7 +103,7 @@ export const Labyrinth = ({ setCurrentCoordinates }) => {
             <TreasureImage src="./assets/diamond-icon.png" />
           )}
 
-          {/* Descriptive text */}
+          {/* Main Description text */}
           <DescriptionText>{content.description}</DescriptionText>
 
           {/* Direction-buttons */}
@@ -124,6 +132,16 @@ export const Labyrinth = ({ setCurrentCoordinates }) => {
             <Button text="Restart journey" action={handleRestartButton} />
           )}
         </InnerWrapper>
+
+        {/* Show steps taken previously by the user */}
+        {historyVisible && (
+          <History
+            history={filteredHistory}
+            setHistoryVisible={setHistoryVisible}
+          />
+        )}
+
+        <Footer setHistoryVisible={setHistoryVisible} />
       </MainWrapper>
     )
   );
@@ -155,15 +173,6 @@ const MainWrapper = styled(OuterFlexWrapper)`
       : props.coordinates === '0,0'
       ? imgURL_0_0
       : imgURL_start};
-
-  // Black & White-filter if needed
-  /* filter: ${(props) =>
-    props.coordinates === '1,3' ? 'grayscale(100)' : ''}; */
-
-  & p {
-    line-height: 1.4;
-    color: #fff;
-  }
 `;
 
 const InnerWrapper = styled.div`
@@ -175,6 +184,7 @@ const InnerWrapper = styled.div`
 
 const IntroText = styled.p`
   font-size: 36px;
+  color: #fff;
 `;
 
 const TreasureImage = styled.img`
@@ -208,6 +218,8 @@ const ActionText = styled.p`
   font-style: italic;
   margin-bottom: 20px;
   max-width: 600px;
+  line-height: 1.4;
+  color: #fff;
 
   @media (max-width: 376px) {
     font-size: 9px;
