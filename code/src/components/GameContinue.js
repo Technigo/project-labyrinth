@@ -10,7 +10,6 @@ export const GameContinue = () => {
   const dispatch = useDispatch();
   const userName = useSelector((store) => store.game.userName);
   const games = useSelector((store) => store.game.gameDetails);
-  const gameArray = useSelector((store) => store.game.gameDetails.actions)
   const loader = useSelector(store => store.game.isLoading);
   //const history = useSelector((store) => store.game.history);
   
@@ -50,5 +49,5 @@ export const GameContinue = () => {
       </Container>
       <GameButton onClick={() => restartGame()}>restart</GameButton>
     </Section> 
-  )
-}
+  );
+};

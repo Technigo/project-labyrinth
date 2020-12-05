@@ -3,11 +3,10 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { GameContinue } from './GameContinue';
 import { StartGameContainer } from '../lib/GameContainerStyle';
-import { GameStart } from './GameStart'
+import { GameStart } from './GameStart';
 
 
 const GameContainer = () => {
-    const dispatch = useDispatch();
     const gameStart = useSelector((store) => store.game.isGameStarted); 
 
     return (
@@ -16,7 +15,7 @@ const GameContainer = () => {
             {gameStart ? <GameContinue /> : <></>}
             
         </StartGameContainer>
-    )
-}
+    );
+};
 
 export default GameContainer;

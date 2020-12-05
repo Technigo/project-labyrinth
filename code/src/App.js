@@ -1,7 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import thunk from 'redux-thunk';
 import { game } from './reducers/game';
 import GameContainer from 'components/GameContainer';
 

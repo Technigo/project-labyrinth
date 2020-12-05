@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { game } from '../reducers/game';
 import { startFetch } from '../reducers/reusable';
 import { GameHeader } from '../lib/GameContainerStyle';
@@ -10,7 +9,6 @@ import { InputForm } from '../lib/GameStartStyle';
 export const GameStart = () => {
     const [userNameInput, setUserNameInput] = useState("");
     const dispatch = useDispatch();
-    const userName = useSelector(store => store.game.userName)
     const gameDetails = useSelector(store => store.game.gameDetails)
     
     const handleSubmit = e => {
@@ -34,10 +32,10 @@ export const GameStart = () => {
                 placeholder='Type username'
                 onChange={e => setUserNameInput(e.target.value)}
             />
-            <GameButton onClick={handleSubmit} width={100}>Let's go!</GameButton>
+            <GameButton onClick={handleSubmit} width={100} disabled={!userNameInput}>Let's go!</GameButton>
         </InputForm>
         </section>
         )}
         </>
-    )
-}    
+    );
+};    

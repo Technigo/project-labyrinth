@@ -1,13 +1,11 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week's pair-programming project was to build a text based labyrinth game using React redux. When the game is started the user is presented with a few diffrerent direction options to move towards and based on the users choice the next step is generated. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We had some issues with fetching the games data from the API and in the end we noticed that the problem was due to a naming error in the function that was executing the fetch. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+
