@@ -22,6 +22,7 @@ const dots = keyframes`
 
 const Loader = styled.div`
   font-size: 24px;
+  width: 100px;
 
   &::after {
     content: "...";
