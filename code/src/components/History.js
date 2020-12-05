@@ -6,11 +6,14 @@ export const History = () => {
 
   return (
     <div>
-      {history.map((item) => (
-        <p>
-          {item.type}d {item.direction}
-        </p>
-      ))}
+      {history
+        .slice(-9)
+        .reverse()
+        .map((item) => (
+          <p>
+            {item.type}d {item.direction}
+          </p>
+        ))}
     </div>
   );
 };
