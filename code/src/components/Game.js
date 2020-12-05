@@ -155,6 +155,7 @@ const DirectionText = styled.p`
 const Dialog = styled.dialog`
   margin-top: 20px;
   max-width: 600px;
+  width: 100%;
   left: 0;
   z-index: 1;
 
