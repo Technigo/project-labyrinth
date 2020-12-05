@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Action } from "./Action";
 import styled from "styled-components/macro";
 import { History } from "./History";
+import { BoldText } from "lib/Text";
 
 const GameContainer = styled.div`
   width: 700px;
@@ -33,10 +34,20 @@ export const GameState = () => {
   return (
     <GameContainer>
       <TopContainer>
-        <p>{username && `Player: ${username}`}</p>
-        <p>{coordinates && `Your coordinates: ${coordinates}`}</p>
-        <p>{description && description}</p>
-        <p>{actions.length > 0 && `You have ${actions.length} option(s):`}</p>
+        {username && (
+          <p>
+            <BoldText>Player: </BoldText>
+            {username}
+          </p>
+        )}
+        {coordinates && (
+          <p>
+            <BoldText>Your coordinates: </BoldText>
+            {coordinates}
+          </p>
+        )}
+        {description && <p>{description}</p>}
+        {actions.length > 0 && <h3>You have {actions.length} option(s):</h3>}
       </TopContainer>
 
       <BottomContainer>
