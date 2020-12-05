@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Typewriter } from 'react-typewriting-effect';
+import 'react-typewriting-effect/dist/index.css';
 
 import { GameStartContainer } from './GameStartContainer'
 import { game } from '../reducers/game';

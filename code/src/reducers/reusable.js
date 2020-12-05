@@ -20,7 +20,7 @@ export const generateGameStart = () => {
 // Fetch coordinates, description & direction
 export const generateNewDirection = (action) => {    
     return (dispatch, getStore) => {
-        dispatch(game.actions.setFetching(true));;
+        dispatch(game.actions.setFetching(true));
         fetch('https://wk16-backend.herokuapp.com/action', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
