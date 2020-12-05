@@ -1,14 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import Granim from 'react-granim'
-
 
 export const Text = styled.p`
   color: #8A2BE2;
   font-size: 20px;
   margin-left: 20px;
   margin-right: 20px; 
+  font-family: 'Kaushan Script';
 `;
 
 export const Container = styled.div`
@@ -40,5 +39,4 @@ export const InputContainer = styled.div`
   color: #F67B50;
   font-size: 28px;
   width: 100%;
-
-`
+`;
