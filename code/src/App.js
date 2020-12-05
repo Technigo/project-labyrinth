@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Provider } from "react-redux";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import styled from "styled-components"
+import Granim from 'react-granim'
 
 
 import { GameLoading } from "components/GameLoading";
@@ -9,6 +10,7 @@ import { LabyrinthGame } from "components/LabyrinthGame";
 
 import { labyrinth } from "./reducers/labyrinth";
 import { ui } from "./reducers/ui";
+
 
 
 const reducer = combineReducers({
@@ -32,8 +34,13 @@ export const App = () => {
 };
 
 const Wrapper = styled.main`
-  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
   height: 100%;
+  margin-top: 20px;
 `;
+
 

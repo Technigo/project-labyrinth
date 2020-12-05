@@ -1,13 +1,19 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
+import { DirectionButton } from "styling/lib/Buttons"
+import { InnerContainer, Text } from "styling/GlobalStyle"
+
+
 export const DirectionButtons = ({ direction, action }) => {
   const dispatch = useDispatch();
 
   return (
-    <button onClick={(event) => dispatch(action(event))} 
+    <InnerContainer>
+    <DirectionButton onClick={(event) => dispatch(action(event))} 
       direction={direction}>
-      <p direction={direction}>Go {direction}</p>
-    </button>
+      <Text direction={direction}>Go {direction}</Text>
+    </DirectionButton>
+    </InnerContainer>
   );
 };

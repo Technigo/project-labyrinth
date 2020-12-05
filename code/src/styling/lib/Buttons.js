@@ -1,12 +1,20 @@
 import styled from "styled-components"
 
 
+export const DirectionButton = styled.button`
+  border: 2px solid #06A10B; 
+  padding: 20px;
+  width: 100%;
+  background-color: #ffffff;
+  color: #06A10B;
+  font-size: 18px;
+`;
+
 export const StartButton = styled.button`
-  border: 2px solid #4CAF50; 
-  margin: 10px;
+  border: 2px solid #06A10B; 
   padding: 10px;
-  width: 40%;
-  background-color: white;
-  color: #4CAF50;
+  width: 100%;
+  background-color: #ffffff;
+  color: #8A2BE2;
   font-size: 18px;
 `;

@@ -1,15 +1,14 @@
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+
+import Granim from 'react-granim'
 
 
-export const Canvas = styled.canvas`
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+export const Text = styled.p`
+  color: #8A2BE2;
+  font-size: 20px;
+  margin-left: 20px;
+  margin-right: 20px; 
 `;
 
 export const Container = styled.div`
@@ -17,7 +16,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0;
+  margin-top: 50px;
 `;
 
 export const InnerContainer = styled.div`
@@ -25,14 +24,13 @@ export const InnerContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  width: 100%;
 `;
 
 export const StartContainer = styled.div`
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 `;
 
 export const InputContainer = styled.div`
@@ -41,6 +39,6 @@ export const InputContainer = styled.div`
   justify-content: center;
   color: #F67B50;
   font-size: 28px;
-  width: 60%;
+  width: 100%;
 
 `

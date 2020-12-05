@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from 'styled-components'
-import Granim from "react-granim";
+
 
 import { labyrinth } from "reducers/labyrinth";
 
@@ -28,10 +28,10 @@ export const PlayerInput = ({ setStartButtonVisible }) => {
     align-items: center;
     border: none;
     background-color: none;
-    margin-bottom: 40px;
-    margin-top: 40px;
+    margin-bottom: 50px;
+    margin-top: 50px;
     border-bottom: 2px solid #FBC490;
-    width: 50%;
+    width: 100%;
       &:focus {
         outline: none;
     }
@@ -46,7 +46,7 @@ export const PlayerInput = ({ setStartButtonVisible }) => {
   return (
     <InputContainer>
       <Label>
-        Who is playing?
+        Enter your name
         <TextInput
           type="text"
           value={username}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-
+import Granim from 'react-granim'
 
 import { fetchLabyrinthData, fetchDirectionData } from "../reducers/labyrinth";
 
@@ -8,7 +8,7 @@ import { PlayerInput } from "./PlayerInput";
 import { StartLabyrinthButton } from "./StartLabyrinthButton";
 import { DirectionButtons } from "./DirectionButtons";
 
-import { Container, InnerContainer, StartContainer } from "styling/GlobalStyle";
+import { Container, InnerContainer, StartContainer, Text } from "styling/GlobalStyle";
 
 export const LabyrinthGame = ({ setGameCoordinates }) => {
   const description = useSelector((store) => store.labyrinth.content);
@@ -30,20 +30,21 @@ export const LabyrinthGame = ({ setGameCoordinates }) => {
             {nameInputVisible && (
               <PlayerInput setStartButtonVisible={setStartButtonVisible} />
             )}
+            
             {startButtonVisible && (
+              
               <StartContainer>
-                <p>Leave them all behind</p>
+                <Text>Leave them all behind</Text>
                 <StartLabyrinthButton
                   action={() => fetchLabyrinthData(username)}
-                  text="Go"
-                />
+                  text="Go!"
+                  />
               </StartContainer>
+              
             )}
           </>
         )}
-
-        <p>{description.description}</p>
-
+        <Text>{description.description}</Text>
         {description.coordinates && (
           <p>Coordinates:{description.coordinates}</p>
         )}
