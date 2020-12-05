@@ -76,7 +76,7 @@ const GamePage = () => {
                           id="dialog-rounded"
                         >
                           <p className="title">{`Looking ${gameData.actions[directionIndex].direction}:`}</p>
-                          <p>{gameData.actions[directionIndex].description}</p>
+                          <DirectionText>{gameData.actions[directionIndex].description}</DirectionText>
                           <Menu className="dialog-menu">
                             <Button
                               click={toggleDialog}
@@ -138,6 +138,9 @@ const Menu = styled.menu`
   display: flex;
   justify-content: space-evenly;
   margin-top: 20px;
+`;
+
+const DirectionText = styled.p`
   background: rgba(255, 255, 255, 0.5);
   color: #000;
 
@@ -145,7 +148,7 @@ const Menu = styled.menu`
     background: unset;
     color: unset;
   }
-`;
+`
 
 const Dialog = styled.dialog`
   margin-top: 20px;
