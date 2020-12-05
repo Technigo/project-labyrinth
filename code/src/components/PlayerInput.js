@@ -8,6 +8,7 @@ import { labyrinth } from "reducers/labyrinth";
 import { InputContainer } from "styling/GlobalStyle"
 import { StartButton } from "styling/lib/Buttons"
 
+
 export const PlayerInput = ({ setStartButtonVisible }) => {
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
@@ -22,27 +23,6 @@ export const PlayerInput = ({ setStartButtonVisible }) => {
     setStartButtonVisible(true);
   };
 
-  const TextInput = styled.input`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    background-color: none;
-    margin-bottom: 50px;
-    margin-top: 50px;
-    border-bottom: 2px solid #FBC490;
-    width: 100%;
-      &:focus {
-        outline: none;
-    }
-  `;
-  const Label = styled.label`
-  display: box;
-  align-items: center;
-  justify-content: center;
-  }
-`
-
   return (
     <InputContainer>
       <Label>
@@ -54,8 +34,31 @@ export const PlayerInput = ({ setStartButtonVisible }) => {
         />
       </Label>
       <StartButton type="submit" onClick={(event) => handleSubmitName(event)}>
+        
         Inner Trip Center
       </StartButton>
     </InputContainer>
   );
 };
+
+const TextInput = styled.input`
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+border: none;
+background-color: none;
+margin-bottom: 50px;
+margin-top: 50px;
+border-bottom: 2px solid #FBC490;
+width: 100%;
+  &:focus {
+    outline: none;
+}
+`;
+const Label = styled.label`
+display: box;
+align-items: center;
+justify-content: center;
+}
+`
