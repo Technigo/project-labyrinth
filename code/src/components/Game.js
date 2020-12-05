@@ -138,7 +138,7 @@ const Menu = styled.menu`
   display: flex;
   justify-content: space-evenly;
   margin-top: 20px;
-  background: rgba(255, 255, 255, 0.5)
+  background: rgba(255, 255, 255, 0.5);
   color: #000;
 
   @media (min-width: 768px) {
