@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import '@lottiefiles/lottie-player';
+import "@lottiefiles/lottie-player";
 
 export const Fireworks = () => {
   const coordinates = useSelector((state) => state.game.currentStep.coordinates);
@@ -12,13 +12,13 @@ export const Fireworks = () => {
           autoplay
           loop
           mode="normal"
-          src={'https://assets7.lottiefiles.com/packages/lf20_prbevyxv.json'}
+          src={"https://assets7.lottiefiles.com/packages/lf20_prbevyxv.json"}
           style={{
-            position: 'absolute',
-            zIndex: '1',
-            width: '100%',
-            height: '100%',
-            textAlign: 'center',
+            position: "absolute",
+            zIndex: "1",
+            width: "100%",
+            height: "100%",
+            textAlign: "center",
           }}>
         </lottie-player>
       )}

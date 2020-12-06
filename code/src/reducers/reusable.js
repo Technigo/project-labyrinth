@@ -1,5 +1,5 @@
 import { game } from "./game";
-import { ui } from './ui';
+import { ui } from "./ui";
 
 export const startGameFetch = (username) => {
   return (dispatch) => {

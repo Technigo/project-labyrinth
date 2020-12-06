@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styled from 'styled-components/macro';
+import styled from "styled-components/macro";
 
 import { game } from "../reducers/game";
 import { startGameFetch } from "../reducers/reusable";
 
-import { Fireworks } from './Fireworks';
-import { CenteredScreen, Button, StartText, Text } from '../lib/Styling';
+import { Fireworks } from "./Fireworks";
+import { CenteredScreen, Button, StartText, Text } from "../lib/Styling";
 
 const CenteredStartScreen = styled(CenteredScreen)`
   position: relative;
@@ -24,8 +24,8 @@ export const Start = () => {
   const dispatch = useDispatch();
 
   const onUsernameChange = (event) => {
-    if (username === '') {
-      alert('Please choose a name!')
+    if (username === "") {
+      alert("Please choose a name!")
     } else {
       dispatch(game.actions.enterUsername(username));
       dispatch(startGameFetch(username));
