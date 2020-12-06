@@ -17,7 +17,7 @@ export const History = () => {
 
   return (
     <HistoryContainer>
-      <HistoryHeading>Actions:</HistoryHeading>
+      {history.length > 0 && <HistoryHeading>Actions:</HistoryHeading>}
       {history
         .slice(-9)
         .reverse()
