@@ -3,7 +3,7 @@ import styled from "styled-components/macro"
 import { useDispatch, useSelector } from 'react-redux'
 
 import { game } from "../reducers/game";
-import { Button } from "lib/Button";
+import { Button } from "../lib/Button";
 
 const HeaderWrapper = styled.section`
   display: grid;
