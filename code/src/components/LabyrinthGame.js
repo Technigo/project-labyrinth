@@ -24,6 +24,7 @@ export const LabyrinthGame = ({ setGameCoordinates }) => {
   const [nameInputVisible] = useState(true);
 
   setGameCoordinates(description.coordinates);
+  
 
   return (
     loading === false && (

@@ -23,7 +23,7 @@ export const App = () => {
   return (
     <>
       <Header />
-      <Wrapper>
+      <Wrapper coordinates={gameCoordinates}>
         <Provider store={store}>
           <GameLoading />
           <LabyrinthGame setGameCoordinates={setGameCoordinates} />
