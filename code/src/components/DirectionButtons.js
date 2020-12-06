@@ -42,6 +42,7 @@ const Arrow = styled.span`
 `;
 
 const DirectionButton = styled.button`
+  z-index: 2;
   background: none;
   border: none;
   margin: 0;

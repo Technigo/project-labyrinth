@@ -24,9 +24,8 @@ export const labyrinth = createSlice({
     setUsername: (state, action) => {
       state.username = action.payload;
     },
-    setHistory: (state, action) => {
+    setStepHistory: (state, action) => {
       const addedHistory = [action.payload, ...state.history];
-
       state.history = addedHistory;
       localStorage.setItem('history', JSON.stringify(addedHistory));
     },
@@ -50,9 +49,13 @@ export const fetchLabyrinthData = ({ url, username, type, direction }) => {
       .then((results) => results.json())
       .then((json) => {
         dispatch(labyrinth.actions.setLabyrinthData(json));
-        dispatch(
-          labyrinth.actions.setHistory({ direction: direction, data: json })
-        );
+        console.log(json);
+
+        if (url.includes('action')) {
+          dispatch(
+            labyrinth.actions.setStepHistory(direction) // If we want all history, we add data; json here
+          );
+        }
         dispatch(ui.actions.setLoading(false));
       });
   };

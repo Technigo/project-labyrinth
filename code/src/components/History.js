@@ -1,18 +1,33 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { useSelector } from 'react-redux';
 
 import { MainButton } from '../styling/GlobalStyles';
 
 export const History = ({ history, setHistoryVisible }) => {
   const actualHistory = localStorage.getItem('history')
     ? JSON.parse(localStorage.getItem('history'))
-    : history;
+    : history.console.log(history);
+  console.log(actualHistory);
+
+  const amountOfSteps = actualHistory.length;
+  console.log(amountOfSteps);
+
   return (
     <HistoryWrapper>
-      <HistoryText>Your previous moves:</HistoryText>
-      {actualHistory.map((step, index) => (
-        <HistoryText key={index}>{step.direction}</HistoryText>
-      ))}
+      {actualHistory.length > 0 ? (
+        <HistoryStepsTextBox>
+          {actualHistory.map((step, index) => {
+            return (
+              <HistoryStepsText key={index} amountOfSteps={amountOfSteps}>
+                {step}
+              </HistoryStepsText>
+            );
+          })}
+        </HistoryStepsTextBox>
+      ) : (
+        <HistoryText>You haven't taken any steps </HistoryText>
+      )}
       <MainButtonBlack onClick={() => setHistoryVisible(false)}>
         Close
       </MainButtonBlack>
@@ -31,11 +46,40 @@ const HistoryWrapper = styled.div`
   background: #fff;
 `;
 
-const HistoryText = styled.p`
-  color: #000 !important;
+const HistoryStepsTextBox = styled.p`
+  max-width: 80%;
+`;
+
+const HistoryText = styled.span`
+  font-family: 'Helvetica';
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #000;
+`;
+
+const HistoryStepsText = styled(HistoryText)`
+  &:first-child:before {
+    content: 'Your last step was to the ';
+  }
+
+  &:not(:first-child):before {
+    ${(props) => (props.amountOfSteps > 1 ? 'content : "then "' : '')}
+  }
+
+  &:not(:last-child):after {
+    content: ', ';
+  }
+  &:last-child:after {
+    content: '.';
+  }
 `;
 
 const MainButtonBlack = styled(MainButton)`
   border: 2px solid #000;
   color: #000;
+
+  &:hover {
+    opacity: 0.5;
+  }
 `;

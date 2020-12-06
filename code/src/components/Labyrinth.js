@@ -34,11 +34,7 @@ export const Labyrinth = ({ setCurrentCoordinates }) => {
   const content = useSelector((store) => store.labyrinth.content);
   const username = useSelector((store) => store.labyrinth.username);
   const isLoading = useSelector((state) => state.ui.isLoading);
-  const filteredHistory = useSelector((state) =>
-    state.labyrinth.history.filter((item) => item.direction !== undefined)
-  );
-
-  console.log(filteredHistory);
+  const history = useSelector((state) => state.labyrinth.history);
 
   const [startButtonVisible, setStartButtonVisible] = useState(false);
   const [nameInputVisible, setNameInputVisible] = useState(true);
@@ -135,10 +131,7 @@ export const Labyrinth = ({ setCurrentCoordinates }) => {
 
         {/* Show steps taken previously by the user */}
         {historyVisible && (
-          <History
-            history={filteredHistory}
-            setHistoryVisible={setHistoryVisible}
-          />
+          <History history={history} setHistoryVisible={setHistoryVisible} />
         )}
 
         <Footer setHistoryVisible={setHistoryVisible} />
@@ -185,6 +178,9 @@ const InnerWrapper = styled.div`
 const IntroText = styled.p`
   font-size: 36px;
   color: #fff;
+  @media (max-width: 450px) {
+    font-size: 28px;
+  }
 `;
 
 const TreasureImage = styled.img`
@@ -203,7 +199,7 @@ const DescriptionText = styled.p`
   margin-bottom: 20px;
   max-width: 600px;
 
-  @media (max-width: 376px) {
+  @media (max-width: 420px) {
     margin-top: 20px;
     font-size: 18px;
   }
