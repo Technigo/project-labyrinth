@@ -1,13 +1,14 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
+By: Claudia Kjerrgren and Axel Hammarbäck.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Project Labyrinth is a small text-based adventure game where you need to find your way out of a labyrinth. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We started out by doing fetches to the API using Postman, to make sure we understood how to fetch the data we need in the game. After that, we built a small PoC, which we evolved into the end product.
+Tools used: React, Redux, HTML, CSS, Javascript, Figma.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+[Project Labyrinth](https://labyrinth-claudia-axel.netlify.app/)

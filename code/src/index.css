@@ -1,13 +1,175 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+* {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+body {
+  margin: 64px 24px 24px 24px;
+}
+
+body, button, input {
+  font-family: 'Space Mono', monospace;
+  font-size: 24px;
+  line-height: 150%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #2E233D;
+  color: #FFECDE;
+}
+
+p, h1, h2, h3, h4 {
+  margin: 0;
+}
+
+.gameover-text {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  line-height: 150%;
+}
+
+main {
+  width: 100%;
+  max-width: 988px;
+  margin: 0 auto;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.box-description, .box-action, .box-username {
+  background: #2E233D;
+  padding: 24px;
+  display: flex;
+  border: 2px solid #FFECDE;
+}
+
+.box-username {
+  flex-direction: column;
+}
+
+.box-username > * {
+  margin: 30px 0 0 0;
+}
+
+.box-username > *:first-child {
+  margin: 0;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.box-description {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.spacer-description {
+  margin-right: 24px;
+  margin-left: 24px;
+}
+
+.box-action {
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+/* Puts margin between the action boxes */
+.box-action + .box-action {
+  margin-left: 24px;
+}
+
+.container-actions {
+  display: flex;
+}
+
+.container-actions .box-action {
+  width: 50%;
+}
+
+.box-action button {
+  margin-top: 24px;
+}
+
+/* ======================== BUTTON STYLES ======================== */
+button {
+  border: 2px solid #FFECDE;
+  outline: none;
+  font-family: 'Space Mono', monospace;
+  font-size: 24px;
+  padding: 8px;
+}
+
+button:hover {
+  border: 2px solid #FFECDE;
+  background: #FFECDE;
+  color: #2E233D;
+  font-family: 'Space Mono', monospace;
+  font-size: 24px;
+}
+
+button:active {
+  box-shadow: inset 0 0 0px 3px #2E233D;
+}
+
+button:focus {
+  box-shadow: inset 0 0 0px 3px #2E233D;
+}
+
+button:disabled {
+  border: 2px solid #6D5F6D;
+  color: #6D5F6D;
+}
+
+button:disabled:hover {
+  border: 2px solid #6D5F6D;
+  color: #6D5F6D;
+  background: #2E233D;
+}
+/* ======================== TEXT INPUT STYLES ======================== */
+input[type=text] {
+  outline: 0;
+  border: 0;
+  box-shadow: inset 0 -2px 0 0 #6D5F6D;
+  height: 40px;
+}
+input[type=text]:focus {
+  box-shadow: inset 0 -2px 0 0 #FFECDE;
+}
+
+/* CSS for smaller screens */
+@media only screen and (max-width: 640px) {
+  body, button, input {
+    font-size: 18px;
+  }
+  button:disabled, button:active, button:hover, button:focus {
+    font-size: 18px;
+  }
+  body {
+    margin: 24px
+  }
+  .image-arrow {
+    display: none;
+  }
+  .box-action {
+    margin-top: 40px;
+  }
+  .box-description {
+    flex-direction: column;
+    align-items: center;
+  }
+  .container-actions {
+    flex-direction: column;
+  }
+  .container-actions .box-action {
+    width: 100%;
+    margin-left: 0;
+  }
 }
