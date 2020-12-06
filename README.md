@@ -1,13 +1,11 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This assignment was to create a text-based game using a provided backend api. The main focus was to learn how to handle api-calls in redux, with thunks.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+i started out testing the api calls in postman. when i had them in place, i started investigating thunks and how to use them. when the api-calls were in place i went on with styling. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://karolin-maze.netlify.app/
