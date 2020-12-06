@@ -44,10 +44,11 @@ const TextInput = styled.input`
   align-items: center;
   text-align: center;
   font-family: 'Major Mono Display', monospace;
+  font-size: 18px;
+  font-weight: bold;
   color: #06A10B;
   border: none;
   border-bottom: 2px solid #8A2BE2;
-  font-size: 18px;
   margin: 50px 0;
   width: 100%;
 

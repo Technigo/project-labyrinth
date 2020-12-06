@@ -1,19 +1,22 @@
 import styled from "styled-components";
 
 export const DirectionButton = styled.button`
-border: 2px solid #06A10B; 
-padding: 20px;
-width: 100%;
-background: #93e6b0;
+  border: 2px solid #06a10b;
+  padding: 15px;
+  width: 100%;
+  background: #93e6b0;
+  margin: 5px;
+  animation: mymove 5s forwards;
 
-animation: mymove 5s forwards;
-}
-@keyframes mymove {
-  from {background-color: #93e6b0;}
-  to {background-color: #aea1ff;}
-}
+  @keyframes mymove {
+    from {
+      background-color: #93e6b0;
+    }
+    to {
+      background-color: #aea1ff;
+    }
+  }
 `;
-
 
 export const StartButton = styled.button`
   font-family: "Major Mono Display", monospace;
