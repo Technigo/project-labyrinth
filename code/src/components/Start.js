@@ -8,10 +8,6 @@ import { startGameFetch } from "../reducers/reusable";
 import { Fireworks } from "./Fireworks";
 import { CenteredScreen, Button, StartText, Text } from "../lib/Styling";
 
-const CenteredStartScreen = styled(CenteredScreen)`
-  position: relative;
-`;
-
 const InsertUsername = styled.input`
   padding: 10px;
   font-size: inherit;
@@ -37,7 +33,7 @@ export const Start = () => {
   return (
     <>
       {!stateUsername && (
-        <CenteredStartScreen>
+        <CenteredScreen>
           <Fireworks />
           <StartText>
             Welcome to the labyrinth!
@@ -57,7 +53,7 @@ export const Start = () => {
           <Button onClick={onUsernameChange}>
             Start the game
           </Button>
-        </CenteredStartScreen>
+        </CenteredScreen>
       )}
     </>
   );
