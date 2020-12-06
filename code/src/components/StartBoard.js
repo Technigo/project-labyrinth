@@ -43,9 +43,7 @@ export const StartBoard = () => {
         </form>
       </section>
       }
-      
        {gameStarted && <GameBoard />}
-
     </section>
   )
 }
