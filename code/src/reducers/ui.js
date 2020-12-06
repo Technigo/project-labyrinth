@@ -10,5 +10,4 @@ export const ui = createSlice({
       state.isLoading = action.payload
     }
   }
-})
-
+});

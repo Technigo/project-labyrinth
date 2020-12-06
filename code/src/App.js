@@ -41,5 +41,5 @@ export const App = () => {
         <Footer />
       </Grid>
     </Provider>
-  );
+  )
 };

@@ -26,5 +26,5 @@ export const Description = () => {
         {currentStep.description}
       </DescriptionPlaceholder>
     </>
-  );
+  )
 };

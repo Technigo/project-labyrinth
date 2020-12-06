@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 
 import { game } from "../reducers/game";
 import { startGameFetch } from "../reducers/reusable";
 
-import { Fireworks } from "./Fireworks";
 import { CenteredScreen, Button, StartText, Text } from "../lib/Styling";
 
 const InsertUsername = styled.input`
   padding: 10px;
   font-size: inherit;
   font-family: inherit;
-`
+`;
 
 export const Start = () => {
   const [username, setUsername] = useState("");
