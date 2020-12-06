@@ -62,35 +62,37 @@ const GamePage = () => {
                 <Menu className="dialog-menu">
                   {gameData.actions.map((item, index) => (
                     <div key={index}>
-                      <Button
-                        button="button"
-                        key={item.direction}
-                        text={`Look ${item.direction}`}
-                        className="nes-btn is-primary"
-                        click={() => toggleDialog(index)}
-                      />
+                        <Button
+                          button="button"
+                          key={item.direction}
+                          text={`Look ${item.direction}`}
+                          className="nes-btn is-primary"
+                          click={() => toggleDialog(index)}
+                        />
                       {directionIndex === index && (
                         <Dialog
                           open={open}
                           className="nes-dialog is-rounded"
                           id="dialog-rounded"
                         >
-                          <DirectionText>
-                            <p className="title">{`Looking ${gameData.actions[directionIndex].direction}:`}</p>
-                            <p>{gameData.actions[directionIndex].description}</p>
-                          </DirectionText>
-                          <Menu className="dialog-menu">
-                            <Button
-                              click={toggleDialog}
-                              className="nes-btn"
-                              text="Cancel"
-                            />
-                            <Button
-                              className="nes-btn is-primary"
-                              text={`Head ${gameData.actions[directionIndex].direction}`}
-                              click={() => onSelectDirection(item.direction)}
-                            />
-                          </Menu>
+                          <form method="dialog">
+                            <DirectionText>
+                              <p className="title">{`Looking ${gameData.actions[directionIndex].direction}:`}</p>
+                              <p>{gameData.actions[directionIndex].description}</p>
+                            </DirectionText>
+                            <Menu className="dialog-menu">
+                              <Button
+                                click={toggleDialog}
+                                className="nes-btn"
+                                text="Cancel"
+                              />
+                              <Button
+                                className="nes-btn is-primary"
+                                text={`Head ${gameData.actions[directionIndex].direction}`}
+                                click={() => onSelectDirection(item.direction)}
+                              />
+                            </Menu>
+                          </form>
                         </Dialog>
                       )}
                     </div>
@@ -142,14 +144,9 @@ const Menu = styled.menu`
   margin-top: 20px;
 `;
 
-const DirectionText = styled.p`
+const DirectionText = styled.div`
   background: rgba(255, 255, 255, 0.5);
   color: #000;
-
-  @media (min-width: 768px) {
-    background: unset;
-    color: unset;
-  }
 `
 
 const Dialog = styled.dialog`
