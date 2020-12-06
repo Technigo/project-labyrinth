@@ -1,13 +1,33 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
+A responsive text-based game. :moyai: 
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## :brain: Learning objectives
+- how to make API calls around Redux using thunks
+- how to structure redux store to suit your data
+- how to send JSON in the body of a request
+- reusable components
 
-## The problem
+## :heavy_check_mark: Features
+- responsive page
+- using redux to store the current state of the game
+- handling of the response
+- storing the history of players actions
+- showing the descriptions of the directions in the main description of the current room
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+## :chart_with_upwards_trend: Future improvements
+- styling every step based on the description
+- display a history of all the actions a player has taken
+- persist redux store to localStorage, so the app data remains when you reload the page
+- drawing a representation of each step the user makes
+- have the user input field on a separate page
+ 
+## :robot: Tech used 
+- JavaScript
+- React
+- Redux
+- styled components
+- API
 
-## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+## :eyes: View it live
+https://rejoel-labyrinth.netlify.app/ 
