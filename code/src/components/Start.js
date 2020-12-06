@@ -33,7 +33,6 @@ export const Start = () => {
     <>
       {!stateUsername && (
         <CenteredScreen>
-          <Fireworks />
           <StartText>
             Welcome to the labyrinth!
           </StartText>
