@@ -50,7 +50,6 @@ const Container = styled.main`
   min-height: 100vh;
   width: 100vw;
 `
-
 const Display = styled.div`
   align-content: center;
   align-items: center;

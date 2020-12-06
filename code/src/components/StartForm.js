@@ -2,13 +2,11 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components/macro'
 
-// import HeroVideoDemo from './testing/BackgroundVideo'
 import { LoadingIndicator } from 'components/LoadingIndicator'
-import heroImage from '../assets/startImage.jpg'
+import VideoBackground from './BgVideo'
+// import heroImage from '../assets/startImage.jpg'
 import { gameReducer } from '../reducers/gameReducer'
 import { ui } from '../reducers/ui'
-
-// import VideoBackground from './BgVideo'
 
 export const StartForm = () => {
   const playerName = useSelector((store) => store.gameReducer.playerName)
@@ -37,7 +35,8 @@ export const StartForm = () => {
       })
   }
   return (
-    <Home imgUrl={heroImage}>
+    <Home>
+      <VideoBackground />
       <LoadingIndicator />
       <Wrapper>
         <Title>Are you sure you want to do this?</Title>
@@ -73,8 +72,8 @@ const Home = styled.main`
   display: flex;
   flex-direction: column;
   font-family: 'Mystery Quest', cursive;
-  min-height: 100vh;
   justify-content: center;
+  min-height: 100vh;
   width: 100vw;
 `
 const Title = styled.h1`
