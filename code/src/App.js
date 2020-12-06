@@ -1,5 +1,5 @@
 import React from 'react';
-import { combineReducers } from 'redux';
+import { combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux'
 import { StartBoard } from './components/StartBoard'
 import { gameReducer } from 'reducers/gameReducer';
