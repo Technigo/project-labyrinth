@@ -10,7 +10,6 @@ For each 'room' of the game, we generate buttons for possible new directions to 
 We have also worked a lot with conditional rendering to be able to show what we want based on different conditions. 
 
 We have also added local storage to be able to store where you ended the game, but also impletented a restart button, to be able to restart the game at any time if wanted. The restart button does then not only reload the web browser, it also empties the username- and content object so the player can start over by selecting a new name.
---- 
 
 We used styled components for styling and worked A LOT with passing props to set arrow directions, background images and other details that were specific for each direction/room. We based the props on current coordinates. 
 
