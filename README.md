@@ -1,13 +1,13 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
+Caroline Birgersson and Moa Blomkvist labyrinth game. 
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+- How to work with APIs together with Redux
+- How to use thunks
+- How to make API calls around Redux using thunks
+- How to structure your redux store to suit your data
+- To send JSON in the body of a request
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://innertrip.netlify.app/
