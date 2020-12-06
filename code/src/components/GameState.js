@@ -7,21 +7,38 @@ import { BoldText } from "lib/Text";
 
 const GameContainer = styled.div`
   width: 700px;
+
+  @media (max-width: 668px) {
+    width: 350px;
+  }
 `;
 
 const TopContainer = styled.div`
   width: 500px;
   margin: 40px 0;
+
+  @media (max-width: 668px) {
+    width: 100%;
+  }
 `;
 
 const CardWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 668px) {
+    flex-direction: column;
+    margin: auto;
+  }
 `;
 
 const BottomContainer = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 668px) {
+    flex-direction: column;
+  }
 `;
 
 export const GameState = () => {

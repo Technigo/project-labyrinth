@@ -10,6 +10,11 @@ const StyledCard = styled.div`
   border-radius: 4px;
   padding: 24px;
   margin-right: 40px;
+
+  @media (max-width: 668px) {
+    margin: auto;
+    margin-bottom: 20px;
+  }
 `;
 
 const CardContent = styled.div`

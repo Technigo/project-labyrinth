@@ -1,12 +1,21 @@
 import React from "react";
+import styled from "styled-components/macro";
 import { useSelector } from "react-redux";
 import { HistoryHeading, HistoryText } from "lib/Text";
+
+const HistoryContainer = styled.div`
+  @media (max-width: 668px) {
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+`;
 
 export const History = () => {
   const history = useSelector((store) => store.game.history);
 
   return (
-    <div>
+    <HistoryContainer>
       <HistoryHeading>Actions:</HistoryHeading>
       {history
         .slice(-9)
@@ -16,6 +25,6 @@ export const History = () => {
             {item.type}d {item.direction}
           </HistoryText>
         ))}
-    </div>
+    </HistoryContainer>
   );
 };

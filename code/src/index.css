@@ -16,7 +16,7 @@ body {
   background-color: black;
   color: #4cff42;
   padding: 25px;
-  height: 100%;
+  min-height: 100vh;
 }
 
 .swal-modal {
@@ -50,3 +50,9 @@ body {
   background-color: #000;
   color: #4cff42;
 }
+
+/* @media (max-width: 668px) {
+  body {
+    height: none;
+  }
+} */
