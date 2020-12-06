@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+
 import styled, { keyframes } from "styled-components/macro";
 
 const dots = keyframes`

@@ -1,7 +1,9 @@
 import React from "react";
-import styled from "styled-components/macro";
+
 import { StyledButton } from "./Buttons";
 import { CardText } from "lib/Text";
+
+import styled from "styled-components/macro";
 
 const StyledCard = styled.div`
   width: 230px;

@@ -1,9 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
+
 import { Action } from "./Action";
-import styled from "styled-components/macro";
 import { History } from "./History";
 import { BoldText } from "lib/Text";
+import styled from "styled-components/macro";
 
 const GameContainer = styled.div`
   width: 700px;

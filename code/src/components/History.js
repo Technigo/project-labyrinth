@@ -1,7 +1,8 @@
 import React from "react";
-import styled from "styled-components/macro";
 import { useSelector } from "react-redux";
+
 import { HistoryHeading, HistoryText } from "lib/Text";
+import styled from "styled-components/macro";
 
 const HistoryContainer = styled.div`
   @media (max-width: 668px) {

@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { combineReducers, configureStore, createStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
+import { App } from "./App";
 import { game } from "./reducers/game";
 import { ui } from "./reducers/ui";
 
-import { App } from "./App";
 import "./index.css";
 
 const reducer = combineReducers({
