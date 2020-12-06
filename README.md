@@ -1,13 +1,18 @@
-# Project Labyrinth
+# Project Labyrinth&ensp;|&ensp;[View Live &#10132;](https://amazing-maze-game.netlify.app/)
 
-Replace this readme with your own information about your project.
+A text-based adventure created using pair-programming with React Redux, Redux Toolkit, thunks and reusable components. The game state is persisted using local storage. Storing the players history in state, resets when restarting the game. An animated loader using keyframes styled with styled components.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## Core Tech
 
-## The problem
+- React
+- React Redux
+- Redux Thunk
+- Redux Toolkit
+- Styled Components
+- Pair-programming
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+![mockup](mockup.jpg)
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://amazing-maze-game.netlify.app/
