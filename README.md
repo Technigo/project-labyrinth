@@ -36,7 +36,7 @@ The layout of the page was done using styled components and a grid. It contains 
 
 In the center of the page you see a fox as a little avatar. The buttons to move forward will appear above, below or next to the fox depending on the direction, like on a compass. 
 
-There's a specific start page where you only see an input field and the "Start the game"-button. On the last page, you don't have any direction buttons or descriptions as you can't move further. Because the API-requests take some time, there is a loader animation showing between the steps.
+There's a specific start page where you only see an input field and the "Start the game"-button. On the last page, you don't have any direction buttons or descriptions as you can't move further. Because the API-requests take some time, there is a loader animation showing between the steps. There is a firework animation at the final step.
 
 ## Limitations
 
@@ -55,6 +55,7 @@ The game is responsive and works on mobile, tablet and desktop view. As there is
 - React
 - Redux
 - styled components
+- Lottie animations
 
 ## View it live
 

@@ -9,5 +9,5 @@ export const Header = () => {
         LOST IN MAZE
       </Title>
     </Centered>
-  )
+  );
 };
