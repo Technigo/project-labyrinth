@@ -11,7 +11,7 @@ export const Footer = () => {
   return (
     <Centered>
       <FooterText>Technigo Bootcamp Fall 2020</FooterText>
-      <FooterText>&#169; 2020 Henrike Wiemker Sandrine Elander</FooterText>
+      <FooterText>&#169; 2020 Henrike Wiemker &#38; Sandrine Elander</FooterText>
     </Centered>
   );
 };
