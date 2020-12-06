@@ -61,7 +61,6 @@ const Animation = styled.span`
   font-size: 28px;
   display: inline-block;
   text-shadow: 0 0 0 whitesmoke;
-
   animation: ${smoky} 7s 7s infinite;
   &:nth-child(even) {
     animation-name: ${smokymirror};

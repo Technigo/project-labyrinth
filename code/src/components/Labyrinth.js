@@ -1,22 +1,22 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components/macro';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import styled from "styled-components/macro";
 
-import { Loading } from './Loading';
-import { Button } from '../lib/Button';
-import { game } from '../reducers/game';
-import { selectNextStep } from '../reducers/reusable';
-import { Map } from './Map';
+import { Loading } from "./Loading";
+import { Button } from "../lib/Button";
+import { game } from "../reducers/game";
+import { selectNextStep } from "../reducers/reusable";
+import { Map } from "./Map";
 
 export const Labyrinth = () => {
-  const gameData = useSelector((store) => store.game.currentGameState.gameData);
+  const gameData = useSelector(store => store.game.currentGameState.gameData);
   const coordinates = useSelector(
-    (store) => store.game.currentGameState.gameData.coordinates
+    store => store.game.currentGameState.gameData.coordinates
   );
-  const username = useSelector((store) => store.game.username);
-  const isLoading = useSelector((store) => store.ui.isLoading);
-  const pastActions = useSelector((store) => store.game.pastActions);
-  const positionHistory = useSelector((store) => store.game.positionHistory);
+  const username = useSelector(store => store.game.username);
+  const isLoading = useSelector(store => store.ui.isLoading);
+  const pastActions = useSelector(store => store.game.pastActions);
+  const positionHistory = useSelector(store => store.game.positionHistory);
   const dispatch = useDispatch();
 
   const handleNextStep = (type, direction) => {
@@ -44,14 +44,14 @@ export const Labyrinth = () => {
           <TopSection>
             {pastActions.length > 0 && (
               <PositionText>
-                (Previous position:{' '}
+                (Previous position:{" "}
                 <SpanText>
                   {
                     positionHistory[positionHistory.length - 1].gameData
                       .coordinates
                   }
-                </SpanText>{' '}
-                | you just moved:{' '}
+                </SpanText>{" "}
+                | you just moved:{" "}
                 <SpanText>{pastActions[pastActions.length - 1]}</SpanText>)
               </PositionText>
             )}
@@ -61,7 +61,7 @@ export const Labyrinth = () => {
                 <SpanText> {username}</SpanText>
               </RegularText>
               <RegularText>
-                Your current position:{' '}
+                Your current position:{" "}
                 <SpanText>{gameData.coordinates}</SpanText>
               </RegularText>
               {gameData.description}
@@ -70,7 +70,7 @@ export const Labyrinth = () => {
               <InstructionText>Choose your next direction:</InstructionText>
             ) : (
               <InstructionText>
-                {gameData.coordinates === '1,3' && pastActions.length <= 0
+                {gameData.coordinates === "1,3" && pastActions.length <= 0
                   ? `${username} has already completed the Labyrinth. Enter a new username and try again!`
                   : `Congratulations ${username}! You have completed the Labyrinth!`}
               </InstructionText>
@@ -78,7 +78,7 @@ export const Labyrinth = () => {
           </TopSection>
           {gameData.actions.length > 0 ? (
             <BottomSection>
-              {gameData.actions.map((item) => (
+              {gameData.actions.map(item => (
                 <GameDescription key={item.direction}>
                   <ButtonWrapper>
                     <Button
@@ -158,11 +158,7 @@ const GameDescription = styled.article`
   @media (min-width: 768px) {
     width: 250px;
     margin: 0 4px;
-<<<<<<< HEAD
-    min-height: 180px;
-=======
     min-height: 220px;
->>>>>>> afda01ef108afe4130fc8e88dae870367d03dff6
   }
 `;
 
