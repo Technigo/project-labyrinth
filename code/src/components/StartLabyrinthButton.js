@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import { StartButton } from "styling/lib/Buttons"
+import { StartButton } from "styling/lib/Buttons";
 
 export const StartLabyrinthButton = ({ action, text }) => {
   const dispatch = useDispatch();

@@ -43,12 +43,13 @@ const TextInput = styled.input`
   justify-content: center;
   align-items: center;
   text-align: center;
-  border: none;
-  margin-bottom: 50px;
-  margin-top: 50px;
-  border-bottom: 2px solid #8A2BE2;
-  width: 100%;
   font-family: 'Major Mono Display', monospace;
+  color: #06A10B;
+  border: none;
+  border-bottom: 2px solid #8A2BE2;
+  font-size: 18px;
+  margin: 50px 0;
+  width: 100%;
 
   &:focus {
     outline: none;
@@ -65,7 +66,8 @@ const TextInput = styled.input`
 
 const Label = styled.label`
   display: box;
+  font-family: "Major Mono Display", monospace;
   align-items: center;
   justify-content: center;
-  font-family: 'Major Mono Display', monospace;
+  text-align: center;
 `;

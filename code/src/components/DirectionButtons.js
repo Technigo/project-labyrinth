@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 
 import { DirectionButton } from "styling/lib/Buttons";
-import { InnerContainer, Text } from "styling/GlobalStyle";
+import { InnerContainer, ButtonText } from "styling/GlobalStyle";
 
 export const DirectionButtons = ({ direction, action }) => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ export const DirectionButtons = ({ direction, action }) => {
         onClick={(event) => dispatch(action(event))}
         direction={direction}
       >
-        <Text direction={direction}>Run {direction}</Text>
+        <ButtonText direction={direction}>Run {direction}</ButtonText>
       </DirectionButton>
     </InnerContainer>
   );

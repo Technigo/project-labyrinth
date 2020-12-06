@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import Granim from "react-granim";
+import styled from "styled-components";
 
 import { fetchLabyrinthData, fetchDirectionData } from "../reducers/labyrinth";
 
@@ -12,7 +12,7 @@ import {
   Container,
   InnerContainer,
   StartContainer,
-  Text,
+  Text
 } from "styling/GlobalStyle";
 
 export const LabyrinthGame = ({ setGameCoordinates }) => {
@@ -27,7 +27,7 @@ export const LabyrinthGame = ({ setGameCoordinates }) => {
 
   return (
     loading === false && (
-      <Container>
+      <Container id="start">
         <InnerContainer>
           {description.coordinates === undefined && (
             <>
@@ -38,7 +38,7 @@ export const LabyrinthGame = ({ setGameCoordinates }) => {
 
               {startButtonVisible && (
                 <StartContainer>
-                  <Text>Leave them all behind</Text>
+                  <StartText>Leave them all behind {username}</StartText>
                   <StartLabyrinthButton
                     action={() => fetchLabyrinthData(username)}
                     text="Run!"
@@ -49,27 +49,25 @@ export const LabyrinthGame = ({ setGameCoordinates }) => {
           )}
           <Text>{description.description}</Text>
           {description.coordinates && (
-            <p>Coordinates:{description.coordinates}</p>
+            <CoordinateText>
+              Current coordinates:{description.coordinates}
+            </CoordinateText>
           )}
 
-          {
-            ///Buttons for move in different directions
-            description.coordinates !== undefined &&
-              description.actions.map((action) => (
-                <div key={action.description}>
-                  <DirectionButtons
-                    direction={action.direction}
-                    action={() =>
-                      fetchDirectionData({
-                        direction: action.direction,
-                        username: username,
-                      })
-                    }
-                  />
-                  {/* <p>{action.description}</p> */}
-                </div>
-              ))
-          }
+          {description.coordinates !== undefined &&
+            description.actions.map((action) => (
+              <div key={action.description}>
+                <DirectionButtons
+                  direction={action.direction}
+                  action={() =>
+                    fetchDirectionData({
+                      direction: action.direction,
+                      username: username,
+                    })
+                  }
+                />
+              </div>
+            ))}
           {description.coordinates === "1,3" && (
             <button
               text="Restart journey"
@@ -81,3 +79,20 @@ export const LabyrinthGame = ({ setGameCoordinates }) => {
     )
   );
 };
+
+const StartText = styled.p`
+  color: #8a2be2;
+  font-size: 20px;
+  margin: 0 20px;
+  padding: 25px 0 10px 0;
+  font-family: "Major Mono Display", monospace;
+
+  @media (min-width: 768px) {
+    width: 60%;
+  }
+`;
+
+const CoordinateText = styled.p`
+  color: #06a10b;
+  padding: 10px 0;
+`;
