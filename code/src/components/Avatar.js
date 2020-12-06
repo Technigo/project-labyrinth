@@ -14,11 +14,12 @@ const AvatarPlaceholder = styled.div`
 `;
 
 const Image = styled.img`
-  width: 70px;
+  width: 80px;
 
   @media (min-width: 768px) {
     width: 160px;
   }
+  
 `;
 
 export const Avatar = () => {
