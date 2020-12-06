@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const DirectionButton = styled.button`
   border: 2px solid #06a10b;
   padding: 15px;
-  width: 100%;
+  width: 300px;
   background: #93e6b0;
   margin: 5px;
   animation: mymove 5s forwards;

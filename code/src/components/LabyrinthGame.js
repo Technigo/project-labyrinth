@@ -68,12 +68,6 @@ export const LabyrinthGame = ({ setGameCoordinates }) => {
                 />
               </div>
             ))}
-          {description.coordinates === "1,3" && (
-            <button
-              text="Restart journey"
-              action={() => window.location.reload()}
-            ></button>
-          )}
         </InnerContainer>
       </Container>
     )
