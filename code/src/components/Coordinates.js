@@ -2,12 +2,13 @@ import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
+// --- STYLED COMPONENTS ---
+
 const CoordinatesContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  border: 1px solid pink;
 `;
 
 const Coordinate = styled.p`

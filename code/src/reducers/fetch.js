@@ -1,22 +1,14 @@
-// import { useSelector } from "react-redux"
-
 // -- reducer
 import { game } from "./game";
 import { ui } from "./ui";
 
-//make username value come from an input??
-// const userName = useSelector(store => store.game.username)
-const userName = "lalallaladlawdfw";
-
-//need to pass in the userName/value? to those two fetches somehow ...
-
 export const fetchGame = () => {
-  return (dispatch) => {
+  return (dispatch, getStore) => {
     dispatch(ui.actions.setLoading(true));
 
     fetch("https://wk16-backend.herokuapp.com/start", {
       method: "POST",
-      body: JSON.stringify({ username: userName }),
+      body: JSON.stringify({ username: getStore().game.username }),
       headers: { "Content-Type": "application/json" },
     })
       .then((res) => res.json())
@@ -31,14 +23,14 @@ export const fetchGame = () => {
 //function that returns another function aka THUNKy
 //why not curlies around the direction?
 export const fetchNextMove = (direction) => {
-  //together with dispatch send also getState function to get
-  //the our current Redux state
-  return (dispatch) => {
+  //together with dispatch send also getStore function to get
+  //our current username value from the Redux store
+  return (dispatch, getStore) => {
     dispatch(ui.actions.setLoading(true));
     fetch("https://wk16-backend.herokuapp.com/action", {
       method: "POST",
       body: JSON.stringify({
-        username: userName,
+        username: getStore().game.username,
         type: "move",
         direction: direction,
       }),

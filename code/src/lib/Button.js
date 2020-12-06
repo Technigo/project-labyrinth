@@ -1,11 +1,18 @@
 import React from "react";
-import { fetchGame } from "../reducers/fetch";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 
+// -- reducers
+import { fetchGame } from "../reducers/fetch";
+
+// --- STYLED COMPONENTS ---
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 const StartButton = styled.button`
-  // display: flex;
-  // justify-content: center;
   border-radius: 5px;
   border: none;
   background-color: #d9d0c1;
@@ -13,11 +20,6 @@ const StartButton = styled.button`
   height: 50px;
   font-family: "Caveat", cursive;
   font-size: 20px;
-`;
-
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
 `;
 
 export const Button = () => {

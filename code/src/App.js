@@ -9,8 +9,8 @@ import { ui } from "./reducers/ui";
 // -- components --
 import { GameDescription } from "./components/GameDescription";
 import { LoadingIndicator } from "./components/LoadingIndicator";
-
 import { Header } from "./components/Header";
+import { RestartGame } from "./components/RestartGame";
 
 const reducer = combineReducers({
   game: game.reducer,
@@ -40,9 +40,9 @@ export const App = () => {
   return (
     <Provider store={store}>
       <Header />
-
       <LoadingIndicator />
       <GameDescription />
+      <RestartGame />
     </Provider>
   );
 };

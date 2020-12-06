@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 
 // --- reducer
 import { game } from "reducers/game";
 
+// --- STYLED COMPONENTS ---
+
 const FormContainer = styled.div`
   display: flex;
   justify-content: center;
 `;
+
 const FormContent = styled.form``;
 
 const FormLabel = styled.label``;
@@ -39,14 +42,12 @@ const FormButton = styled.button`
 `;
 
 export const Input = () => {
-  const userName = useSelector((store) => store.game.username);
-  console.log(`Username log: ${userName}`);
-
   const [value, setValue] = useState("");
 
   const dispatch = useDispatch();
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     //dispatch the value to update the state
     dispatch(game.actions.setUsername(value));
     setValue("");
@@ -54,7 +55,7 @@ export const Input = () => {
 
   return (
     <FormContainer>
-      <FormContent onSubmit={handleSubmit}>
+      <FormContent onClick={handleSubmit}>
         <FormLabel>
           <FormInput
             type="text"

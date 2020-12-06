@@ -4,23 +4,21 @@ import styled from "styled-components";
 
 // -- fetch
 import { fetchNextMove } from "reducers/fetch";
+
+// -- library
 import { GoBackButton } from "lib/GoBackButton";
+
+// --- STYLED COMPONENTS ---
 
 const ActionContainer = styled.div`
   display: flex;
   flex-direction: column;
-
-  border: 1px solid orange;
 `;
-const ActionText = styled.p`
-  text-align: center;
-  font-weight: bold;
-  padding: 10px;
-  background: rgba(217, 208, 193, 0.45);
-  margin: auto 90px;
-  border-radius: 5px;
 
-  border: 1px solid yellow;
+const DirectionWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
 `;
 
 const DirectionButton = styled.button`
@@ -34,19 +32,17 @@ const DirectionButton = styled.button`
   font-size: 20px;
 `;
 
-const DirectionWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 40px;
-
-  border: 1px solid red;
+const ActionText = styled.p`
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  background: rgba(217, 208, 193, 0.45);
+  margin: auto 90px;
+  border-radius: 5px;
 `;
 
 export const Actions = () => {
   const actionsArray = useSelector((store) => store.game.play.actions);
-
-  //keep this console.log for now
-  console.log(actionsArray);
 
   const dispatch = useDispatch();
 
@@ -71,7 +67,6 @@ export const Actions = () => {
         </>
       ))}
       <GoBackButton />
-      {/* trigger a new fetch by sending direction as a prop with it */}
     </ActionContainer>
   );
 };
