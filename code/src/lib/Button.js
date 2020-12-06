@@ -23,6 +23,7 @@ export const Button = styled.button`
   height: 3em;
   width: 7em;
   padding: 0.2em;
+  margin-left: 0.625em;
 
   &:hover {
     animation: grow 2s ease-in-out;
