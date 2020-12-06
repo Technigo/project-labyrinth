@@ -2,27 +2,25 @@ import React, { useState } from "react"
 import { useDispatch } from "react-redux"
 import styled from "styled-components/macro"
 
-import { game } from "reducers/game"
+import { game } from "../reducers/game"
 
 import { Wrapper } from '../lib/Containers'
-import { Button } from "lib/Button"
+import { Button } from "../lib/Button"
 import { Subtitle } from '../lib/Card'
 
 const Form = styled.form`
 `
 
 const Label = styled.label`
-  margin-right: 5px;
+  margin-right: 0.3em;
   `
 
 const InputField = styled.input`
   font-size: 100%;
-  padding: 5px;
-  border: 1px solid grey;
-  border-radius: 5px;
+  padding: 0.3em;
+  border: 0.06em solid grey;
+  border-radius: 0.3em;
 
-@media (min-width: 768px) {
-} 
 `
 
 export const UserInput = () => {

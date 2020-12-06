@@ -19,5 +19,4 @@ export const LoadingIndicator = () => {
     {isLoading && <LoadingSpinner />}
     </LoadingContainer>
   )
-
 }

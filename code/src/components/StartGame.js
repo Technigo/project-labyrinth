@@ -1,17 +1,15 @@
-import React/*,  { useState, useEffect } */ from 'react'
+import React from 'react'
 import styled from "styled-components/macro"
 
 import { useSelector, useDispatch } from 'react-redux'
 
 import { Button } from '../lib/Button'
-//import { Wrapper } from '../lib/Containers'
 
 import { fetchGameData } from '../reducers/thunk'
-//import { game } from '../reducers/game'
 
 
 const ButtonWrapper = styled.div`
-  margin: 0 0 30px 0;
+  margin: 0 0 1.7em 0;
 `
 
 export const StartGame = () => {

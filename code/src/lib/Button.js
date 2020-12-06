@@ -8,18 +8,18 @@ export const Button = styled.button`
   color: #FEF7E5;
   font-weight: 600;
 
-  border: 1px solid;
-  border-radius: 4px;
+  border: 0.06em solid;
+  border-radius: 0.25em;
   border-image-slice: 1;
-  border-width: 1px;
+  border-width: 0.06em;
   border-image-source: linear-gradient(to left,#AA9471,#7A6755, #675444, #7A6755, #AA9471);
   
   @media (min-width: 768px) {
-    font-size: 1.3rem;
+    font-size: 1em;
     }
 
   ${({ headerBtn }) => headerBtn && `
-  box-shadow: 2px 5px 15px -1px rgba(0,0,0,0.85);
+  box-shadow: 0.125em 0.313em 1em -0.06em rgba(0,0,0,0.85);
   height: 3em;
   width: 7em;
   padding: 0.2em;

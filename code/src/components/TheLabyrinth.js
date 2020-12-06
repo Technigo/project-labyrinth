@@ -5,45 +5,31 @@ import styled from "styled-components/macro"
 import { Button } from '../lib/Button'
 import { CardContainer } from '../lib/Containers'
 import { Thumbnail } from '../components/Thumbnail'
-import { Wrapper } from '../lib/Containers'
+import { Wrapper, ImageAndDescriptionWrapper, DescriptionWrapper } from '../lib/Containers'
 import { fetchActionData } from '../reducers/thunk'
 import { game } from '../reducers/game'
 import { LoadingIndicator } from './LoadingIndicator'
 
 const Coordinates = styled.p`
-  font-size: 1.3rem;
+  font-size: 1.3em;
   text-align: center;
   font-weight: 500;
   background: linear-gradient(180deg, rgba(255,253,240,0.8), rgba(240,231,209, 1), rgba(255,253,240,0.8));
 
   @media (min-width: 768px) {
-    font-size: 1.7rem;
+    font-size: 1.7em;
   }
 
   @media(min-width: 1024px) {
-    font-size: 2.5rem;
+    font-size: 2em;
   }
 `
 
-const ImageAndDescriptionWrapper = styled.div`
-  display: flex;
-
-  @media(min-width: 1024px) {
-    margin: 90px 0 0 0;
-  }
-`
-
-const DescriptionWrapper = styled.div`
-  background: #fff;
-  text-align: center;
-  border-radius: 5px;
-  margin: 0 30px 20px 0;
-`
 
 const RoomDescription = styled.p`
   font-size: 1em;
   text-align: center;
-  padding: 5px;
+  padding: 0.3em;
   font-style: italic;
 
   @media (min-width: 768px) {
@@ -64,14 +50,14 @@ font-weight: 600;
 `
 
 const DirectionDescription = styled.p`
-  font-size: 0.9rem;
+  font-size: 0.9em;
   font-weight: 600;
   text-align: left;
-  padding: 10px;
-  margin: 5px;
+  padding: 0.6em;
+  margin: 0.3em;
 
   @media (min-width: 768px) {
-    font-size: 1.3rem;
+    font-size: 1.3em;
     text-align: justify;
     }
 `

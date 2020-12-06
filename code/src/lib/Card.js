@@ -21,25 +21,25 @@ import {
 
 const Title = styled.h2`
   font-size: 1.5em;
-  padding: 10px;
-  margin: 5px;
+  padding: 0.625em;
+  margin: 0.3em;
   text-align: center;
   font-family: 'Monoton', cursive;
   color: #AB8C00;;
 
   @media (min-width: 768px) {
     font-size: 2.5em;
-    padding: 30px;
+    padding: 1.87em;
   } 
 `
 const Bowie = styled.img`
-  width: 250px;
-  margin: 10px;
+  width: 15.6em;
+  margin: 0.625em;
   height: auto;
-  border-radius: 5px;
+  border-radius: 0.3em;
 
   @media (min-width: 768px) {
-    width: 450px;
+    width: 28em;
   } 
 `
 
@@ -81,7 +81,6 @@ export const Card = () => {
 
   if (!gamePlay.data && !isLoading) {
     return (
-      
       <Main style={{ backgroundImage: `url(${ImagePicker()})` }}>
         {!isLoading
           ? <CardContainer>
@@ -90,7 +89,6 @@ export const Card = () => {
               alt={`GIF of Bowie from movie Labyrinth (1986)`}
               src={'https://media.giphy.com/media/y97hzmaDLeO4w/giphy.gif'}
             />
-            
             <UserInput />
             <Subtitle> Let's begin! </Subtitle>
             <StartGame />

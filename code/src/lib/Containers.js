@@ -5,7 +5,7 @@ export const Main = styled.main`
   min-height: 100vh;
   grid-template-rows: min-content;
   justify-content: center;
-  padding: 10px;
+  padding: 0.625em;
   background-size: cover;
   background-position: center;
   background-image: url(${(props) => props.backgroundImage })
@@ -17,8 +17,8 @@ export const Main = styled.main`
 
   @media (min-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
-    padding: 60px;
-    gap: 15px;
+    padding: 3.75em;
+    gap: 1em;
     align-items: center;
   }
   `
@@ -40,19 +40,19 @@ export const Wrapper = styled.div`
   `
   export const CardContainer = styled.section`
   box-sizing: border-box;
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 
-              0px 1px 1px 0px rgba(0, 0, 0, 0.14), 
-              0px 1px 3px 0px rgba(0,0,0,.12);
+  box-shadow: 0 0.125em 0.063em -0.063em rgba(0, 0, 0, 0.2), 
+              0 0.063em 0.063em 0 rgba(0, 0, 0, 0.14), 
+              0 0.063em 0.188em 0 rgba(0,0,0,.12);
   width: 90%;
   height: auto;
-  margin-bottom: 10px;
+  margin-bottom: 0.625em;
   justify-self: center;
 
   background: linear-gradient(to right, #DECBA4, #f0e7d1);
-  border-radius: 5px;
-  outline: 1px solid grey;
-  outline-offset: -7px;
-  padding: 10px;
+  border-radius: 0.313em;
+  outline: 0.063em solid grey;
+  outline-offset: -0.438em;
+  padding: 0.625em;
   text-align: center;
 
   @media (min-width: 768px) {
@@ -76,18 +76,18 @@ export const Wrapper = styled.div`
   `}
 
   ${({movedeck}) => movedeck && `
-  min-height: 360px;
-  max-height: 400px;
-  margin: 2px;
-  border-radius: 5px;
-  outline: 1px solid grey;
-  outline-offset: -7px;
+  min-height: 22.5em;
+  max-height: 25em;
+  margin: 0.125em;
+  border-radius: 0.313em;
+  outline: 0.063em solid grey;
+  outline-offset: -0.438em;
 
   @media (min-width: 768px) {
-    margin: 25px 5px 0 5px;
+    margin: 1.56em 0.313em 0 0.313em;
 
   }   @media (min-width: 1024px) {
-    margin: 0 0 10px 0;
+    margin: 0 0 0.625em 0;
   }
   `}
   `
@@ -98,4 +98,19 @@ export const Wrapper = styled.div`
   background-size: cover;
   background-position: center;
   background-image: url(${(props) => props.backgroundImage });
+`
+
+export const ImageAndDescriptionWrapper = styled.div`
+  display: flex;
+
+  @media(min-width: 1024px) {
+    margin: 4.5em 0 0 0;
+  }
+`
+
+export const DescriptionWrapper = styled.div`
+  background: #fff;
+  text-align: center;
+  border-radius: 0.3em;
+  margin: 0 1.7em 1.5em 0;
 `
