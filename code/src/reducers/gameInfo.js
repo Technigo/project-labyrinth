@@ -1,6 +1,5 @@
 import { gameDetails } from './gameDetails';
 
-//fetch to start the game and find the first description
 export const getDescription = (userName) => {
   return (dispatch, getState) => {
     dispatch(gameDetails.actions.setLoading(true));
@@ -16,7 +15,6 @@ export const getDescription = (userName) => {
   };
 };
 
-//this fetch reaches the array of actions that includes directions, it's own descriptions and type which is alwasy move
 export const getMoves = (action) => {
 
   return (dispatch, getState) => {

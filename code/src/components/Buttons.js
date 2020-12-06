@@ -12,15 +12,13 @@ export const Buttons = () => {
     dispatch(getMoves(action, userName));
   }
 
-  //here we map over an array of actions and show them in the predefined order
-  //each button includes directions and on click fires up the getMoves fetch 
   return (
     <>
       {actions.map((action, index) => {
         return (
           <div key={action.description}>
             <p>{action.description}</p>
-            <StyledButton onClick={() => handleOnClick(action)}>> go {action.direction}</StyledButton>
+            <StyledButton onClick={() => handleOnClick(action)}>{">"} go {action.direction}</StyledButton>
           </div>
         )
       })}

@@ -11,7 +11,7 @@ export const gameDetails = createSlice({
     isLoading: false,
   },
   reducers: {
-    //this action sets the description in the beginning og the game
+    //this action sets the description in the beginning of the game
     setDescription: (state, action) => {
       state.gameDetails = action.payload;
     },
@@ -41,12 +41,10 @@ export const gameDetails = createSlice({
     setUserName: (state, action) => {
       state.userName = action.payload;
     },
+    //sets Loading state
     setLoading: (state, action) => {
       state.isLoading = action.payload;
     },
   },
-
-  //   }
-  // }
 },
 );
