@@ -7,7 +7,7 @@ export const Text = styled.p`
   font-size: 20px;
   margin-left: 20px;
   margin-right: 20px; 
-  font-family: 'Kaushan Script';
+  font-family: 'Major Mono Display', monospace;
 `;
 
 export const Container = styled.div`
@@ -36,7 +36,7 @@ export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: #F67B50;
+  color: #8A2BE2;
   font-size: 28px;
   width: 100%;
 `;

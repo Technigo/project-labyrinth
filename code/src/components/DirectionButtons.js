@@ -13,7 +13,7 @@ export const DirectionButtons = ({ direction, action }) => {
         onClick={(event) => dispatch(action(event))}
         direction={direction}
       >
-        <Text direction={direction}>Go {direction}</Text>
+        <Text direction={direction}>Run {direction}</Text>
       </DirectionButton>
     </InnerContainer>
   );

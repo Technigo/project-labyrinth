@@ -44,15 +44,22 @@ const TextInput = styled.input`
   align-items: center;
   text-align: center;
   border: none;
-  background-color: none;
   margin-bottom: 50px;
   margin-top: 50px;
-  border-bottom: 2px solid #fbc490;
+  border-bottom: 2px solid #8A2BE2;
   width: 100%;
-  font-family: "Kaushan Script";
+  font-family: 'Major Mono Display', monospace;
 
   &:focus {
     outline: none;
+  }
+  background: #aea1ff;
+  
+  animation: mymove 5s forwards;
+  }
+  @keyframes mymove {
+    from {background-color: #93e6b0;}
+    to {background-color: #aea1ff;}
   }
 `;
 
@@ -60,5 +67,5 @@ const Label = styled.label`
   display: box;
   align-items: center;
   justify-content: center;
-  font-family: "Kaushan Script";
+  font-family: 'Major Mono Display', monospace;
 `;

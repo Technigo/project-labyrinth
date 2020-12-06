@@ -41,7 +41,7 @@ export const LabyrinthGame = ({ setGameCoordinates }) => {
                   <Text>Leave them all behind</Text>
                   <StartLabyrinthButton
                     action={() => fetchLabyrinthData(username)}
-                    text="Go!"
+                    text="Run!"
                   />
                 </StartContainer>
               )}
