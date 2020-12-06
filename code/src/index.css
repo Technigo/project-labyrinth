@@ -70,6 +70,7 @@ input::placeholder {
 .gameboard-player-name {
 	align-self: flex-end;
 	margin-bottom: 0;
+	margin-right: 10px;
 }
 
 .board-wrapper {
@@ -113,7 +114,8 @@ input::placeholder {
 }
 /**/
 .game-board-wrapper {
-	max-width: 600px;
+	/* max-width: 600px; */
+	width: 100%;
 }
 .gameboard {
 	display: flex;
@@ -149,6 +151,12 @@ input::placeholder {
 	text-align: center;
 	margin: 0;
 	font-weight: normal;
+}
+
+.gameboard-game-over {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 /*HISTORY*/
@@ -234,6 +242,8 @@ button:hover {
 	font-size: 32px;
 	text-align: center;
 	color: #e6a348;
+	max-width: 540px;
+	align-self: center;
 }
 
 .gameboard-game-over-sub-description {
@@ -333,10 +343,10 @@ button:hover {
 @media only screen and (min-width: 600px) {
 	.location-current-details-description {
 		font-size: 30px;
+		max-width: 540px;
+		align-self: center;
 	}
-	.gameboard-wrapper {
-		max-width: 70%;
-	}
+
 	.action-description {
 		font-size: 22px;
 	}

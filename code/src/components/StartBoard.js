@@ -43,9 +43,9 @@ export const StartBoard = () => {
         </form>
       </section>
       }
-      <section className="game-board-wrapper">
+      
        {gameStarted && <GameBoard />}
-      </section>
+
     </section>
   )
 }

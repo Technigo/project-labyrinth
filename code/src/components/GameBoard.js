@@ -21,6 +21,7 @@ export const GameBoard = () => {
   const y = coordinatesSplitted[1]
 
   return (
+    <section className="game-board-wrapper">
     <section className={`gameboard-main bg-${x}-${y}`}>
         <section className={gameIsLoading ? "gameboard-loading" : "gameboard"}>
           {noMoreActions && coordinates && locationDescription ? 
@@ -36,5 +37,6 @@ export const GameBoard = () => {
             }
           </section>
       </section> 
+      </section>
   )
 }
