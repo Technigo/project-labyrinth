@@ -1,13 +1,13 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The Labyrinth projects aims to build a redux application by using a thunk function and API POST method.
 
 ## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I used Thunk function for reusable button which will POST the data of each movement of the player to the API.
+In term of styling, I managed to have a video background, using styled-components.
+I still have a problem in the 'kep' when mapping throught the array in the History.
+Should I have more time, I would learn to use differnt background iamge for differient actions.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://amazegame.netlify.app/
