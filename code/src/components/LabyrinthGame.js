@@ -12,7 +12,7 @@ import {
   Container,
   InnerContainer,
   StartContainer,
-  Text
+  Text,
 } from "styling/GlobalStyle";
 
 export const LabyrinthGame = ({ setGameCoordinates }) => {
