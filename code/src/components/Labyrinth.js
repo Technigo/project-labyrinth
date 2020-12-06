@@ -40,7 +40,7 @@ export const Labyrinth = () => {
       <LabyrinthWrapper>
         <Map />
         <TextWrapper>
-          <Button onButtonClick={handleGoBack} text="Go back" />
+          <Button onButtonClick={handleGoBack} text="Go Back" />
           <TopSection>
             {pastActions.length > 0 && (
               <PositionText>
