@@ -5,7 +5,11 @@ import styled from "styled-components/macro";
 
 import { Button } from "lib/Button";
 import { getStartGame } from "../reducers/reusable";
+<<<<<<< HEAD
 import { Animationtext } from "lib/Animationtext";
+=======
+import { AnimationText } from "lib/AnimationText";
+>>>>>>> afda01ef108afe4130fc8e88dae870367d03dff6
 
 export const UserInput = () => {
   const [name, setName] = useState("");
@@ -13,6 +17,7 @@ export const UserInput = () => {
 
   const dispatch = useDispatch();
 
+<<<<<<< HEAD
   // We get this error when using the code below.
   // The 'handleGameStart' function makes the dependencies of useEffect Hook
   // (at line 27) change on every render. Move it inside the useEffect callback.
@@ -25,13 +30,20 @@ export const UserInput = () => {
   useEffect(() => {
     if (username) {
       // handleGameStart(username);
+=======
+  useEffect(() => {
+    if (username) {
+>>>>>>> afda01ef108afe4130fc8e88dae870367d03dff6
       dispatch(getStartGame());
     }
   }, [dispatch, username]);
 
   const handleSubmit = event => {
     event.preventDefault();
+<<<<<<< HEAD
     console.log(name);
+=======
+>>>>>>> afda01ef108afe4130fc8e88dae870367d03dff6
     dispatch(
       game.actions.addUserName({
         username: name,
@@ -42,7 +54,11 @@ export const UserInput = () => {
 
   return (
     <TopSection>
+<<<<<<< HEAD
       <Animationtext />
+=======
+      <AnimationText />
+>>>>>>> afda01ef108afe4130fc8e88dae870367d03dff6
       <Form onSubmit={handleSubmit}>
         <Label>
           <InputField

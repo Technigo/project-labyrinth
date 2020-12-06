@@ -151,7 +151,11 @@ const GameDescription = styled.article`
   @media (min-width: 768px) {
     width: 250px;
     margin: 0 4px;
+<<<<<<< HEAD
     min-height: 180px;
+=======
+    min-height: 220px;
+>>>>>>> afda01ef108afe4130fc8e88dae870367d03dff6
   }
 `;
 

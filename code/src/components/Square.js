@@ -8,17 +8,25 @@ export const Square = ({ coordinates }) => {
     store => store.game.currentGameState.gameData.coordinates
   );
   const coordinatesArray = useSelector(store => store.game.coordinatesArray);
+<<<<<<< HEAD
   // const previousCoordinates = useSelector(
   //   store =>
   //     store.game.positionHistory[positionHistory.length - 1].gamedata
   //       .coordinates
   // );
+=======
+  const visitedSteps = coordinatesArray.find(item => item === coordinates);
+>>>>>>> afda01ef108afe4130fc8e88dae870367d03dff6
 
   return (
     <MapSquare
       coordinates={coordinates}
       gamePosition={gamePosition}
       coordinatesArray={coordinatesArray}
+<<<<<<< HEAD
+=======
+      visitedSteps={visitedSteps}
+>>>>>>> afda01ef108afe4130fc8e88dae870367d03dff6
     >
       <MapSquareP coordinates={coordinates} gamePosition={gamePosition}>
         {coordinates}{" "}
@@ -40,7 +48,12 @@ const MapSquare = styled.div`
   color: "black";
   font-weight: 500;
   background: ${props =>
+<<<<<<< HEAD
     props.coordinates === props.gamePosition || props.gamePosition === "1,3" //props.gamePosition === props.coordinatesArray.includes(props.gamePosition)
+=======
+    props.coordinates === props.gamePosition ||
+    props.coordinates === props.visitedSteps
+>>>>>>> afda01ef108afe4130fc8e88dae870367d03dff6
       ? "rgba(0, 0, 0, 0.0)"
       : "rgba(0, 0, 0, 0.9)"};
 `;
