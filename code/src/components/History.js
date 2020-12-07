@@ -15,13 +15,14 @@ export const History = ({ history, setHistoryVisible }) => {
     <HistoryWrapper>
       {/* {actualHistory.length > 0 ? ( */}
       <HistoryStepsTextBox>
-        {actualHistory.map((step, index) => {
-          return (
-            <HistoryStepsText key={index} amountOfSteps={amountOfSteps}>
-              {step}
-            </HistoryStepsText>
-          );
-        })}
+        {actualHistory &&
+          actualHistory.map((step, index) => {
+            return (
+              <HistoryStepsText key={index} amountOfSteps={amountOfSteps}>
+                {step}
+              </HistoryStepsText>
+            );
+          })}
       </HistoryStepsTextBox>
       {/* ) : (
         <HistoryText>You haven't taken any steps </HistoryText>
