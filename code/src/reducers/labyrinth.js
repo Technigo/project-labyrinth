@@ -50,10 +50,11 @@ export const fetchLabyrinthData = ({ url, username, type, direction }) => {
       .then((json) => {
         dispatch(labyrinth.actions.setLabyrinthData(json));
 
-        dispatch(
-          labyrinth.actions.setStepHistory(direction) // If we want all history, we add data; json here
-        );
-
+        if (url.includes('action')) {
+          dispatch(
+            labyrinth.actions.setStepHistory(direction) // If we want all history, we add data; json here
+          );
+        }
         dispatch(ui.actions.setLoading(false));
       });
   };

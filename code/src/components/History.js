@@ -26,7 +26,7 @@ export const History = ({ history, setHistoryVisible }) => {
             })}
         </HistoryStepsTextBox>
       ) : (
-        <HistoryText>You haven't taken any steps </HistoryText>
+        <p>You haven't taken any steps </p>
       )}
       <MainButtonBlack onClick={() => setHistoryVisible(false)}>
         Close
