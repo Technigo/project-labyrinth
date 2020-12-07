@@ -10,23 +10,24 @@ export const History = ({ history, setHistoryVisible }) => {
 
   const amountOfSteps = actualHistory.length;
   console.log(amountOfSteps);
+  console.log(actualHistory);
 
   return (
     <HistoryWrapper>
-      {/* {actualHistory.length > 0 ? ( */}
-      <HistoryStepsTextBox>
-        {actualHistory &&
-          actualHistory.map((step, index) => {
-            return (
-              <HistoryStepsText key={index} amountOfSteps={amountOfSteps}>
-                {step}
-              </HistoryStepsText>
-            );
-          })}
-      </HistoryStepsTextBox>
-      {/* ) : (
+      {actualHistory.length > 0 ? (
+        <HistoryStepsTextBox>
+          {actualHistory &&
+            actualHistory.map((step, index) => {
+              return (
+                <HistoryStepsText key={index} amountOfSteps={amountOfSteps}>
+                  {step}
+                </HistoryStepsText>
+              );
+            })}
+        </HistoryStepsTextBox>
+      ) : (
         <HistoryText>You haven't taken any steps </HistoryText>
-      )} */}
+      )}
       <MainButtonBlack onClick={() => setHistoryVisible(false)}>
         Close
       </MainButtonBlack>
@@ -62,9 +63,9 @@ const HistoryStepsText = styled(HistoryText)`
     content: 'Your last step was to the ';
   }
 
-  /* &:not(:first-child):before {
+  &:not(:first-child):before {
     ${(props) => (props.amountOfSteps > 1 ? 'content : "then "' : '')}
-  } */
+  }
 
   &:not(:last-child):after {
     content: ', ';

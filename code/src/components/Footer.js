@@ -4,9 +4,6 @@ import styled from 'styled-components/macro';
 import { OuterFlexWrapper, InnerFlexWrapper } from '../styling/GlobalStyles';
 
 export const Footer = ({ setHistoryVisible }) => {
-  const handleClick = () => {
-    setHistoryVisible(true);
-  };
   return (
     <FooterWrapper>
       <DirectionsButtonWrapper>
