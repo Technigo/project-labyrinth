@@ -9,8 +9,6 @@ export const History = ({ history, setHistoryVisible }) => {
     : history;
 
   const amountOfSteps = actualHistory.length;
-  console.log(amountOfSteps);
-  console.log(actualHistory);
 
   return (
     <HistoryWrapper>
@@ -69,7 +67,7 @@ const HistoryStepsText = styled(HistoryText)`
   }
   &:last-child:before {
     ${(props) =>
-      props.amountOfSteps > 4
+      props.amountOfSteps >= 3
         ? 'content : "and first of all, you walked to the "'
         : ''}
   }
