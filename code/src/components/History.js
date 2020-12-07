@@ -61,9 +61,9 @@ const HistoryStepsText = styled(HistoryText)`
     content: 'Your last step was to the ';
   }
 
-  &:not(:first-child):before {
+  /* &:not(:first-child):before {
     ${(props) => (props.amountOfSteps > 1 ? 'content : "then "' : '')}
-  }
+  } */
 
   &:not(:last-child):after {
     content: ', ';
