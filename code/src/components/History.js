@@ -26,7 +26,7 @@ export const History = ({ history, setHistoryVisible }) => {
             })}
         </HistoryStepsTextBox>
       ) : (
-        <p>You haven't taken any steps </p>
+        <HistoryText>You haven't taken any steps </HistoryText>
       )}
       <MainButtonBlack onClick={() => setHistoryVisible(false)}>
         Close
@@ -64,7 +64,14 @@ const HistoryStepsText = styled(HistoryText)`
   }
 
   &:not(:first-child):before {
-    ${(props) => (props.amountOfSteps > 1 ? 'content : "then "' : '')}
+    ${(props) =>
+      props.amountOfSteps > 1 ? 'content : "before that you went to the "' : ''}
+  }
+  &:last-child:before {
+    ${(props) =>
+      props.amountOfSteps > 4
+        ? 'content : "and first of all, you walked to the "'
+        : ''}
   }
 
   &:not(:last-child):after {
