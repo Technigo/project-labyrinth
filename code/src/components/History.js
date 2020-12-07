@@ -7,11 +7,9 @@ import { MainButton } from '../styling/GlobalStyles';
 export const History = ({ history, setHistoryVisible }) => {
   const actualHistory = localStorage.getItem('history')
     ? JSON.parse(localStorage.getItem('history'))
-    : history.console.log(history);
-  console.log(actualHistory);
+    : history;
 
   const amountOfSteps = actualHistory.length;
-  console.log(amountOfSteps);
 
   return (
     <HistoryWrapper>
