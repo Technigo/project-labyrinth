@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { useSelector } from 'react-redux';
 
 import { MainButton } from '../styling/GlobalStyles';
 
@@ -10,22 +9,23 @@ export const History = ({ history, setHistoryVisible }) => {
     : history;
 
   const amountOfSteps = actualHistory.length;
+  console.log(amountOfSteps);
 
   return (
     <HistoryWrapper>
-      {actualHistory.length > 0 ? (
-        <HistoryStepsTextBox>
-          {actualHistory.map((step, index) => {
-            return (
-              <HistoryStepsText key={index} amountOfSteps={amountOfSteps}>
-                {step}
-              </HistoryStepsText>
-            );
-          })}
-        </HistoryStepsTextBox>
-      ) : (
+      {/* {actualHistory.length > 0 ? ( */}
+      <HistoryStepsTextBox>
+        {actualHistory.map((step, index) => {
+          return (
+            <HistoryStepsText key={index} amountOfSteps={amountOfSteps}>
+              {step}
+            </HistoryStepsText>
+          );
+        })}
+      </HistoryStepsTextBox>
+      {/* ) : (
         <HistoryText>You haven't taken any steps </HistoryText>
-      )}
+      )} */}
       <MainButtonBlack onClick={() => setHistoryVisible(false)}>
         Close
       </MainButtonBlack>
