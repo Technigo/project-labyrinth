@@ -55,6 +55,7 @@ export const thunk = (userName) => {
 		})
 			.then((res) => res.json())
 			.then((data) => {
+				console.log(data)
 				dispatch(games.actions.playGame(data))
 				dispatch(ui.actions.setLoading(false))
 			})
@@ -62,7 +63,6 @@ export const thunk = (userName) => {
 }
 
 export const actionThunk = (userName, action) => {
-	console.log(action)
 	return (dispatch) => {
 		dispatch(ui.actions.setLoading(true))
 		fetch('https://wk16-backend.herokuapp.com/action', {

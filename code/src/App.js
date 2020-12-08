@@ -9,12 +9,11 @@ import { ui } from './reducers/ui'
 const reducer = combineReducers({ games: games.reducer, ui: ui.reducer })
 
 const store = configureStore({ reducer })
-console.log(store.initialState)
 
 export const App = () => {
-	return (
-		<Provider store={store}>
-			<Game />
-		</Provider>
-	)
+  return (
+    <Provider store={store}>
+      <Game />
+    </Provider>
+  )
 }
