@@ -6,7 +6,10 @@ import { games } from './reducers/games'
 import { Game } from './components/Game'
 import { ui } from './reducers/ui'
 
-const reducer = combineReducers({ games: games.reducer, ui: ui.reducer })
+const reducer = combineReducers({ 
+  games: games.reducer, 
+  ui: ui.reducer 
+})
 
 const store = configureStore({ reducer })
 
