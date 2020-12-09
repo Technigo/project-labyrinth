@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { useSelector } from 'react-redux';
 
 import { MainButton } from '../styling/GlobalStyles';
 
@@ -15,13 +14,14 @@ export const History = ({ history, setHistoryVisible }) => {
     <HistoryWrapper>
       {actualHistory.length > 0 ? (
         <HistoryStepsTextBox>
-          {actualHistory.map((step, index) => {
-            return (
-              <HistoryStepsText key={index} amountOfSteps={amountOfSteps}>
-                {step}
-              </HistoryStepsText>
-            );
-          })}
+          {actualHistory &&
+            actualHistory.map((step, index) => {
+              return (
+                <HistoryStepsText key={index} amountOfSteps={amountOfSteps}>
+                  {step}
+                </HistoryStepsText>
+              );
+            })}
         </HistoryStepsTextBox>
       ) : (
         <HistoryText>You haven't taken any steps </HistoryText>
@@ -62,7 +62,14 @@ const HistoryStepsText = styled(HistoryText)`
   }
 
   &:not(:first-child):before {
-    ${(props) => (props.amountOfSteps > 1 ? 'content : "then "' : '')}
+    ${(props) =>
+      props.amountOfSteps > 1 ? 'content : "before that you went to the "' : ''}
+  }
+  &:last-child:before {
+    ${(props) =>
+      props.amountOfSteps >= 3
+        ? 'content : "and first of all, you walked to the "'
+        : ''}
   }
 
   &:not(:last-child):after {
