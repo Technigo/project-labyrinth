@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import styled from 'styled-components';
@@ -23,14 +23,11 @@ const store = configureStore({ reducer });
 // ----------------------------------------------------------------
 
 export const App = () => {
-  // Keep record of current coordinates for styling props
-  const [currentCoordinates, setCurrentCoordinates] = useState('');
-
   return (
-    <Container coordinates={currentCoordinates}>
+    <Container>
       <Provider store={store}>
         <Loading />
-        <Labyrinth setCurrentCoordinates={setCurrentCoordinates} />
+        <Labyrinth />
       </Provider>
     </Container>
   );

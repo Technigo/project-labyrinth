@@ -29,7 +29,7 @@ import {
 
 // ----------------------------------------------------------------
 
-export const Labyrinth = ({ setCurrentCoordinates }) => {
+export const Labyrinth = () => {
   const dispatch = useDispatch();
   const content = useSelector((store) => store.labyrinth.content);
   const username = useSelector((store) => store.labyrinth.username);
@@ -53,9 +53,6 @@ export const Labyrinth = ({ setCurrentCoordinates }) => {
     localStorage.setItem('history', '[]');
     window.location.reload();
   };
-
-  // Send current coordinates to parent component for styling
-  setCurrentCoordinates(content.coordinates);
 
   return (
     isLoading === false && (
