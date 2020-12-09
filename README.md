@@ -1,10 +1,18 @@
-# Project Labyrinth
+# Project Labyrinth&ensp;|&ensp;[View Live &#10132;](https://amazing-maze-game.netlify.app/)
 
-A adventure game. To find your way through the maze you get two options to choose in which direction you want to go. 
+A text-based adventure created using pair-programming with React Redux, Redux Toolkit, thunks and reusable components. The game state is persisted using local storage. Storing the players history in state, resets when restarting the game. An animated loader using keyframes styled with styled components.
 
-Built using React and Redux using thunks to async fetches from APIs. 
-Pair programming project with Jonna Ru.
+## Core Tech
+
+- React
+- React Redux
+- Redux Thunk
+- Redux Toolkit
+- Styled Components
+- Pair-programming
+
+![mockup](mockup.jpg)
 
 ## View it live
 
-https://adventure-maze.netlify.app/
+https://amazing-maze-game.netlify.app/

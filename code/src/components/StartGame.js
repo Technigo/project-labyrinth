@@ -1,22 +1,14 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { startNewGame } from 'reducers/game';
-import swal from "sweetalert";
-import styled from 'styled-components'
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-const StartButton = styled.button`
-  display: flex;
-  background: black;
-  color: #4CFF42;
-  font-family: 'Inconsolata', monospace;
-  font-size: 25px;
-  padding: 10px;
-`
+import swal from "sweetalert";
+
+import { startNewGame } from "reducers/game";
+import { StyledButton } from "lib/Buttons";
 
 export const StartGame = () => {
   const dispatch = useDispatch();
   const username = useSelector((store) => store.game.username);
-
 
   const handleOnClick = () => {
     swal({
@@ -35,8 +27,8 @@ export const StartGame = () => {
   };
 
   return (
-    <div>
-      <StartButton onClick={handleOnClick}>{username === '' ? 'Play' : 'Restart'}</StartButton>
-    </div>
-  )
-}
+    <StyledButton play={username === ""} onClick={handleOnClick}>
+      {username === "" ? "Play" : "Restart"}
+    </StyledButton>
+  );
+};
