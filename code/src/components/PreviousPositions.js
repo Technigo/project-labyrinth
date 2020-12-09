@@ -6,7 +6,6 @@ export const PreviousPositions = () => {
 const history = useSelector(store => store.gameReducer.history);  
 const historyFiltered = history.filter((item,index) => index !== 0).reverse(); 
 
-console.log("History array lenght: ",history.length);
   return (
     <div className="gameboard-history">
       <aside className="previous-steps">
