@@ -1,19 +1,19 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  display:flex; 
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  margin-top:10%;
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
 `;
 
 export const BoxShadow = styled.div`
-  width:80%;
+  width: 80%;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   flex-direction: row;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   border: 1px solid #fd20e3;
   padding: 10px;
   box-shadow: 5px 10px #fd20e3;
@@ -25,7 +25,7 @@ export const BoxShadow = styled.div`
 `;
 
 export const Header = styled.h2`
-  margin:25px;
+  margin: 25px;
   font-family: 'Source Code Pro', monospace;  
   font-size: 30px;
 `;
@@ -48,7 +48,7 @@ export const Button = styled.button`
   padding: 20px;
   border: solid 1px #fd20e3;
   background-color: rgb(255,255,255, 0); 
-  color:white;
+  color: white;
   cursor: pointer;
 
   :hover {
@@ -62,8 +62,8 @@ export const Button = styled.button`
 `;
 
 export const Hint = styled.p`
-  font-size:9px;
-  padding:20px;
+  font-size: 12px;
+  padding: 20px;
 
   @media (min-width: 768px) {
     margin-left: 20%;

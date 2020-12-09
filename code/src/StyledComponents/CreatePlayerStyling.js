@@ -1,7 +1,7 @@
 import styled from 'styled-components'; 
 
 export const MainHeader = styled.h1`
-  width:50%; 
+  width: 50%; 
   border-right: solid 3px rgba(120, 120, 120, 0.75);
   white-space: nowrap;
   overflow: hidden;    
@@ -14,7 +14,7 @@ export const MainHeader = styled.h1`
   /* text animation */
   @keyframes animated-text {
     from{width: 0;}
-    to{width:83%;}
+    to{width: 83%;}
   };
 /* cursor animations */
   @keyframes animated-cursor {
@@ -25,35 +25,35 @@ export const MainHeader = styled.h1`
   @media (min-width: 768px) {
     @keyframes animated-text{
       from{width: 0;}
-      to{width:40%;}
+      to{width: 40%;}
     };
   };
     
   @media (min-width: 1024px) {
     @keyframes animated-text {
       from{width: 0;}
-      to{width:25%;}
+      to{width: 25%;}
     }; 
   };
 `;
 
 export const Form = styled.form`
-  display:flex;
-  padding:20px; 
-  width:100%;
+  display: flex;
+  padding: 20px; 
+  width: 100%;
   flex-direction:row;
-  flex-wrap:wrap;
-  justify-content:center;
+  flex-wrap: wrap;
+  justify-content: center;
 
   @media (min-width: 768px) {
    width:70%;
-};
+  };
 `;
 
 export const InputText = styled.input`
-  text-align:center;
-  width:80%;
-  line-height:50px;
-  border-radius:16px;
-  border:none;
+  text-align: center;
+  width: 80%;
+  line-height: 50px;
+  border-radius: 16px;
+  border: none;
 `;

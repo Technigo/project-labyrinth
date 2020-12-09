@@ -7,7 +7,6 @@ import { GameContinue } from './GameContinue';
 import { Container, Button, BoxShadow } from '../StyledComponents/GlobalStyles';
 import { MainHeader, Form, InputText } from '../StyledComponents/CreatePlayerStyling';
 
-
 export const CreatePlayer = () => { 
   const playerName = useSelector((state)=>state.labyrinth.username);
   const gameState = useSelector((state) => state.labyrinth.game);

@@ -54,8 +54,8 @@ export const GameContinue = () => {
       <Container>
         <BoxShadow>
           <Text>{currentState.labyrinth.game.description}</Text>
-            {actions.map((action)=> 
-          <Button key= {action.description} onClick={() => onGameContinue(action.direction)}> Go {action.direction}</Button>
+          {actions.map((action)=> 
+            <Button key= {action.description} onClick={() => onGameContinue(action.direction)}> Go {action.direction}</Button>
           )}
           <Hint> *HINT* {currentState.labyrinth.game.actions[0].description}</Hint>
         </BoxShadow>
