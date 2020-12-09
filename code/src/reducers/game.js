@@ -27,18 +27,18 @@ export const game = createSlice({
 export const fetchStart = (username) => {
 
     return(dispatch) => {
-    dispatch(ui.actions.setLoading(true))
-    dispatch(ui.actions.setStarted(true))          
-    fetch('https://wk16-backend.herokuapp.com/start',{
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({ username: username }),
-        })
-        .then(result => result.json())
-        .then((json) => {
-            dispatch(game.actions.startGame({json, username}))
-            dispatch(ui.actions.setLoading(false))  
-        })   
+        dispatch(ui.actions.setLoading(true))
+        dispatch(ui.actions.setStarted(true))          
+        fetch('https://wk16-backend.herokuapp.com/start',{
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({ username: username }),
+            })
+            .then(result => result.json())
+            .then((json) => {
+                dispatch(game.actions.startGame({json, username}))
+                dispatch(ui.actions.setLoading(false))  
+            })   
 
     }
 }

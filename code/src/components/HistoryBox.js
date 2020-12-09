@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-
-
 export const HistoryBox = ({ inputCoordinates }) => {
     let coordinates = [0,0]
 
@@ -12,18 +10,18 @@ export const HistoryBox = ({ inputCoordinates }) => {
     }
 
     const MyPosition = styled.div`
-    border: 2px solid;
-    background-color: grey;
-    height: 75px;
-    width: 75px;
-    position: absolute;
-    bottom: ${100 + coordinates[1]*75}px;
-    left: ${150 + coordinates[0]*75}px;
+        border: 2px solid;
+        background-color: grey;
+        height: 75px;
+        width: 75px;
+        position: absolute;
+        bottom: ${100 + coordinates[1]*75}px;
+        left: ${150 + coordinates[0]*75}px;
     `
 
     return(
         <MyPosition>
-        <span role="img" aria-label="position" style={{position: 'relative', top:'26px', left: '26px'}}>💪</span>
+            <span role="img" aria-label="position" style={{position: 'relative', top:'26px', left: '26px'}}>💪</span>
         </MyPosition>
     )
 

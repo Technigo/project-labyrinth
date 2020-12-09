@@ -8,18 +8,18 @@ export const Playerposition = () => {
     let coordinates = [0,0]
 
     if(startPosition) {coordinates = startPosition.split(",")
-    coordinates[0] = parseInt(coordinates[0])
-    coordinates[1] = parseInt(coordinates[1])
-    console.log(coordinates)}
+        coordinates[0] = parseInt(coordinates[0])
+        coordinates[1] = parseInt(coordinates[1])
+    }
     
 
     const MyPosition = styled.div`
-    border: 2px solid;
-    height: 75px;
-    width: 75px;
-    position: absolute;
-    bottom: ${100 + coordinates[1]*75}px;
-    left: ${150 + coordinates[0]*75}px;
+        border: 2px solid;
+        height: 75px;
+        width: 75px;
+        position: absolute;
+        bottom: ${100 + coordinates[1]*75}px;
+        left: ${150 + coordinates[0]*75}px;
     `
 
 

@@ -4,14 +4,15 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import styled from 'styled-components'
 
 const MyCircularProgress = styled(CircularProgress)`
-  margin: 30px 0px;
+  margin: 30px 0;
 `;
 
 export const LoadingIndicator = () =>{
     const isLoading = useSelector((state) => state.ui.isLoading); 
-return (
+    
+  return (
     <>
     {isLoading &&  <MyCircularProgress />}
     </>
-)
+  )
 }

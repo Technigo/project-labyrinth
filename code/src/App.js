@@ -8,9 +8,9 @@ import { game } from '../src/reducers/game'
 import { ui } from '../src/reducers/ui'
 import { StartGame } from 'components/StartGame'
 import { MovePlayer} from 'components/MovePlayer'
-import { Playerposition } from 'components/Playerposition'
+import { PlayerPosition } from 'components/PlayerPosition'
 import { LoadingIndicator } from 'components/LoadingIndicator'
-import { Playerhistory } from 'components/Playerhistory'
+import { PlayerHistory } from 'components/PlayerHistory'
 
 
 const reducer = combineReducers ({ 
@@ -35,13 +35,13 @@ export const App = () => {
   return (
     <Provider store={store} >
     <Container maxWidth= "xs" style={{ height: '90vh', backgroundColor: 'white', position: 'relative', top:'0px', left: '0px'}}>
-    <MyPaper>
-     <StartGame /> 
-     <MovePlayer />
-     <LoadingIndicator />
-     </MyPaper>
-     <Playerposition/>
-     <Playerhistory/>
+      <MyPaper>
+        <StartGame /> 
+        <MovePlayer />
+        <LoadingIndicator />
+      </MyPaper>
+      <PlayerPosition/>
+      <PlayerHistory/>
      </Container>
     </Provider>
   )
