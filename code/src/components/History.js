@@ -4,7 +4,6 @@ import styled from 'styled-components/macro'
 
 export const History = () => {
   const historySteps = useSelector((store) => store.gameReducer.history)
-  console.log(historySteps, 'historySteps')
   return (
     <>
       {historySteps.length > 0 && (
