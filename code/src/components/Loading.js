@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
+
 import styled, { keyframes } from "styled-components";
 
 export const Loading = () => {
@@ -23,32 +24,29 @@ export const Loading = () => {
 }
 
 const Container = styled.div`
-height: 800px;
-display:flex;
-justify-content: center;
-align-items: center;
-
+    height: 800px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 `
 const DotWrapper = styled.div`
-display: flex;
-align-items: flex-end;
+    display: flex;
+    align-items: flex-end;
 `
 const BounceAnimation = keyframes`
-  0% { margin-bottom: 0; }
-  50% { margin-bottom: 25px }
-  100% { margin-bottom: 0 }
-`;
+    0% { margin-bottom: 0; }
+    50% { margin-bottom: 25px }
+    100% { margin-bottom: 0 }
+`
 
 const Dot = styled.div`
-  
-  box-shadow: 4px 4px 4px #000000;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  margin: 0 5px;
-
-  /* Animation */
-  animation: ${BounceAnimation} 0.5s linear infinite;
-  animation-delay: ${props => props.delay};
+    box-shadow: 4px 4px 4px #000000;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 0 5px;
+    /* Animation */
+    animation: ${BounceAnimation} 0.5s linear infinite;
+    animation-delay: ${props => props.delay};
   `
 

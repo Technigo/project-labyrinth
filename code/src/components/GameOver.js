@@ -1,6 +1,7 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import styled from 'styled-components'
+import React from 'react';
+import { useSelector } from 'react-redux';
+
+import styled from 'styled-components';
 
 export const GameOver = () => {
     const gameStatus = useSelector((state) => state.currentstate.gameStatus)

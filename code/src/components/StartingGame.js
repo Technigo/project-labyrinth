@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import styled from 'styled-components'
 import { firstFetch, currentstate } from 'reducers/currentstate';
-
 import { PlayingGame } from './PlayingGame';
 
 // This component is responsible for dispatching the first POST request that will populate
@@ -25,7 +25,6 @@ export const StartingGame = () => {
 
   // Stores and updates username locally.
   const updateUsername = () => {
-    console.log(inputValue)
     dispatch(currentstate.actions.updateUsername(inputValue))
   }
 
@@ -61,7 +60,7 @@ export const StartingGame = () => {
           </InputButton>
         </InputContainer>
         <ButtonContainer>
-          <Button type="button" onClick={() => dispatch(firstFetch(username))}>Play Game</Button>
+          <Button onClick={() => dispatch(firstFetch(username))} disabled={inputValue.length < 1}> Play Game</Button>
         </ButtonContainer>
       </Container>
     </>
@@ -93,7 +92,7 @@ const Title = styled.h1`
       font-size: 60px;
     }
 `
-const InputContainer = styled.div`
+const InputContainer = styled.form`
   display:flex;
   justify-content: center;
 `

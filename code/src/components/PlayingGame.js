@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components'
 
+import styled from 'styled-components'
 import { nextFetch, currentstate } from '../reducers/currentstate';
-import { GameOver } from '../components/GameOver'
+import { GameOver } from '../components/GameOver';
 // This component is responsible for passing data to the Redux store (and the POST requests) 
 // in order to keep the store updated and have the player moving forward in the game.
 // For this the component needs access to: current gamestatus, actions, and history of the 
