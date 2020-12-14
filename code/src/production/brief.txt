@@ -1,5 +1,10 @@
 - should styles be broken out more?
 
+animations example:
+https://iwannabecomeafrontenddev.netlify.app/
+
+
+
 @keyframes myanimation {
   0% {background-color: red;}
   25% {background-color:yellow;}

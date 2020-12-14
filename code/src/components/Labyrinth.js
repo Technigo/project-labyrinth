@@ -12,7 +12,7 @@ const Description = styled.h1`
 
 export const Labyrinth = () => {
   const currentStep = useSelector((state) => state.game.currentStep)
-  const User = useSelector((state) => state.game.username)
+  const user = useSelector((state) => state.game.username)
   const isLoading = useSelector((state) => state.ui.isLoading)
   const dispatch = useDispatch()
 
@@ -53,7 +53,7 @@ export const Labyrinth = () => {
   window.onload = ColorChange()
 
   const handleSubmit = (direction) => {
-    dispatch(fetchNext(User, direction))
+    dispatch(fetchNext(user, direction))
   }
 
   return (
