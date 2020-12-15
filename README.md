@@ -1,6 +1,6 @@
 # Project Labyrinth
 
-We have built a labyrinth game with Redux and API-calls. 
+Max Forssén and Ingela Löfgren worked together in pair-programming in this project. We have built a labyrinth game with Redux and API-calls. 
 
 ## The problem
 
