@@ -11,12 +11,12 @@ import {
   imgUrl_13,
 } from "../styling/backgroundImage";
 
-// Global styling goes here
 
 export const Heading = styled.h1`
   font-size: 28px;
 `;
 
+// Styling for background
 export const BackgroundContainer = styled.main`
   display: flex;
   justify-content: center;
@@ -44,12 +44,14 @@ export const BackgroundContainer = styled.main`
       : startImage });
 `;
 
+// Style for divider 
 export const Divider = styled.div`
   margin: 5px 0;
   border-bottom: 1px solid;
   border-image: linear-gradient(to right, transparent, #999, transparent) 5;
 `;
 
+//Style for user input
 export const Group = styled.div`
   display: flex;
   flex-direction: column;
@@ -123,6 +125,7 @@ export const DirectionButton = styled.button`
   }
 `;
 
+// Style for text container
 export const TextContainer = styled.section`
   max-width: 600px;
   text-align: center;

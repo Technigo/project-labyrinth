@@ -1,3 +1,5 @@
+//Images created by VityaR83 on Deviant Art
+
 export const imgUrl_00 =
   "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f49b7fed-bb8c-4ce3-b207-f7ea09481dc9/d9u7oxs-24f33531-3420-45e8-8f70-ab8bb9cc62c0.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZjQ5YjdmZWQtYmI4Yy00Y2UzLWIyMDctZjdlYTA5NDgxZGM5XC9kOXU3b3hzLTI0ZjMzNTMxLTM0MjAtNDVlOC04ZjcwLWFiOGJiOWNjNjJjMC5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.5KugH5SPj0oyEzeCrcpgipBPtOtNMzxH1MyRqvmiFro";
 export const imgUrl_01 =

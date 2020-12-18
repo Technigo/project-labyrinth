@@ -23,12 +23,12 @@ export const NextStep = () => {
       <Divider />
       <ActionHeading>Possible actions:</ActionHeading>
       <GroupRow>
-      {gameDetails.actions.map((action, index) => (
-        <GroupCol key={index}>
-          <p>{action.description}</p>
-          <DirectionButton onClick={() => onNextMove(action.direction)}>
-            Go {action.direction.toLowerCase()}
-          </DirectionButton>
+        {gameDetails.actions.map((action, index) => (
+          <GroupCol key={index}>
+            <p>{action.description}</p>
+            <DirectionButton onClick={() => onNextMove(action.direction)}>
+              Go {action.direction.toLowerCase()}
+            </DirectionButton>
           </GroupCol>
       ))}
       </GroupRow>
