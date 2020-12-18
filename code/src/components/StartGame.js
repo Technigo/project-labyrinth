@@ -12,8 +12,12 @@ export const StartGame = () => {
   const dispatch = useDispatch();
 
   const onGameStart = () => {
+    if (!nameInput) {
+      alert('Please enter your name first!')
+    }else{
     dispatch(gameState.actions.setUserName(nameInput));
     dispatch(startFetch(nameInput));
+  };
   };
 
   return (
@@ -27,6 +31,7 @@ export const StartGame = () => {
           <Group>
             <UserInput
               className="userName"
+              required
               type="text"
               value={nameInput}
               placeholder="Enter player name..."
