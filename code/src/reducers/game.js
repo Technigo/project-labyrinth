@@ -44,11 +44,8 @@ export const createPlayer = (username) => {
 }
 
 export const continueGame = (step, username) => {
-    return (dispatch, getState) => {
-        const state = getState()
-        console.log(state)
-        console.log(step)
-        fetch('https://wk16-backend.herokuapp.com/action', {
+    return (dispatch) => {
+                fetch('https://wk16-backend.herokuapp.com/action', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

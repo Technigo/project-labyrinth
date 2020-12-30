@@ -100,9 +100,9 @@ return (
                     type= 'text' 
                     onChange={e => setInputValue(e.target.value)}
                     value={inputValue}
-                    placeholder='Type your username'
-                ></Input>
-            <Button>Start game</Button>
+                    placeholder='Type your username'>
+                </Input>
+                <Button>Start game</Button>
             </Form>
         { userName && <WelcomePlayer userName={userName} />}
         <GameDescription inputValue={inputValue} />
