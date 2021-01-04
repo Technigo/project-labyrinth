@@ -54,6 +54,7 @@ export const Game = () => {
 
   const onAction = (action) => {
     dispatch(actionThunk(newUserName, action))
+
   }
 
   const onHistory = () => {
@@ -93,13 +94,6 @@ export const Game = () => {
         </Box>
       )}
 
-      {loader && (
-        <Box display='flex' justifyContent='center'>
-          <CircularProgress/>
-          <p>LOADING...</p>
-        </Box>
-      )}
-
       {!showStart && (
         <Box>
           <Discription>{gameDetails.description}</Discription>
@@ -110,6 +104,7 @@ export const Game = () => {
                 color='primary' 
                 key={action.description} 
                 onClick={() => onAction(action)}
+                disabled={loader}
               >
                 {action.type} {action.direction}
               </Button>
@@ -119,11 +114,19 @@ export const Game = () => {
             style={{ margin: 10, maxWidth: 200 }} 
             variant='contained' color='primary' 
             onClick={onHistory}
+            disabled={loader}
           >
             Go Back
           </Button>
+
+          {loader && (
+            <Box display='flex' justifyContent='center'>
+              <CircularProgress/>
+              <p>LOADING...</p> 
+            </Box>
+      )}
         </Box>
       )}
-    </Container>
+    </Container> 
   )
 }
