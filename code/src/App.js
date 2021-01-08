@@ -20,15 +20,13 @@ const reducer = combineReducers({ game: game.reducer });
 
 // Store the code 
 // 1) Retrieve the local storage and use it as out initial state
-  const persistedStateJSON = localStorage.getItem("reduxStates");
-  console.log(`persistedStateJSON: ${persistedStateJSON}`);
+const persistedStateJSON = localStorage.getItem("reduxStates");
 
-    let persistedState = {};
+let persistedState = {};
 
-  if (persistedStateJSON) {
-    persistedState = JSON.parse(persistedStateJSON);
-  }
-  console.log(`persistedState: ${persistedState}`)
+if (persistedStateJSON) {
+  persistedState = JSON.parse(persistedStateJSON);
+}
 
 // 2) Create the store using the initial state and retrieved state 
 

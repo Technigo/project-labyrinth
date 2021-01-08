@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Button, Form, TextInput, Background, Gif, StartHeader } from './styling';
 import { game } from '../reducers/game';
-import { StartGame } from '../reducers/fetch';
+import { startGame } from '../reducers/fetch';
 import Footer from './Footer';
 
 const StartControls = () => {
@@ -12,7 +12,7 @@ const StartControls = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(StartGame(userName));
+    dispatch(startGame(userName));
   }
 
   const onChangeEvent = (value) => {

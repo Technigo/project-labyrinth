@@ -1,6 +1,6 @@
 import { game } from './game';
 
-export const StartGame = (userName) => {
+export const startGame = (userName) => {
   return (dispatch) => {
     fetch('https://wk16-backend.herokuapp.com/start',
       {
