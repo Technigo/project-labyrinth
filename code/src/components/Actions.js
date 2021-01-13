@@ -49,22 +49,17 @@ export const Actions = () => {
   return (
     <ActionContainer>
       {actionsArray.map((action) => (
-        <>
-          <DirectionWrap>
-            <DirectionButton
-              key={action.direction}
-              type="button"
-              onClick={() => dispatch(fetchNextMove(action.direction))}
-              direction={action.direction}
-              description={action.description}
-            >
-              Go {action.direction}
-            </DirectionButton>
-            <ActionText key={action.description}>
-              {action.description}
-            </ActionText>
-          </DirectionWrap>
-        </>
+        <DirectionWrap key={action.direction}>
+          <DirectionButton
+            type="button"
+            onClick={() => dispatch(fetchNextMove(action.direction))}
+            direction={action.direction}
+            description={action.description}
+          >
+            Go {action.direction}
+          </DirectionButton>
+          <ActionText>{action.description}</ActionText>
+        </DirectionWrap>
       ))}
       <GoBackButton />
     </ActionContainer>
