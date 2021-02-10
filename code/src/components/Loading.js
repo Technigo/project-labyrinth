@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { useSelector } from 'react-redux';
-
 import styled, { keyframes } from "styled-components";
 
 export const Loading = () => {
@@ -17,11 +16,11 @@ export const Loading = () => {
                         <Dot delay=".2s" />
                         <Dot delay=".3s" />
                     </DotWrapper>
-            </Container>
+                </Container>
             }
         </>
-    )
-}
+    );
+};
 
 const Container = styled.div`
     height: 800px;

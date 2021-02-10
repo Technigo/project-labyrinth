@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-
 import styled from 'styled-components';
 
 export const GameOver = () => {
@@ -8,16 +7,16 @@ export const GameOver = () => {
 
     return (
         <>
-        <GameOverContainer>
-        <GameOverCard>
-        <GameOverText>{gameStatus.description}</GameOverText>
-          {/*This button will allow the user to go back to the starting page */}
-        <StartOverButton buttonwidth onClick={() => window.location.reload()}>Start New Game</StartOverButton>
-        </GameOverCard>
-        </GameOverContainer>
+            <GameOverContainer>
+                <GameOverCard>
+                    <GameOverText>{gameStatus.description}</GameOverText>
+                    {/*This button will allow the user to go back to the starting page */}
+                    <StartOverButton buttonwidth onClick={() => window.location.reload()}>Start New Game</StartOverButton>
+                </GameOverCard>
+            </GameOverContainer>
         </>
-    )
-}
+    );
+};
 
 const GameOverContainer = styled.div`
     display:flex;

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-import styled from 'styled-components'
+import styled from 'styled-components';
 import { firstFetch, currentstate } from 'reducers/currentstate';
+
 import { PlayingGame } from './PlayingGame';
 
 // This component is responsible for dispatching the first POST request that will populate
@@ -26,7 +26,7 @@ export const StartingGame = () => {
   // Stores and updates username locally.
   const updateUsername = () => {
     dispatch(currentstate.actions.updateUsername(inputValue))
-  }
+  };
 
   // The dispatch payload is the firstFetch action handled by the reducer with the same name. After
   // that and after initialState is populated with the response, the PlayingGame is rendered.

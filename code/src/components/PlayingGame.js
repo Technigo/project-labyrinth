@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
-import styled from 'styled-components'
+import styled from 'styled-components';
 import { nextFetch, currentstate } from '../reducers/currentstate';
+
 import { GameOver } from '../components/GameOver';
 // This component is responsible for passing data to the Redux store (and the POST requests) 
 // in order to keep the store updated and have the player moving forward in the game.
@@ -39,7 +39,7 @@ export const PlayingGame = () => {
   return (
     <>
       <Container>
-          {/*This button will allow the user to go back to their previous move, it calls the onHistoryBack function which dispatches
+        {/*This button will allow the user to go back to their previous move, it calls the onHistoryBack function which dispatches
       the historyGoBack action from our reducer. This button will only be enabled after the user has clicked past the first set
       of instructions, so when the history array is longer than 1*/}
         <Button type="button" onClick={onHistoryBack}> GO BACK </Button>
@@ -59,10 +59,10 @@ export const PlayingGame = () => {
 
               <Button type="button" onClick={() => dispatch(nextFetch(action.direction, username))}>{action.direction}</Button>
             </div>
-          ))}
+          ))};
         </ActionContainer>
-      
-  {/*This button will allow the user to go back to the starting page */}
+
+        {/*This button will allow the user to go back to the starting page */}
         <StartOverButton buttonwidth onClick={() => window.location.reload()}>Start Over</StartOverButton>
       </Container>
     </>
