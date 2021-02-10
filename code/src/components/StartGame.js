@@ -89,11 +89,11 @@ export const StartGame = () => {
 
 return (
     <>
-    <GameContainer>
-        <HeaderContainer>
-            <Header>La<span style={{color: '#314834'}}>by</span>rinth game</Header>
-            <Icon src={maze} alt='maze' /> 
-        </HeaderContainer>
+        <GameContainer>
+            <HeaderContainer>
+                <Header>La<span style={{color: '#314834'}}>by</span>rinth game</Header>
+                <Icon src={maze} alt='maze' /> 
+            </HeaderContainer>
             <Form onSubmit={onSubmit}>
                 <Input 
                     aria-label='text area'
@@ -104,9 +104,9 @@ return (
                 </Input>
                 <Button>Start game</Button>
             </Form>
-        { userName && <WelcomePlayer userName={userName} />}
-        <GameDescription inputValue={inputValue} />
-    </GameContainer>
+            { userName && <WelcomePlayer userName={userName} />}
+            <GameDescription inputValue={inputValue} />
+        </GameContainer>
     </>
 )
 }
