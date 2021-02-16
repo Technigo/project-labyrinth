@@ -8,4 +8,5 @@ We had some issues with fetching the games data from the API and in the end we n
 
 ## View it live
 
+https://labyrinth-2020.netlify.app/
 
