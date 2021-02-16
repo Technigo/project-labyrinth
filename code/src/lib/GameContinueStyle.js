@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Section = styled.div`
   display flex;
@@ -20,7 +20,6 @@ export const Text = styled.p`
   font-size: 18px;
   width: 100%;
   text-align: center;
-  
 `;
 
 export const Button = styled.button`

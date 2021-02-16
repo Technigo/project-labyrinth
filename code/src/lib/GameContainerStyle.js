@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StartGameContainer = styled.div`
   display: flex;
@@ -9,4 +9,3 @@ export const StartGameContainer = styled.div`
 export const GameHeader = styled.h2`
   font-size: 32px;
 `;
-
