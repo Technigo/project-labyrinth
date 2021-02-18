@@ -63,23 +63,20 @@ const Display = styled.div`
   text-align: center;
 `
 const Section = styled.section`
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-gap: 15px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
   height: 30%;
   width: 100%;
 `
 const StepContainer = styled.div`
-  align-items: baseline;
-  display: grid;
-  justify-content: center;
-  justify-items: center;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
 `
 const FixedContent = styled.div`
-  display: grid;
   font-family: 'Mystery Quest', cursive;
-  grid-template-rows: auto;
 `
 const Description = styled.p`
   background-color: rgba(0,0,0, 0.7);

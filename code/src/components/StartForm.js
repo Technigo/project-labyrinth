@@ -54,7 +54,6 @@ const Home = styled.main`
   flex-direction: column;
   font-family: 'Mystery Quest', cursive;
   justify-content: center;
-  min-height: 100vh;
   width: 100vw;
 `
 const Title = styled.h1`
