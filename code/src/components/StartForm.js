@@ -1,39 +1,20 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components/macro'
 
 import { LoadingIndicator } from 'components/LoadingIndicator'
 import VideoBackground from './BgVideo'
-// import heroImage from '../assets/startImage.jpg'
-import { gameReducer } from '../reducers/gameReducer'
-import { ui } from '../reducers/ui'
+import { startGame, addPlayer } from '../reducers/gameReducer'
 
 export const StartForm = () => {
-  const playerName = useSelector((store) => store.gameReducer.playerName)
-  const playerInputId = 'playerId'
-
   const dispatch = useDispatch()
+  const [player, setPlayer] = useState('')
 
-  const handlePlayerName = (event) => {
-    dispatch(gameReducer.actions.addPlayerName(event.target.value))
+  const handleStartGame = (playerName) => {
+    dispatch(startGame(playerName))
+    dispatch(addPlayer(playerName))
   }
 
-  const startGame = () => {
-    dispatch(ui.actions.setLoading(true))
-    const body = JSON.stringify({ username: playerName })
-    fetch('https://wk16-backend.herokuapp.com/start', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body
-    })
-      .then((res) => res.json())
-      .then((json) => {
-        dispatch(gameReducer.actions.gameBegin(json))
-        dispatch(ui.actions.setLoading(false))
-      })
-  }
   return (
     <Home>
       <VideoBackground />
@@ -42,18 +23,18 @@ export const StartForm = () => {
         <Title>Are you sure you want to do this?</Title>
         <Content>
           <Label
-            htmlFor={playerInputId}>
+            htmlFor="playerId">
             Type your name to start
             <Input
-              id={playerInputId}
+              id="playerId"
               type="text"
-              value={playerName}
-              onChange={(event) => handlePlayerName(event)} />
+              value={player}
+              onChange={(event) => setPlayer(event.target.value)} />
           </Label>
           <Button
             type="button"
-            disabled={playerName.length < 1}
-            onClick={() => startGame()}>
+            disabled={player.length < 1}
+            onClick={() => handleStartGame(player)}>
               Start Game
           </Button>
         </Content>

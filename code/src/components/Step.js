@@ -3,29 +3,28 @@ import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components/macro'
 
 import { LoadingIndicator } from 'components/LoadingIndicator'
-import { HandleMove } from '../reducers/reusable'
+import { handleMove } from '../reducers/gameReducer'
 import { History } from './History'
+import { EndGame } from './EndGame'
 import brImage from '../assets/brImage1.jpg'
 
 export const Step = () => {
-  const currentStep = useSelector((store) => {
-    return store.gameReducer.currentStep
-  })
   const dispatch = useDispatch()
+  const currentStep = useSelector((store) => store.gameReducer.currentStep)
   return (
     <Container imgUrl={brImage}>
       <LoadingIndicator />
       <FixedContent>
         <Section>
-          <Description>{currentStep.description}</Description>
-          <Location><span aria-label="location">📍</span>Your location: {currentStep.coordinates}</Location>
+          <Description>{currentStep.data.description}</Description>
+          <Location><span aria-label="location">📍</span>Your location: {currentStep.data.coordinates}</Location>
         </Section>
         <StepContainer>
-          {currentStep.actions.map((action) => (
+          {currentStep.data.actions.map((action) => (
             <Display key={action.direction}>
               <Button
                 type="button"
-                onClick={() => dispatch(HandleMove(action.direction))}>
+                onClick={() => dispatch(handleMove(action.direction))}>
                 Go {action.direction}
               </Button>
               <ActionDes>{action.description}</ActionDes>
@@ -33,6 +32,8 @@ export const Step = () => {
           ))}
         </StepContainer>
       </FixedContent>
+      {currentStep.data.coordinates === '1,3'
+      && <EndGame />}
       <History />
     </Container>
   )

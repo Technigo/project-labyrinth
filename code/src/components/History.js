@@ -12,9 +12,9 @@ export const History = () => {
           <Content>
             {
               historySteps.map((step) => (
-                <Wrapper key={step.coordinates}>
-                  <Location> <span aria-label="location">📍</span>Location: {step.coordinates}</Location>
-                  <Description>{step.description}</Description>
+                <Wrapper key={step.id}>
+                  <Location> <span aria-label="location">📍</span>Location: {step.data.coordinates}</Location>
+                  <Description>{step.data.description}</Description>
                 </Wrapper>
               ))
             }
