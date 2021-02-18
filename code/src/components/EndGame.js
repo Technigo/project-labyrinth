@@ -1,22 +1,18 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components/macro'
+import { gameReducer } from '../reducers/gameReducer'
 
 export const EndGame = () => {
+  const dispatch = useDispatch()
   return (
     <Container>
       <Message>YOU DID IT!!!</Message>
-      <ButtonContainer>
-        <Button
-          type="button">
-          {/* // onClick ={() => } */}
-          Try Again?
-        </Button>
-        <Button
-          type="button">
-          {/* // onClick={() => ()} */}
-          EXIT
-        </Button>
-      </ButtonContainer>
+      <Button
+        type="button"
+        onClick={() => dispatch(gameReducer.actions.clearCurrentStep())}>
+        EXIT
+      </Button>
     </Container>
   )
 }
@@ -33,11 +29,7 @@ const Button = styled.button`
   font-size: 16px;
   margin: 20px;
 `
-const ButtonContainer = styled.div`
-  margin-top: 5px;
-  display: flex;
-  flex-direction: row;
-`
+
 const Message = styled.p`
   color: #ffff00;
   font-family: 'Mystery Quest', cursive;

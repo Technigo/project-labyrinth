@@ -11,6 +11,7 @@ import brImage from '../assets/brImage1.jpg'
 export const Step = () => {
   const dispatch = useDispatch()
   const currentStep = useSelector((store) => store.gameReducer.currentStep)
+  console.log('current step', currentStep)
   return (
     <Container imgUrl={brImage}>
       <LoadingIndicator />

@@ -19,6 +19,9 @@ export const gameReducer = createSlice({
     makeMove: (state, action) => {
       state.currentStep = action.payload
       state.history = [...state.history, state.currentStep]
+    },
+    clearCurrentStep: (state) => {
+      state.currentStep = null
     }
   }
 })

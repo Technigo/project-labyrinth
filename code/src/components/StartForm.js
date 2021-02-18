@@ -49,25 +49,24 @@ const Home = styled.main`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  color: #ffffff;  
+  color: #ffffff;
   display: flex;
+  height: 100vh;
   flex-direction: column;
-  font-family: 'Mystery Quest', cursive;
   justify-content: center;
+  font-family: 'Mystery Quest', cursive;
   width: 100vw;
 `
 const Title = styled.h1`
   font-size: 30px;
   color: #222222;
-  margin-bottom: 90px;
-  margin-top: 0;
   text-align: center;
   text-shadow: 1px 1px 1px #fff, 4px 4px 7px rgba(0,0,0,0.3);
 `
 const Wrapper = styled.div`
-  align-items: center;
   display: flex;
   flex-direction: column;
+  gap: 30px;
 `
 const Content = styled.div`
   align-items: center;
@@ -84,7 +83,6 @@ const Button = styled.button`
 const Input = styled.input`
   font-size: 17px;  
   height: 30px;
-  margin-top: 20px;
   width: 200px;
 `
 const Label = styled.label`
@@ -92,5 +90,6 @@ const Label = styled.label`
   display: flex;
   flex-direction: column;
   font-size: 25px;
+  gap: 15px;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
 `
