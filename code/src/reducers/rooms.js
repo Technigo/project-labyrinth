@@ -1,5 +1,3 @@
-// This reducer 
-
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {

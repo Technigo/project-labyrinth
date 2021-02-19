@@ -8,10 +8,7 @@ export const CreateUsername = () => {
     const [username, setUsername] = useState ("")
 
     const dispatchUsername = () => {
-      dispatch(
-        rooms.actions.setUsername(username)
-      )
-    }
+      dispatch(rooms.actions.setUsername(username))}
 
     return (
       <div className="box-username">
@@ -23,7 +20,7 @@ export const CreateUsername = () => {
             />
             <button type="button" 
               disabled={username.length < 1} 
-              onClick={() => dispatchUsername()}
+              onClick={dispatchUsername}
             >
               Confirm
             </button>

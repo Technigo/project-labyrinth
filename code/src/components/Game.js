@@ -29,7 +29,7 @@ export const Game = () => {
   // This function starts the game, by doing the first fetch from the API.
   const startGame = () => {
     dispatch(loader.actions.setLoading(true))
-    // Fetcha, och sedan skicka in responsen (data) till setGameState. Typ.
+    // Do the fetch, and pass the response (data) to setGameState. 
     fetch(START_URL, startGameFetchInfo)
       .then(response => response.json())
       .then(data => {
@@ -46,9 +46,9 @@ export const Game = () => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        username: username,
+        username,
         type: "move",
-        direction: direction
+        direction
       })
     })
       .then(response => response.json())
@@ -85,13 +85,19 @@ export const Game = () => {
       }
       {
         (room.gameState.actions.length === 0)
-          ? <><h2 className="gameover-text">You completed the labyrinth!</h2><button onClick={() => window.location.reload()}>&gt; Restart game</button></>
+          ?
+          <>
+            <h2 className="gameover-text">You completed the labyrinth!</h2>
+            <button onClick={() => window.location.reload()}>
+              &gt; Restart game
+            </button>
+          </>
           : null
       }
 
       <div className="container-actions">
         {/* // For every action that's possible, push out a "box-action" box – the box containing an action description and direction. */}
-        {room.gameState.actions.map((action, index) =>
+        {room.gameState.actions.map((action) =>
           <div className="box-action">
             <p>"{action.description}"</p>
             <button
