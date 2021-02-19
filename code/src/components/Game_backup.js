@@ -1,23 +1,67 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 
-import { useSelector } from 'react-redux'
-import { startGame} from '../reducers/rooms'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { continueGame } from '../reducers/rooms'
+import { rooms } from '../reducers/rooms'
+import { loader } from '../reducers/loader'
 
 import arrow_one from '../assets/arrow-one.svg'
 import arrow_split from '../assets/arrow-split.svg'
 
 export const Game = () => {
+  const username = useSelector(store => store.rooms.username)
   const room = useSelector(store => store.rooms)
   // We'll use this variable to check if things are loading or not.
   const isLoading = useSelector(store => store.loader.isLoading)
-  const universalUsername = useSelector(state => state.rooms.username)
+  const dispatch = useDispatch();
+
+  const START_URL = "https://wk16-backend.herokuapp.com/start";
+  const ACTION_URL = "https://wk16-backend.herokuapp.com/action";
+
+  const startGameFetchInfo = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      username: username
+    })
+  }
+
+  // This function starts the game, by doing the first fetch from the API.
+  const startGame = () => {
+    dispatch(loader.actions.setLoading(true))
+    // Do the fetch, and pass the response (data) to setGameState. 
+    fetch(START_URL, startGameFetchInfo)
+      .then(response => response.json())
+      .then(data => {
+        // Pass "data" (the response from the API containing the coordinates, direction, etc) to the Game State.
+        dispatch(rooms.actions.setGameState(data))
+        dispatch(loader.actions.setLoading(false))
+      })
+  }
+
+  // This function is called on each click of a "Direction" button – i.e. the buttons in each action box with North, East, West or South.
+  const continueGame = (direction) => {
+    dispatch(loader.actions.setLoading(true))
+    fetch(ACTION_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username,
+        type: "move",
+        direction
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        dispatch(rooms.actions.setGameState(data))
+        dispatch(loader.actions.setLoading(false))
+      })
+  }
 
   // This will make it run only the first time the component mounts. 
   // "You can use the useEffect hook to run a function when the component has been mounted. By giving it an empty array as second argument it will only be run after the initial render."
   useEffect(() => {
-    startGame(universalUsername);
+    startGame();
   }, []);
 
   return (
@@ -61,8 +105,9 @@ export const Game = () => {
               /* If the game is loading (using the global "isLoading" variable), set disabled to true to prevent multiple clicks.*/
               disabled={isLoading}
               /* When clicking button, run the "continueGame" function, and pass the direction as an argument. */
-              onClick={() => continueGame(action.direction, universalUsername)}
+              onClick={() => continueGame(action.direction)}
             >
+              {/* &gt; (gt = greater than) is the HTML entity for printing a ">" character, since the buttons have one of those. */}
               &gt; {action.direction}
             </button>
           </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { rooms } from 'reducers/rooms'
 
@@ -8,7 +8,9 @@ export const CreateUsername = () => {
     const [username, setUsername] = useState ("")
 
     const dispatchUsername = () => {
-      dispatch(rooms.actions.setUsername(username))}
+      console.log("Inside dispatchUsername")
+      dispatch(rooms.actions.setUsername(username))
+    }
 
     return (
       <div className="box-username">
@@ -18,7 +20,8 @@ export const CreateUsername = () => {
               value={username} 
               onChange={event => setUsername(event.target.value)}
             />
-            <button type="button" 
+            <button 
+              type="button" 
               disabled={username.length < 1} 
               onClick={dispatchUsername}
             >
