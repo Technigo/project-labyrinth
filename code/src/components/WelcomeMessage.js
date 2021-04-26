@@ -1,8 +1,8 @@
 import React from 'react';
 
-const WelcomeMessage = ({username}) => {
+const WelcomeMessage = ({ userName }) => {
     return(
-    <p>Välkommen till Labyrinten{username}</p>
+    <p>Välkommen till Labyrinten {userName}!</p>
     )
 }
 

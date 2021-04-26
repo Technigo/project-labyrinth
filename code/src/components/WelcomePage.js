@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import game from '../reducers/game'
 
@@ -7,6 +7,7 @@ import WelcomeMessage from './WelcomeMessage'
 
 const WelcomePage = () => {
     const [name, setName] = useState('')
+    const userName = useSelector((store) => store.game.username)
 
     const dispatch = useDispatch()
 
@@ -19,7 +20,6 @@ const WelcomePage = () => {
 
     return(
         <>
-        
             <form onSubmit={onNameSet}>
                 <input 
                     placeholder="Write your username"
@@ -31,7 +31,8 @@ const WelcomePage = () => {
                     type="submit"
                 >Submit</button>
             </form>
-            {name && <WelcomeMessage username={name}/>}
+            {/* {name && <WelcomeMessage username={name}/>} Fel name/username, se nedan*/}
+            {userName && <WelcomeMessage userName={userName}/>}
         </>
     )
 }
