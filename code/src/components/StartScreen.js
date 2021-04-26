@@ -1,20 +1,31 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-import games from '../reducers/games'
+import { games, createNewPlayer } from '../reducers/games'
 
 const StartScreen = () => {
     const [inputValue, setInputValue] = useState('')
 
+    const dispatch = useDispatch()
+
+    const onFormSubmit = (e) => {
+      e.preventDefault()
+
+      if (inputValue !== '') {
+        dispatch(games.actions.setUserName(inputValue))
+      } 
+        setInputValue('')
+    }
+    
     return (
-        <form>
+        <form onSubmit={onFormSubmit}>
             <input
                 type="text"
-                value=""
-                onChange=""
+                value={inputValue}
+                onChange={event => setInputValue(event.target.value)}
                 placeholder="Type your name..."
             />
-            <button onClick="">Enter</button>
+            <button onClick={onFormSubmit}>Start</button>
         </form>
     )
 }

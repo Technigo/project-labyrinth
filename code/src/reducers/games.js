@@ -6,9 +6,32 @@ export const games  = createSlice({
         coordinates: null,
         description: null,
         actions:[],
-        username: ""
+        username: ''
     },
     reducers: {
-        //Mer här
+        setUserName: (store, action) => {
+            store.username = action.payload
+        },
+        setDescription: (store, action) => {
+            store.description = action.payload
+        },
     }
 })
+
+export const createNewPlayer = () => {
+    return (dispatch) => {
+        fetch('https://wk16-backend.herokuapp.com/start', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 
+                username: 'username'
+            }),
+        })
+            .then((res) => res.json())
+            .then(data => dispatch(games.actions.setUserName(data)))
+    }
+}
+
+export default games
