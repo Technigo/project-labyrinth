@@ -7,9 +7,12 @@ import { StartPage } from 'components/StartPage'
 import { GamePage } from 'components/GamePage'
 
 import { game } from 'reducers/game'
+// import { ui } from 'reducers/ui'
+import { LoadingIndicator } from 'components/LoadingIndicator';
 
 const reducer = combineReducers ({
   game: game.reducer,
+  // ui: ui.reducer,
 })
 
 const store = configureStore({reducer})
@@ -19,6 +22,7 @@ export const App = () => {
     <div>
       <Provider store={store}>
         <BrowserRouter>
+        {/* <LoadingIndicator /> */}
           <Switch>
             <Route path='/' exact>
               <StartPage />

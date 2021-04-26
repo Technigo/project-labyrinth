@@ -45,22 +45,21 @@ export const game = createSlice({
         setActions: (store, action) => {
             store.actions = action.payload
             console.log(store.actions)
-        },
-    
+        }
     }
 })
 
 export const fetchStart = () => {
     return (dispatch, getState) => {
+        // dispatch(game.actions.setLoading(true))
         fetch('https://wk16-backend.herokuapp.com/start', fetchInitStart)
             .then(res => res.json())
             .then(json => {
-                // setDescription(json.description)
                 console.log(json)
                 dispatch(game.actions.setDescription(json.description))
                 dispatch(game.actions.setCoordinates(json.coordinates))
                 dispatch(game.actions.setActions(json.actions[0]))
-                
+                // dispatch(game.actions.setLoading(false))
             })
     }
 }
@@ -71,6 +70,9 @@ export const fetchNext = () => {
             .then(res => res.json())
             .then(json => {
                 console.log(json)
+                dispatch(game.actions.setDescription(json.description))
+                dispatch(game.actions.setCoordinates(json.coordinates))
+                dispatch(game.actions.setActions(json.actions[0]))
             })
     }
 }
