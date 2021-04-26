@@ -1,13 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const fetchInitStart = {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({ username: 'MaHal4' }),
-};
-
 const fetchInitNext = (direction, type) => {
   return {
     method: 'POST',
@@ -34,6 +26,7 @@ export const game = createSlice({
       },
     ],
     coordinates: '',
+    user: '',
   },
   reducers: {
     setDescription: (store, action) => {
@@ -45,13 +38,31 @@ export const game = createSlice({
     setActions: (store, action) => {
       store.actions = action.payload;
     },
+    setUser: (store, action) => {
+      store.user = action.payload;
+    },
   },
 });
+
+export const fetchInit = (direction = '', type = '') => {
+  console.log(game.user);
+  return {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      username: game.user,
+      type: type,
+      direction: direction,
+    }),
+  };
+};
 
 export const fetchStart = () => {
   return (dispatch, getState) => {
     // dispatch(game.actions.setLoading(true))
-    fetch('https://wk16-backend.herokuapp.com/start', fetchInitStart)
+    fetch('https://wk16-backend.herokuapp.com/start', fetchInit())
       .then((res) => res.json())
       .then((json) => {
         dispatch(game.actions.setDescription(json.description));
@@ -66,7 +77,7 @@ export const fetchNext = (direction, type) => {
   return (dispatch, getState) => {
     fetch(
       'https://wk16-backend.herokuapp.com/action',
-      fetchInitNext(direction, type)
+      fetchInit(direction, type)
     )
       .then((res) => res.json())
       .then((json) => {
