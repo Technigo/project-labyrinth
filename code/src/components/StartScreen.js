@@ -13,10 +13,11 @@ const StartScreen = () => {
 
       if (inputValue !== '') {
         dispatch(games.actions.setUserName(inputValue))
+        dispatch(createNewPlayer(inputValue))
       } 
         setInputValue('')
     }
-    
+
     return (
         <form onSubmit={onFormSubmit}>
             <input
