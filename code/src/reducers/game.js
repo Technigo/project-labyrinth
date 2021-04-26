@@ -5,9 +5,10 @@ const fetchInitStart = {
   headers: {
     'Content-Type': 'application/json',
   },
-  body: JSON.stringify({ username: 'MaHal4' }),
+  body: JSON.stringify({ username: 'MaHal7' }),
 };
 
+/*angivit direction och type som parametrar som body:n tar emot för att denna ska uppdateras varje gång man kör en ny fetch */
 const fetchInitNext = (direction, type) => {
   return {
     method: 'POST',
@@ -15,7 +16,7 @@ const fetchInitNext = (direction, type) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      username: 'MaHal4',
+      username: 'MaHal7',
       type: type,
       direction: direction,
     }),
@@ -62,6 +63,7 @@ export const fetchStart = () => {
   };
 };
 
+/*här tar vi alltså emot direction och type vid varje knapp-klick, som ger oss de nya alternativen vid varje ny fetch-request*/
 export const fetchNext = (direction, type) => {
   return (dispatch, getState) => {
     fetch(

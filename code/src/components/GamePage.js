@@ -16,6 +16,7 @@ export const GamePage = () => {
         <div key={action.direction}>
           <p>{action.description}</p>
           <button
+            /*direction och type skickas in i fetchNext för att sedan kunna användas i fetchInitNext*/
             onClick={() => dispatch(fetchNext(action.direction, action.type))}
           >
             <h2> Go {action.direction}</h2>
