@@ -1,9 +1,20 @@
-import React from 'react'
+import React from 'react';
+import { StartScreen } from './components/StartScreen';
+import { Provider } from 'react-redux';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { game } from 'reducers/game';
+
+const reducer = combineReducers({
+  game: game.reducer
+})
+
+const store = configureStore({ reducer })
 
 export const App = () => {
   return (
-    <div>
-      Find me in src/app.js!
-    </div>
+    <Provider store={ store }>
+      <StartScreen />
+    </Provider>
+
   )
 }
