@@ -1,8 +1,43 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import styled from 'styled-components/macro'
 
 import {generateNextMove} from '../reducers/mazegame'
 // import mazegame from '../reducers/mazegame'
+
+const Container = styled.div`
+  padding: 30px 20px 20px 20px;
+  background-color: #000;
+  width: 100vw;
+  margin: 0;
+  color: #59e686;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; 
+`
+
+const InnerContainer = styled.div`
+  max-width: 300px;
+`
+
+const Text = styled.div`
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+`
+
+const Flexbox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+`
+
+const TextCenter = styled.p`
+  text-align: center;
+`
 
 const GamePage = () => {
   const gameStatus = useSelector(store => store.mazegame.gameStatus)
@@ -13,19 +48,35 @@ const GamePage = () => {
   console.log('ACTION', actions)
 
   return(
-    <>
-      <p>{gameStatus.description}</p>
-      {actions.map(direction => 
-        <div key={direction.description}>
-          <div>{direction.description}</div>
-          <button
-            onClick={() => dispatch(generateNextMove(userName, direction.direction))}
-          >{direction.direction}
-          </button>
-        </div> 
-      )}
-    </>
+    <Container>
+      <InnerContainer>
+        <section class="nes-container is-dark">
+          <section class="message-list">
+            <section class="message -left">
+              <i class="nes-bcrikko"></i>
+              <div class="nes-balloon from-left is-dark">
+                <Text><span>Hello {userName}!</span> <span>{gameStatus.description}</span></Text>
+              </div>
+            </section>
+          </section>
+        </section>
+        <TextCenter>ACTIONS YOU CAN TAKE</TextCenter>
+        {actions.map(direction => 
+          <Flexbox key={direction.description}>
+            <div class="nes-container is-rounded is-dark">
+              <div>{direction.description}</div>
+              <button
+                onClick={() => dispatch(generateNextMove(userName, direction.direction))}
+                className="nes-btn is-normal"
+              >{direction.direction}
+              </button>
+            </div>
+          </Flexbox> 
+        )}
+      </InnerContainer>
+    </Container>
     )
 }
 
 export default GamePage
+
