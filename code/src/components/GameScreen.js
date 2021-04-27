@@ -29,7 +29,7 @@ const GameScreen = ({ inputValue }) => {
             <div key={index}>
               <p>{action.description}</p>
               <button
-                  onClick={onNextDirection()}>
+                  onClick={() => dispatch(games.actions.setGameStatus())}>
                       {action.direction}
               </button>
             </div>
