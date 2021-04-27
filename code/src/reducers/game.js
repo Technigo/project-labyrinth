@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { ui } from 'reducers/ui';
 
 export const game = createSlice({
     name: 'game',
     initialState: {
         userName: null,
-        question: {},
+        question: null,
     },
     reducers: {
         setUserName: (store, action) => {
@@ -18,7 +19,7 @@ export const game = createSlice({
 
 export const generateQuestion = () => {
   return (dispatch, getState) => {
-
+    dispatch(ui.actions.setLoading(true));
           fetch(`https://wk16-backend.herokuapp.com/start`, {
               method: 'POST',
               body: JSON.stringify({ username: getState().game.userName }),
@@ -30,12 +31,14 @@ export const generateQuestion = () => {
           .then((question) => {
             console.log(question.coordinates);
             dispatch(game.actions.setQuestion(question))
+            dispatch(ui.actions.setLoading(false));
           })
   }};
 
   export const nextQuestion = (userName, direction) => {
+
     return (dispatch) => {
-  
+      dispatch(ui.actions.setLoading(true));
       fetch('https://wk16-backend.herokuapp.com/action', {
         method: 'POST',
         headers: { 'Content-Type': 'application/JSON' },
@@ -49,6 +52,7 @@ export const generateQuestion = () => {
         .then((json) => {
             console.log("https://wk16-backend.herokuapp.com/action")
           dispatch(game.actions.setQuestion(json));
+          dispatch(ui.actions.setLoading(false));
         })
     }
   }

@@ -9,7 +9,7 @@ const spin = keyframes`
      transform: rotate(360deg);
  }`;
 
- const Loading = styled.div`
+ const Loader = styled.div`
    width: 80px;
    height: 80px;
    border-radius: 50%;
@@ -22,7 +22,7 @@ const spin = keyframes`
 export const Loading = () => {
   return (
     <div>
-      <Loading></Loading>
+      <Loader></Loader>
     </div>
   )
 }
