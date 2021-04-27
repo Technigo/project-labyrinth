@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 
-import { moves } from "../reducers/moves";
+import { game, generateGame } from "../reducers/game";
 
 export const StartPage = () => {
   const dispatch = useDispatch();
@@ -10,7 +10,8 @@ export const StartPage = () => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    dispatch(moves.actions.setCoordinates(username));
+    dispatch(game.actions.setUsername(username));
+    dispatch(generateGame(username));
     setUsername("");
   };
 

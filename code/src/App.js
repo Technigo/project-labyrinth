@@ -2,13 +2,12 @@ import React from "react";
 import { Provider } from "react-redux";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
-import { moves } from "./reducers/moves";
+import { game } from "./reducers/game";
 
-import { StartPage } from "./components/StartPage";
-import { GamePage } from "./components/GamePage";
+import { Moves } from "./components/Moves";
 
 const reducer = combineReducers({
-  moves: moves.reducer,
+  game: game.reducer,
 });
 
 const store = configureStore({ reducer });
@@ -16,8 +15,7 @@ const store = configureStore({ reducer });
 export const App = () => {
   return (
     <Provider store={store}>
-      <StartPage />
-      <GamePage />
+      <Moves />
     </Provider>
   );
 };
