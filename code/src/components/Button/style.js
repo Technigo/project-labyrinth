@@ -24,11 +24,11 @@ export default styled.button`
   background-size: 100% 100%;
 
   /* Hover and Click */
-  &:hover {
+  :hover, :focus {
     background-image: url(${buttonHover});
     cursor: pointer;
   }
-  &:active {
+  :active {
     background-image: url(${buttonDown});
   }
 `;
