@@ -34,7 +34,6 @@ export const game = createSlice({
 /*angivit direction och type som parametrar som body:n tar emot för att denna ska uppdateras varje gång man kör en ny fetch 
 type=null, direction=null är för att i första if (mode===start) så stoppar vi inte in ngt move eller type, därför behöver de ha ett defaultvärde*/
 export const fetchInit = (user, type = null, direction = null, mode) => {
-  console.log(user);
   if (mode === 'start') {
     return {
       method: 'POST',

@@ -7,12 +7,11 @@ export const GamePage = () => {
   const descriptionText = useSelector((store) => store.game.description);
   const coordinates = useSelector((store) => store.game.coordinates);
   const actionsObject = useSelector((store) => store.game.actions);
-  console.log(actionsObject);
 
   return (
     <div>
       <h2>{descriptionText}</h2>
-      <p>{coordinates}</p>
+      <p>Your coordinates are: {coordinates}</p>
       {actionsObject.map((action) => (
         <div key={action.direction}>
           <p>{action.description}</p>

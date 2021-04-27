@@ -8,6 +8,7 @@ export const StartPage = () => {
 
   const dispatch = useDispatch();
 
+  /*denna lösning är i princip bara kopierad from Maks frl*/
   const onUserSet = () => {
     dispatch(game.actions.setUserState(user));
     dispatch(fetchStart());
@@ -15,15 +16,21 @@ export const StartPage = () => {
 
   return (
     <>
-      <h1>Welcome to the game</h1>
-
+      <div className='nes-container'>
+        <h1 className='header'>Welcome to the Labyrinth Game</h1>
+      </div>
+      <h2>Follow the directions on each page to chose which way to go!</h2>
+      <p>Input a user name to begin playing</p>
       <input
+        className='nes-input'
         type='text'
         value={user}
         onChange={(event) => setUser(event.target.value)}
       />
       <Link to='/GamePage'>
-        <button onClick={onUserSet}>Start the game</button>
+        <button className='nes-btn' onClick={onUserSet}>
+          Start the game
+        </button>
       </Link>
     </>
   );
