@@ -1,10 +1,11 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import "nes.css/css/nes.min.css"
 
 import { directions } from './reducers/directions'
 
-import StartScreen from './components/StartScreen'
+import Main from './components/Main'
 
 const reducer = combineReducers({
   directions: directions.reducer
@@ -16,7 +17,7 @@ export const App = () => {
 
   return (
     <Provider store={store}>
-      <StartScreen />
+      <Main />
     </Provider>
   )
 }

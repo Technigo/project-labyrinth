@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
-import { directions, fetchData } from '../reducers/directions'
+import { directions, fetchStart } from '../reducers/directions'
+
+import NeonCat from './NeonCat'
 
 import { useDispatch } from 'react-redux'
 
@@ -14,15 +16,33 @@ const StartScreen = () => {
 
   const onBtnClick = () => {
     dispatch(directions.actions.setPlayer(name))
-    dispatch(fetchData())
+    dispatch(fetchStart())
   }
 
   return (
-    <div>
-      <p>Please enter your name!</p>
-      <input type="text" value={name} onChange={onInputChange} />
-      <button type="button" onClick={onBtnClick}>Click here</button>
+    <div className="nes-container with-title is-centered">
+      <p className="title">NEON CAT GAME!</p>
+      <NeonCat />
+      <div className="nes-field">
+        <label htmlFor="name_field">Please enter your name</label>
+        <input 
+          type="text" 
+          id="name_field" 
+          className="nes-input" 
+          value={name} 
+          onChange={onInputChange} 
+        />
+      </div>
+      <button 
+        type="button" 
+        className="nes-btn" 
+        onClick={onBtnClick}
+      >
+        Start!
+      </button>
     </div>
+
+   
   )
 }
 

@@ -5,9 +5,31 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Press Start 2P"
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nes-container.with-title.is-centered {
+  width: 50%;
+  height: 450px;
+}
+
+.neon-cat-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.nes-text {
+  font-size: 10px;
 }
