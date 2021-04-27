@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components/macro'
 
 import GamePage from './GamePage'
-
 import { mazegame, generateGame } from '../reducers/mazegame'
 
 const FormContainer = styled.form`
@@ -34,7 +33,7 @@ const Title = styled.h1`
 
 const StartPage = () => {
   const [userName, setUserName] = useState('')
-  const [showComponent, setShowComponent] = useState(false)
+
   const gameStatus = useSelector(store => store.mazegame.gameStatus)
   const dispatch = useDispatch()
 
@@ -42,14 +41,14 @@ const StartPage = () => {
     event.preventDefault()
     dispatch(mazegame.actions.setUserName(userName))
     dispatch(generateGame(userName))
-    setShowComponent(true)
   }
-
-  // console.log('username', userName)
+  if (gameStatus) {
+    return (<GamePage/>)
+  }
   console.log('gamestatus', gameStatus)
+
   return(
     <>
-    { !showComponent ? 
      <FormContainer onSubmit={handleStartGame}>
       <Title>MAZE GAME</Title>
       <div className="nes-field is-inline">
@@ -71,10 +70,6 @@ const StartPage = () => {
         START GAME
       </button>
     </FormContainer>
-    
-    :
-    <GamePage />
-    }
   </>
   )
   

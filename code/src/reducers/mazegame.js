@@ -5,7 +5,7 @@ export const mazegame = createSlice({
     name: 'mazegame',
     initialState: {
       userName: null,
-      gameStatus: {}
+      gameStatus: undefined
     },
     reducers: {
       setUserName: (store, action) => {
@@ -16,9 +16,9 @@ export const mazegame = createSlice({
       }
     }
 
-  })
+})
 
-  export const generateGame = (userName) => {
+export const generateGame = (userName) => {
     return (dispatch) => {
       fetch('https://wk16-backend.herokuapp.com/start', {
         method: "POST",
@@ -30,5 +30,18 @@ export const mazegame = createSlice({
           dispatch(mazegame.actions.setGameStatus(json));
         })
     }
+}
+export const generateNextMove = (userName, direction) => {
+  return (dispatch) => {
+    fetch('https://wk16-backend.herokuapp.com/action', {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username: userName, type: "move", direction: direction }),
+    })
+      .then(response => response.json())
+      .then(json => {
+        dispatch(mazegame.actions.setGameStatus(json));
+      })
+  }
 }
 
