@@ -4,7 +4,14 @@ import { useDispatch } from 'react-redux';
 import { fetchStart, game } from 'reducers/game';
 
 export const StartPage = () => {
+  const [user, setUser] = useState('');
+
   const dispatch = useDispatch();
+
+  const onUserSet = () => {
+    dispatch(game.actions.setUserState(user));
+    dispatch(fetchStart());
+  };
 
   return (
     <>
@@ -12,10 +19,11 @@ export const StartPage = () => {
 
       <input
         type='text'
-        onChange={(e) => dispatch(game.setUser(e.target.value))}
+        value={user}
+        onChange={(event) => setUser(event.target.value)}
       />
       <Link to='/GamePage'>
-        <button onClick={() => dispatch(fetchStart())}>Start the game</button>
+        <button onClick={onUserSet}>Start the game</button>
       </Link>
     </>
   );
