@@ -13,8 +13,11 @@ export const gameSlice = createSlice({
     },
     startGame(state) {
       state.state = 'Room';
+    },
+    restartGame(state) {
+      state.state = 'Start';
     }
   }
 });
-export const { setUserID, startGame } = gameSlice.actions;
+export const { setUserID, startGame, restartGame } = gameSlice.actions;
 export default gameSlice.reducer;

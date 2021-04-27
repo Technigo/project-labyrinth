@@ -8,6 +8,8 @@ export default styled.section`
   flex-flow: column nowrap;
   align-items: center;
   text-align: center;
+  max-width: 800px;
+  margin: 5% auto;
   
   /* border & background*/
   border-style: solid;

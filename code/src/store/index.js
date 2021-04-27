@@ -15,7 +15,6 @@ export default createStoreWithMiddleware(
     states: ['game'],
     preloadedState: {
       game: {
-        name: "",
         state: "Start"
       }
     }
