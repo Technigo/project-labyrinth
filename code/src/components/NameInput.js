@@ -10,6 +10,7 @@ export const NameInput = () => {
   const onUserNameSet = (event) => {
     event.preventDefault();
     dispatch(game.actions.setUserName(value));
+    dispatch(game.actions.setGameData(value))
   };
 
   return (

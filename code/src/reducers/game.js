@@ -1,22 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import startUrl from '../reusables/urls'
+import { startUrl } from '../reusables/urls'
 
 const game = createSlice({
   name: 'game',
   initialState: {
-    userName: null
+    userName: null,
+    gameData: null
   },
   reducers: {
     setUserName: (store, action) => {
       store.userName = action.payload
+    },
+    setGameData: (store, action) => {
+      store.gameData = action.payload
     }
-    // setDirections: ()
 
   }
 })
 
-export const generateGame = () => {
+export const generateGame = (userName) => {
   return (dispatch) => {
     fetch(startUrl, {
       method: 'POST',
@@ -26,9 +29,11 @@ export const generateGame = () => {
       body: JSON.stringify({"username": `${userName}`})
     })
       .then(res => res.json())
-      .then(direction => )
+      .then(gameData => console.log(gameData))
+      // .then(gameData => dispatch(game.actions.setGameData(gameData)) )
   }
 }
+
 
 
 
