@@ -4,13 +4,14 @@ import uniqid from 'uniqid';
 export const gameSlice = createSlice({
   name: 'game',
   initialState: {
-    name: ''
+    name: '',
+    state: ''
   },
   reducers: {
-    action(state) {
+    setUserID(state) {
       state.name = uniqid();
     }
   }
 });
-export const { action } = gameSlice.actions;
+export const { setUserID } = gameSlice.actions;
 export default gameSlice.reducer;
