@@ -34,11 +34,7 @@ export const createNewPlayer = (username) => {
     }
 }
 
-// map over actions send in action ? 
-// type: 'move',
-// direction: action.direction
-
-/* export const CarryOnGame = () => {
+export const CarryOnGame = (direction, username) => {
     return (dispatch) => {
         fetch('https://wk16-backend.herokuapp.com/action', {
             method: 'POST',
@@ -46,12 +42,15 @@ export const createNewPlayer = (username) => {
                 'Content-type': 'application/json'
             },
             body: JSON.stringify({
-                direction
+                username: `${username}`,
+                type: 'move',
+                direction: `${direction}`
             }),
         })
         .then(res => res.json())
+//        .then(data => console.log(data))
         .then(data => dispatch(games.actions.setDescription(data)))
     }
 }
- */
-export default games
+
+//export default games
