@@ -4,21 +4,17 @@ import { useSelector, useDispatch } from 'react-redux'
 import { games, CarryOnGame } from '../reducers/games'
 
 const GameScreen = ({ inputValue }) => {
-  const [inputDirection, setInputDirection] = useState([])
 
-  const userActions = useSelector(store => store.games.username)
+  const userName = useSelector(store => store.games.username)
   // console.log(userActions)
 
-  const games = useSelector(store => store.games.username.actions)
+  const actions = useSelector(store => store.games.username.actions)
   // const games = useSelector(store => store.games)
-  console.log(games)
+  console.log(actions)
 
   const dispatch = useDispatch()
 
-/*   const onNextDirection = () => {
-    dispatch(games.actions.setInputDirection(inputDirection))
-    dispatch(CarryOnGame(inputValue)) // ? 
-  }  */
+  const onNextDirection = (direction) => {dispatch(CarryOnGame(direction))}
 
   //The optional chaining operator (?.) 
   //enables you to read the value of a property located deep within 
@@ -26,13 +22,13 @@ const GameScreen = ({ inputValue }) => {
   //in the chain is valid.
   return (
     <div>
-      <h3>{userActions.description}</h3>
-        {games?.map( (game, index) => (
+      <h3>{userName.description}</h3>
+        {actions?.map( (action, index) => (
             <div key={index}>
-              <p>{game.description}</p>
+              <p>{action.description}</p>
               <button
-                  onClick={() => dispatch()}>
-                      {game.direction}
+                  onClick={onNextDirection()}>
+                      {action.direction}
               </button>
             </div>
           )

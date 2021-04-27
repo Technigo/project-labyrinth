@@ -1,20 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+
 export const games  = createSlice({
     name: 'games',
     initialState: {
-        coordinates: null,
-        description: null,
+        // coordinates: null,
+        // description: null,
         // actions:[],
-        username: ''
+        username: '',
+        gameStatus: {}
     },
     reducers: {
         setUserName: (store, action) => {
             store.username = action.payload
         },
-        setDescription: (store, action) => {
-            store.description = action.payload
+        setGameStatus: (store, action) => {
+            const currentGameStatus = action.payload
+            store.gameStatus = currentGameStatus
         },
+
     }
 })
 
@@ -34,22 +38,22 @@ export const createNewPlayer = (username) => {
     }
 }
 
-export const CarryOnGame = (direction, username) => {
-    return (dispatch) => {
+export const CarryOnGame = (direction) => {
+    return (dispatch, getState) => {
         fetch('https://wk16-backend.herokuapp.com/action', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
             },
             body: JSON.stringify({
-                username: `${username}`,
+                username: getState().games.userName,
                 type: 'move',
-                direction: `${direction}`
+                direction: direction
             }),
         })
         .then(res => res.json())
 //        .then(data => console.log(data))
-        .then(data => dispatch(games.actions.setDescription(data)))
+        .then(data => dispatch(games.actions.setGameStatus(data)))
     }
 }
 
