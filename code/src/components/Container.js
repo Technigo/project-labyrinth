@@ -1,29 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import UserForm from './UserForm.js'
 
-const Container = () => {
-  const [userName, setUserName] = useState("Test01")
-  const [directions, setDirections]= useState("")
+import Description from './Description'
+import Directions from './Directions'
 
-  useEffect(() => {
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({username:userName})
-    } 
-    fetch('https://wk16-backend.herokuapp.com/start',options)
-    .then(response => response.json())
-    .then(data =>setDirections(data)) 
-  },[])
-  console.log(directions)
+const Container = () => {
 
 
   return (
-      <div>
-      <UserForm/> 
-      </div>
+    <div>
+      <UserForm />
+      <Description />
+      <Directions />
+    </div>
   )
 }
 

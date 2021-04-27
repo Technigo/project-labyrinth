@@ -1,6 +1,7 @@
 import React, { useState }from 'react'
 import {useDispatch} from 'react-redux'
 import labyrinth from '../reducers/labyrinth'
+import { generateData } from '../reducers/labyrinth'
 
 const UserForm = ()=>{
   const [userValue, setUserValue] = useState("")
@@ -8,12 +9,13 @@ const UserForm = ()=>{
   const dispatch = useDispatch()
 
   const onUserSet =()=>{
-    dispatch(labyrinth.actions.setUserName(userValue))
+    dispatch(labyrinth.actions.addUserName(userValue))
+    dispatch(generateData())
   }
   return (
     <div>
      <input type="text" value={userValue} onChange={e => setUserValue(e.target.value)}/>
-     <button onClick={console.log(userValue)}>username</button>
+     <button onClick={onUserSet}>username</button>
     </div>
   )
 }
