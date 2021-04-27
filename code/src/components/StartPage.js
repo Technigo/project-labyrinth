@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components/macro'
 
+import LoadingPage from './LoadingPage'
 import GamePage from './GamePage'
 import { mazegame, generateGame } from '../reducers/mazegame'
 
@@ -33,7 +34,7 @@ const Title = styled.h1`
 
 const StartPage = () => {
   const [userName, setUserName] = useState('')
-
+  const [loading, setLoading] = useState(true)
   const gameStatus = useSelector(store => store.mazegame.gameStatus)
   const dispatch = useDispatch()
 
@@ -43,8 +44,12 @@ const StartPage = () => {
     dispatch(generateGame(userName))
   }
   if (gameStatus) {
-    return (<GamePage/>)
-  }
+    return (
+      <GamePage/>, 
+      setLoading(false)
+      )
+    
+  } 
   console.log('gamestatus', gameStatus)
 
   return(
