@@ -1,36 +1,19 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { game } from '../reducers/game'
+import { NameInput } from "./NameInput";
 
-
+import { game } from "../reducers/game";
 
 const Game = () => {
-  const [name, setName] = useState('')
-  const dispatch = useDispatch()
-  const onUserNameSet = () => {
-      dispatch(game.actions.setUserName(name))
-  }
+  const userName = useSelector((store) => store.game.userName);
 
   return (
     <div>
-      This is the Game component!
-      <form>
-        <input 
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          />
-        <button
-          onClick={onUserNameSet()}
-        >
-          Submit
-        </button>
-      </form>
+      <p>This is the Game component!</p>
+      {userName ? <Game /> : <NameInput />}
     </div>
-  )
-}
+  );
+};
 
-
-
-export default Game
+export default Game;
