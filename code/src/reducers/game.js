@@ -1,28 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const fetchInitStart = {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({ username: 'MaHal7' }),
-};
-
-/*angivit direction och type som parametrar som body:n tar emot för att denna ska uppdateras varje gång man kör en ny fetch */
-const fetchInitNext = (direction, type) => {
-  return {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      username: 'MaHal7',
-      type: type,
-      direction: direction,
-    }),
-  };
-};
-
 export const game = createSlice({
   name: 'game',
   initialState: {
@@ -47,12 +24,15 @@ export const game = createSlice({
     setActions: (store, action) => {
       store.actions = action.payload;
     },
+    /*tillagd funktion för att kunna spara user i initialState*/
     setUserState: (store, action) => {
       store.user = action.payload;
     },
   },
 });
 
+/*angivit direction och type som parametrar som body:n tar emot för att denna ska uppdateras varje gång man kör en ny fetch 
+type=null, direction=null är för att i första if (mode===start) så stoppar vi inte in ngt move eller type, därför behöver de ha ett defaultvärde*/
 export const fetchInit = (user, type = null, direction = null, mode) => {
   console.log(user);
   if (mode === 'start') {
