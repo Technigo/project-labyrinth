@@ -4,6 +4,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
 import games from './reducers/games'
 import StartScreen from 'components/StartScreen'
+import Description from 'components/Description'
 
 const reducer = combineReducers({
   games: games.reducer
@@ -15,7 +16,8 @@ export const App = () => {
   return (
     <Provider store={store}>
       <div>
-        <StartScreen />
+        <StartScreen /> 
+        <Description />
       </div>
     </Provider>
   )

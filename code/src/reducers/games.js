@@ -5,7 +5,8 @@ const games = createSlice({
   name: 'games',
   initialState: {
     username: null,
-    description: null
+    description: {},
+    ourActions: null
   },
   reducers: {
     setName: (store, action) => {
@@ -13,25 +14,44 @@ const games = createSlice({
     }, 
     setDescription: (store, action) => {
       store.description = action.payload
+    }, 
+    setAction: (store, action) => {
+      store.ourActions = action.payload
     }
   }
 })
 
-
-/* const [quest, setQuest] = useState([])
-
-useEffect(() => {
-  fetchList()
-}, [])
-
-const fetchList = () => {
-  fetch('https://wk16-backend.herokuapp.com/start')
-    .then(res => res.json())
-    .then(quest => setQuest(quest))
-} */
-
 export const generateGame = (name) => {
-  return (dispatch, getState) => {
+  return (dispatch) => {
+    fetch('https://wk16-backend.herokuapp.com/start', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({ username : name })
+      })
+    .then(res => res.json())
+    .then(question => dispatch(games.actions.setDescription(question)))
+  }
+}
+
+export const generateMove = (name, directionMove) => {
+  return (dispatch) => {
+    fetch('https://wk16-backend.herokuapp.com/action', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({ username: name, type: 'move', direction: directionMove })
+      })
+    .then(res => res.json())
+    .then(question => dispatch(games.actions.setDescription(question)))
+  }
+}
+
+/* export const generateGame = (name, ourActions) => {
+  return (dispatch) => {
+    if(name){
       fetch('https://wk16-backend.herokuapp.com/start', {
         method: 'POST',
         headers: {
@@ -39,26 +59,25 @@ export const generateGame = (name) => {
         },
         body: JSON.stringify({ username : name })
       })
+
       .then(res => res.json())
       .then(question => dispatch(games.actions.setDescription(question)))
-    } 
-}
-
-/* export const  = (name, direction) => {
-  return (dispatch, getState) => {
+    } else {
       fetch('https://wk16-backend.herokuapp.com/action', {
         method: 'POST',
         headers: {
           'Content-type': 'application/json'
         },
-        body: JSON.stringify({ username: name, type: 'move', direction: direction })
+        body: JSON.stringify({ username: name, type: 'move', direction: ourActions })
       })
       .then(res => res.json())
-      .then(question => dispatch(games.actions.setDescription(question)))
+      .then(question => {
+          dispatch(games.actions.setDescription(question))
+      })
     } 
-}
- */
-
+  } 
+    
+} */
 
 export default games
 
