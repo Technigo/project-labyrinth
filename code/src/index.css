@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.game-screen {
+background-image: url('./images/game-screen-mobile.jpg');
+height: 100vh;
+background-size: cover;
+}
+
+@media (min-width: 768px) {
+
+
+
+}
+
+@media (min-width: 1025px) {
+
+  .game-screen {
+    background-image: url('./images/game-screen.jpg')
+  }
+  
+}
