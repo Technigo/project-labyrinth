@@ -12,7 +12,6 @@ const maze = createSlice({
     reducers: {
        startGame: (store, action) => {
         store.username = action.payload;
-        
        }, 
        startMaze: (store, action) => {
            store.description = action.payload
@@ -40,3 +39,21 @@ export const firstFetch = () => {
         });
     };
   };
+
+
+export const secondFetch = (direction) => {
+    return (dispatch, getState) => {
+        fetch("https://wk16-backend.herokuapp.com/action", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                username: getState().maze.username,
+                type: "move",
+                direction: direction
+            }),
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+    };
+};
+

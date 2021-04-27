@@ -23,6 +23,10 @@ height: 100vh;
 background-size: cover;
 }
 
+.white-color {
+  color: white;
+}
+
 @media (min-width: 768px) {
 
 
@@ -34,5 +38,5 @@ background-size: cover;
   .game-screen {
     background-image: url('./images/game-screen.jpg')
   }
-  
+
 }

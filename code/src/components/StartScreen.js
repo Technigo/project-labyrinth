@@ -13,7 +13,7 @@ const StartScreen = () => {
 
     const loading = useSelector(store => store.maze.isLoading)
 
-    const onButtonClick = () => {
+    const onStartGame = () => {
         dispatch(maze.actions.startGame(inputValue))
         setInputValue('')
         dispatch(maze.actions.setLoading(!loading))
@@ -32,7 +32,7 @@ const StartScreen = () => {
                     onChange={event => setInputValue(event.target.value)}
                 />
                 <Link to="/game">
-                    <button onClick= {() => onButtonClick()} >
+                    <button onClick= {() => onStartGame()} >
                     Start game
                     </button>
                 </Link>
