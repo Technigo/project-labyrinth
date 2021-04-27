@@ -17,6 +17,7 @@ const GameScreen = ({ inputValue }) => {
   const onNextDirection = (username, direction) => {
       dispatch(CarryOnGame(username, direction))
   }
+  //() => dispatch(games.actions.setGameStatus())
 
   //The optional chaining operator (?.) 
   //enables you to read the value of a property located deep within 
@@ -29,7 +30,7 @@ const GameScreen = ({ inputValue }) => {
             <div key={index}>
               <p>{action.description}</p>
               <button
-                  onClick={() => dispatch(games.actions.setGameStatus())}>
+                  onClick={onNextDirection}>
                       {action.direction}
               </button>
             </div>
