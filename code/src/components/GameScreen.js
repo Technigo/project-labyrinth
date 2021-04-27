@@ -10,7 +10,7 @@ const GameScreen = ({ inputValue }) => {
 
   const actions = useSelector(store => store.games.username.actions)
   // const games = useSelector(store => store.games)
-  console.log(actions)
+  //console.log(actions)
 
   const dispatch = useDispatch()
 

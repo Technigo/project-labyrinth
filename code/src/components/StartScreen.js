@@ -28,7 +28,6 @@ const StartScreen = () => {
                 placeholder="Type your name..."
             />
             <button onClick={onFormSubmit}>Start</button>
-            <GameScreen />
         </form>
     )
 }

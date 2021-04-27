@@ -48,11 +48,10 @@ export const CarryOnGame = (direction) => {
             body: JSON.stringify({
                 username: getState().games.username,
                 type: 'move',
-                direction
+                direction: direction
             }),
         })
         .then(res => res.json())
-//        .then(data => console.log(data))
         .then(data => dispatch(games.actions.setGameStatus(data)))
     }
 }
