@@ -14,7 +14,6 @@ const WelcomePage = () => {
     const onNameSet = (event) => {
         event.preventDefault()
         dispatch(game.actions.setUsername(name))
-        dispatch(registerNewPlayer(name))
         setName('')
     }
 

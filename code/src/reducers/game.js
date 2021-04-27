@@ -41,7 +41,7 @@ export const continueGame = (direction) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ 
-                username: getState().games.username,
+                username: getState().game.username,
                 type: 'move',
                 direction 
             })

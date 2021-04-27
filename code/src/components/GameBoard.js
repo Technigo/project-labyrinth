@@ -7,7 +7,7 @@ const GameBoard = () => {
     const gameStart = useSelector((store) => store.game.gameStatus)
     return (
         <>
-            {start.actions?.map((action, index) => {
+            {gameStart.actions?.map((action, index) => {
                 return(
                 <div key={index}>
                     <div>{action.description}</div>
