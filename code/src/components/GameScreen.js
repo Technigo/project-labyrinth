@@ -5,7 +5,7 @@ import maze from 'reducers/maze';
 
 const GameScreen = () => {
 
-    const description = useSelector(store => store.maze.description)
+    const description = useSelector(store => store.maze.description.description)
     console.log(description)
 
     const dispatch = useDispatch();
@@ -16,8 +16,8 @@ const GameScreen = () => {
                 <h1>
                     Welcome!
                 </h1>
-                <p>
-                {maze.description}
+                <p> Description:
+                {description}
                 </p>
             
                 <button>

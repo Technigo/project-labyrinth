@@ -6,16 +6,20 @@ const maze = createSlice({
         username: '',
         description: '',
         actions: [],
-        history: []
+        history: [],
+        isLoading: false
     } ,
     reducers: {
        startGame: (store, action) => {
         store.username = action.payload;
-
         
        }, 
        startMaze: (store, action) => {
            store.description = action.payload
+           store.actions = action.payload.actions;
+       },
+       setLoading: (store, action) => {
+           store.isLoading = action.payload
        }
     }
 })
@@ -31,8 +35,8 @@ export const firstFetch = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+            dispatch(maze.actions.startMaze(data))
+            dispatch(maze.actions.setLoading(false))
         });
     };
   };
-    

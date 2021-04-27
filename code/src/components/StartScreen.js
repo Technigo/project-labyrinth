@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useDispatch, } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 
 import maze from "../reducers/maze"
-import {firstFetch} from "../reducers/maze"
+import { firstFetch } from "../reducers/maze"
 
 
 const StartScreen = () => {
@@ -11,9 +11,12 @@ const StartScreen = () => {
 
     const dispatch = useDispatch();
 
+    const loading = useSelector(store => store.maze.isLoading)
+
     const onButtonClick = () => {
         dispatch(maze.actions.startGame(inputValue))
         setInputValue('')
+        dispatch(maze.actions.setLoading(!loading))
         dispatch(firstFetch());
     }
     
