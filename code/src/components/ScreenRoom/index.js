@@ -5,7 +5,8 @@ import React from 'react';
 import { TypoText } from 'components/Typography';
 // import Input from 'components/InputText';
 import Section from 'components/Section';
-import Button from 'components/Button';
+// import Button from 'components/Button';
+import ActionCompass from 'components/ActionCompass';
 
 export default () => {
   return (
@@ -17,7 +18,7 @@ export default () => {
       <TypoText>
         What would you like to do?
       </TypoText>
-      <Button type="button">Start Game</Button>
+      <ActionCompass />
     </Section>
   );
 };
