@@ -26,11 +26,11 @@ export const generateGame = (userName) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({"username": `${userName}`})
+      body: JSON.stringify({username: userName})
     })
       .then(res => res.json())
-      .then(gameData => console.log(gameData))
-      // .then(gameData => dispatch(game.actions.setGameData(gameData)) )
+      // .then(gameData => console.log(gameData))
+      .then(gameData => dispatch(game.actions.setGameData(gameData)) )
   }
 }
 
