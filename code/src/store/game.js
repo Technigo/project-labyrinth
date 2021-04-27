@@ -10,8 +10,11 @@ export const gameSlice = createSlice({
   reducers: {
     setUserID(state) {
       state.name = uniqid();
+    },
+    startGame(state) {
+      state.state = 'Room';
     }
   }
 });
-export const { setUserID } = gameSlice.actions;
+export const { setUserID, startGame } = gameSlice.actions;
 export default gameSlice.reducer;
