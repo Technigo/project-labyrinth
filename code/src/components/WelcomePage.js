@@ -13,13 +13,16 @@ const WelcomePage = () => {
 
     const onNameSet = (event) => {
         event.preventDefault()
-        //console.log(game.actions.setUsername(name))
         dispatch(game.actions.setUsername(name))
         setName('')
     }
 
     return(
         <>
+            <header>
+                <h1>Add title of game</h1>
+                <p>Welcome text.</p>
+            </header>
             <form onSubmit={onNameSet}>
                 <input 
                     placeholder="Write your username"
@@ -29,10 +32,9 @@ const WelcomePage = () => {
                 />
                 <button
                     type="submit"
-                >Submit</button>
+                >Start game!</button>
             </form>
-            {/* {name && <WelcomeMessage username={name}/>} Fel name/username, se nedan*/}
-            {userName && <WelcomeMessage userName={userName}/>}
+            {userName && <WelcomeMessage userName={userName} />}
         </>
     )
 }

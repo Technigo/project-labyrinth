@@ -17,4 +17,19 @@ const game = createSlice({
     }
 })
 
+// export const newPlayer = (username) => {
+//     return (dispatch) => {
+//         fetch('https://wk16-backend.herokuapp.com/start', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify({ "username": `${username}` })
+//         })
+//         .then((res) => res.json())
+//         .then((json) => {
+//             dispatch(game.actions.set?(json))//set vad?
+//         })
+//     }
+// }
 export default game
