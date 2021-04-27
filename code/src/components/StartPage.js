@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
-
+import "nes.css/css/nes.min.css";
 import { game, generateGame } from "../reducers/game";
 
 export const StartPage = () => {
@@ -16,16 +16,22 @@ export const StartPage = () => {
   };
 
   return (
-    <Form onSubmit={onFormSubmit}>
-      <h1>Hey</h1>
-      <TextInput
-        required
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <button type="submit">Button</button>
-    </Form>
+    <form onSubmit={onFormSubmit}>
+      <div className="nes-field">
+        <label htmlFor="userName">Your name</label>
+        <input
+          id="userName"
+          className="nes-input"
+          required
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+      </div>
+      <button type="submit" className="nes-btn is-primary">
+        Send
+      </button>
+    </form>
   );
 };
 

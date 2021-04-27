@@ -1,12 +1,28 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { game } from "../reducers/game";
+import { useSelector, useDispatch } from "react-redux";
+import { generateMove } from "../reducers/game";
 
 export const GamePage = () => {
-  const question = useSelector((store) => store.game.description);
-  const actions = question.actions;
-  {
-    console.log(question.actions[actions.type]);
-  }
-  return <div></div>;
+  const gameUsername = useSelector((store) => store.game.username);
+  const gameActions = useSelector((store) => store.game.description.actions);
+
+  const dispatch = useDispatch();
+
+  return (
+    <>
+      {gameActions.map((action) => (
+        <div key={action}>
+          <button
+            type="button"
+            onClick={() =>
+              dispatch(generateMove(gameUsername, action.direction))
+            }
+          >
+            {action.direction}
+          </button>
+          <p>{action.description}</p>
+        </div>
+      ))}
+    </>
+  );
 };

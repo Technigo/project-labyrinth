@@ -6,12 +6,18 @@ export const game = createSlice({
   initialState: {
     type: "move",
     username: null,
-    description: "",
-    actions: "",
+    description: {
+      coordinates: 0.0,
+      description: "",
+      actions: [],
+    },
   },
   reducers: {
     setUsername: (store, action) => {
       store.username = action.payload;
+    },
+    setCoordinates: (store, action) => {
+      store.coordinates = action.payload;
     },
     setActions: (store, action) => {
       store.actions = action.payload;
@@ -22,7 +28,7 @@ export const game = createSlice({
   },
 });
 
-export const generateGame = (username) => {
+export const generateGame = () => {
   return (dispatch, getState) => {
     fetch(`https://wk16-backend.herokuapp.com/start`, {
       method: "POST",
@@ -32,18 +38,28 @@ export const generateGame = (username) => {
       body: JSON.stringify({ username: getState().game.username }),
     })
       .then((res) => res.json())
-      .then((question) => dispatch(game.actions.setDescription(question)));
+      .then((data) => {
+        dispatch(game.actions.setDescription(data));
+      });
   };
 };
 
-//     "coordinates": "0,0",
-//     "description": "You find yourself in under a large archway opening into a cavern.  A sense of purpose fills you.",
-//     "actions": [
-//         {
-//             "type": "move",
-//             "direction": "East",
-//             "description": "A worn sign 'The Temple of *ech*igo'. Some of the letters are missing. An overgrown paved path leads to the East"
-//         }
-//     ]
-// }
-// }
+export const generateMove = (username, direction) => {
+  return (dispatch) => {
+    fetch(`https://wk16-backend.herokuapp.com/action`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        direction: direction,
+        type: "move",
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(game.actions.setDescription(data));
+      });
+  };
+};
