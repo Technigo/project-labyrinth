@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 
-import game from '../reducers/game'
+import game, { registerNewPlayer } from '../reducers/game'
 
 import WelcomeMessage from './WelcomeMessage'
 
@@ -14,6 +14,7 @@ const WelcomePage = () => {
     const onNameSet = (event) => {
         event.preventDefault()
         dispatch(game.actions.setUsername(name))
+        dispatch(registerNewPlayer(name))
         setName('')
     }
 
