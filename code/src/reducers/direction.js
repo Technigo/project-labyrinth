@@ -16,7 +16,20 @@ const direction = createSlice({
   }
 })
 
-
+export const generateGame = () => {
+    return (dispatch, getState) => {
+        fetch('https://wk16-backend.herokuapp.com/start', {
+          method: 'POST',
+          headers: {
+            'Content-type': 'application/json'
+          },
+          body: JSON.stringify({ username : getState().direction.username })
+        })
+        .then(res => res.json())
+        // .then(data => dispatch(direction.actions.setUsername(data)))
+        .then(data => console.log(data))
+      } 
+  }
 
 // Thunk Sample Code 
 // export const fetchTodos = () => {
