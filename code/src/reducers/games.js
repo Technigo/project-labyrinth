@@ -5,7 +5,7 @@ export const games  = createSlice({
     initialState: {
         coordinates: null,
         description: null,
-        actions:[],
+        // actions:[],
         username: ''
     },
     reducers: {
