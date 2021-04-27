@@ -4,11 +4,9 @@ import {useSelector} from 'react-redux'
 import StartScreen from 'components/StartScreen';
 import GameScreen from 'components/GameScreen';
 
-
-
 const Game = () => {
 const username = useSelector(store => store.labyrinth.username)
-console.log(username)
+
   return (
     <div>
       {username? <GameScreen /> : <StartScreen />}

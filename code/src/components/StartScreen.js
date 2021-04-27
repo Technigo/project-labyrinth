@@ -2,10 +2,9 @@ import React, {useState} from 'react';
 import styled from 'styled-components/macro';
 import {useDispatch} from 'react-redux'
 
-import labyrinth, { generateStory } from '../reducers/labyrinth'
+import labyrinth, { generateStart } from '../reducers/labyrinth'
 
 const Container = styled.div`
-
 `
 
 const Title = styled.h1`
@@ -21,13 +20,12 @@ const StartButton = styled.button`
 `
 
 const StartScreen = () => {
-    const [userInput, setUserInput] = useState()
+    const [userInput, setUserInput] = useState("")
     const dispatch=useDispatch();
 
 const onUsernameSet = () => {
     dispatch(labyrinth.actions.setUsername(userInput));
-    dispatch(generateStory())
-
+    dispatch(generateStart())
 }
 
   return (
