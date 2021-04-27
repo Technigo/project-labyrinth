@@ -10,17 +10,19 @@ const StartScreen = () => {
 
   const onStartGame = () => {
     dispatch(gameFetch.actions.setName(userName));
-    dispatch(firstFetch());
+    dispatch(firstFetch(userName));
   };
 
   return (
     <div>
-      <h1>Welcome! Please enter your name:</h1>
-      <input
-        type='text'
-        value={userName}
-        onChange={(event) => setUserName(event.target.value)}
-      />
+      <label>Welcome! Please enter your name:</label>
+      <form>
+        <input
+          type='text'
+          value={userName}
+          onChange={(event) => setUserName(event.target.value)}
+        />
+      </form>
       <button onClick={onStartGame}>Start!</button>
     </div>
   );

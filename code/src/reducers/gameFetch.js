@@ -19,7 +19,7 @@ const gameFetch = createSlice({
 });
 
 export const firstFetch = (userName) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     fetch("https://wk16-backend.herokuapp.com/start", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -27,7 +27,7 @@ export const firstFetch = (userName) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        // dispatch(gameFetch.actions.setGameScreen(data));
+        dispatch(gameFetch.actions.setGameScreen(data));
         console.log(data);
       });
   };
@@ -46,7 +46,7 @@ export const secondFetch = (userName, direction) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        dispatch();
+        dispatch(gameFetch.actions.setGameScreen(data));
       });
   };
 };

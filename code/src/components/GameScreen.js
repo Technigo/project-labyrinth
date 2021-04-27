@@ -6,7 +6,7 @@ import gameFetch from "../reducers/gameFetch";
 const GameScreen = () => {
   const gameScreen = useSelector((store) => store.gameFetch);
 
-  // console.log(gameScreen);
+  console.log("gameScreen: ", gameScreen);
 
   return <div>GameScreen</div>;
   // <div>
