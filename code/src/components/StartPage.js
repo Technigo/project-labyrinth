@@ -41,11 +41,11 @@ const StartPage = () => {
   const handleStartGame = (event) => {
     event.preventDefault()
     dispatch(mazegame.actions.setUserName(userName))
-    dispatch(generateGame(userName));
+    dispatch(generateGame(userName))
     setShowComponent(true)
   }
 
-  console.log('username', userName)
+  // console.log('username', userName)
   console.log('gamestatus', gameStatus)
   return(
     <>
@@ -64,7 +64,12 @@ const StartPage = () => {
           onChange={(event) => setUserName(event.target.value)}
         />
       </div>
-      <button type="submit" className="nes-btn is-normal">START GAME</button>
+      <button 
+        type="submit" 
+        className="nes-btn is-normal"
+      >
+        START GAME
+      </button>
     </FormContainer>
     
     :
