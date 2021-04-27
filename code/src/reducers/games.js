@@ -30,7 +30,7 @@ export const createNewPlayer = (username) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ 
-                username: `${username}`
+                username
             }),
         })
         .then(res => res.json())
@@ -46,9 +46,9 @@ export const CarryOnGame = (direction) => {
                 'Content-type': 'application/json'
             },
             body: JSON.stringify({
-                username: getState().games.userName,
+                username: getState().games.username,
                 type: 'move',
-                direction: direction
+                direction
             }),
         })
         .then(res => res.json())
@@ -57,4 +57,4 @@ export const CarryOnGame = (direction) => {
     }
 }
 
-//export default games
+// export default games

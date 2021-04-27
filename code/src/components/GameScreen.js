@@ -14,7 +14,9 @@ const GameScreen = ({ inputValue }) => {
 
   const dispatch = useDispatch()
 
-  const onNextDirection = (direction) => {dispatch(CarryOnGame(direction))}
+  const onNextDirection = (username, direction) => {
+      dispatch(CarryOnGame(username, direction))
+  }
 
   //The optional chaining operator (?.) 
   //enables you to read the value of a property located deep within 
