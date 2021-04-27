@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { games, createNewPlayer } from '../reducers/games'
+import GameScreen from './GameScreen'
 
 const StartScreen = () => {
     const [inputValue, setInputValue] = useState('')
@@ -27,6 +28,7 @@ const StartScreen = () => {
                 placeholder="Type your name..."
             />
             <button onClick={onFormSubmit}>Start</button>
+            <GameScreen />
         </form>
     )
 }
