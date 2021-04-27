@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-
+import "nes.css/css/nes.min.css"
+import styled from 'styled-components'
 import game, { generateGame }from '../reducers/game'
+
+
+
+
 
 const StartGame = () => {
     //controlled input we need states: 
@@ -13,21 +18,17 @@ const StartGame = () => {
         dispatch(game.actions.setPlayerName(inputValue)) 
         //dispathing thunk function
         dispatch(generateGame())
-        // fetch("https://wk16-backend.herokuapp.com/start", {
-        //     method: "POST",
-        //     headers: {"Content-type": "application/json"},
-        //     body: JSON.stringify({username: inputValue})})
-        //     .then(jsonData => jsonData.json())
-        //     .then(dataObject => console.log(dataObject))
     } 
     return (
         <div>
             <p>Welcome to the labyrinth, type in your name </p>
             <input
+                id="dark_field"
                 type="text"
                 value={inputValue}
                 onChange={event => setInputValue(event.target.value)}
-
+                class="nes-input is-dark" 
+                placeholder="dark.css"
             />
             <button onClick={setGame}>Start</button>
         </div>

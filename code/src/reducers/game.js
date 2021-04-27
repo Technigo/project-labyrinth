@@ -7,7 +7,8 @@ const game = createSlice({
  name: 'labyrinth',
  initialState: {
      username: null,
-     description: null
+     description: null,
+     actions: [],
  }, 
  
  // A action that change the iniital state to the input value the user puts in 
@@ -29,7 +30,7 @@ const game = createSlice({
 //Content type so the fetch knows what type of data itcill expect 
 
 
-export const generateGame= () => {
+export const generateGame = () => {
     return (dispatch, getState) => {
         fetch("https://wk16-backend.herokuapp.com/start", {
             method: 'POST',
@@ -41,6 +42,17 @@ export const generateGame= () => {
         .then(dataObject => dispatch(game.actions.setDescription(dataObject)));
         }
     }
-
+export const continueGame = () => {
+    return (dispatch, getState) => {
+        fetch("https://wk16-backend.herokuapp.com/action", {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({username: getState().game.action})})
+        .then(res => res.json())
+        .then(dataObject => dispatch(game.actions.setDescription(dataObject)));
+        }
+}
 
 export default game 
