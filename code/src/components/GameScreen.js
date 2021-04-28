@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector,  } from 'react-redux';
 
 import { secondFetch } from "../reducers/maze"
+import maze from "../reducers/maze"
 
 const GameScreen = () => {
 
@@ -13,7 +14,12 @@ const GameScreen = () => {
 
     const isLoading = useSelector(store => store.maze.isLoading )
 
-    if (isLoading === false) {
+    const onClick = (direction) => {
+        dispatch(secondFetch(direction))
+         dispatch(maze.actions.setLoading(isLoading))
+    }
+
+    if (!isLoading) {
         return (
         <main className='game-screen'>
         <div className='game-container'>
@@ -26,7 +32,7 @@ const GameScreen = () => {
             {actions.map((action) => (
                 <div key={action.description}>
                 <p>{action.description}</p>
-                <button onClick={() => secondFetch(action.direction)}>{action.direction}</button>
+                <button onClick={() => onClick(action.direction)}>{action.direction}</button>
             </div>
             ))}
 

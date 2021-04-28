@@ -11,12 +11,12 @@ const StartScreen = () => {
 
     const dispatch = useDispatch();
 
-    const loading = useSelector(store => store.maze.isLoading)
+    const isLoading = useSelector(store => store.maze.isLoading)
 
     const onStartGame = () => {
         dispatch(maze.actions.startGame(inputValue))
         setInputValue('')
-        dispatch(maze.actions.setLoading(!loading))
+        dispatch(maze.actions.setLoading(!isLoading))
         dispatch(firstFetch());
     }
     

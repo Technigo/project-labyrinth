@@ -15,7 +15,7 @@ const maze = createSlice({
        }, 
        startMaze: (store, action) => {
            store.description = action.payload
-           store.actions = action.payload.actions;
+          store.actions = action.payload.actions;
        },
        setLoading: (store, action) => {
            store.isLoading = action.payload
@@ -53,7 +53,10 @@ export const secondFetch = (direction) => {
             }),
         })
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then((data) => {
+            dispatch(maze.actions.startMaze(data))
+            dispatch(maze.actions.setLoading(false))
+        })
     };
 };
 
