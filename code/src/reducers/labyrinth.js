@@ -44,9 +44,9 @@ export const generateData = (direction) => {
       }
       fetch('https://wk16-backend.herokuapp.com/action', options)
         .then(response => response.json())
-        .then(data => {
-            dispatch(labyrinth.actions.addActions(data)) 
-            localStorage.setItem("labyrint", JSON.stringify(data))
+        .then(async data => {
+           await dispatch(labyrinth.actions.addActions(data)) 
+           await localStorage.setItem("labyrint", JSON.stringify(getState()))
           })
 
     }
@@ -61,9 +61,9 @@ export const generateData = (direction) => {
     }
     fetch('https://wk16-backend.herokuapp.com/start', options)
       .then(response => response.json())
-      .then(data => {
-        dispatch(labyrinth.actions.addActions(data))
-        localStorage.setItem("labyrint", JSON.stringify(data))
+      .then(async data => {
+        await dispatch(labyrinth.actions.addActions(data))
+        await localStorage.setItem("labyrint", JSON.stringify(getState()))
       })
   }
 }
