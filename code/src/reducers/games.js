@@ -8,7 +8,10 @@ export const games  = createSlice({
         // description: null,
         // actions:[],
         username: '',
-        gameStatus: {}
+        gameStatus: {
+            description: "",
+            actions: []
+        }
     },
     reducers: {
         setUserName: (store, action) => {
@@ -34,7 +37,7 @@ export const createNewPlayer = (username) => {
             }),
         })
         .then(res => res.json())
-        .then(data => dispatch(games.actions.setUserName(data)))
+        .then(data => dispatch(games.actions.setGameStatus(data)))
     }
 }
 
