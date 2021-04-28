@@ -53,7 +53,6 @@ const StartScreen = () => {
             </Border>
         </Main>
     )
-
 }
 
 export default StartScreen
@@ -80,16 +79,29 @@ const Greeting = styled.h1`
     font-size: 24px;
     width: 100%;
     text-align: center;
+        @media (min-width: 768px) {
+            font-size: 48px;
+            margin-bottom: 25px;
+        }
 `
 const Instruction = styled.p`
     font-family: 'Press Start 2P', cursive;
     color: #fff;
     font-size: 12px;
-    width: 100%;
+    width: 60%;
     text-align: center;
+        @media (min-width: 768px) {
+            font-size: 18px;
+        }
 `
 const Label = styled.label`
 width: 80%;
+    @media (min-width: 768px) {
+        width: 50%;
+    }
+    @media (min-width: 1025px) {
+        width: 30%;
+    }
 `
 const NameInput = styled.input`
     font-family: 'Press Start 2P', cursive;
@@ -100,8 +112,10 @@ const NameInput = styled.input`
     background-color: #212529;
     border: dashed white 3px;
     margin-top: 50px;
-
     padding: 5px;
+        @media (min-width: 768px) {
+            font-size: 18px;
+        }
 `
 const StartButton = styled.button`
     font-family: 'Press Start 2P', cursive;
@@ -114,4 +128,7 @@ const Copy = styled.p`
     width: 100%;
     text-align: center;
     margin-top: 30px;
+        @media (min-width: 768px) {
+            font-size: 12px;
+        }
 `
