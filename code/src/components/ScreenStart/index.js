@@ -9,7 +9,8 @@ import Button from 'components/Button';
 
 export default () => {
   const dispatch = useDispatch();
-  const username = useSelector((store) => store.game.name);
+  const userid = useSelector((store) => store.game.user.id);
+  const username = useSelector((store) => store.game.user.name);
 
   React.useEffect(() => {
     dispatch(setUserID());
@@ -19,7 +20,7 @@ export default () => {
       <Section>
         <TypoTitle>Welcome!</TypoTitle>
         <TypoText>Are you ready for this....???</TypoText>
-        <Input type="text" placeholder={username} />
+        <Input type="text" placeholder={userid} value={username} />
         <Button type="button" onClick={() => dispatch(startGame())}>Start Game</Button>
       </Section>
   );
