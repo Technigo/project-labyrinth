@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components/macro'
 
 import {generateNextMove} from '../reducers/mazegame'
-// import mazegame from '../reducers/mazegame'
+import LoadingPage from './LoadingPage'
+import FinishLayout from "./FinishLayout";
 
 const Container = styled.div`
   padding: 30px 20px 20px 20px;
@@ -42,10 +43,17 @@ const TextCenter = styled.p`
 const GamePage = () => {
   const gameStatus = useSelector(store => store.mazegame.gameStatus)
   const actions = useSelector(store => store.mazegame.gameStatus.actions)
+  const loading = useSelector(store => store.mazegame.loading)
   const userName = useSelector(store => store.mazegame.userName)
   const dispatch = useDispatch()
 
   console.log('ACTION', actions)
+  
+  if (loading) {
+    return (
+      <LoadingPage />
+    ) 
+  } 
 
   return(
     <Container>
@@ -60,19 +68,26 @@ const GamePage = () => {
             </section>
           </section>
         </section>
-        <TextCenter>ACTIONS YOU CAN TAKE</TextCenter>
-        {actions.map(direction => 
-          <Flexbox key={direction.description}>
-            <div class="nes-container is-rounded is-dark">
-              <div>{direction.description}</div>
-              <button
-                onClick={() => dispatch(generateNextMove(userName, direction.direction))}
-                className="nes-btn is-normal"
-              >{direction.direction}
-              </button>
-            </div>
-          </Flexbox> 
-        )}
+        {actions.length !== 0 
+          ? 
+            <>
+              <TextCenter>ACTIONS YOU CAN TAKE</TextCenter>
+              {actions.map(direction => 
+                <Flexbox key={direction.description}>
+                  <div class="nes-container is-rounded is-dark">
+                    <div>{direction.description}</div>
+                    <button
+                      onClick={() => dispatch(generateNextMove(userName, direction.direction))}
+                      className="nes-btn is-normal"
+                    >{direction.direction}
+                    </button>
+                  </div>
+                </Flexbox> 
+              )}
+            </>
+          : 
+            <FinishLayout />
+      }
       </InnerContainer>
     </Container>
     )

@@ -17,3 +17,8 @@ body {
   background-color:#59e686;
   margin-top: 50px;
 }
+
+.nes-icon trophy is-large {
+  margin: 0; 
+  padding: 0; 
+}
