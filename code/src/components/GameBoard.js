@@ -9,6 +9,7 @@ const GameBoard = () => {
     const history = useSelector((store) => store.game.history)
 
     const dispatch = useDispatch()
+    
 
     return (
         <>
@@ -22,13 +23,14 @@ const GameBoard = () => {
                 </div>
                 )
             })}
-            <button 
-                type="button"
-                onClick={() => dispatch(game.actions.setPreviousDescription())}
-                disabled={!history.length}
-            >
+            {history.length > 1 && ( 
+                <button 
+                    type="button"
+                    onClick={() => dispatch(game.actions.setPreviousDescription())}
+                >
                     Go back
-            </button>
+                </button>
+            )}
 
         </>
     )
