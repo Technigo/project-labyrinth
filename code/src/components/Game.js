@@ -6,10 +6,12 @@ import GameScreen from './GameScreen'
 
 const Game = () => {
   const gameState = useSelector(store => store.game.gameState)
+  const loading = useSelector(store => store.game.loading)
   return (
     <>
-      {gameState === null && <StartScreen />}
-      {gameState !== null && <GameScreen />}
+      {loading && <h1>LOADING...</h1>}
+      {(!loading && gameState === null) && <StartScreen />}
+      {(!loading && gameState !== null) && <GameScreen />}
     </>
   )
 }

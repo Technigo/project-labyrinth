@@ -14,9 +14,9 @@ const StartScreen = () => {
     dispatch(startGame())
   }
   return (
-    <div>
+    <div className="nes-container is-rounded is-dark">
       <p>Welcome User!</p>
-      <label for="dark_field">Type your user name</label>
+      <label htmlFor="dark_field">Type your user name</label>
       <input type="text" id="dark_field" className="nes-input is-dark" placeholder="Mighty Maks" value={value} onChange={(event) => setValue(event.target.value)}></input>
       <button onClick={onGameStart} type="button" className="nes-btn is-primary">Start game!</button>
     </div>

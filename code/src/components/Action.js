@@ -5,13 +5,9 @@ import { useDispatch } from 'react-redux'
 import ActionButton from './ActionButton'
 import ActionDescription from './ActionDescription'
 
-const Action = ({ direction, description, type, chosenDirection, setChosenDirection }) => {
-  console.log(direction, chosenDirection)
+const Action = ({ direction, chosenDirection, setChosenDirection }) => {
   return (
     <div>
-      {/* <ActionDescription description={description} />
-      <ActionButton direction={direction} type={type} /> */}
-
       <label>
         <input
           type="radio"
@@ -22,7 +18,6 @@ const Action = ({ direction, description, type, chosenDirection, setChosenDirect
         />
         <span>{direction}</span>
       </label>
-      {/* {direction === chosenDirection && <p>{description} </p>} */}
     </div>
   )
 }
