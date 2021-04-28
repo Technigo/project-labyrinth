@@ -8,8 +8,9 @@ const labyrinth = createSlice (
     username: null,
     description: null,
     direction: null,
-    buttons: null,
+    actions: null,
     isLoading: false,
+    coordinates: null
     },
     reducers: {
         setUsername: (store, action) => {
@@ -22,8 +23,11 @@ const labyrinth = createSlice (
         setDirection: (store, action) => {
             store.direction = action.payload;
         },
-        setButtons: (store, action) => {
-            store.buttons = action.payload;
+        setCoordinates: (store, action) => {
+            store.coordinates = action.payload;
+        },
+        setActions: (store, action) => {
+            store.actions = action.payload;
         },
         setLoading: (store, action) => {
             store.isLoading = action.payload;
@@ -44,8 +48,9 @@ export const generateStart = () => {
     .then(res => res.json())
     .then(data => {
         dispatch(labyrinth.actions.setLoading(false))
+        dispatch(labyrinth.actions.setCoordinates(data.coordinates))
         dispatch(labyrinth.actions.setDescription(data.description))
-        dispatch(labyrinth.actions.setButtons(data.actions))
+        dispatch(labyrinth.actions.setActions(data.actions))
     })
     }
 }
@@ -64,8 +69,9 @@ export const generateStory = () => {
     .then(res => res.json())
     .then(data => {
         dispatch(labyrinth.actions.setLoading(false))
+        dispatch(labyrinth.actions.setCoordinates(data.coordinates))
         dispatch(labyrinth.actions.setDescription(data.description))
-        dispatch(labyrinth.actions.setButtons(data.actions))
+        dispatch(labyrinth.actions.setActions(data.actions))
     });
 
     }
