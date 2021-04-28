@@ -1,12 +1,9 @@
 import styled from 'styled-components/macro'
-import { baseTypography } from 'components/Typography/style'
 // Images
 import borderImage from 'assets/input-border-image.png';
 import backgroundImage from 'assets/input-background-image.png';
 
 export default styled.input`
-  ${baseTypography}
-  font-size: 0.9em;  
   /* border */
   border-style: solid;
   border-width: 7px 7px 7px 7px;

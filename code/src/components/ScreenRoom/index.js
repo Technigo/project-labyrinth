@@ -23,7 +23,7 @@ export default () => {
       <ActionCompass setActiveAction={setActiveAction} />
       {actionActive && (
         <>
-        <TypoText>{actionActive} description</TypoText>
+        <TypoText>{actionActive}</TypoText>
         <Button type="button">Go there</Button>
         </>
       )}

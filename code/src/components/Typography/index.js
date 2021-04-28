@@ -1,9 +1,8 @@
 import React from 'react';
-import { Title, Text } from './style';
 
 export const TypoTitle = ({ children }) => {
-  return <Title>{children}</Title>;
+  return <h1>{children}</h1>;
 };
 export const TypoText = ({ children }) => {
-  return <Text>{children}</Text>;
+  return <p>{children}</p>;
 };
