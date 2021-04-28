@@ -18,7 +18,17 @@ body {
   margin-top: 50px;
 }
 
-.nes-icon trophy is-large {
-  margin: 0; 
-  padding: 0; 
+.nes-icon {
+  animation: blinking 1.2s infinite;
 }
+ @keyframes blinking {
+  50% {
+    opacity: 0;
+  }
+ } 
+/* tablet  */
+ /* @media (min-width: 668px) {
+  .nes-input {
+    width: 40vw; 
+  }
+} */

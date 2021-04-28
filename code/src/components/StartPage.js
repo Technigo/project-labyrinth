@@ -11,11 +11,11 @@ const FormContainer = styled.form`
   width: 100vw;
   height: 100vh;
   margin: 0;
-  padding: 0;
+  padding-bottom: 100px;
   color: #59e686;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center; 
 `
 
@@ -29,6 +29,9 @@ const Title = styled.h1`
     60%{color: transparent;}
     99%{color:transparent;}
     100%{color: #59e686;}  
+  }
+  @media (min-width: 668px) {
+   font-size: 45px; 
   }
 `
 
