@@ -4,16 +4,26 @@ const game = createSlice({
     name: 'game',
     initialState: {
         username: '',
-        gameStatus: {}
+        gameStatus: {},
+        history: []
     },
     reducers: {
         setUsername: (store, action) => {
             store.username = action.payload
         },
         setGameStatus: (store, action) => {
+            if (store.gameStatus) {
+                store.history = [...store.history, store.gameStatus]
+            }
             const currentGameStatus = action.payload
             store.gameStatus = currentGameStatus
         },
+        setPreviousDescription: (store, action) => {
+            if (store.history.length) {
+                store.gameStatus = store.history[store.history.length - 1]
+                store.history = store.history.slice(0, store.history.length - 1)
+            }
+        }
     }
 })
 

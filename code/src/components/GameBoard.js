@@ -1,11 +1,12 @@
 import React from 'react'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { continueGame } from 'reducers/game'
+import game, { continueGame } from 'reducers/game'
 
 const GameBoard = () => {
     const gameStart = useSelector((store) => store.game.gameStatus)
     const userName = useSelector((store) => store.game.username)
+    const history = useSelector((store) => store.game.history)
 
     const dispatch = useDispatch()
 
@@ -21,6 +22,13 @@ const GameBoard = () => {
                 </div>
                 )
             })}
+            <button 
+                type="button"
+                onClick={() => dispatch(game.actions.setPreviousDescription())}
+                disabled={!history.length}
+            >
+                    Go back
+            </button>
 
         </>
     )
