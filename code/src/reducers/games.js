@@ -1,4 +1,6 @@
-import { createSlice} from '@reduxjs/toolkit'
+import {
+  createSlice
+} from '@reduxjs/toolkit'
 
 const games = createSlice({
   name: 'games',
@@ -12,7 +14,7 @@ const games = createSlice({
     error: null,
     loading: false
   },
-  
+
   reducers: {
     setUserName: (store, action) => {
       store.username = action.payload
@@ -43,40 +45,13 @@ export const createPlayer = () => {
   return (dispatch, getState) => {
     dispatch(games.actions.setLoading(true))
     fetch('https://wk16-backend.herokuapp.com/start', {
-      method:'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ username: getState().games.username})
-    })
-    .then(res => {
-      if (res.ok) {
-        dispatch(games.actions.setError(null))
-        return res.json()
-      } else {
-        console.log(res)
-        throw new Error(res.statusText)
-      }
-    })
-    .then((game) => {
-    // dispatch(games.actions.setGame(game))
-    dispatch(games.actions.setDescription(game.description))
-    dispatch(games.actions.setMoves(game.actions))
-    })
-    .catch(error => dispatch(games.actions.setError(error.message)))
-    .finally(() => dispatch(games.actions.setLoading(false)))
-  }
-  }
-
-  export const generateQuestion = () => {
-    return (dispatch, getState) => {
-      dispatch(games.actions.setLoading(true))
-      fetch('https://wk16-backend.herokuapp.com/action', {
-        method:'POST',
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ username: getState().games.username, type: 'move', direction: getState().games.direction})
+        body: JSON.stringify({
+          username: getState().games.username
+        })
       })
       .then(res => {
         if (res.ok) {
@@ -87,15 +62,49 @@ export const createPlayer = () => {
           throw new Error(res.statusText)
         }
       })
-      .then((game) => 
-      // {dispatch(games.actions.setGame(game))
-      {dispatch(games.actions.setDescription(game.description))
-      dispatch(games.actions.setMoves(game.actions))
-    })
-    .catch(error => dispatch(games.actions.setError(error.message)))
-    .finally(() => dispatch(games.actons.setLoading(false)))
-    }
-    }
+      .then((game) => {
+        // dispatch(games.actions.setGame(game))
+        dispatch(games.actions.setDescription(game.description))
+        dispatch(games.actions.setMoves(game.actions))
+      })
+      .catch(error => dispatch(games.actions.setError(error.message)))
+      .finally(() => dispatch(games.actions.setLoading(false)))
+  }
+}
+
+export const generateQuestion = () => {
+
+  return (dispatch, getState) => {
+    dispatch(games.actions.setLoading(true))
+    fetch('https://wk16-backend.herokuapp.com/action', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username: getState().games.username,
+          type: 'move',
+          direction: getState().games.direction
+        })
+      })
+      .then(res => {
+        if (res.ok) {
+          dispatch(games.actions.setError(null))
+          return res.json()
+        } else {
+          console.log(res)
+          throw new Error(res.statusText)
+        }
+      })
+      .then(game => {
+        // {dispatch(games.actions.setGame(game))
+        dispatch(games.actions.setDescription(game.description))
+        dispatch(games.actions.setMoves(game.actions))
+      })
+      .catch(error => dispatch(games.actions.setError(error.message)))
+      .finally(() => dispatch(games.actions.setLoading(false)))
+  }
+}
 
 
 
