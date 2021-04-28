@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
-import { games, createPlayer } from '../reducers/games'
+import games, { createPlayer } from '../reducers/games'
 
 const Container = styled.div`
   border: solid black 2px;

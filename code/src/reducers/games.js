@@ -6,7 +6,7 @@ const initialState = {
   gameStatus: {}
 }
 
-export const games = createSlice({
+const games = createSlice({
   name: 'games',
   initialState, 
   // username: null,
@@ -16,41 +16,56 @@ export const games = createSlice({
     setUserName: (store, action) => {
       store.username = action.payload;
     },
-    setGame: (store, action) => {
-      store.history = [...store.history, store.gameStatus]
-      store.game = action.payload;
-    },
-    nextStep: (store, action) => {
-      store.username = action.payload
+    setDescription: (store, action) => {
+      store.description = action.payload;
+  console.log(store.description)
+  },
+    // setGame: (store, action) => {
+    //   store.history = [...store.history, store.gameStatus]
+    //   store.game = action.payload;
+    // },
+    setDirection: (store, action) => {
+      store.direction = action.payload;
+  },
+    setMoves: (store, action) => {
+      store.moves = action.payload
     }
   }
 })
 
-export const createPlayer = (username) => {
-  return (dispatch) => {
+export const createPlayer = () => {
+  return (dispatch, getState) => {
     fetch('https://wk16-backend.herokuapp.com/start', {
       method:'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ 'username': `${username}`})
+      body: JSON.stringify({ username: getState().games.username})
     })
     .then((res) => res.json())
-    .then((game) => dispatch(games.actions.setGame(game)))
+    .then((game) => {
+    // dispatch(games.actions.setGame(game))
+    dispatch(games.actions.setDescription(game.description))
+    dispatch(games.actions.setMoves(game.actions))
+    })
   }
   }
 
-  export const continueGame = (step, username) => {
-    return (dispatch) => {
+  export const generateQuestion = () => {
+    return (dispatch, getState) => {
       fetch('https://wk16-backend.herokuapp.com/action', {
         method:'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ username: `${username}`, type: 'move', direction: `${step}`})
+        body: JSON.stringify({ username: getState().games.username, type: 'move', direction: getState().games.direction})
       })
       .then((res) => res.json())
-      .then((game) => dispatch(games.actions.setGame(game)))
+      .then((game) => 
+      // {dispatch(games.actions.setGame(game))
+      {dispatch(games.actions.setDescription(game.description))
+      dispatch(games.actions.setMoves(game.actions))
+    })
     }
     }
 
@@ -71,5 +86,5 @@ export const createPlayer = (username) => {
     }
   }
 }
-
-export default games*/
+*/
+export default games
