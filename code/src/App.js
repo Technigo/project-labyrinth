@@ -2,21 +2,19 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
-import direction from './reducers/direction'
-import StartScreen from './components/StartScreen'
-import InGame from 'components/InGame'
+import game from './reducers/game'
+import GameBoard from './components/GameBoard'
 
 const reducer = combineReducers({
-  direction: direction.reducer
+  game: game.reducer
 })
 
 const store = configureStore({reducer})
 
 export const App = () => {
   return (
-    <Provider store={store}>
-      <StartScreen />
-      <InGame />
+    <Provider store={store} >
+      <GameBoard />
     </Provider>
   )
 }
