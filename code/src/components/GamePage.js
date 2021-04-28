@@ -10,22 +10,48 @@ const Container = styled.div`
   padding: 30px 20px 20px 20px;
   background-color: #000;
   width: 100vw;
+  height: 100vh;
   margin: 0;
   color: #59e686;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center; 
 `
 
 const InnerContainer = styled.div`
   max-width: 300px;
+
+  @media (min-width: 668px) {
+    max-width: 500px;
+  }
+  @media (min-width: 1024px) {
+    max-width: 800px;
+  }
+ 
 `
 
 const Text = styled.div`
-  font-size: 12px;
+  font-size: 14px;
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 668px) {
+    font-size: 18px;
+  }
+`
+
+
+const MoveContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  @media (min-width: 668px) {
+    flex-direction: row;
+  }
 `
 
 const Flexbox = styled.div`
@@ -34,10 +60,16 @@ const Flexbox = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  flex: 1;
+
+  @media (min-width: 668px) {
+    flex-direction: row;
+  }
 `
 
 const TextCenter = styled.p`
   text-align: center;
+  padding-top: 15px;
 `
 
 const GamePage = () => {
@@ -61,10 +93,18 @@ const GamePage = () => {
         <section class="nes-container is-dark">
           <section class="message-list">
             <section class="message -left">
-              <i class="nes-bcrikko"></i>
               <div class="nes-balloon from-left is-dark">
-                <Text><span>Hello {userName}!</span> <span>{gameStatus.description}</span></Text>
+                <Text>
+                  {actions.length === 1 
+                    ? 
+                      <span>Hello {userName}!</span>
+                    : 
+                      <span></span> 
+                  }
+                  <span>{gameStatus.description}</span> 
+                </Text>
               </div>
+              <i class="nes-bcrikko"></i>
             </section>
           </section>
         </section>
@@ -72,18 +112,20 @@ const GamePage = () => {
           ? 
             <>
               <TextCenter>ACTIONS YOU CAN TAKE</TextCenter>
-              {actions.map(direction => 
-                <Flexbox key={direction.description}>
-                  <div class="nes-container is-rounded is-dark">
-                    <div>{direction.description}</div>
-                    <button
-                      onClick={() => dispatch(generateNextMove(userName, direction.direction))}
-                      className="nes-btn is-normal"
-                    >{direction.direction}
-                    </button>
-                  </div>
-                </Flexbox> 
-              )}
+              <MoveContainer>
+                {actions.map(direction => 
+                  <Flexbox key={direction.description}>
+                    <div class="nes-container is-rounded is-dark">
+                      <div>{direction.description}</div>
+                      <button
+                        onClick={() => dispatch(generateNextMove(userName, direction.direction))}
+                        className="nes-btn is-normal"
+                      >{direction.direction}
+                      </button>
+                    </div>
+                  </Flexbox> 
+                )}
+              </MoveContainer>
             </>
           : 
             <FinishLayout />

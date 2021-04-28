@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: #000;
   font-family: Press Start 2P;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -11,6 +12,10 @@ body {
   font-size: 13px;
   padding: 10px;
   text-align: center;
+}
+
+.nes-field.is-inline {
+  display: block;
 }
 
 .is-normal {
@@ -26,9 +31,20 @@ body {
     opacity: 0;
   }
  } 
-/* tablet  */
- /* @media (min-width: 668px) {
-  .nes-input {
-    width: 40vw; 
+/*tablet*/
+@media (min-width: 668px) {
+  .nes-balloon {
+    max-width: 70%; 
   }
-} */
+
+  .message {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+  }
+
+  .nes-bcrikko {
+    margin-right: 20px;
+  }
+
+} 
