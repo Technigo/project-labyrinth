@@ -8,16 +8,18 @@ import GoBack from './GoBack'
 
 const Container = () => {
   const actions = useSelector(store => store.labyrinth.actions)
-  const history = useSelector(store=> store.labyrinth.history)
+  console.log(actions)
+  const history = useSelector(store => store.labyrinth.history)
+  const error = useSelector(store => store.labyrinth.error)
 
   return (
     <div>
       {actions
         ? <>
-          {history.length > 0 && <GoBack/>}
+          {history.length > 0 && <GoBack />}
           <Description />
           <Directions />
-          </>
+        </>
         : <UserForm />}
     </div>
   )
