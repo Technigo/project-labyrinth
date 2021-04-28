@@ -4,6 +4,7 @@ import styled from 'styled-components/macro'
 
 import GamePage from './GamePage'
 import { mazegame, generateGame } from '../reducers/mazegame'
+import LoadingPage from './LoadingPage'
 
 const FormContainer = styled.form`
   background-color: #000;
@@ -34,6 +35,7 @@ const Title = styled.h1`
 const StartPage = () => {
   const [userName, setUserName] = useState('')
   const gameStatus = useSelector(store => store.mazegame.gameStatus)
+  const loading = useSelector(store => store.mazegame.loading)
   const dispatch = useDispatch()
 
   const handleStartGame = (event) => {
@@ -43,7 +45,12 @@ const StartPage = () => {
   }
   if (gameStatus) {
     return (
-      <GamePage/>
+      <GamePage />
+    ) 
+  } 
+  if (loading) {
+    return (
+      <LoadingPage />
     ) 
   } 
   console.log('gamestatus', gameStatus)
