@@ -6,7 +6,8 @@ const game = createSlice({
   name: 'game',
   initialState: {
     userName: null,
-    gameData: null
+    gameData: null,
+    gameStart: false
   },
   reducers: {
     setUserName: (store, action) => {
@@ -14,6 +15,9 @@ const game = createSlice({
     },
     setGameData: (store, action) => {
       store.gameData = action.payload
+    },
+    setGameStart: (store, action) => {
+      store.gameStart = action.payload
     }
 
   }

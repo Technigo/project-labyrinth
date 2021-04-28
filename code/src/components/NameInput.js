@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux'
 
-import game, { generateGame } from '../reducers/game'
+import game from '../reducers/game'
 
 
 export const NameInput = () => {
@@ -11,7 +11,7 @@ export const NameInput = () => {
   const onUserNameSet = (event) => {
     event.preventDefault();
       dispatch(game.actions.setUserName(value))
-      dispatch(generateGame(value))    
+      // dispatch(generateGame(value))    
   };
 
   return (
