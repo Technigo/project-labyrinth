@@ -1,18 +1,17 @@
-import React from 'react';
-import { useDispatch, useSelector,  } from 'react-redux';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import { secondFetch } from "../reducers/maze"
 import maze from "../reducers/maze"
 
 const GameScreen = () => {
+    const dispatch = useDispatch()
 
-    const description = useSelector(store => store.maze.description.description)
+    const description = useSelector((store) => store.maze.description.description);
 
-    const dispatch = useDispatch();
+    const actions = useSelector((store) => store.maze.actions);
 
-    const actions = useSelector(store => store.maze.actions)
-
-    const isLoading = useSelector(store => store.maze.isLoading )
+    const isLoading = useSelector((store) => store.maze.isLoading);
 
     const onClick = (direction) => {
         dispatch(secondFetch(direction))
@@ -34,22 +33,19 @@ const GameScreen = () => {
                 <p>{action.description}</p>
                 <button type="button" className="nes-btn is-primary" onClick={() => onClick(action.direction)}>{action.direction}</button>
             </div>
-            ))}
-
+          ))}
         </div>
+      </main>
+    );
+  }
+
+  return (
+    <main className="game-screen">
+      <div className="game-container">
+        <h1>Game is loading... Please wait.</h1>
+      </div>
     </main>
-    )
-    }
+  );
+};
 
-    return (
-        <main className='game-screen'>
-            <div className='game-container'>
-                <h1>
-                    Game is loading... Please wait.
-                </h1>
-                </div>
-        </main>
-    )
-}
-
-export default GameScreen
+export default GameScreen;
