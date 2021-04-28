@@ -34,14 +34,12 @@ const GameScreen = () => {
             </Chat>
             {moves.map((action) => (
               <DialogueContainer key={action.description}>
-                <DialogueBox
-                  className='nes-container with-title is-centered'
-                  >
+                <DialogueBox className='nes-container with-title is-centered'>
                   <p class="title">{action.direction}</p>
                 <p>{action.description}</p>
                 <button type="button" className="nes-btn is-primary" onClick={() => onClick(action.direction)}>{action.direction}</button>
-            </DialogueBox>
-            </DialogueContainer>
+                </DialogueBox>
+              </DialogueContainer>
           ))}
       </Main>
     );

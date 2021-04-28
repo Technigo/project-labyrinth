@@ -11,21 +11,21 @@ const maze = createSlice({
         error: null
     } ,
     reducers: {
-       setUsername: (store, action) => {
-        store.username = action.payload;
-       }, 
-       setMoves: (store, action) => {
-         store.moves = action.payload
-       },
-       setDescription: (store, action) => {
-         store.description = action.payload;
-       },
-       setLoading: (store, action) => {
-           store.isLoading = action.payload
-       },
-       setError: (store, action) => {
+        setUsername: (store, action) => {
+            store.username = action.payload;
+        }, 
+        setMoves: (store, action) => {
+            store.moves = action.payload
+        },
+        setDescription: (store, action) => {
+            store.description = action.payload;
+        },
+        setLoading: (store, action) => {
+            store.isLoading = action.payload
+        },
+        setError: (store, action) => {
             store.error = action.payload
-      },
+        }
     }
 })
 
@@ -51,8 +51,8 @@ export const firstFetch = () => {
         })
         .catch(error => dispatch(maze.actions.setError(error.message)))
         .finally(() => dispatch(maze.actions.setLoading(false)))
-    };
-  };
+    }
+  }
 
 
 export const secondFetch = (direction) => {
@@ -71,6 +71,5 @@ export const secondFetch = (direction) => {
             dispatch(maze.actions.startMaze(data))
             dispatch(maze.actions.setLoading(false))
         })
-    };
-};
-
+    }
+}
