@@ -12,8 +12,11 @@ const gameFetch = createSlice({
     setName: (store, action) => {
       store.userName = action.payload;
     },
-    setGameScreen: (store, action) => {
-      store.data = action.payload;
+    setDescription: (store, action) => {
+      store.description = action.payload;
+    },
+    setActions: (store, action) => {
+      store.actions = action.payload;
     },
   },
 });
@@ -27,8 +30,8 @@ export const firstFetch = (userName) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        dispatch(gameFetch.actions.setGameScreen(data));
-        console.log(data);
+        dispatch(gameFetch.actions.setDescription(data.description));
+        dispatch(gameFetch.actions.setActions(data.actions));
       });
   };
 };
