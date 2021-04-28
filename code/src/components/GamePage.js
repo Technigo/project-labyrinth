@@ -4,7 +4,7 @@ import { generateMove } from "../reducers/game";
 
 export const GamePage = () => {
   const gameUsername = useSelector((store) => store.game.username);
-  const gameActions = useSelector((store) => store.game.description.actions);
+  const gameActions = useSelector((store) => store.game.currentStep.actions);
 
   const dispatch = useDispatch();
 

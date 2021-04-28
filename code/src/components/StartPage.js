@@ -10,7 +10,6 @@ export const StartPage = () => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    dispatch(game.actions.setUsername(username));
     dispatch(generateGame(username));
     setUsername("");
   };
