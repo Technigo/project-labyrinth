@@ -5,8 +5,14 @@ const game = createSlice({
     name: 'game',
     initialState: {
         username: '',
-        gameStatus: {},
-        history: []
+        gameStatus: //localStorage.getItem('gameStatus')
+            //? JSON.parse(localStorage.getItem('gameStatus'))
+            //: 
+            {},
+        history: //localStorage.getItem('history')
+        //? JSON.parse(localStorage.getItem(''))
+        //: 
+        [],
     },
     reducers: {
         setUsername: (store, action) => {
@@ -41,6 +47,7 @@ export const registerNewPlayer = (username) => {
         .then((res) => res.json())
         .then((json) => {
             dispatch(game.actions.setGameStatus(json))
+            localStorage.setItem('gameStatus', JSON.stringify(json))
         })
         .finally(() => dispatch(ui.actions.setLoading(false)));
     }
@@ -63,6 +70,7 @@ export const continueGame = (direction) => {
         .then((res) => res.json())
         .then((json) => {
             dispatch(game.actions.setGameStatus(json))
+            localStorage.setItem('gameStatus', JSON.stringify(json))
         })
         .finally(() => dispatch(ui.actions.setLoading(false)));
     }
