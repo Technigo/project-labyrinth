@@ -26,8 +26,8 @@ export const generateGame = () => {
           body: JSON.stringify({ username : getState().direction.username })
         })
         .then(res => res.json())
-        // .then(data => dispatch(direction.actions.setUsername(data)))
-        .then(data => console.log(data))
+        .then(data => dispatch(direction.actions.setUsername(data)))
+        // .then(data => console.log(data))
       } 
   }
 
