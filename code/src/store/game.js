@@ -1,15 +1,16 @@
 /* eslint-disable no-console */
 import { createSlice } from '@reduxjs/toolkit';
 import uniqid from 'uniqid';
+import { load } from './localStorage';
 
 export const gameSlice = createSlice({
   name: 'game',
   initialState: {
-    user: {
+    user: load({ namespace: 'user' }) || {
       id: uniqid(),
-      name: 'GenericHero'
+      name: 'GenericHero',
+      state: 'Start'
     },
-    state: 'Start',
     isLoading: false
   },
   reducers: {
@@ -17,7 +18,7 @@ export const gameSlice = createSlice({
       state.user.name = action.payload;
     },
     setState(state, action) {
-      state.state = action.payload;
+      state.user.state = action.payload;
     },
     setLoading(state, action) {
       state.isLoading = action.payload;

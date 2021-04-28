@@ -13,10 +13,10 @@ export default () => {
   const dispatch = useDispatch();
   const userid = useSelector((store) => store.game.user.id);
   const heroname = useSelector((store) => store.game.user.name);
-  const [value, setValue] = React.useState('');
+  const [value, setValue] = React.useState(undefined);
 
   const handleStartGame = () => {
-    dispatch(setHeroName(value));
+    dispatch(setHeroName(value || heroname));
     dispatch(callAPI('start', { username: userid }));
   };
 

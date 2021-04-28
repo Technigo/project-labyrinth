@@ -27,7 +27,7 @@ const renderScreenSwitch = (param) => {
 };
 
 export default () => {
-  const gameState = useSelector((store) => store.game.state);
+  const gameState = useSelector((store) => store.game.user.state);
 
   return <Main>{renderScreenSwitch(gameState)}</Main>;
 };
