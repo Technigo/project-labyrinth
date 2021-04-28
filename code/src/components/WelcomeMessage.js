@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 
-import game, { registerNewPlayer } from 'reducers/game'
+import { registerNewPlayer } from 'reducers/game'
 import GameBoard from './GameBoard'
 
 const WelcomeMessage = () => {

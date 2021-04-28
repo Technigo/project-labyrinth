@@ -43,7 +43,7 @@ export const continueGame = (direction) => {
             body: JSON.stringify({ 
                 username: getState().game.username,
                 type: 'move',
-                direction 
+                direction: direction 
             })
         })
         .then((res) => res.json())
