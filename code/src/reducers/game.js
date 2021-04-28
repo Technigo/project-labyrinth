@@ -7,17 +7,25 @@ const game = createSlice({
   initialState: {
     userName: null,
     gameData: null,
-    gameStart: false
+    gameStart: false,
+    history: []
   },
   reducers: {
     setUserName: (store, action) => {
       store.userName = action.payload
     },
     setGameData: (store, action) => {
+      store.history = [...store.history, store.gameData]
       store.gameData = action.payload
     },
     setGameStart: (store, action) => {
       store.gameStart = action.payload
+    },
+    setPreviousStep: (store, action) => {
+      if (store.history.length) {
+        store.gameData = store.history[store.history.length - 1]
+        store.history = store.history.slice(0, store.history.length - 1)
+      }
     }
 
   }

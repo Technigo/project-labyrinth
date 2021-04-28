@@ -14,6 +14,9 @@ export const GameScreen = () => {
   if (gameData) {
     return (
       <>
+        <button
+          onClick={}
+        >Run back!</button>
         <p>{gameData.coordinates}</p>
         <p>{gameData.description}</p>
         {gameData.actions.map(action => {
@@ -21,7 +24,7 @@ export const GameScreen = () => {
           <div>
             <h4>{action.description}</h4>
             <button
-            onClick={onContinueGame(action.direction)}
+            onClick={() => onContinueGame(action.direction)}
             >
               {action.direction}
             </button>
