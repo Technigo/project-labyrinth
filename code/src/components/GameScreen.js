@@ -1,9 +1,14 @@
 import React from "react";
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+
+import { continueGame } from '../reducers/game'
 
 export const GameScreen = () => {
   const gameData = useSelector((store) => store.game.gameData)
-  console.log(gameData)
+  const dispatch = useDispatch();
+  const onContinueGame = (direction) => {
+    dispatch(continueGame(direction))
+  }
 
 
   if (gameData) {
@@ -11,6 +16,18 @@ export const GameScreen = () => {
       <>
         <p>{gameData.coordinates}</p>
         <p>{gameData.description}</p>
+        {gameData.actions.map(action => {
+          return ( 
+          <div>
+            <h4>{action.description}</h4>
+            <button
+            onClick={onContinueGame(action.direction)}
+            >
+              {action.direction}
+            </button>
+          </div>
+          )
+        })}
       </>
     )
   } else {

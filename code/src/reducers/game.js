@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { startUrl } from '../reusables/urls'
+import { startUrl, actionUrl } from '../reusables/urls'
 
 const game = createSlice({
   name: 'game',
@@ -33,7 +33,24 @@ export const generateGame = (userName) => {
       body: JSON.stringify({username: userName})
     })
       .then(res => res.json())
-      // .then(gameData => console.log(gameData))
+      .then(gameData => dispatch(game.actions.setGameData(gameData)) )
+  }
+}
+
+export const continueGame = (direction) => {
+  return (dispatch, getState) => {
+    fetch(actionUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+          username: getState().game.userName,
+          type: "move",
+          direction: direction  
+        })
+    })
+      .then(res => res.json())
       .then(gameData => dispatch(game.actions.setGameData(gameData)) )
   }
 }
