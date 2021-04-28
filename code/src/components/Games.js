@@ -6,7 +6,7 @@ import GameScreen from './GameScreen'
 
 const Games = () => {
   const description = useSelector(store => store.games.description)
-  console.log(description)
+  // console.log(description)
 
   return (
     <div>
@@ -15,8 +15,6 @@ const Games = () => {
         : <StartScreen />
       }
     </div>
-  
-
   )
 }
 

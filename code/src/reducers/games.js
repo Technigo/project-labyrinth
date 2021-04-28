@@ -29,7 +29,7 @@ export const generateGame = () => {
         body: JSON.stringify({ username : getState().games.username })
       })
       .then(res => res.json())
-      .then(question => dispatch(games.actions.setDescription(question)))
+      .then(description => dispatch(games.actions.setDescription(description)))
     } 
 }
 
