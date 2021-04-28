@@ -22,8 +22,12 @@ export const gameSlice = createSlice({
     },
     setLoading(state, action) {
       state.isLoading = action.payload;
+    },
+    restartGame(state) {
+      state.user.state = 'Start';
+      state.user.id = uniqid();
     }
   }
 });
-export const { setHeroName, setState, setLoading } = gameSlice.actions;
+export const { setHeroName, setState, setLoading, restartGame } = gameSlice.actions;
 export default gameSlice.reducer;
