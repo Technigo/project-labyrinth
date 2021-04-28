@@ -10,13 +10,13 @@ export const game = createSlice({
     },
     reducers: {
         setUserName: (store, action) => {
-            store.userName = action.payload;
+          store.userName = action.payload;
+        },
+        addDirection: (store, action) => {
+          store.history = [...store.history, action.payload];
         },
         setQuestion: (store, action) => {
-          if (store.question) {
-            store.history = [...store.history, store.question];
-          }
-            store.question = action.payload;
+          store.question = action.payload;
         },
     }
 })
@@ -40,7 +40,6 @@ export const generateQuestion = () => {
   }};
 
   export const nextQuestion = (userName, direction) => {
-
     return (dispatch) => {
       dispatch(ui.actions.setLoading(true));
       fetch('https://wk16-backend.herokuapp.com/action', {
@@ -54,7 +53,8 @@ export const generateQuestion = () => {
       })
         .then(res => res.json())
         .then((json) => {
-            console.log("https://wk16-backend.herokuapp.com/action")
+          console.log("https://wk16-backend.herokuapp.com/action")
+          dispatch(game.actions.addDirection(direction));
           dispatch(game.actions.setQuestion(json));
           dispatch(ui.actions.setLoading(false));
         })

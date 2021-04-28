@@ -59,15 +59,13 @@ export const SummaryPage = ({ description }) => {
       <Text>This is the path you took:</Text>
       {history.map((item, index) => (
         <div key={index}>
-          {item.actions.map((direction, index) => (
             <Item key={index}>
-              {direction.direction === "West" ? <FaArrowRight /> : ""} 
-              {direction.direction === "North" ? <FaArrowUp /> : ""}
-              {direction.direction === "East" ? <FaArrowLeft /> : ""} 
-              {direction.direction === "South" ? <FaArrowDown /> : ""}
-              {direction.direction}
+              {item === "West" ? <FaArrowRight /> : ""} 
+              {item === "North" ? <FaArrowUp /> : ""}
+              {item === "East" ? <FaArrowLeft /> : ""} 
+              {item === "South" ? <FaArrowDown /> : ""}
+              {item}
             </Item>
-      ))}
         </div>
     ))}
       <Button onClick={() => window.location.reload()}>RESTART</Button>
