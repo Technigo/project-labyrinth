@@ -11,8 +11,12 @@ const WelcomePage = () => {
   const dispatch = useDispatch()
 
   const onNameSet = () => {
-    dispatch(games.actions.setName(inputValue))
-    dispatch(generateGame(inputValue))
+    if(inputValue.length > 3) {
+      dispatch(games.actions.setName(inputValue))
+      dispatch(generateGame(inputValue))
+    } else {
+      alert('Enter your name please!')
+    }
   }
 
   return (
@@ -21,7 +25,7 @@ const WelcomePage = () => {
           <StartScreen /> : 
         <div className="test"> 
           <div className="nes-field">
-            <label for="name_field" className="nes-text is-warning">Enter your name</label>
+            <label htmlFor="name_field" className="nes-text is-warning">Enter your name</label>
             <input 
               type="text" 
               id="name_field" 

@@ -4,19 +4,21 @@ import { useSelector, useDispatch } from 'react-redux'
 import games, { generateMove } from '../reducers/games'
 
 const Description = () => {
-  const ourUserName = useSelector(store => store.games.username)
+  const userName = useSelector(store => store.games.username)
+  const description = useSelector(store => store.games.description.description)
   const userActions = useSelector(store => store.games.description.actions)
  
   const dispatch = useDispatch()
 
   return (
     <div>
+      <p>{description}</p>
       {userActions.map(action=> (
-        <div key={action.type}>
+        <div>
           <button 
             className="nes-btn is-warning"
             type='button'
-            onClick={() => dispatch(generateMove(ourUserName, action.direction))}
+            onClick={() => dispatch(generateMove(userName, action.direction))}
           >
             {action.direction}
           </button>
