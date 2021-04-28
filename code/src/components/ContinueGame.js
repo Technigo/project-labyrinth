@@ -3,13 +3,14 @@ import { useSelector, useDispatch } from 'react-redux'
 import "nes.css/css/nes.min.css"
 import styled from 'styled-components'
 // import { current } from '@reduxjs/toolkit'
+import { EndPage } from './EndPage'
 
 import { labyrinth, generateGameProgress } from '../reducers/game'
 
 
 const Container = styled.div`
     width: 900px;
-    height: 500px;
+    height: 450px;
     margin-top: 50px;
 `
 
@@ -37,14 +38,18 @@ const ContinueGame = () => {
 
     console.log("Current state of the game: ", currentState)
 
+    if (actions.length === 0) { 
+        return <EndPage/>
+      };
+
     return ( 
         <Container className="nes-container is-dark with-title">
          <h3>{currentState.labyrinth.game.description}</h3>
          {actions.map((action)=> 
-            <button key= {action.description} onClick={() => onGameContinue(action.direction)}> Go {action.direction}</button>
-          )}–
+            <button type="button" class="nes-btn is-primary" key= {action.description} onClick={() => onGameContinue(action.direction)}> Go {action.direction}</button>
+          )}
           <p>*HINT* {currentState.labyrinth.game.actions[0]?.description}</p>
-        <button onClick={onGoBack}>BACK</button>
+        <button type="button" class="nes-btn is-error" onClick={onGoBack}>BACK</button>
         </Container>
     )
 }

@@ -1,8 +1,14 @@
 import React from 'react';
 import { useDispatch, useSelector} from 'react-redux';
-
 import { generateStartInstructions } from '../reducers/game';
+import "nes.css/css/nes.min.css"
+import styled from 'styled-components'; 
 
+const Container = styled.div`
+    width: 900px;
+    height: 300px;
+    margin-top: 50px;
+`
 const StartGame = () => { 
   const dispatch = useDispatch(); 
   const playerName = useSelector((state)=>state.labyrinth.username);
@@ -14,13 +20,13 @@ const StartGame = () => {
   };
 
   return(
-    <div>
+    <Container className="nes-container is-dark with-title">
         <h3>Hello {playerName}!</h3>
         <h4>Press the Start button to get your first instructions 
-          and then use the buttons to navigate through the Labyrinth. Have fun!
+          and then press the buttons to navigate through the Labyrinth.
         </h4>
-        <button onClick={onStartGame}> Start Game!</button>
-    </div>
+        <button className="nes-btn is-success" onClick={onStartGame}> Start Game!</button>
+    </Container>
   );
 };
 
