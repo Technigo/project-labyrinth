@@ -3,20 +3,26 @@ import { useSelector } from 'react-redux'
 
 import StartScreen from 'components/StartScreen'
 import GameScreen from 'components/GameScreen'
-// import games from 'reducers/games'
 
 const GameBoard = () => {
-  // const game = useSelector(store => store.games)
   const username = useSelector(store => store.games.username)
-  console.log(username)
+  const error = useSelector(store => store.games.error)
+  const loading = useSelector(store => store.games.loading)
+  
 
   return (
     <div>
-      {/* { <StartScreen /> }
-      {game.username} */}
-
+      {error && `Something went wrong: ${error}`}
+      {loading && 
+        <lottie-player 
+          src="https://assets6.lottiefiles.com/private_files/lf30_kanwuonz.json"  
+          background="transparent"  
+          speed="1"  
+          style={{"width: 300px; height: 300px;"}}  
+          loop controls autoplay>
+        </lottie-player>
+      }
       { username? <GameScreen /> : <StartScreen /> }
-      
     </div>
   )
 }

@@ -12,20 +12,20 @@ const GameScreen = () => {
     dispatch(games.actions.setDirection(event.target.value))
     dispatch(generateQuestion())
   }
-  //   dispatch(games.actions.setDirection(event.target.value))
-  // }console.log(onChoseDirecton)
-  // console.log(eachDirection)
+
   return(
     <div>
       {description}
       <div>
       {moves? moves.map(move => (
+        <div key={move.description}>
+        <p>{move.description}</p>
         <button 
-        key={move.description}
         value={move.direction}
         onClick={(event) => onChooseDirection(event)}>
           {move.direction}
         </button>
+        </div>
       ))
       : <></>}
       </div>
