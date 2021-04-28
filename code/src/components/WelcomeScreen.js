@@ -13,7 +13,7 @@ export const WelcomeScreen = () => {
     dispatch(generateGame(userName));
     dispatch(game.actions.setGameStart(true))
   };
-
+     
   return (
     <div>
       <p>Welcome {userName} to the welcome screen</p>
