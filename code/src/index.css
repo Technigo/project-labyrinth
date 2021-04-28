@@ -1,8 +1,11 @@
 body {
   margin: 0;
+  background-color: rgb(19, 19, 19);
   font-family: 'Press Start 2P', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(90deg, blue 5.56%, #f9fb00 5.56%, #f9fb00 11.11%, #02feff 11.11%, #02feff 16.67%, #01ff00 16.67%, #01ff00 22.22%, #fd00fb 22.22%, #fd00fb 27.78%, #fb0102 27.78%, #fb0102 33.33%, #fff 33.33%, #fff 38.89%, #0301fc 38.89%, #0301fc 44.44%, #000000 44.44%, #000000 50%, blue 50%, blue 55.56%, #f9fb00 55.56%, #f9fb00 61.11%, #02feff 61.11%, #02feff 66.67%, #01ff00 66.67%, #01ff00 72.22%, #fd00fb 72.22%, #fd00fb 77.78%, #fb0102 77.78%, #fb0102 83.33%, #fff 83.33%, #fff 88.89%, #0301fc 88.89%, #0301fc 94.44%, #000000 94.44%, #000000 100%);
+  background-size: 1800.00px 1800.00px;
 }
 
 code {
