@@ -11,10 +11,13 @@ const Container = () => {
   console.log(actions)
   const history = useSelector(store => store.labyrinth.history)
   const error = useSelector(store => store.labyrinth.error)
+  const loading = useSelector(store => store.labyrinth.loading)
 
   return (
     <div>
-      {actions
+      {loading && <h1>Loading ...</h1>}
+      {error && <h1>Something went wrong, reason: {error}</h1>}
+      {actions && !error
         ? <>
           {history.length > 0 && <GoBack />}
           <Description />

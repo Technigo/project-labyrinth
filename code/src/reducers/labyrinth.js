@@ -12,6 +12,7 @@ const labyrinth = createSlice({
     actions: localStorage.getItem("labyrinth") ? savedActions : null,
     history: localStorage.getItem("labyrinth") ? savedHistory : [],
     error: null,
+    loading: false
 
   },
   reducers: {
@@ -32,6 +33,9 @@ const labyrinth = createSlice({
     },
     setError: (store, action) => {
       store.error = action.payload
+    },
+    setLoading: (store, action) => {
+      store.loading = action.payload
     }
   },
 
@@ -40,6 +44,7 @@ const labyrinth = createSlice({
 export const generateData = (direction) => {
   if (direction) {
     return (dispatch, getState) => {
+      dispatch(labyrinth.actions.setLoading(true))
       const options = {
         method: 'POST',
         headers: {
@@ -65,11 +70,12 @@ export const generateData = (direction) => {
           await dispatch(labyrinth.actions.addActions(data))
           await localStorage.setItem("labyrinth", JSON.stringify(getState()))
         })
-        .catch(err => dispatch(labyrinth.actions.setError(err.message))
-        )
+        .catch(err => dispatch(labyrinth.actions.setError(err.message)))
+        .finally(() => dispatch(labyrinth.actions.setLoading(false)))
     }
   }
   return (dispatch, getState) => {
+    dispatch(labyrinth.actions.setLoading(true))
     const options = {
       method: 'POST',
       headers: {
@@ -91,6 +97,7 @@ export const generateData = (direction) => {
         await localStorage.setItem("labyrinth", JSON.stringify(getState()))
       })
       .catch(err => dispatch(labyrinth.actions.setError(err.message)))
+      .finally(() => dispatch(labyrinth.actions.setLoading(false)))
   }
 }
 
