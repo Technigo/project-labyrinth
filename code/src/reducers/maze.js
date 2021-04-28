@@ -7,19 +7,23 @@ const maze = createSlice({
         description: '',
         actions: [],
         history: [],
-        isLoading: false
+        isLoading: false,
+        error: null
     } ,
     reducers: {
        startGame: (store, action) => {
         store.username = action.payload;
        }, 
        startMaze: (store, action) => {
-           store.description = action.payload
-          store.actions = action.payload.actions;
+            store.actions = action.payload
+            store.description = action.payload;
        },
        setLoading: (store, action) => {
            store.isLoading = action.payload
-       }
+       },
+       setError: (store, action) => {
+            store.error = action.payload
+      },
     }
 })
 
@@ -32,11 +36,19 @@ export const firstFetch = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: getState().maze.username }),
       })
-        .then((response) => response.json())
+        .then((response) => {
+            if (response.ok) {
+                dispatch(maze.actions.setError(null))
+                return response.json()
+            } else {
+                throw new Error(response.statusText)}
+            })
         .then((data) => {
             dispatch(maze.actions.startMaze(data))
-            dispatch(maze.actions.setLoading(false))
-        });
+            /* dispatch(maze.actions.setLoading(false)) */
+        })
+        .catch(error => dispatch(maze.actions.setError(error.message)))
+        .finally(() => dispatch(maze.actions.setLoading(false)))
     };
   };
 

@@ -11,7 +11,7 @@ import maze from "../reducers/maze"
 const GameScreen = () => {
     const dispatch = useDispatch()
 
-    const description = useSelector((store) => store.maze.description.description);
+    const description = useSelector((store) => store.maze.description);
 
     const actions = useSelector((store) => store.maze.actions);
 
@@ -21,7 +21,7 @@ const GameScreen = () => {
 
     const onClick = (direction) => {
         dispatch(secondFetch(direction))
-         dispatch(maze.actions.setLoading(isLoading))
+        dispatch(maze.actions.setLoading(isLoading))
     }
 
     if (!isLoading) {
@@ -29,15 +29,19 @@ const GameScreen = () => {
         <Main>
             <Chat className="nes-balloon from-left">
                 <Story>
-                    Hello {name}!&nbsp;
-                    {description}
+                    Hello {name}! {description}
                 </Story>
             </Chat>
             {actions.map((action) => (
-                <div key={action.description}>
+              <DialogueContainer key={action.description}>
+                <DialogueBox
+                  className='nes-container with-title is-centered'
+                  >
+                  <p class="title">{action.direction}</p>
                 <p>{action.description}</p>
                 <button type="button" className="nes-btn is-primary" onClick={() => onClick(action.direction)}>{action.direction}</button>
-            </div>
+            </DialogueBox>
+            </DialogueContainer>
           ))}
       </Main>
     );
@@ -70,4 +74,10 @@ const Chat = styled.div`
 const Story = styled.p`
     font-family: 'Press Start 2P', cursive;
     font-size: 12px;
+`
+const DialogueContainer = styled.div`
+
+`
+const DialogueBox = styled.div`
+        background-color: white;
 `

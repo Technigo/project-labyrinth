@@ -1,9 +1,12 @@
 import React from 'react'
 import { Provider } from 'react-redux';
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import {
+  combineReducers,
+  configureStore
+} from '@reduxjs/toolkit';
 import {
   BrowserRouter,
-  Route,
+  Route
 } from "react-router-dom";
 
 import maze from "./reducers/maze"
@@ -19,10 +22,10 @@ const store = configureStore({ reducer })
 export const App = () => {
   return (
     <BrowserRouter>
-    <Provider store={store}>
-      <Route path="/" exact component={StartScreen}/>
-      <Route path="/game" exact component={GameScreen}/>
-    </Provider>
+      <Provider store={store}>
+        <Route path="/" exact component={StartScreen}/>
+        <Route path="/game" exact component={GameScreen}/>
+      </Provider>
     </BrowserRouter>
   )
 }
