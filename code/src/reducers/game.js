@@ -28,7 +28,7 @@ export const registerNewPlayer = (username) => {
         })
         .then((res) => res.json())
         .then((json) => {
-            dispatch(game.actions.setUsername(json))
+            dispatch(game.actions.setGameStatus(json))
         })
     }
 }
