@@ -1,5 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import styled from 'styled-components'
+
+import BackgroundImgMobile from '../images/game-screen-mobile.jpg'
+import BackgroundImg from '../images/game-screen.jpg'
 
 import { secondFetch } from "../reducers/maze"
 import maze from "../reducers/maze"
@@ -11,6 +15,8 @@ const GameScreen = () => {
 
     const actions = useSelector((store) => store.maze.actions);
 
+    const name = useSelector((store) => store.maze.username)
+
     const isLoading = useSelector((store) => store.maze.isLoading);
 
     const onClick = (direction) => {
@@ -20,22 +26,20 @@ const GameScreen = () => {
 
     if (!isLoading) {
         return (
-        <main className='game-screen'>
-        <div className='game-container'>
-            <h1>
-                Welcome!
-            </h1>
-            <p className="white-color"> Description:
-            {description}
-            </p>
+        <Main>
+            <Chat className="nes-balloon from-left">
+                <Story>
+                    Hello {name}!&nbsp;
+                    {description}
+                </Story>
+            </Chat>
             {actions.map((action) => (
                 <div key={action.description}>
                 <p>{action.description}</p>
                 <button type="button" className="nes-btn is-primary" onClick={() => onClick(action.direction)}>{action.direction}</button>
             </div>
           ))}
-        </div>
-      </main>
+      </Main>
     );
   }
 
@@ -49,3 +53,21 @@ const GameScreen = () => {
 };
 
 export default GameScreen;
+
+const Main = styled.div`
+    background-image: url(${BackgroundImgMobile});
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    padding: 10px;
+        @media (min-width: 1025px) {
+            background-image: url(${BackgroundImg})
+        }
+`
+const Chat = styled.div`
+    width: 80%;
+`
+const Story = styled.p`
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+`
