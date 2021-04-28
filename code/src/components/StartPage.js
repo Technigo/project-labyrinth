@@ -15,24 +15,41 @@ export const StartPage = () => {
   };
 
   return (
-    <form onSubmit={onFormSubmit}>
-      <div className="nes-field">
-        <label htmlFor="userName">Your name</label>
-        <input
-          id="userName"
-          className="nes-input"
-          required
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </div>
-      <button type="submit" className="nes-btn is-primary">
-        Send
-      </button>
-    </form>
+    <div>
+      <i class="nes-octocat animate"></i>
+      <form onSubmit={onFormSubmit}>
+        <div className="nes-field">
+          <label htmlFor="userName">Your name</label>
+          <TextInput
+            id="userName"
+            className="nes-input"
+            required
+            type="text"
+            placeholder="Type username..."
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+        <Button type="submit" className="nes-btn is-primary">
+          Play Game
+        </Button>
+      </form>
+    </div>
   );
 };
 
-const Form = styled.form``;
-const TextInput = styled.input``;
+const Button = styled.button`
+  width: 100px;
+`;
+
+const Form = styled.form`
+  background-color: black;
+`;
+
+const TextInput = styled.input`
+  width: 300px;
+
+  @media (min-width: 768px) {
+    width: 500px;
+  }
+`;

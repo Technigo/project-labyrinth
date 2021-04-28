@@ -5,6 +5,7 @@ export const game = createSlice({
   initialState: {
     type: "move",
     username: null,
+    history: [],
     currentStep: {
       coordinates: 0.0,
       description: "",
@@ -16,7 +17,16 @@ export const game = createSlice({
       store.username = action.payload;
     },
     setCurrentStep: (store, action) => {
+      if (store.currentStep) {
+        store.history = [...store.history, action.payload];
+      }
       store.currentStep = action.payload;
+    },
+    setPreviousStep: (store) => {
+      if (store.history.length) {
+        store.currentStep = store.history[store.history.length - 1];
+        store.history = store.history.slice(0, store.history.length - 1);
+      }
     },
   },
 });
