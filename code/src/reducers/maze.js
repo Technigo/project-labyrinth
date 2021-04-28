@@ -5,18 +5,20 @@ const maze = createSlice({
     initialState: {
         username: '',
         description: '',
-        actions: [],
+        moves: [],
         history: [],
         isLoading: false,
         error: null
     } ,
     reducers: {
-       startGame: (store, action) => {
+       setUsername: (store, action) => {
         store.username = action.payload;
        }, 
-       startMaze: (store, action) => {
+       setMoves: (store, action) => {
             store.actions = action.payload
-            store.description = action.payload;
+       },
+       setDescription: (store, action) => {
+         store.description = action.payload;
        },
        setLoading: (store, action) => {
            store.isLoading = action.payload
@@ -44,7 +46,8 @@ export const firstFetch = () => {
                 throw new Error(response.statusText)}
             })
         .then((data) => {
-            dispatch(maze.actions.startMaze(data))
+            dispatch(maze.actions.setDescription(data.description))
+            dispatch(maze.actions.setMoves(data.actions))
             /* dispatch(maze.actions.setLoading(false)) */
         })
         .catch(error => dispatch(maze.actions.setError(error.message)))

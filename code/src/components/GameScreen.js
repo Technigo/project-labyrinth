@@ -13,7 +13,7 @@ const GameScreen = () => {
 
     const description = useSelector((store) => store.maze.description);
 
-    const actions = useSelector((store) => store.maze.actions);
+    const actions = useSelector((store) => store.maze.moves);
 
     const name = useSelector((store) => store.maze.username)
 

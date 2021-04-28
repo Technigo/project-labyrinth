@@ -15,7 +15,7 @@ const StartScreen = () => {
     const isLoading = useSelector(store => store.maze.isLoading)
 
     const onStartGame = () => {
-        dispatch(maze.actions.startGame(inputValue))
+        dispatch(maze.actions.setUsername(inputValue))
         setInputValue('')
         dispatch(maze.actions.setLoading(!isLoading))
         dispatch(firstFetch());
