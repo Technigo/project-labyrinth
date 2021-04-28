@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
+import "nes.css/css/nes.min.css";
 
 import Action from './Action'
 
 const GameScreen = () => {
   const gameState = useSelector(store => store.game.gameState)
-  console.log(gameState)
+  const [chosenDirection, setChosenDirection] = useState("")
+
+  const chosenAction = gameState.actions.filter(action => action.direction === chosenDirection)
+
   return (
     <div>
       <p>{gameState.description}</p>
@@ -14,7 +18,10 @@ const GameScreen = () => {
           direction={action.direction}
           description={action.description}
           type={action.type}
-          key={action.description} />)}
+          key={action.description}
+          chosenDirection={chosenDirection}
+          setChosenDirection={setChosenDirection} />)}
+      {chosenAction[0] !== undefined && <p>{chosenAction[0].description}</p>}
     </div>
   )
 }

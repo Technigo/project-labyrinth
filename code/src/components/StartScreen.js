@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components';
+import "nes.css/css/nes.min.css";
 
 import game, { startGame } from '../reducers/game'
 
@@ -14,9 +15,10 @@ const StartScreen = () => {
   }
   return (
     <div>
-      <p>Welcome User! Type your name!</p>
-      <input type="text" value={value} onChange={(event) => setValue(event.target.value)} />
-      <button onClick={onGameStart}>Start game!</button>
+      <p>Welcome User!</p>
+      <label for="dark_field">Type your user name</label>
+      <input type="text" id="dark_field" className="nes-input is-dark" placeholder="Mighty Maks" value={value} onChange={(event) => setValue(event.target.value)}></input>
+      <button onClick={onGameStart} type="button" className="nes-btn is-primary">Start game!</button>
     </div>
 
   )
