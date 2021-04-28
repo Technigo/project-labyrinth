@@ -9,6 +9,7 @@ const UserForm = ()=>{
   const dispatch = useDispatch()
 
   const onUserSet =()=>{
+    
     dispatch(labyrinth.actions.addUserName(userValue))
     dispatch(generateData())
   }

@@ -4,16 +4,28 @@ const labyrinth = createSlice({
   name: 'labyrinth',
   initialState: {
     userName: null,
-    actions: []
+    actions: null,
+    history: []
+    
   },
   reducers: {
     addUserName: (store, action) => {
       store.userName = action.payload
     },
     addActions: (store, action) => {
+      if (store.actions){
+        store.history=[...store.history, store.actions]
+      }
       store.actions = action.payload
+    },
+    setPreviousStep: (store, action)=>{
+      if (store.history.length) {
+        store.actions = store.history[store.history.length-1]
+        store.history = store.history.slice(0, store.history.length-1)
+      }
     }
-  }
+  },
+
 })
 
 export const generateData = (direction) => {
@@ -32,7 +44,11 @@ export const generateData = (direction) => {
       }
       fetch('https://wk16-backend.herokuapp.com/action', options)
         .then(response => response.json())
-        .then(data => dispatch(labyrinth.actions.addActions(data)))
+        .then(data => {
+            dispatch(labyrinth.actions.addActions(data)) 
+            localStorage.setItem("labyrint", JSON.stringify(data))
+          })
+
     }
   }
   return (dispatch, getState) => {
@@ -45,7 +61,10 @@ export const generateData = (direction) => {
     }
     fetch('https://wk16-backend.herokuapp.com/start', options)
       .then(response => response.json())
-      .then(data => dispatch(labyrinth.actions.addActions(data)))
+      .then(data => {
+        dispatch(labyrinth.actions.addActions(data))
+        localStorage.setItem("labyrint", JSON.stringify(data))
+      })
   }
 }
 
