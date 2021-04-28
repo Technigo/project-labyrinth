@@ -17,7 +17,7 @@ export const WelcomeScreen = () => {
   return (
     <div>
       <p>Welcome {userName} to the welcome screen</p>
-      <button onClick={onGameStartSet}> Start the game</button>
+      <button onClick={(event) => onGameStartSet(event)}> Start the game</button>
     </div>
   );
 };

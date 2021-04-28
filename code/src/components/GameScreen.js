@@ -1,42 +1,47 @@
 import React from "react";
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from "react-redux";
 
-import { continueGame } from '../reducers/game'
+import game, { continueGame } from "../reducers/game";
 
 export const GameScreen = () => {
-  const gameData = useSelector((store) => store.game.gameData)
+  const gameData = useSelector((store) => store.game.gameData);
+  const history = useSelector((store) => store.game.history);
   const dispatch = useDispatch();
   const onContinueGame = (direction) => {
-    dispatch(continueGame(direction))
-  }
+    dispatch(continueGame(direction));
+  };
 
+  const onGoBack = () => {
+    dispatch(game.actions.setPreviousStep());
+  };
+
+  // const onReset = () => {
+
+  // }
 
   if (gameData) {
     return (
       <>
-        <button
-          onClick={}
-        >Run back!</button>
+        <button onClick={onGoBack} disabled={!history.length > 0}>
+          Run back!
+        </button>
         <p>{gameData.coordinates}</p>
         <p>{gameData.description}</p>
-        {gameData.actions.map(action => {
-          return ( 
-          <div>
-            <h4>{action.description}</h4>
-            <button
-            onClick={() => onContinueGame(action.direction)}
-            >
-              {action.direction}
-            </button>
-          </div>
-          )
+        {gameData.actions.map((action) => {
+          return (
+            <div>
+              <h4>{action.description}</h4>
+              <button onClick={() => onContinueGame(action.direction)}>
+                {action.direction}
+              </button>
+            </div>
+          );
         })}
+        {/* <button onClick={}>restart</button> */}
       </>
-    )
+    );
   } else {
-    return (
-      <h1>Loading...</h1>
-    )
+    return <h1>Loading...</h1>;
   }
 };
 
