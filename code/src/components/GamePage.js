@@ -90,10 +90,10 @@ const GamePage = () => {
   return(
     <Container>
       <InnerContainer>
-        <section class="nes-container is-dark">
+        <section class="nes-container">
           <section class="message-list">
             <section class="message -left">
-              <div class="nes-balloon from-left is-dark">
+              <div class="nes-balloon from-left">
                 <Text>
                   {actions.length === 1 
                     ? 
