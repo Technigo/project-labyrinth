@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { restartGame } from 'store/game';
+import { setState } from 'store/game';
 
 import { TypoText } from 'components/Typography';
 import Section from 'components/Section';
@@ -13,7 +13,7 @@ export default () => {
   return (
     <Section>
       <TypoText>Congrats {username}! You made it out.</TypoText>
-      <Button onClick={() => dispatch(restartGame())}>Play Again</Button>
+      <Button onClick={() => dispatch(setState('Start'))}>Play Again</Button>
     </Section>
   );
 };

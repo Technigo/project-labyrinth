@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { createSlice } from '@reduxjs/toolkit';
 import uniqid from 'uniqid';
 
@@ -8,19 +9,20 @@ export const gameSlice = createSlice({
       id: null,
       name: ''
     },
-    state: 'Start'
+    state: 'Start',
+    isLoading: false
   },
   reducers: {
     setUserID(state) {
       state.user.id = uniqid();
     },
-    startGame(state) {
-      state.state = 'Room';
+    setState(state, action) {
+      state.state = action.payload;
     },
-    restartGame(state) {
-      state.state = 'Start';
+    setLoading(state, action) {
+      state.isLoading = action.payload;
     }
   }
 });
-export const { setUserID, startGame, restartGame } = gameSlice.actions;
+export const { setUserID, setState, setLoading } = gameSlice.actions;
 export default gameSlice.reducer;
