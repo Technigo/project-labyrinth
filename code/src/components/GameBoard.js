@@ -2,6 +2,7 @@ import React from 'react'
 
 import { useSelector, useDispatch } from 'react-redux'
 import game, { continueGame } from 'reducers/game'
+import LoadingIndicator from './LoadingIndicator'
 
 const GameBoard = () => {
     const gameStart = useSelector((store) => store.game.gameStatus)
@@ -13,6 +14,7 @@ const GameBoard = () => {
 
     return (
         <>
+            <LoadingIndicator />
             <h1>{gameStart.description}</h1>
                 {gameStart.actions?.map((action, index) => {
                 return(

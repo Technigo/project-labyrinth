@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import ui from './ui'
 
 const game = createSlice({
     name: 'game',
@@ -29,6 +30,7 @@ const game = createSlice({
 
 export const registerNewPlayer = (username) => {
     return (dispatch) => {
+        dispatch(ui.actions.setLoading(true))
         fetch('https://wk16-backend.herokuapp.com/start', {
             method: 'POST',
             headers: {
@@ -40,11 +42,13 @@ export const registerNewPlayer = (username) => {
         .then((json) => {
             dispatch(game.actions.setGameStatus(json))
         })
+        .finally(() => dispatch(ui.actions.setLoading(false)));
     }
 }
 
 export const continueGame = (direction) => {
     return (dispatch, getState) => {
+        dispatch(ui.actions.setLoading(true))
         fetch('https://wk16-backend.herokuapp.com/action', {
             method: 'POST',
             headers: {
@@ -60,6 +64,7 @@ export const continueGame = (direction) => {
         .then((json) => {
             dispatch(game.actions.setGameStatus(json))
         })
+        .finally(() => dispatch(ui.actions.setLoading(false)));
     }
 }
 

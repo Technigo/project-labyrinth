@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 
 import game from '../reducers/game'
-
 import WelcomeMessage from './WelcomeMessage'
 
 const WelcomePage = () => {
