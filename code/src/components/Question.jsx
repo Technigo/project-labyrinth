@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { nextQuestion } from '../reducers/game';
 import { Loading } from './Loading';
 import styled from 'styled-components';
+import { SummaryPage } from './SummaryPage';
 
 import { StartScreen } from './StartScreen';
 
@@ -60,7 +61,6 @@ const Button = styled.button`
   cursor: grab;
   border-radius: 10px;
   :hover {
-    box-shadow: 0px 0px 15px -2px #1f9cee;
   }
 `;
 
@@ -69,6 +69,8 @@ export const Question = () => {
   const userName = useSelector((store) => store.game.userName);
   const gameQuestion = useSelector((store) => store.game.question);
   const loading = useSelector((store) => store.ui.isLoading);
+  const error = useSelector((store) => store.game.error);
+  
 
   const dispatch = useDispatch();
 
@@ -78,7 +80,9 @@ export const Question = () => {
 
   let content;
 
-  if (gameQuestion) {
+  if (gameQuestion && gameQuestion.actions.length === 0) {
+    content = <SummaryPage description={gameQuestion.description}/>
+  } else if (gameQuestion) {
     content = 
     <>
       <Text>{gameQuestion.description}</Text>
@@ -97,6 +101,7 @@ export const Question = () => {
   }
   return (
     <MainContainer> 
+      {error && `something went wrong, reason: ${error}`}
       {loading && <Loading /> }
       {content} 
     </MainContainer>

@@ -6,12 +6,16 @@ export const game = createSlice({
     initialState: {
         userName: null,
         question: null,
+        history: []
     },
     reducers: {
         setUserName: (store, action) => {
             store.userName = action.payload;
         },
         setQuestion: (store, action) => {
+          if (store.question) {
+            store.history = [...store.history, store.question];
+          }
             store.question = action.payload;
         },
     }
