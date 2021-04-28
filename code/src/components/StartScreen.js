@@ -111,5 +111,7 @@ const Copy = styled.p`
     font-family: 'Press Start 2P', cursive;
     color: #fff;
     font-size: 10px;
+    width: 100%;
+    text-align: center;
     margin-top: 30px;
 `
