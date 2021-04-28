@@ -13,7 +13,7 @@ const GameScreen = () => {
 
     const description = useSelector((store) => store.maze.description);
 
-    const actions = useSelector((store) => store.maze.moves);
+    const moves = useSelector((store) => store.maze.moves);
 
     const name = useSelector((store) => store.maze.username)
 
@@ -32,7 +32,7 @@ const GameScreen = () => {
                     Hello {name}! {description}
                 </Story>
             </Chat>
-            {actions.map((action) => (
+            {moves.map((action) => (
               <DialogueContainer key={action.description}>
                 <DialogueBox
                   className='nes-container with-title is-centered'

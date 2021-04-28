@@ -48,7 +48,6 @@ export const firstFetch = () => {
         .then((data) => {
             dispatch(maze.actions.setDescription(data.description))
             dispatch(maze.actions.setMoves(data.actions))
-            /* dispatch(maze.actions.setLoading(false)) */
         })
         .catch(error => dispatch(maze.actions.setError(error.message)))
         .finally(() => dispatch(maze.actions.setLoading(false)))
