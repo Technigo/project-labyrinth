@@ -31,7 +31,7 @@ export const generateGame = () => {
       } 
   }
 
-// Thunk Sample Code 
+// Thunk Sample Code + setLoading example
 // export const fetchTodos = () => {
 //     return (dispatch) => {
 //       dispatch(ui.actions.setLoading(true))

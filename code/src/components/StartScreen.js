@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-import direction, {generateGame}from '../reducers/direction'
+import direction, {generateGame} from '../reducers/direction'
 
 const StartScreen = () => {
   const [username, setUsername] = useState('')
