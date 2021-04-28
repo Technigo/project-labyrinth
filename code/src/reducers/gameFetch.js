@@ -18,6 +18,11 @@ const gameFetch = createSlice({
     setActions: (store, action) => {
       store.actions = action.payload;
     },
+    setNewGame: (store, action) => {
+      store.userName = null;
+      store.description = null;
+      store.actions = [];
+    },
   },
 });
 
@@ -49,7 +54,9 @@ export const secondFetch = (userName, direction) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        dispatch(gameFetch.actions.setGameScreen(data));
+        //dispatch(gameFetch.actions.setGameScreen(data));
+        dispatch(gameFetch.actions.setDescription(data.description));
+        dispatch(gameFetch.actions.setActions(data.actions));
       });
   };
 };
