@@ -47,6 +47,9 @@ const StartScreen = () => {
                     START GAME
                     </StartButton>
                 </Link>
+                <Copy>
+                ©2021 Technigo Bootcamp
+                </Copy>
             </Border>
         </Main>
     )
@@ -103,4 +106,10 @@ const NameInput = styled.input`
 const StartButton = styled.button`
     font-family: 'Press Start 2P', cursive;
     margin-top: 25px;
+`
+const Copy = styled.p`
+    font-family: 'Press Start 2P', cursive;
+    color: #fff;
+    font-size: 10px;
+    margin-top: 30px;
 `
