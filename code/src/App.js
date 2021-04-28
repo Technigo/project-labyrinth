@@ -5,7 +5,6 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import gameactions from 'reducers/gameactions'
 
 import Screens from './components/Screens'
-import StartScreen from './components/StartScreen'
 
 const reducer = combineReducers({
   gameactions: gameactions.reducer
@@ -17,7 +16,6 @@ export const App = () => {
   return (
     <Provider store={store}>
       <Screens />
-      <StartScreen />
     </Provider>
   )
 }
