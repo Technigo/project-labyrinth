@@ -6,15 +6,15 @@ export const gameSlice = createSlice({
   name: 'game',
   initialState: {
     user: {
-      id: null,
-      name: ''
+      id: uniqid(),
+      name: 'GenericHero'
     },
     state: 'Start',
     isLoading: false
   },
   reducers: {
-    setUserID(state) {
-      state.user.id = uniqid();
+    setHeroName(state, action) {
+      state.user.name = action.payload;
     },
     setState(state, action) {
       state.state = action.payload;
@@ -24,5 +24,5 @@ export const gameSlice = createSlice({
     }
   }
 });
-export const { setUserID, setState, setLoading } = gameSlice.actions;
+export const { setHeroName, setState, setLoading } = gameSlice.actions;
 export default gameSlice.reducer;

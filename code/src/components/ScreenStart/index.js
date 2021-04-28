@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setUserID } from 'store/game';
+import { setHeroName } from 'store/game';
 import { callAPI } from 'store/thunks';
 
 import { TypoTitle, TypoText } from 'components/Typography';
@@ -13,13 +13,10 @@ export default () => {
   const dispatch = useDispatch();
   const userid = useSelector((store) => store.game.user.id);
   const heroname = useSelector((store) => store.game.user.name);
-  const [value, setValue] = React.useState(heroname);
-
-  React.useEffect(() => {
-    dispatch(setUserID());
-  }, [dispatch]);
+  const [value, setValue] = React.useState('');
 
   const handleStartGame = () => {
+    dispatch(setHeroName(value));
     dispatch(callAPI('start', { username: userid }));
   };
 
@@ -29,7 +26,7 @@ export default () => {
       <TypoText>Are you ready for this....???</TypoText>
       <Input
         type="text"
-        placeholder={userid}
+        placeholder={heroname}
         value={value}
         onChange={(e) => setValue(e.target.value)} />
       <Button type="button" onClick={() => handleStartGame()}>
