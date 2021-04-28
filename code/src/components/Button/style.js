@@ -24,11 +24,16 @@ export default styled.button`
   background-size: 100% 100%;
 
   /* Hover and Click */
-  :hover, :focus {
+  :hover,
+  :focus {
     background-image: url(${buttonHover});
     cursor: pointer;
   }
   :active {
     background-image: url(${buttonDown});
+  }
+  :disabled {
+    filter: grayscale(100%);
+    color: #999;
   }
 `;

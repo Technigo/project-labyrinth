@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 // import { setUserID } from 'store/game';
 
 import { TypoText } from 'components/Typography';
@@ -10,12 +10,12 @@ import ActionCompass from 'components/ActionCompass';
 
 export default () => {
   const [actionActive, setActiveAction] = useState(null)
+  const room = useSelector((store) => store.room.currentRoom)
 
   return (
     <Section>
       <TypoText>
-        You find yourself in under a large archway opening into a cavern. A sense of
-        purpose fills you.
+        {room.description}
       </TypoText>
       <TypoText>
         What would you like to do?

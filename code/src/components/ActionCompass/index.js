@@ -1,27 +1,30 @@
+/* eslint-disable no-console */
 import React from 'react';
+import _ from 'lodash';
+import { useSelector } from 'react-redux';
 import Button from 'components/Button';
 import Compass from './style';
 
-const debugActions = [
+const defaultActions = [
   {
     type: 'move',
     direction: 'North',
-    description: 'desc.'
+    description: null
   },
   {
     type: 'move',
     direction: 'West',
-    description: 'desc.'
+    description: null
   },
   {
     type: 'move',
     direction: 'East',
-    description: 'desc.'
+    description: null
   },
   {
     type: 'move',
     direction: 'South',
-    description: 'desc.'
+    description: null
   }
 ];
 
@@ -29,11 +32,21 @@ export default ({ setActiveAction }) => {
   const handleChange = (event) => {
     setActiveAction(event.target.value);
   };
+  const room = useSelector((store) => store.room.currentRoom);
+  const availableActions = _.uniqWith(
+    room.actions.concat(defaultActions),
+    (arrVal, othVal) => {
+      return arrVal.direction === othVal.direction;
+    }
+  );
+  console.log(availableActions);
+
   return (
     <Compass>
-      {debugActions.map((action) => (
+      {availableActions.map((action) => (
         <div key={action.direction}>
           <Button
+            disabled={action.description === null}
             fixedSquare
             type="button"
             value={action.direction}
