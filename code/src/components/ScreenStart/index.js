@@ -2,13 +2,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUserID } from 'store/game';
+import { callAPI } from 'store/thunks';
 
 import { TypoTitle, TypoText } from 'components/Typography';
 import Input from 'components/InputText';
 import Section from 'components/Section';
 import Button from 'components/Button';
-
-import { callAPI } from 'store/thunks';
 
 export default () => {
   const dispatch = useDispatch();

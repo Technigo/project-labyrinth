@@ -3,6 +3,7 @@ import { setState } from './game';
 import { setRoom } from './room';
 
 export const callAPI = (endpoint, message) => {
+  // console.log(message);
   return (dispatch) => {
     dispatch(setState('Loading'));
     fetch(`https://wk16-backend.herokuapp.com/${endpoint}`, {
@@ -14,17 +15,8 @@ export const callAPI = (endpoint, message) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         dispatch(setRoom(data));
-      })
-      .catch((err) => {
-        err.json().then((errMessage) => {
-          // textArea.current.handleNewError({
-          //   title: errMessage.message,
-          //   message: errMessage.errors.message.message
-          // });
-          console.log(errMessage);
-        });
+        dispatch(setState('Room'));
       });
   };
 };

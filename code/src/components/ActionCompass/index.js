@@ -31,7 +31,7 @@ const defaultActions = [
   }
 ];
 
-export default ({ setActiveAction }) => {
+export default ({ setAction }) => {
   const room = useSelector((store) => store.room.currentRoom);
 
   // function to sort through actions from API
@@ -42,18 +42,22 @@ export default ({ setActiveAction }) => {
   });
 
   const handleChange = (event) => {
-    setActiveAction(event.target.value);
+    setAction({
+      description: event.target.value,
+      direction: event.target.attributes.dir.value
+    });
   };
 
   return (
     <Compass>
       {availableActions.map((action) => (
-        <div key={action.direction} dir={action.direction}>
+        <div key={action.direction}>
           <Button
             disabled={action.description === null}
             fixedSquare
             type="button"
             value={action.description}
+            dir={action.direction}
             onClick={handleChange}>
             {action.direction[0]}
           </Button>

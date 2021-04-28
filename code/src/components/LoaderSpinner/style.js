@@ -10,10 +10,10 @@ export const Wrapper = styled.div`
   align-items: center;
 
   & :nth-child(3) {
-    animation-delay: 1s;
+    animation-delay: .5s;
   }
   & :nth-child(4) {
-    animation-delay: 2s;
+    animation-delay: 1.5s;
   }
 `;
 
@@ -37,7 +37,7 @@ const fadeAndMove = keyframes`
 `;
 
 export const Spinner = styled.div`
-  animation: ${fadeAndMove} 1s ease-in-out;
+  animation: ${fadeAndMove} .5s ease-in-out;
   margin: 0 10px;
   position: absolute;
   left: 100%;
