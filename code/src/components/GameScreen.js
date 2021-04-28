@@ -32,7 +32,7 @@ const GameScreen = () => {
             {actions.map((action) => (
                 <div key={action.description}>
                 <p>{action.description}</p>
-                <button onClick={() => onClick(action.direction)}>{action.direction}</button>
+                <button type="button" className="nes-btn is-primary" onClick={() => onClick(action.direction)}>{action.direction}</button>
             </div>
             ))}
 
