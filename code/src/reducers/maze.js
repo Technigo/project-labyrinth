@@ -5,7 +5,7 @@ const maze = createSlice({
     initialState: {
         username: '',
         description: '',
-        moves: [],
+        moves: null,
         history: [],
         isLoading: false,
         error: null
@@ -15,7 +15,7 @@ const maze = createSlice({
         store.username = action.payload;
        }, 
        setMoves: (store, action) => {
-            store.actions = action.payload
+         store.moves = action.payload
        },
        setDescription: (store, action) => {
          store.description = action.payload;

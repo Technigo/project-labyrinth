@@ -16,7 +16,6 @@ const StartScreen = () => {
 
     const onStartGame = () => {
         dispatch(maze.actions.setUsername(inputValue))
-        setInputValue('')
         dispatch(maze.actions.setLoading(!isLoading))
         dispatch(firstFetch());
     }
