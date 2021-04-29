@@ -11,7 +11,7 @@ const Dialogue = () => {
     const moves = useSelector((store) => store.maze.moves);
     const isLoading = useSelector((store) => store.maze.isLoading);
 
-    const onClick = (direction) => {
+    const onPlayGame = (direction) => {
         dispatch(secondFetch(direction))
         dispatch(maze.actions.setLoading(isLoading))
     }
@@ -27,7 +27,7 @@ const Dialogue = () => {
                 <Button
                     type="button"
                     className="nes-btn is-primary"
-                    onClick={() => onClick(action.direction)}>
+                    onClick={() => onPlayGame(action.direction)}>
                         Go to the {action.direction}
                 </Button>
             </DialogueBox>
@@ -44,6 +44,9 @@ const Text = styled.p`
     @media (min-width: 768px) {
       font-size: 14px;
     }
+    @media (min-width: 768px) {
+        font-size: 16px;
+      }
 `
 const DialogueContainer = styled.div`
   display: flex;
@@ -75,4 +78,7 @@ const Button = styled.button`
 
   font-family: 'Press Start 2P', cursive;
   font-size: 12px;
+    @media (min-width: 1025px) {
+        font-size: 16px;
+    }
 `

@@ -86,7 +86,7 @@ const Instruction = styled.p`
     font-family: 'Press Start 2P', cursive;
     color: #fff;
     font-size: 12px;
-    width: 60%;
+    width: 70%;
     text-align: center;
         @media (min-width: 768px) {
             font-size: 18px;
@@ -128,5 +128,8 @@ const Copy = styled.p`
     margin-top: 30px;
         @media (min-width: 768px) {
             font-size: 12px;
+        }
+        @media (min-width: 1025px) {
+            font-size: 14px;
         }
 `

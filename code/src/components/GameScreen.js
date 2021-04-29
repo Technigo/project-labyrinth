@@ -14,6 +14,8 @@ const GameScreen = () => {
   const username = useSelector((store) => store.maze.username)
   const isLoading = useSelector((store) => store.maze.isLoading);
   const error = useSelector((store) => store.maze.error)
+/*   const place = useSelector((store) => store.maze.coordinates) */
+
 
   return (
     <>
@@ -27,8 +29,8 @@ const GameScreen = () => {
         <Main>
           <Balloon />
           <Dialogue />
-
-      {/*{winner &&
+          
+          {/*{winner &&
           <i className="nes-icon is-large star"></i>
           } */}
 
@@ -47,7 +49,7 @@ const Main = styled.div`
   min-height: 100vh;
   width: 100%;
   background-size: cover;
-  padding: 10px;
+  padding: 20px;
     @media (min-width: 768px) {
       padding: 25px;
     }
