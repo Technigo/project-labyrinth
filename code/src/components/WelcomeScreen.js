@@ -15,13 +15,20 @@ export const WelcomeScreen = () => {
   };
 
   return (
-    <div>
-      <p>
-        Welcome <span className="nes-text is-success">{userName}!</span> are you
-        ready for an adventure filled with romance, mystery and possibly some
-        bugs?
-      </p>
-      <button onClick={(event) => onGameStartSet(event)}>Yes I am!</button>
-    </div>
+    <>
+      <div className="nes-container is-dark">
+        <p>
+          Welcome <span className="nes-text is-success">{userName}!</span> are you
+          ready for an adventure filled with romance, mystery and possibly some
+          bugs?
+        </p>
+      </div>
+      <button
+      className="nes-btn is-primary"
+      onClick={(event) => onGameStartSet(event)}
+      >
+        Yes I am!
+      </button>
+    </>
   );
 };

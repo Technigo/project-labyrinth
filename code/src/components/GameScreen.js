@@ -23,7 +23,11 @@ export const GameScreen = () => {
   if (gameData) {
     return (
       <main>
-        <button onClick={onGoBack} disabled={!history.length > 0}>
+        <button 
+        className={!history.length > 0 ? "nes-btn is-disabled" : "nes-btn is-warning"}
+        onClick={onGoBack} 
+        // disabled={!history.length > 0}
+        >
           Run back!
         </button>
         <p>{gameData.coordinates}</p>
@@ -32,13 +36,20 @@ export const GameScreen = () => {
           return (
             <div>
               <h4>{action.description}</h4>
-              <button onClick={() => onContinueGame(action.direction)}>
+              <button 
+              className="nes-btn is-primary"
+              onClick={() => onContinueGame(action.direction)}>
                 {action.direction}
               </button>
             </div>
           )
         })}
-        <button onClick={onReset}>restart</button>
+        <button 
+        class="nes-btn is-error"
+        onClick={onReset}
+        >
+          restart
+        </button>
       </main>
     )
   } else {
