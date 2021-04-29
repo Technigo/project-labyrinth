@@ -27,7 +27,8 @@ export const App = () => {
 
 const AppMainContainer = styled.div`
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: grid;
   place-items: center;
+  background: #FFC300;
 `;
