@@ -30,6 +30,11 @@ body {
 .nes-icon {
   animation: blinking 1.2s infinite;
 }
+
+.hide {
+  display: none;
+}
+
  @keyframes blinking {
   50% {
     opacity: 0;

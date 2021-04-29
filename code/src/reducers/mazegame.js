@@ -7,7 +7,8 @@ export const mazegame = createSlice({
       userName: null,
       gameStatus: null, 
       loading: false,
-      history: []
+      history: [],
+      restart: false
     },
     reducers: {
       setUserName: (store, action) => {
@@ -27,6 +28,9 @@ export const mazegame = createSlice({
           store.gameStatus = store.history[store.history.length - 1]
           store.history = store.history.slice(0, store.history.length - 1)
         }
+      },
+      setRestartGame: (store, action) => {
+        store.restart = action.payload 
       }
     }
 

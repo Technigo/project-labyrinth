@@ -130,7 +130,8 @@ const GamePage = () => {
                 )}
               </MoveContainer>
               <button 
-                disabled={!history.length}
+                type="button"
+                class= {!history.length ? "hide" : "nes-btn"}
                 onClick={onMoveBack}
               >GO BACK</button>
             </>
