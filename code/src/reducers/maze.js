@@ -4,6 +4,7 @@ const maze = createSlice({
   name: "maze",
   initialState: {
     username: "",
+    coordinates: "",
     description: "",
     moves: null,
     history: [],
@@ -22,6 +23,9 @@ const maze = createSlice({
     },
     setLoading: (store, action) => {
       store.isLoading = action.payload;
+    },
+    setCoordinates: (store, action) => {
+        store.coordinates = action.payload
     },
     setHistory: (store, action) => {
       store.history = [...store.history, action.payload];
@@ -52,6 +56,7 @@ export const firstFetch = () => {
       .then((data) => {
         dispatch(maze.actions.setDescription(data.description));
         dispatch(maze.actions.setMoves(data.actions));
+        dispatch(maze.actions.setCoordinates(data.coordinates))
         dispatch(maze.actions.setHistory(data.coordinates));
       })
       .catch((error) => dispatch(maze.actions.setError(error.message)))
@@ -81,6 +86,7 @@ export const secondFetch = (direction) => {
       .then((data) => {
         dispatch(maze.actions.setDescription(data.description));
         dispatch(maze.actions.setMoves(data.actions));
+        dispatch(maze.actions.setCoordinates(data.coordinates))
         dispatch(maze.actions.setHistory(data.coordinates));
       })
       .catch((error) => dispatch(maze.actions.setError(error.message)))

@@ -17,15 +17,16 @@ const Balloon = () => {
 export default Balloon
 
 const Chat = styled.div`
-  width: 90%;
-  margin: 0 0 50px 0;
-    @media (min-width: 768px) {
-      width: 50%;
-      margin: 0 0 120px 0;
-    }
-    @media (min-width: 1025px) {
+    width: 90%;
+    margin: 0 0 50px 0;
+        @media (min-width: 768px) {
+        width: 50%;
+        margin: 0 0 80px 0;
+        }
+        @media (min-width: 1025px) {
         width: 40%;
-      }
+        margin: 0 0 60px 0;
+        }
 `
 const Text = styled.p`
   font-family: 'Press Start 2P', cursive;

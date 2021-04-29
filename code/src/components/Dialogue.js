@@ -3,13 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import styled from 'styled-components'
 
 import { secondFetch } from "../reducers/maze"
-import maze from "../reducers/maze"
 
 const Dialogue = () => {
     const dispatch = useDispatch()
 
     const moves = useSelector((store) => store.maze.moves);
-    const isLoading = useSelector((store) => store.maze.isLoading);
 
     const onPlayGame = (direction) => {
         dispatch(secondFetch(direction))
@@ -37,22 +35,12 @@ const Dialogue = () => {
 
 export default Dialogue
 
-const Text = styled.p`
-  font-family: 'Press Start 2P', cursive;
-  font-size: 12px;
-    @media (min-width: 768px) {
-      font-size: 14px;
-    }
-    @media (min-width: 768px) {
-        font-size: 16px;
-      }
-`
 const DialogueContainer = styled.div`
   display: flex;
   flex-direction: column;
     @media (min-width: 768px) {
       flex-direction: row;
-      align-items: center;
+      align-items: stretch;
       justify-content: center;
     }
 `
@@ -67,6 +55,16 @@ const DialogueBox = styled.div`
       min-height: 250px;
       margin: 10px;
     }
+`
+const Text = styled.p`
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+    @media (min-width: 768px) {
+      font-size: 14px;
+    }
+    @media (min-width: 768px) {
+        font-size: 16px;
+      }
 `
 const Button = styled.button`
   position: absolute;
