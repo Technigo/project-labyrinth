@@ -39,7 +39,6 @@ const CustomButton = styled.button`
 
 const Content = () => {
   const actions = useSelector(store => store.labyrinth.actions)
-  const description = useSelector(store => store.labyrinth.description)
 
   const error = useSelector(store => store.labyrinth.error)
   const loading = useSelector(store => store.labyrinth.loading)

@@ -20,6 +20,7 @@ const labyrinth = createSlice({
       if (store.actions) {         //check this logic, right now an empty array [] is stored in the first index
         store.history = [...store.history, store.actions]
       }
+
       store.actions = action.payload
     }, 
     setPreviousAction: (store, action) => {
