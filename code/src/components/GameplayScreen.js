@@ -7,6 +7,7 @@ import StartScreen from './StartScreen'
 import ProgressBar from './ProgressBar'
 import RoomDescription from './RoomDescription'
 import Actions from './Actions'
+import Map from './Map'
 
 const GameplayScreen = () => {
 
@@ -18,8 +19,8 @@ const GameplayScreen = () => {
     <>
       { room.description === "" 
         ? <StartScreen /> 
-        : <div className="game-wrapper">
-            <div className="room-info nes-container is-dark with-title is-centered">
+        : <div className="game-screen-wrapper">
+            <div className="nes-container is-dark with-title is-centered">
               <p className="title">THE LABYRINTH</p>
               {loadProgress < 100 
                 ? <ProgressBar />
@@ -27,6 +28,7 @@ const GameplayScreen = () => {
               }
             </div>
             <Actions />
+            <Map />
           </div>
       }    
     </>

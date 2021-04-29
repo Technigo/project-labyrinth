@@ -8,7 +8,7 @@ const initialItems = localStorage.getItem('game')
     coordinates: 0,
     description: "",
     actions: [],
-    history: [],
+    history: [], //dig into these to also get previous location visits!!
     loadProgress: 100,
     error: null
   }
@@ -27,6 +27,11 @@ const game = createSlice ({
       store.username = action.payload
     },
     setGameState: (store, action) => {
+      store.history = [...store.history, {
+        coordinates: store.coordinates,
+        description: store.description,
+        actions: store.actions
+      }]
       store.coordinates = action.payload.coordinates
       store.description = action.payload.description
       store.actions = action.payload.actions
