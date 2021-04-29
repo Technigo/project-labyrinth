@@ -1,10 +1,9 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { mazegame } from 'reducers/mazegame'
+import { useDispatch } from 'react-redux'
 
 import styled from 'styled-components/macro'
 
-import GamePage from './GamePage'
+import { mazegame } from 'reducers/mazegame'
 
 const Blinking = styled.div `
   margin-left: 50px;
@@ -22,7 +21,6 @@ const Container = styled.div `
   justify-content: center; 
   padding: 20px 0;
 `
-
 const EndGameText = styled.h1`
   color: #59e686;
   width: 100%;
@@ -38,13 +36,11 @@ const ButtonContainer = styled.div `
 `
 
 const FinishLayout = () => {
-  const restart = useSelector(store => store.mazegame.restart)
   const dispatch = useDispatch()
 
   const onGameReset = () => {
-    dispatch(mazegame.actions.setRestartGame(true))
+    dispatch(mazegame.actions.setRestartGame())
   }
-
 
   return(
     <>
@@ -62,9 +58,8 @@ const FinishLayout = () => {
           class="nes-btn is-warning"
         >Play again</button>
       </ButtonContainer>
-
     </>
   )
-  }
+}
 
 export default FinishLayout

@@ -1,14 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-
 export const mazegame = createSlice({
     name: 'mazegame',
     initialState: {
       userName: null,
       gameStatus: null, 
       loading: false,
-      history: [],
-      restart: false
+      history: []
     },
     reducers: {
       setUserName: (store, action) => {
@@ -29,11 +27,11 @@ export const mazegame = createSlice({
           store.history = store.history.slice(0, store.history.length - 1)
         }
       },
-      setRestartGame: (store, action) => {
-        store.restart = action.payload 
+      setRestartGame: (store) => {
+        store.userName = null
+        store.gameStatus = null 
       }
     }
-
 })
 
 export const generateGame = (userName) => {

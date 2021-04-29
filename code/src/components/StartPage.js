@@ -46,13 +46,13 @@ const StartPage = () => {
     event.preventDefault()
     dispatch(mazegame.actions.setUserName(userName))
     dispatch(generateGame(userName))
+    setUserName('')
   }
   if (gameStatus) {
     return (
       <GamePage />
     ) 
   }
-  
   
   if (loading) {
     return (
@@ -65,8 +65,6 @@ const StartPage = () => {
       <GamePage />
     ) 
   } 
-
-  console.log('gamestatus', gameStatus)
 
   return(
     <>

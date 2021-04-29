@@ -1,10 +1,11 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+
 import styled from 'styled-components/macro'
 
 import {generateNextMove, mazegame} from '../reducers/mazegame'
 import LoadingPage from './LoadingPage'
-import FinishLayout from "./FinishLayout";
+import FinishLayout from './FinishLayout'
 
 const Container = styled.div`
   padding: 30px 20px 20px 20px;
@@ -28,9 +29,7 @@ const InnerContainer = styled.div`
   @media (min-width: 1024px) {
     max-width: 800px;
   }
- 
 `
-
 const Text = styled.div`
   font-size: 14px;
   display: flex;
@@ -40,8 +39,6 @@ const Text = styled.div`
     font-size: 18px;
   }
 `
-
-
 const MoveContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -53,7 +50,6 @@ const MoveContainer = styled.div`
     flex-direction: row;
   }
 `
-
 const Flexbox = styled.div`
   display: flex;
   flex-direction: column;
@@ -61,12 +57,11 @@ const Flexbox = styled.div`
   align-items: center;
   text-align: center;
   flex: 1;
-
+  
   @media (min-width: 668px) {
     flex-direction: row;
   }
 `
-
 const TextCenter = styled.p`
   text-align: center;
   padding-top: 15px;
@@ -78,6 +73,7 @@ const GamePage = () => {
   const loading = useSelector(store => store.mazegame.loading)
   const userName = useSelector(store => store.mazegame.userName)
   const history = useSelector(store => store.mazegame.history)
+
   const dispatch = useDispatch()
   
   if (loading) {
@@ -90,13 +86,13 @@ const GamePage = () => {
     dispatch(mazegame.actions.setPreviousMove())
   }
 
-  return(
+  return (
     <Container>
       <InnerContainer>
-        <section class="nes-container">
-          <section class="message-list">
-            <section class="message -left">
-              <div class="nes-balloon from-left">
+        <section className="nes-container">
+          <section className="message-list">
+            <section className="message -left">
+              <div className="nes-balloon from-left">
                 <Text>
                   {actions.length === 1 
                     ? 
@@ -107,7 +103,7 @@ const GamePage = () => {
                   <span>{gameStatus.description}</span> 
                 </Text>
               </div>
-              <i class="nes-bcrikko"></i>
+              <i className="nes-bcrikko"></i>
             </section>
           </section>
         </section>
@@ -118,12 +114,12 @@ const GamePage = () => {
               <MoveContainer>
                 {actions.map(direction => 
                   <Flexbox key={direction.description}>
-                    <div class="nes-container is-rounded is-dark">
+                    <div className="nes-container is-rounded is-dark">
                       <div>{direction.description}</div>
                       <button
                         onClick={() => dispatch(generateNextMove(userName, direction.direction))}
                         className="nes-btn is-normal"
-                      >{direction.direction}
+                      >Go {direction.direction}
                       </button>
                     </div>
                   </Flexbox> 
@@ -131,7 +127,7 @@ const GamePage = () => {
               </MoveContainer>
               <button 
                 type="button"
-                class= {!history.length ? "hide" : "nes-btn"}
+                className= {!history.length ? "hide" : "nes-btn"}
                 onClick={onMoveBack}
               >GO BACK</button>
             </>
@@ -140,7 +136,7 @@ const GamePage = () => {
       }
       </InnerContainer>
     </Container>
-    )
+  )
 }
 
 export default GamePage

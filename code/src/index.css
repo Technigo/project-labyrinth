@@ -40,7 +40,7 @@ body {
     opacity: 0;
   }
  } 
-/*tablet*/
+
 @media (min-width: 668px) {
   .nes-balloon {
     max-width: 70%; 
