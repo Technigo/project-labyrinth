@@ -1,10 +1,7 @@
 import { useSelector } from 'react-redux';
 import React from 'react';
-import styled from 'styled-components';
-import { FaArrowDown } from "react-icons/fa";
-import { FaArrowLeft } from "react-icons/fa";
-import { FaArrowRight } from "react-icons/fa";
-import { FaArrowUp } from "react-icons/fa";
+import { FaArrowDown, FaArrowLeft, FaArrowRight, FaArrowUp } from "react-icons/fa";
+
 import { SummaryContainer, ThankYou, Text, PathContainer, Arrow, Item, RestartButton } from "./Styling";
 
 export const SummaryPage = ({ description }) => {
