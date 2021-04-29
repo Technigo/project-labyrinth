@@ -17,8 +17,7 @@ const labyrinth = createSlice({
       store.playerName = action.payload
     },
     setActions: (store, action) => {
-      console.log(store.actions.actions)
-      if (store.actions) {         //check this logic, right now there's nothing being added to history - store.actions
+      if (store.actions) {         //check this logic, right now an empty array [] is stored in the first index
         store.history = [...store.history, store.actions]
       }
       store.actions = action.payload
@@ -40,7 +39,7 @@ const labyrinth = createSlice({
 
 export const startContent = () => {
   return (dispatch, getState) => {
-    dispatch(labyrinth.actions.setLoading(true))    //if implementing an if statement like Maks regarding which fetch to do, leave this dispatch above it
+    dispatch(labyrinth.actions.setLoading(true))   
 
     fetch('https://wk16-backend.herokuapp.com/start', {
       method: 'POST',
@@ -54,7 +53,6 @@ export const startContent = () => {
           dispatch(labyrinth.actions.setError(''))
           return res.json()
         } else {
-          console.log(res)
           throw new Error(res.statusText)
         }
       })
@@ -64,11 +62,13 @@ export const startContent = () => {
       })
       .catch(error => dispatch(labyrinth.actions.setError(error.message)))
       .finally(() => dispatch(labyrinth.actions.setLoading(false)))
-}
+  }
 }
 
 export const gameContent = (action) => {
   return (dispatch, getState) => {
+    dispatch(labyrinth.actions.setLoading(true))
+
     fetch('https://wk16-backend.herokuapp.com/action', {
       method: 'POST',
       headers: {
@@ -80,12 +80,20 @@ export const gameContent = (action) => {
         direction : action.direction 
       }),
     })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
-        dispatch(labyrinth.actions.setActions(data))
+      .then(res => {
+        if (res.ok) {
+          dispatch(labyrinth.actions.setError(''))
+          return res.json()
+        } else {
+          throw new Error(res.statusText)
+        }
       })
-      .catch(error => console.error('Our error is :', error))
+      .then(data => {
+        dispatch(labyrinth.actions.setActions(data))
+        localStorage.setItem('startContent', JSON.stringify(data))
+      })
+      .catch(error => dispatch(labyrinth.actions.setError(error.message)))
+      .finally(() => dispatch(labyrinth.actions.setLoading(false)))
     }
 }
 

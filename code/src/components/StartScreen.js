@@ -8,22 +8,85 @@ const Container = styled.div`
   box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
     0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
   border-radius: 6px;
-  background: #fff;
+  background: rgb(246,226,189, 0.5);
   margin-bottom: 20px;
   width: 70%;
-  padding: 20px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    width: 60%;
+  }
+
+  @media (min-width: 1024px) {
+    width: 50%;
+  }
 `;
+
+const Title = styled.h1`
+  color: #3b2e36;
+  margin: 0 0 20px 10px;
+
+  @media (min-width: 768px) {
+    font-size: 34px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 38px;
+  }
+`
+
+const SubTitle = styled.h2`
+  color: #3b2e36;
+  font-size: 20px;
+  margin: 0 0 0 10px;
+
+  @media (min-width: 768px) {
+    font-size: 22px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 26px;
+  }
+`
 
 const CustomButton = styled.button`
-  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
-    0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
   border-radius: 6px;
-  background-color: whitesmoke;
-  margin: 10px 0 10px 0;
-  padding: 10px;
+  border: 2px solid #3b2e36;
+  background-color: rgb(82,88,13, 0.7);
+  margin: 10px;
+  padding: 5px 10px;
   cursor: pointer;
+  font-size: 18px;
+  font-family: 'New Tegomin', serif;
+
+  @media (min-width: 768px) {
+    font-size: 22px;
+    padding: 5px 15px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 26px;
+  }
 `;
 
+const InputContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+
+const InputField = styled.input`
+  margin: 8px;
+  border: 2px solid #3b2e36;
+  border-radius: 6px;
+  background-color: transparent;
+  font-size: 18px;
+  font-family: 'New Tegomin', serif;
+  font-weight: bold;
+  color: #3b2e36;
+  padding: 4px;
+`
 
 const StartScreen = () => {
   const [inputValue, setInputValue] = useState('')
@@ -38,17 +101,20 @@ const StartScreen = () => {
   return (
     <>
       <Container>
-        <h1>Welcome!</h1>
-        <input 
-          type="text"
-          value={inputValue}
-          onChange={e => setInputValue(e.target.value)}
-        />
-        <CustomButton
-          onClick={onUserSet}
-        >
-          Start!
-        </CustomButton>
+        <Title>Welcome to the labyrinth!</Title>
+        <SubTitle>Enter your name</SubTitle>
+        <InputContainer>
+          <InputField 
+            type="text"
+            value={inputValue}
+            onChange={e => setInputValue(e.target.value)}
+          />
+          <CustomButton
+            onClick={onUserSet}
+          >
+            START
+          </CustomButton>
+        </InputContainer>
       </Container>
     </>
   )

@@ -9,34 +9,63 @@ const Container = styled.div`
   box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
     0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
   border-radius: 6px;
-  background: rgb(255,255,255, 0.7);
-  margin-bottom: 20px;
+  background: rgb(246,226,189, 0.5);
+  margin: 20px 0;
   width: 70%;
   padding: 20px;
+  color: #3b2e36;
+  text-align: center;
 `;
+
+const MainHeading = styled.h2`
+  margin: 0;
+  font-size: 20px;
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 28px;
+  }
+`
 
 const CardsContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
-  margin-top: 50px;
+  margin-top: 30px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+  @media (min-width: 1024px) {
+  
+  }
 `;
 
 const CustomButton = styled.button`
-  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
-    0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
   border-radius: 6px;
-  background-color: whitesmoke;
-  margin: 10px 0 10px 0;
-  padding: 10px;
+  border: 2px solid #3b2e36;
+  background-color: rgb(82,88,13, 0.7);
+  margin: 10px;
+  padding: 5px 10px;
   cursor: pointer;
-`;
+  font-size: 18px;
+  font-family: 'New Tegomin', serif;
 
+  @media (min-width: 768px) {
+    font-size: 22px;
+    padding: 5px 15px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 26px;
+  }
+`;
 
 const GameScreen = () => {
   const actions = useSelector(store => store.labyrinth.actions)
   const history = useSelector(store => store.labyrinth.history)
-
   const dispatch = useDispatch()
 
   const onRevertDirection = () => {
@@ -45,9 +74,7 @@ const GameScreen = () => {
 
   return (
     <Container>
-      <h1>Hello there...</h1>
-      <h2>{actions.description}</h2>
-      <h4>Choose your direction</h4>
+      <MainHeading>{actions.description}</MainHeading>
       <CardsContainer>
         {actions.actions.map(action => (
             <GameCard 
@@ -59,8 +86,9 @@ const GameScreen = () => {
       </CardsContainer>  
       {history.length > 1 &&   //this logic should be OK, need to fix history logic in labyrinth
         <CustomButton onClick={() => onRevertDirection()} >
-          Go back
-        </CustomButton>
+          GO BACK
+        </CustomButton>          
+    
       }
     </Container>
 
