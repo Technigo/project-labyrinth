@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components'
 
 import { StartGameButton } from 'styled-components/StartGameButton';
@@ -32,13 +32,20 @@ const StartImage = styled.img`
 const StartGame = () => {
     
   const [inputValue, setInputValue] = useState('');
-
+  const restart = useSelector(store => store.questions.restart)
     const dispatch = useDispatch();
 
     const onUserNameSet = () => {
         dispatch(questions.actions.setUserName(inputValue));
         dispatch(initiateGame(inputValue));
     }
+
+    if (restart) {
+      return (
+        <StartGame />
+      ) 
+    } 
+  
    
     return (
       <StartGameBackground>
