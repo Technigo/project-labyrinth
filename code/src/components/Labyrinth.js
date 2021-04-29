@@ -23,13 +23,13 @@ export const SmallBox = styled.div`
   };
   :nth-of-type(2n) {
     animation: ${card} 1.4s ease-out;
-};
-:nth-of-type(3n) {
+  };
+  :nth-of-type(3n) {
     animation: ${card} 1.6s ease-out;
-};
-:nth-of-type(4n) {
+  };
+  :nth-of-type(4n) {
     animation: ${card} 1.8s ease-out;
-};
+  };
 `;
 
 export const BorderRight = styled(SmallBox)`
