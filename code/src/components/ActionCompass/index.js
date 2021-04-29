@@ -1,38 +1,40 @@
 /* eslint-disable no-console */
 import React from 'react';
-import { useSelector } from 'react-redux';
-import Button from 'components/Button';
-import Compass from './style';
+import { useSelector, useDispatch } from 'react-redux';
+import { setAction } from 'store/room';
+// import Button from 'components/Button';
+import Compass, { ButtonToggle } from './style';
 
 const defaultActions = [
   {
     type: 'move',
     direction: 'North',
-    order: 1,
+    selected: false,
     description: null
   },
   {
     type: 'move',
     direction: 'West',
-    order: 2,
+    selected: false,
     description: null
   },
   {
     type: 'move',
     direction: 'East',
-    order: 3,
+    selected: false,
     description: null
   },
   {
     type: 'move',
     direction: 'South',
-    order: 4,
+    selected: false,
     description: null
   }
 ];
 
-export default ({ setAction }) => {
-  const room = useSelector((store) => store.room.currentRoom);
+export default () => {
+  const dispatch = useDispatch();
+  const room = useSelector((store) => store.room.saved.currentRoom);
 
   // function to sort through actions from API
   // and then merge them in correct order based on default Actions
@@ -40,25 +42,33 @@ export default ({ setAction }) => {
     const item = room.actions.find((i) => i.direction === action.direction);
     return { ...action, ...item };
   });
+  const [actions, setActions] = React.useState(availableActions);
 
   const handleChange = (direction, description) => {
-    setAction({
-      description,
-      direction
+    // check if there all actions are disabled
+    const newActions = actions.map((action) => {
+      return { ...action, selected: !action.selected };
     });
+    setActions(newActions);
+    dispatch(
+      setAction({
+        description,
+        direction
+      })
+    );
   };
 
   return (
     <Compass>
-      {availableActions.map((action) => (
+      {actions.map((action) => (
         <div key={action.direction}>
-          <Button
+          <ButtonToggle
             disabled={action.description === null}
-            fixedSquare
+            selected={action.selected}
             type="button"
             onClick={() => handleChange(action.direction, action.description)}>
             {action.direction[0]}
-          </Button>
+          </ButtonToggle>
         </div>
       ))}
     </Compass>

@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import Map from 'components/FolderTabs/TabMap';
 import Next from 'components/FolderTabs/TabNext';
@@ -11,19 +12,21 @@ import {
   TabContent
 } from './style';
 
-export default ({ selectedAction }) => {
-  const defaultTabs = [
-    {
-      text: 'Map',
-      selected: true,
-      component: <Map />
-    },
-    {
-      text: 'Next',
-      selected: false,
-      component: <Next selectedAction={selectedAction} />
-    }
-  ];
+const defaultTabs = [
+  {
+    text: 'Map',
+    selected: true,
+    component: <Map />
+  },
+  {
+    text: 'Next',
+    selected: false,
+    component: <Next />
+  }
+];
+
+export default () => {
+  const selectedAction = useSelector((store) => store.room.actions.selected)
   const [tabs, setTabs] = React.useState(defaultTabs);
 
   const handleChange = () => {
@@ -41,6 +44,7 @@ export default ({ selectedAction }) => {
             key={tab.text}
             type="button"
             selected={tab.selected}
+            disabled={!tab.selected && selectedAction.inNewRoom}
             onClick={() => handleChange()}>
             {tab.text}
           </ButtonTab>

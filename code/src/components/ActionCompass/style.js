@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
+import Button from 'components/Button';
 
-export default styled.div`  
+export default styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -8,7 +9,7 @@ export default styled.div`
   grid-row-gap: 5px;
   max-width: 100%;
   min-width: 140px;
-  
+
   & > * {
     width: 50px;
     height: 50px;
@@ -21,9 +22,20 @@ export default styled.div`
     grid-area: 2 / 1 / 3 / 2;
   }
   & > :nth-child(3) {
-    grid-area: 2 / 2 / 3 / 3; 
+    grid-area: 2 / 2 / 3 / 3;
   }
   & > :nth-child(4) {
-    grid-area: 3 / 1 / 4 / 3; 
+    grid-area: 3 / 1 / 4 / 3;
   }
+`;
+
+export const ButtonToggle = styled(Button)`
+  max-width: auto;
+  min-width: auto;
+  width: 50px;
+  margin: 0 auto;
+  
+  ${(props) => (props.selected
+      ? `filter: contrast(150%);`
+      : `filter: grayscale(50%);`)}
 `;
