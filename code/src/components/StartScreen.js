@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import styled from 'styled-components/macro'
 
 import { games, createNewPlayer } from '../reducers/games'
 
@@ -10,12 +9,12 @@ const StartScreen = () => {
     const dispatch = useDispatch()
 
     const onFormSubmit = (e) => {
-      e.preventDefault()
+        e.preventDefault()
 
-      if (inputValue !== '') {
-        dispatch(games.actions.setUserName(inputValue))
-        dispatch(createNewPlayer(inputValue))
-      } 
+        if (inputValue !== '') {
+            dispatch(games.actions.setUserName(inputValue))
+            dispatch(createNewPlayer(inputValue))
+        } 
         setInputValue('')
     }
 
