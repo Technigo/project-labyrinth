@@ -9,6 +9,11 @@ const Container = styled.div`
     width: 900px;
     height: 300px;
     margin-top: 50px;
+
+    @media (max-width: 768px) {
+      height:400px;
+      margin-top: 20px;
+     };
     `
 
   return (

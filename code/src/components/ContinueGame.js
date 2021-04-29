@@ -13,15 +13,10 @@ const Container = styled.div`
     height: 450px;
     margin-top: 50px;
     
-    @media (min-width: 768px) {
-      height:550px;
+    @media (max-width: 768px) {
+      height: 900px;
       margin-top: 20px;
      };
-`
-
-export const Description = styled.h2`
-    font-size: 16px;
-    color: white;
 `
 
 const ContinueGame = () => {
