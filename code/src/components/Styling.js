@@ -11,8 +11,12 @@ export const Button = styled.button`
   font-family: 'Roboto';
   cursor: grab;
   border-radius: 10px;
+  outline: none;
   :hover {
     box-shadow: 0px 0px 15px -2px #34623F;
+  }
+  :focus {
+    transform: scale(1.1);
   }
 `;
 
@@ -77,12 +81,16 @@ export const MainContainer = styled.div`
   flex-direction: column;
   margin: 20px;
   font-family: 'Roboto', sans-serif;
+  @media (min-width: 1200px) {
+      width: 80%;
+  }
 `;
 
 export const QuestionContainer = styled(MainContainer)`
   margin: 10px; 
   @media (min-width: 1025px) {
     flex-direction: row;
+    width: auto;
   }
 `;
 
@@ -97,8 +105,11 @@ export const Container = styled.div`
   background-color: #1c1a1a;
   height: auto;
   @media (min-width: 1025px) {
-    padding: 10px 10px 30px 10px;
-    height: 170px;
+    padding: 10px 20px 20px 20px;
+    height: 220px;
+  }
+  @media (min-width: 1433px) {
+    height: 195px;
   }
 `;
 
