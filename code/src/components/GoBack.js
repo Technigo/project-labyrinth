@@ -12,7 +12,7 @@ const GoBack= ()=>{
   }
 
   return (
-    <button onClick={onPreviousStep}> Go Back</button>
+    <button className="go-back" onClick={onPreviousStep}> Go Back</button>
   )
 }
 export default GoBack;
