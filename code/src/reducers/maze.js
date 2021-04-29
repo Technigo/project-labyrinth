@@ -10,6 +10,7 @@ const maze = createSlice({
     history: [],
     isLoading: false,
     error: null,
+    gameOver: false,
   },
   reducers: {
     setUsername: (store, action) => {
@@ -25,13 +26,19 @@ const maze = createSlice({
       store.isLoading = action.payload;
     },
     setCoordinates: (store, action) => {
-        store.coordinates = action.payload
+      store.coordinates = action.payload;
     },
     setHistory: (store, action) => {
       store.history = [...store.history, action.payload];
     },
     setError: (store, action) => {
       store.error = action.payload;
+    },
+    setGameOver: (store) => {
+      if (store.coordinates === "0,0") {
+        const setTrue = true;
+        store.gameOver = setTrue;
+      }
     },
   },
 });
@@ -56,7 +63,7 @@ export const firstFetch = () => {
       .then((data) => {
         dispatch(maze.actions.setDescription(data.description));
         dispatch(maze.actions.setMoves(data.actions));
-        dispatch(maze.actions.setCoordinates(data.coordinates))
+        dispatch(maze.actions.setCoordinates(data.coordinates));
         dispatch(maze.actions.setHistory(data.coordinates));
       })
       .catch((error) => dispatch(maze.actions.setError(error.message)))
@@ -86,8 +93,9 @@ export const secondFetch = (direction) => {
       .then((data) => {
         dispatch(maze.actions.setDescription(data.description));
         dispatch(maze.actions.setMoves(data.actions));
-        dispatch(maze.actions.setCoordinates(data.coordinates))
+        dispatch(maze.actions.setCoordinates(data.coordinates));
         dispatch(maze.actions.setHistory(data.coordinates));
+        dispatch(maze.actions.setGameOver());
       })
       .catch((error) => dispatch(maze.actions.setError(error.message)))
       .finally(() => dispatch(maze.actions.setLoading(false)));
