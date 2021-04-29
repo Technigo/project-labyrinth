@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { ui } from './ui'
 
 const labyrinth = createSlice({
     name: 'labyrinth',
@@ -19,6 +20,7 @@ const labyrinth = createSlice({
 
 export const startLabyrinth = () => {
   return (dispatch, getStore) => {
+      dispatch(ui.actions.setLoading(true))
         fetch(`https://wk16-backend.herokuapp.com/start`, {
           method: 'POST',
           headers: {
@@ -27,25 +29,32 @@ export const startLabyrinth = () => {
           body: JSON.stringify({ username: getStore().labyrinth.username })
           })
         .then(res => res.json())
-        .then(data => dispatch(labyrinth.actions.setResponse(data)));
+        .then(data => {
+          dispatch(labyrinth.actions.setResponse(data))
+          dispatch(ui.actions.setLoading(false))
+        })
     }
   } 
 
 export const continueLabyrinth = (type, direction) => {
   return (dispatch, getStore) => {
-  fetch(`https://wk16-backend.herokuapp.com/action`, {
-    method: 'POST',
-    headers: {
+    dispatch(ui.actions.setLoading(true))
+    fetch(`https://wk16-backend.herokuapp.com/action`, {
+      method: 'POST',
+      headers: {
       'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ 
-      username: getStore().labyrinth.username, 
-      type: type, 
-      direction: direction 
+      },
+      body: JSON.stringify({ 
+        username: getStore().labyrinth.username, 
+        type: type, 
+        direction: direction 
       })
     })
   .then(res => res.json())
-  .then(data => dispatch(labyrinth.actions.setResponse(data)));
+  .then(data => {
+    dispatch(labyrinth.actions.setResponse(data))
+    dispatch(ui.actions.setLoading(false))
+  })
   }
 }
 

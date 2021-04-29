@@ -6,13 +6,12 @@ import styled from 'styled-components';
 // ----------------------------------------------------------------
 
 export const Loading = () => {
-    /* Needs implementing in current code base
-    const isLoading = useSelector((state) => state.ui.isLoading); */
+    const isLoading = useSelector((store) => store.ui.isLoading)
 
   return (
     isLoading === true && (
       <LoadingWrapper>
-        <Circular color="#fff" size="80px" />
+        <Circular color="white" size="50px" />
       </LoadingWrapper>
     )
   );
@@ -26,4 +25,5 @@ const LoadingWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
 `;

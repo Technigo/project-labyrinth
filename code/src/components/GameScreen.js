@@ -1,42 +1,58 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 
-import labyrinth, {continueLabyrinth} from '../reducers/labyrinth'
+import {continueLabyrinth} from '../reducers/labyrinth'
 
 import styled from 'styled-components'
 
 const Container = styled.div`
   margin-top: 20px;
-  color: black;
+  color: white;
   border-radius: 4px;
   font-family: "Roboto", sans-serif;
   text-align: left;
-  padding: 40px;
+  padding: 20px;
   text-align: center;
-  background-color: white;
-  width: 500px;
-  box-shadow: 0px 11px 15px -7px rgb(0 0 0 / 20%),
-    0px 24px 38px 3px rgb(0 0 0 / 14%), 0px 9px 46px 8px rgb(0 0 0 / 12%);
+  width: 75%;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(9px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
+  -webkit-box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+
+  @media (min-width: 768px) {
+    width: 600px;
+    padding: 40px;
+  }
 `;
 
 const TextContent = styled.div``;
 
 const ButtonContainer = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-evenly;
 `;
 
 const SingleButtonContainer = styled.div`
   width: 50%;
+  @media (min-width: 768px) {
+    font-size: 40%;
+  }
 `
 
 const Button = styled.button`
-  border: 1px solid black;
-  background-color: inherit;
-  color: #6203ee;
+  background-color: white;
+  border: none;
+  border-radius: 3px;
+  color: black;
   font-weight: 500px;
   margin: 40px 0 0 10px;
   padding: 5px;
+  cursor: pointer;
 
   &:hover {
     background-color: #fafafa;
@@ -48,24 +64,22 @@ const Title = styled.div`
   font-weight: 500px;
   margin: 0;
   margin-bottom: 10px;
-`;
-
-const SubHeading = styled.div`
-  font-size: 16px;
-  font-weight: 300;
-  margin: 0;
-  color: rgba(0, 0, 0, 0.6);
+  @media (min-width: 768px) {
+    font-size: 30px;
+  }
 `;
 
 const SmallerText = styled.p`
   font-size: 12px;
   font-weight: 300;
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
 `
 
 const GameScreen = () => {
   const response = useSelector(store => store.labyrinth.response)
   const actions = useSelector(store => store.labyrinth.response.actions)
-  const username = useSelector(store => store.labyrinth.username)
 
   const dispatch = useDispatch()
 
@@ -76,13 +90,13 @@ const GameScreen = () => {
   return (
     <Container>
       <TextContent>
-       <Title>{response.description}</Title>
-      <SmallerText>Coordinates: {response.coordinates}</SmallerText>
+        <SmallerText>Coordinates: {response.coordinates}</SmallerText>
+        <Title>{response.description}</Title>
       </TextContent>
       <ButtonContainer>
       {actions.map((action) => (
           <SingleButtonContainer key={action.description}>
-          <Button onClick={() => onButtonClick(action.type, action.direction)}>{action.type} {action.direction}</Button> 
+          <Button onClick={() => onButtonClick(action.type, action.direction)}>Move {action.direction}</Button> 
           <SmallerText>{action.description}</SmallerText>
         </SingleButtonContainer>
       ))}
