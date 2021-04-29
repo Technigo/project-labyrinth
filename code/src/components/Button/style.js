@@ -12,11 +12,11 @@ export default styled.button`
       margin: 0 auto;`
       : `
       max-width: 100%;
-      min-width: 200px;`
-    )};
+      min-width: 200px;`)};
   padding: 0 5%;
   border: none;
   outline: none;
+  filter: none;
 
   /* Background */
   background: url(${buttonMain}) no-repeat;
@@ -37,3 +37,4 @@ export default styled.button`
     color: #999;
   }
 `;
+

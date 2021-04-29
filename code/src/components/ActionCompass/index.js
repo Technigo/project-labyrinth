@@ -41,10 +41,10 @@ export default ({ setAction }) => {
     return { ...action, ...item };
   });
 
-  const handleChange = (event) => {
+  const handleChange = (direction, description) => {
     setAction({
-      description: event.target.value,
-      direction: event.target.attributes.dir.value
+      description,
+      direction
     });
   };
 
@@ -56,9 +56,7 @@ export default ({ setAction }) => {
             disabled={action.description === null}
             fixedSquare
             type="button"
-            value={action.description}
-            dir={action.direction}
-            onClick={handleChange}>
+            onClick={() => handleChange(action.direction, action.description)}>
             {action.direction[0]}
           </Button>
         </div>

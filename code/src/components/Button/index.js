@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from './style'
 
-export default ({ children, toggle, ...props }) => {
+export default ({ children, ...props }) => {
   return (
     <Button {...props}>{children}</Button>
   )
