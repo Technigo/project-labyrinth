@@ -1,18 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const savedLocalStore = JSON.parse(localStorage.getItem("labyrinth"))
-const savedActions = savedLocalStore.labyrinth.actions
-const savedUserName = savedLocalStore.labyrinth.userName
-const savedHistory = savedLocalStore.labyrinth.history
+const savedLocalStore = localStorage.getItem("labyrinth") ? JSON.parse(localStorage.getItem("labyrinth")):null
+const savedActions = localStorage.getItem("labyrinth") ? savedLocalStore.labyrinth.actions: null
+const savedUserName = localStorage.getItem("labyrinth") ? savedLocalStore.labyrinth.userName: null
+const savedHistory = localStorage.getItem("labyrinth")? savedLocalStore.labyrinth.history: []
+const savedDirectionChoices = localStorage.getItem("labyrinth")? savedLocalStore.labyrinth.directionChoices: []
 
 const labyrinth = createSlice({
   name: 'labyrinth',
   initialState: {
-    userName: localStorage.getItem("labyrinth") ? savedUserName : null,
-    actions: localStorage.getItem("labyrinth") ? savedActions : null,
-    history: localStorage.getItem("labyrinth") ? savedHistory : [],
+    userName: savedUserName,
+    actions:  savedActions,
+    history: savedHistory,
     error: null,
-    loading: false
+    loading: false,
+    directionChoices: savedDirectionChoices
 
   },
   reducers: {
@@ -30,6 +32,12 @@ const labyrinth = createSlice({
         store.actions = store.history[store.history.length - 1]
         store.history = store.history.slice(0, store.history.length - 1)
       }
+      if(store.directionChoices.length) {
+        store.directionChoices = store.directionChoices.slice(0, store.directionChoices.length-1)
+      }
+    },
+    setDirectionChoice:(store, action) => {
+      store.directionChoices = [...store.directionChoices, action.payload]
     },
     setError: (store, action) => {
       store.error = action.payload
