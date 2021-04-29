@@ -6,10 +6,10 @@ import game, { nextStep } from 'reducers/game'
 const InGame = () => {
   const direction = useSelector((store) => store.game.direction)
   const actions = useSelector((store) => store.game.direction.actions)
-  const username = useSelector((store) => store.game.username)
+  const usernameFinal = useSelector((store) => store.game.username)
   const dispatch = useDispatch() 
 
-  console.log('action:', actions)
+  // console.log('action:', actions)
 
   console.log(direction)
 
@@ -21,7 +21,7 @@ const InGame = () => {
           actions.map((action) => (
             <div key={action.description}>
               <p>{action.description}</p>
-              <button onClick={() => dispatch(nextStep(username, action.direction))}>{action.direction}</button>
+              <button onClick={() => dispatch(nextStep(usernameFinal, action.direction))}>{action.direction}</button>
             </div>
           ))
         }

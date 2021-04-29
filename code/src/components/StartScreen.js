@@ -6,6 +6,7 @@ import game, {generateGame} from '../reducers/game'
 const StartScreen = () => {
   const [username, setUsername] = useState('')
 
+
   const dispatch = useDispatch()
 
   const onUsernameSet = () => {

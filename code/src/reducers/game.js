@@ -20,15 +20,15 @@ const game = createSlice({
   }
 })
 
-export const generateGame = () => {
-    return (dispatch, getState) => {
+export const generateGame = (usernameFinal) => {
+    return (dispatch) => {
       dispatch(game.actions.setLoading(true))
         fetch('https://wk16-backend.herokuapp.com/start', {
           method: 'POST',
           headers: {
             'Content-type': 'application/json'
           },
-          body: JSON.stringify({ username : getState().game.username })
+          body: JSON.stringify({ username : usernameFinal})
         })
         .then(res => res.json())
         .then(data => dispatch(game.actions.setDirection(data)))  
@@ -36,8 +36,8 @@ export const generateGame = () => {
       } 
   }
 
-export const nextStep = () => {
-  return (dispatch, getState) => {
+export const nextStep = (usernameFinal,direction) => {
+  return (dispatch) => {
     dispatch(game.actions.setLoading(true))
     fetch('https://wk16-backend.herokuapp.com/action', {
           method: 'POST',
@@ -45,8 +45,8 @@ export const nextStep = () => {
             'Content-type': 'application/json'
           },
           body: JSON.stringify({ 
-            username : getState().game.username, 
-            direction : getState().game.action,
+            username : usernameFinal, 
+            direction : direction,
             type : 'move'
           })
 
