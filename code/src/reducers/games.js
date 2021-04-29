@@ -4,11 +4,8 @@ import { createSlice } from '@reduxjs/toolkit'
 export const games  = createSlice({
     name: 'games',
     initialState: {
-        username: '',
-        gameStatus: {
-            description: "",
-            actions: []
-        },
+        username: null,
+        gameStatus: {},
         history: [],
         error: null,
         loading: false
