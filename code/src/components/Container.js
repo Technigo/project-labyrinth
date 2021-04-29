@@ -23,7 +23,7 @@ const Container = () => {
         const currentMessageLength = actions.description.length
         setTimeout(()=>{
           setShowAction(true)
-        },currentMessageLength * 150)
+        },currentMessageLength * 112)
       }
 
     }, [actions])
