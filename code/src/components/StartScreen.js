@@ -6,11 +6,12 @@ import styled from 'styled-components'
 import maze from "../reducers/maze"
 import { firstFetch } from "../reducers/maze"
 
-
 const StartScreen = () => {
     const [inputValue, setInputValue] = useState('');
 
     const dispatch = useDispatch();
+
+    const moves = useSelector((store) => store.maze.moves)
 
     const isLoading = useSelector(store => store.maze.isLoading)
 

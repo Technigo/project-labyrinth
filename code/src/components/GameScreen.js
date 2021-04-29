@@ -7,6 +7,7 @@ import BackgroundImg from '../images/game-screen.jpg'
 
 import { secondFetch } from "../reducers/maze"
 import maze from "../reducers/maze"
+import LoadingScreen from './LoadingScreen'
 
 const GameScreen = () => {
     const dispatch = useDispatch()
@@ -14,45 +15,46 @@ const GameScreen = () => {
     const description = useSelector((store) => store.maze.description);
 
     const moves = useSelector((store) => store.maze.moves);
-
-    const name = useSelector((store) => store.maze.username)
-
+    const username = useSelector((store) => store.maze.username)
     const isLoading = useSelector((store) => store.maze.isLoading);
+    const error = useSelector((store) => store.maze.error)
 
     const onClick = (direction) => {
         dispatch(secondFetch(direction))
         dispatch(maze.actions.setLoading(isLoading))
     }
 
-    if (!isLoading) {
-        return (
+  return (
+    <>
+      {isLoading &&
+      <LoadingScreen />
+      }
+      {!isLoading && (
+      <>
+        {error && `Ooops, something went wrong: ${error}`}
+        {username &&
         <Main>
-            <Chat className="nes-balloon from-left">
-                <Story>
-                    Hello {name}! {description}
-                </Story>
-            </Chat>
-            {moves.map((action) => (
-              <DialogueContainer key={action.description}>
-                <DialogueBox className='nes-container with-title is-centered'>
-                  <p class="title">{action.direction}</p>
+          <Chat className="nes-balloon from-left">
+            <Story>
+              {description}
+            </Story>
+          </Chat>
+          {moves.map((action) => (
+            <DialogueContainer key={action.description}>
+              <DialogueBox className='nes-container with-title is-centered'>
+                <p className="title">{action.direction}</p>
                 <p>{action.description}</p>
                 <button type="button" className="nes-btn is-primary" onClick={() => onClick(action.direction)}>{action.direction}</button>
-                </DialogueBox>
-              </DialogueContainer>
+              </DialogueBox>
+            </DialogueContainer>
           ))}
-      </Main>
-    );
-  }
-
-  return (
-    <main className="game-screen">
-      <div className="game-container">
-        <h1>Game is loading... Please wait.</h1>
-      </div>
-    </main>
-  );
-};
+        </Main>
+        }
+      </>
+      )}
+    </>
+  )
+}
 
 export default GameScreen;
 
@@ -74,8 +76,10 @@ const Story = styled.p`
     font-size: 12px;
 `
 const DialogueContainer = styled.div`
-
+        display: flex;
+        flex-direction: column;
 `
 const DialogueBox = styled.div`
         background-color: white;
+        margin-bottom: 10px;
 `

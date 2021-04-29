@@ -23,6 +23,9 @@ const maze = createSlice({
         setLoading: (store, action) => {
             store.isLoading = action.payload
         },
+        setHistory: (store, action) => {
+            store.history = [...store.history, action.payload]
+        },
         setError: (store, action) => {
             store.error = action.payload
         }
@@ -66,10 +69,18 @@ export const secondFetch = (direction) => {
                 direction: direction
             }),
         })
-        .then(response => response.json())
+        .then((response) => {
+            if (response.ok) {
+                dispatch(maze.actions.setError(null))
+                return response.json()
+            } else {
+                throw new Error(response.statusText)}
+            })
         .then((data) => {
-            dispatch(maze.actions.startMaze(data))
-            dispatch(maze.actions.setLoading(false))
+            dispatch(maze.actions.setDescription(data.description))
+            dispatch(maze.actions.setMoves(data.actions))
         })
+        .catch(error => dispatch(maze.actions.setError(error.message)))
+        .finally(() => dispatch(maze.actions.setLoading(false)))
     }
 }
