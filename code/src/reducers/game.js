@@ -44,6 +44,7 @@ export const generateGame = (username) => {
       .then((data) => {
         dispatch(game.actions.setUsername(username));
         dispatch(game.actions.setCurrentStep(data));
+        ///
       });
   };
 };
