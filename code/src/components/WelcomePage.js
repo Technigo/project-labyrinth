@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import "nes.css/css/nes.min.css";
+import "nes.css/css/nes.min.css"
 
 import game from '../reducers/game'
 import WelcomeMessage from './WelcomeMessage'
