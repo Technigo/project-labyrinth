@@ -32,10 +32,7 @@ const Compass = styled.div`
 const Needle = styled.div`
   width: 24px; 
   margin: 52px auto 0 auto;
-  animation-name: ${waggle};
-  animation-duration: 2500ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+  animation: ${waggle} 2.5s ease-in-out infinite;
   :after {
     content: '';
     display: block;
@@ -56,7 +53,7 @@ const Needle = styled.div`
 
 const CompassText = styled.h3`
   font-size: 22px;
-  margin-top: 80px;
+  margin-top: 20px;
   color: white;
 `;
 
