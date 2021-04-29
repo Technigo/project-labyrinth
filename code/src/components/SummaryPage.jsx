@@ -19,21 +19,27 @@ const Container = styled.div`
 
 const ThankYou = styled.h2`
   color: white;
+  font-family: 'Roboto', sans-serif;
 `;
 
 const Item = styled.p`
   color: white;
-  margin: 0;
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
 `;
 
 const Text = styled.p`
   color: white;
-  margin: 0;
   margin-bottom: 15px;
 `;
 
+
 const Button = styled.button`
-  background-color: #1f9cee;
+  background-color: #34623F;
+  font-family: 'Roboto', sans-serif;
   border: none; 
   color: white;
   padding: 10px;
@@ -42,6 +48,7 @@ const Button = styled.button`
   width: fit-content;
   cursor: grab;
   border-radius: 10px;
+  margin-top: 20px;
   :hover {
     box-shadow: 0px 0px 15px -2px #1f9cee;
   }
@@ -60,10 +67,10 @@ export const SummaryPage = ({ description }) => {
       {history.map((item, index) => (
         <div key={index}>
             <Item key={index}>
-              {item === "West" ? <FaArrowRight /> : ""} 
-              {item === "North" ? <FaArrowUp /> : ""}
-              {item === "East" ? <FaArrowLeft /> : ""} 
-              {item === "South" ? <FaArrowDown /> : ""}
+                {item === "West" ? <FaArrowRight /> : ""} 
+                {item === "North" ? <FaArrowUp /> : ""}
+                {item === "East" ? <FaArrowLeft /> : ""} 
+                {item === "South" ? <FaArrowDown /> : ""}
               {item}
             </Item>
         </div>

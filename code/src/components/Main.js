@@ -5,11 +5,14 @@ import { Loading } from './Loading';
 import { Question } from './Question';
 
 const MainContainer = styled.section`
-  background-color: black;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
 `;
 
 export const Main = () => {

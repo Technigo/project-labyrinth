@@ -3,35 +3,28 @@ import styled, { keyframes } from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { game, generateQuestion } from '../reducers/game';
 
+const opacity = keyframes`
+0% {opacity: 0;}
+60% {opacity: 0;)}
+100% {opacity: 1;}`
+
 
 const StartContainer = styled.form`
   display: flex;
   flex-direction: column;
-`;
-
-const type = keyframes`
-from { width: 0; }
-to { width: 100%; }`
-
-const line = keyframes`
-  from, to { border-color: transparent }
-  50% { border-color: #1f9cee; }
+  animation: ${opacity} 3.5s linear;
 `;
 
 const Welcome = styled.h1`
   color: white;
-  background-color: black;
   text-align: center;
   font-size: 40px;
-  font-family: 'Gabriela';
   width: 100%;
   // border-right: 3px solid #1f9cee;
   white-space: nowrap;
   overflow: hidden;
   margin: 0 auto;
   letter-spacing: 1.8px;
-  animation: ${type} 2.5s steps(20, end) 0.07s 1 normal both,
-  ${line} .75s step-end infinite;
 `;
 
 const Input = styled.input`
@@ -51,17 +44,17 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  background-color: #1f9cee;
+  background-color: #34623F;
   border: none; 
   color: white;
   padding: 10px;
   font-size: 20px;
   font-weight: bold;
-  font-family: 'press start 2p';
+  font-family: 'Roboto';
   cursor: grab;
   border-radius: 10px;
   :hover {
-    box-shadow: 0px 0px 15px -2px #1f9cee;
+    box-shadow: 0px 0px 15px -2px #34623F;
   }
 `;
 

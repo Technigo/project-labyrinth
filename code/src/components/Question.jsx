@@ -7,6 +7,7 @@ import { SummaryPage } from './SummaryPage';
 
 import { StartScreen } from './StartScreen';
 
+
 const MainContainer = styled.div`
   padding: 20px;
   display: flex;
@@ -14,6 +15,7 @@ const MainContainer = styled.div`
   align-items: center;
   flex-direction: column;
   margin: 20px;
+  font-family: 'Roboto', sans-serif;
 `;
 
 const QuestionContainer = styled.div`
@@ -21,7 +23,8 @@ const QuestionContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 20px;
+  margin: 10px;
+  height: auto;
   @media (min-width: 769px) {
     flex-direction: row;
   }
@@ -30,37 +33,53 @@ const QuestionContainer = styled.div`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin: 5px;
   justify-content: space-between;
-  padding: 10px 10px 30px 10px;
+  padding: 5px 10px 15px 10px;
   width: 100%;
   align-items: center;
   background-color: #1c1a1a;
+  @media (min-width: 769) {
+    padding: 10px 10px 30px 10px;
+    margin: 10px;
+  }
 `;
 
 const Text = styled.h3`
   color: white;
   text-align: center;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 15px;
+  @media (min-width: 769) {
+    font-size: 24px;
+  }
 `;
 
 const Description = styled.p`
   color: white;
   font-size: 16px;
+  font-family: 'Roboto', sans-serif;
   text-align: center;
   margin-bottom: 20px;
+  @media (min-width: 769) {
+    font-size: 18px;
+  }
 `;
 
 const Button = styled.button`
-  background-color: #1f9cee;
+  background-color: #34623F;
   border: none; 
   color: white;
   padding: 10px;
   font-size: 20px;
   font-weight: bold;
   width: fit-content;
+  font-family: 'Roboto', sans-serif;
   cursor: grab;
   border-radius: 10px;
   :hover {
+    box-shadow: 0px 0px 15px -2px #1f9cee;
   }
 `;
 
@@ -90,7 +109,7 @@ export const Question = () => {
       {gameQuestion.actions.map((action, index) => (
         <Container key={index}>
           <Description>{action.description}</Description>
-          <Button onClick={() => onNextQuestion(action.direction)}>GO {action.direction}</Button>
+          <Button onClick={() => onNextQuestion(action.direction)}>Go {action.direction}</Button>
         </Container>
     ))} 
     </QuestionContainer>
