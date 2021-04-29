@@ -10,7 +10,7 @@ const Loader2 = () => {
     return (
       isLoading && (
         <LoadingContainer>
-            <Circular color="black" size="80px" />
+            <Circular color="red" size="80px" />
         </LoadingContainer>
       )
     )
