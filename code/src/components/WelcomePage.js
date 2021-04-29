@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import game from '../reducers/game'
@@ -21,23 +21,25 @@ const WelcomePage = () => {
            {!userName && (
                <div>
                     <header>
-                        <h1>Add title of game</h1>
-                        <p>Welcome text.</p>
+                        <h1>Technigo Labyrinth game</h1>
                     </header>
                     <form onSubmit={onNameSet}>
-                    <input 
-                        placeholder="Write your username"
-                        type='text'
-                        value={name}
-                        onChange={event => setName(event.target.value)}
-                    />
-                    <button
-                        type="submit"
-                    >Start game!</button>
+                        <label htmlFor='user-input'>
+                            Enter a username:
+                            <input 
+                                id='user-input'
+                                type='text'
+                                value={name}
+                                onChange={event => setName(event.target.value)}
+                            />
+                        </label>
+                        <button type='submit'>
+                            Submit
+                        </button>
                     </form>
                 </div>
            )} 
-            {userName && <WelcomeMessage userName={userName} />}
+           {userName && <WelcomeMessage userName={userName} />}
         </>
     )
 }

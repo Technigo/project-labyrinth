@@ -1,18 +1,20 @@
 import React from 'react'
-
 import { useSelector, useDispatch } from 'react-redux'
+
 import game, { continueGame } from 'reducers/game'
+
 import LoadingIndicator from './LoadingIndicator'
 import EndOfGame from './EndOfGame'
 
 const GameBoard = () => {
-    const gameStart = useSelector((store) => store.game.gameStatus.actions)
+    const actions = useSelector((store) => store.game.gameStatus.actions)
+    const currentDescription = useSelector((store) => store.game.gameStatus)
     const userName = useSelector((store) => store.game.username)
     const history = useSelector((store) => store.game.history)
 
     const dispatch = useDispatch()
     
-    if (gameStart.length === 0) {
+    if (actions.length === 0) {
         return (
             <EndOfGame />
         )
@@ -20,12 +22,16 @@ const GameBoard = () => {
     return (
         <>
             <LoadingIndicator />
-            <h1>{gameStart.description}</h1>
-                {gameStart?.map((action, index) => {
+            <h1>{currentDescription.description}</h1>
+            {actions?.map((action, index) => {
                 return(
                 <div key={index}>
                     <div>{action.description}</div>
-                    <button onClick={() => dispatch(continueGame(action.direction, userName))}>{action.direction}</button>
+                    <button 
+                        onClick={() => dispatch(continueGame(action.direction, userName))}
+                    >
+                        {action.direction}
+                    </button>
                     {/* <div>{action.hint}</div> vart finns hintarna?*/}
                 </div>
                 )
@@ -38,7 +44,6 @@ const GameBoard = () => {
                     Go back
                 </button>
             )}
-
         </>
     )
 }

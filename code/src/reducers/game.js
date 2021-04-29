@@ -49,7 +49,7 @@ export const registerNewPlayer = (username) => {
             dispatch(game.actions.setGameStatus(json))
             localStorage.setItem('gameStatus', JSON.stringify(json))
         })
-        .finally(() => dispatch(ui.actions.setLoading(false)));
+        .finally(() => dispatch(ui.actions.setLoading(false)))
     }
 }
 
@@ -72,7 +72,7 @@ export const continueGame = (direction) => {
             dispatch(game.actions.setGameStatus(json))
             localStorage.setItem('gameStatus', JSON.stringify(json))
         })
-        .finally(() => dispatch(ui.actions.setLoading(false)));
+        .finally(() => dispatch(ui.actions.setLoading(false)))
     }
 }
 
