@@ -3,21 +3,11 @@ body {
   font-family: 'Press Start 2P', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-image: url(./assets/mazebackground.jpg);
+  background-size: cover; */
 }
 
 code {
   font-family: 'Press Start 2P', cursive;
 }
 
-.spinning-cat {
-  animation-name: bouncer;
-  animation-duration: 0.5s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-timing-function: cubic-bezier(0.19,0.57,0.3,0.98);
-}
-
-@keyframes bouncer {
-  from { transform: translateY(0) }
-    to { transform: translateY(-100px) }
-}
