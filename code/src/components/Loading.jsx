@@ -18,21 +18,20 @@ const waggle = keyframes`
 `;
 
 const Compass = styled.div`
-  border: 2px solid #34623F;
+  border: 8px solid #34623F;
   display: block; 
-  width: 28px; 
-  height: 28px;
+  width: 116px; 
+  height: 116px;
   border-radius: 100%;
   margin: 10% auto 0 auto;
-  transform: scale(4);
   @media (min-widht: 769px) {
-    transform: scale(6);
+    transform: scale(1.5);
   }
 `;
 
 const Needle = styled.div`
-  width: 6px; 
-  margin: 12px auto 0 auto;
+  width: 24px; 
+  margin: 52px auto 0 auto;
   animation-name: ${waggle};
   animation-duration: 2500ms;
   animation-iteration-count: infinite;
@@ -42,16 +41,16 @@ const Needle = styled.div`
     display: block;
     border-color: orangered transparent;
     border-style: solid;
-    border-width: 0px 3px 10px 3px;
-    margin-top: -15px; 
+    border-width: 0px 12px 40px 12px;
+    margin-top: -54px; 
   }
   :before {
     content: '';
     display: block;
     border-color: #5e5d5d transparent;
     border-style: solid;
-    border-width: 10px 3px 0px 3px;
-    margin-bottom: -20px;
+    border-width: 40px 12px 0px 12px;
+    margin-bottom: -84px;
   }
 `;
 
