@@ -13,7 +13,6 @@ const GameScreen = () => {
     const dispatch = useDispatch()
 
     const description = useSelector((store) => store.maze.description);
-
     const moves = useSelector((store) => store.maze.moves);
     const username = useSelector((store) => store.maze.username)
     const isLoading = useSelector((store) => store.maze.isLoading);
@@ -35,16 +34,16 @@ const GameScreen = () => {
         {username &&
         <Main>
           <Chat className="nes-balloon from-left">
-            <Story>
+            <Text>
               {description}
-            </Story>
+            </Text>
           </Chat>
           {moves.map((action) => (
             <DialogueContainer key={action.description}>
               <DialogueBox className='nes-container with-title is-centered'>
-                <p className="title">{action.direction}</p>
-                <p>{action.description}</p>
-                <button type="button" className="nes-btn is-primary" onClick={() => onClick(action.direction)}>{action.direction}</button>
+                <Text className="title">{action.direction}</Text>
+                <Text>{action.description}</Text>
+                <button type="button" className="nes-btn is-primary" onClick={() => onClick(action.direction)}>Go to the {action.direction}</button>
               </DialogueBox>
             </DialogueContainer>
           ))}
@@ -59,27 +58,27 @@ const GameScreen = () => {
 export default GameScreen;
 
 const Main = styled.div`
-    background-image: url(${BackgroundImgMobile});
-    height: 100vh;
-    width: 100%;
-    background-size: cover;
-    padding: 10px;
-        @media (min-width: 1025px) {
-            background-image: url(${BackgroundImg})
-        }
+  background-image: url(${BackgroundImgMobile});
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  padding: 10px;
+    @media (min-width: 1025px) {
+      background-image: url(${BackgroundImg})
+    }
 `
 const Chat = styled.div`
-    width: 80%;
+  width: 80%;
 `
-const Story = styled.p`
-    font-family: 'Press Start 2P', cursive;
-    font-size: 12px;
+const Text = styled.p`
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
 `
 const DialogueContainer = styled.div`
-        display: flex;
-        flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `
 const DialogueBox = styled.div`
-        background-color: white;
-        margin-bottom: 10px;
+  background-color: white;
+  margin-bottom: 10px;
 `

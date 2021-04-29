@@ -11,8 +11,6 @@ const StartScreen = () => {
 
     const dispatch = useDispatch();
 
-    const moves = useSelector((store) => store.maze.moves)
-
     const isLoading = useSelector(store => store.maze.isLoading)
 
     const onStartGame = () => {
