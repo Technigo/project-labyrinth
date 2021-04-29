@@ -2,12 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components'; 
 
-
-
 export const EndPage = () => {
   const currentState = useSelector((state) => state)
 
-  
 const Container = styled.div`
     width: 900px;
     height: 300px;

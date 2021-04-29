@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux'
 import "nes.css/css/nes.min.css"
 import styled from 'styled-components'
 import InitiateGame from "./InitateGame"
-import StartGame from './StartGame'
-import ContinueGame from './ContinueGame'
+// import StartGame from './StartGame'
+// import ContinueGame from './ContinueGame'
 import WaitPage from "./WaitPage"
 
 const Container = styled.div`

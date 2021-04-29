@@ -25,7 +25,7 @@ const ContinueGame = () => {
     const currentState = useSelector((state) => state);
     const playerName =  currentState.labyrinth.username;
     const actions = currentState.labyrinth.game.actions;
-    const currentCoordinates = currentState.labyrinth.game.coordinates;
+    // const currentCoordinates = currentState.labyrinth.game.coordinates;
 
     const onGameContinue = (direction) => { 
         dispatch(generateGameProgress(playerName,direction));
