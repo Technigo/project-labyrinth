@@ -1,14 +1,14 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import BouncingLoader from './BouncingLoader'
+import SpinningLoader from './SpinningLoader'
 
 const LoadingIndicator = () => {
     const isLoading = useSelector((store) => store.ui.isLoading)
 
     return (
         <>
-        {isLoading && <BouncingLoader background='blue' />}
+        {isLoading && <SpinningLoader />}
         </>
     )
 }
