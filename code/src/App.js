@@ -1,7 +1,6 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import "nes.css/css/nes.min.css"
 
 import { directions } from './reducers/directions'
 

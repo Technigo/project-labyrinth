@@ -24,7 +24,7 @@ const StartScreen = () => {
       <p className="title">NEON CAT GAME!</p>
       <NeonCat />
       <div className="nes-field">
-        <label htmlFor="name_field">Please enter your name</label>
+        <label htmlFor="name_field">Enter your name to start the game:</label>
         <input 
           type="text" 
           id="name_field" 

@@ -1,10 +1,10 @@
 import React from 'react'
 
-const NeonCat = () => {
+const FinalNeonCat = () => {
   return (
     <div className="neon-cat-wrapper">
       <img className="neon-cat-img"
-        src="https://media.tenor.com/images/06a76e222a40867529f4dc345a9854c7/tenor.gif" 
+        src="https://media1.tenor.com/images/1bb9fc239611e96d2f976b14b45d8640/tenor.gif?itemid=5210927" 
         alt="Neon cat" 
       />
       <a href="https://tenor.com/view/neon-cat-rainbow-neon-cat-gif-15365299">
@@ -16,4 +16,5 @@ const NeonCat = () => {
   )
 }
 
-export default NeonCat
+export default FinalNeonCat
+
