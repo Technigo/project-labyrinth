@@ -5,9 +5,62 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+  font-family: 'Press Start 2P';
+  line-height: 25px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+/* Input style */
+.input-form {
+  border: 5px brown solid;
+  font-family: 'Press Start 2P';
+  outline: none;
+  padding: 5px;
+  margin: 5px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  color: brown;
+  text-align: center;
+}
+.start-button {
+  background-color: brown;
+  color: white;
+  font-family: 'Press Start 2P';
+  padding: 5px;
+}
+.greeting {
+  font-size: 30px;
+}
+.name-question {
+  font-size: 25px;
+}
+
+
+
+
+
+
+
+
+/*Maidelin*/
+div{
+  margin: 15px;
+  color:White;
+}
+.history{
+  color:White;
+  background-color:brown;
+  border-radius: 5px;
+  padding: 10px;
+}
+
