@@ -1,36 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 #root {
   background-color: #212529;
   color: white;
-  height: 100vh;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
+
 body {
   margin: 0;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 12px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+html {
+  background-color: #212529;
+  max-height: min-content;
 }
-/* @media (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
-  .nes-container.is-rounded.is-dark {
-    border-image-repeat: stretch;
-    padding: 
-  }
-} */
 
 .nes-container.is-rounded.is-dark {
-  border-image-repeat: stretch;
-  padding: 15px;
   display: flex;
   flex-direction: column;
+  border-image-repeat: stretch !important;
+  box-sizing: border-box;
+  min-height: 100%;
+  margin: 16px;
+  padding: 20px;
 }
 
 .nes-btn.is-primary {
   align-self: center;
+}
+
+.float-container {
+  float: right;
+}
+
+.icon {
+  width: 80px;
+  float: right;
 }

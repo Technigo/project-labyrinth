@@ -38,7 +38,10 @@ export const startGame = () => {
 
     fetch('https://wk16-backend.herokuapp.com/start', config)
       .then(res => res.json())
-      .then(json => dispatch(game.actions.setGameState(json)))
+      .then(json => {
+        console.log(json)
+        dispatch(game.actions.setGameState(json))
+      })
       .finally(() => dispatch(game.actions.setLoading(false)));
   }
 }
@@ -61,7 +64,11 @@ export const continueGame = () => {
 
     fetch('https://wk16-backend.herokuapp.com/action', config)
       .then(res => res.json())
-      .then(json => dispatch(game.actions.setGameState(json)))
+      .then(json => {
+        console.log(json)
+        dispatch(game.actions.setGameState(json))
+      })
+      // .then(json => dispatch(game.actions.setGameState(json)))
       .finally(() => dispatch(game.actions.setLoading(false)));
   }
 }

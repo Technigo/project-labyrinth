@@ -12,7 +12,15 @@ const ActionButton = ({ chosenDirection }) => {
   }
 
   return (
-    <button onClick={onGameContinue} type="button" className="nes-btn is-primary">Start walking</button>
+    <>
+      { chosenDirection &&
+        <button
+          onClick={onGameContinue}
+          type="button"
+          className="nes-btn is-primary">
+          Go {chosenDirection}
+        </button>}
+    </>
   )
 }
 export default ActionButton

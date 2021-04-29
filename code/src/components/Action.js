@@ -1,11 +1,6 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
 
-
-import ActionButton from './ActionButton'
-import ActionDescription from './ActionDescription'
-
-const Action = ({ direction, chosenDirection, setChosenDirection }) => {
+const Action = ({ direction, setChosenDirection }) => {
   return (
     <div>
       <label>
@@ -16,7 +11,7 @@ const Action = ({ direction, chosenDirection, setChosenDirection }) => {
           onChange={(event) => setChosenDirection(event.target.value)}
           value={direction}
         />
-        <span>{direction}</span>
+        <span>Look {direction}</span>
       </label>
     </div>
   )
