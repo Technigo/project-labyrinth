@@ -87,7 +87,7 @@ const TopTextsContainer = styled.div`
 
 const Button = styled.button`
   width: 200px;
-  margin: 10px;
+  margin: 20px;
 `;
 
 const GameText = styled.p`
