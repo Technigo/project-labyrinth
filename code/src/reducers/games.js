@@ -22,8 +22,8 @@ export const games  = createSlice({
         },
         setPreviousGameStatus: (store) => {
             if (store.history.length) {
-                store.saveGameStatus = store.history[store.history.length - 1];
-                store.history = store.history.slice(0, store.history.length - 1);
+                store.gameStatus = store.history[store.history.length - 1]
+                store.history = store.history.slice(1, store.history.length - 1)
             }
         },
         setError: (store, action) => {
