@@ -10,7 +10,7 @@ const maze = createSlice({
     history: [],
     isLoading: false,
     error: null,
-    gameOver: false,
+    gameState: "",
   },
   reducers: {
     setUsername: (store, action) => {
@@ -34,10 +34,13 @@ const maze = createSlice({
     setError: (store, action) => {
       store.error = action.payload;
     },
-    setGameOver: (store) => {
+    setGameState: (store) => {
       if (store.coordinates === "0,0") {
-        const setTrue = true;
-        store.gameOver = setTrue;
+        const setGameState = "lose";
+        store.gameState = setGameState;
+      } else if (store.coordinates === "1,3") {
+        const setGameState = "win";
+        store.gameState = setGameState;
       }
     },
   },
@@ -95,7 +98,7 @@ export const secondFetch = (direction) => {
         dispatch(maze.actions.setMoves(data.actions));
         dispatch(maze.actions.setCoordinates(data.coordinates));
         dispatch(maze.actions.setHistory(data.coordinates));
-        dispatch(maze.actions.setGameOver());
+        dispatch(maze.actions.setGameState());
       })
       .catch((error) => dispatch(maze.actions.setError(error.message)))
       .finally(() => dispatch(maze.actions.setLoading(false)));
