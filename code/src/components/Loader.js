@@ -3,9 +3,17 @@ import styled from 'styled-components'
 
 const Loader = () => {
   return (
-    <Loading></Loading>
+    <LoaderContainer>
+        <Loading></Loading>
+    </LoaderContainer>
   )
 }
+
+const LoaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+`;
 
 const Loading = styled.div`
   width:60px;
