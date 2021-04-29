@@ -5,6 +5,7 @@ const game = createSlice({
   initialState: {
     username: null,
     direction: null,
+    history:[],
     loading: false
   },
   reducers: {
@@ -14,21 +15,33 @@ const game = createSlice({
     setDirection: (store, action) => {
       store.direction = action.payload
     },
+    setHistoryReverse: (store, action) => {
+      if(store.history.length) {
+        store.game = store.history[store.history.length -1];
+        store.history = store.history.slice(0,store.history.length -1);
+      }
+    },
+    setHistory: (store, action) => {
+      console.log(action)
+      if(store.direction){
+        store.history = [...store.history, store.direction]
+      } store.direction = action.payload
+    },
     setLoading: (store, action) => {
       store.loading = action.payload
     }
   }
 })
 
-export const generateGame = (usernameFinal) => {
-    return (dispatch) => {
+export const generateGame = (username) => {
+    return (dispatch, getState) => {
       dispatch(game.actions.setLoading(true))
         fetch('https://wk16-backend.herokuapp.com/start', {
           method: 'POST',
           headers: {
             'Content-type': 'application/json'
           },
-          body: JSON.stringify({ username : usernameFinal})
+          body: JSON.stringify({ username: getState().game.username})
         })
         .then(res => res.json())
         .then(data => dispatch(game.actions.setDirection(data)))  
@@ -36,7 +49,7 @@ export const generateGame = (usernameFinal) => {
       } 
   }
 
-export const nextStep = (usernameFinal,direction) => {
+export const nextStep = (username,direction) => {
   return (dispatch) => {
     dispatch(game.actions.setLoading(true))
     fetch('https://wk16-backend.herokuapp.com/action', {
@@ -45,16 +58,18 @@ export const nextStep = (usernameFinal,direction) => {
             'Content-type': 'application/json'
           },
           body: JSON.stringify({ 
-            username : usernameFinal, 
-            direction : direction,
-            type : 'move'
+            username : username,             
+            type : 'move', direction
           })
 
         })
         .then(res => res.json())
-        .then(data => dispatch(game.actions.setDirection(data)))  
+        .then(data => {
+          dispatch(game.actions.setDirection(data))  
+          dispatch(game.actions.setHistory(data))
+        }
+        )
         .finally(() => dispatch(game.actions.setLoading(false)))
-
       }
 }
 

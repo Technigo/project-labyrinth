@@ -7,16 +7,18 @@ const InGame = () => {
   const direction = useSelector((store) => store.game.direction)
   const actions = useSelector((store) => store.game.direction.actions)
   const usernameFinal = useSelector((store) => store.game.username)
+  const history = useSelector((store) => store.game.history)
   const dispatch = useDispatch() 
 
-  // console.log('action:', actions)
-
-  console.log(direction)
+  const onSetHistoryReverse = () => {
+    dispatch(game.actions.setHistoryReverse())
+  }
 
 
   return (
     <div>
         <p>{direction.description}</p>
+        <button disabled={!history.length} onClick={onSetHistoryReverse}>Back</button>
         {
           actions.map((action) => (
             <div key={action.description}>
