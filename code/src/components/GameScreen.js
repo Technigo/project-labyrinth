@@ -25,9 +25,21 @@ const GameScreen = () => {
             <Main>
               <Header>
                 <HeartContainer>
-                  <Heart>❤️</Heart>
-                  <Heart>❤️</Heart>
-                  <Heart>❤️</Heart>
+                  <Heart>
+                    <span role="img" aria-label="heart">
+                      ❤️
+                    </span>
+                  </Heart>
+                  <Heart>
+                    <span role="img" aria-label="heart">
+                      ❤️
+                    </span>
+                  </Heart>
+                  <Heart>
+                    <span role="img" aria-label="heart">
+                      ❤️
+                    </span>
+                  </Heart>
                 </HeartContainer>
                 <Location>COORDINATES - {place}</Location>
               </Header>
