@@ -39,6 +39,7 @@ const ButtonContainer = styled.div`
 
 const SingleButtonContainer = styled.div`
   width: 50%;
+  margin: 5px;
   @media (min-width: 768px) {
     font-size: 40%;
   }
