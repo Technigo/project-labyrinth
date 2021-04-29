@@ -46,9 +46,10 @@ const Container = () => {
           <Description />
           {showActions && 
           <Directions/>}
+        <History />
         </>
         : <UserForm />}
-      <History />
+      
     </div>
   )
 }
