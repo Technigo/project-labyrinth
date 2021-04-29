@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
-import game from "../reducers/game";
+import game from '../reducers/game'
 
 export const NameInput = () => {
-  const [value, setValue] = useState("");
-  const dispatch = useDispatch();
+  const [value, setValue] = useState('')
+  const dispatch = useDispatch()
 
   const onUserNameSet = (event) => {
-    event.preventDefault();
-    dispatch(game.actions.setUserName(value));
+    event.preventDefault()
+    dispatch(game.actions.setUserName(value))
     // dispatch(generateGame(value))
-  };
+  }
 
   return (
     <>
@@ -25,7 +25,7 @@ export const NameInput = () => {
           <input
             type="text"
             id="name_field"
-            className="nes-input"
+            className="nes-input is-dark"
             value={value}
             onChange={(e) => setValue(e.target.value)}
           />
@@ -35,5 +35,5 @@ export const NameInput = () => {
         </button>
       </form>
     </>
-  );
-};
+  )
+}

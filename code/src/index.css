@@ -5,7 +5,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
-  
+}
+
+.nes-text.is-success {
+  word-break: break-all;
 }
 
 code {
@@ -22,6 +25,10 @@ main {
   margin-top: 100px;
 }
 
+.nes-btn {
+  margin-top: 24px;
+}
+
 .nes-bulbasaur {
   margin: 24px;
 }
@@ -33,4 +40,16 @@ main {
 
 .name-field {
   font-size: 14px;
+}
+
+.navigation-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.coordinates {
+  font-size: 14px;
+  text-align: center;
 }

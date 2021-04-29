@@ -23,32 +23,42 @@ export const GameScreen = () => {
   if (gameData) {
     return (
       <main>
-        <button 
-        className={!history.length > 0 ? "nes-btn is-disabled" : "nes-btn is-warning"}
-        onClick={onGoBack} 
-        // disabled={!history.length > 0}
-        >
-          Run back!
-        </button>
-        <p>{gameData.coordinates}</p>
-        <p>{gameData.description}</p>
-        {gameData.actions.map((action) => {
-          return (
-            <div>
-              <h4>{action.description}</h4>
-              <button 
-              className="nes-btn is-primary"
-              onClick={() => onContinueGame(action.direction)}>
-                {action.direction}
-              </button>
-            </div>
-          )
-        })}
-        <button 
-        class="nes-btn is-error"
-        onClick={onReset}
-        >
-          restart
+        <p className="nes-balloon is-dark from-left nes-pointer">
+          {gameData.description}
+        </p>
+        <i class="nes-bulbasaur"></i>
+        <div className="nes-container is-rounded is-dark">
+          {gameData.actions.map((action) => {
+            return (
+              <div>
+                <h4>{action.description}</h4>
+                <button
+                  className="nes-btn is-success"
+                  onClick={() => onContinueGame(action.direction)}
+                >
+                  {action.direction}
+                </button>
+              </div>
+            )
+          })}
+        </div>
+        <div className="navigation-container">
+          <button
+            className={
+              !history.length > 0 ? 'nes-btn is-disabled' : 'nes-btn is-warning'
+            }
+            onClick={onGoBack}
+          >
+            Run back!
+          </button>
+          <div>
+            <p className="coordinates nes-text is-disabled">
+              Location: {gameData.coordinates}
+            </p>
+          </div>
+        </div>
+        <button class="nes-btn is-error" onClick={onReset}>
+          Restart
         </button>
       </main>
     )
