@@ -7,7 +7,7 @@ import { nextStep } from '../reducers/games'
 const LoadingContainer = styled.div`
 background-color: black;
 color: white;
-font-size: 24px;
+font-size: 20px;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -17,10 +17,10 @@ justify-content: center;
 const ActionContainer = styled.div`
 background-color: black;
 color: white;
-padding: 15px;
+padding: 25px;
 display: flex;
-width: 100vw;
-height: 100vh;
+width: auto;
+heigth: 100vh;
 flex-direction: column;
 align-items: center;
 justify-content: center;
@@ -32,12 +32,13 @@ background-color: black;
 color: white;
 padding: 15px;
 display: flex;
-width: 100vw;
+width: auto;
 height: 100vh;
 flex-direction: column;
+flex-wrap: wrap;
 align-items: center;
 justify-content: center;
-margin: 20px;
+margin: 0;
 `
 
 const Text = styled.text`

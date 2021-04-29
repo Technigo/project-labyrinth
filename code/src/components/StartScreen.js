@@ -8,8 +8,8 @@ const Container = styled.div`
 background-color: black;
 color: white;
 padding: 15px;
-display: flex;
-width: 100vw;
+display: inline-block;
+width: auto;
 height: 100vh;
 flex-direction: column;
 align-items: center;
