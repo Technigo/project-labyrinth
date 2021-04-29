@@ -18,7 +18,7 @@ export const WelcomeScreen = () => {
     <>
       <div className="nes-container is-dark">
         <p>
-          Welcome <span className="nes-text is-success">{userName}!</span> are you
+          Welcome <span className="user-name nes-text is-success">{userName}!</span> are you
           ready for an adventure filled with romance, mystery and possibly some
           bugs?
         </p>

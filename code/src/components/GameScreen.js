@@ -23,17 +23,19 @@ export const GameScreen = () => {
   if (gameData) {
     return (
       <main>
-        <p className="nes-balloon is-dark from-left nes-pointer">
-          {gameData.description}
-        </p>
-        <i class="nes-bulbasaur"></i>
+        <section className="bulbasaur-container">
+          <p className="nes-balloon is-dark from-right nes-pointer nes-text is-success">
+            {gameData.description}
+          </p>
+          <i className="nes-bulbasaur"></i>
+        </section>
         <div className="nes-container is-rounded is-dark">
           {gameData.actions.map((action) => {
             return (
               <div>
-                <h4>{action.description}</h4>
+                <p className="nes-text is-primary">{action.description}</p>
                 <button
-                  className="nes-btn is-success"
+                  className="nes-btn is-primary"
                   onClick={() => onContinueGame(action.direction)}
                 >
                   {action.direction}

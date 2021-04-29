@@ -7,7 +7,7 @@ body {
   color: white;
 }
 
-.nes-text.is-success {
+.user-name {
   word-break: break-all;
 }
 
@@ -31,6 +31,12 @@ main {
 
 .nes-bulbasaur {
   margin: 24px;
+}
+
+.bulbasaur-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .nes-field {
