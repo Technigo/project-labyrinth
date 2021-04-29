@@ -1,13 +1,19 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This weeks assignment was to create a labyrinth game using React and Redux with thunks.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Our biggest issue was making the post requests work. More specifically to retrieve the feedback from the API.
+It turned out that we were sending the wrong data and as we corrected that things worked again. 
+Generally the issues have been syntax related and as we got a boost in the right direction we managed to fix things.
+
+Another issue was to display the direction the player took. We only managed to retrieve all possible choices rather than the path of the player.
+As we got another boost in the right direction we also managed to solve this.
+
+In conclusion the hardest thing this week has been the syntax in combination with using post requests.
+But in hindsight we've learned a lot about both syntax and post requests.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://malin-and-jessikas-labyrinth.netlify.app
