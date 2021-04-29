@@ -17,14 +17,25 @@ const StartScreen = () => {
   return (
     <Background>
       <Container>
-        <Header>Welcome ...</Header>
-        <input 
+        <Header>Welcome to the labyrinth</Header>
+        <Text>Do you want to play a game?</Text>
+        <Text> Please enter your name</Text>
+        <Input 
           type='text'
           value={inputValue}
           placeholder='Type your username'
           onChange={event => setInputValue(event.target.value)}
         />
-        <Button onClick={onUserSet}>Start the game!</Button>
+        <Button onClick={onUserSet}>START</Button>
+        <Animation>
+          <lottie-player 
+            src='https://assets9.lottiefiles.com/temp/lf20_QtNLkw.json'  
+            background='transparent'  
+            speed='1'  
+            style={{width: '300px', height: '300px'}} 
+            loop  autoplay>
+          </lottie-player>
+        </Animation>
       </Container>
     </Background>
   )
@@ -49,13 +60,40 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (min-width: 767px){
+    padding-top: 60px;
+  }
 `
 const Header = styled.h1`
-  background-color: pink;
+  color: #FFF;
+  display: inline-block;
+  text-align: center;
+  margin-top: 45px;
 `
-
+const Text = styled.p`
+  color: #FFF;
+  font-weight: bold;
+  margin: 5px;
+`
+const Input = styled.input`
+  border: none;
+  height: 25px;
+  margin-top: 30px;
+`
 const Button = styled.button`
   border: none;
-  background-color: #FFF;
-  margin-top: 30px;
+  color: #FFF;
+  font-weight: bold;
+  margin-top: 20px;
+  background: none;
+  border: solid 2px #FFF;
+  padding: 7px 14px;
+
+  :hover {
+    color: #000;
+    background-color: #FFF;
+  }
+`
+const Animation = styled.div`
 `

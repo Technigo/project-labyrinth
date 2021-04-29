@@ -1,6 +1,4 @@
-import {
-  createSlice
-} from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
 const games = createSlice({
   name: 'games',
@@ -9,7 +7,8 @@ const games = createSlice({
     description: null,
     direction: null,
     moves: null,
-    // history: [],
+    // moves: null,
+    history: [],
     // gameStatus: {}
     error: null,
     loading: false
@@ -22,11 +21,23 @@ const games = createSlice({
     setDescription: (store, action) => {
       store.description = action.payload
     },
+    // setMoves: (store, action) => {
+    //   store.moves = action.payload
+    // },
+    setMoves: (store, action) => {
+      if (store.moves) {
+        store.history = [...store.history, store.moves]
+      }
+      store.moves = action.payload
+    },
+    setPreviousMove: (store, action) => {
+      if (store.history.length) {
+        store.moves = store.history[store.history.length - 1]
+        store.history = store.history.slice(0, store.history.length - 1)
+      }
+    },
     setDirection: (store, action) => {
       store.direction = action.payload
-    },
-    setMoves: (store, action) => {
-      store.moves = action.payload
     },
     setError: (store, action) => {
       store.error = action.payload
@@ -73,7 +84,6 @@ export const createPlayer = () => {
 }
 
 export const generateQuestion = () => {
-
   return (dispatch, getState) => {
     dispatch(games.actions.setLoading(true))
     fetch('https://wk16-backend.herokuapp.com/action', {
