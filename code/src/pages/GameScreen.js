@@ -65,16 +65,16 @@ const GameScreen = () => {
 
 					 <MovesText>Your options are:</MovesText>
 
-           <h1>{gameStatus.actions.map(action => (
+           {gameStatus.actions.map(action => (
                <OneMoveContainer>
                  <p>{action.description}</p>
-								 <button
+								 <button 
 								 key={userName}
 								 onClick={() => dispatch(generateNextQuestion(userName, action.direction))}
 								 >{action.direction}</button>
                </OneMoveContainer>
 
-           ))}</h1>
+           ))}
        </GameScreenMainDiv>
    )
 }
