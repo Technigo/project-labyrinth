@@ -4,7 +4,8 @@ export const WelcomePageContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 90%;
-    margin: auto;
+    max-width: 600px;
+    margin: 50px auto;
 `
 
 export const HeaderContainerStyling = styled.header`
@@ -14,7 +15,7 @@ export const HeaderContainerStyling = styled.header`
 `
 
 export const MainHeader = styled.h1`
-    color: black;
+    color: white;
     text-align: center;
 `
 
@@ -22,7 +23,7 @@ export const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: black;
+    color: white;
 `
 export const ButtonContainer = styled.div`
     margin-top: 20px;

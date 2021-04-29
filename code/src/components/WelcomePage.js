@@ -22,29 +22,31 @@ const WelcomePage = () => {
         <>
            {!userName && (
                <WelcomePageContainer>
-                    <HeaderContainerStyling>
-                        <MainHeader>Technigo Labyrinth game</MainHeader>
-                    </HeaderContainerStyling>
-                    <FormContainer onSubmit={onNameSet}>
-                        <div class="nes-field">
-                            <label for="name_field">Enter a username:</label>
-                            <input 
-                                type="text" 
-                                id="name_field" 
-                                class="nes-input"
-                                value={name}
-                                onChange={event => setName(event.target.value)}
-                            />
-                        </div>
-                        <ButtonContainer>
-                            <button 
-                                type="submit" 
-                                class="nes-btn is-success"
-                            >
-                                Submit
-                            </button>
-                        </ButtonContainer>
-                    </FormContainer>
+                   <div class="nes-container is-rounded is-dark">
+                        <HeaderContainerStyling>
+                            <MainHeader>Technigo Labyrinth game</MainHeader>
+                        </HeaderContainerStyling>
+                        <FormContainer onSubmit={onNameSet}>
+                            <div class="nes-field">
+                                <label for="name_field">Enter a username:</label>
+                                <input 
+                                    type="text" 
+                                    id="name_field" 
+                                    class="nes-input"
+                                    value={name}
+                                    onChange={event => setName(event.target.value)}
+                                />
+                            </div>
+                            <ButtonContainer>
+                                <button 
+                                    type="submit" 
+                                    class="nes-btn is-success"
+                                >
+                                    Submit
+                                </button>
+                            </ButtonContainer>
+                        </FormContainer>
+                    </div>
                 </WelcomePageContainer>
            )} 
            {userName && <WelcomeMessage userName={userName} />}
