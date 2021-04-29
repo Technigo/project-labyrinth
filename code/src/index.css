@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-family: 'Press Start 2P', cursive; 
   color: #ffff;
+  font-size: 10px;
 }
 
 .main {
@@ -9,28 +10,58 @@ body {
   width: 100vw;
 }
 
-.loader-img{
+.loader-img {
   height: 100vh;
   width: 100vw;
 }
 
-.section {
-  background-image: url("assets/giphy-game.gif");
+.section-switch {
   height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section {
+  background-image: url("assets/giphy-game.gif");
+}
+
+.first-step {
+  background-image: url("assets/first-step.jpeg");
+}
+
+.brighter {
+  background-image: url("assets/rays-of-light.jpeg");
+}
+
+.mechanical {
+  background-image: url("assets/mechanical-room.jpeg")
+}
+
+.melody {
+  background-image: url("assets/music-wall.jpeg");
+
+}
+
+.bookshelves {
+  background-image: url("assets/library-room .jpeg");
+}
+
+.ended {
+  background-image: url("assets/last-step.jpeg");
 }
 
 
 .game-wrapper {
-  width: 50%;
-  height: 40%;
+  width: 60%;
   padding: 30px;
   margin: 30px;
   border: 4px solid black;
-  background-color: rgb(42, 33, 167)
+  background-color: rgb(64, 42, 134)
 }
 
 .game-wrapper label {
@@ -41,4 +72,37 @@ body {
   margin-top: 25px;
 }
 
+.action {
+  display: flex;
+  justify-content: center;
+}
 
+.action-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: 4px solid #ffff;
+  background: #212529;
+  margin: 20px 5px;
+  padding: 20px;
+  width: 50%;
+}
+
+.action-btn {
+  margin-bottom: 20px;
+}
+
+.action-content {
+  height: 100%;
+  text-align: center;
+}
+
+.history-container {
+  display: inline;
+}
+
+.action-text {
+  display: flex;
+  display: inline;
+}

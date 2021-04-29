@@ -1,7 +1,7 @@
 import React, { useState } from 'react' 
 import { useDispatch, useSelector } from 'react-redux'
 
-import StartScreen from 'components/StartScreen'
+import TopText from 'components/TopText'
 import games, { generateGame } from '../reducers/games'
 
 const WelcomePage = () => {
@@ -22,7 +22,7 @@ const WelcomePage = () => {
   return (
       <div>
         { name ? 
-          <StartScreen /> : 
+          <TopText /> : 
         <div className="test"> 
           <div className="nes-field">
             <label htmlFor="name_field" className="nes-text is-warning">Enter your name</label>
@@ -34,7 +34,7 @@ const WelcomePage = () => {
               onChange={e => setInputValue(e.target.value)}
             />
           </div>
-          <button onClick={onNameSet} type="button" className="nes-btn is-warning">PRESS START</button>
+          <button onClick={onNameSet} type="button" className="nes-btn is-warning">ENTER</button>
         </div>   
         }   
       </div>

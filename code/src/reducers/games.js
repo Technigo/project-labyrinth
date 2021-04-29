@@ -4,11 +4,18 @@ const games = createSlice({
   name: 'games',
   initialState: {
     username: null,
-    description: {
+    description:{
       coordinates: 0.0,
       description: '',
       actions: []
-    }, 
+    },
+   /*  description: localStorage.getItem('question') 
+    ? JSON.parse(localStorage.getItem('question'))
+    : {
+      coordinates: 0.0,
+      description: '',
+      actions: []
+    },  */
     history: [],
     error: null, 
     loading: false 
@@ -28,7 +35,7 @@ const games = createSlice({
     }, 
     setLoading: (store, action) => {
       store.loading = action.payload
-    }
+    }, 
   }
 })
 
@@ -52,6 +59,7 @@ export const generateGame = (name) => {
     })
     .then(question => {
       dispatch(games.actions.setDescription(question))
+      localStorage.setItem('question', JSON.stringify(question))
     })
     .catch(error => dispatch(games.actions.setError(error.message)))
     .finally(() => { 
@@ -82,12 +90,14 @@ export const generateMove = (name, directionMove) => {
     })
     .then(question => {
       dispatch(games.actions.setDescription(question))
+      localStorage.setItem('question', JSON.stringify(question))
       dispatch(games.actions.setHistory(directionMove))
     })
     .catch(error => dispatch(games.actions.setError(error.message)))
     .finally(() => dispatch(games.actions.setLoading(false)))
   }
 }
+
 
 export default games
 
