@@ -4,13 +4,13 @@ import { useSelector } from 'react-redux'
 import game from 'reducers/game'
 
 const InGame = () => {
- const direction = useSelector((store) => store.game.username)
+  const direction = useSelector((store) => store.game.direction)
 
- console.log("test:", direction.description)
+
 
   return (
     <div>
-        <p>test: {direction.description}</p>
+        <p>test: {direction && direction.description}</p>
   </div>
   )
 }
