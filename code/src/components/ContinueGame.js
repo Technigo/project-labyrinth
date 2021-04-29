@@ -12,6 +12,11 @@ const Container = styled.div`
     width: 900px;
     height: 450px;
     margin-top: 50px;
+    
+    @media (min-width: 768px) {
+      height:550px;
+      margin-top: 20px;
+     };
 `
 
 export const Description = styled.h2`
