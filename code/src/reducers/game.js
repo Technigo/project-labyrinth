@@ -1,20 +1,29 @@
 import React from 'react'
 import { createSlice } from '@reduxjs/toolkit'
 
-const game = createSlice ({
-  name: "game",
-  initialState: {
+const initialItems = localStorage.getItem('game')
+	? JSON.parse(localStorage.getItem('game'))
+	: {
     username: "",
     coordinates: 0,
     description: "",
     actions: [],
+    history: [],
     loadProgress: 100,
-    error: null //less than half implemented
-    //gameRunning bool
-  },
+    error: null
+  }
+
+//username: localStorage.getItem('username')
+//? JSON.parse(localStorage.getItem('username'))
+//: "",
+
+const game = createSlice ({
+  name: "game",
+  initialState: initialItems,
   reducers: {
     setUsername: (store, action) => {
       console.log("username set!")
+      localStorage.setItem('username', JSON.stringify(action.payload))
       store.username = action.payload
     },
     setGameState: (store, action) => {

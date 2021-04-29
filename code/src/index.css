@@ -28,10 +28,18 @@ label {
   margin: 50px;
 }
 
-.action-btn-wrapper {
+.confirm-btn-wrapper {
   display: flex;
   justify-content: center;
   margin: 30px 50px 10px 50px;
+  flex-basis: 90%;
+  flex-grow: 1;
+}
+
+.restart-btn-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin: 30px 10px 10px 10px;
   flex-basis: 90%;
   flex-grow: 1;
 }
