@@ -29,12 +29,13 @@ const StartScreen = () => {
                     onChange={event => setInputValue(event.target.value)}
                     placeholder="Type your name..."
                 />
-                <StartScreenButton onClick={onFormSubmit}>Start</StartScreenButton>
+                <StartScreenButton onClick={onFormSubmit}>START</StartScreenButton>
             </StartScreenForm>
         </StartScreenBox>
     )
 }
 
+// Mobile styling
 const StartScreenBox = styled.div `
     display:flex;
     flex-direction: column;
@@ -43,12 +44,12 @@ const StartScreenBox = styled.div `
     margin: 0 auto;
     background-color: black;
     background-image: radial-gradient(rgba(0, 150, 0, 0.75), black 120%);
-    width: 400px;
+    width: 320px;
     height: 300px;
 `
 
 const StartScreenTitle = styled.h1`
-    font-size: 18px;
+    font-size: 16px;
     color: white;
     font-family: Inconsolata, monospace;
     text-shadow: 0 0 5px #C8C8C8;
@@ -61,14 +62,16 @@ const StartScreenForm = styled.form`
 `
 
 const StartScreenInput = styled.input`
-    margin: 0 0 20px 0;
+    margin: 25px 0;
     width: 200px;
     background-color: black;
     color: grey;
     border-color: grey;
+    outline: 0;
 `
-
 const StartScreenButton = styled.button`
     width: 100px;
+    border-radius: 0.10em;
+    border: none;
 `
 export default StartScreen
