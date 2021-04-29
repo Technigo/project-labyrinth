@@ -10,6 +10,7 @@ const maze = createSlice({
     history: [],
     isLoading: false,
     error: null,
+    gameOver: false,
   },
   reducers: {
     setUsername: (store, action) => {
@@ -33,6 +34,9 @@ const maze = createSlice({
     setError: (store, action) => {
       store.error = action.payload;
     },
+    setGameOver: (store, action) => {
+      console.log(maze.history)
+    } 
   },
 });
 
@@ -57,7 +61,7 @@ export const firstFetch = () => {
         dispatch(maze.actions.setDescription(data.description));
         dispatch(maze.actions.setMoves(data.actions));
         dispatch(maze.actions.setCoordinates(data.coordinates))
-        dispatch(maze.actions.setHistory(data.coordinates));
+        /* dispatch(maze.actions.setHistory(data.coordinates)); */
       })
       .catch((error) => dispatch(maze.actions.setError(error.message)))
       .finally(() => dispatch(maze.actions.setLoading(false)));
@@ -88,6 +92,7 @@ export const secondFetch = (direction) => {
         dispatch(maze.actions.setMoves(data.actions));
         dispatch(maze.actions.setCoordinates(data.coordinates))
         dispatch(maze.actions.setHistory(data.coordinates));
+        dispatch(maze.actions.setGameOver())
       })
       .catch((error) => dispatch(maze.actions.setError(error.message)))
       .finally(() => dispatch(maze.actions.setLoading(false)));

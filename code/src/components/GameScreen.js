@@ -15,7 +15,6 @@ const GameScreen = () => {
   const isLoading = useSelector((store) => store.maze.isLoading);
   const error = useSelector((store) => store.maze.error)
   const place = useSelector((store) => store.maze.coordinates)
-  console.log(place)
 
 
   return (
@@ -30,9 +29,9 @@ const GameScreen = () => {
         <Main>
           <Header>
             <HeartContainer>
-            <Heart>❤️</Heart>
-            <Heart>❤️</Heart>
-            <Heart>❤️</Heart>
+            <Heart><span role='img' aria-label='heart'>❤️</span></Heart>
+            <Heart><span role='img' aria-label='heart'>❤️</span></Heart>
+            <Heart><span role='img' aria-label='heart'>❤️</span></Heart>
             </HeartContainer>
             <Location>
               COORDINATES - {place}
