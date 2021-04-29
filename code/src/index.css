@@ -11,7 +11,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image:url("/assets/labyrinth-Background.jpg");
+  /* background-image:url("/assets/labyrinth-Background.jpg"); */
   background-repeat: no-repeat;
   background-attachment: fixed;
   object-fit: cover;
@@ -24,6 +24,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
 /* Input style */
 .input-form {
   border: 5px brown solid;
@@ -105,7 +106,7 @@ div{
 }
 .container{
   position: relative;
-
+  min-height: 100vh;
 }
 .history{
   color:White;

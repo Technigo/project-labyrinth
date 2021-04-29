@@ -8,11 +8,15 @@ import Directions from './Directions'
 import GoBack from './GoBack'
 import History from './History'
 
+
+
 const Container = () => {
   const actions = useSelector(store => store.labyrinth.actions)
   const history = useSelector(store => store.labyrinth.history)
   const error = useSelector(store => store.labyrinth.error)
   const loading = useSelector(store => store.labyrinth.loading)
+
+  
   
   const backgroundImage = "/assets/labyrinth-Background.jpg"
 
@@ -30,7 +34,7 @@ const Container = () => {
   }, [actions])
 
   return (
-    <div className="container" style={{backgroundImage }}>
+    <div className="container" style={{backgroundImage: `url(${backgroundImage})`}}>
 
       {error && <h1>Something went wrong, reason: {error}</h1>}
       {actions && !error
@@ -41,7 +45,7 @@ const Container = () => {
                 type="BallTriangle"
                 color="brown"
                 height={100}
-                width={100}
+            width={100}
                 timeout={1000} //3 secs
               />
             </div>
