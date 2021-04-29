@@ -6,22 +6,23 @@ import { createSlice } from '@reduxjs/toolkit'
   initialState: {
     username: null,
     actions: [],
-    description: '',
+    description:'',
 
   },
   reducers: {
     setUsername: (store, action) => {
       store.username = action.payload 
     },
-    setDescription: (store, action) => {
-      store.description = action.payload.description
+
+    setRespons: (store, action) => {
+      store.actions = action.payload
     },
   }
 }) 
 
 export const generateGame = () => {
   return (dispatch, getState) => {
-      fetch('https://wk16-backend.herokuapp.com/start', {
+      fetch(`https://wk16-backend.herokuapp.com/start`, {
         method: 'POST',
         headers: {
           'Content-type': 'application/json'
@@ -29,7 +30,8 @@ export const generateGame = () => {
         body: JSON.stringify({ username : getState().games.username })
       })
       .then(res => res.json())
-      .then(description => dispatch(games.actions.setDescription(description)))
+      .then(data => dispatch(games.actions.setRespons(data)))
+      
     } 
 }
 
