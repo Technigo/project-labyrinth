@@ -5,9 +5,80 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+* {
+  font-family: 'Press Start 2P', cursive;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* GAMES */
+.main-container {
+  margin: 10px;
+}
+
+/* START SCREEN  */
+.start-screen-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-style: inset;
+  margin: 0 auto;
+}
+
+.start-screen-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.start-screen-content h1, p {
+  color: lightgray;
+  text-align: center;
+}
+
+.start-screen-content h1 {
+  margin: 30px 0 50px 0;
+  font-size: 20px;
+}
+
+.start-screen-content p {
+  margin: 0 0 50px 0;
+  font-size: 16px;
+}
+
+.snes-jp-logo {
+  margin: 0 0 50px 0;
+}
+
+.nes-field {
+  margin-bottom: 26px;
+  width: 240px;
+  height: 50px;
+}
+
+.nes-btn {
+  margin: 0 0 40px 0;
+}
+
+/* MEDIA QUIERIES */
+
+@media (min-width: 768px) {
+
+  .main-container {
+    margin: 50px;
+  }
+/* START SCREEN */
+  .start-screen-wrapper {
+    width: 60%;
+  }
 }
