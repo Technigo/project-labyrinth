@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+
 import { Loading } from './Loading';
 import { Question } from './Question';
 
@@ -23,5 +24,5 @@ export const Main = () => {
       {loading && <Loading />} 
       {!loading && <Question />}
     </MainContainer>
-    )
-  }
+  )
+};

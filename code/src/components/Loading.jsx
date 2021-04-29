@@ -24,7 +24,10 @@ const Compass = styled.div`
   height: 28px;
   border-radius: 100%;
   margin: 10% auto 0 auto;
-  transform: scale(6);
+  transform: scale(4);
+  @media (min-widht: 769px) {
+    transform: scale(6);
+  }
 `;
 
 const Needle = styled.div`
@@ -67,5 +70,4 @@ export const Loading = () => {
       <CompassText>Locating direction...</CompassText>
     </Container>
   )
-}
-
+};

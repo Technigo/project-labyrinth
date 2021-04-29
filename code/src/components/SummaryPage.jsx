@@ -1,8 +1,19 @@
 import { useSelector } from 'react-redux';
 import React from 'react';
-import { FaArrowDown, FaArrowLeft, FaArrowRight, FaArrowUp } from "react-icons/fa";
+import { 
+  FaArrowDown, 
+  FaArrowLeft, 
+  FaArrowRight, 
+  FaArrowUp } from "react-icons/fa";
 
-import { SummaryContainer, ThankYou, Text, PathContainer, Arrow, Item, RestartButton } from "./Styling";
+import { 
+  SummaryContainer, 
+  ThankYou, 
+  Text, 
+  PathContainer, 
+  Arrow, 
+  Item, 
+  RestartButton } from "./Styling";
 
 export const SummaryPage = ({ description }) => {
   const history = useSelector(store => store.game.history);
@@ -26,8 +37,10 @@ export const SummaryPage = ({ description }) => {
           </Item>
         </PathContainer>
       ))}
-      <RestartButton onClick={() => window.location.reload()}>RESTART</RestartButton>
+      <RestartButton 
+        onClick={() => window.location.reload()}>
+          RESTART
+      </RestartButton>
     </SummaryContainer>
   )
-}
-
+};

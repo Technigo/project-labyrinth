@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { game, generateQuestion } from '../reducers/game';
-import { StartContainer, Welcome, Input, Button } from './Styling';
+import { 
+  StartContainer, 
+  Welcome, 
+  Input, 
+  Button } from './Styling';
 
 export const StartScreen = () => {
   const [value, setValue] = useState('');
@@ -11,7 +15,7 @@ export const StartScreen = () => {
     event.preventDefault()
     dispatch(game.actions.setUserName(value))
     dispatch(generateQuestion(value))
-  }
+  };
 
   return (
     <StartContainer onSubmit={onSetName}>
@@ -32,4 +36,4 @@ export const StartScreen = () => {
       </Button>
     </StartContainer>
   )
-}
+};

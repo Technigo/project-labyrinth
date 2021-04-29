@@ -12,13 +12,11 @@ const reducer = combineReducers({
   ui: ui.reducer
 })
 
-
 const store = configureStore({ reducer })
 
 export const App = () => (
-  <Provider store={store}>
+  <Provider store={ store }>
     <Labyrinth />
     <Main />
   </Provider>
 )
-

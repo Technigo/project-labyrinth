@@ -1,9 +1,8 @@
 import React from 'react';
-
 import styled, { keyframes } from 'styled-components';
 
 const card = keyframes`
-from {opacity: 0; transform: scale(0.1)}
+  from {opacity: 0; transform: scale(0.1)}
   to {opacity: 1; transform: scale(1)};
 `;
 
@@ -19,7 +18,7 @@ export const SmallBox = styled.div`
   width: 20%;
   height: 10%;
   :nth-of-type(1n) {
-      animation: ${card} 1.2s ease-out;
+    animation: ${card} 1.2s ease-out;
   };
   :nth-of-type(2n) {
     animation: ${card} 1.4s ease-out;
@@ -39,9 +38,11 @@ export const BorderRight = styled(SmallBox)`
 export const BorderTop = styled(SmallBox)`
   border-top: 2px solid #1c1a1a;
 `;
+
 export const BorderLeft = styled(SmallBox)`
   border-left: 2px solid #1c1a1a;
 `;
+
 export const BorderBottom = styled(SmallBox)`
   border-bottom: 2px solid #1c1a1a;
 `;
@@ -110,4 +111,4 @@ export const Labyrinth = () => {
       <SmallBox></SmallBox>
     </Container>
   )
-}
+};

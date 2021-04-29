@@ -135,6 +135,7 @@ export const SummaryContainer = styled(Container)`
 
 export const ThankYou = styled.h2`
   font-family: 'Roboto', sans-serif;
+  text-align: center;
 `;
 
 export const Text = styled.p`
