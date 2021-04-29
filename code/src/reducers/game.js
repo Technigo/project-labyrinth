@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { ui } from "./ui";
 
 export const game = createSlice({
   name: "game",
@@ -44,13 +45,13 @@ export const generateGame = (username) => {
       .then((data) => {
         dispatch(game.actions.setUsername(username));
         dispatch(game.actions.setCurrentStep(data));
-        ///
       });
   };
 };
 
 export const generateMove = (username, direction) => {
   return (dispatch) => {
+    dispatch(ui.actions.setLoading(true));
     fetch(`https://wk16-backend.herokuapp.com/action`, {
       method: "POST",
       headers: {
@@ -65,6 +66,7 @@ export const generateMove = (username, direction) => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setCurrentStep(data));
+        dispatch(ui.actions.setLoading(false));
       });
   };
 };
