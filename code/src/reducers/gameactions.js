@@ -1,7 +1,7 @@
 import React from 'react';
 import { createSlice } from '@reduxjs/toolkit'
 
-import { API_START } from '../utils/urls'
+import { API_START, API_ACTION } from '../utils/urls'
 
 const gameactions = createSlice({
   name: 'gameactions',
@@ -38,6 +38,27 @@ export const generateGame = () => {
     )
   }
 }
+
+export const nextAction = () => {
+  return (dispatch, getState) => {
+    return (
+      fetch(API_ACTION, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          username: getState().gameactions.username,
+          direction: getState().gameactions.gamestart,
+          type: 'move'
+        })
+      })
+        .then(res => res.json())
+        .then(data => dispatch(gameactions.actions.setGamestart(data)))
+    )
+  }
+}
+
 export default gameactions
 //
 //console.log(data)
