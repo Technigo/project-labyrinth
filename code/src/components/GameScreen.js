@@ -4,6 +4,7 @@ import "nes.css/css/nes.min.css";
 
 import Action from './Action'
 import ActionButton from './ActionButton'
+import RestartButton from './RestartButton';
 
 const GameScreen = () => {
   const gameState = useSelector(store => store.game.gameState)
@@ -22,26 +23,23 @@ const GameScreen = () => {
   }
 
   return (
-    <div className="nes-container is-rounded is-dark float-container">
+    <div className="nes-container is-rounded is-dark">
 
-      <p><img src={setImagePath()} className="icon" />{gameState.description}</p>
+      <p><img src={setImagePath()} className="icon" alt="icon" />{gameState.description}</p>
 
+      {gameState.coordinates !== "1,3" && <p>What do you do?</p>}
+      {gameState.coordinates === "1,3" && <RestartButton />}
 
-      <div className="action-container">
-        {gameState.coordinates !== "1,3" && <p>What do you do?</p>}
-        <div className="direction-container">
-          {gameState.actions.map(action =>
-            <Action
-              direction={action.direction}
-              key={action.description}
-              chosenDirection={chosenDirection}
-              setChosenDirection={setChosenDirection} />)}
-        </div>
+      {gameState.actions.map(action =>
+        <Action
+          direction={action.direction}
+          key={action.description}
+          chosenDirection={chosenDirection}
+          setChosenDirection={setChosenDirection} />)}
 
-        {chosenAction[0] !== undefined && <p className="description">{chosenAction[0].description}</p>}
-      </div>
+      {chosenAction[0] !== undefined && <p className="description">{chosenAction[0].description}</p>}
 
-      <ActionButton chosenDirection={chosenDirection} />
+      {chosenDirection && <ActionButton chosenDirection={chosenDirection} />}
     </div >
   )
 }

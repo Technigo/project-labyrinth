@@ -14,7 +14,7 @@ const StartScreen = () => {
   }
   return (
     <div className="nes-container is-rounded is-dark">
-      <img src="./assets/cave.svg" className="start-screen-image" />
+      <img src="./assets/cave.svg" className="start-screen-image" alt="icon of a cave" />
       <p>Welcome Adventurer!</p>
       <label htmlFor="dark_field">Enter your name:</label>
 

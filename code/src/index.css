@@ -33,10 +33,6 @@ html {
   align-self: center;
 }
 
-.float-container {
-  float: right;
-}
-
 .icon {
   width: 80px;
   float: right;
