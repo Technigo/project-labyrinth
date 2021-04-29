@@ -1,10 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {
+    createSlice
+} from '@reduxjs/toolkit';
 
-const labyrinth = createSlice (
-{
+const labyrinth = createSlice({
     name: "labyrinth",
-    initialState:
-    {
+    initialState: {
         data: {
             username: null,
             description: null,
@@ -13,14 +13,18 @@ const labyrinth = createSlice (
             isLoading: false,
             coordinates: null,
             history: []
-    }
-},
+        }
+    },
     reducers: {
         setUsername: (store, action) => {
-           store.data.username = action.payload;
+            store.data.username = action.payload;
         },
         setData: (store, action) => {
-            const {description, coordinates, actions} = action.payload;
+            const {
+                description,
+                coordinates,
+                actions
+            } = action.payload;
             store.data.description = description;
             store.data.coordinates = coordinates;
             store.data.actions = actions;
@@ -33,49 +37,56 @@ const labyrinth = createSlice (
             store.data.isLoading = action.payload;
         }
     }
-}
-)
+})
 
 export const generateStart = () => {
     return (dispatch, getState) => {
-    dispatch(labyrinth.actions.setLoading(true))
-    fetch("https://wk16-backend.herokuapp.com/start", {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({username: getState().labyrinth.data.username})})
-    .then(res => res.json())
-    .then(data => {
-        dispatch(labyrinth.actions.setLoading(false))
-        dispatch(labyrinth.actions.setData({
-            description: data.description,
-            coordinates: data.coordinates,
-            actions: data.actions}))
+        dispatch(labyrinth.actions.setLoading(true))
+        fetch("https://wk16-backend.herokuapp.com/start", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username: getState().labyrinth.data.username
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                dispatch(labyrinth.actions.setLoading(false))
+                dispatch(labyrinth.actions.setData({
+                    description: data.description,
+                    coordinates: data.coordinates,
+                    actions: data.actions
+                }))
 
-    })
+            })
     }
 }
 
 export const generateStory = () => {
     return (dispatch, getState) => {
         dispatch(labyrinth.actions.setLoading(true))
-    fetch("https://wk16-backend.herokuapp.com/action", {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({username: getState().labyrinth.data.username,
-            type: "move",
-            direction: getState().labyrinth.data.direction})})
-    .then(res => res.json())
-    .then(data => {
-        dispatch(labyrinth.actions.setLoading(false))
-        dispatch(labyrinth.actions.setData({
-            description: data.description,
-            coordinates: data.coordinates,
-            actions: data.actions}))
-    });
+        fetch("https://wk16-backend.herokuapp.com/action", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username: getState().labyrinth.data.username,
+                    type: "move",
+                    direction: getState().labyrinth.data.direction
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                dispatch(labyrinth.actions.setLoading(false))
+                dispatch(labyrinth.actions.setData({
+                    description: data.description,
+                    coordinates: data.coordinates,
+                    actions: data.actions
+                }))
+            });
 
     }
 }

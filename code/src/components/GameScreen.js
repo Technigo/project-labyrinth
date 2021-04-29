@@ -29,9 +29,6 @@ const Next = styled.div`
 }
 `
 
-const Icon = styled.span`
-font-size: 40px;`
-
 const GameScreen = () => {
   const dispatch = useDispatch();
   const data = useSelector(store => store.labyrinth.data);
@@ -43,10 +40,10 @@ const GameScreen = () => {
 
   const setIcon = () => {
     switch(data.coordinates){
-      case "0,1": return <Icon role="img" aria-label="robot">🤖</Icon>
-      case "0,2": return <Icon role="img" aria-label="music">🎵</Icon>
-      case "0,3": return <Icon role="img" aria-label="scroll">📜</Icon>
-      case "1,0": return <Icon role="img" aria-label="star">✨</Icon>
+      case "0,1": return <span style={{fontSize: "40px"}} role="img" aria-label="robot">🤖</span >
+      case "0,2": return <span style={{fontSize: "40px"}} role="img" aria-label="music">🎵</span >
+      case "0,3": return <span style={{fontSize: "40px"}} role="img" aria-label="scroll">📜</span>
+      case "1,0": return <span style={{fontSize: "40px"}} role="img" aria-label="star">✨</span>
       case "1,1": return <i className="nes-icon is-medium heart"></i>
       case "1,3": return <i className="nes-icon trophy is-large"></i>
       default: return <i className="nes-icon is-medium star"></i>

@@ -5,7 +5,6 @@ import styled from 'styled-components/macro';
 
 import labyrinth from './reducers/labyrinth'
 import Game from './components/Game';
-
 import LabyrinthImg from './assets/Labyrinth_Background.png'
 
 

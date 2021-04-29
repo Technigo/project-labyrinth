@@ -11,7 +11,6 @@ const username = useSelector(store => store.labyrinth.data.username)
     <div>
       {username? <GameScreen /> : <StartScreen />}
     </div>
-
   )
 }
 

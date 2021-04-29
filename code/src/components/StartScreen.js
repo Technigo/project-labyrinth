@@ -3,11 +3,20 @@ import styled from 'styled-components/macro';
 import {useDispatch} from 'react-redux';
 import "nes.css/css/nes.min.css";
 
-
 import labyrinth, { generateStart } from '../reducers/labyrinth'
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
+  @media (min-width: 768px){
+    width: 600px;
+  }
+  @media (min-width: 1024px){
+  width: 800px;
+  }
 `
 
 const Title = styled.span`
@@ -27,7 +36,6 @@ color: #c7c7c7;
 font-size: 24px;
 }
 `
-
 const Start = styled.div`
 display: flex;
 flex-direction: column;
@@ -63,7 +71,8 @@ const onUsernameSet = () => {
           type="button"
           style={{marginTop: "20px"}}
           className="nes-btn"
-          onClick={onUsernameSet}>Start the game!
+          onClick={onUsernameSet}>
+            Start the game!
         </button>
       </Start>
     </Container>
