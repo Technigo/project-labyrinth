@@ -27,10 +27,20 @@ body {
   margin-top: 50px;
 }
 
+.is-rounded {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .nes-icon {
   animation: blinking 1.2s infinite;
 }
 
+.nes-btn {
+  width: fit-content;
+}
 .hide {
   display: none;
 }

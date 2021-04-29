@@ -42,8 +42,6 @@ const Text = styled.div`
 const MoveContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
 
   @media (min-width: 668px) {
@@ -53,8 +51,6 @@ const MoveContainer = styled.div`
 const Flexbox = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
   flex: 1;
   
