@@ -44,14 +44,14 @@ const InitiateGame = () => {
     return (
         <Container className="nes-container is-dark with-title">
             <p className="title">Welcome to the labyrinth game</p>
-            <p>Type in your name <i class="snes-jp-logo"></i></p>
+            <p>Type in your unique username<i class="snes-jp-logo"></i></p>
             <input
                 id="dark_field"
                 type="text"
                 value={inputValue}
                 onChange={event => setInputValue(event.target.value)}
                 className="nes-input is-dark" 
-                placeholder="username"
+                placeholder="At least two letter and two numbers"
             />
             <button type="button" className="nes-btn is-success" onClick={setGame}>Create Player</button>
         </Container>
