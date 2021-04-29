@@ -40,6 +40,9 @@ const ButtonContainer = styled.div`
 const SingleButtonContainer = styled.div`
   width: 50%;
   margin: 5px;
+  padding: 5px;
+  margin-top: 10px;
+  border: 1px solid white;
   @media (min-width: 768px) {
     font-size: 40%;
   }
@@ -51,7 +54,7 @@ const Button = styled.button`
   border-radius: 3px;
   color: black;
   font-weight: 500px;
-  margin: 40px 0 0 10px;
+  margin: 10px 0 0 10px;
   padding: 5px;
   cursor: pointer;
 
