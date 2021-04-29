@@ -29,6 +29,12 @@ const game = createSlice({
         store.history = store.history.slice(0, store.history.length - 1);
       }
     },
+    setResetGame: (store, action) => {
+      store.userName = null;
+      store.gameData = null;
+      store.gameStart = false;
+      store.history = [];
+    }
   },
 });
 

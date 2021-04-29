@@ -15,9 +15,11 @@ export const GameScreen = () => {
     dispatch(game.actions.setPreviousStep());
   };
 
-  // const onReset = () => {
+  const onReset = () => {
+    dispatch(game.actions.setResetGame());
+    console.log('onReset')
+  }
 
-  // }
 
   if (gameData) {
     return (
@@ -37,7 +39,7 @@ export const GameScreen = () => {
             </div>
           );
         })}
-        {/* <button onClick={}>restart</button> */}
+        <button onClick={onReset}>restart</button>
       </>
     );
   } else {
