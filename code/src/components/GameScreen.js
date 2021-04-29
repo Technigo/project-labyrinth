@@ -8,12 +8,14 @@ import BackgroundImg from "../images/game-screen.jpg";
 import LoadingScreen from "./LoadingScreen";
 import Balloon from "./Balloon";
 import Dialogue from "./Dialogue";
+import GameOverScreen from './GameOverScreen'
 
 const GameScreen = () => {
   const username = useSelector((store) => store.maze.username);
   const isLoading = useSelector((store) => store.maze.isLoading);
   const error = useSelector((store) => store.maze.error);
   const place = useSelector((store) => store.maze.coordinates);
+  const gameState = useSelector((store) => store.maze.gameState)
 
   return (
     <>
@@ -21,7 +23,7 @@ const GameScreen = () => {
       {!isLoading && (
         <>
           {error && `Ooops, something went wrong: ${error}`}
-          {username && (
+          {username && gameState === '' && (
             <Main>
               <Header>
                 <HeartContainer>
@@ -46,10 +48,12 @@ const GameScreen = () => {
               <Balloon />
               <Dialogue />
 
-              {/*{winner &&
-          <i className="nes-icon is-large star"></i>
-          } */}
+            {/* {gameState === 'win' && <i className="nes-icon is-large star"></i>} */}
+
             </Main>
+          )}
+          {gameState === 'lose' && (
+            <GameOverScreen />
           )}
         </>
       )}
