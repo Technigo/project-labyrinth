@@ -6,7 +6,7 @@ import game, { continueGame } from 'reducers/game'
 
 import LoadingIndicator from './LoadingIndicator'
 import EndOfGame from './EndOfGame'
-import { GameBoardContainer, Header, ActionContainer} from './styled-components/GameBoardStyling'
+import { GameBoardContainer, Header, ActionContainer, GoBackButton, Action, ActionDescription } from './styled-components/GameBoardStyling'
 
 const GameBoard = () => {
     const actions = useSelector((store) => store.game.gameStatus.actions)
@@ -29,27 +29,32 @@ const GameBoard = () => {
                     <Header>{currentDescription.description}</Header>
                         {actions?.map((action, index) => {
                             return(
-                            <div key={index} class="nes-container is-rounded is-dark">
-                                <ActionContainer>
-                                    <p>{action.description}</p>
-                                    <button 
-                                        type="button" 
-                                        class="nes-btn is-success"
-                                        onClick={() => dispatch(continueGame(action.direction, userName))}
-                                    >
-                                        {action.direction}
-                                    </button>
-                                </ActionContainer>
-                            </div>
+                            <Action>
+                                <div key={index} class="nes-container is-rounded is-dark">
+                                    <ActionContainer>
+                                        <ActionDescription>{action.description}</ActionDescription>
+                                        <button 
+                                            type="button" 
+                                            class="nes-btn is-success"
+                                            onClick={() => dispatch(continueGame(action.direction, userName))}
+                                        >
+                                            {action.direction}
+                                        </button>
+                                    </ActionContainer>
+                                </div>
+                            </Action>
                             )
                         })}
                     {history.length > 1 && ( 
-                        <button 
-                            type="button"
-                            onClick={() => dispatch(game.actions.setPreviousDescription())}
-                        >
-                            Go back
-                        </button>
+                        <GoBackButton>
+                            <button 
+                                type="button" 
+                                class="nes-btn is-primary"
+                                onClick={() => dispatch(game.actions.setPreviousDescription())}
+                            >
+                                Go back
+                            </button>
+                        </GoBackButton>
                     )}
                 </div>
             </GameBoardContainer>
