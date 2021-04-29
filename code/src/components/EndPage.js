@@ -8,28 +8,16 @@ export const EndPage = () => {
   const currentStep = useSelector((store) => store.game.currentStep);
   return (
     <EndPageSection>
-      <p>{currentStep.description}</p>
-      <Section class="icon-list">
+      <Paragraph>{currentStep.description}</Paragraph>
+      <Section className="icon-list">
         <Coin>
-          <i class="nes-icon is-large star"></i>
-        </Coin>
-        <Coin>
-          <i class="nes-icon is-large star"></i>
-        </Coin>
-        <Coin>
-          <i class="nes-icon is-large star"></i>
+          <i className="nes-icon is-large star"></i>
         </Coin>
         <Cat>
-          <i class="nes-octocat animate"></i>
+          <i className="nes-octocat animate"></i>
         </Cat>
         <Coin>
-          <i class="nes-icon is-large star"></i>
-        </Coin>
-        <Coin>
-          <i class="nes-icon is-large star"></i>
-        </Coin>
-        <Coin>
-          <i class="nes-icon is-large star"></i>
+          <i className="nes-icon is-large star"></i>
         </Coin>
       </Section>
       <ButtonContainer>
@@ -98,4 +86,8 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 20px;
+`;
+
+const Paragraph = styled.p`
+  padding: 0 30px;
 `;

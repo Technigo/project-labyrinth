@@ -30,23 +30,27 @@ export const GamePage = () => {
               <p>Which way will you go {gameUsername}?</p>
             </TopTextsContainer>
             {gameActions.map((action) => (
-              <DiscriptionContainer
-                key={action.description}
-                className="nes-container is-rounded"
-              >
-                <ButtonContainer>
-                  <Button
-                    className="nes-btn is-primary"
-                    onClick={() =>
-                      dispatch(generateMove(gameUsername, action.direction))
-                    }
-                  >
-                    {action.direction}
-                  </Button>
-                </ButtonContainer>
+              <DescriptionWrapper>
+                <DescriptionContainer
+                  key={action.description}
+                  className="nes-container is-rounded"
+                >
+                  <ButtonContainer>
+                    <Button
+                      className="nes-btn is-primary"
+                      onClick={() =>
+                        dispatch(generateMove(gameUsername, action.direction))
+                      }
+                    >
+                      {action.direction}
+                    </Button>
+                  </ButtonContainer>
 
-                <TextInBox className="nes-text">{action.description}</TextInBox>
-              </DiscriptionContainer>
+                  <TextInBox className="nes-text">
+                    {action.description}
+                  </TextInBox>
+                </DescriptionContainer>
+              </DescriptionWrapper>
             ))}
             <BottomSection>
               <Button
@@ -72,8 +76,7 @@ const Main = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  border: 1px solid black;
-  margin: 0 20px;
+  margin: 50px 20px;
 
   @media (min-width: 768px) {
     width: 500px;
@@ -89,7 +92,7 @@ const TopTextsContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 10px;
 `;
 
 const Button = styled.button`
@@ -117,11 +120,11 @@ const TextInBox = styled.p`
   }
 `;
 
-const DiscriptionContainer = styled.div`
+const DescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
   background: #fff;
-  margin: 20px;
+  margin-bottom: 60px;
 `;
 
 const ButtonContainer = styled.div`
@@ -134,4 +137,8 @@ const BottomSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-item: center;
+`;
+
+const DescriptionWrapper = styled.div`
+  margin-bottom: 30px;
 `;
