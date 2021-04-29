@@ -29,6 +29,11 @@ export const game = createSlice({
         store.history = store.history.slice(0, store.history.length - 1);
       }
     },
+    restartGame: (store) => {
+      store.username = "";
+      store.currentStep = {};
+      store.history = [];
+    },
   },
 });
 
@@ -71,4 +76,4 @@ export const generateMove = (username, direction) => {
   };
 };
 
-//TESTING
+//TESTINGG

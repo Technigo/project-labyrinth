@@ -15,11 +15,13 @@ export const StartPage = () => {
   };
 
   return (
-    <div>
+    <Main>
       <i className="nes-octocat animate"></i>
       <form onSubmit={onFormSubmit}>
         <div className="nes-field">
-          <label htmlFor="userName">Your name</label>
+          <label className="name-input" htmlFor="userName">
+            Your name
+          </label>
           <TextInput
             id="userName"
             className="nes-input"
@@ -34,20 +36,37 @@ export const StartPage = () => {
           Play Game
         </Button>
       </form>
-    </div>
+    </Main>
   );
 };
 
-const Button = styled.button`
-  width: 100px;
+const Main = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-item: center;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    width: 500px;
+  }
+
+  @media (min-width: 1200px) {
+    height: 900px;
+    width: 800px;
+  }
 `;
 
-const Form = styled.form`
-  background-color: black;
+const Button = styled.button`
+  width: 150px;
+  margin-top: 20px;
 `;
+
+const Form = styled.form``;
 
 const TextInput = styled.input`
   width: 300px;
+  margin: 0;
 
   @media (min-width: 768px) {
     width: 500px;

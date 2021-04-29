@@ -22,7 +22,7 @@ const Load = styled.div`
   border-style: solid;
   border-width: 5px;
   border-radius: 50%;
-  border-color: #f5be0a;
+  border-color: #00bbff;
   animation-name: ${breatheAnimation};
   animation-duration: 8s;
   animation-iteration-count: infinite;

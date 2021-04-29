@@ -26,9 +26,10 @@ export const App = () => {
 };
 
 const AppMainContainer = styled.div`
-  height: 100vh;
-  width: 100%;
-  display: grid;
-  place-items: center;
-  background: #FFC300;
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffc300;
 `;
