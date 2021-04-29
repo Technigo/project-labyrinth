@@ -1,19 +1,28 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from "styled-components/macro"
 import { useDispatch } from 'react-redux'
 
-import labyrinth, { startContent } from '../reducers/labyrinth'
+import { gameContent } from 'reducers/labyrinth'
 
 const Container = styled.div`
   box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
     0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
   border-radius: 6px;
-  background: #fff;
+  border: 1px solid darkgrey;
+  background-color: transparent;
   margin-bottom: 20px;
-  width: 70%;
+  width: 300px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 `;
 
+const DescriptionText = styled.p`
+  margin: 0;
+  color: black;
+`
 const CustomButton = styled.button`
   box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
     0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
@@ -24,34 +33,19 @@ const CustomButton = styled.button`
   cursor: pointer;
 `;
 
-
-const StartScreen = () => {
-  const [inputValue, setInputValue] = useState('')
-
+export const GameCard = ({action}) => {
   const dispatch = useDispatch()
-  
-  const onUserSet = () => {
-    dispatch (labyrinth.actions.setName(inputValue))
-    dispatch(startContent())
+
+  const onSetDirection = (action) => {
+    dispatch(gameContent(action))
   }
 
   return (
     <>
       <Container>
-        <h1>Welcome!</h1>
-        <input 
-          type="text"
-          value={inputValue}
-          onChange={e => setInputValue(e.target.value)}
-        />
-        <CustomButton
-          onClick={onUserSet}
-        >
-          Start!
-        </CustomButton>
+          <DescriptionText>{action.description}</DescriptionText>
+          <CustomButton onClick={() => onSetDirection(action)}>Head {action.direction}</CustomButton>
       </Container>
     </>
   )
 }
-
-export default StartScreen

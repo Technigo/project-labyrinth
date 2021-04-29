@@ -3,77 +3,90 @@ import { createSlice } from '@reduxjs/toolkit'
 const labyrinth = createSlice({
   name: 'labyrinth',
   initialState: {
-      playerName: null,
-      actions: [{
-      type: null, 
-      direction: null,
-      description: null, 
-    }]
+    playerName: '',
+    actions: localStorage.getItem('startContent')
+      ? JSON.parse(localStorage.getItem('startContent'))
+      : [],
+    description: '',
+    history: [],
+    error: '',
+    loading: false
   },
   reducers: {
     setName: (store, action) => {
       store.playerName = action.payload
-  },
-    setDirection: (store, action) => {
-      store.actions.direction = action.payload
-  }
+    },
+    setActions: (store, action) => {
+      console.log(store.actions.actions)
+      if (store.actions) {         //check this logic, right now there's nothing being added to history - store.actions
+        store.history = [...store.history, store.actions]
+      }
+      store.actions = action.payload
+    }, 
+    setPreviousAction: (store, action) => {
+      if (!store.history.length < 1) {          //check this logic
+        store.actions = store.history[store.history.length - 1]
+        store.history = store.history.slice(0, store.history.length - 1)
+      }
+    },
+    setError: (store, action) => {
+      store.error = action.payload
+    },
+    setLoading: (store, action) => {
+      store.loading = action.payload
+    }
   }
 })
 
-export const generateContent = () => {
-  const config = {   
-    method: 'POST', 
-    headers: {              
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ username: store.playerName })     
-  }
-
+export const startContent = () => {
   return (dispatch, getState) => {
-      // if () {
-      //     fetch(`https://wk16-backend.herokuapp.com/action`)
-      //         .then(res => res.json())
-      //         .then(data => dispatch(labyrinth.actions.setQuote(data)))
-      // } else {
-          fetch(`https://wk16-backend.herokuapp.com/start`)
-              .then(res => res.json())
-              .then(data => {
-                dispatch(labyrinth.actions.setName(data))
-                console.log(data)
-              })
-  }
+    dispatch(labyrinth.actions.setLoading(true))    //if implementing an if statement like Maks regarding which fetch to do, leave this dispatch above it
+
+    fetch('https://wk16-backend.herokuapp.com/start', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({ username : getState().labyrinth.playerName }),
+    })
+      .then(res => {
+        if (res.ok) {
+          dispatch(labyrinth.actions.setError(''))
+          return res.json()
+        } else {
+          console.log(res)
+          throw new Error(res.statusText)
+        }
+      })
+      .then(data => {
+        dispatch(labyrinth.actions.setActions(data))
+        localStorage.setItem('startContent', JSON.stringify(data))
+      })
+      .catch(error => dispatch(labyrinth.actions.setError(error.message)))
+      .finally(() => dispatch(labyrinth.actions.setLoading(false)))
+}
 }
 
-
-export default labyrinth;
-
-
-const handleFormSubmit = (event) => {
-  event.preventDefault();
-
-  if (!validateFormInput()) {
-    return;
-  }
-
-  const config = {   
-      method: 'POST', 
-      headers: {              
-        'Content-Type': 'application/json'
+export const gameContent = (action) => {
+  return (dispatch, getState) => {
+    fetch('https://wk16-backend.herokuapp.com/action', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
       },
-      body: JSON.stringify({ message: newMessage })     
-  };
-
-  fetch(API_URL, config)      
-    .then(res => {
-      if (res.ok) {
-        return res.json();
-      } 
-      throw new Error('Error! Something went wrong. Try again!')
+      body: JSON.stringify({ 
+        username : getState().labyrinth.playerName,
+        type : action.type,
+        direction : action.direction 
+      }),
     })
-    .then(() => fetchMessageList())     
-    .catch(err => {
-      setErrorMessage(err.message);
-    });      
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        dispatch(labyrinth.actions.setActions(data))
+      })
+      .catch(error => console.error('Our error is :', error))
+    }
+}
 
-  setNewMessage('');
-};
+export default labyrinth
