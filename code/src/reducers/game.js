@@ -4,73 +4,95 @@ import { createSlice } from '@reduxjs/toolkit'
 const game = createSlice ({
   name: "game",
   initialState: {
-    username: "Ojskipojski",
+    username: "",
     coordinates: 0,
     description: "",
-    actions: [
-      
-    ]
+    actions: [],
+    loadProgress: 100,
+    error: null //less than half implemented
     //gameRunning bool
   },
   reducers: {
     setUsername: (store, action) => {
+      console.log("username set!")
       store.username = action.payload
     },
     setGameState: (store, action) => {
-      const updatedGameState = {
-        username: store.username,
-        coordinates: action.payload.coordinates,
-        description: action.payload.description,
-        actions: action.payload.actions
-      }
-      store = updatedGameState
+      store.coordinates = action.payload.coordinates
+      store.description = action.payload.description
+      store.actions = action.payload.actions
     },
-    toggleComplete: (store, action) => {
-      const updatedTasks = store.tasks.map(task => {
-        if (task.id === action.payload) {
-          return {
-            ...task,
-            isComplete: !task.isComplete
-          }
-        } else {
-          return task
-        }
-      })
-      store.tasks = updatedTasks
+    setLoadProgress: (store, action) => {
+      if (action.payload === 100) {
+        store.loadProgress = action.payload
+      } else {
+        console.log("attempted fake load ;)")
+        store.loadProgress = action.payload
+        setTimeout(500)
+        store.loadProgress = (action.payload + 10)
+        setTimeout(500)
+        store.loadProgress = (action.payload + 10)
+      }
+    },
+    setError: (store, action) => {
+      store.loadProgress = action.payload
     }
   }
 })
 
 //${method} where method is either action or start in the url 
 
-const start = ( type, direction ) => {
+export const start = ( name ) => {
   return (dispatch, getState) => {
+    dispatch(game.actions.setLoadProgress(33))
     fetch("https://wk16-backend.herokuapp.com/start", {
       method: "POST",
-      body: {
-        username: "Ojski",
-        type: "",
-        direction: ""
-      }
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify({
+        username: name
+      })
     })
-      .then(res => res.json())
-      .then(update => dispatch(game.actions.setUsername(update))) 
+      .then(res => {
+        dispatch(game.actions.setLoadProgress(55))
+        return res.json()
+      })
+      .then(update => {
+        dispatch(game.actions.setLoadProgress(77))
+        return dispatch(game.actions.setGameState(update))
+      })
+      .catch(error => dispatch(game.actions.setError(error.message)))
+      .finally(() => dispatch(game.actions.setLoadProgress(100)))
   }
 }
 
-export const advance = ( type, direction ) => {
+export const advance = ( action ) => {
   return (dispatch, getState) => {
+    const state = getState()
+    dispatch(game.actions.setLoadProgress(33))
     fetch("https://wk16-backend.herokuapp.com/action", {
       method: "POST",
-      body: {
-        username: "Ojskipojski",
-        type: "",
-        direction: ""
-      }
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify({
+        username: state.game.username,
+        type: action.type,
+        direction: action.direction
+      })
     })
-      .then(res => res.json())
-      .then(update => dispatch(game.actions.setGameState(update))) 
-  }
+      .then(res => {
+        dispatch(game.actions.setLoadProgress(55))
+        return res.json()
+      })
+      .then(update => {
+        dispatch(game.actions.setLoadProgress(77))
+        return dispatch(game.actions.setGameState(update))
+      })
+      .catch(error => dispatch(game.actions.setError(error.message)))
+      .finally(() => dispatch(game.actions.setLoadProgress(100))) 
+    }
 }
 
 export default game

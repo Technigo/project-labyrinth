@@ -11,7 +11,7 @@ code {
 }
 
 label {
-  margin: 30px;
+  margin: 20px 30px 20px 0px;
 }
 
 .game-wrapper {
@@ -21,5 +21,17 @@ label {
 
 .room-info {
   flex-basis: 80%;
+  flex-grow: 1;
+}
+
+.room-placeholder {
+  margin: 50px;
+}
+
+.action-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 30px 50px 10px 50px;
+  flex-basis: 90%;
   flex-grow: 1;
 }
