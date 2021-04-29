@@ -3,15 +3,13 @@ import styled from 'styled-components'
 import { keyframes } from 'styled-components'
 import "nes.css/css/nes.min.css"
 
-//<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> 
-
 export const Overlay = styled.div`
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;  
-    background-color: rgba(61, 64, 91, 0.3); 
+    background-color: rgba(244, 244, 244, 0.3); 
 `
 
 export const ImageCountainer = styled.div`
@@ -49,7 +47,7 @@ const SpinningLoader = () => {
         <Overlay>
             <ImageCountainer>
                 <LoadingImage 
-                    src={'./assets/maze.png'}
+                    src='../assets/maze.png'
                     alt='maze'
                 />
             </ImageCountainer>

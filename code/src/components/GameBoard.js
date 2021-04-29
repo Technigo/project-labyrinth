@@ -9,6 +9,7 @@ import EndOfGame from './EndOfGame'
 import { GameBoardContainer, Header, ActionContainer, GoBackButton, Action, ActionDescription } from './styled-components/GameBoardStyling'
 
 const GameBoard = () => {
+    const isLoading = useSelector((store) => store.ui.isLoading)
     const actions = useSelector((store) => store.game.gameStatus.actions)
     const currentDescription = useSelector((store) => store.game.gameStatus)
     const userName = useSelector((store) => store.game.username)
@@ -23,7 +24,9 @@ const GameBoard = () => {
     }
     return (
         <>
-            <LoadingIndicator />
+            {isLoading 
+                ? <LoadingIndicator />
+                : 
             <GameBoardContainer>
                 <div class="nes-container is-rounded is-dark">
                     <Header>{currentDescription.description}</Header>
@@ -58,6 +61,7 @@ const GameBoard = () => {
                     )}
                 </div>
             </GameBoardContainer>
+            }
         </>
     )
 }

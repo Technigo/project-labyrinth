@@ -26,5 +26,7 @@ export const FormContainer = styled.form`
     color: white;
 `
 export const ButtonContainer = styled.div`
-    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
 `
