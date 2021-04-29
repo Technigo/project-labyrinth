@@ -5,8 +5,8 @@ import { createSlice } from '@reduxjs/toolkit'
   name: 'games',
   initialState: {
     username: null,
-    actions: [],
-    description:'',
+    actions: null,
+    
 
   },
   reducers: {
@@ -35,5 +35,24 @@ export const generateGame = () => {
     } 
 }
 
+export const continueGame = (decission) => {
+  return (dispatch, getState) => {
+    fetch(`https://wk16-backend.herokuapp.com/action`, {
+      method: 'POST',
+      headers: {
+        'Content-type':'application/json'
+      },
+      body: JSON.stringify({ 
+        username: getState().games.username,
+        type: decission.type,
+        direction: decission.direction, 
+
+      })
+
+    })
+      .then(res => res.json())
+      .then(data => dispatch(games.actions.setRespons(data)))
+  }
+}
 
 export default games

@@ -5,12 +5,12 @@ import StartScreen from './StartScreen'
 import GameScreen from './GameScreen'
 
 const Games = () => {
-  const description = useSelector(store => store.games.description)
+  const actions = useSelector(store => store.games.actions)
   // console.log(description)
 
   return (
     <div>
-      {description
+      {  actions
         ? <GameScreen />
         : <StartScreen />
       }
