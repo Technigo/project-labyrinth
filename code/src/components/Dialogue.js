@@ -13,7 +13,6 @@ const Dialogue = () => {
 
     const onPlayGame = (direction) => {
         dispatch(secondFetch(direction))
-        dispatch(maze.actions.setLoading(isLoading))
     }
 
     return (
