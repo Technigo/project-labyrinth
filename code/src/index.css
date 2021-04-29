@@ -40,7 +40,7 @@ code {
   justify-items: center;
   align-items: center;
   justify-content: center;
-  color: brown;
+  color: brown;;
   text-align: center;
 }
 .start-button {
@@ -51,9 +51,13 @@ code {
 }
 .greeting {
   font-size: 30px;
+  background-color: rgba(198, 198, 198, 0.721);
+  line-height: 40px;
 }
 .name-question {
   font-size: 25px;
+  background-color: rgba(198, 198, 198, 0.721);
+  line-height: 35px;
 }
 .loader {
   display: flex;
@@ -107,6 +111,9 @@ div{
 .container{
   position: relative;
   min-height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .history{
   color:White;

@@ -7,6 +7,7 @@ import Description from './Description'
 import Directions from './Directions'
 import GoBack from './GoBack'
 import History from './History'
+import { placeImage, placefinder } from "../reducers/helpers";
 
 
 
@@ -16,11 +17,13 @@ const Container = () => {
   const error = useSelector(store => store.labyrinth.error)
   const loading = useSelector(store => store.labyrinth.loading)
 
-  
-  
-  const backgroundImage = "/assets/labyrinth-Background.jpg"
+
+
+  // const backgroundImage = "/assets/labyrinth-Background.jpg"
 
   const [showActions, setShowAction] = useState(false)
+  const [background, setBackground] = useState("/assets/labyrinth-Background.jpg")
+
 
   useEffect(() => {
     setShowAction(false)
@@ -29,12 +32,18 @@ const Container = () => {
       setTimeout(() => {
         setShowAction(true)
       }, currentMessageLength * 112)
+
+      const place = placefinder(actions.coordinates)
+      if (place) {
+        const backgroundImage = placeImage(place)
+        setBackground(backgroundImage)
+      }
     }
 
   }, [actions])
 
   return (
-    <div className="container" style={{backgroundImage: `url(${backgroundImage})`}}>
+    <div className="container" style={{ backgroundImage: `url(${background})`, backgroundRepeat: "no-repeat" }}>
 
       {error && <h1>Something went wrong, reason: {error}</h1>}
       {actions && !error
@@ -45,12 +54,12 @@ const Container = () => {
                 type="BallTriangle"
                 color="brown"
                 height={100}
-            width={100}
+                width={100}
                 timeout={1000} //3 secs
               />
             </div>
           }
-          {!loading &&< Description />}
+          {!loading && < Description />}
           {!loading && showActions && <Directions />}
           <History />
           {history.length > 0 && showActions && !loading && <GoBack />}
