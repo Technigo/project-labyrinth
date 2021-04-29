@@ -38,15 +38,24 @@ const GameScreen = () => {
               {description}
             </Text>
           </Chat>
+
+          <DialogueContainer>
           {moves.map((action) => (
-            <DialogueContainer key={action.description}>
-              <DialogueBox className='nes-container with-title is-centered'>
-                <Text className="title">{action.direction}</Text>
-                <Text>{action.description}</Text>
-                <button type="button" className="nes-btn is-primary" onClick={() => onClick(action.direction)}>Go to the {action.direction}</button>
-              </DialogueBox>
-            </DialogueContainer>
+            <DialogueBox
+              className='nes-container with-title is-centered'
+              key={action.description}>
+              <Text className="title">{action.direction}</Text>
+              <Text>{action.description}</Text>
+              <Button
+                type="button"
+                className="nes-btn is-primary"
+                onClick={() => onClick(action.direction)}>
+                  Go to the {action.direction}
+              </Button>
+            </DialogueBox>
           ))}
+          </DialogueContainer>
+
         </Main>
         }
       </>
@@ -77,8 +86,31 @@ const Text = styled.p`
 const DialogueContainer = styled.div`
   display: flex;
   flex-direction: column;
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
 `
 const DialogueBox = styled.div`
+  position: relative;
+
   background-color: white;
-  margin-bottom: 10px;
+  padding: 25px 10px 40px 10px;
+  margin-bottom: 30px;
+    @media (min-width: 768px) {
+      width: 45%;
+      height: 250px;
+      margin: 10px;
+    }
+`
+const Button = styled.button`
+  position: absolute;
+  bottom: 15px;
+  right: 0;
+  left: 0;
+  margin: auto;
+
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
 `
