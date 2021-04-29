@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { games, createNewPlayer } from '../reducers/games'
-import GameScreen from './GameScreen'
 
 const StartScreen = () => {
     const [inputValue, setInputValue] = useState('')
