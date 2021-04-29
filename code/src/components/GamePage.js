@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components/macro'
 
-import {generateNextMove} from '../reducers/mazegame'
+import {generateNextMove, mazegame} from '../reducers/mazegame'
 import LoadingPage from './LoadingPage'
 import FinishLayout from "./FinishLayout";
 
@@ -77,15 +77,18 @@ const GamePage = () => {
   const actions = useSelector(store => store.mazegame.gameStatus.actions)
   const loading = useSelector(store => store.mazegame.loading)
   const userName = useSelector(store => store.mazegame.userName)
+  const history = useSelector(store => store.mazegame.history)
   const dispatch = useDispatch()
-
-  console.log('ACTION', actions)
   
   if (loading) {
     return (
       <LoadingPage />
     ) 
   } 
+
+  const onMoveBack = () => {
+    dispatch(mazegame.actions.setPreviousMove())
+  }
 
   return(
     <Container>
@@ -126,6 +129,10 @@ const GamePage = () => {
                   </Flexbox> 
                 )}
               </MoveContainer>
+              <button 
+                disabled={!history.length}
+                onClick={onMoveBack}
+              >GO BACK</button>
             </>
           : 
             <FinishLayout />

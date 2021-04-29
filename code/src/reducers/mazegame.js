@@ -5,18 +5,28 @@ export const mazegame = createSlice({
     name: 'mazegame',
     initialState: {
       userName: null,
-      gameStatus: undefined, 
-      loading: false
+      gameStatus: null, 
+      loading: false,
+      history: []
     },
     reducers: {
       setUserName: (store, action) => {
         store.userName = action.payload
     },
       setGameStatus: (store, action) => {
+        if (store.gameStatus) {
+          store.history = [...store.history, store.gameStatus]
+        }
         store.gameStatus = action.payload
       }, 
       setLoading: (store, action) => {
         store.loading = action.payload 
+      },
+      setPreviousMove: (store) => {
+        if (store.history.length) {
+          store.gameStatus = store.history[store.history.length - 1]
+          store.history = store.history.slice(0, store.history.length - 1)
+        }
       }
     }
 
