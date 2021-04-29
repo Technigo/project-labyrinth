@@ -16,7 +16,7 @@ export const StartPage = () => {
 
   return (
     <div>
-      <i class="nes-octocat animate"></i>
+      <i className="nes-octocat animate"></i>
       <form onSubmit={onFormSubmit}>
         <div className="nes-field">
           <label htmlFor="userName">Your name</label>
