@@ -5,6 +5,7 @@
   color: white;
   display: flex;
   flex-direction: column;
+  align-items: center;
   min-height: 100vh;
 }
 
@@ -16,7 +17,11 @@ body {
 
 html {
   background-color: #212529;
-  max-height: min-content;
+}
+
+.loading-text {
+  animation: blinkingText 1s infinite;
+  margin-top: 50px;
 }
 
 .nes-container.is-rounded.is-dark {
@@ -24,16 +29,124 @@ html {
   flex-direction: column;
   border-image-repeat: stretch !important;
   box-sizing: border-box;
-  min-height: 100%;
+  min-height: calc(100vh - 32px);
+  min-height: auto;
   margin: 16px;
   padding: 20px;
+}
+
+.nes-input.is-dark {
+  margin: 20px 0 30px;
 }
 
 .nes-btn.is-primary {
   align-self: center;
 }
 
+.start-screen-icon {
+  max-width: 180px;
+  align-self: flex-end;
+}
+
+.welcome-text {
+  font-size: 24px;
+  margin: 16px 0;
+}
+
 .icon {
   width: 80px;
   float: right;
+  margin: 0 0 5px 5px;
+}
+
+.action-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.nes-container.is-rounded.is-dark.map-container {
+  min-height: auto;
+  width: fit-content;
+  margin: 30px 0 0;
+  align-self: center;
+}
+
+.map-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  width: 160px;
+}
+
+.map-tile {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #212529;
+}
+
+.black {
+  background-color: #626262;
+}
+
+.white {
+  background-color: #fff;
+  animation: blinking 0.8s infinite;
+}
+
+@keyframes blinking {
+  0% { background-color: #fff; }
+  49% { background-color: #fff; }
+  60% { background-color: #626262; }
+  99% { background-color: #626262; }
+  100% { background-color: #fff; }
+}
+
+@keyframes blinkingText {
+  0% { color: #fff; }
+  49% { color: #fff; }
+  60% { color: #212529; }
+  99% { color: #212529; }
+  100% { color: #fff; }
+}
+
+@media (min-width: 667px) {
+  .nes-container.is-rounded.is-dark {
+    max-width: 800px;
+    margin: 50px;
+    padding: 40px;
+    min-height: auto;
+  }
+  
+  .nes-container.is-rounded.is-dark.game-screen {
+    flex-direction: row;
+  }
+
+  .nes-container.is-rounded.is-dark.map-container {
+    align-self: flex-start;
+    margin: 0 0 0 20px;
+  }
+
+  .start-screen-icon {
+    max-width: 240px;
+  }
+
+  .welcome-text {
+    font-size: 32px;
+  }
+
+  .icon {
+    width: 100px;
+    float: left;
+    margin: 0 20px 20px 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  #root {
+    justify-content: center;
+    align-items: center;
+  }
+  .icon {
+    width: 120px;
+  }
 }

@@ -9,7 +9,7 @@ const Game = () => {
   const loading = useSelector(store => store.game.loading)
   return (
     <>
-      {loading && <h1>LOADING...</h1>}
+      {loading && <h1 className="loading-text" >LOADING...</h1>}
       {(!loading && gameState === null) && <StartScreen />}
       {(!loading && gameState !== null) && <GameScreen />}
     </>

@@ -13,9 +13,9 @@ const StartScreen = () => {
     dispatch(startGame())
   }
   return (
-    <div className="nes-container is-rounded is-dark">
-      <img src="./assets/cave.svg" className="start-screen-image" alt="icon of a cave" />
-      <p>Welcome Adventurer!</p>
+    <div className="nes-container is-rounded is-dark start-screen">
+      <img src="./assets/cave.svg" className="start-screen-icon" alt="icon of a cave" />
+      <h1 className="welcome-text">Welcome Adventurer!</h1>
       <label htmlFor="dark_field">Enter your name:</label>
 
       <input
