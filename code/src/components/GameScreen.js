@@ -18,10 +18,11 @@ const GameScreen = () => {
   //enables you to read the value of a property located deep within 
   //a chain of connected objects without having to check that each reference 
   //in the chain is valid.
+
   return (
     <div>
       <button
-        disabled={!history.length}
+        disabled={!history.length} 
         onClick={onGoBack}
       >
         Go back

@@ -17,9 +17,6 @@ export const games  = createSlice({
         setUserName: (store, action) => {
             store.username = action.payload
         },
-        setGameStatus: (store, action) => {
-            store.gameStatus = action.payload
-        },
         saveGameStatus: (store, action) => {
             if (store.gameStatus) {
                 store.history = [...store.history, store.gameStatus]
@@ -63,7 +60,7 @@ export const createNewPlayer = (username) => {
                     throw new Error('Ups something went wrong') //res.statusText for example
                 }
             })
-            .then(data => dispatch(games.actions.setGameStatus(data)))
+            .then(data => dispatch(games.actions.saveGameStatus(data)))
             .catch(error => dispatch(games.actions.setError('Errormessage here :', error))) //error.message for example
             .finally(() => dispatch(games.actions.setLoading(false)))
         }
