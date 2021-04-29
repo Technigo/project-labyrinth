@@ -19,7 +19,7 @@ const Loading = styled.div`
   width:60px;
   height:60px;
   border: 2px solid black;
-  border-top-color: lightblue;
+  border-top-color: #004900;
   border-radius: 50%;
   animation: 1s spinner infinite ease-in-out;
   @keyframes spinner {
