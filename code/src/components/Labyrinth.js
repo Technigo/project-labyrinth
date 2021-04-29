@@ -1,19 +1,39 @@
 import React from 'react'
-
+import { useSelector } from 'react-redux'
 import StartScreen from './StartScreen'
 import GameScreen from './GameScreen'
-import { useSelector } from 'react-redux'
+
+import styled from 'styled-components'
+
+const Main = styled.main`
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("./images/forrest.jpg")
+`
 
 const Labyrinth = () => {
-  const username = useSelector(store => store.labyrinth.username)
+  const response = useSelector(store => store.labyrinth.response)
 
-  console.log(username)
+  const isEmpty = (obj) => {
+    for(var prop in obj) {
+      if(obj.hasOwnProperty(prop)) {
+        return false;
+      }
+    }
+  
+    return JSON.stringify(obj) === JSON.stringify({});
+  }
 
   return (
-    <main>
-      <StartScreen />
-      <GameScreen />
-    </main>
+    <Main>
+      {isEmpty(response)
+        ? <StartScreen /> 
+        : <GameScreen />
+      }
+    </Main>
   )
 }
 

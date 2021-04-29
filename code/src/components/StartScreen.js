@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-import labyrinth, {generateLabyrinth} from '../reducers/labyrinth'
+import labyrinth, {startLabyrinth} from '../reducers/labyrinth'
+
+
 
 const StartScreen = () => {
   const [username, setUsername] = useState('')
@@ -10,20 +12,20 @@ const StartScreen = () => {
 
   const onGameStart = () => {
     dispatch(labyrinth.actions.setUsername(username))
-    dispatch(generateLabyrinth())
+    dispatch(startLabyrinth(username))
   }
 
   return (
-    <div>
+<div>
       <h1>Can you get through the labyrinth?</h1>
-      <p>Enter your name here:</p>
+      <p>Enter your name here</p>
       <input 
         type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         />
       <button onClick={onGameStart}>Start game</button>
-    </div>
+      </div>
   )
 }
 
