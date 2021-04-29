@@ -27,9 +27,9 @@ export const SummaryPage = ({ description }) => {
       {history.map((item, index) => (
         <PathContainer key={index}>
           <Arrow>
-            {item === "West" ? <FaArrowRight /> : ""} 
+            {item === "West" ? <FaArrowLeft /> : ""} 
             {item === "North" ? <FaArrowUp /> : ""}
-            {item === "East" ? <FaArrowLeft /> : ""} 
+            {item === "East" ? <FaArrowRight /> : ""} 
             {item === "South" ? <FaArrowDown /> : ""}
           </Arrow>
           <Item key={index}>
