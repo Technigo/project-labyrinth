@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const game = createSlice({
     name: 'game',
     initialState: {
-        username:null
+        username:'',
 
     },
     reducers: {
@@ -13,6 +13,8 @@ const game = createSlice({
         
     }
 })
+
+
 
 
   export default game
