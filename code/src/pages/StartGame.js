@@ -1,8 +1,7 @@
 import React, {useState} from 'react'
-
 import { useDispatch } from 'react-redux';
 
-import { questions, initiateGame} from '../reducers/questions';
+import questions, {initiateGame } from '../reducers/questions';
 
 
 
@@ -13,13 +12,13 @@ const StartGame = () => {
     const dispatch = useDispatch();
 
     const onUserNameSet = () => {
-        dispatch(questions.actions.setUsername(inputValue));
-        dispatch(initiateGame());
+        dispatch(questions.actions.setUserName(inputValue));
+        dispatch(initiateGame(inputValue));
     }
    
     return (
       <div>
-            <p>Welcome to Laberynth! Enter your name to start playing.</p>
+            <p>Welcome to Labyrint! Enter your name to start playing.</p>
             <input
                 type="text"
                 value={inputValue}
