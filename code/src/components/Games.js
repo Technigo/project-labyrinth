@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import Header from './Header'
 import StartScreen from './StartScreen'
 import GameScreen from './GameScreen'
-import Loader from './Loader'
+import Loader2 from './Loader2'
 
 const Games = () => {
   const userName = useSelector(store => store.games.username)
@@ -15,7 +15,7 @@ const Games = () => {
     <>
 
       {error && `Ups, something went wrong, reason : ${error}`}
-      {loading && <Loader />}
+      {loading && <Loader2 />}
       {userName &&  <Header />}
       {userName
           ? <GameScreen />
