@@ -72,6 +72,8 @@ const Main = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  border: 1px solid black;
+  margin: 0 20px;
 
   @media (min-width: 768px) {
     width: 500px;
@@ -119,6 +121,7 @@ const DiscriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
   background: #fff;
+  margin: 20px;
 `;
 
 const ButtonContainer = styled.div`
