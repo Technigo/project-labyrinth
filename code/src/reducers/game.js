@@ -9,7 +9,7 @@ const game = createSlice({
             //? JSON.parse(localStorage.getItem('gameStatus'))
             //: 
             {},
-        history: //localStorage.getItem('history')
+        history: //localStorage.getItem('')
         //? JSON.parse(localStorage.getItem(''))
         //: 
         [],
