@@ -10,8 +10,24 @@ code {
     monospace;
 }
 
+h1 {
+  font-size: 24px;
+}
+
 main {
-  width: 400px;
+  width: 300px;
   margin: 0 auto;
-  margin-top: 200px;
+  margin-top: 100px;
+}
+
+.nes-bulbasaur {
+  margin: 24px;
+}
+
+.nes-field {
+  margin-bottom: 20px;
+}
+
+.name-field {
+  font-size: 14px;
 }
