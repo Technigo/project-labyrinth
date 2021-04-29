@@ -37,6 +37,7 @@ const labyrinth = createSlice({
       }
     },
     setDirectionChoice:(store, action) => {
+      console.log(action.payload)
       store.directionChoices = [...store.directionChoices, action.payload]
     },
     setError: (store, action) => {
