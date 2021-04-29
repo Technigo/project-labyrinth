@@ -1,9 +1,10 @@
 import React from 'react'
+import "nes.css/css/nes.min.css"
 
 function WaitPage() {
     return (
         <div>
-            ...Loading
+            <p><i class="nes-octocat animate"></i> Loading....</p> 
         </div>
     )
 }
