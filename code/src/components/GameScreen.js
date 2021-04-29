@@ -34,10 +34,7 @@ font-size: 40px;`
 
 const GameScreen = () => {
   const dispatch = useDispatch();
-  const description = useSelector(store => store.labyrinth.description)
-  const actions = useSelector(store => store.labyrinth.actions)
-  const isLoading = useSelector(store => store.labyrinth.isLoading)
-  const coordinates = useSelector(store => store.labyrinth.coordinates)
+  const data = useSelector(store => store.labyrinth.data);
 
   const onChooseDirection = (e) => {
     dispatch(labyrinth.actions.setDirection(e.target.value))
@@ -45,7 +42,7 @@ const GameScreen = () => {
   }
 
   const setIcon = () => {
-    switch(coordinates){
+    switch(data.coordinates){
       case "0,1": return <Icon role="img" aria-label="robot">🤖</Icon>
       case "0,2": return <Icon role="img" aria-label="music">🎵</Icon>
       case "0,3": return <Icon role="img" aria-label="scroll">📜</Icon>
@@ -56,24 +53,24 @@ const GameScreen = () => {
     }
   }
 
- if(isLoading){
+ if(data.isLoading){
       return <Container> <Loading /> </Container>
     }
-    console.log(coordinates)
+
   return (
     <Container>
       <div className="nes-container is-dark with-title with-title is-centered">
         <p className="title">
-        {actions
+        {data.actions
           ? setIcon()
           : <></>
         }
         </p>
-        <p style={{fontSize: "14px"}}>{description}</p>
+        <p style={{fontSize: "14px"}}>{data.description}</p>
       </div>
       <Next>
-        {actions
-        ? actions.map(button =>
+        {data.actions
+        ? data.actions.map(button =>
           <div className="nes-container is-rounded is-dark"
             key={button.description}
             style={{width: window.innerWidth>1024?"50%":"auto",
@@ -92,6 +89,11 @@ const GameScreen = () => {
         : <></>
         }
       </Next>
+      {data.coordinates === "1,3"
+      ? <div className="nes-container is-rounded is-dark" style={{marginTop: "10px"}}>
+          Congratulations, you made it out of the labyrinth in {data.history.length} moves!
+        </div>
+      : <></>}
     </Container>
   )
 }

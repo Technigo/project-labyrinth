@@ -6,6 +6,9 @@ import styled from 'styled-components/macro';
 import labyrinth from './reducers/labyrinth'
 import Game from './components/Game';
 
+import LabyrinthImg from './assets/Labyrinth_Background.png'
+
+
 const reducer = combineReducers({
   labyrinth: labyrinth.reducer,
 });
@@ -21,7 +24,7 @@ flex-direction: column;
 align-items: center;`
 
 const Header = styled.div`
-background-image: url("https://upload.wikimedia.org/wikipedia/commons/a/ad/Labyrinth_for_Sword_of_Fargoal_%22Sword_Level%22.png");
+background-image: url(${LabyrinthImg});
 height: 200px;
 width: 100%;
 background-size: cover;

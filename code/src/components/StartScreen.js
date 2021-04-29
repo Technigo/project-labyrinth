@@ -10,8 +10,22 @@ const Container = styled.div`
 
 `
 
-const Title = styled.h1`
+const Title = styled.span`
 text-align: center;
+font-size: 24px;
+
+@media (min-width: 768px){
+font-size: 30px;
+}
+`
+const SmallTitle = styled.h2`
+text-align: center;
+font-size: 18px;
+color: #c7c7c7;
+
+@media (min-width: 768px){
+font-size: 24px;
+}
 `
 
 const Start = styled.div`
@@ -31,10 +45,11 @@ const onUsernameSet = () => {
 
   return (
     <Container>
-      <Title>Labyrinth</Title>
+      <SmallTitle>Welcome to <Title>Labyrinth</Title> </SmallTitle>
+      <SmallTitle>Enter your name and start your journey!</SmallTitle>
       <Start>
         <div style={{background:"#212529",
-          padding: "1rem"}}
+          padding: "1rem", marginTop: "20px"}}
           className="nes-field is-inline">
           <label htmlFor="dark_field" style={{color: "#fff"}}>Your name</label>
           <input

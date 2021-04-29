@@ -5,7 +5,7 @@ import StartScreen from 'components/StartScreen';
 import GameScreen from 'components/GameScreen';
 
 const Game = () => {
-const username = useSelector(store => store.labyrinth.username)
+const username = useSelector(store => store.labyrinth.data.username)
 
   return (
     <div>

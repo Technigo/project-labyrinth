@@ -5,32 +5,32 @@ const labyrinth = createSlice (
     name: "labyrinth",
     initialState:
     {
-    username: null,
-    description: null,
-    direction: null,
-    actions: null,
-    isLoading: false,
-    coordinates: null
-    },
+        data: {
+            username: null,
+            description: null,
+            direction: null,
+            actions: null,
+            isLoading: false,
+            coordinates: null,
+            history: []
+    }
+},
     reducers: {
         setUsername: (store, action) => {
-           store.username = action.payload;
+           store.data.username = action.payload;
         },
-        setDescription: (store, action) => {
-            store.description = action.payload;
-        console.log(store.description)
+        setData: (store, action) => {
+            const {description, coordinates, actions} = action.payload;
+            store.data.description = description;
+            store.data.coordinates = coordinates;
+            store.data.actions = actions;
         },
         setDirection: (store, action) => {
-            store.direction = action.payload;
-        },
-        setCoordinates: (store, action) => {
-            store.coordinates = action.payload;
-        },
-        setActions: (store, action) => {
-            store.actions = action.payload;
+            store.data.direction = action.payload;
+            store.data.history = [...store.data.history, action.payload]
         },
         setLoading: (store, action) => {
-            store.isLoading = action.payload;
+            store.data.isLoading = action.payload;
         }
     }
 }
@@ -44,13 +44,15 @@ export const generateStart = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({username: getState().labyrinth.username})})
+        body: JSON.stringify({username: getState().labyrinth.data.username})})
     .then(res => res.json())
     .then(data => {
         dispatch(labyrinth.actions.setLoading(false))
-        dispatch(labyrinth.actions.setCoordinates(data.coordinates))
-        dispatch(labyrinth.actions.setDescription(data.description))
-        dispatch(labyrinth.actions.setActions(data.actions))
+        dispatch(labyrinth.actions.setData({
+            description: data.description,
+            coordinates: data.coordinates,
+            actions: data.actions}))
+
     })
     }
 }
@@ -63,15 +65,16 @@ export const generateStory = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({username: getState().labyrinth.username,
+        body: JSON.stringify({username: getState().labyrinth.data.username,
             type: "move",
-            direction: getState().labyrinth.direction})})
+            direction: getState().labyrinth.data.direction})})
     .then(res => res.json())
     .then(data => {
         dispatch(labyrinth.actions.setLoading(false))
-        dispatch(labyrinth.actions.setCoordinates(data.coordinates))
-        dispatch(labyrinth.actions.setDescription(data.description))
-        dispatch(labyrinth.actions.setActions(data.actions))
+        dispatch(labyrinth.actions.setData({
+            description: data.description,
+            coordinates: data.coordinates,
+            actions: data.actions}))
     });
 
     }
