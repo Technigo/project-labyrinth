@@ -7,6 +7,8 @@ const gameFetch = createSlice({
     // gameScreen: null,
     description: "",
     actions: [],
+    loading: false,
+    coordinates: "",
   },
   reducers: {
     setName: (store, action) => {
@@ -18,16 +20,18 @@ const gameFetch = createSlice({
     setActions: (store, action) => {
       store.actions = action.payload;
     },
-    setNewGame: (store, action) => {
-      store.userName = null;
-      store.description = null;
-      store.actions = [];
+    setCoordinates: (store, action) => {
+      store.coordinates = action.payload;
+    },
+    setLoading: (store, action) => {
+      store.loading = action.payload;
     },
   },
 });
 
 export const firstFetch = (userName) => {
   return (dispatch, getState) => {
+    dispatch(gameFetch.actions.setLoading(true));
     fetch("https://wk16-backend.herokuapp.com/start", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -37,12 +41,14 @@ export const firstFetch = (userName) => {
       .then((data) => {
         dispatch(gameFetch.actions.setDescription(data.description));
         dispatch(gameFetch.actions.setActions(data.actions));
+        dispatch(gameFetch.actions.setLoading(false));
       });
   };
 };
 
 export const secondFetch = (userName, direction) => {
   return (dispatch) => {
+    dispatch(gameFetch.actions.setLoading(true));
     fetch("https://wk16-backend.herokuapp.com/action", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -57,6 +63,8 @@ export const secondFetch = (userName, direction) => {
         //dispatch(gameFetch.actions.setGameScreen(data));
         dispatch(gameFetch.actions.setDescription(data.description));
         dispatch(gameFetch.actions.setActions(data.actions));
+        dispatch(gameFetch.actions.setCoordinates(data.coordinates));
+        dispatch(gameFetch.actions.setLoading(false));
       });
   };
 };
