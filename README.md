@@ -1,5 +1,5 @@
 # Project Labyrinth
-A pair programming project that is a text-based adventure inspired by early command-line games.
+A pair programming project by Anna Lindgren and Caroline Byström. A text-based adventure inspired by early command-line games.
 
 The app has been generated using create-react-app. And uses the following npm packages that are not included in the create-react-app: 
 - styled-components 
