@@ -53,15 +53,12 @@ const Button = styled.button`
 
 const InGame = () => {
   const direction = useSelector((store) => store.game.direction)
-<<<<<<< HEAD
   const actions = useSelector((store) => store.game.direction.actions)
   const usernameFinal = useSelector((store) => store.game.username)
   const history = useSelector((store) => store.game.history)
   const loading = useSelector(store => store.game.loading)
   const dispatch = useDispatch() 
-=======
   
->>>>>>> a311775aeadd855e5c94f8f3572c5569e1dbbcdc
 
   return (
     <InGameContainer>
