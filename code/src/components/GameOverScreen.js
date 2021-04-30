@@ -54,6 +54,9 @@ const GameOverTitle = styled.h1`
         @media (min-width: 768px) {
             font-size: 48px;
         }
+        @media (min-width: 1025px) {
+            font-size: 52px;
+        }
 `
 const GameOverText = styled.p`
     font-family: 'Press Start 2P', cursive;
@@ -66,6 +69,7 @@ const GameOverText = styled.p`
             width: 80%;
         }
         @media (min-width: 1025px) {
+            font-size: 20px;
             width: 70%;
         }
 `
