@@ -1,4 +1,3 @@
-import React from 'react';
 import { createSlice } from '@reduxjs/toolkit'
 
 import { API_START, API_ACTION } from '../utils/urls'
@@ -8,7 +7,7 @@ const gameactions = createSlice({
   initialState: {
     username: null,
     gamestart: null,
-    actions: null
+    loading: false
   },
   reducers: {
     setUsername: (store, action) => {
@@ -17,48 +16,44 @@ const gameactions = createSlice({
     setGamestart: (store, action) => {
       store.gamestart = action.payload
     },
-    setActions: (store, action) => {
-      store.actions = action.payload
+    setLoading: (store, action) => {
+      store.loading = action.payload
     }
   }
 })
 
 export const generateGame = () => {
   return (dispatch, getState) => {
-    return (
-      fetch(API_START, {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json'
-        },
-        body: JSON.stringify({ username: getState().gameactions.username })
-      })
-        .then(res => res.json())
-        .then(data => dispatch(gameactions.actions.setGamestart(data)))
-    )
+    fetch(API_START, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({ username: getState().gameactions.username })
+    })
+      .then(res => res.json())
+      .then(data => dispatch(gameactions.actions.setGamestart(data)))
   }
 }
 
-export const nextAction = () => {
+export const nextAction = (direction) => {
   return (dispatch, getState) => {
-    return (
-      fetch(API_ACTION, {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json'
-        },
-        body: JSON.stringify({
-          username: getState().gameactions.username,
-          direction: getState().gameactions.gamestart,
-          type: 'move'
-        })
+    dispatch(gameactions.actions.setLoading(true))
+    fetch(API_ACTION, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: getState().gameactions.username,
+        direction: direction,
+        type: 'move'
       })
-        .then(res => res.json())
-        .then(data => dispatch(gameactions.actions.setGamestart(data)))
-    )
+    })
+      .then(res => res.json())
+      .then(data => dispatch(gameactions.actions.setGamestart(data)))
+      .finally(() => dispatch(gameactions.actions.setLoading(false)))
   }
 }
 
 export default gameactions
-//
-//console.log(data)

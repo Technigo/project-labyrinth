@@ -1,16 +1,12 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import gameactions, { nextAction, generateGame } from '../reducers/gameactions'
+import { nextAction } from '../reducers/gameactions'
 
 const GameScreen = () => {
   const gameStart = useSelector(store => store.gameactions.gamestart)
-  const dispatch = useDispatch()
 
-  const onDirection = (action) => {
-    dispatch(gameactions.actions.setActions(action.description))
-    dispatch(nextAction())
-  }
+  const dispatch = useDispatch()
 
   return (
     <div>
@@ -18,7 +14,7 @@ const GameScreen = () => {
       {gameStart.actions.map((action) => (
         <button
           key={action.description}
-          onClick={onDirection(action)}>
+          onClick={() => dispatch(nextAction(action.direction))}>
           {action.direction}
         </button>
       ))}
