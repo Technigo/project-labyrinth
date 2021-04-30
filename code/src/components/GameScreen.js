@@ -1,24 +1,23 @@
-import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-import game, { continueGame } from '../reducers/game'
+import game, { continueGame } from "../reducers/game";
 
 export const GameScreen = () => {
-  const gameData = useSelector((store) => store.game.gameData)
-  const history = useSelector((store) => store.game.history)
-  const dispatch = useDispatch()
+  const gameData = useSelector((store) => store.game.gameData);
+  const history = useSelector((store) => store.game.history);
+  const dispatch = useDispatch();
   const onContinueGame = (direction) => {
-    dispatch(continueGame(direction))
-  }
+    dispatch(continueGame(direction));
+  };
 
   const onGoBack = () => {
-    dispatch(game.actions.setPreviousStep())
-  }
+    dispatch(game.actions.setPreviousStep());
+  };
 
   const onReset = () => {
-    dispatch(game.actions.setResetGame())
-    console.log('onReset')
-  }
+    dispatch(game.actions.setResetGame());
+  };
 
   if (gameData) {
     return (
@@ -41,13 +40,13 @@ export const GameScreen = () => {
                   {action.direction}
                 </button>
               </div>
-            )
+            );
           })}
         </div>
         <div className="navigation-container">
           <button
             className={
-              !history.length > 0 ? 'nes-btn is-disabled' : 'nes-btn is-warning'
+              !history.length > 0 ? "nes-btn is-disabled" : "nes-btn is-warning"
             }
             onClick={onGoBack}
           >
@@ -63,10 +62,9 @@ export const GameScreen = () => {
           Restart
         </button>
       </main>
-    )
+    );
   } else {
-    return <h1>Loading...</h1>
+    return <h1>Loading...</h1>;
   }
-}
+};
 
-// export default GameScreen;

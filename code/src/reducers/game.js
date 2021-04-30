@@ -33,8 +33,8 @@ const game = createSlice({
       store.userName = null;
       store.gameData = null;
       store.gameStart = false;
-      store.history = []
-    }
+      store.history = [];
+    },
   },
 });
 

@@ -9,7 +9,6 @@ export const WelcomeScreen = () => {
 
   const onGameStartSet = (event) => {
     event.preventDefault();
-    // dispatch(game.actions.setUserName(value))
     dispatch(generateGame(userName));
     dispatch(game.actions.setGameStart(true));
   };
@@ -18,14 +17,15 @@ export const WelcomeScreen = () => {
     <>
       <div className="nes-container is-dark">
         <p>
-          Welcome <span className="user-name nes-text is-success">{userName}!</span> are you
-          ready for an adventure filled with romance, mystery and possibly some
-          bugs?
+          Welcome{" "}
+          <span className="user-name nes-text is-success">{userName}!</span> Are
+          you ready for an adventure filled with romance, mystery and possibly
+          some bugs?
         </p>
       </div>
       <button
-      className="nes-btn is-primary"
-      onClick={(event) => onGameStartSet(event)}
+        className="nes-btn is-primary"
+        onClick={(event) => onGameStartSet(event)}
       >
         Yes I am!
       </button>
