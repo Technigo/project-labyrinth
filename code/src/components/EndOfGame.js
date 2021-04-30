@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
 import "nes.css/css/nes.min.css"
 
 import { EndGamePageContainer, Header, RestartButtonContainer, Credits } from './styled-components/EndOfGameStyling'
