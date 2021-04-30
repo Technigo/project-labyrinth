@@ -15,6 +15,7 @@ const EndOfGame = () => {
                     <button
                         type="button"
                         class="nes-btn is-warning"
+                        aria-label='Restart button'
                         onClick={() => window.location.reload()}
                     > 
                         Restart game!

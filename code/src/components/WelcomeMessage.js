@@ -23,6 +23,7 @@ const WelcomeMessage = () => {
                                 <button 
                                     type="button" 
                                     class="nes-btn is-success"
+                                    aria-label='Start button'
                                     onClick={() => dispatch(registerNewPlayer(userName))}
                                 >
                                     Start

@@ -53,7 +53,7 @@ export const registerNewPlayer = (username) => {
     }
 }
 
-export const continueGame = (direction) => {
+export const continueGame = (direction, username) => {
     return (dispatch, getState) => {
         dispatch(ui.actions.setLoading(true))
         fetch('https://wk16-backend.herokuapp.com/action', {
@@ -62,7 +62,8 @@ export const continueGame = (direction) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ 
-                username: getState().game.username,
+                // username: getState().game.username,
+                username: username,
                 type: 'move',
                 direction: direction 
             })

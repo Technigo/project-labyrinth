@@ -8,8 +8,11 @@ export const WelcomeMessageContainer = styled.div`
     padding: 0 5px;
     width: 95%;
     max-width: 600px;
-    margin: 50px auto;
+    margin: 5px auto;
     word-break: break-word;
+    @media (min-width: 768px) {
+        margin: 180px auto;
+        }
 `
 
 export const Header = styled.h2`

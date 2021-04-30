@@ -6,6 +6,10 @@ export const EndGamePageContainer = styled.div`
     width: 90%;
     max-width: 600px;
     margin: 50px auto;
+    @media (min-width: 768px) {
+        max-width: 800px;
+        margin: 180px auto;
+        }
 `
 
 export const Header = styled.h3`

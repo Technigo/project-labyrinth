@@ -41,6 +41,7 @@ const WelcomePage = () => {
                                 <button 
                                     type="submit" 
                                     class="nes-btn is-success"
+                                    aria-label='Submit username'
                                 >
                                     Submit
                                 </button>

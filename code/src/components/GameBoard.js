@@ -39,6 +39,7 @@ const GameBoard = () => {
                                         <button 
                                             type="button" 
                                             class="nes-btn is-success"
+                                            aria-label='direction button'
                                             onClick={() => dispatch(continueGame(action.direction, userName))}
                                         >
                                             {action.direction}
