@@ -16,6 +16,8 @@ const GameOverScreen = () => {
                     You went in circles and came back to where you started.
                     Better luck next time...
                 </GameOverText>
+                <Icon className="nes-icon close is-large">
+                </Icon>
                 <Link to="/">
                 <RestartButton
                     text='TRY AGAIN'
@@ -49,6 +51,9 @@ const GameOverTitle = styled.h1`
     color: #fff;
     width: 100%;
     text-align: center;
+        @media (min-width: 768px) {
+            font-size: 48px;
+        }
 `
 const GameOverText = styled.p`
     font-family: 'Press Start 2P', cursive;
@@ -56,4 +61,14 @@ const GameOverText = styled.p`
     font-size: 12px;
     width: 100%;
     text-align: center;
+        @media (min-width: 768px) {
+            font-size: 18px;
+            width: 80%;
+        }
+        @media (min-width: 1025px) {
+            width: 70%;
+        }
+`
+const Icon = styled.i`
+    margin: 25px 0;
 `

@@ -118,6 +118,7 @@ const NameInput = styled.input`
 const StartButton = styled.button`
     font-family: 'Press Start 2P', cursive;
     margin-top: 25px;
+    -webkit-appearance: none;
 `
 const Copy = styled.p`
     font-family: 'Press Start 2P', cursive;

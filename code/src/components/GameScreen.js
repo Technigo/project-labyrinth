@@ -73,13 +73,13 @@ const Main = styled.div`
   width: 100%;
   background-size: cover;
   padding: 65px 20px 0 20px;
-  @media (min-width: 768px) {
-    padding: 85px 20px 0 20px;
-  }
-  @media (min-width: 1025px) {
-    background-image: url(${BackgroundImg});
-  }
-`;
+    @media (min-width: 768px) {
+      padding: 85px 20px 0 20px;
+    }
+    @media (min-width: 1025px) {
+      background-image: url(${BackgroundImg});
+    }
+`
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
@@ -90,31 +90,37 @@ const Header = styled.div`
   height: 40px;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.397);
-  @media (min-width: 768px) {
-    height: 55px;
-  }
-`;
+    @media (min-width: 768px) {
+      height: 55px;
+    }
+`
 const HeartContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 20%;
-  @media (min-width: 768px) {
-    width: 15%;
-  }
-`;
+    @media (min-width: 768px) {
+      width: 15%;
+    }
+    @media (min-width: 1025px) {
+      width: 10%;
+    }
+`
 const Heart = styled.p`
   font-size: 16px;
   margin: 0;
-  @media (min-width: 768px) {
-    font-size: 22px;
-  }
-`;
+    @media (min-width: 768px) {
+      font-size: 22px;
+    }
+    @media (min-width: 1025px) {
+      font-size: 26px;
+    }
+`
 const Location = styled.p`
   font-family: "Press Start 2P", cursive;
   font-size: 12px;
   color: #fff;
   margin: 0;
-  @media (min-width: 768px) {
-    font-size: 18px;
-  }
-`;
+    @media (min-width: 768px) {
+      font-size: 18px;
+    }
+`

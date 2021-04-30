@@ -17,7 +17,8 @@ const WinnerScreen = () => {
                 <YouWinText>
                     {description}
                 </YouWinText>
-                <i className="nes-icon is-large star"></i>
+                <Icon className="nes-icon is-large star">
+                </Icon>
                 <Link to="/">
                     <RestartButton
                         text='PLAY AGAIN'
@@ -51,6 +52,9 @@ const YouWinTitle = styled.h1`
     color: #fff;
     width: 100%;
     text-align: center;
+        @media (min-width: 768px) {
+            font-size: 48px;
+        }
 `
 const YouWinText = styled.p`
     font-family: 'Press Start 2P', cursive;
@@ -58,8 +62,11 @@ const YouWinText = styled.p`
     font-size: 12px;
     width: 100%;
     text-align: center;
+        @media (min-width: 768px) {
+            font-size: 18px;
+            width: 80%;
+        }
 `
-/* const RestartButton = styled.button`
-    font-family: 'Press Start 2P', cursive;
-    margin-top: 45px;
-` */
+const Icon = styled.i`
+    margin: 25px 0;
+`
