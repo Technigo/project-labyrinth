@@ -24,10 +24,10 @@ export const GameScreen = () => {
           </p>
           <i className="nes-bulbasaur"></i>
         </section>
-        <div className="nes-container is-rounded is-dark">
+        <div>
           {gameData.actions.map((action) => {
             return (
-              <div>
+              <div className="nes-container is-rounded is-dark">
                 <p className="nes-text is-primary">{action.description}</p>
                 <button
                   className="nes-btn is-primary"
