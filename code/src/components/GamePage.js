@@ -43,7 +43,6 @@ const MoveContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  overflow-y: scroll;
 
   @media (min-width: 668px) {
     flex-direction: row;
