@@ -15,10 +15,6 @@ export const GameScreen = () => {
     dispatch(game.actions.setPreviousStep());
   };
 
-  const onReset = () => {
-    dispatch(game.actions.setResetGame());
-  };
-
   if (gameData) {
     return (
       <main>
@@ -58,9 +54,6 @@ export const GameScreen = () => {
             </p>
           </div>
         </div>
-        <button class="nes-btn is-error" onClick={onReset}>
-          Restart
-        </button>
       </main>
     );
   } else {
