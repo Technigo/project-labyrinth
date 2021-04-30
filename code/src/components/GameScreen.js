@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import paths, { generatePath } from 'reducers/paths'
+import {Button} from 'nes-react'
 
 import './gameScreen.css'
 
@@ -26,12 +27,13 @@ const GameScreen = () => {
                 <h4>Do you dare to go:</h4>
                 <div className="directions">
                     {path.actions.map((action) => (
-                        <button
-                          type="button"
-                          className="btn-directions"
-                          key={action.direction}
-                          onClick={() => onPathChoice(action.direction)}>{action.direction}
-                        </button>
+                        // <button
+                        //   type="button"
+                        //   className="nes-btn is-primary"
+                        //   key={action.direction}
+                        //   onClick={() => onPathChoice(action.direction)}>{action.direction}
+                        // </button> 
+                        <Button primary onClick={() => onPathChoice(action.direction)}>{action.direction} >test</Button>
                     ))}
 
                 </div>
