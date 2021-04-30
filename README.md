@@ -17,7 +17,7 @@ If we had more time, we would
 - have the setHistory action working as intended; right now an empty array is added as the first element in the history array instead of content from the second fetch,
 - use of a design library for the loading state (for instance material.ui),
 - add a background image to the GameScreen conditionally based on the description received from the API, and
-- create some kind of visual representation of the labyrinth that the user is navigating.
+- create some kind of visual representation of the labyrinth that the user can use when navigating.
 
 
 ## View it live
