@@ -77,7 +77,6 @@ export const generateData = (direction) => {
         })
         .then(data => {
            dispatch(labyrinth.actions.addActions(data))
-          // await localStorage.setItem("labyrinth", JSON.stringify(getState()))
         })
         .catch(err => dispatch(labyrinth.actions.setError(err.message)))
         .finally(() => dispatch(labyrinth.actions.setLoading(false)))
@@ -103,13 +102,10 @@ export const generateData = (direction) => {
       })
       .then(data => {
         dispatch(labyrinth.actions.addActions(data))
-        // await localStorage.setItem("labyrinth", JSON.stringify(getState()))
       })
       .catch(err => dispatch(labyrinth.actions.setError(err.message)))
       .finally(() => dispatch(labyrinth.actions.setLoading(false)))
   }
 }
-
-
 
 export default labyrinth

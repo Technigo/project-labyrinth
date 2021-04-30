@@ -7,9 +7,9 @@ import Description from './Description'
 import Directions from './Directions'
 import GoBack from './GoBack'
 import History from './History'
+import ErrorBoard from './ErrorBoard'
+
 import { placeImage, placefinder } from "../reducers/helpers";
-
-
 
 const Container = () => {
   const actions = useSelector(store => store.labyrinth.actions)
@@ -39,9 +39,15 @@ const Container = () => {
   }, [actions])
 
   return (
-    <div className="container" style={{ backgroundImage: `url(${background})`, backgroundRepeat: "no-repeat" }}>
+    <div
+      className="container"
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundRepeat: "no-repeat"
+      }}
+    >
 
-      {error && <h1>Something went wrong, reason: {error}</h1>}
+      {error && <ErrorBoard error={error} />}
       {actions && !error
         ? <>
           {loading &&
