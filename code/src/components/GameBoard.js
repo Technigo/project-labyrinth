@@ -22,14 +22,14 @@ const GameBoard = () => {
             <EndOfGame />
         )
     }
+    
     return (
         <>
             {isLoading 
                 ? <LoadingIndicator />
-                : 
-            <GameBoardContainer>
-                <div class="nes-container is-rounded is-dark">
-                    <Header>{currentDescription.description}</Header>
+                : <GameBoardContainer>
+                    <div class="nes-container is-rounded is-dark">
+                        <Header>{currentDescription.description}</Header>
                         {actions?.map((action, index) => {
                             return(
                             <Action>
@@ -49,19 +49,19 @@ const GameBoard = () => {
                             </Action>
                             )
                         })}
-                    {history.length > 1 && ( 
-                        <GoBackButton>
-                            <button 
-                                type="button" 
-                                class="nes-btn is-primary"
-                                onClick={() => dispatch(game.actions.setPreviousDescription())}
-                            >
-                                Go back
-                            </button>
-                        </GoBackButton>
-                    )}
-                </div>
-            </GameBoardContainer>
+                        {history.length > 1 && ( 
+                            <GoBackButton>
+                                <button 
+                                    type="button" 
+                                    class="nes-btn is-primary"
+                                    onClick={() => dispatch(game.actions.setPreviousDescription())}
+                                >
+                                    Go back
+                                </button>
+                            </GoBackButton>
+                        )}
+                    </div>
+                </GameBoardContainer>
             }
         </>
     )

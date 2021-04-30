@@ -8,7 +8,7 @@ const LoadingIndicator = () => {
 
     return (
         <>
-        {isLoading && <SpinningLoader />}
+            {isLoading && <SpinningLoader />}
         </>
     )
 }

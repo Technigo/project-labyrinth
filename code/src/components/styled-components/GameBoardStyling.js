@@ -31,8 +31,7 @@ export const Action = styled.div`
 `
 
 export const ActionDescription = styled.p`
-    margin-bottom: 20px
-    
+    margin-bottom: 20px  
 `
 
 export const GoBackButton = styled.div`

@@ -6,7 +6,7 @@ const game = createSlice({
     initialState: {
         username: '',
         gameStatus: {},
-        history: [],
+        history: []
     },
     reducers: {
         setUsername: (store, action) => {

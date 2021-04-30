@@ -4,7 +4,7 @@ import "nes.css/css/nes.min.css"
 
 import game from '../reducers/game'
 import WelcomeMessage from './WelcomeMessage'
-import { WelcomePageContainer, HeaderContainerStyling, MainHeader, FormContainer, ButtonContainer} from './styled-components/WelcomePageStyling'
+import { WelcomePageContainer, HeaderContainerStyling, MainHeader, FormContainer, ButtonContainer } from './styled-components/WelcomePageStyling'
 
 const WelcomePage = () => {
     const [name, setName] = useState('')

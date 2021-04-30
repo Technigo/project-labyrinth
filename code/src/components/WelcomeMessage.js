@@ -16,20 +16,22 @@ const WelcomeMessage = () => {
         <>  
             {!gameStatus && (
                 <WelcomeMessageContainer>
-                        <div class="nes-container is-rounded is-dark">
-                            <Header>Welcome to the labyrinth <span class="nes-text is-success">{userName}</span>!</Header>
-                            <p>Press start to enter:</p>
-                            <ButtonContainer>
-                                <button 
-                                    type="button" 
-                                    class="nes-btn is-success"
-                                    aria-label='Start button'
-                                    onClick={() => dispatch(registerNewPlayer(userName))}
-                                >
-                                    Start
-                                </button>
-                            </ButtonContainer>
-                        </div>
+                    <div class="nes-container is-rounded is-dark">
+                        <Header>
+                            Welcome to the labyrinth <span class="nes-text is-success">{userName}</span>!
+                        </Header>
+                        <p>Press start to enter:</p>
+                        <ButtonContainer>
+                            <button 
+                                type="button" 
+                                class="nes-btn is-success"
+                                aria-label='Start button'
+                                onClick={() => dispatch(registerNewPlayer(userName))}
+                            >
+                                Start
+                            </button>
+                        </ButtonContainer>
+                    </div>
                 </WelcomeMessageContainer>
             )}
             {gameStatus && <GameBoard />}
