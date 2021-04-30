@@ -19,12 +19,12 @@ const GameScreen = () => {
     <div> 
       <h3>This is a description: {actions.description}</h3> 
       {actions.actions.map(item => (
-        <button onClick={() => onButtonclick(item)}>{item.direction}</button>
+        <>
+          <p>{item.description}</p>
+          <button onClick={() => onButtonclick(item)}>{item.direction}</button>
+        </>
       ))}
-    
-      
     </div>
-
   )
 }
 
