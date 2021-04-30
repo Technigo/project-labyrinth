@@ -1,13 +1,119 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "New Tegomin", serif;
+  color: rgba(41, 54, 42, 1);
+  /* font-family: 'Noto Sans', sans-serif; */
+
+  background: url(https://images.unsplash.com/photo-1557868044-5036ca71e547?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80)
+    no-repeat center center fixed;
+  background-size: cover;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.loading {
+  margin-top: 20px;
+}
+
+/*** START SCREEN ***/
+
+.start-game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  background-color: rgba(137, 153, 182, 0.7);
+  padding: 30px;
+  align-content: space-evenly;
+  border-radius: 6px;
+}
+
+.heading {
+  margin: 0 0 10px 0;
+  font-size: 27px;
+}
+
+.start-text {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+}
+
+.input {
+  width: 80%;
+  height: 25px;
+  margin-bottom: 10px;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 20px;
+  color: rgba(41, 54, 42, 1);
+  background-color: rgba(137, 153, 182, 0.5);
+  border-radius: 6px;
+  border: 1px solid rgba(41, 54, 42, 1);
+  outline: none;
+}
+
+.btn {
+  width: 100px;
+
+  background-color: #c8ceb3;
+  border: 1px solid rgba(41, 54, 42, 1);
+  color: rgba(41, 54, 42, 1);
+  border-radius: 6px;
+  padding: 5px 5px 5px 5px;
+  text-align: center;
+
+  display: inline-block;
+  font-size: 16px;
+  font-family: "Noto Sans", sans-serif;
+  cursor: pointer;
+}
+
+/*** GAME SCREEN ***/
+
+.game-on {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 75%;
+  height: 100vh;
+  padding: 30px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.head-description {
+  background-color: rgba(137, 153, 182, 0.9);
+  border-radius: 6px;
+  justify-content: center;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.btn-direction {
+  background-color: rgba(137, 153, 182, 0.9);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 20px;
+  margin-bottom: 8px;
 }

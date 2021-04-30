@@ -10,13 +10,13 @@ const Games = () => {
   // console.log(description)
 
   return (
-    <div>
-      {loading && <h1>loading...</h1>}
+    <main className="main">
+      {loading && <h1 className='loading'>LOADING...</h1>}
       {  actions
         ? <GameScreen />
         : <StartScreen />
       }
-    </div>
+    </main>
     
   )
 }

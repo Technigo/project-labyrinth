@@ -14,15 +14,16 @@ const StartScreen = () => {
 } 
 
   return (
-    <div>
-      <p>Welcome to the game!</p>
-      <input
+    <section className='start-game'>
+      <h1 className='heading'>Welcome to the maze!</h1>
+      <p className='start-text'>Enter your name</p>
+      <input className='input'
         type='text'
         value={inputValue}
         onChange={event => setInputValue(event.target.value)}
       />
-      <button onClick={onUsernameSet}>Start the game!</button>
-    </div>
+      <button className='btn' onClick={onUsernameSet}>Start!</button>
+    </section>
   )
 }
 
