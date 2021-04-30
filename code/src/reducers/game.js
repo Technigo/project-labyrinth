@@ -15,6 +15,144 @@ const initialItems = localStorage.getItem('game')
       [0, 0, 0, 0],
       [0, 0, 0, 0],
       [0, 0, 0, 0]
+    ],
+    mapArray2: [
+      [
+        {
+          current: false,
+          visited: false,
+          north: false, 
+          east: false, 
+          south: false, 
+          west: false 
+        }, 
+        {
+          current: false,
+          visited: false,
+          north: false, 
+          east: false, 
+          south: false, 
+          west: false 
+        }, 
+        {
+          current: false,
+          visited: false,
+          north: false, 
+          east: false, 
+          south: false, 
+          west: false 
+        },
+        {
+          current: false,
+          visited: false,
+          north: false, 
+          east: false, 
+          south: false, 
+          west: false 
+        }
+      ], 
+      [
+        {
+          current: false,
+          visited: false,
+          north: false, 
+          east: false, 
+          south: false, 
+          west: false 
+        }, 
+        {
+          current: false,
+          visited: false,
+          north: false, 
+          east: false, 
+          south: false, 
+          west: false 
+        }, 
+        {
+          current: false,
+          visited: false,
+          north: false, 
+          east: false, 
+          south: false, 
+          west: false 
+        },
+        {
+          current: false,
+          visited: false,
+          north: false, 
+          east: false, 
+          south: false, 
+          west: false 
+        }
+      ],
+      [
+        {
+          current: false,
+          visited: false,
+          north: false, 
+          east: false, 
+          south: false, 
+          west: false 
+        }, 
+        {
+          current: false,
+          visited: false,
+          north: false, 
+          east: false, 
+          south: false, 
+          west: false 
+        }, 
+        {
+          current: false,
+          visited: false,
+          north: false, 
+          east: false, 
+          south: false, 
+          west: false 
+        },
+        {
+          current: false,
+          visited: false,
+          north: false, 
+          east: false, 
+          south: false, 
+          west: false 
+        }
+      ],
+      [
+        {
+          current: false,
+          visited: false,
+          north: false, 
+          east: false, 
+          south: false, 
+          west: false 
+        }, 
+        {
+          current: false,
+          visited: false,
+          north: false, 
+          east: false, 
+          south: false, 
+          west: true 
+        }, 
+        {
+          current: false,
+          visited: false,
+          north: false, 
+          east: false, 
+          south: false, 
+          west: false 
+        },
+        {
+          current: false,
+          visited: false,
+          north: false, 
+          east: false, 
+          south: false, 
+          west: false 
+        }
+      ]
     ]
   }
 
@@ -31,12 +169,25 @@ const game = createSlice ({
       } else {
         const newXCoordinate = parseInt(action.payload.coordinates.charAt(0))
         const newYCoordinate = parseInt(action.payload.coordinates.charAt(2))
-        store.mapArray[newYCoordinate][newXCoordinate] = 2
+        
+        //is this reversal intentional??? Because lo and behold, the API says 1,3 when the map says current position is [3][1]
+        store.mapArray2[newYCoordinate][newXCoordinate].current = true
+        if (store.coordinates === "") {
+        } else { 
+          store.mapArray2[parseInt(store.coordinates.charAt(2))][parseInt(store.coordinates.charAt(0))].visited = true
+        }
+        // store.mapArray2[newYCoordinate][newXCoordinate] = 2
+        action.payload.actions.forEach(action => {
+          if (action.type === "move") {
+            store.mapArray2[newYCoordinate][newXCoordinate][action.direction.toLowerCase()] = true
+          }
+        })
       }
       
       if (store.coordinates === "") {
       } else {
-        store.mapArray[parseInt(store.coordinates.charAt(2))][parseInt(store.coordinates.charAt(0))] = 1
+        store.mapArray2[parseInt(store.coordinates.charAt(2))][parseInt(store.coordinates.charAt(0))].current = false
+        // store.mapArray[parseInt(store.coordinates.charAt(2))][parseInt(store.coordinates.charAt(0))] = 1
       }
 
       store.history = [...store.history, {
@@ -72,6 +223,144 @@ const game = createSlice ({
         [0, 0, 0, 0],
         [0, 0, 0, 0]
       ]
+      store.mapArray2 = [
+        [
+          {
+            current: false,
+            visited: false,
+            north: false, 
+            east: false, 
+            south: false, 
+            west: false 
+          }, 
+          {
+            current: false,
+            visited: false,
+            north: false, 
+            east: false, 
+            south: false, 
+            west: false 
+          }, 
+          {
+            current: false,
+            visited: false,
+            north: false, 
+            east: false, 
+            south: false, 
+            west: false 
+          },
+          {
+            current: false,
+            visited: false,
+            north: false, 
+            east: false, 
+            south: false, 
+            west: false 
+          }
+        ], 
+        [
+          {
+            current: false,
+            visited: false,
+            north: false, 
+            east: false, 
+            south: false, 
+            west: false 
+          }, 
+          {
+            current: false,
+            visited: false,
+            north: false, 
+            east: false, 
+            south: false, 
+            west: false 
+          }, 
+          {
+            current: false,
+            visited: false,
+            north: false, 
+            east: false, 
+            south: false, 
+            west: false 
+          },
+          {
+            current: false,
+            visited: false,
+            north: false, 
+            east: false, 
+            south: false, 
+            west: false 
+          }
+        ],
+        [
+          {
+            current: false,
+            visited: false,
+            north: false, 
+            east: false, 
+            south: false, 
+            west: false 
+          }, 
+          {
+            current: false,
+            visited: false,
+            north: false, 
+            east: false, 
+            south: false, 
+            west: false 
+          }, 
+          {
+            current: false,
+            visited: false,
+            north: false, 
+            east: false, 
+            south: false, 
+            west: false 
+          },
+          {
+            current: false,
+            visited: false,
+            north: false, 
+            east: false, 
+            south: false, 
+            west: false 
+          }
+        ],
+        [
+          {
+            current: false,
+            visited: false,
+            north: false, 
+            east: false, 
+            south: false, 
+            west: false 
+          }, 
+          {
+            current: false,
+            visited: false,
+            north: false, 
+            east: false, 
+            south: false, 
+            west: true 
+          }, 
+          {
+            current: false,
+            visited: false,
+            north: false, 
+            east: false, 
+            south: false, 
+            west: false 
+          },
+          {
+            current: false,
+            visited: false,
+            north: false, 
+            east: false, 
+            south: false, 
+            west: false 
+          }
+        ]
+      ]
     }
   }
 })
@@ -81,7 +370,8 @@ export const advance = (input) => {
   let isStart = input.type ? false : true
   let endpoint = ""
   let postBody = {}
-  
+  console.log("initialized inside advance")
+
   return (dispatch, getState) => {
     const state = getState()
     if (isStart) {
@@ -89,6 +379,7 @@ export const advance = (input) => {
       postBody = JSON.stringify({
         username: input
       })
+      console.log("this is a start!")
     } else {
       endpoint = "action"
       postBody = JSON.stringify({
@@ -96,6 +387,7 @@ export const advance = (input) => {
         type: input.type,
         direction: input.direction
       })
+      console.log("this is an action!")
     }
     dispatch(game.actions.setLoadProgress(33))
     fetch(`https://wk16-backend.herokuapp.com/${endpoint}`, {

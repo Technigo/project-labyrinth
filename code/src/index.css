@@ -113,25 +113,23 @@ label {
 }
 
 /*combine redundant (same) attributes*/
-.grid-square-unvisited {
-  background-color: #212529;
+.grid-square-unvisited,.grid-square-visited,.grid-square-current,.grid-square-error {
   height: 80px;
   width: 80px;
   border: 3px solid #fff;
+  position: relative;
+}
+
+.grid-square-unvisited {
+  background-color: #212529;
 }
 
 .grid-square-visited {
   background-color: #31404d;
-  height: 80px;
-  width: 80px;
-  border: 3px solid #fff;
 }
 
 .grid-square-current {
   background-color: #2072c3;
-  height: 80px;
-  width: 80px;
-  border: 3px solid #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,12 +137,37 @@ label {
 
 .grid-square-error {
   background-color: #c32020;
-  height: 80px;
-  width: 80px;
-  border: 3px solid #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+}
+
+.exit-north,.exit-east,.exit-south,.exit-west {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  background-color: inherit;
+}
+
+.exit-north {
+  top: 47px;
+  left: 17px;
+  background-color: red;
+}
+
+.exit-east {
+  top: 17px;
+  left: 60px;
+  background-color: blue;
+}
+
+.exit-south {
+  bottom: 47px;
+  left: 17px;
+  background-color: yellow;
+}
+
+.exit-west {
+  top: 17px;
+  right: 47px;
+  background-color: green;
 }
 
 /* .nes-icon.trophy.is-large {
@@ -166,4 +189,5 @@ label {
 
 .player-icon {
   transform: scale(1, -1);
+  z-index: 2;
 }
