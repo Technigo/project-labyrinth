@@ -1,8 +1,6 @@
-import React from 'react'
-import Section from './style'
+import React from 'react';
+import Section from './style';
 
 export default ({ children }) => {
-  return (
-    <Section>{children}</Section>
-  )
-}
+  return <Section>{children}</Section>;
+};

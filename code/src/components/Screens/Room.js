@@ -1,9 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setState } from 'store/game';
-
 import { TypoText } from 'components/reusables/Typography';
-// import Input from 'components/InputText';
 import Section from 'components/reusables/Section';
 import Button from 'components/reusables/Button';
 import ActionCompass from 'components/ActionCompass';

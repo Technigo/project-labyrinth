@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components/macro';
+
 import background from 'assets/background.jpg';
 
 const GlobalStyle = createGlobalStyle`

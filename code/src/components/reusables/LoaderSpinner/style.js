@@ -1,7 +1,4 @@
 import styled, { keyframes } from 'styled-components';
-// import styled from 'styled-components';
-
-// import { spinAnimation, fadeGrowAnimation } from './animation';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -10,7 +7,7 @@ export const Wrapper = styled.div`
   align-items: center;
 
   & :nth-child(3) {
-    animation-delay: .5s;
+    animation-delay: 0.5s;
   }
   & :nth-child(4) {
     animation-delay: 1.5s;
@@ -37,7 +34,7 @@ const fadeAndMove = keyframes`
 `;
 
 export const Spinner = styled.div`
-  animation: ${fadeAndMove} .5s ease-in-out;
+  animation: ${fadeAndMove} 0.5s ease-in-out;
   margin: 0 10px;
   position: absolute;
   left: 100%;

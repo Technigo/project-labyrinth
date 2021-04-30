@@ -17,14 +17,9 @@ export const BoxColumn = styled.div`
 
 export const Box = styled.div`
   background: url(${boxImg}) no-repeat;
-  /* line-height: 24px; */
-  /* display: inline-block; */
   background-size: auto 100%;
-  /* padding-left: 34px; */
   width: 50px;
   height: 50px;
-  /* margin-top: 10px; */
-  /* margin-bottom: 10px; */
   opacity: 0;
 `;
 

@@ -47,12 +47,13 @@ export const RadioButton = styled.input`
     box-shadow: inset 5px 5px 5px rgba(22, 22, 22, 0.8);
   }
 `;
+
 export const RadioLabel = styled.label`
-  background: url(${unselected}) no-repeat;
-  border-radius: 5px;
-  line-height: 50px;
   display: inline-block;
-  background-size: 100%;
   height: 100%;
   width: 100%;
+  background: url(${unselected}) no-repeat;
+  background-size: 100%;
+  border-radius: 5px;
+  line-height: 50px;
 `;

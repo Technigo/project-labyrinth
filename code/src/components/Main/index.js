@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
-
 import Start from 'components/Screens/Start';
 import Room from 'components/Screens/Room';
 import End from 'components/Screens/End';

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { TypoText } from 'components/reusables/Typography';
 import { Wrapper, Spinner } from './style';
 

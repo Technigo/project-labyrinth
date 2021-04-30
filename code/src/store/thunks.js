@@ -1,9 +1,7 @@
-/* eslint-disable no-console */
 import { setState } from './game';
 import { setRoom } from './room';
 
 export const callAPI = (endpoint, message) => {
-  // console.log(message);
   return (dispatch) => {
     dispatch(setState('Loading'));
     fetch(`https://wk16-backend.herokuapp.com/${endpoint}`, {

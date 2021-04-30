@@ -1,6 +1,5 @@
-import styled from 'styled-components/macro'
+import styled from 'styled-components/macro';
 
-// Images
 import borderImage2 from 'assets/border-image.png';
 
 export default styled.section`
@@ -10,8 +9,7 @@ export default styled.section`
   text-align: center;
   max-width: 800px;
   margin: 5% auto;
-  
-  /* border & background*/
+
   border-style: solid;
   border-image-source: url(${borderImage2});
   border-image-repeat: repeat;

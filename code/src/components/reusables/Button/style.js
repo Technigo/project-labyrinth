@@ -12,13 +12,10 @@ export default styled.button`
   border: none;
   outline: none;
   filter: none;
-
-  /* Background */
   background: url(${buttonMain}) no-repeat;
   background-color: transparent;
   background-size: 100% 100%;
 
-  /* Hover and Click */
   :hover,
   :focus {
     background-image: url(${buttonHover});

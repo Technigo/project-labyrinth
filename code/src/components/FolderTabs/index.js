@@ -1,10 +1,7 @@
-/* eslint-disable no-console */
 import React from 'react';
 import { useSelector } from 'react-redux';
-
 import Map from 'components/FolderTabs/TabMap';
 import Next from 'components/FolderTabs/TabNext';
-
 import {
   TabsWrapper,
   ButtonTab,

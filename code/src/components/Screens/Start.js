@@ -1,9 +1,7 @@
-/* eslint-disable no-console */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setHeroName } from 'store/game';
 import { callAPI } from 'store/thunks';
-
 import { TypoTitle, TypoText } from 'components/reusables/Typography';
 import Input from 'components/reusables/InputText';
 import Section from 'components/reusables/Section';

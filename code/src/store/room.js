@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { createSlice } from '@reduxjs/toolkit';
 import { load } from './localStorage';
 
@@ -16,10 +15,9 @@ export const roomSlice = createSlice({
   reducers: {
     setRoom(state, action) {
       state.saved.history.push(action.payload.coordinates);
-      // make sure there are no duplicates in history,
       state.saved.history = state.saved.history.filter((a, b) => a !== b);
       state.saved.currentRoom = { ...action.payload };
-      state.actions.selected = { };
+      state.actions.selected = {};
     },
     clearRoom(state) {
       state.saved.history = [];

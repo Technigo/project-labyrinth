@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setAction } from 'store/room';
@@ -44,7 +43,6 @@ export default () => {
   const [actions, setActions] = React.useState(availableActions);
 
   const handleChange = (direction, description) => {
-    // check if there all actions are disabled
     const newActions = actions.map((action) => {
       return { ...action, selected: !action.selected };
     });

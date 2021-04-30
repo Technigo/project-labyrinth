@@ -1,8 +1,6 @@
-import React from 'react'
-import Input from './style'
+import React from 'react';
+import Input from './style';
 
 export default ({ ...props }) => {
-  return (
-    <Input {...props} />
-  )
-}
+  return <Input {...props} />;
+};

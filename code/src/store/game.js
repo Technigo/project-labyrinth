@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { createSlice } from '@reduxjs/toolkit';
 import uniqid from 'uniqid';
 import { load } from './localStorage';

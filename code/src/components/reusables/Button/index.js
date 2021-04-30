@@ -1,8 +1,6 @@
-import React from 'react'
-import Button from './style'
+import React from 'react';
+import Button from './style';
 
 export default ({ children, ...props }) => {
-  return (
-    <Button {...props}>{children}</Button>
-  )
-}
+  return <Button {...props}>{children}</Button>;
+};

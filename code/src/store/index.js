@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable no-underscore-dangle */
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { save } from './localStorage';
 import game from './game';

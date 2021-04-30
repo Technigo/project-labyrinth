@@ -1,26 +1,22 @@
 import styled from 'styled-components/macro';
 import Button from 'components/reusables/Button';
 
-// import buttonMain from 'assets/button.png';
-// import buttonDown from 'assets/button-down.png';
 import buttonHover from 'assets/button-hover.png';
 import borderImage2 from 'assets/border-image.png';
 
 export const ButtonTab = styled(Button)`
-  /* Toggle */
   background-image: url(${buttonHover});
   transform: translateY(-5px);
+
   @media screen and (max-width: 600px) {
     min-width: 90px;
   }
-  
+
   & :hover {
     border: 1px solid transparent;
   }
-  
-  ${(props) => (props.selected
-      ? `filter: contrast(150%);`
-      : `filter: grayscale(50%);`)}
+
+  ${(props) => (props.selected ? `filter: contrast(150%);` : `filter: grayscale(50%);`)}
 `;
 
 export const TabButtonRow = styled.div`
@@ -35,7 +31,6 @@ export const TabButtonRow = styled.div`
 `;
 
 export const TabContent = styled.div`
-  /* border & background*/
   z-index: 2;
   border-style: solid;
   border-image-source: url(${borderImage2});
@@ -52,6 +47,6 @@ export const TabsWrapper = styled.div`
   display: flex;
   flex-flow: column nowrap;
   align-self: flex-start;
-  align-items: flex-start;  
+  align-items: flex-start;
   width: 100%;
 `;
