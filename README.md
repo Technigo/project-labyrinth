@@ -1,9 +1,11 @@
 # Project Labyrinth
-This was a project build during the Technigo bootcamp. Week 16. It consisted in building a game in the form of a text based adventure. The main goal was to practise:
+This was a project build by pair-programming during the Technigo bootcamp. Week 16. It consisted in building a game in the form of a text based adventure. The main goal was to practise:
 
 - How to make API calls around Redux using thunks
 - How to structure your redux store to suit your data
 - To send JSON in the body of a request
+
+Project made by Malin Göthe and Sofia Arzt.
 
 ## The problem
 
