@@ -17,20 +17,28 @@ const InGameContainer = styled.section`
   right: 0;
   top: 0;
   margin: 30px;
-  
+
 `
 const ActionContainerWrapper = styled.div`
   @media (min-width: 900px) {
-    display:flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 } 
 `
 
 const ActionContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   background: radial-gradient(circle, rgba(15,103,72,1) 0%, rgba(5,50,16,1) 100%);
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 5px;
+
+  @media (min-width: 900px) {
+    width: 30%;
+  } 
 `
 
 const MainContent = styled.div`
@@ -66,17 +74,17 @@ const InGame = () => {
       {!loading && (
         <MainContent>
           <p>{direction.description}</p>        
-          { actions.map((action) => (
             <ActionContainerWrapper>
+          { actions.map((action) => (
               <ActionContainer key={action.description}>
                 <p>{action.description}</p>
                 <Button 
                 onClick={() => dispatch(nextStep(usernameFinal, action.direction))}>{action.direction}
                 </Button>
               </ActionContainer>
-            </ActionContainerWrapper>
             ))            
           }        
+            </ActionContainerWrapper>
           {direction.coordinates === "1,3" && <Summary />}
         </MainContent>
         )}
