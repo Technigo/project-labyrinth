@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useSelector} from 'react-redux'
-import "nes.css/css/nes.min.css"
 
 const EndScreen = () => {
   const lastDescription = useSelector((store) => store.games.gameStatus)
