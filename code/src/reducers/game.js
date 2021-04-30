@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { ui } from 'reducers/ui';
 
 export const game = createSlice({
   name: 'game',
@@ -24,15 +25,12 @@ export const game = createSlice({
     setActions: (store, action) => {
       store.actions = action.payload;
     },
-    /*tillagd funktion för att kunna spara user i initialState*/
     setUserState: (store, action) => {
       store.user = action.payload;
     },
   },
 });
 
-/*angivit direction och type som parametrar som body:n tar emot för att denna ska uppdateras varje gång man kör en ny fetch 
-type=null, direction=null är för att i första if (mode===start) så stoppar vi inte in ngt move eller type, därför behöver de ha ett defaultvärde*/
 export const fetchInit = (user, type = null, direction = null, mode) => {
   if (mode === 'start') {
     return {
@@ -61,7 +59,7 @@ export const fetchInit = (user, type = null, direction = null, mode) => {
 
 export const fetchStart = () => {
   return (dispatch, getState) => {
-    // dispatch(game.actions.setLoading(true))
+    dispatch(ui.actions.setLoading(true));
     fetch(
       'https://wk16-backend.herokuapp.com/start',
       fetchInit(getState().game.user, null, null, 'start')
@@ -71,14 +69,14 @@ export const fetchStart = () => {
         dispatch(game.actions.setDescription(json.description));
         dispatch(game.actions.setCoordinates(json.coordinates));
         dispatch(game.actions.setActions(json.actions));
-        // dispatch(game.actions.setLoading(false))
+        dispatch(ui.actions.setLoading(false));
       });
   };
 };
 
-/*här tar vi alltså emot direction och type vid varje knapp-klick, som ger oss de nya alternativen vid varje ny fetch-request*/
 export const fetchNext = (direction, type) => {
   return (dispatch, getState) => {
+    dispatch(ui.actions.setLoading(true));
     fetch(
       'https://wk16-backend.herokuapp.com/action',
       fetchInit(getState().game.user, type, direction, 'next')
@@ -88,6 +86,7 @@ export const fetchNext = (direction, type) => {
         dispatch(game.actions.setDescription(json.description));
         dispatch(game.actions.setCoordinates(json.coordinates));
         dispatch(game.actions.setActions(json.actions));
+        dispatch(ui.actions.setLoading(false));
       });
   };
 };

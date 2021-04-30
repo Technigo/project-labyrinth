@@ -1,13 +1,14 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 export const ui = createSlice({
-    name: ui,
-    initialState: {
-        isLoading: false
+  name: 'ui',
+  initialState: {
+    loading: false,
+  },
+  reducers: {
+    setLoading: (store, action) => {
+      store.loading = action.payload;
+      console.log(123);
     },
-    reducers: {
-        setLoading: (store, action) => {
-            store.isLoading = action.payload
-        }
-    }
-})
+  },
+});

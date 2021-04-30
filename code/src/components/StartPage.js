@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+
 import { fetchStart, game } from 'reducers/game';
 
 export const StartPage = () => {
@@ -8,7 +9,6 @@ export const StartPage = () => {
 
   const dispatch = useDispatch();
 
-  /*denna lösning är i princip bara kopierad from Maks frl*/
   const onUserSet = () => {
     dispatch(game.actions.setUserState(user));
     dispatch(fetchStart());
@@ -35,14 +35,9 @@ export const StartPage = () => {
           onChange={(event) => setUser(event.target.value)}
           required
         />
-        <Link to='/GamePage'>
-          <button
-            className='start-button nes-btn is-primary'
-            onClick={onUserSet}
-          >
-            Start the game
-          </button>
-        </Link>
+        <button className='start-button nes-btn is-primary' onClick={onUserSet}>
+          Start the game
+        </button>
       </form>
     </div>
   );
