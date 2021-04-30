@@ -10,8 +10,12 @@ export const EndScreen = () => {
       };
     return (    
         <>
-            <h1 className="nes-balloon is-dark from-right nes-pointer nes-text is-success">Congratulations you finished the game!!!</h1>
+            <h1 className="nes-balloon is-dark from-right nes-pointer nes-text is-success">
+                Congratulations you finished the game!!!
+            </h1>
+            <section className="pokemon-container">
             <i class="nes-charmander"></i>
+            </section>
             <button class="nes-btn is-error" onClick={onReset}>
             Restart
             </button>

@@ -18,7 +18,7 @@ export const GameScreen = () => {
   if (gameData) {
     return (
       <main>
-        <section className="bulbasaur-container">
+        <section className="pokemon-container">
           <p className="nes-balloon is-dark from-right nes-pointer nes-text is-success">
             {gameData.description}
           </p>
