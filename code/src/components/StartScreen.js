@@ -33,6 +33,7 @@ const StartScreen = () => {
                 <NameInput
                     type="text"
                     id="name_input"
+                    pattern=".{4,25}"
                     required
                     value={inputValue}
                     onChange={event => setInputValue(event.target.value)}

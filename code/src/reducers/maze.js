@@ -45,6 +45,7 @@ const maze = createSlice({
     },
     restartGame: (store) => {
       const setInitialState = "";
+      store.username = setInitialState
       store.gameState = setInitialState;
     },
   },
