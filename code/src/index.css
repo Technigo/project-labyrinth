@@ -1,4 +1,5 @@
 @import url(//db.onlinewebfonts.com/c/e3619f7413527cff15063e007b666239?family=WrittenLies);
+
 @font-face {
   font-family: "WrittenLies"; 
   src: url("//db.onlinewebfonts.com/t/e3619f7413527cff15063e007b666239.eot"); 
@@ -22,8 +23,7 @@ body {
   background-image: url('./assets/book-background.jpg');
   background-size: cover;
   height: 100vh;
-  width: 100vw;
-  
+  width: 100vw; 
 }
 
 code {
@@ -35,17 +35,21 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
-margin-top: 30px;
+  margin-top: 50px;
 }
+
 h1 {
   font-family: "WrittenLies"; 
   color: #4C2F1A;
+  text-align: center;
 }
+
 .startscreen-container label {
   padding: 15px;
   font-family: "WrittenLies"; 
   color: #4C2F1A;
 }
+
 .textinput {
   border-bottom: solid #4C2F1A;
   border-width: 0px 0px 2px 0px;
@@ -56,6 +60,7 @@ h1 {
   color: #4C2F1A;
   font-size: 20px;
 }
+
 button {
   margin: 15px;
   font-family: "WrittenLies"; 
@@ -66,18 +71,18 @@ button {
   line-height:1.5em;
   background: none;
   cursor: pointer;
+  font-size: 18px;
 }
 
 button:hover {
   background: #ac8d79;
 }
 
-p {
-  font-family: "WrittenLies"; 
-  color: #4C2F1A;
-  font-size: 20px;
-  width: 90%;
+button:disabled {
+  opacity: 0.5;
+  cursor: auto;
 }
+
 .gamescreen-container {
   box-sizing: border-box;
   display: flex;
@@ -86,13 +91,59 @@ p {
   margin-top: 50px;
   text-align: center;
 }
-.fade-in {
-  animation: fadeIn ease 5s;
-  -webkit-animation: fadeIn ease 5s;
-  -moz-animation: fadeIn ease 5s;
-  -o-animation: fadeIn ease 5s;
-  -ms-animation: fadeIn ease 5s;
+
+p {
+  font-family: "WrittenLies"; 
+  color: #4C2F1A;
+  font-size: 20px;
+  text-align: center;
 }
+
+.description-container {
+  width: 90%;
+}
+
+.image-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: turn 2s infinite linear;
+}
+
+@media (min-width: 768px) {
+  .gamescreen-container {
+    margin-top: 80px;
+  }
+
+  .startscreen-container {
+    margin-top: 80px;
+  }
+
+  .description-container {
+    width: 80%;
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    background-image: url('./assets/book-background-flip.jpg');
+  }
+}
+
+/* Animation */
+.fade-in {
+  animation: fadeIn ease 3s;
+  -webkit-animation: fadeIn ease 3s;
+  -moz-animation: fadeIn ease 3s;
+  -o-animation: fadeIn ease 3s;
+  -ms-animation: fadeIn ease 3s;
+}
+
 @keyframes fadeIn {
   0% {
     opacity:0;
@@ -135,10 +186,15 @@ p {
   }
   100% {
     opacity:1;
-}}
-
-@media (min-width: 992px) {
-  body {
-    background-image: url('./assets/book-background-flip.jpg');
   }
 }
+
+@keyframes turn {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+

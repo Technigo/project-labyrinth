@@ -7,7 +7,7 @@ const gameactions = createSlice({
   initialState: {
     username: null,
     gamestart: null,
-    loading: false
+    loading: false,
   },
   reducers: {
     setUsername: (store, action) => {
