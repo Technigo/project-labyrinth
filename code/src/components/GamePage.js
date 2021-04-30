@@ -16,6 +16,7 @@ export const GamePage = () => {
         <div key={action.direction}>
           <p>{action.description}</p>
           <button
+            className='nes-btn'
             /*direction och type skickas in i fetchNext för att sedan kunna användas i fetchInitNext*/
             onClick={() => dispatch(fetchNext(action.direction, action.type))}
           >

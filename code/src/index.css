@@ -10,6 +10,32 @@ code {
     monospace;
 }
 
+/* .startpage-container {
+  background-image: url('assets/labyrinth-background.jpeg');
+} */
+
 .header-container {
   margin: 10px;
+}
+
+.game-description {
+  margin: 20px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-content: left;
+  margin: 50px;
+}
+
+.name-input {
+  width: 50%;
+}
+
+.start-button {
+  margin-top: 10px;
 }
