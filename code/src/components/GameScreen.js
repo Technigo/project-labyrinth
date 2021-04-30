@@ -16,26 +16,22 @@ const Container = styled.div`
   width: 75%;
   position: relative;
   background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
   -webkit-box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
-  border-radius: 12px;
-  -webkit-border-radius: 12px;
 
   @media (min-width: 768px) {
     width: 600px;
     padding: 40px;
   }
-`;
-
-const TextContent = styled.div``;
+`
 
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-`;
+`
 
 const SingleButtonContainer = styled.div`
   width: 50%;
@@ -61,7 +57,7 @@ const Button = styled.button`
   &:hover {
     background-color: #fafafa;
   }
-`;
+`
 
 const Title = styled.div`
   font-size: 20px;
@@ -71,7 +67,7 @@ const Title = styled.div`
   @media (min-width: 768px) {
     font-size: 30px;
   }
-`;
+`
 
 const SmallerText = styled.p`
   font-size: 12px;
@@ -93,10 +89,10 @@ const GameScreen = () => {
 
   return (
     <Container>
-      <TextContent>
+      <div>
         <SmallerText>Coordinates: {response.coordinates}</SmallerText>
         <Title>{response.description}</Title>
-      </TextContent>
+      </div>
       <ButtonContainer>
       {actions.map((action) => (
           <SingleButtonContainer key={action.description}>

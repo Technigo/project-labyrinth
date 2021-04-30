@@ -15,13 +15,11 @@ const Container = styled.div`
   width: 60%;
   position: relative;
   background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
   -webkit-box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
-  border-radius: 12px;
-  -webkit-border-radius: 12px;
 
   @media (min-width: 768px) {
     width: 600px;
