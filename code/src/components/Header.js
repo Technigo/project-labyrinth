@@ -9,7 +9,7 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-        <button onClick={onRestartButton}>
+        <button className="nes-btn" onClick={onRestartButton}>
             Restart
         </button>
     </HeaderContainer>
@@ -18,7 +18,7 @@ const Header = () => {
 
 const HeaderContainer = styled.div`
   width: 100vw;
-  background-color: yellow;
+  background-color: black;
 `;
 
 export default Header

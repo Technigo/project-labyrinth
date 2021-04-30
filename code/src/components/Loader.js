@@ -1,31 +1,28 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { Circular } from 'styled-loaders-react'
 import styled from 'styled-components'
 
 const Loader = () => {
-  return (
-    <LoaderContainer>
-        <Loading></Loading>
-    </LoaderContainer>
-  )
+  const isLoading = useSelector((store) => store.games.loading)
+  console.log(isLoading)
+
+    return (
+      isLoading && (
+        <LoadingContainer>
+            <Circular color="lightgray" size="80px" />
+        </LoadingContainer>
+      )
+    )
 }
 
-const LoaderContainer = styled.div`
+// Local styling
+const LoadingContainer = styled.div`
+  height: 100vh;
+  background: none;
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-content: center;
-`;
-
-const Loading = styled.div`
-  width:60px;
-  height:60px;
-  border: 2px solid black;
-  border-top-color: #004900;
-  border-radius: 50%;
-  animation: 1s spinner infinite ease-in-out;
-  @keyframes spinner {
-  to {transform: rotate(360deg)
-  }
-}
 `;
 
 export default Loader
