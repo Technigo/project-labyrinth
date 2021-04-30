@@ -22,7 +22,7 @@ const Container = styled.div`
   @media (min-width: 1024px) {
     width: 50%;
   }
-`;
+`
 
 const Title = styled.h1`
   color: #3b2e36;
@@ -73,7 +73,7 @@ const CustomButton = styled.button`
   &:hover {
     background-color: rgb(82,88,13, 0.5);
   }
-`;
+`
 
 const InputContainer = styled.div`
   display: flex;

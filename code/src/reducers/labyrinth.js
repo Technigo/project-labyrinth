@@ -17,14 +17,14 @@ const labyrinth = createSlice({
       store.playerName = action.payload
     },
     setActions: (store, action) => {
-      if (store.actions) {         //check this logic, right now an empty array [] is stored in the first index
+      if (store.actions) {         
         store.history = [...store.history, store.actions]
       }
 
       store.actions = action.payload
     }, 
-    setPreviousAction: (store, action) => {
-      if (!store.history.length < 1) {          //check this logic
+    setPreviousAction: (store) => {
+      if (!store.history.length < 1) {          
         store.actions = store.history[store.history.length - 1]
         store.history = store.history.slice(0, store.history.length - 1)
       }

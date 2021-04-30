@@ -24,8 +24,7 @@ const Container = styled.div`
   @media (min-width: 1024px) {
   
   }
-
-`;
+`
 
 const DescriptionText = styled.p`
   margin: 0;
@@ -61,7 +60,7 @@ const CustomButton = styled.button`
   &:hover {
     background-color: rgb(82,88,13, 0.5);
   }
-`;
+`
 
 export const GameCard = ({action}) => {
   const dispatch = useDispatch()

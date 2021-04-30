@@ -15,7 +15,7 @@ const Container = styled.div`
   padding: 20px;
   color: #3b2e36;
   text-align: center;
-`;
+`
 
 const MainHeading = styled.h2`
   margin: 0;
@@ -41,7 +41,7 @@ const CardsContainer = styled.div`
   @media (min-width: 1024px) {
   
   }
-`;
+`
 
 const CustomButton = styled.button`
   border-radius: 6px;
@@ -65,7 +65,7 @@ const CustomButton = styled.button`
   &:hover {
     background-color: rgb(82,88,13, 0.5);
   }
-`;
+`
 
 const GameScreen = () => {
   const actions = useSelector(store => store.labyrinth.actions)
@@ -88,16 +88,12 @@ const GameScreen = () => {
         )
         )}
       </CardsContainer>  
-      {history.length > 1 &&   //this logic should be OK, need to fix history logic in labyrinth
+      {history.length > 1 &&  
         <CustomButton onClick={() => onRevertDirection()} >
           GO BACK
         </CustomButton>          
-    
       }
     </Container>
-
-    //render an option-card component for each directions choice
-    // use damians card component from code-along?
   )
 }
 export default GameScreen

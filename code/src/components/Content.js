@@ -11,7 +11,7 @@ const Main = styled.main`
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-`;
+`
 
 const Heading = styled.h1`
   color: rgb(246,226,189);
@@ -35,7 +35,7 @@ const CustomButton = styled.button`     //add hover effect on all buttons
   @media (min-width: 1024px) {
     font-size: 26px;
   }
-`;
+`
 
 const Content = () => {
   const actions = useSelector(store => store.labyrinth.actions)
