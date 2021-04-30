@@ -23,15 +23,17 @@ const StartScreen = () => {
       {!loading && (
         <Container>
           <Content>
-            <label>Welcome! Please enter your name:</label>
-            <form>
-              <input
-                type='text'
-                value={userName}
-                onChange={(event) => setUserName(event.target.value)}
-              />
-            </form>
-            <button onClick={onStartGame}>Start!</button>
+            <FormContainer>
+              <Label>Welcome! Please enter your name:</Label>
+              <form>
+                <Input
+                  type='text'
+                  value={userName}
+                  onChange={(event) => setUserName(event.target.value)}
+                />
+              </form>
+              <Button onClick={onStartGame}>Start!</Button>
+            </FormContainer>
           </Content>
         </Container>
       )}
@@ -55,4 +57,37 @@ const Content = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
+`;
+
+const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 300px;
+  height: 250px;
+  padding: 20px;
+  border: 6px double;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #f7f5e1;
+  border-radius: 15px;
+`;
+
+const Label = styled.label`
+  font-size: 18px;
+`;
+
+const Input = styled.input`
+  padding: 5px;
+  border: #f7f5e1;
+  border-radius: 5px;
+  font-size: 18px;
+`;
+
+const Button = styled.button`
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: #f7f5e1;
+  font-size: 16px;
+  cursor: pointer;
 `;

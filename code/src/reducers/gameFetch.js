@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { batch } from "react-redux";
 
 const gameFetch = createSlice({
   name: "gameFetch",
@@ -39,9 +40,11 @@ export const firstFetch = (userName) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        dispatch(gameFetch.actions.setDescription(data.description));
-        dispatch(gameFetch.actions.setActions(data.actions));
-        dispatch(gameFetch.actions.setLoading(false));
+        batch(() => {
+          dispatch(gameFetch.actions.setDescription(data.description));
+          dispatch(gameFetch.actions.setActions(data.actions));
+          dispatch(gameFetch.actions.setLoading(false));
+        });
       });
   };
 };
@@ -61,10 +64,12 @@ export const secondFetch = (userName, direction) => {
       .then((response) => response.json())
       .then((data) => {
         //dispatch(gameFetch.actions.setGameScreen(data));
-        dispatch(gameFetch.actions.setDescription(data.description));
-        dispatch(gameFetch.actions.setActions(data.actions));
-        dispatch(gameFetch.actions.setCoordinates(data.coordinates));
-        dispatch(gameFetch.actions.setLoading(false));
+        batch(() => {
+          dispatch(gameFetch.actions.setDescription(data.description));
+          dispatch(gameFetch.actions.setActions(data.actions));
+          dispatch(gameFetch.actions.setCoordinates(data.coordinates));
+          dispatch(gameFetch.actions.setLoading(false));
+        });
       });
   };
 };
