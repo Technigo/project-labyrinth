@@ -35,6 +35,7 @@ const game = createSlice({
       store.gameData = null
       store.gameStart = false
       store.history = []
+      store.gameOver = false
     },
     setGameOver: (store, action) => {
       store.gameOver = action.payload
