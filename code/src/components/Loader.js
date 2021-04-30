@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Circular } from 'styled-loaders-react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 const Loader = () => {
   const isLoading = useSelector((store) => store.games.loading)
