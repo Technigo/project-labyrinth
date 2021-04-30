@@ -69,6 +69,10 @@ const CustomButton = styled.button`
   @media (min-width: 1024px) {
     font-size: 26px;
   }
+  
+  &:hover {
+    background-color: rgb(82,88,13, 0.5);
+  }
 `;
 
 const InputContainer = styled.div`
@@ -108,6 +112,7 @@ const StartScreen = () => {
             type="text"
             value={inputValue}
             onChange={e => setInputValue(e.target.value)}
+            autoFocus
           />
           <CustomButton
             onClick={onUserSet}

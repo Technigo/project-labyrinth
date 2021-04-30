@@ -57,6 +57,10 @@ const CustomButton = styled.button`
     font-size: 24px;
     padding: 5px 15px;
   }
+
+  &:hover {
+    background-color: rgb(82,88,13, 0.5);
+  }
 `;
 
 export const GameCard = ({action}) => {

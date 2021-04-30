@@ -61,6 +61,10 @@ const CustomButton = styled.button`
   @media (min-width: 1024px) {
     font-size: 26px;
   }
+
+  &:hover {
+    background-color: rgb(82,88,13, 0.5);
+  }
 `;
 
 const GameScreen = () => {
