@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components/macro";
 
-import { nextStep } from "../reducers/games";
+import games, { nextStep } from "../reducers/games";
 
 const LoadingContainer = styled.div`
   background-color: black;
@@ -68,6 +68,7 @@ const Game = () => {
 
   const dispatch = useDispatch();
 
+
   return (
     <>
       <Wrapper>
@@ -75,6 +76,7 @@ const Game = () => {
           <DescriptionTitle>{description}</DescriptionTitle>
         </LoadingContainer>
         {actions.actions.map((action) => (
+            
           <ActionContainer key={action.description}>
             <Text>{action.description}</Text>
             <Button

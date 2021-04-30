@@ -9,6 +9,7 @@ const games = createSlice({
       description: "",
       actions: [],
     },
+    history: [],
     loading: false,
   },
   reducers: {
@@ -16,12 +17,21 @@ const games = createSlice({
       store.username = action.payload;
     },
     setDescriptions: (store, action) => {
+      if (store.description !== null) {
+        store.history = [...store.history, store.description];
+      }
       store.description = action.payload;
       store.actions = action.payload.actions;
     },
     setLoading: (store, action) => {
       store.loading = action.payload;
     },
+    setHistory: (store, action) => {
+        if (store.history.length) {
+            store.quote = store.history[store.history.length - 1];
+            store.history = store.history.slice(0, store.history.length - 1);
+        }
+    }
   },
 });
 
