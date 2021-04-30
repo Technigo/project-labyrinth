@@ -9,16 +9,10 @@ const games = createSlice({
       description: '',
       actions: []
     },
-   /*  description: localStorage.getItem('question') 
-    ? JSON.parse(localStorage.getItem('question'))
-    : {
-      coordinates: 0.0,
-      description: '',
-      actions: []
-    },  */
     history: [],
     error: null, 
-    loading: false 
+    loading: false,
+    pilar: [] // La till denna nyss       
   },
   reducers: {
     setName: (store, action) => {
@@ -35,7 +29,10 @@ const games = createSlice({
     }, 
     setLoading: (store, action) => {
       store.loading = action.payload
-    }, 
+    },
+    setPilar: (store, action) => { // La till den nyss
+      store.pilar = [action.payload]
+    }
   }
 })
 
@@ -59,7 +56,6 @@ export const generateGame = (name) => {
     })
     .then(question => {
       dispatch(games.actions.setDescription(question))
-      localStorage.setItem('question', JSON.stringify(question))
     })
     .catch(error => dispatch(games.actions.setError(error.message)))
     .finally(() => { 
@@ -69,6 +65,9 @@ export const generateGame = (name) => {
     })
   }
 }
+
+
+
 
 export const generateMove = (name, directionMove) => {
   return (dispatch) => {
@@ -90,14 +89,13 @@ export const generateMove = (name, directionMove) => {
     })
     .then(question => {
       dispatch(games.actions.setDescription(question))
-      localStorage.setItem('question', JSON.stringify(question))
       dispatch(games.actions.setHistory(directionMove))
+      dispatch(games.actions.setPilar(directionMove)) 
     })
     .catch(error => dispatch(games.actions.setError(error.message)))
     .finally(() => dispatch(games.actions.setLoading(false)))
   }
 }
-
 
 export default games
 
