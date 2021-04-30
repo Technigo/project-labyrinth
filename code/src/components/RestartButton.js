@@ -2,19 +2,14 @@ import React from 'react'
 import "nes.css/css/nes.min.css"
 import { useDispatch } from 'react-redux'
 
-import game, { advance } from '../reducers/game'
+import game from '../reducers/game'
 
 const RestartButton = () => {
 
   const dispatch = useDispatch()
 
 	const onRestart = () => {
-    dispatch(game.actions.setUsername(""))
-    dispatch(game.actions.setGameState({ 
-      coordinates: 0,
-      description: "",
-      actions: [], 
-    }))
+    dispatch(game.actions.reset())
   }
 
   return (

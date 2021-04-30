@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
-import game, { start } from '../reducers/game'
+import game, { advance } from '../reducers/game'
 
 const StartScreen = () => {
   const [value, setValue] = useState('')
@@ -10,7 +10,7 @@ const StartScreen = () => {
 
   const onSubmit = () => {
     dispatch(game.actions.setUsername(value))
-    dispatch(start(value))
+    dispatch(advance(value))
   }
 
   return (
@@ -38,5 +38,4 @@ const StartScreen = () => {
     </div>
   )
 }
-{/* <h3 style={{color: "#f7f7f7", backgroundColor: "#212529"}}>THE LABYRINTH</h3> */}
 export default StartScreen

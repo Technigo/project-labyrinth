@@ -1,18 +1,22 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import StartScreen from './StartScreen'
 import GameplayScreen from './GameplayScreen'
+import WinScreen from './WinScreen'
 
 const Game = () => {
   const username = useSelector(store => store.game.username)
+  const coordinates = useSelector(store => store.game.coordinates)
 
   return (
     <>
 			{username
-        ? <GameplayScreen />
+        ? coordinates === "1,3" 
+          ? <WinScreen /> 
+          : <GameplayScreen />
         : <StartScreen /> 
-			}  
+			} 
     </>
   )
 }

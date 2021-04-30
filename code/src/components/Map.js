@@ -1,52 +1,37 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import "nes.css/css/nes.min.css"
 
 const Map = () => {
   const game = useSelector((store) => store.game)
 
-  // const onClick {
-  //     switch (coordinates) {
-  //         case '0,0':
-  //             return <div className=""></div>
-  //     }
-  // }
-  
-  //[_][O][_]
-  //[_][_][_]
-
-  //[_][_][_][_]
-  //[_][X][O][_]
-  //[_][_][_][_]
-
- 
-  //[_][O]
-  //[X][X]
-  
-
-  let seenSoFar = ["0,0", "1,0", "1,1"]
-  //[X][O]
-
-  //0 can't go here
-  //1 can go here but haven't been here
-  //2 have been here
-  //3 IS here
-
-  let mapArray = [
-    [1, 1, 0, 0], 
-    [1, 0, 0, 0],
-    [1, 1, 0, 0],
-    [1, 1, 0, 0]
-  ]
+  let index = 0
 
 	return (
-    <div className="nes-container is-dark with-title">
-      <p className="title">MAP</p>
       <div className="map-wrapper">
-        {}
-        <div className="grid-square"></div>
-      </div>
-    </div>		
+        {game.mapArray.map( row => {
+          return row.map( square => {
+            
+            switch(square) {
+              case 0:
+                index++
+                return <div key={index} className="grid-square-unvisited"></div>
+              case 1:
+                index++
+                return <div key={index} className="grid-square-visited"></div>
+              case 2:
+                index++
+                return (
+                  <div key={index} className="grid-square-current">
+                    <img className="player-icon" src="./assets/player-icon.png" alt="player-icon"/>
+                  </div>
+                )
+              default:
+                return <div key={index} className="grid-square-error"></div>
+            }
+          })})
+        }
+      </div>  
 	)
 }
 

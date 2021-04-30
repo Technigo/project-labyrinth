@@ -1,32 +1,44 @@
-import React from 'react'
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialItems = localStorage.getItem('game')
 	? JSON.parse(localStorage.getItem('game'))
 	: {
     username: "",
-    coordinates: 0,
+    coordinates: "",
     description: "",
     actions: [],
     history: [], //dig into these to also get previous location visits!!
     loadProgress: 100,
-    error: null
+    error: null,
+    mapArray: [
+      [0, 0, 0, 0], 
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0]
+    ]
   }
-
-//username: localStorage.getItem('username')
-//? JSON.parse(localStorage.getItem('username'))
-//: "",
 
 const game = createSlice ({
   name: "game",
   initialState: initialItems,
   reducers: {
     setUsername: (store, action) => {
-      console.log("username set!")
       localStorage.setItem('username', JSON.stringify(action.payload))
       store.username = action.payload
     },
     setGameState: (store, action) => {
+      if (action.payload.coordinates === "") {
+      } else {
+        const newXCoordinate = parseInt(action.payload.coordinates.charAt(0))
+        const newYCoordinate = parseInt(action.payload.coordinates.charAt(2))
+        store.mapArray[newYCoordinate][newXCoordinate] = 2
+      }
+      
+      if (store.coordinates === "") {
+      } else {
+        store.mapArray[parseInt(store.coordinates.charAt(2))][parseInt(store.coordinates.charAt(0))] = 1
+      }
+
       store.history = [...store.history, {
         coordinates: store.coordinates,
         description: store.description,
@@ -40,61 +52,58 @@ const game = createSlice ({
       if (action.payload === 100) {
         store.loadProgress = action.payload
       } else {
-        console.log("attempted fake load ;)")
         store.loadProgress = action.payload
-        setTimeout(500)
-        store.loadProgress = (action.payload + 10)
-        setTimeout(500)
-        store.loadProgress = (action.payload + 10)
       }
     },
     setError: (store, action) => {
       store.loadProgress = action.payload
+    },
+    reset: (store, action) => {
+      store.username = ""
+      store.coordinates = ""
+      store.description = ""
+      store.actions = []
+      store.history = []
+      store.loadProgress = 100
+      store.error = null
+      store.mapArray = [
+        [0, 0, 0, 0], 
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]
+      ]
     }
   }
 })
 
-//${method} where method is either action or start in the url 
-
-export const start = ( name ) => {
-  return (dispatch, getState) => {
-    dispatch(game.actions.setLoadProgress(33))
-    fetch("https://wk16-backend.herokuapp.com/start", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8'
-      },
-      body: JSON.stringify({
-        username: name
-      })
-    })
-      .then(res => {
-        dispatch(game.actions.setLoadProgress(55))
-        return res.json()
-      })
-      .then(update => {
-        dispatch(game.actions.setLoadProgress(77))
-        return dispatch(game.actions.setGameState(update))
-      })
-      .catch(error => dispatch(game.actions.setError(error.message)))
-      .finally(() => dispatch(game.actions.setLoadProgress(100)))
-  }
-}
-
-export const advance = ( action ) => {
+export const advance = (input) => {
+  
+  let isStart = input.type ? false : true
+  let endpoint = ""
+  let postBody = {}
+  
   return (dispatch, getState) => {
     const state = getState()
+    if (isStart) {
+      endpoint = "start"
+      postBody = JSON.stringify({
+        username: input
+      })
+    } else {
+      endpoint = "action"
+      postBody = JSON.stringify({
+        username: state.game.username,
+        type: input.type,
+        direction: input.direction
+      })
+    }
     dispatch(game.actions.setLoadProgress(33))
-    fetch("https://wk16-backend.herokuapp.com/action", {
+    fetch(`https://wk16-backend.herokuapp.com/${endpoint}`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json;charset=utf-8'
       },
-      body: JSON.stringify({
-        username: state.game.username,
-        type: action.type,
-        direction: action.direction
-      })
+      body: postBody
     })
       .then(res => {
         dispatch(game.actions.setLoadProgress(55))
