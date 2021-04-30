@@ -1,33 +1,35 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { Link } from "react-router-dom";
 
-const GameOverScreen = () => {
+const WinnerScreen = () => {
+    const description = useSelector((store) => store.maze.description);
 
     return (
         <Main>
             <Border>
-                <GameOverTitle>
-                    GAME OVER
-                </GameOverTitle>
-                <GameOverText>
-                    You went in circles and came back to where you started.
-                    Better luck next time...
-                </GameOverText>
+                <YouWinTitle>
+                    YOU WIN!
+                </YouWinTitle>
+                <YouWinText>
+                    {description}
+                </YouWinText>
+                <i className="nes-icon is-large star"></i>
                 <Link to="/">
-                <RestartButton
-                    type='button'
-                    className='nes-btn'
-                    /* onClick= {} */> {/*Gör en funktion som går tillbaka till initialState*/}
-                    TRY AGAIN
-                </RestartButton>
+                    <RestartButton
+                        type='button'
+                        className='nes-btn'
+                        /* onClick= {} */> {/*Gör en funktion som går tillbaka till initialState*/}
+                        PLAY AGAIN
+                    </RestartButton>
                 </Link>
             </Border>
         </Main>
     )
 }
 
-export default GameOverScreen
+export default WinnerScreen
 
 const Main = styled.main`
     background-color: #000;
@@ -45,13 +47,13 @@ const Border = styled.div`
     height: 100%;
     padding: 20px;
 `
-const GameOverTitle = styled.h1`
+const YouWinTitle = styled.h1`
     font-family: 'Press Start 2P', cursive;
     color: #fff;
     width: 100%;
     text-align: center;
 `
-const GameOverText = styled.p`
+const YouWinText = styled.p`
     font-family: 'Press Start 2P', cursive;
     color: #fff;
     font-size: 12px;

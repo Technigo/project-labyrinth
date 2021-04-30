@@ -1,14 +1,15 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import styled from "styled-components";
+import React from 'react'
+import { useSelector } from 'react-redux'
+import styled from 'styled-components'
 
-import BackgroundImgMobile from "../images/game-screen-mobile.jpg";
-import BackgroundImg from "../images/game-screen.jpg";
+import BackgroundImgMobile from '../assets/game-screen-mobile.jpg'
+import BackgroundImg from '../assets/game-screen.jpg'
 
-import LoadingScreen from "./LoadingScreen";
-import Balloon from "./Balloon";
-import Dialogue from "./Dialogue";
+import LoadingScreen from './LoadingScreen'
+import Balloon from "./Balloon"
+import Dialogue from './Dialogue'
 import GameOverScreen from './GameOverScreen'
+import WinnerScreen from './WinnerScreen'
 
 const GameScreen = () => {
   const username = useSelector((store) => store.maze.username);
@@ -19,7 +20,9 @@ const GameScreen = () => {
 
   return (
     <>
-      {isLoading && <LoadingScreen />}
+      {isLoading &&
+        <LoadingScreen />
+      }
       {!isLoading && (
         <>
           {error && `Ooops, something went wrong: ${error}`}
@@ -47,14 +50,14 @@ const GameScreen = () => {
               </Header>
               <Balloon />
               <Dialogue />
-
-            {/* {gameState === 'win' && <i className="nes-icon is-large star"></i>} */}
-
             </Main>
           )}
-          {gameState === 'lose' && (
+          {gameState === 'win' &&
+            <WinnerScreen />
+          }
+          {gameState === 'lose' && 
             <GameOverScreen />
-          )}
+          }
         </>
       )}
     </>
