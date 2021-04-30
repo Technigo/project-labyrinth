@@ -10,7 +10,11 @@ const LoadingContainer = styled.div`
   display: flex; 
   justify-content: center; 
   align-items: center; 
-  font-size: 25px; 
+  font-size: 20px; 
+
+  @media (min-width: 668px) {
+    font-size: 25px; 
+   }
 `
 
 const LoadingPage = () => {

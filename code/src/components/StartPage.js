@@ -20,7 +20,7 @@ const FormContainer = styled.form`
 `
 
 const Title = styled.h1`
-  font-size: 31px;
+  font-size: 30px;
   padding: 40px 20px;
   animation: blinking 1.2s infinite;
   @keyframes blinking {

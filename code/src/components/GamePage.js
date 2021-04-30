@@ -10,8 +10,8 @@ import FinishLayout from './FinishLayout'
 const Container = styled.div`
   padding: 30px 20px 20px 20px;
   background-color: #000;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   margin: 0;
   color: #59e686;
   display: flex;
@@ -22,6 +22,7 @@ const Container = styled.div`
 
 const InnerContainer = styled.div`
   max-width: 300px;
+  height: 100%;
 
   @media (min-width: 668px) {
     max-width: 500px;
