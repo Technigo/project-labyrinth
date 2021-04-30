@@ -9,10 +9,6 @@ import StartGame from "./StartGame"
 const Container = styled.div`
     width: 900px;
     height: 300px;
-
-    @media (max-width: 768px) {
-      margin-top: 20px;
-     };
 `
 
 const InitiateGame = () => {
@@ -46,7 +42,7 @@ const InitiateGame = () => {
     return (
         <Container className="nes-container is-dark with-title">
             <p className="title">Welcome to the labyrinth game</p>
-            <p>Type in your username<i class="snes-jp-logo"></i></p>
+            <p>Type in your unique username<i class="snes-jp-logo"></i></p>
             <input
                 id="dark_field"
                 type="text"
