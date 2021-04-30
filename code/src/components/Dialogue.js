@@ -73,6 +73,7 @@ const Button = styled.button`
     margin: auto;
     font-family: "Press Start 2P", cursive;
     font-size: 12px;
+    width: max-content;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
