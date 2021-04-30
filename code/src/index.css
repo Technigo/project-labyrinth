@@ -21,13 +21,13 @@ code {
 }
 
 /* GAMES */
-.main-container {
+/* .main-container {
   margin: 10px;
-}
+} */
 
-.game-wrapper {
+/* .game-wrapper {
   max-width: 300px;
-}
+} */
 
 /* START SCREEN  */
 /* .start-screen-wrapper {
@@ -38,15 +38,15 @@ code {
   margin: 0 auto;
 } */
 
-.start-screen-content {
+/* .start-screen-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-}
+} */
 
-.start-screen-content h1, p {
-  color: lightgray;
+/* .start-screen-content h1, p {
+  color: #d3d3d3;
   text-align: center;
 }
 
@@ -58,7 +58,7 @@ code {
 .start-screen-content p {
   margin: 0 0 50px 0;
   font-size: 16px;
-}
+} */
 
 .snes-jp-logo {
   margin: 0 0 50px 0;
@@ -86,14 +86,14 @@ button.nes-btn.is-warning {
 
 @media (min-width: 768px) {
 
-  .main-container {
+  /* .main-container {
     margin: 50px;
-  }
+  } */
 
-  .game-wrapper {
+  /* .game-wrapper {
     width: 500px;
     margin: 0 auto;
-  }
+  } */
 /* START SCREEN */
   .start-screen-wrapper {
     width: 60%;

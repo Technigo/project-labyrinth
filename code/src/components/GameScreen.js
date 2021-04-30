@@ -46,7 +46,9 @@ const GameScreen = () => {
   )
 }
 
+const GameScreenTitle = styled.h3`
 
+`
 const GameDescriptionContainer = styled.div`
     display: flex;
     flex-direction: column;
