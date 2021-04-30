@@ -9,7 +9,7 @@ const GameScreen = () => {
   const dispatch = useDispatch()
 
   return (
-    <div>
+    <div className="gamescreen-container fade-in">
       <p>{gameStart.description}</p>
       {gameStart.actions.map((action) => (
         <button

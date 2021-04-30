@@ -1,3 +1,16 @@
+@import url(//db.onlinewebfonts.com/c/e3619f7413527cff15063e007b666239?family=WrittenLies);
+@font-face {
+  font-family: "WrittenLies"; 
+  src: url("//db.onlinewebfonts.com/t/e3619f7413527cff15063e007b666239.eot"); 
+  src: url("//db.onlinewebfonts.com/t/e3619f7413527cff15063e007b666239.eot?#iefix") 
+  format("embedded-opentype"), 
+  url("//db.onlinewebfonts.com/t/e3619f7413527cff15063e007b666239.woff2") 
+  format("woff2"), url("//db.onlinewebfonts.com/t/e3619f7413527cff15063e007b666239.woff") 
+  format("woff"), url("//db.onlinewebfonts.com/t/e3619f7413527cff15063e007b666239.ttf") 
+  format("truetype"), url("//db.onlinewebfonts.com/t/e3619f7413527cff15063e007b666239.svg#WrittenLies") 
+  format("svg"); 
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -5,9 +18,127 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color:  #E5D5C0;
+  background-image: url('./assets/book-background.jpg');
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.startscreen-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+margin-top: 30px;
+}
+h1 {
+  font-family: "WrittenLies"; 
+  color: #4C2F1A;
+}
+.startscreen-container label {
+  padding: 15px;
+  font-family: "WrittenLies"; 
+  color: #4C2F1A;
+}
+.textinput {
+  border-bottom: solid #4C2F1A;
+  border-width: 0px 0px 2px 0px;
+  border-radius: 5% 0% 40% 0%/2% 0% 10% 0%;
+  transform: rotate(1deg);
+  background: none;
+  font-family: "WrittenLies"; 
+  color: #4C2F1A;
+  font-size: 20px;
+}
+button {
+  margin: 15px;
+  font-family: "WrittenLies"; 
+  color: #4C2F1A;
+  border: solid 2px #4C2F1A;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  padding: 5px;
+  line-height:1.5em;
+  background: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ac8d79;
+}
+
+p {
+  font-family: "WrittenLies"; 
+  color: #4C2F1A;
+  font-size: 20px;
+  width: 90%;
+}
+.gamescreen-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  text-align: center;
+}
+.fade-in {
+  animation: fadeIn ease 5s;
+  -webkit-animation: fadeIn ease 5s;
+  -moz-animation: fadeIn ease 5s;
+  -o-animation: fadeIn ease 5s;
+  -ms-animation: fadeIn ease 5s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+}}
+
+@media (min-width: 992px) {
+  body {
+    background-image: url('./assets/book-background-flip.jpg');
+  }
 }
