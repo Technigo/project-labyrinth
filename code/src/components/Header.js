@@ -24,7 +24,10 @@ const HeaderContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between
+  justify-content: space-between;
+   @media (min-width: 768px){
+     justify-content:space-evenly;
+   }
 `;
 
 export default Header

@@ -70,6 +70,13 @@ code {
   margin: 0 0 40px 0;
 }
 
+
+/* HEADER */
+
+button.nes-btn.is-warning {
+  margin-top: 50px;
+}
+
 /* MEDIA QUIERIES */
 
 @media (min-width: 768px) {
@@ -82,3 +89,6 @@ code {
     width: 60%;
   }
 }
+
+/* HEADER */
+
