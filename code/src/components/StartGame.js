@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { game, startGame } from '../reducers/game'
+import game, { startGame } from '../reducers/game'
 import GameElements from './GameElements'
 
 const StartGame = () => {
@@ -17,10 +17,11 @@ const StartGame = () => {
         setUserName('')  
     }
     console.log(userName)
+    console.log('Hello', gameElements)
     
-  /*   if (gameElements) {
+  /*  if (gameElements) {
       return <GameElements />
-  } */
+  }  */
     
     return (
         <form onSubmit={handleStartGame}>

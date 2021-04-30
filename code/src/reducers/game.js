@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const game = createSlice({
+const game = createSlice({
   name: 'game',
   initialState: {
     username:'',
@@ -37,7 +37,7 @@ return (dispatch) => {
     fetch ('https://wk16-backend.herokuapp.com/action', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username: userName, direction: direction, type:type }),
+      body: JSON.stringify({ username: userName, direction: direction, type: "move" }),
     })
     .then(response => response.json())  
     .then(json => {
