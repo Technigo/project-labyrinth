@@ -9,9 +9,9 @@ The app has been generated using create-react-app. And uses the following npm pa
 - styled-loaders-react
 
 The focus of this week was to learn:
-- How to make API calls around Redux using thunks
-- How to structure the redux store to suit the data
-- To send JSON in the body of a request
+	- How to make API calls around Redux using thunks
+	-  How to structure the redux store to suit the data
+	-  To send JSON in the body of a request
 ## Reflections
 We enjoyed the thematics of this week figuring out a proper design for the project whilst learning more about asynchronous Redux and keeping the history of previous data in Redux store. 
 
@@ -23,5 +23,5 @@ The collaboration was mostly programming together, but we also tried out making 
 
 If we had more time it would be great to inform a first time player that their username of choice must be unique by recieving some kind of message from the backend. We would also persist redux store to localStorage, so the app data remains upon reloading the page. 
 .... MORE HERE
-## Play it here: 
+## Play it here 😊
 https://labyrinth-by-caroline-anna.netlify.app/
