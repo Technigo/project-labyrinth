@@ -24,7 +24,6 @@ const EndContainer = styled.section `
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-style: inset;
   margin: 0 auto;
 `
 const Header = styled.h1`
@@ -42,5 +41,6 @@ const OctoCat = styled.div`
 `
 const CssCredit = styled.p`
   margin-top: 50px;
+  margin-left: 20px;
 `
 export default EndScreen
