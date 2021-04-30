@@ -27,15 +27,13 @@ const StartScreen = () => {
           onChange={event => setInputValue(event.target.value)}
         />
         <Button onClick={onUserSet}>START</Button>
-        <Animation>
-          <lottie-player 
-            src='https://assets9.lottiefiles.com/temp/lf20_QtNLkw.json'  
-            background='transparent'  
-            speed='1'  
-            style={{width: '300px', height: '300px'}} 
-            loop  autoplay>
-          </lottie-player>
-        </Animation>
+        <lottie-player 
+          src='https://assets9.lottiefiles.com/temp/lf20_QtNLkw.json'  
+          background='transparent'  
+          speed='1'  
+          style={{width: '300px', height: '300px'}} 
+          loop  autoplay>
+        </lottie-player>
       </Container>
     </Background>
   )
@@ -94,6 +92,4 @@ const Button = styled.button`
     color: #000;
     background-color: #FFF;
   }
-`
-const Animation = styled.div`
 `

@@ -3,15 +3,14 @@ import { createSlice } from '@reduxjs/toolkit'
 const games = createSlice({
   name: 'games',
   initialState: {
-    username: null,
-    description: null,
-    direction: null,
-    moves: null,
-    // moves: null,
-    history: [],
-    // gameStatus: {}
-    error: null,
-    loading: false
+      username: null,
+      description: null,
+      direction: null,
+      moves: null,
+      history: [],
+      error: null,
+      loading: false,
+      coordinates: null
   },
 
   reducers: {
@@ -20,10 +19,8 @@ const games = createSlice({
     },
     setDescription: (store, action) => {
       store.description = action.payload
+      
     },
-    // setMoves: (store, action) => {
-    //   store.moves = action.payload
-    // },
     setMoves: (store, action) => {
       if (store.moves) {
         store.history = [...store.history, store.moves]
@@ -45,10 +42,9 @@ const games = createSlice({
     setLoading: (store, action) => {
       store.loading = action.payload
     },
-    // sethistory: (store, action) => {
-    //   store.history = [...store.history, store.direction]
-    //   store.game = action.payload;
-    // }
+    setCoordinates: (store, action) => {
+      store.coordinates = action.payload
+    }
   }
 })
 
@@ -74,9 +70,9 @@ export const createPlayer = () => {
         }
       })
       .then((game) => {
-        // dispatch(games.actions.setGame(game))
         dispatch(games.actions.setDescription(game.description))
         dispatch(games.actions.setMoves(game.actions))
+        dispatch(games.actions.setCoordinates(game.coordinates))
       })
       .catch(error => dispatch(games.actions.setError(error.message)))
       .finally(() => dispatch(games.actions.setLoading(false)))
@@ -107,31 +103,13 @@ export const generateQuestion = () => {
         }
       })
       .then(game => {
-        // {dispatch(games.actions.setGame(game))
         dispatch(games.actions.setDescription(game.description))
         dispatch(games.actions.setMoves(game.actions))
+        dispatch(games.actions.setCoordinates(game.coordinates))
       })
       .catch(error => dispatch(games.actions.setError(error.message)))
       .finally(() => dispatch(games.actions.setLoading(false)))
   }
 }
 
-
-
-
-/*export const generateQuestion = (direction) => {
-  return (dispatch, getState) => {
-    if (direction) {
-      // fetch(`http://api.quotable.io/random?author=${getState().quotes.author}&tags=${tag}`)
-      fetch(`https://wk16-backend.herokuapp.com/start/userName=${getState().games.userName}`)
-        .then((res) => res.json())
-        .then((game) => dispatch(games.actions.setGame(game)))
-  } else {
-    fetch(`https://wk16-backend.herokuapp.com/action/userName=${getState().games.userName}`)
-      .then((res) => res.json())
-      .then((game) => dispatch(games.actions.setGame(game)))
-    }
-  }
-}
-*/
 export default games

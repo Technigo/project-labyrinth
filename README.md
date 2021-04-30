@@ -1,13 +1,10 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This is a project made during the Technigo bootcamp. The aim was to build a game in React using Redux, fetching a list of actions from the backend and presenting them to the user as interactable items. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We made a responsive site that displays different images depending on size of device and, different design for the first page and the game. We added a button to restart the game and one to go back to the previous description, but we've had some issues with the back-button so currently that doesn't work.  
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.

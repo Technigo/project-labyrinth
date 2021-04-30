@@ -9,7 +9,6 @@ const Loading = () => {
     <Background>
       {loading &&
         <div>
-          <h1>Testing testing</h1>
           <lottie-player 
             src='https://assets6.lottiefiles.com/private_files/lf30_kanwuonz.json'  
             background='transparent'  
@@ -34,12 +33,3 @@ const Background = styled.div`
   justify-content: center;
   padding-top: 45px;
 `
-// const Animation = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   align-content: center;
-//   width: 300px;
-//   height: 80%;
-//   border: solid white 2px;
-// `

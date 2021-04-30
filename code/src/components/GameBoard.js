@@ -10,7 +10,6 @@ const GameBoard = () => {
   const error = useSelector(store => store.games.error)
   const loading = useSelector(store => store.games.loading)
   
-
   return (
     <>
       {loading && (
