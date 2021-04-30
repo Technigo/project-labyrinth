@@ -3,8 +3,6 @@ import { useSelector } from 'react-redux'
 import "nes.css/css/nes.min.css"
 import styled from 'styled-components'
 import InitiateGame from "./InitateGame"
-// import StartGame from './StartGame'
-// import ContinueGame from './ContinueGame'
 import WaitPage from "./WaitPage"
 
 const Container = styled.div`
@@ -15,9 +13,8 @@ const Container = styled.div`
     align-items: center;
 `
 
-//conditionally render StartGame, where player puts in his name. if not start screen, GameContinue  
-// if true render ContinueGame if no value (null) for username: retun false: then render StartGame
-//we reach the username thorugh useSelector
+//conditionally render Initiate game, where player puts in his name if not Wait page 
+//we loading state the wit useselector
 const GameScreen = () => {
 const pageLoading = useSelector(store => store.labyrinth.isLoading) 
    
