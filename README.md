@@ -1,13 +1,11 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The objective of this project was to practise using thunks and how to do API-calls using Redux. We were given an existing API with the game logic and were to implement it in the frontend. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We started by setting up the basic game, using thunks for the API calls. To give the game a retro style we used the NES.css library. Our biggest challenge was creating a map of the labyrinth that shows currect location of the user. We did this by using the coordinates from the API and changing classNames to make the current tile blink. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://nes-project-labyrinth.netlify.app/
