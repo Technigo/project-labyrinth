@@ -43,6 +43,10 @@ const maze = createSlice({
         store.gameState = setGameState;
       }
     },
+    restartGame: (store) => {
+      const setInitialState = "";
+      store.gameState = setInitialState;
+    },
   },
 });
 
