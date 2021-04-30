@@ -14,13 +14,7 @@ const game = createSlice({
     },
     setDirection: (store, action) => {
       store.direction = action.payload
-    },
-    setHistoryReverse: (store, action) => {
-      if(store.history.length) {
-        store.game = store.history[store.history.length -1];
-        store.history = store.history.slice(0,store.history.length -1);
-      }
-    },
+    },    
     setHistory: (store, action) => {
       console.log(action)
       if(store.direction){

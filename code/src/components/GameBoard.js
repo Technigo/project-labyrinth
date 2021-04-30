@@ -6,8 +6,9 @@ import InGame from './InGame'
 
 const GameBoard = () => {
   const checkUsername = useSelector(store => store.game.direction)
+  
   return (
-    <div>
+    <div>      
       {checkUsername 
         ? <InGame /> 
         : <StartScreen />
