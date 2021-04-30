@@ -13,7 +13,7 @@ export const NameInput = () => {
   };
 
   return (
-    <>
+    <div className="nes-container is-rounded is-dark">
       <h1>Welcome adventurer!</h1>
       <section className="icon-list">
         <i className="nes-bulbasaur"></i>
@@ -33,6 +33,6 @@ export const NameInput = () => {
           OK
         </button>
       </form>
-    </>
+    </div>
   );
 };

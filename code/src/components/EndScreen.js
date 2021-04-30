@@ -10,7 +10,8 @@ export const EndScreen = () => {
       };
     return (    
         <>
-            <p>Congratulations you finished the game!!!</p>
+            <h1 className="nes-balloon is-dark from-right nes-pointer nes-text is-success">Congratulations you finished the game!!!</h1>
+            <i class="nes-charmander"></i>
             <button class="nes-btn is-error" onClick={onReset}>
             Restart
             </button>

@@ -15,6 +15,7 @@ export const WelcomeScreen = () => {
 
   return (
     <>
+    <div>
       <div className="nes-container is-dark">
         <p>
           Welcome{" "}
@@ -29,6 +30,7 @@ export const WelcomeScreen = () => {
       >
         Yes I am!
       </button>
+      </div>
     </>
   );
 };
