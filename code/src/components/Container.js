@@ -17,10 +17,6 @@ const Container = () => {
   const error = useSelector(store => store.labyrinth.error)
   const loading = useSelector(store => store.labyrinth.loading)
 
-
-
-  // const backgroundImage = "/assets/labyrinth-Background.jpg"
-
   const [showActions, setShowAction] = useState(false)
   const [background, setBackground] = useState("/assets/labyrinth-Background.jpg")
 
@@ -55,7 +51,7 @@ const Container = () => {
                 color="brown"
                 height={100}
                 width={100}
-                timeout={1000} //3 secs
+                timeout={1000}
               />
             </div>
           }

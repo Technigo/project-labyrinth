@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const savedLocalStore = localStorage.getItem("labyrinth") ? JSON.parse(localStorage.getItem("labyrinth")):null
-const savedActions = localStorage.getItem("labyrinth") ? savedLocalStore.labyrinth.actions: null
-const savedUserName = localStorage.getItem("labyrinth") ? savedLocalStore.labyrinth.userName: null
-const savedHistory = localStorage.getItem("labyrinth")? savedLocalStore.labyrinth.history: []
-const savedDirectionChoices = localStorage.getItem("labyrinth")? savedLocalStore.labyrinth.directionChoices: []
+const savedActions = localStorage.getItem("labyrinth") ? savedLocalStore.actions: null
+const savedUserName = localStorage.getItem("labyrinth") ? savedLocalStore.userName: null
+const savedHistory = localStorage.getItem("labyrinth")? savedLocalStore.history: []
+const savedDirectionChoices = localStorage.getItem("labyrinth")? savedLocalStore.directionChoices: []
 
 const labyrinth = createSlice({
   name: 'labyrinth',
@@ -75,9 +75,9 @@ export const generateData = (direction) => {
 
           }
         })
-        .then(async data => {
-          await dispatch(labyrinth.actions.addActions(data))
-          await localStorage.setItem("labyrinth", JSON.stringify(getState()))
+        .then(data => {
+           dispatch(labyrinth.actions.addActions(data))
+          // await localStorage.setItem("labyrinth", JSON.stringify(getState()))
         })
         .catch(err => dispatch(labyrinth.actions.setError(err.message)))
         .finally(() => dispatch(labyrinth.actions.setLoading(false)))
@@ -101,9 +101,9 @@ export const generateData = (direction) => {
           throw new Error(response.statusText)
         }
       })
-      .then(async data => {
-        await dispatch(labyrinth.actions.addActions(data))
-        await localStorage.setItem("labyrinth", JSON.stringify(getState()))
+      .then(data => {
+        dispatch(labyrinth.actions.addActions(data))
+        // await localStorage.setItem("labyrinth", JSON.stringify(getState()))
       })
       .catch(err => dispatch(labyrinth.actions.setError(err.message)))
       .finally(() => dispatch(labyrinth.actions.setLoading(false)))

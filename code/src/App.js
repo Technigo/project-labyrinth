@@ -15,12 +15,8 @@ const reducer = combineReducers({
 
 const store = configureStore({reducer})
 
-/* store.subscribe(() => {
-  saveState({
-    labyrinth: store.getState().labyrinth
-  });
-});
- */
+store.subscribe(() => localStorage.setItem('labyrinth', JSON.stringify(store.getState().labyrinth)))
+
 export const App = () => {
   return (
     <Provider store={store}>
