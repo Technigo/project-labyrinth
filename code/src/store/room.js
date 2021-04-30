@@ -19,14 +19,14 @@ export const roomSlice = createSlice({
       // make sure there are no duplicates in history,
       state.saved.history = state.saved.history.filter((a, b) => a !== b);
       state.saved.currentRoom = { ...action.payload };
-      state.actions.selected = { ...state.actions.selected, inNewRoom: true };
+      state.actions.selected = { };
     },
     clearRoom(state) {
       state.saved.history = [];
       state.saved.currentRoom = {};
     },
     setAction(state, action) {
-      state.actions.selected = { ...action.payload, inNewRoom: false };
+      state.actions.selected = { ...action.payload };
     }
   }
 });

@@ -44,7 +44,7 @@ export default () => {
             key={tab.text}
             type="button"
             selected={tab.selected}
-            disabled={!tab.selected && selectedAction.inNewRoom}
+            disabled={!tab.selected && !selectedAction.description}
             onClick={handleChange}>
             {tab.text}
           </ButtonTab>
