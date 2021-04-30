@@ -11,7 +11,7 @@ const Header = () => {
     <HeaderContainer>
         <i className="nes-icon is-medium star"></i>
         <button className="nes-btn is-warning" onClick={onRestartButton}>
-           Restart
+            Restart
         </button>
         <i className="nes-icon is-medium star"></i>
     </HeaderContainer>
@@ -28,9 +28,9 @@ const HeaderContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   border-style: inset;
-   @media (min-width: 768px){
-     justify-content:space-evenly;
-   }
+    @media (min-width: 768px){
+      justify-content:space-evenly;
+    }
 `;
 
 export default Header

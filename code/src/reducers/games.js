@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-
 export const games  = createSlice({
     name: 'games',
     initialState: {
@@ -53,11 +52,11 @@ export const createNewPlayer = (username) => {
                     dispatch(games.actions.setError(null))
                     return res.json()
                 } else {
-                    throw new Error('Ups something went wrong') //res.statusText for example
+                    throw new Error('Ups something went wrong')
                 }
             })
             .then(data => dispatch(games.actions.saveGameStatus(data)))
-            .catch(error => dispatch(games.actions.setError('Errormessage here :', error))) //error.message for example
+            .catch(error => dispatch(games.actions.setError('Errormessage here :', error)))
             .finally(() => dispatch(games.actions.setLoading(false)))
         }
     }
@@ -83,13 +82,13 @@ export const CarryOnGame = (direction) => {
                     dispatch(games.actions.setError(null))
                     return res.json()
                 } else {
-                    throw new Error('Ups something went wrong') //res.statusText for example
+                    throw new Error('Ups something went wrong')
                 }
             })
             .then((data) => {
                 dispatch(games.actions.saveGameStatus(data))
             })
-            .catch(error => dispatch(games.actions.setError('Errormessage here :', error))) //error.message for example
+            .catch(error => dispatch(games.actions.setError('Errormessage here :', error)))
             .finally(() => dispatch(games.actions.setLoading(false)))
         }
     }

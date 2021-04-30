@@ -1,13 +1,27 @@
 # Project Labyrinth
-hej
-Replace this readme with your own information about your project.
+A pair programming project that is a text-based adventure inspired by early command-line games.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The app has been generated using create-react-app. And uses the following npm packages that are not included in the create-react-app: 
+- styled-components 
+- react-redux 
+- reduxjs/toolkit
+- nes.css
+- styled-loaders-react
 
-## The problem
+The focus of this week was to learn:
+- How to make API calls around Redux using thunks
+- How to structure the redux store to suit the data
+- To send JSON in the body of a request
+## Reflections
+We enjoyed the thematics of this week figuring out a proper design for the project whilst learning more about asynchronous Redux and keeping the history of previous data in Redux store. 
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We started out by building the logic, then moved onto implementing saving data in Redux store and making a loading state to display a spinner.
+... MORE HERE
 
-## View it live
+The collaboration was mostly programming together, but we also tried out making separate branches after we had established a common ground to be able to work on different components at the same time. 
+.... MORE HERE
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+If we had more time it would be great to inform a first time player that their username of choice must be unique by recieving some kind of message from the backend. We would also persist redux store to localStorage, so the app data remains upon reloading the page. 
+.... MORE HERE
+## Play it here: 
+https://labyrinth-by-caroline-anna.netlify.app/
