@@ -39,24 +39,25 @@ const Wrapper = styled.div`
 `;
 
 const DescriptionTitle = styled.text`
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
 `
 
 const Text = styled.text`
-  font-size: 12px;
+  font-size: 16px;
   background-color: black;
   color: white;
 `;
 
 const Button = styled.button`
-  background-color: gold;
+  background-color: #fbafdd;
   color: black;
   border: 2px solid black;
-  border-radius: 10px;
+  border-radius: 50%;
   text-align: center;
-  padding: 10px;
-  margin: 10px;
+  padding: 30px;
+  margin: 30px;
+  height: 80px;
 `;
 
 const Game = () => {
@@ -67,6 +68,8 @@ const Game = () => {
   );
 
   const dispatch = useDispatch();
+
+  
 
 
   return (

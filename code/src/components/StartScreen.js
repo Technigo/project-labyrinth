@@ -8,7 +8,7 @@ const Container = styled.div`
   background-color: black;
   color: white;
   padding: 15px;
-  display: inline-block;
+  display: flex;
   width: auto;
   height: 100vh;
   flex-direction: column;
@@ -18,19 +18,22 @@ const Container = styled.div`
 `;
 
 const Button = styled.button`
-  background-color: gold;
-  color: black;
+  background-color: #fbafdd;
   border: 2px solid black;
-  border-radius: 10px;
+  border-radius: 50%;
   text-align: center;
-  padding: 10px;
-  margin: 10px;
+  padding: 30px;
+  margin: 30px;
+  height: 80px;
 `;
 
 const Input = styled.input`
-  border-radius: 10px;
-  padding: 10px;
-  margin: 10px;
+  background-color: #fbafdd;
+  border-radius: 50%;
+  border: 2px dotted slategray;
+  padding: 30px;
+  margin: 30px;
+  height: 80px;
 `;
 
 const StartScreen = () => {
@@ -46,7 +49,8 @@ const StartScreen = () => {
   return (
     <>
       <Container>
-        <h1>Welcome to our splendid game! Type your name and start...</h1>
+        <h1>Welcome to our splendid game</h1>
+        <h2>Type your name to enter the labyrinth...</h2>
         <Input
           type="text"
           placeholder="Enter your name to start"
