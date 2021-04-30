@@ -99,6 +99,7 @@ const StartScreen = () => {
   
   const onUserSet = () => {
     dispatch (labyrinth.actions.setName(inputValue))
+
     dispatch(startContent())
   }
 
