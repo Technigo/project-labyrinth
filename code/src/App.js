@@ -1,17 +1,12 @@
 import React from 'react'
-import { Provider } from 'react-redux';
-import {
-  combineReducers,
-  configureStore
-} from '@reduxjs/toolkit';
-import {
-  BrowserRouter,
-  Route
-} from "react-router-dom";
+import { Provider } from 'react-redux'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { BrowserRouter, Route } from 'react-router-dom'
 
 import maze from "./reducers/maze"
-import StartScreen from './components/StartScreen'
-import GameScreen from './components/GameScreen'
+
+import StartScreen from './pages/StartScreen'
+import GameScreen from './pages/GameScreen'
 
 const reducer = combineReducers({
   maze: maze.reducer
@@ -23,8 +18,8 @@ export const App = () => {
   return (
     <BrowserRouter>
       <Provider store={store}>
-        <Route path="/" exact component={StartScreen}/>
-        <Route path="/game" exact component={GameScreen}/>
+        <Route path='/' exact component={StartScreen}/>
+        <Route path='/game' exact component={GameScreen}/>
       </Provider>
     </BrowserRouter>
   )

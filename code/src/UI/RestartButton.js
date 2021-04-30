@@ -1,27 +1,27 @@
-import React from "react";
-import styled from "styled-components";
-import { useDispatch } from "react-redux";
+import React from 'react'
+import styled from 'styled-components/macro'
+import { useDispatch } from 'react-redux'
 
-import maze from "../reducers/maze";
+import maze from '../reducers/maze'
 
 const RestartButton = ({ text }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const onButtonClick = () => {
-    dispatch(maze.actions.restartGame());
-  };
+    dispatch(maze.actions.restartGame())
+  }
+
   return (
     <BackButton
       onClick={() => onButtonClick()}
-      type="button"
-      className="nes-btn"
-    >
-      {text}
+      type='button'
+      className='nes-btn'>
+        {text}
     </BackButton>
-  );
-};
+  )
+}
 
-export default RestartButton;
+export default RestartButton
 
 const BackButton = styled.button`
   font-family: "Press Start 2P", cursive;
@@ -29,4 +29,4 @@ const BackButton = styled.button`
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-`;
+`

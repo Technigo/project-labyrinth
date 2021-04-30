@@ -1,42 +1,42 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
-import Balloon from "./Balloon"
+import Balloon from './Balloon'
 import Dialogue from './Dialogue'
 
-import BackgroundImgMobile from '../assets/game-screen-mobile.jpg'
-import BackgroundImg from '../assets/game-screen.jpg'
+import BackgroundImgMobile from '../../assets/game-screen-mobile.jpg'
+import BackgroundImg from '../../assets/game-screen.jpg'
 
 const GameOnScreen = () => {
-    const place = useSelector((store) => store.maze.coordinates);
+  const place = useSelector((store) => store.maze.coordinates)
 
-    return (
-            <Main>
-            <Header>
-              <HeartContainer>
-                <Heart>
-                  <span role="img" aria-label="heart">
-                    ❤️
-                  </span>
-                </Heart>
-                <Heart>
-                  <span role="img" aria-label="heart">
-                    ❤️
-                  </span>
-                </Heart>
-                <Heart>
-                  <span role="img" aria-label="heart">
-                    ❤️
-                  </span>
-                </Heart>
-              </HeartContainer>
-              <Location>COORDINATES - {place}</Location>
-            </Header>
-            <Balloon />
-            <Dialogue />
-          </Main>
-    )
+  return (
+    <Main>
+      <Header>
+        <HeartContainer>
+          <Heart>
+            <span role='img' aria-label='heart'>
+              ❤️
+            </span>
+          </Heart>
+          <Heart>
+            <span role='img' aria-label='heart'>
+              ❤️
+            </span>
+          </Heart>
+          <Heart>
+            <span role='img' aria-label='heart'>
+              ❤️
+            </span>
+          </Heart>
+        </HeartContainer>
+        <Location>COORDINATES - {place}</Location>
+      </Header>
+      <Balloon />
+      <Dialogue />
+    </Main>
+  )
 }
 
 export default GameOnScreen
