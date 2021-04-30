@@ -20,12 +20,16 @@ const GameScreen = () => {
       <div className='head-description'>
         <h2>{actions.description}</h2> 
       </div> 
-      {actions.actions.map(item => (
-        <div className='btn-direction'>
-          <p>{item.description}</p>
-          <button className='btn'onClick={() => onButtonclick(item)}>{item.direction}</button>
-        </div>
-      ))}
+      <section className='direction-wrapper'>
+            {actions.actions.map(item => (
+        <>
+          <div className='btn-direction'>
+            <p>{item.description}</p>
+            <button className='btn'onClick={() => onButtonclick(item)}>{item.direction}</button>
+          </div>
+        </>
+          ))}
+      </section>
     </section>
   )
 }

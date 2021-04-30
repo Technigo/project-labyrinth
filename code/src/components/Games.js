@@ -11,13 +11,12 @@ const Games = () => {
 
   return (
     <main className="main">
-      {loading && <h1 className='loading'>LOADING...</h1>}
-      {  actions
-        ? <GameScreen />
-        : <StartScreen />
-      }
-    </main>
-    
+       {loading && <h1 className='loading'>LOADING...</h1>}
+        {  actions
+          ? <GameScreen />
+          : <StartScreen />
+        }
+     </main>   
   )
 }
 
