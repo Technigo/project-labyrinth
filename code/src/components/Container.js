@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import UserForm from './UserForm.js'
-import { useSelector } from 'react-redux';
-import Loader from "react-loader-spinner";
+import { useSelector } from 'react-redux'
+import Loader from "react-loader-spinner"
 
 import Description from './Description'
 import Directions from './Directions'
 import GoBack from './GoBack'
 import History from './History'
 import ErrorBoard from './ErrorBoard'
+import RestartButton from './RestartButton.js'
 
-import { placeImage, placefinder } from "../reducers/helpers";
+import { placeImage, placefinder } from "../reducers/helpers"
+
 
 const Container = () => {
   const actions = useSelector(store => store.labyrinth.actions)
@@ -49,7 +51,7 @@ const Container = () => {
 
       {error && <ErrorBoard error={error} />}
       {actions && !error
-        ? <>
+        ? <div className="content-container">
           {loading &&
             <div className="loader">
               <Loader
@@ -65,7 +67,8 @@ const Container = () => {
           {!loading && showActions && <Directions />}
           <History />
           {history.length > 0 && showActions && !loading && <GoBack />}
-        </>
+          {actions.coordinates === "1,3" && showActions && <RestartButton  setBackground={setBackground} />}
+        </div>
         : <UserForm />}
 
     </div>

@@ -16,7 +16,7 @@ const Directions = () => {
   }
 
   return (
-    <>
+    <div className="directions-container">
       {actions.actions !== undefined &&
         actions.actions.map(direction => {
           return (
@@ -28,7 +28,7 @@ const Directions = () => {
             </div>
           )
         })}
-    </>
+    </div>
   )
 }
 

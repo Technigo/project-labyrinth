@@ -1,10 +1,19 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 
-const RestartButton = () => {
+import labyrinth from '../reducers/labyrinth'
+
+const RestartButton = ({setBackground}) => {
+  const dispatch = useDispatch()
+  const onGameRestart = () => {
+    dispatch(labyrinth.actions.restartGame())
+    setBackground("/assets/labyrinth-Background.jpg")
+  }
+
   return (
     <button
       className="restart"
-      onClick={ }
+      onClick={onGameRestart}
     >
       Restart
     </button>
