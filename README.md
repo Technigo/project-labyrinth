@@ -8,3 +8,4 @@ We made a responsive site that displays different images depending on size of de
 
 ## View it live
 
+https://labyrinth-game-app.netlify.app/ 

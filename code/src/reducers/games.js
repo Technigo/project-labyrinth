@@ -18,8 +18,7 @@ const games = createSlice({
       store.username = action.payload
     },
     setDescription: (store, action) => {
-      store.description = action.payload
-      
+      store.description = action.payload 
     },
     setMoves: (store, action) => {
       if (store.moves) {
