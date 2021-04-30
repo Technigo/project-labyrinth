@@ -68,7 +68,7 @@ const StartPage = () => {
 
   return(
     <>
-     <FormContainer onSubmit={handleStartGame}>
+     <FormContainer autoComplete='off' onSubmit={handleStartGame}>
       <Title>MAZE GAME</Title>
       <div className="nes-field is-inline">
         <label htmlFor="inline_field"></label>

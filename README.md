@@ -1,4 +1,4 @@
-# Project Labyrinth, Week 16, Technigo Bootcamp 
+# Project Labyrinth, Week 16, Technigo Bootcamp, Pairprogramming 
 
 Create a classic text-based maze game providng the user with  with a description of where they are and provide several alternatives about what they can do. 
 
