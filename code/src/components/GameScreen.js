@@ -48,8 +48,10 @@ const GameScreen = () => {
 
 const GameScreenText =styled.p`
   text-align: center;
+  margin: 0 0 30px 0;
 `
 const GameDescriptionContainer = styled.div`
+    margin: 20px 10px 0 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
