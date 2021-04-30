@@ -1,5 +1,7 @@
 import styled from 'styled-components/macro';
-import Button from 'components/Button';
+
+import unselected from 'assets/mapbox-default.png';
+import selected from 'assets/mapbox-on.png';
 
 export default styled.div`
   display: grid;
@@ -29,13 +31,28 @@ export default styled.div`
   }
 `;
 
-export const ButtonToggle = styled(Button)`
-  max-width: auto;
-  min-width: auto;
-  width: 50px;
-  margin: 0 auto;
-  
-  ${(props) => (props.selected
-      ? `filter: contrast(150%);`
-      : `filter: grayscale(50%);`)}
+export const RadioButton = styled.input`
+  display: none;
+  :checked + label {
+    background: url(${selected}) no-repeat;
+    background-size: 100%;
+  }
+  :disabled + label {
+    filter: grayscale(100%);
+    color: #999;
+  }
+  :hover:not(:disabled) + label,
+  :focus + label {
+    cursor: pointer;
+    box-shadow: inset 5px 5px 5px rgba(22, 22, 22, 0.8);
+  }
+`;
+export const RadioLabel = styled.label`
+  background: url(${unselected}) no-repeat;
+  border-radius: 5px;
+  line-height: 50px;
+  display: inline-block;
+  background-size: 100%;
+  height: 100%;
+  width: 100%;
 `;

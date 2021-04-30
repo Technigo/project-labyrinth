@@ -45,7 +45,7 @@ export default () => {
             type="button"
             selected={tab.selected}
             disabled={!tab.selected && selectedAction.inNewRoom}
-            onClick={() => handleChange()}>
+            onClick={handleChange}>
             {tab.text}
           </ButtonTab>
         ))}

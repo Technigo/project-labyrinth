@@ -2,16 +2,15 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setState } from 'store/game';
 
-import { TypoText } from 'components/Typography';
+import { TypoText } from 'components/reusables/Typography';
 // import Input from 'components/InputText';
-import Section from 'components/Section';
-import Button from 'components/Button';
+import Section from 'components/reusables/Section';
+import Button from 'components/reusables/Button';
 import ActionCompass from 'components/ActionCompass';
 import FolderTabs from 'components/FolderTabs';
 
 export default () => {
   const dispatch = useDispatch();
-  // const [selectedAction, setAction] = useState(null);
   const room = useSelector((store) => store.room.saved.currentRoom);
 
   return (

@@ -4,10 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setHeroName } from 'store/game';
 import { callAPI } from 'store/thunks';
 
-import { TypoTitle, TypoText } from 'components/Typography';
-import Input from 'components/InputText';
-import Section from 'components/Section';
-import Button from 'components/Button';
+import { TypoTitle, TypoText } from 'components/reusables/Typography';
+import Input from 'components/reusables/InputText';
+import Section from 'components/reusables/Section';
+import Button from 'components/reusables/Button';
 
 export default () => {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ export default () => {
   return (
     <Section>
       <TypoTitle>Welcome!</TypoTitle>
-      <TypoText>Are you ready for this....???</TypoText>
+      <TypoText>What is your hero name?</TypoText>
       <Input
         type="text"
         placeholder={heroname}

@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { restartGame } from 'store/game';
 import { clearRoom } from 'store/room';
 
-import { TypoText } from 'components/Typography';
-import Section from 'components/Section';
-import Button from 'components/Button';
+import { TypoText } from 'components/reusables/Typography';
+import Section from 'components/reusables/Section';
+import Button from 'components/reusables/Button';
 
 export default () => {
   const username = useSelector((store) => store.game.user.name);

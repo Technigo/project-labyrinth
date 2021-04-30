@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
   }
   
   // Base Typography
-  p, h1, button, input { 
+  p, h1, button, input, label { 
     font-family: 'Press Start 2P', cursive; 
     color: white;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;

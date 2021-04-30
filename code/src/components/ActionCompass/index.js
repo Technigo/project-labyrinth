@@ -2,8 +2,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setAction } from 'store/room';
-// import Button from 'components/Button';
-import Compass, { ButtonToggle } from './style';
+import Compass, { RadioButton, RadioLabel } from './style';
 
 const defaultActions = [
   {
@@ -62,13 +61,14 @@ export default () => {
     <Compass>
       {actions.map((action) => (
         <div key={action.direction}>
-          <ButtonToggle
+          <RadioButton
             disabled={action.description === null}
-            selected={action.selected}
-            type="button"
-            onClick={() => handleChange(action.direction, action.description)}>
-            {action.direction[0]}
-          </ButtonToggle>
+            id={action.direction}
+            name="actions"
+            value={action.direction}
+            onChange={() => handleChange(action.direction, action.description)}
+            type="radio" />
+          <RadioLabel htmlFor={action.direction}>{action.direction[0]}</RadioLabel>
         </div>
       ))}
     </Compass>

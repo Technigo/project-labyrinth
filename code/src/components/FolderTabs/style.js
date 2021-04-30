@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import Button from 'components/Button';
+import Button from 'components/reusables/Button';
 
 // import buttonMain from 'assets/button.png';
 // import buttonDown from 'assets/button-down.png';
