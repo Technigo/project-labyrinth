@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: "Press Start 2P"
+  font-family: "Press Start 2P";
 }
 
 code {
@@ -21,50 +21,38 @@ code {
   background-image: url("https://media.giphy.com/media/xT8qBfjJhOmNPTVWU0/giphy.gif");
 }
 
+/* START SCREEN */
+
 .nes-container.with-title.is-centered {
   width: 50%;
   min-height: 450px;
   background: #f3abba;
 }
 
-.nes-container.with-title.is-centered>.title {
+.nes-container.with-title.is-centered > .title {
   font-size: 1.7rem;
   border: 3px solid black;
   margin-top: -3rem;
-}
-
-.neon-cat-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 30px 0;
-}
-
-.neon-cat-img {
-  width: 75%;
 }
 
 .nes-input {
   margin: 15px 0;
 }
 
-.nes-text {
-  font-size: 8.5px;
-}
-
-.game-section {
-  
-}
+/* GAME SCREEN */
 
 .nes-container.game-container {
   width: 70%;
-  height: 450px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  background: white;
+  background: #f58729;
   padding: 30px;
+}
+
+.nes-container.game-container.end-container {
+  background-color: #fff;
 }
 
 .instruction-container {
@@ -72,12 +60,14 @@ code {
   flex-direction: column;
   justify-content: space-evenly;
   height: 45%;
+  margin-bottom: 30px;
 }
 
 .option-container {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
   align-self: flex-end;
   width: 45%;
 }
@@ -93,3 +83,92 @@ code {
   height: 45%;
 }
 
+.nes-btn.option-btn {
+  width: 150px;
+}
+
+/* LOADING SCREEN */
+
+.loading-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.hourglass-img {
+  width: 15%;
+}
+
+/* FINAL NEON CAT */
+
+.end-text {
+  background: #C917CF;
+  background: -webkit-linear-gradient(to right, red 0%, yellow 50%, #172FCF 100%);
+  background: -moz-linear-gradient(to right, red 0%, yellow 50%, #172FCF 100%);
+  background: linear-gradient(to right, red 0%, yellow 50%, #172FCF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 20px;
+}
+
+/* NEON CAT */
+
+.neon-cat-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.neon-cat-img {
+  width: 40%;
+}
+
+.nes-text {
+  font-size: 8.5px;
+}
+
+@media (max-width: 767px) {
+  .nes-container.with-title.is-centered {
+    width: 90%;
+  }
+
+  .nes-container.with-title.is-centered > .title {
+    font-size: 20px;
+  }
+
+  .nes-field label {
+    font-size: 14.5px;
+  }
+
+  .nes-container.game-container {
+    width: 95%;
+  }
+
+  .instruction-container h4 {
+    font-size: 12px;
+  }
+
+  .instruction-container h3 {
+    font-size: 14px;
+  }
+
+  .nes-btn.option-btn {
+    width: 120px;
+    font-size: 14px;
+  }
+
+  .neon-cat-img {
+    width: 70%;
+  }
+
+  .hourglass-img {
+    width: 20%;
+  }
+
+  .nes-text {
+    font-size: 7px;
+  }
+}

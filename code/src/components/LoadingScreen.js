@@ -5,7 +5,8 @@ import NeonCat from './NeonCat'
 
 const LoadingScreen = () => {
   return (
-    <section className="loading-section">
+    <section className="nes-container loading-section">
+      <p>loading...</p>
       <NeonCat />
       <LoadingSpinner />
     </section>

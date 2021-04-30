@@ -3,6 +3,7 @@ import React from 'react'
 const FinalNeonCat = () => {
   return (
     <div className="neon-cat-wrapper">
+      <p className="end-text">To be continued..</p>
       <img className="neon-cat-img"
         src="https://media1.tenor.com/images/1bb9fc239611e96d2f976b14b45d8640/tenor.gif?itemid=5210927" 
         alt="Neon cat" 

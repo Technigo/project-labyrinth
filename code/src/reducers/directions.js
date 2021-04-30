@@ -5,6 +5,7 @@ import { API_START, API_MOVE } from '../reusables/urls'
 export const directions = createSlice({
   name: "directions",
   initialState: {
+    name: '',
     player: '',
     step: localStorage.getItem('directions') 
       ? JSON.parse(localStorage.getItem('directions'))
@@ -14,9 +15,12 @@ export const directions = createSlice({
   },
   reducers: {
     setPlayer: (store, action) => {
-      store.player = action.payload
-    }
-    ,
+      const uniqid = require('uniqid')
+      store.name = action.payload
+
+      const uniqPlayerName = action.payload + uniqid()
+      store.player = uniqPlayerName
+    },
     handleFetchedData: (store, action) => {
       if (store.step) {
         store.history = [store.history, store.step]
@@ -40,8 +44,7 @@ export const fetchStart = () => {
     })
       .then(res => res.json())
       .then((data) => { 
-        dispatch(directions.actions.handleFetchedData(data))
-        console.log("fetchStart klar")})
+        dispatch(directions.actions.handleFetchedData(data))})
       .finally(dispatch(directions.actions.setLoading(false)))
   }
 }

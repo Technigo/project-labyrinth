@@ -2,7 +2,7 @@ import React from 'react'
 
 const LoadingSpinner = () => {
   return (
-    <img src="/assets/icons8-sand-timer.gif" alt="loading spinner" />
+    <img className="hourglass-img" src="/assets/icons8-sand-timer.gif" alt="loading spinner" />
   )
 }
 
