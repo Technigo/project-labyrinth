@@ -39,7 +39,6 @@ const StartPage = () => {
   const [userName, setUserName] = useState('')
   const gameStatus = useSelector(store => store.mazegame.gameStatus)
   const loading = useSelector(store => store.mazegame.loading)
-  const restart = useSelector(store => store.mazegame.restart)
   const dispatch = useDispatch()
 
   const handleStartGame = (event) => {
@@ -59,12 +58,6 @@ const StartPage = () => {
       <LoadingPage />
     ) 
   }
-  
-  if (restart) {
-    return (
-      <GamePage />
-    ) 
-  } 
 
   return(
     <>
