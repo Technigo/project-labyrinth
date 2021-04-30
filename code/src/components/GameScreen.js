@@ -33,7 +33,7 @@ const GameScreen = () => {
                         //   key={action.direction}
                         //   onClick={() => onPathChoice(action.direction)}>{action.direction}
                         // </button> 
-                        <Button primary onClick={() => onPathChoice(action.direction)}>{action.direction} >test</Button>
+                        <Button primary onClick={() => onPathChoice(action.direction)}>{action.direction} </Button>
                     ))}
 
                 </div>
