@@ -9,6 +9,11 @@ import StartGame from "./StartGame"
 const Container = styled.div`
     width: 900px;
     height: 300px;
+
+    @media (max-width: 768px) {
+      height: 900px;
+      margin-top: 20px;
+     };
 `
 
 const InitiateGame = () => {
