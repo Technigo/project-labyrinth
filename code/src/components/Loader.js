@@ -5,7 +5,6 @@ import styled from 'styled-components'
 
 const Loader = () => {
   const isLoading = useSelector((store) => store.games.loading)
-  console.log(isLoading)
 
     return (
       isLoading && (
@@ -16,7 +15,6 @@ const Loader = () => {
     )
 }
 
-// Local styling
 const LoadingContainer = styled.div`
   height: 100vh;
   background: none;

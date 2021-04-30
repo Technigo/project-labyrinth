@@ -53,7 +53,6 @@ export const createNewPlayer = (username) => {
                     dispatch(games.actions.setError(null))
                     return res.json()
                 } else {
-                    console.log(res)
                     throw new Error('Ups something went wrong') //res.statusText for example
                 }
             })
@@ -84,7 +83,6 @@ export const CarryOnGame = (direction) => {
                     dispatch(games.actions.setError(null))
                     return res.json()
                 } else {
-                    console.log(res)
                     throw new Error('Ups something went wrong') //res.statusText for example
                 }
             })
@@ -96,5 +94,3 @@ export const CarryOnGame = (direction) => {
         }
     }
 }
-
-// export default games

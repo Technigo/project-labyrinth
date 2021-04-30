@@ -7,9 +7,7 @@ import { Container } from '../styling/GlobalStyling'
 import EndScreen from './EndScreen'
 
 const GameScreen = () => {
-  const userName = useSelector(store => store.games.username)
   const actions = useSelector(store => store.games.gameStatus.actions)
-  console.log(actions)
   const history = useSelector(store => store.games.history)
 
   const dispatch = useDispatch()
@@ -17,21 +15,18 @@ const GameScreen = () => {
   const onGoBack = () => {
     dispatch(games.actions.setPreviousGameStatus())
   }
-  //The optional chaining operator (?.) 
-  //enables you to read the value of a property located deep within 
-  //a chain of connected objects without having to check that each reference 
-  //in the chain is valid.
+
   if (actions?.length === 0) {
     return (
         <EndScreen />
     )
-} 
+  }
+
   return (
     <Container>
-      <h3>{userName.description}</h3>
         {actions?.map( (action, index) => (
             <GameDescriptionContainer key={index}>
-              <p>{action.description}</p>
+              <GameScreenText>{action.description}</GameScreenText>
               <button
                   className="nes-btn"
                   onClick={() => dispatch(CarryOnGame(action.direction))}>
@@ -51,9 +46,8 @@ const GameScreen = () => {
   )
 }
 
-const GameScreenTitle = styled.h3`
-
-
+const GameScreenText =styled.p`
+  text-align: center;
 `
 const GameDescriptionContainer = styled.div`
     display: flex;
