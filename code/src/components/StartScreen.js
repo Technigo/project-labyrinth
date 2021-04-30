@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import styled from 'styled-components/macro'
 
 import { games, createNewPlayer } from '../reducers/games'
+import { Container } from '../styling/GlobalStyling'
 
 const StartScreen = () => {
     const [inputValue, setInputValue] = useState('')
@@ -19,7 +21,7 @@ const StartScreen = () => {
     }
 
     return (
-        <section className="start-screen-wrapper">
+        <Container>
             <form className="start-screen-content" onSubmit={onFormSubmit}>
                 <h1>MAZE GAME</h1>
                 <i className="snes-jp-logo"></i>
@@ -33,7 +35,7 @@ const StartScreen = () => {
                 />
             </form>
             <button className="nes-btn" onClick={onFormSubmit}>START</button>
-        </section>
+        </Container>
     )
 }
 

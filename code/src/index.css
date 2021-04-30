@@ -25,14 +25,18 @@ code {
   margin: 10px;
 }
 
+.game-wrapper {
+  max-width: 300px;
+}
+
 /* START SCREEN  */
-.start-screen-wrapper {
+/* .start-screen-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   border-style: inset;
   margin: 0 auto;
-}
+} */
 
 .start-screen-content {
   display: flex;
@@ -68,8 +72,8 @@ code {
 
 .nes-btn {
   margin: 0 0 40px 0;
+  width: fit-content;
 }
-
 
 /* HEADER */
 
@@ -77,12 +81,18 @@ button.nes-btn.is-warning {
   margin-top: 50px;
 }
 
+
 /* MEDIA QUIERIES */
 
 @media (min-width: 768px) {
 
   .main-container {
     margin: 50px;
+  }
+
+  .game-wrapper {
+    width: 500px;
+    margin: 0 auto;
   }
 /* START SCREEN */
   .start-screen-wrapper {

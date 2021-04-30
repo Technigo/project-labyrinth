@@ -13,7 +13,7 @@ const Games = () => {
 
   return (
     <main className="main-container">
-
+      <div className="game-wrapper">
       {error && `Ups, something went wrong, reason : ${error}`}
       {loading && <Loader />}
       {userName &&  <Header />}
@@ -21,6 +21,7 @@ const Games = () => {
           ? <GameScreen />
           : <StartScreen /> 
       }
+      </div>
     </main>
   )
 }

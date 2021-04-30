@@ -20,11 +20,14 @@ const Header = () => {
 
 const HeaderContainer = styled.div`
   width: 100%;
+  margin-bottom: 30px;
+  padding: 10px;
   background-color: black;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  border-style: inset;
    @media (min-width: 768px){
      justify-content:space-evenly;
    }

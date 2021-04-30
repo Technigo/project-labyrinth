@@ -1,7 +1,9 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import styled from 'styled-components/macro'
 
 import { games, CarryOnGame } from '../reducers/games'
+import { Container } from '../styling/GlobalStyling'
 
 const GameScreen = () => {
   const userName = useSelector(store => store.games.username)
@@ -20,25 +22,35 @@ const GameScreen = () => {
   //in the chain is valid.
 
   return (
-    <div>
+    <Container>
+      <h3>{userName.description}</h3>
+        {actions?.map( (action, index) => (
+            <GameDescriptionContainer key={index}>
+              <p>{action.description}</p>
+              <button
+                  className="nes-btn"
+                  onClick={() => dispatch(CarryOnGame(action.direction))}>
+                      {action.direction}
+              </button>
+            </GameDescriptionContainer>
+          )
+        )}
       <button
+        className="nes-btn"
         disabled={!history.length} 
         onClick={onGoBack}
       >
         Go back
       </button>
-      <h3>{userName.description}</h3>
-        {actions?.map( (action, index) => (
-            <div key={index}>
-              <p>{action.description}</p>
-              <button
-                  onClick={() => dispatch(CarryOnGame(action.direction))}>
-                      {action.direction}
-              </button>
-            </div>
-          )
-        )}
-    </div>
+    </Container>
   )
 }
+
+
+const GameDescriptionContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
 export default GameScreen
