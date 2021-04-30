@@ -17,8 +17,6 @@ export const WelcomeMessageContainer = styled.div`
 
 export const Header = styled.h2`
     margin: 30px 5px;
-    display: flex;
-    justify-content: center;
 `
 
 export const ButtonContainer = styled.div`

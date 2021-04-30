@@ -1,11 +1,17 @@
 # Project Labyrinth
-Replace this readme with your own information about your project.
+This was a project build during the Technigo bootcamp. Week 16. It consisted in building a game in the form of a text based adventure. The main goal was to practise:
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+- How to make API calls around Redux using thunks
+- How to structure your redux store to suit your data
+- To send JSON in the body of a request
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+- We started by exploring Postman and its feature. 
+- We split up the project into different components to try to make each page as clean as possible.
+- We wanted to add an error message, warning the user if the username was already used, but it turned out   not to be possible with this API. Therefore, the user need to type an unique username on restart.
+- We used nes.css and styled components to practise a different way to style.
+- If we had more time we would have wanted to try out more of the stretch goals especially localStorage. We tried but didn't manage to get it to work.
 
 ## View it live
 

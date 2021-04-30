@@ -5,14 +5,8 @@ const game = createSlice({
     name: 'game',
     initialState: {
         username: '',
-        gameStatus: //localStorage.getItem('gameStatus')
-            //? JSON.parse(localStorage.getItem('gameStatus'))
-            //: 
-            {},
-        history: //localStorage.getItem('')
-        //? JSON.parse(localStorage.getItem(''))
-        //: 
-        [],
+        gameStatus: {},
+        history: [],
     },
     reducers: {
         setUsername: (store, action) => {
@@ -47,13 +41,12 @@ export const registerNewPlayer = (username) => {
         .then((res) => res.json())
         .then((json) => {
             dispatch(game.actions.setGameStatus(json))
-            localStorage.setItem('gameStatus', JSON.stringify(json))
         })
         .finally(() => dispatch(ui.actions.setLoading(false)))
     }
 }
 
-export const continueGame = (direction, username) => {
+export const continueGame = (direction) => {
     return (dispatch, getState) => {
         dispatch(ui.actions.setLoading(true))
         fetch('https://wk16-backend.herokuapp.com/action', {
@@ -62,8 +55,7 @@ export const continueGame = (direction, username) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ 
-                // username: getState().game.username,
-                username: username,
+                username: getState().game.username,
                 type: 'move',
                 direction: direction 
             })
@@ -71,7 +63,6 @@ export const continueGame = (direction, username) => {
         .then((res) => res.json())
         .then((json) => {
             dispatch(game.actions.setGameStatus(json))
-            localStorage.setItem('gameStatus', JSON.stringify(json))
         })
         .finally(() => dispatch(ui.actions.setLoading(false)))
     }

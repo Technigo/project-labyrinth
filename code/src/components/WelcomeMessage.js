@@ -17,7 +17,7 @@ const WelcomeMessage = () => {
             {!gameStatus && (
                 <WelcomeMessageContainer>
                         <div class="nes-container is-rounded is-dark">
-                            <Header>Welcome to the labyrinth {userName}!</Header>
+                            <Header>Welcome to the labyrinth <span class="nes-text is-success">{userName}</span>!</Header>
                             <p>Press start to enter:</p>
                             <ButtonContainer>
                                 <button 
