@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { Link } from "react-router-dom";
 
+import RestartButton from '../UI/RestartButton'
+
 const WinnerScreen = () => {
     const description = useSelector((store) => store.maze.description);
 
@@ -18,11 +20,8 @@ const WinnerScreen = () => {
                 <i className="nes-icon is-large star"></i>
                 <Link to="/">
                     <RestartButton
-                        type='button'
-                        className='nes-btn'
-                        /* onClick= {} */> {/*Gör en funktion som går tillbaka till initialState*/}
-                        PLAY AGAIN
-                    </RestartButton>
+                        text='PLAY AGAIN'
+                    />
                 </Link>
             </Border>
         </Main>
@@ -60,7 +59,7 @@ const YouWinText = styled.p`
     width: 100%;
     text-align: center;
 `
-const RestartButton = styled.button`
+/* const RestartButton = styled.button`
     font-family: 'Press Start 2P', cursive;
     margin-top: 45px;
-`
+` */

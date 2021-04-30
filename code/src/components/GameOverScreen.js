@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from "react-router-dom";
 
+import RestartButton from '../UI/RestartButton'
+
 const GameOverScreen = () => {
 
     return (
@@ -16,11 +18,8 @@ const GameOverScreen = () => {
                 </GameOverText>
                 <Link to="/">
                 <RestartButton
-                    type='button'
-                    className='nes-btn'
-                    /* onClick= {} */> {/*Gör en funktion som går tillbaka till initialState*/}
-                    TRY AGAIN
-                </RestartButton>
+                    text='TRY AGAIN'
+                />
                 </Link>
             </Border>
         </Main>
@@ -57,8 +56,4 @@ const GameOverText = styled.p`
     font-size: 12px;
     width: 100%;
     text-align: center;
-`
-const RestartButton = styled.button`
-    font-family: 'Press Start 2P', cursive;
-    margin-top: 45px;
 `
