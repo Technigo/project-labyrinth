@@ -7,7 +7,7 @@ export const EndPage = () => {
 
 const Container = styled.div`
     width: 900px;
-    height: 300px;
+    height: 350px;
     margin-top: 50px;
 
     @media (max-width: 768px) {
@@ -18,6 +18,7 @@ const Container = styled.div`
 
   return (
     <Container className="nes-container is-dark with-title">
+        <i class="nes-icon trophy is-large"></i>
         <p>{currentState.labyrinth.game.description}</p>
         <button 
         type="button" 

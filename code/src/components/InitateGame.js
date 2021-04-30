@@ -26,8 +26,6 @@ const InitiateGame = () => {
         return playerName && gameState.coordinates;
       };
      
-    
-
     const setGame = () => {
         //dispatching an action that takes the inputValue to change username
         dispatch(labyrinth.actions.setPlayerName(inputValue)) 
@@ -51,7 +49,7 @@ const InitiateGame = () => {
                 value={inputValue}
                 onChange={event => setInputValue(event.target.value)}
                 className="nes-input is-dark" 
-                placeholder="At least two letter and two numbers"
+                placeholder="username"
             />
             <button type="button" className="nes-btn is-success" onClick={setGame}>Create Player</button>
         </Container>
