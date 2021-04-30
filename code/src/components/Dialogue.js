@@ -47,7 +47,7 @@ const DialogueContainer = styled.div`
 const DialogueBox = styled.div`
     position: relative;
     background-color: white;
-    padding: 25px 10px 50px 10px;
+    padding: 25px 10px 70px 10px;
     margin-bottom: 30px;
         @media (min-width: 768px) {
         width: 45%;
