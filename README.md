@@ -17,4 +17,4 @@ When starting the game the user has to provide a unique player name to the API. 
 
 ## View it live
 
-Please follow this link to view the project live: 
+Please follow this link to view the project live: https://trusting-lewin-948ec6.netlify.app/
