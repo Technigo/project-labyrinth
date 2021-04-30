@@ -7,7 +7,7 @@ import { mazegame } from './reducers/mazegame'
 
 const reducer = combineReducers({
   mazegame: mazegame.reducer
-});
+})
 
 const store = configureStore({ reducer })
 
