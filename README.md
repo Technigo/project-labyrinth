@@ -9,9 +9,9 @@ The app has been generated using create-react-app. And uses the following npm pa
 - styled-loaders-react
 
 The focus of this week was to learn:
-	- How to make API calls around Redux using thunks
-	-  How to structure the redux store to suit the data
-	-  To send JSON in the body of a request
+- How to make API calls around Redux using thunks
+- How to structure the redux store to suit the data
+- To send JSON in the body of a request
 ## Reflections
 We enjoyed the thematics of this week figuring out a proper design for the project whilst learning more about asynchronous Redux and keeping the history of previous data in Redux store. 
 
