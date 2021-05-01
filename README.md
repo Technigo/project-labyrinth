@@ -19,18 +19,18 @@ We decided to use more states and reducers when we got the basic functions worki
 Finally we added a GameOverScreen and a WinnerScreen that renders if you either come back to your starting point (loose) or get to the final coordinates (wins). We do this by checking the coordinates state that we get from the API.
 
 The project is responsive and for styling we used styled components.
-Built during pair-programming in VS COde.
+Built during pair-programming in VS Code.
 
 If we had more time it's possible to make more reusable components.
 
 Tools and techniques:
-React
-Redux
-React Router
+React,
+Redux,
+React Router,
 Styled Components
 
-API
-Postman
+API,
+Postman,
 Pair-programming
 
 ## View it live
