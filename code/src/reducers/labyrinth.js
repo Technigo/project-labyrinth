@@ -52,7 +52,6 @@ const labyrinth = createSlice({
       store.error = null
       store.loading = false
       store.directionChoices = []
-      //console.log(store)
     }
   },
 
