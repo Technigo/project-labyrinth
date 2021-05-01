@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import img from "../assets/start.jpg";
 
 import gameFetch, { firstFetch } from "../reducers/gameFetch";
@@ -98,7 +98,7 @@ const Input = styled.input`
   color: #000;
 
   @media (min-width: 768px) {
-    font-size: 22px;
+    font-size: 20px;
   }
 `;
 

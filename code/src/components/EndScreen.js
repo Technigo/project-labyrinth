@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import img from "../assets/7.jpg";
 
 import gameFetch from "../reducers/gameFetch";
@@ -72,11 +72,19 @@ const InnerWrap = styled.div`
 const EndDescription = styled.p`
   padding-bottom: 20px;
   font-size: 18px;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const GameDescription = styled.p`
   font-size: 16px;
   font-family: "Raleway", sans-serif;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const Button = styled.button`

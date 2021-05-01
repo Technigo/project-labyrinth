@@ -31,7 +31,7 @@ const GameScreen = () => {
       {loading && <Loading />}
       {coordinates === "1,3" && <EndScreen gameDescription={gameDescription} />}
 
-      {!loading && (
+      {!loading && coordinates !== "1,3" && (
         <GameContainer coordinates={coordinates}>
           <Content>
             <InnerContainer>
