@@ -7,7 +7,6 @@ const maze = createSlice({
     coordinates: '',
     description: '',
     moves: null,
-    history: [],
     isLoading: false,
     error: null,
     gameState: '',
