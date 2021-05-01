@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components';
 
-
 import game, {generateGame} from '../reducers/game'
 
 const StartScreenContainer = styled.section`
@@ -40,8 +39,6 @@ const Input = styled.input`
     border-radius: 5px;
     border: none;
 `
-
-
 
 const StartScreen = () => {
   const [username, setUsername] = useState('')

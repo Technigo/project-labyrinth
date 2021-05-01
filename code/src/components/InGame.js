@@ -52,9 +52,9 @@ const MainContent = styled.div`
 
 const Button = styled.button`
     margin-top:5px;
-    background-color:#3e883e;
+    background-color:rgb(62, 136, 62);
     padding:10px;
-    color: white;
+    color: rgb(255, 255, 255);
     border-radius: 5px;
     border: none;
 `

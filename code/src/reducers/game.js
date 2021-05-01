@@ -67,5 +67,4 @@ export const nextStep = (username,direction) => {
       }
 }
 
-
 export default game
