@@ -2,11 +2,12 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import StartGame from './StartGame'
 
- import game, { continueGame } from 'reducers/game'
+import game, { continueGame } from 'reducers/game'
 
 const GameElements = () => {
     const gameElements = useSelector(store => store.game.gameElements)
-    const userName = useSelector(store => store.game.gameElements.userName)
+   /*  const userName = useSelector(store => store.game.gameElements.userName) */
+   const userName = useSelector(store => store.game.userName) 
    
 
     //console.log(gameElements)

@@ -9,7 +9,8 @@ const game = createSlice({
 
   reducers: {
     setUserName:(store, action) => {
-      store.username = action.payload
+/*       store.username = action.payload */
+      store.userName = action.payload 
     },
     setGameElements: (store, action) => {
       store.gameElements = action.payload
@@ -32,12 +33,12 @@ export const startGame = (userName) => {
   }
 } 
 
-export const continueGame = (userName, direction, type) =>{
+export const continueGame = (userName, direction) =>{
 return (dispatch) => {
     fetch ('https://wk16-backend.herokuapp.com/action', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username: userName, direction: direction, type: "move" }),
+      body: JSON.stringify({ username: userName, type: "move", direction: direction }),
     })
     .then(response => response.json())  
     .then(json => {
