@@ -75,7 +75,6 @@ const FormContainer = styled.div`
   @media (min-width: 768px) {
     width: 400px;
     height: 280px;
-    padding: 20px 20px 0 20px;
   }
 `;
 

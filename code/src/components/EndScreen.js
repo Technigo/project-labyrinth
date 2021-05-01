@@ -20,7 +20,7 @@ const EndScreen = ({ gameDescription }) => {
       <Content>
         <InnerWrap>
           <EndDescription>
-            Congratulations {userName}, you made it through the labyrinth!"
+            Congratulations {userName}, you made it through the labyrinth!
           </EndDescription>
           <GameDescription>{gameDescription}</GameDescription>
           <Button onClick={onRestart}>Restart</Button>

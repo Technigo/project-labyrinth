@@ -113,19 +113,25 @@ const GameDescription = styled.p`
 
   @media (min-width: 768px) {
     font-size: 20px;
+  }
 `;
 
 const DescriptionAndButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: stretch;
+  -webkit-box-pack: justify;
   text-align: center;
 `;
 
 const InnerWrap = styled.div`
   width: 40%;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 
   @media {
     width: 100%;

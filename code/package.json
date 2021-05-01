@@ -14,6 +14,7 @@
     "next-google-fonts": "^2.2.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-favicon": "0.0.21",
     "react-lottie": "^1.2.3",
     "react-redux": "^7.2.4",
     "react-scripts": "^3.3.0",
