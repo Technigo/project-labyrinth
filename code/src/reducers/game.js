@@ -5,13 +5,15 @@ export const game = createSlice({
   name: "game",
   initialState: {
     type: "move",
-    username: null,
+    username: localStorage.getItem("username"),
     history: [],
-    currentStep: {
-      coordinates: 0.0,
-      description: "",
-      actions: [],
-    },
+    currentStep: localStorage.getItem("current-step")
+      ? JSON.parse(localStorage.getItem("current-step"))
+      : {
+          coordinates: 0.0,
+          description: "",
+          actions: [],
+        },
   },
   reducers: {
     setUsername: (store, action) => {
@@ -50,6 +52,9 @@ export const generateGame = (username) => {
       .then((data) => {
         dispatch(game.actions.setUsername(username));
         dispatch(game.actions.setCurrentStep(data));
+        // LOCAL STORAGE
+        localStorage.setItem("current-step", JSON.stringify(data));
+        localStorage.setItem("username", username);
       });
   };
 };
@@ -71,6 +76,8 @@ export const generateMove = (username, direction) => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setCurrentStep(data));
+        //LOCAL STORAGE
+        localStorage.setItem("current-step", JSON.stringify(data));
         dispatch(ui.actions.setLoading(false));
       });
   };
