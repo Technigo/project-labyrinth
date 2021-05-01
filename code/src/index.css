@@ -19,8 +19,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-/* Error board */
-
 .error-message {
   color: brown;
   text-align: center;
@@ -151,14 +149,12 @@ div {
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
   }
-
-  .direction-description{
+  .direction-description {
     display: flex;
     flex-wrap: wrap;
     align-content: stretch;
   }
-
-  .direction-button{
+  .direction-button {
     align-self: flex-end;
   }
 }
