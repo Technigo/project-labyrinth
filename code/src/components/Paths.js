@@ -11,7 +11,7 @@ const Paths = () => {
     const error = useSelector((store) => store.paths.error)
     const loading = useSelector((store) => store.paths.loading)
     return (
-        <div>
+        <>
             {error && `Something went wrong, reason: ${error}`}
             {path
                 ? <GameScreen />
@@ -19,7 +19,7 @@ const Paths = () => {
 
             {loading && <div className="loading-spinner">LOADING</div>}
 
-        </div>
+        </>
 
     )
 }

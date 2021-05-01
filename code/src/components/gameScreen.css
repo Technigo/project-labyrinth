@@ -1,5 +1,6 @@
 body {
   overflow: hidden;
+  font-size: 0.50em;
 }
 
 h3 {
@@ -108,4 +109,11 @@ h4 {
   .game-wrapper {
       padding: 100px;
   }
+}
+@media (min-width: 480px) {
+  body{
+    font-size: 1em ;
+  }
+ 
+
 }
