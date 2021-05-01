@@ -10,12 +10,38 @@ const Container = styled.div`
   padding: 15px;
   display: flex;
   width: auto;
-  height: 100vh;
+  height: 100%;
+  widht: auto;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 20px;
-`;
+  
+  @media (min-width: 668px) {
+    margin-top: 20%;
+  }
+  @media (min-width: 1024px) {
+    margin-top: 25%;
+  }
+
+`
+
+
+const Title = styled.h1`
+  font-size: 25px;
+  color: #C4007D;
+  text-align: center    
+`
+
+const IntroductionText = styled.h2`
+  font-size: 12px;  
+  text-align: center;
+  @media (min-width: 668px) {
+    font-size: 16px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 18px;
+  }
+`
 
 const Button = styled.button`
   background-color: #fbafdd;
@@ -49,8 +75,8 @@ const StartScreen = () => {
   return (
     <>
       <Container>
-        <h1>Welcome to our splendid game</h1>
-        <h2>Type your name to enter the labyrinth...</h2>
+        <Title>Welcome to our splendid game!</Title>
+        <IntroductionText>Type your name to enter the labyrinth...</IntroductionText>
         <Input
           type="text"
           placeholder="Enter your name to start"

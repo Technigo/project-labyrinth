@@ -7,14 +7,14 @@ import games, { nextStep } from "../reducers/games";
 const LoadingContainer = styled.div`
   background-color: black;
   color: white;
-  font-size: 20px;
+  font-size: 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 0 20px;
-  text-align: justify
-`;
+  text-align: center;
+  `
 
 const ActionContainer = styled.div`
   display: flex;
@@ -23,7 +23,8 @@ const ActionContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin: 20px;
-  text-align: justify
+  text-align: center;
+
 `;
 
 const Wrapper = styled.div`
@@ -38,15 +39,26 @@ const Wrapper = styled.div`
   margin: 0;
 `;
 
-const DescriptionTitle = styled.text`
-  font-size: 20px;
+const DescriptionTitle = styled.h1`
+  font-size: 12px;
   font-weight: bold;
+  @media (min-width: 668px) {
+    font-size: 18px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 24px;
+  }
 `
 
-const Text = styled.text`
-  font-size: 16px;
+const Text = styled.p`
+  font-size: 10px; 
   background-color: black;
   color: white;
+  @media (min-width: 668px) {
+    font-size: 16px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 20px;}
 `;
 
 const Button = styled.button`
@@ -55,8 +67,8 @@ const Button = styled.button`
   border: 2px solid black;
   border-radius: 50%;
   text-align: center;
-  padding: 30px;
-  margin: 30px;
+  padding: 10px 20px;
+    margin: 15px 0;
   height: 80px;
 `;
 
@@ -69,17 +81,13 @@ const Game = () => {
 
   const dispatch = useDispatch();
 
-  
-
-
   return (
     <>
       <Wrapper>
         <LoadingContainer>
           <DescriptionTitle>{description}</DescriptionTitle>
         </LoadingContainer>
-        {actions.actions.map((action) => (
-            
+        {actions.actions.map((action) => ( 
           <ActionContainer key={action.description}>
             <Text>{action.description}</Text>
             <Button
