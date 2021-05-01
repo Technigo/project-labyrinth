@@ -1,24 +1,23 @@
-import React, {useEffect}from 'react'
-import {useSelector} from 'react-redux'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { init } from 'ityped'
 
 const Description = () => {
   const userName = useSelector(store => store.labyrinth.userName)
   const actions = useSelector(store => store.labyrinth.actions)
-  //console.log(actions)
 
-  useEffect(()=>{
+  useEffect(() => {
     const textAnimation = document.querySelector("#textAnimation");
-    init(textAnimation,{
+    init(textAnimation, {
       disableBackTyping: true,
       showCursor: false,
-      strings:[actions.description]
+      strings: [actions.description]
     })
-  },[actions])
+  }, [actions])
 
-  return(
+  return (
     <>
-    {userName !== null  && <div className="history" id="textAnimation"></div>}
+      {userName !== null && <div className="history" id="textAnimation"></div>}
     </>
   )
 }
