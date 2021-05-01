@@ -1,13 +1,10 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
+Labyrinth is a text-based adventure where the player get diffrent description of where they are and several alternatives about what they can go, by choiceing (Go East or Go South). The gole is to get through the labyrinth.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The project use Redux store, POST requests and fetches data from an API. We usen thunks to wrap our API calls.
+The styling comes from nes.css library. We use styled components.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://dreamy-lamport-e79080.netlify.app
