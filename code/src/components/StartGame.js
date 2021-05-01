@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import game, { startGame } from '../reducers/game'
-import GameElements from './GameElements'
+/* import GameElements from './GameElements' it wasnt being used */
 
 const StartGame = () => {
     const [userName, setUserName] = useState('')

@@ -1,8 +1,9 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import StartGame from './StartGame'
+/* import StartGame from './StartGame' - it wasnt being used*/ 
 
-import game, { continueGame } from 'reducers/game'
+//I removed the import of the slice game
+import { continueGame } from 'reducers/game'
 
 const GameElements = () => {
     const gameElements = useSelector(store => store.game.gameElements)
