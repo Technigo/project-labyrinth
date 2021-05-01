@@ -1,5 +1,4 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 import RestartButton from './RestartButton'
@@ -17,7 +16,6 @@ const SummaryContainer = styled.div`
 `
 
 const Summary = () => {
-  const history = useSelector((store) => store.game.history)
   return (
     <SummaryContainer>
       <h1>Well done, you finished the game!</h1>

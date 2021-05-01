@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
-import game, { nextStep } from 'reducers/game'
+import { nextStep } from 'reducers/game'
 
 import Summary from './Summary'
 import Loading from './Loading'
@@ -63,7 +63,6 @@ const InGame = () => {
   const direction = useSelector((store) => store.game.direction)
   const actions = useSelector((store) => store.game.direction.actions)
   const usernameFinal = useSelector((store) => store.game.username)
-  const history = useSelector((store) => store.game.history)
   const loading = useSelector(store => store.game.loading)
   const dispatch = useDispatch() 
   
