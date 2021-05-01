@@ -1,13 +1,15 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This is a React app in the form of a game, which retrieves a list of actions from the backend and presents them to the user as interactable items.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We started out by looking into Postman, trying to get a grasp of the features. We continued by creating some components, adding logic and making sure everything worked OK. We had some problems with the second fetch and spent some time trying to figure out how to send the coordinates. We decided to use styled components since we wanted some practice.
+
+If we had more time, we would have looked into reusable components.
+
+Technologies: API, Postman, React, Redux, Styled Components, Thunks.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://astrid-caroline-labyrinth.netlify.app/
