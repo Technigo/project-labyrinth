@@ -53,18 +53,16 @@ const InnerWrap = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  text-align: center;
   width: 300px;
   min-height: 300px;
-  border: 6px double;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #f7f5e1;
+  border: 6px double;
   border-radius: 15px;
-  text-align: center;
+  background: rgba(0, 0, 0, 0.8);
 
   @media (min-width: 768px) {
     min-width: 600px;
-    min-height: 300px;
     padding: 30px 30px 30px 30px;
   }
 `;
@@ -89,11 +87,11 @@ const GameDescription = styled.p`
 
 const Button = styled.button`
   padding: 8px 16px;
+  border: #f7f5e1;
   border-radius: 10px;
   font-size: 16px;
   cursor: pointer;
   background: #cfb05d;
-  border: #f7f5e1;
   -webkit-box-shadow: inset 1px 1px 10px #333;
   -moz-box-shadow: inset 1px 1px 10px #333;
   box-shadow: inset 1px 1px 3px #333;

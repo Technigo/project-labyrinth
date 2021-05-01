@@ -62,15 +62,15 @@ const Content = styled.div`
 const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-evenly;
+  align-items: center;
   width: 300px;
   height: 250px;
   padding: 20px;
   border: 6px double;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #f7f5e1;
   border-radius: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f7f5e1;
 
   @media (min-width: 768px) {
     width: 400px;
@@ -79,9 +79,9 @@ const FormContainer = styled.div`
 `;
 
 const Label = styled.label`
+  text-align: center;
   font-size: 18px;
   padding-bottom: 15px;
-  text-align: center;
 
   @media (min-width: 768px) {
     font-size: 20px;
@@ -90,10 +90,10 @@ const Label = styled.label`
 
 const Input = styled.input`
   padding: 5px;
-  border: #f7f5e1;
-  border-radius: 5px;
   font-size: 18px;
   font-family: "Raleway", sans-serif;
+  border: #f7f5e1;
+  border-radius: 5px;
   color: #000;
 
   @media (min-width: 768px) {

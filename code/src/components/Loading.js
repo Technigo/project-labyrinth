@@ -14,7 +14,7 @@ const Loading = () => {
   };
   return (
     <LoaderBackground>
-      <Lottie options={defaultOptions} width={200} height={200} />
+      <Lottie options={defaultOptions} width={220} height={220} />
     </LoaderBackground>
   );
 };
@@ -25,8 +25,8 @@ const LoaderBackground = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
   height: 100vh;
   background-position: center;
   background-size: cover;
+  background: black;
 `;

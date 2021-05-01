@@ -94,22 +94,21 @@ const InnerContainer = styled.div`
   width: 300px;
   min-height: 300px;
   border: 6px double;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #f7f5e1;
   border-radius: 15px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #f7f5e1;
 
   @media (min-width: 768px) {
     min-width: 600px;
-    min-height: 300px;
-    padding: 30px 30px 30px 30px;
+    padding: 30px;
   }
 `;
 
 const GameDescription = styled.p`
+  text-align: center;
   padding-bottom: 15px;
   font-size: 18px;
-  text-align: center;
 
   @media (min-width: 768px) {
     font-size: 20px;
@@ -121,17 +120,16 @@ const DescriptionAndButtonContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
-  -webkit-box-pack: justify;
   text-align: center;
 `;
 
 const InnerWrap = styled.div`
-  width: 40%;
-  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  width: 40%;
+  padding: 10px;
 
   @media {
     width: 100%;
@@ -150,16 +148,15 @@ const Description = styled.p`
 
 const Button = styled.button`
   padding: 10px 16px;
+  border: 1px solid #333;
   border-radius: 10px;
-  border: #f7f5e1;
   font-size: 16;
   cursor: pointer;
+  color: #000;
   background: #cfb05d;
-  border: 1px solid #333;
   -webkit-box-shadow: inset 1px 1px 10px #333;
   -moz-box-shadow: inset 1px 1px 10px #333;
   box-shadow: inset 1px 1px 3px #333;
-  color: #000;
 
   &:hover {
     transform: scale(1.1);
