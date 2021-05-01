@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components/macro";
 
-import games, { nextStep } from "../reducers/games";
+import { nextStep } from "../reducers/games";
 
 const LoadingContainer = styled.div`
   background-color: black;
