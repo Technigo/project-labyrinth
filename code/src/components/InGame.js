@@ -44,6 +44,7 @@ const ActionContainer = styled.div`
 const MainContent = styled.div`
   height: 100vh;
   background: black;
+  margin-top: 30px;
 
   @media (max-width: 332px) {
     font-size: 12px;
