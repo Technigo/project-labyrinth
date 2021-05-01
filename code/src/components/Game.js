@@ -14,7 +14,7 @@ const LoadingContainer = styled.div`
   justify-content: center;
   margin: 0 20px;
   text-align: center;
-  `
+`;
 
 const ActionContainer = styled.div`
   display: flex;
@@ -24,14 +24,12 @@ const ActionContainer = styled.div`
   justify-content: center;
   margin: 20px;
   text-align: center;
-
 `;
 
 const Wrapper = styled.div`
-  padding: 0 15px;
   display: flex;
-  width: auto;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
@@ -48,17 +46,18 @@ const DescriptionTitle = styled.h1`
   @media (min-width: 1024px) {
     font-size: 24px;
   }
-`
+`;
 
 const Text = styled.p`
-  font-size: 10px; 
+  font-size: 10px;
   background-color: black;
   color: white;
   @media (min-width: 668px) {
     font-size: 16px;
   }
   @media (min-width: 1024px) {
-    font-size: 20px;}
+    font-size: 20px;
+  }
 `;
 
 const Button = styled.button`
@@ -68,7 +67,7 @@ const Button = styled.button`
   border-radius: 50%;
   text-align: center;
   padding: 10px 20px;
-    margin: 15px 0;
+  margin: 15px 0;
   height: 80px;
 `;
 
@@ -87,7 +86,7 @@ const Game = () => {
         <LoadingContainer>
           <DescriptionTitle>{description}</DescriptionTitle>
         </LoadingContainer>
-        {actions.actions.map((action) => ( 
+        {actions.actions.map((action) => (
           <ActionContainer key={action.description}>
             <Text>{action.description}</Text>
             <Button

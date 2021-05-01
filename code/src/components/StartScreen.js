@@ -7,41 +7,38 @@ import games, { startGame } from "../reducers/games";
 const Container = styled.div`
   background-color: black;
   color: white;
-  padding: 15px;
   display: flex;
-  width: auto;
-  height: 100%;
-  widht: auto;
+  padding: 20px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
+
   @media (min-width: 668px) {
     margin-top: 20%;
   }
   @media (min-width: 1024px) {
     margin-top: 25%;
   }
-
-`
-
+`;
 
 const Title = styled.h1`
+  padding: 0 15px;
   font-size: 25px;
-  color: #C4007D;
-  text-align: center    
-`
+  color: #c4007d;
+  text-align: center;
+`;
 
 const IntroductionText = styled.h2`
-  font-size: 12px;  
+  font-size: 12px;
   text-align: center;
+  padding: 0 15px;
   @media (min-width: 668px) {
     font-size: 16px;
   }
   @media (min-width: 1024px) {
     font-size: 18px;
   }
-`
+`;
 
 const Button = styled.button`
   background-color: #fbafdd;
@@ -49,17 +46,24 @@ const Button = styled.button`
   border-radius: 50%;
   text-align: center;
   padding: 30px;
-  margin: 30px;
   height: 80px;
+  font-weight: bold;
+  font-family: 'Roboto Mono', monospace;
+}
 `;
 
 const Input = styled.input`
-  background-color: #fbafdd;
-  border-radius: 50%;
-  border: 2px dotted slategray;
-  padding: 30px;
+  font-family: "Roboto Mono", monospace;
+  background-color: transparent;
+  border-bottom: 2px solid pink;
+  padding: 10px;
   margin: 30px;
-  height: 80px;
+  height: 30px;
+  color: white;
+  &::placeholder {
+    color: white;
+    font-size: 10px;
+  }
 `;
 
 const StartScreen = () => {
@@ -76,7 +80,9 @@ const StartScreen = () => {
     <>
       <Container>
         <Title>Welcome to our splendid game!</Title>
-        <IntroductionText>Type your name to enter the labyrinth...</IntroductionText>
+        <IntroductionText>
+          Type your name to enter the labyrinth...
+        </IntroductionText>
         <Input
           type="text"
           placeholder="Enter your name to start"

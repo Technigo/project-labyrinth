@@ -27,11 +27,11 @@ const games = createSlice({
       store.loading = action.payload;
     },
     setHistory: (store, action) => {
-        if (store.history.length) {
-            store.quote = store.history[store.history.length - 1];
-            store.history = store.history.slice(0, store.history.length - 1);
-        }
-    }
+      if (store.history.length) {
+        store.quote = store.history[store.history.length - 1];
+        store.history = store.history.slice(0, store.history.length - 1);
+      }
+    },
   },
 });
 
