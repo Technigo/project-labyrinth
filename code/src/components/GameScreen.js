@@ -9,7 +9,7 @@ import img4 from "../assets/4.jpg";
 import img5 from "../assets/5.jpg";
 import img6 from "../assets/6.jpg";
 
-import gameFetch, { secondFetch } from "../reducers/gameFetch";
+import { secondFetch } from "../reducers/gameFetch";
 import Loading from "./Loading";
 import EndScreen from "./EndScreen";
 
@@ -20,42 +20,32 @@ const GameScreen = () => {
   const loading = useSelector((store) => store.gameFetch.loading);
   const coordinates = useSelector((store) => store.gameFetch.coordinates);
 
-  //console.log("gameActions: ", gameActions);
-  //console.log("gameDescription: ", gameDescription);
-
-  // const img1 = "../assets/1.jpg";
-  // const img2 = "../assets/2.jpg";
-  // const img3 = "../assets/3.jpg";
-  // const img4 = "../assets/4.jpg";
-  // const img5 = "../assets/5.jpg";
-  // const img6 = "../assets/6.jpg";
-
   const dispatch = useDispatch();
 
   const onMove = (direction) => {
     dispatch(secondFetch(userName, direction));
-    console.log(coordinates);
   };
 
   return (
     <>
       {loading && <Loading />}
-      {coordinates === "1,3" && <EndScreen />}
+      {coordinates === "1,3" && <EndScreen gameDescription={gameDescription} />}
 
       {!loading && (
         <GameContainer coordinates={coordinates}>
           <Content>
             <InnerContainer>
               <GameDescription>{gameDescription}</GameDescription>
-
-              {gameActions.map((choice) => (
-                <div key={choice.direction}>
-                  <p>{choice.description}</p>
-                  <Button onClick={() => onMove(choice.direction)}>
-                    {choice.direction}
-                  </Button>
-                </div>
-              ))}
+              <DescriptionAndButtonContainer>
+                {gameActions.map((choice, index) => (
+                  <InnerWrap key={index}>
+                    <Description>{choice.description}</Description>
+                    <Button onClick={() => onMove(choice.direction)}>
+                      {choice.direction}
+                    </Button>
+                  </InnerWrap>
+                ))}
+              </DescriptionAndButtonContainer>
             </InnerContainer>
           </Content>
         </GameContainer>
@@ -87,37 +77,89 @@ const GameContainer = styled.div`
   height: 100vh;
 `;
 
-const InnerContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 300px;
-  height: 300px;
-  border: 6px double;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #f7f5e1;
-  border-radius: 15px;
-`;
-
 const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: fit-content;
   height: 100vh;
 `;
 
+const InnerContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 300px;
+  min-height: 300px;
+  border: 6px double;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #f7f5e1;
+  border-radius: 15px;
+
+  @media (min-width: 768px) {
+    min-width: 600px;
+    min-height: 300px;
+    padding: 30px 30px 30px 30px;
+  }
+`;
+
+const GameDescription = styled.p`
+  padding-bottom: 15px;
+  font-size: 18px;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+`;
+
+const DescriptionAndButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: stretch;
+  text-align: center;
+`;
+
+const InnerWrap = styled.div`
+  width: 40%;
+  padding: 10px;
+
+  @media {
+    width: 100%;
+  }
+`;
+
+const Description = styled.p`
+  padding-bottom: 15px;
+  font-size: 16px;
+  font-family: "Raleway", sans-serif;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
+`;
+
 const Button = styled.button`
-  padding: 8px 16px;
+  padding: 10px 16px;
   border-radius: 10px;
   border: #f7f5e1;
   font-size: 16;
   cursor: pointer;
-`;
+  background: #cfb05d;
+  border: 1px solid #333;
+  -webkit-box-shadow: inset 1px 1px 10px #333;
+  -moz-box-shadow: inset 1px 1px 10px #333;
+  box-shadow: inset 1px 1px 3px #333;
+  color: #000;
 
-const GameDescription = styled.text`
-  font-size: 18px;
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
 `;

@@ -5,7 +5,6 @@ const gameFetch = createSlice({
   name: "gameFetch",
   initialState: {
     userName: null,
-    // gameScreen: null,
     description: "",
     actions: [],
     loading: false,
@@ -43,6 +42,7 @@ export const firstFetch = (userName) => {
         batch(() => {
           dispatch(gameFetch.actions.setDescription(data.description));
           dispatch(gameFetch.actions.setActions(data.actions));
+          dispatch(gameFetch.actions.setCoordinates(data.coordinates));
           dispatch(gameFetch.actions.setLoading(false));
         });
       });
@@ -63,7 +63,6 @@ export const secondFetch = (userName, direction) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        //dispatch(gameFetch.actions.setGameScreen(data));
         batch(() => {
           dispatch(gameFetch.actions.setDescription(data.description));
           dispatch(gameFetch.actions.setActions(data.actions));

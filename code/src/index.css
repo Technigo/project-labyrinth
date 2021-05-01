@@ -12,6 +12,7 @@ code {
     monospace;
 }
 
-. {
+* {
   color: #f7f5e1;
+  font-family: "Rye", cursive;
 }

@@ -71,10 +71,22 @@ const FormContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   color: #f7f5e1;
   border-radius: 15px;
+
+  @media (min-width: 768px) {
+    width: 400px;
+    height: 280px;
+    padding: 20px 20px 0 20px;
+  }
 `;
 
 const Label = styled.label`
   font-size: 18px;
+  padding-bottom: 15px;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const Input = styled.input`
@@ -82,12 +94,31 @@ const Input = styled.input`
   border: #f7f5e1;
   border-radius: 5px;
   font-size: 18px;
+  font-family: "Raleway", sans-serif;
+  color: #000;
+
+  @media (min-width: 768px) {
+    font-size: 22px;
+  }
 `;
 
 const Button = styled.button`
-  padding: 8px 16px;
+  padding: 10px 16px;
   border-radius: 10px;
-  border: #f7f5e1;
   font-size: 16px;
   cursor: pointer;
+  background: #cfb05d;
+  border: 1px solid #333;
+  -webkit-box-shadow: inset 1px 1px 10px #333;
+  -moz-box-shadow: inset 1px 1px 10px #333;
+  box-shadow: inset 1px 1px 3px #333;
+  color: #000;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
 `;
