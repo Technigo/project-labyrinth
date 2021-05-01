@@ -1,19 +1,26 @@
-# Technigo React Starter App
+# Project Labyrinth
 
-This app has been generated using `create-react-app`, then cleaned up a little so we have a project with just the elements we need to get started.
+The task is to build a text-based adventure game app which retrieves a list of actions from the backend and presents them to the user as interactable items.
 
-Add components in the `src` folder and use them in `src/app.js` to get started.
+The specific goals included:
 
-## Usage
+- Use redux to store the current state of the game
+- Focus on making the UX of your app good. Handle the response delay
+- Use thunks to wrap your API calls (but you don't have to if you don't want to).
+- Use redux to store a history of what the player has done
+- Style each room/state based on the description
+- Display a history of all the actions a player has taken
+- Use localStorage to save 
 
-1. On GitHub, click the 'use this template' button to create a new repo on your account
-1. Clone the new repo to your computer
-1. Install required dependencies with npm: `npm install`
-1. Start the project: `npm start`
+## Tech
 
-Alternatively, if you don't want a new git repo on your account;
+1. React
+2. Redux
+3. Redux toolkit
+4. Pair programming
 
-1. Download & extract the [latest release](https://github.com/Technigo/react-starter/releases/latest) from GitHub
-1. Open the directory in the terminal: `cd /path/to/react-starter`
-1. Install required dependencies with npm: `npm install`
-1. Start the project: `npm start`
+## View it live
+
+Netlify: https://labyrinth-game-project.netlify.app/
+
+
