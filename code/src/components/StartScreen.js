@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import styled from 'styled-components/macro'
 
 import gameFetch, { startGame } from "reducers/gameFetch";
-// import styled from 'styled-components/macro'
+
 
 const Start = () => {
-  const [userName, setUserName] = useState("Sari");
+  const [userName, setUserName] = useState("");
 
   const dispatch = useDispatch();
 
