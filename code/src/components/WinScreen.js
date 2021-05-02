@@ -1,12 +1,19 @@
 import React from 'react'
 import "nes.css/css/nes.min.css"
+import { useDispatch } from 'react-redux'
+
+import game from '../reducers/game'
+
 import RoomDescription from './RoomDescription'
 import Map from './Map'
-import RestartButton from './RestartButton'
+import Button from './Button'
 
 const WinScreen = () => {
 
-
+	const dispatch = useDispatch()
+	const onRestart = () => {
+		dispatch(game.actions.reset())
+	}
 
 	return (
 		<div className="win-screen-wrapper">
@@ -18,7 +25,11 @@ const WinScreen = () => {
         </div>
         <p className="your-journey">Your Journey</p>
         <Map />
-				<RestartButton />
+				<Button
+					buttonStyle="nes-btn is-error"
+					onClick={onRestart}
+					buttonText="Restart"  
+				/>
 			</div>
 		</div>
 	)

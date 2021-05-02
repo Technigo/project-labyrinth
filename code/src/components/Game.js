@@ -10,14 +10,14 @@ const Game = () => {
   const coordinates = useSelector(store => store.game.coordinates)
 
   return (
-    <>
+    <div className="game-wrapper">
 			{username
         ? coordinates === "1,3" 
           ? <WinScreen /> 
           : <GameplayScreen />
         : <StartScreen /> 
 			} 
-    </>
+    </div>
   )
 }
 

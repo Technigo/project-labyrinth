@@ -36,6 +36,8 @@ label {
   box-sizing: border-box;
   flex-basis: 60%;
   flex-grow: 1;
+  min-width: 10px;
+  max-width: 900px;
 }
 
 .nes-container.is-dark.with-title {
@@ -44,6 +46,8 @@ label {
   box-sizing: border-box;
   flex-basis: 30%;
   flex-grow: 1;
+  min-width: 10px;
+  max-width: 900px;
 }
 
 .nes-container.is-dark.with-title::after, .nes-container.is-dark.with-title.is-centered::after {
@@ -101,21 +105,26 @@ label {
 }
 
 .map-wrapper {
+  display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 3px solid #fff; */
+  background-color: #212529;
+}
+
+.map-border {
+  border: 2px solid #fff;
   background-color: #212529;
   display: grid;
   transform: scale(1, -1);
-  grid-template-columns: 80px 80px 80px 80px;
-  grid-template-rows: 80px 80px 80px 80px;
+  grid-template-columns: 60px 60px 60px 60px;
+  grid-template-rows: 60px 60px 60px 60px;
   margin-bottom: 30px;
 }
 
 /*combine redundant (same) attributes*/
 .grid-square-unvisited,.grid-square-visited,.grid-square-current,.grid-square-error {
-  height: 80px;
-  width: 80px;
+  height: 60px;
+  width: 60px;
   border: 3px solid #fff;
   position: relative;
 }
@@ -140,6 +149,41 @@ label {
 }
 
 .exit-north,.exit-east,.exit-south,.exit-west {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  background-color: inherit;
+}
+
+.exit-north {
+  top: 30px;
+  left: 12px;
+  /* background-color: red; */
+  z-index: 1;
+}
+
+.exit-east {
+  top: 12px;
+  left: 30px;
+  /* background-color: blue; */
+  z-index: 1;
+}
+
+.exit-south {
+  bottom: 30px;
+  left: 12px;
+  /* background-color: yellow; */
+  z-index: 1;
+}
+
+.exit-west {
+  top: 12px;
+  right: 30px;
+  /* background-color: green; */
+  z-index: 1;
+}
+
+/* .exit-north,.exit-east,.exit-south,.exit-west {
   height: 40px;
   width: 40px;
   position: absolute;
@@ -147,28 +191,28 @@ label {
 }
 
 .exit-north {
-  top: 47px;
+  top: 40px;
   left: 17px;
-  background-color: red;
+  z-index: 1;
 }
 
 .exit-east {
   top: 17px;
-  left: 60px;
-  background-color: blue;
+  left: 40px;
+  z-index: 1;
 }
 
 .exit-south {
-  bottom: 47px;
+  bottom: 40px;
   left: 17px;
-  background-color: yellow;
+  z-index: 1;
 }
 
 .exit-west {
   top: 17px;
-  right: 47px;
-  background-color: green;
-}
+  right: 40px;
+  z-index: 1;
+} */
 
 /* .nes-icon.trophy.is-large {
   padding: 10px;
@@ -190,4 +234,68 @@ label {
 .player-icon {
   transform: scale(1, -1);
   z-index: 2;
+}
+
+.game-wrapper {
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #212529;
+  height: 130vh;
+}
+
+@media (min-width: 600px) { 
+  .game-wrapper {
+    padding: 40px;
+    height: 140vh;
+    /* min-width: 800px; */
+  }
+}
+
+@media (min-width: 900px) { 
+  .game-wrapper {
+    padding: 80px;
+    height: 150vh;
+    /* min-width: 1000px; */
+  }
+
+  .map-border {
+    grid-template-columns: 80px 80px 80px 80px;
+    grid-template-rows: 80px 80px 80px 80px;
+  }
+  
+  /*combine redundant (same) attributes*/
+  .grid-square-unvisited,.grid-square-visited,.grid-square-current,.grid-square-error {
+    height: 80px;
+    width: 80px;
+    border: 3px solid #fff;
+    position: relative;
+  }
+
+  .exit-north,.exit-east,.exit-south,.exit-west {
+    height: 40px;
+    width: 40px;
+  }
+  
+  .exit-north {
+    top: 40px;
+    left: 17px;
+  }
+  
+  .exit-east {
+    top: 17px;
+    left: 40px;
+  }
+  
+  .exit-south {
+    bottom: 40px;
+    left: 17px;
+  }
+  
+  .exit-west {
+    top: 17px;
+    right: 40px;
+  }
 }

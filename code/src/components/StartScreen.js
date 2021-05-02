@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux'
 
 import game, { advance } from '../reducers/game'
 
+import Button from './Button'
+
 const StartScreen = () => {
   const [value, setValue] = useState('')
 
@@ -29,9 +31,11 @@ const StartScreen = () => {
             onChange={event => setValue(event.target.value)}
           />
           <div className="start-btn-wrapper">
-            <button className="nes-btn" onClick={onSubmit}>
-              Start
-            </button>
+            <Button 
+              buttonStyle="nes-btn"
+              onClick={onSubmit}
+              buttonText="Start"
+            />
           </div>
         </div>
       </div>      

@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import "nes.css/css/nes.min.css"
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
-import ConfirmButton from './ConfirmButton'
-import RestartButton from './RestartButton'
+import game, { advance } from '../reducers/game'
+
+import Button from './Button'
 
 const Actions = () => {
   const [chosenAction, setChosenAction] = useState({})
@@ -25,6 +26,17 @@ const Actions = () => {
         break
     }
     return newLabel
+  }
+
+  const dispatch = useDispatch()
+
+  const onConfirm = () => {
+    setChosenAction({})
+    dispatch(advance(JSON.parse(chosenAction)))
+  }
+
+  const onRestart = () => {
+    dispatch(game.actions.reset())
   }
   
   return (
@@ -54,15 +66,24 @@ const Actions = () => {
       <div className="confirm-btn-wrapper">
         {loadProgress < 100 || room.actions.length < 1
           ? <div />
-          : <ConfirmButton chosenAction={chosenAction} />
+          : <Button
+            buttonStyle="nes-btn"
+            onClick={onConfirm}
+            buttonText="Confirm"
+            disabled={Object.keys(chosenAction).length === 0 ? true : false}
+            disabledStyle={"nes-btn is-disabled"} 
+          />
         }
       </div>
 			<div className="restart-btn-wrapper">
-				<RestartButton />
+				<Button 
+          buttonStyle="nes-btn is-error"
+          onClick={onRestart}
+          buttonText="Restart" 
+        />
 			</div>
     </div>
   )
 }
 
 export default Actions
-

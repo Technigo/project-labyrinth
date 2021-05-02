@@ -7,16 +7,10 @@ const initialItems = localStorage.getItem('game')
     coordinates: "",
     description: "",
     actions: [],
-    history: [], //dig into these to also get previous location visits!!
+    history: [],
     loadProgress: 100,
     error: null,
     mapArray: [
-      [0, 0, 0, 0], 
-      [0, 0, 0, 0],
-      [0, 0, 0, 0],
-      [0, 0, 0, 0]
-    ],
-    mapArray2: [
       [
         {
           current: false,
@@ -170,44 +164,45 @@ const game = createSlice ({
         const newXCoordinate = parseInt(action.payload.coordinates.charAt(0))
         const newYCoordinate = parseInt(action.payload.coordinates.charAt(2))
         
-        //is this reversal intentional??? Because lo and behold, the API says 1,3 when the map says current position is [3][1]
-        store.mapArray2[newYCoordinate][newXCoordinate].current = true
+      store.mapArray[newYCoordinate][newXCoordinate].current = true
         if (store.coordinates === "") {
         } else { 
-          store.mapArray2[parseInt(store.coordinates.charAt(2))][parseInt(store.coordinates.charAt(0))].visited = true
+          store.mapArray[parseInt(store.coordinates.charAt(2))][parseInt(store.coordinates.charAt(0))].visited = true
         }
-        // store.mapArray2[newYCoordinate][newXCoordinate] = 2
         action.payload.actions.forEach(action => {
           if (action.type === "move") {
-            store.mapArray2[newYCoordinate][newXCoordinate][action.direction.toLowerCase()] = true
+            store.mapArray[newYCoordinate][newXCoordinate][action.direction.toLowerCase()] = true
           }
         })
       }
       
       if (store.coordinates === "") {
       } else {
-        store.mapArray2[parseInt(store.coordinates.charAt(2))][parseInt(store.coordinates.charAt(0))].current = false
-        // store.mapArray[parseInt(store.coordinates.charAt(2))][parseInt(store.coordinates.charAt(0))] = 1
+        store.mapArray[parseInt(store.coordinates.charAt(2))][parseInt(store.coordinates.charAt(0))].current = false
       }
 
       store.history = [...store.history, {
+        logType: 'room',
         coordinates: store.coordinates,
         description: store.description,
-        actions: store.actions
+        actions: store.actions,
       }]
       store.coordinates = action.payload.coordinates
       store.description = action.payload.description
       store.actions = action.payload.actions
     },
     setLoadProgress: (store, action) => {
-      if (action.payload === 100) {
-        store.loadProgress = action.payload
-      } else {
-        store.loadProgress = action.payload
-      }
+      store.loadProgress = action.payload
     },
     setError: (store, action) => {
       store.loadProgress = action.payload
+    },
+    logAction: (store, action) => {
+      store.history = [...store.history, {
+        logType: 'action',
+        type: action.payload.type,
+        direction: action.payload.direction
+      }]
     },
     reset: (store, action) => {
       store.username = ""
@@ -218,12 +213,6 @@ const game = createSlice ({
       store.loadProgress = 100
       store.error = null
       store.mapArray = [
-        [0, 0, 0, 0], 
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0]
-      ]
-      store.mapArray2 = [
         [
           {
             current: false,
@@ -366,11 +355,9 @@ const game = createSlice ({
 })
 
 export const advance = (input) => {
-  
   let isStart = input.type ? false : true
   let endpoint = ""
   let postBody = {}
-  console.log("initialized inside advance")
 
   return (dispatch, getState) => {
     const state = getState()
@@ -379,7 +366,6 @@ export const advance = (input) => {
       postBody = JSON.stringify({
         username: input
       })
-      console.log("this is a start!")
     } else {
       endpoint = "action"
       postBody = JSON.stringify({
@@ -387,7 +373,7 @@ export const advance = (input) => {
         type: input.type,
         direction: input.direction
       })
-      console.log("this is an action!")
+      dispatch(game.actions.logAction(JSON.parse(postBody)))
     }
     dispatch(game.actions.setLoadProgress(33))
     fetch(`https://wk16-backend.herokuapp.com/${endpoint}`, {

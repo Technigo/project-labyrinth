@@ -14,22 +14,22 @@ const GameplayScreen = () => {
 
   return (
     <>
-      { room.description === "" 
+      {room.description === "" 
         ? <StartScreen /> 
         : <div className="game-screen-wrapper">
-            <div className="nes-container is-dark with-title is-centered">
-              <p className="title">THE LABYRINTH</p>
-              {loadProgress < 100 
-                ? <ProgressBar />
-                : <RoomDescription />
-              }
-            </div>
-            <Actions />
-            <div className="nes-container is-dark with-title">
-              <p className="title">MAP</p>
-              <Map />
-            </div>
+          <div className="nes-container is-dark with-title is-centered">
+            <p className="title">THE LABYRINTH</p>
+            {loadProgress < 100 
+              ? <ProgressBar />
+              : <RoomDescription />
+            }
           </div>
+          <Actions />
+          <div className="nes-container is-dark with-title">
+            <p className="title">MAP</p>
+            <Map />
+          </div>
+        </div>
       }    
     </>
   )  
