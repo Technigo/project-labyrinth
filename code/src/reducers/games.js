@@ -50,9 +50,7 @@ export const continueGame = (decission) => {
         username: getState().games.username,
         type: decission.type,
         direction: decission.direction, 
-
       })
-
     })
       .then(res => res.json())
       .then(data => dispatch(games.actions.setRespons(data)))

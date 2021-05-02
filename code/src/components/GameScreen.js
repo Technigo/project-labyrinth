@@ -6,7 +6,6 @@ import { continueGame } from '../reducers/games'
 
 const GameScreen = () => {
   const actions = useSelector(store => store.games.actions)
-  // const description = useSelector(store => store.games.games.description)
   const dispatch = useDispatch()
 
   const onButtonclick = (item) => {

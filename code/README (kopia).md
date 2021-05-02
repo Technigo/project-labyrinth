@@ -1,13 +1,13 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week's assignment was to practice pair programming and to build a maze game using Redux and API.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We approached to problem by looking at the recorded videos from the the lessons and tried to codealong. However, we had a hard time understanding how we would use / understand the recorded material that Maks built and translate it into our project. We got stuck in figureing out how to write the fetch. So we reached out for help from our team, looked at pre written code by former technigo students and even got help over zoom from a previus student. But we were still stuk so we boked a one-on-one with Maks. He helped us get all the functionalities in place. After that we styled our site.
+
+If we hade more time we would have put some more effort in to the styling.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://quirky-wiles-e65c52.netlify.app
