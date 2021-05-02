@@ -5,9 +5,38 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+  color: #d3d3d3;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+* {
+  font-family: 'Press Start 2P', cursive;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.snes-jp-logo {
+  margin: 0 0 50px 0;
+}
+
+.nes-field {
+  margin-bottom: 26px;
+  width: 240px;
+  height: 50px;
+}
+
+.nes-btn {
+  margin: 0 0 40px 0;
+  width: fit-content;
+}
+
+button.nes-btn.is-warning {
+  margin-top: 50px;
+}
+
