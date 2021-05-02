@@ -1,13 +1,12 @@
 # Project Labyrinth
+Labyrinth is a text-based adventure game where the player gets options with direction on each step. The goal of the game is to pass through the labyrint and find a way out.
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The project uses Redux to store data, fetches data from an API and POST request to an API. The project uses a nostalgic theme in its styling which is taken from a nes.css library
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We faced some issues throughout the project, one problem was to POST our actions to our API and get responds, but we managed to solve that issue by sending a specific object which automatically gets respond when posting it.
+
+If we had more time, we wanted to display each step taken by the player by creating a drawing board. 
 
 ## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
