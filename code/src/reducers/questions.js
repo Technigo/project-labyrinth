@@ -5,7 +5,8 @@ import { createSlice } from '@reduxjs/toolkit';
 	initialState: {
 			userName: null,
 			gameStatus: undefined,
-      		loading: false
+      		loading: false,
+          history: []
 			
 	},
 	reducers: {
@@ -13,33 +14,22 @@ import { createSlice } from '@reduxjs/toolkit';
 					store.userName = action.payload;
 			},
 			setGameStatus: (store, action) => {
-				  store.gameStatus = action.payload;
-      		},
+        if (store.gameStatus) {
+				  store.history = [...store.history, store.gameStatus]
+      		}
+          store.gameStatus =action.payload;
+      },
+      setPreviousGameStatus: (store) => {
+        if (store.history.length) {
+          store.gameStatus = store.history[store.history.length - 1]
+          store.history = store.history.slice(0, store.history.length -1)
+        }
+      },
       setLoading: (store, action) => {
         store.loading = action.payload
       }
     }
   })
-//				if (store.question) {
-//					store.history = [...store.history, store.question];
-//				}
-//				store.question = action.payload;
-//			},
-//			setPreviousQuestion: (store, action) => {
-//				if (store.history.length) {
-//					store.question = store.history[store.history.length - 1];
-//					store.history = store.history.slice(0, store.history.length - 1);
-//				}
-//	   }},
-//	    setError: (store, action) => {
-//		store.error = action.payload;
-//	  },
-//	    setLoading: (store, action) => {
-//		store.loading = action.payload;
-//	 }
-
-//	 })
-
 
  export const initiateGame = (inputValue) => {
 	return (dispatch) => {

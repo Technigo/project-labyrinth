@@ -5,5 +5,6 @@ export const StartGameButton = styled.button`
   color: white;
   font-family: 'Press Start 2P', cursive;
   margin-top: 20px;
-  cursos: pointer;
+  margin-bottom: 20px;
+  cursor: pointer;
 `

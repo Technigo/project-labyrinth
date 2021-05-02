@@ -1,8 +1,15 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
+import "nes.css/css/nes.min.css"
 
-import { generateNextQuestion } from '../reducers/questions'
+import questions, { generateNextQuestion } from '../reducers/questions'
+
+const Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+`
 
 const GameScreenMainDiv = styled.div`
   display: flex;
@@ -47,9 +54,16 @@ const MovesText = styled.h3`
 const GameScreen = () => {
     const gameStatus = useSelector(store => store.questions.gameStatus)
     const userName = useSelector(store => store.questions.userName)
+    const history= useSelector(store => store.questions.history)
 
     const dispatch = useDispatch()
 
+    const onGameStatusRevert = () => {
+      dispatch(questions.actions.setPreviousGameStatus())
+    }
+    const RestartGame = () => {
+      window.location.reload()
+    }
     //const onQuestionRegenerate = (tag) => {
         //dispatch(generateNextQuestion(tag))
 
@@ -61,14 +75,23 @@ const GameScreen = () => {
 
    return (
        <GameScreenMainDiv>
-           <QuestionsText>{gameStatus.description}</QuestionsText>
+         <Header>
+           <button 
+           class="nes-btn is-error"
+           disabled={history.length}
+           onClick={onGameStatusRevert}>Go Back</button>
+         <QuestionsText>{gameStatus.description}</QuestionsText>
+         <button
+           class="nes-btn is-success"
+           onClick={RestartGame}>Restart Game</button>
+         </Header>
 
 					 <MovesText>Your options are:</MovesText>
 
            {gameStatus.actions.map(action => (
                <OneMoveContainer>
                  <p>{action.description}</p>
-								 <button 
+								 <button class="nes-btn is-primary"
 								 key={userName}
 								 onClick={() => dispatch(generateNextQuestion(userName, action.direction))}
 								 >{action.direction}</button>

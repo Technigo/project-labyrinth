@@ -12,8 +12,10 @@ const StartGameBackground = styled.div`
 const StartGameContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 10%;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  padding: 10%;
   max-width: 400px;
   margin: auto;
   margin-top: 100px;
@@ -21,12 +23,6 @@ const StartGameContainer = styled.div`
 
 const StartImage = styled.img`
   max-width: 400px;
-  margin: auto;
-
-  // Mobile query
-  @media (max-width: 768px) {
-    width: 200px;
-  }
 `
 
 const StartGame = () => {
@@ -50,9 +46,10 @@ const StartGame = () => {
     return (
       <StartGameBackground>
           <StartGameContainer>
-            <p>Welcome to Labyrinth! Enter your name to start playing.</p>
+            <p class="nes-text is-primary">Welcome to Labyrinth! Enter your name to start playing.</p>
             <input
                 type="text"
+                class="nes-input"
                 value={inputValue}
                 onChange={event => setInputValue(event.target.value)}
             />
