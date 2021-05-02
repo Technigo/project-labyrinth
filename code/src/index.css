@@ -1,3 +1,17 @@
+@import url(//db.onlinewebfonts.com/c/e3619f7413527cff15063e007b666239?family=WrittenLies);
+
+@font-face {
+  font-family: "WrittenLies"; 
+  src: url("//db.onlinewebfonts.com/t/e3619f7413527cff15063e007b666239.eot"); 
+  src: url("//db.onlinewebfonts.com/t/e3619f7413527cff15063e007b666239.eot?#iefix") 
+  format("embedded-opentype"), 
+  url("//db.onlinewebfonts.com/t/e3619f7413527cff15063e007b666239.woff2") 
+  format("woff2"), url("//db.onlinewebfonts.com/t/e3619f7413527cff15063e007b666239.woff") 
+  format("woff"), url("//db.onlinewebfonts.com/t/e3619f7413527cff15063e007b666239.ttf") 
+  format("truetype"), url("//db.onlinewebfonts.com/t/e3619f7413527cff15063e007b666239.svg#WrittenLies") 
+  format("svg"); 
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -5,9 +19,205 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color:  #E5D5C0;
+  background-image: url('./assets/book-background.jpg');
+  background-size: cover;
+  height: 100vh;
+  width: 100vw; 
+  overflow: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.startscreen-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+h1 {
+  font-family: "WrittenLies"; 
+  color: #4C2F1A;
+  text-align: center;
+  width: 90%;
+}
+
+.startscreen-container label {
+  padding: 15px;
+  font-family: "WrittenLies"; 
+  color: #4C2F1A;
+}
+
+.textinput {
+  border-bottom: solid #4C2F1A;
+  border-width: 0px 0px 2px 0px;
+  border-radius: 5% 0% 40% 0%/2% 0% 10% 0%;
+  transform: rotate(1deg);
+  background: none;
+  font-family: "WrittenLies"; 
+  color: #4C2F1A;
+  font-size: 20px;
+}
+
+button {
+  margin: 15px;
+  font-family: "WrittenLies"; 
+  color: #4C2F1A;
+  border: solid 2px #4C2F1A;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  padding: 5px;
+  line-height:1.5em;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+button:hover {
+  background: #ac8d79;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: auto;
+}
+
+.gamescreen-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  text-align: center;
+}
+
+p {
+  font-family: "WrittenLies"; 
+  color: #4C2F1A;
+  font-size: 20px;
+  text-align: center;
+}
+
+.description-container {
+  width: 90%;
+}
+
+.image-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: turn 2s infinite linear;
+}
+
+.footer{
+  width: 100%;
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  bottom: 0;
+  margin-bottom: 10px;
+}
+
+.footer p {
+  font-size: 10px;
+  margin: 3px;
+}
+
+a {
+  color: #4C2F1A;
+}
+
+@media (min-width: 768px) {
+  .gamescreen-container {
+    margin-top: 80px;
+  }
+
+  .startscreen-container {
+    margin-top: 80px;
+  }
+
+  .description-container {
+    width: 80%;
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    background-image: url('./assets/book-background-flip.jpg');
+  }
+}
+
+/* Animation */
+.fade-in {
+  animation: fadeIn ease 3s;
+  -webkit-animation: fadeIn ease 3s;
+  -moz-animation: fadeIn ease 3s;
+  -o-animation: fadeIn ease 3s;
+  -ms-animation: fadeIn ease 3s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@keyframes turn {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
