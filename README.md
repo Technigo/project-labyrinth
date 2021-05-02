@@ -1,13 +1,13 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project is a text-based game, which uses API calls, React and Redux to run. The purpose was to practise React thunks and pair-programming.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We started out by laying out a Trello board to see what goals we had to reach and plan for them. Then we created a Google Jam board to plan what components and reducers we needed. We looked through the materials given again to figure out what code we needed. We got stuck on some parts but managed to solve it by error catching, debugging and some simple trial and error. When we got a problem that we couldn’t manage to solve ourselves we confidante in StackOverflow. One problem was to diffuse to ask on Stack, so we asked our team-mates instead and got help to solve it. We then went on to styling. We decided to not go for the suggested retro style, but went with a book style instead. We tried to add a History too, but ran out of time to fix it, so that would be one thing we would have done if we have had more time to work on the project. We would also like to fix the styling a bit more, perhaps making a page flip or get the fade in to go from top to bottom. And add page numbers for the different descriptions. We were thinking about adding a music player to set some ambience sounds, but decided that we couldn’t work it in the styling in a fitting way for now.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Link to deployed project: https://book-labyrinth.netlify.app/
+
+
