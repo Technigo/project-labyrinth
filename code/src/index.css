@@ -1,13 +1,160 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Press Start 2P';
+  line-height: 25px;
+  background-color: black;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.error-message {
+  color: brown;
+  text-align: center;
+}
+
+.input-form {
+  border: 5px brown solid;
+  font-family: 'Press Start 2P';
+  outline: none;
+  padding: 5px;
+  margin: 5px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  color: brown;
+  text-align: center;
+}
+
+.start-button {
+  background-color: brown;
+  color: white;
+  font-family: 'Press Start 2P';
+  padding: 5px;
+}
+
+.greeting {
+  font-size: 30px;
+  background-color: rgba(198, 198, 198, 0.721);
+  line-height: 40px;
+  padding: 5px
+}
+
+.name-question {
+  font-size: 25px;
+  background-color: rgba(198, 198, 198, 0.721);
+  line-height: 35px;
+  padding: 5px
+}
+
+.content-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.history-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.path-wrapper {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  background: rgba(162, 162, 162, 0.495);
+  border-radius: 10px;
+}
+
+.step-heading {
+  margin: 0;
+}
+
+.step-arrow {
+  margin: 5px;
+}
+
+.go-back {
+  background-color: brown;
+  color: white;
+  font-family: 'Press Start 2P';
+  padding: 5px;
+  margin-left: 5px;
+}
+
+.direction-description {
+  margin-top: 20px;
+  border: brown 1;
+  border-radius: 10px;
+  background: rgba(162, 162, 162, 0.495);
+  font-size: 14px;
+}
+
+.direction-button, .restart {
+  background-color: brown;
+  color: white;
+  font-family: 'Press Start 2P';
+  padding: 5px;
+}
+
+.restart {
+  margin-left: 5px;
+}
+
+div {
+  padding: 5px;
+  color: White;
+}
+
+.container {
+  position: relative;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.history {
+  color: White;
+  background-color: brown;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+@media(min-width:650px) {
+  .directions-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
+  .direction-description {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+  }
+  .direction-button {
+    align-self: flex-end;
+  }
 }
