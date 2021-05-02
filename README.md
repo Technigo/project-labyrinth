@@ -10,3 +10,4 @@ We faced some issues throughout the project, one problem was to POST our actions
 If we had more time, we wanted to display each step taken by the player by creating a drawing board. 
 
 ## View it live
+https://meze-game.netlify.app/
