@@ -3,12 +3,9 @@ import React from 'react';
 export const LoadingIndicator = () => {
   return (
     <>
-      (
       <div>
-        {' '}
-        <p>Loading!!!</p>{' '}
+        <p>Loading!!!</p>
       </div>
-      )
     </>
   );
 };

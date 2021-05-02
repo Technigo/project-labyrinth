@@ -16,19 +16,19 @@ export const StartPage = () => {
 
   return (
     <div className='startpage-container'>
-      <div className='header-container nes-container with-title is-centered'>
-        <p className='title'>Welcome to the Labyrinth Game</p>
+      <div className='header-container nes-container'>
         <p className='game-description'>
           Follow the directions on each page to chose which way to go!
         </p>
       </div>
 
       <form className='input-container'>
-        <p>Input a user name to begin playing</p>
+        <label className='username-label' for='username'>
+          Input a user name to begin playing
+        </label>
         <input
           className='name-input nes-input'
           type='text'
-          placeholder='User Name'
           id='username'
           name='username'
           value={user}

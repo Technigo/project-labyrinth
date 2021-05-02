@@ -8,7 +8,6 @@ export const ui = createSlice({
   reducers: {
     setLoading: (store, action) => {
       store.loading = action.payload;
-      console.log(123);
     },
   },
 });

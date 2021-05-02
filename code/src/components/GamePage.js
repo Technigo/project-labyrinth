@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { LoadingIndicator } from 'components/LoadingIndicator';
 import { fetchNext } from 'reducers/game';
 import { StartPage } from 'components/StartPage';
 
@@ -19,13 +18,19 @@ export const GamePage = () => {
   } else {
     content = (
       <div>
-        <h2 className='nes-container'>{descriptionText}</h2>
+        <h2 className='description-container nes-container'>
+          {descriptionText}
+        </h2>
         <p className='coordinates'>Your coordinates are: {coordinates}</p>
+        <h3 classname='play-text'>Choose your direction wisely...</h3>
         {actionsObject.map((action) => (
-          <div key={action.direction}>
-            <p>{action.description}</p>
+          <div
+            className='option-container nes-container'
+            key={action.direction}
+          >
+            <p className='action-description '>{action.description}</p>
             <button
-              className='nes-btn is-primary'
+              className='option-button nes-btn is-primary'
               onClick={() => dispatch(fetchNext(action.direction, action.type))}
             >
               <h2> Go {action.direction}</h2>
