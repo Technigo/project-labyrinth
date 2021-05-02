@@ -26,17 +26,3 @@ export const App = () => {
     </div>
   );
 };
-
-{
-  /* <BrowserRouter>
-<LoadingIndicator />
-<Switch>
-  <Route path='/' exact>
-    <StartPage />
-  </Route>
-  <Route path='/GamePage/'>
-    <Main />
-  </Route>
-</Switch>
-</BrowserRouter> */
-}
