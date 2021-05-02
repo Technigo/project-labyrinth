@@ -11,8 +11,7 @@ const games = createSlice({
     },
     history: [],
     error: null, 
-    loading: false,
-    pilar: [] // La till denna nyss       
+    loading: false,     
   },
   reducers: {
     setName: (store, action) => {
@@ -29,9 +28,6 @@ const games = createSlice({
     }, 
     setLoading: (store, action) => {
       store.loading = action.payload
-    },
-    setPilar: (store, action) => { // La till den nyss
-      store.pilar = [action.payload]
     }
   }
 })
@@ -66,9 +62,6 @@ export const generateGame = (name) => {
   }
 }
 
-
-
-
 export const generateMove = (name, directionMove) => {
   return (dispatch) => {
     dispatch(games.actions.setLoading(true))
@@ -90,7 +83,6 @@ export const generateMove = (name, directionMove) => {
     .then(question => {
       dispatch(games.actions.setDescription(question))
       dispatch(games.actions.setHistory(directionMove))
-      dispatch(games.actions.setPilar(directionMove)) 
     })
     .catch(error => dispatch(games.actions.setError(error.message)))
     .finally(() => dispatch(games.actions.setLoading(false)))
