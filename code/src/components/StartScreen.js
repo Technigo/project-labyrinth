@@ -22,7 +22,7 @@ const StartScreen = () => {
         type="text"
         id="dark_field"
         className="nes-input is-dark"
-        placeholder="Mighty Maks"
+        placeholder="Kickass Karol"
         value={value}
         onChange={(event) => setValue(event.target.value)}
       ></input>

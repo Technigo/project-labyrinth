@@ -1,3 +1,6 @@
+# Project members
+Linnéa Helén & Katharina Liebig
+
 # Project Labyrinth
 
 The objective of this project was to practise using thunks and how to do API-calls using Redux. We were given an existing API with the game logic and were to implement it in the frontend. 
