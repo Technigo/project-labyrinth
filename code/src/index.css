@@ -1,13 +1,119 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Press Start 2P', cursive; 
+  color: #ffff;
+  font-size: 10px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.loader-img {
+  height: 100vh;
+  width: 100vw;
+}
+
+.section-switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section {
+  background-image: url("assets/giphy-game.gif");
+  height: 100vh;
+}
+
+.first-step {
+  background-image: url("assets/first-step.jpeg");
+}
+
+.brighter {
+  background-image: url("assets/rays-of-light.jpeg");
+}
+
+.mechanical {
+  background-image: url("assets/mechanical-room.jpeg")
+}
+
+.melody {
+  background-image: url("assets/music-wall.jpeg");
+}
+
+.bookshelves {
+  background-image: url("assets/library-room .jpeg");
+}
+
+.ended {
+  background-image: url("assets/last-step.jpeg");
+}
+
+.game-wrapper {
+  width: 90%;
+  padding: 30px;
+  margin: 30px;
+  border: 4px solid black;
+  background-color: rgb(64, 42, 134)
+}
+
+.game-wrapper label {
+  margin-bottom: 25px;
+}
+
+.game-wrapper button {
+  margin-top: 25px;
+}
+
+.action-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: 4px solid #ffff;
+  background: #212529;
+  margin: 20px 5px;
+  padding: 20px;
+}
+
+.action-btn {
+  margin-bottom: 20px;
+}
+
+.action-content {
+  height: 100%;
+  text-align: center;
+}
+
+.history-container {
+  display: inline;
+}
+
+.action-text {
+  display: flex;
+  display: inline;
+}
+
+@media (min-width: 768px) {
+  .section-switch {
+    height: 100vh;
+    width: 100vw;
+  }
+}
+
+@media (min-width: 1200px){
+  .section-switch {
+    height: 100vh;
+    width: 100vw;
+  }
+  .game-wrapper {
+    width: 60%;
+  }
+  .action {
+    display: flex;
+    justify-content: center;
+  }
+  .action-container {
+    width: 50%;
+  }
+
 }
