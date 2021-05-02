@@ -24,6 +24,7 @@ body {
   background-size: cover;
   height: 100vh;
   width: 100vw; 
+  overflow: hidden;
 }
 
 code {
@@ -42,6 +43,7 @@ h1 {
   font-family: "WrittenLies"; 
   color: #4C2F1A;
   text-align: center;
+  width: 90%;
 }
 
 .startscreen-container label {
@@ -113,6 +115,27 @@ p {
   justify-content: center;
   align-items: center;
   animation: turn 2s infinite linear;
+}
+
+.footer{
+  width: 100%;
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  bottom: 0;
+  margin-bottom: 10px;
+}
+
+.footer p {
+  font-size: 10px;
+  margin: 3px;
+}
+
+a {
+  color: #4C2F1A;
 }
 
 @media (min-width: 768px) {
