@@ -1,13 +1,78 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Press Start 2P', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #9fd8df;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.header-container {
+  margin-top: 200px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: #f5c0c0;
+}
+
+.game-description {
+  font-size: 10px;
+  text-align: center;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  align-items: center;
+}
+
+.username-label {
+  font-size: 8px;
+  margin-top: 30px;
+}
+
+.name-input {
+  width: 80%;
+  height: 25px;
+  background-color: #f5c0c0;
+  border: solid 2px black;
+}
+
+.start-button {
+  margin-top: 10px;
+  font-size: 10px;
+  width: 60%;
+}
+
+.description-container {
+  margin: 10px;
+  font-size: 15px;
+  background-color: #ff7171;
+  text-align: center;
+}
+
+.coordinates {
+  font-size: 10px;
+  margin-left: 13px;
+}
+
+.option-container {
+  background-color: #f5c0c0;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.action-description {
+  font-size: 15px;
+}
+
+.option-button {
+  width: 60%;
+  font-size: 10px;
 }
