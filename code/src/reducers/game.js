@@ -1,19 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-// Changed gameElements from {} to null because the conditional in Display-file says:
+//  gameElements is set to null instead of {} because the conditional in Display-file says:
 // "if gameElements is true (object is evaluated to true) display GameElements
 //  if gameElements is false (null is evaluated to false) display StartGame"
 
 const game = createSlice({
   name: 'game',
   initialState: {
-    username: '', // should this be userName or the other one gameelements?
-    gameElements: null, // I couldn't make the conditional rendering to work when this was an empty object
+    username: '', 
+    gameElements: null, 
     loading: false,
     history: [] // for saving the previous step
   },
 
-  // Added setLoading reducer
+  
   reducers: {
     setUserName: (store, action) => {
       store.userName = action.payload
@@ -33,9 +33,11 @@ const game = createSlice({
     },
   },
 })
+
 // Post request and dispatching the action that will set the game´s elements
 // Added .finally() for loading -text. It changes loading-property to true before the request is finished
-// and again to false when the fetch is finished
+// and again to false when the fetch is finished.
+
 export const startGame = (userName) => {
   return (dispatch) => {
     dispatch(game.actions.setLoading(true))
