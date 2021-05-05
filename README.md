@@ -9,4 +9,4 @@ We didn't plan too much with this project which we may have done differently if 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+labyrinthbymatildaandhannah.netlify.app
