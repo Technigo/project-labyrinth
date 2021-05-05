@@ -25,12 +25,14 @@ const GameElements = () => {
             {/* // With gameElements.actions?.map we execute maping IF actions is an array. Shorthand to if statement. */}
            {gameElements.actions.map(item => {
                return ( 
+                   <>
+                   <p>{item.description}</p>
                     <button
                       className="nes-btn is-error"
                       key={item.direction}
                       onClick={() => dispatch(continueGame(userName, item.direction))}
                     >{item.direction}</button> 
-                        
+                     </>   
                )})}
                <button onClick={() => dispatch(game.actions.setHistory())} disabled={!history.length}>Go back</button>
         </div>
