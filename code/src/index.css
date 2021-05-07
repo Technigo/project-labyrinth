@@ -49,8 +49,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-/* 
-section {
- 
-  display: flex;
-} */
+p {
+  font-size: 12px;
+}
+h3 {
+  font-size: 14px;
+}

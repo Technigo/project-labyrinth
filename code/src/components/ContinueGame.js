@@ -14,11 +14,12 @@ const Border = styled.div`
 
 const Container = styled.div`
   width: 900px;
-  height: 700px;
+  height: 300px;
   margin-top: 50px;
 
   @media (max-width: 768px) {
-    height: 1200px;
+    margin-top: 20px;
+    height: 950px;
   } ;
 `;
 
