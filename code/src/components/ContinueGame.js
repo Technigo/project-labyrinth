@@ -19,7 +19,6 @@ const Container = styled.div`
 
   @media (max-width: 768px) {
     height: 1200px;
-    margin-top: 20px;
   } ;
 `;
 
