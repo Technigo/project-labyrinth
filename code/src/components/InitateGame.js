@@ -9,6 +9,10 @@ import StartGame from "./StartGame";
 const Welcome = styled.div`
   margin-bottom: 20px;
   margin-left: 80px;
+
+  @media (max-width: 768px) {
+    margin-left: 20px;
+  } ;
 `;
 
 const Message = styled.div`
@@ -16,16 +20,27 @@ const Message = styled.div`
   color: black;
 `;
 
-const Wrapper = styled.div`
+const Section = styled.div`
   display: flex;
   justify-content: center;
   align-content: center;
   flex-direction: column;
+  width: 900px;
+
+  @media (max-width: 768px) {
+    width: 400px;
+    height: 900px;
+    margin-top: 20px;
+  } ;
 `;
 
 const Container = styled.div`
-  width: 900px;
-  height: 300px;
+  width: 700px;
+
+  @media (max-width: 768px) {
+    width: 300px;
+    margin-top: 20px;
+  } ;
 `;
 
 const InitiateGame = () => {
@@ -57,7 +72,7 @@ const InitiateGame = () => {
   }
 
   return (
-    <Wrapper>
+    <Section className="nes-container is-dark">
       <Welcome>
         <section>
           <Message>
@@ -86,7 +101,7 @@ const InitiateGame = () => {
           Create Player
         </button>
       </Container>
-    </Wrapper>
+    </Section>
   );
 };
 
