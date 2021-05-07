@@ -8,7 +8,6 @@ import StartGame from "./StartGame";
 
 const Welcome = styled.div`
   margin-bottom: 20px;
-  margin-top: -300px;
   margin-left: 80px;
 `;
 
