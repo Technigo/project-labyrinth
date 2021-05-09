@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import styled from "styled-components/macro";
+
 import img from "../assets/7.jpg";
 
 import gameFetch from "../reducers/gameFetch";
