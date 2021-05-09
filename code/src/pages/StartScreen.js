@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import maze from '../reducers/maze'
-import { firstFetch } from '../reducers/maze'
+import { startGame } from '../reducers/maze'
 
 const StartScreen = () => {
   const [inputValue, setInputValue] = useState('')
@@ -16,7 +16,7 @@ const StartScreen = () => {
   const onStartGame = () => {
       dispatch(maze.actions.setLoading(!isLoading))
       dispatch(maze.actions.setUsername(inputValue))
-      dispatch(firstFetch());
+      dispatch(startGame());
   }
   
   return (
@@ -30,13 +30,15 @@ const StartScreen = () => {
         </Instruction>
         <Label
           htmlFor='name_input'>
+        <form>
         <NameInput
           type='text'
           id='name_input'
           value={inputValue}
           onChange={event => setInputValue(event.target.value)}
         />
-        </Label>
+        </form>
+        </Label>   
         <Link to='/game'>
           <StartButton
             type='button'

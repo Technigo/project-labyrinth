@@ -49,7 +49,7 @@ const maze = createSlice({
 
 export default maze
 
-export const firstFetch = () => {
+export const startGame = () => {
   return (dispatch, getState) => {
     fetch('https://wk16-backend.herokuapp.com/start', {
       method: 'POST',
@@ -74,7 +74,7 @@ export const firstFetch = () => {
   }
 }
 
-export const secondFetch = (direction) => {
+export const makeMove = (direction) => {
   return (dispatch, getState) => {
     fetch('https://wk16-backend.herokuapp.com/action', {
       method: 'POST',

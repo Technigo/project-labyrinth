@@ -2,15 +2,18 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components/macro'
 
-import { secondFetch } from '../../reducers/maze'
+import maze from '../../reducers/maze'
+import { makeMove } from '../../reducers/maze'
 
 const Dialogue = () => {
   const dispatch = useDispatch()
 
   const moves = useSelector((store) => store.maze.moves)
+  const isLoading = useSelector((store) => store.maze.isLoading)
 
   const onPlayGame = (direction) => {
-    dispatch(secondFetch(direction))
+    dispatch(maze.actions.setLoading(!isLoading))
+    dispatch(makeMove(direction))
   }
 
   return (
