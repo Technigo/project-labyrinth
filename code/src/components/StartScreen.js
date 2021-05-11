@@ -27,6 +27,7 @@ const Container = styled.div`
 const Title = styled.h1`
   color: #3b2e36;
   margin: 0 0 20px 10px;
+  font-size: 30px;
 
   @media (min-width: 768px) {
     font-size: 34px;
@@ -60,10 +61,12 @@ const CustomButton = styled.button`
   cursor: pointer;
   font-size: 18px;
   font-family: 'New Tegomin', serif;
+  align-self: center;
 
   @media (min-width: 768px) {
     font-size: 22px;
     padding: 5px 15px;
+    align-self: none;
   }
 
   @media (min-width: 1024px) {
@@ -77,7 +80,11 @@ const CustomButton = styled.button`
 
 const InputContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `
 
 const InputField = styled.input`
@@ -90,6 +97,10 @@ const InputField = styled.input`
   font-weight: bold;
   color: #3b2e36;
   padding: 4px;
+
+  @media (min-width: 768px) {
+    width: 50%;
+  }
 `
 
 const StartScreen = () => {

@@ -17,7 +17,7 @@ const Heading = styled.h1`
   color: rgb(246,226,189);
 `
 
-const CustomButton = styled.button`     //add hover effect on all buttons
+const CustomButton = styled.button`     
   border-radius: 6px;
   border: 2px solid #3b2e36;
   background-color: rgb(82,88,13, 0.7);
@@ -45,6 +45,7 @@ const Content = () => {
 
   const onRestartButton = () => {
     window.location.reload()
+    localStorage.clear()
   }
 
   return (

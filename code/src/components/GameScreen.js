@@ -76,6 +76,11 @@ const GameScreen = () => {
     dispatch(labyrinth.actions.setPreviousAction())
   }
 
+  const onRestartButton = () => {
+    window.location.reload()
+    localStorage.clear()
+  }
+
   return (
     <Container>
       <MainHeading>{actions.description}</MainHeading>
@@ -88,11 +93,20 @@ const GameScreen = () => {
         )
         )}
       </CardsContainer>  
-      {history.length > 1 &&  
-        <CustomButton onClick={() => onRevertDirection()} >
-          GO BACK
-        </CustomButton>          
-      }
+
+      {actions.coordinates === "1,3" ? (
+        <CustomButton onClick={onRestartButton} >
+          RESTART
+        </CustomButton>
+      ) : (
+        <>
+        {history.length > 1 &&  
+          <CustomButton onClick={() => onRevertDirection()} >
+            GO BACK
+          </CustomButton>          
+        }
+        </>
+      )}
     </Container>
   )
 }
