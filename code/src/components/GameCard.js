@@ -70,11 +70,9 @@ export const GameCard = ({action}) => {
   }
 
   return (
-    <>
       <Container>
           <DescriptionText>{action.description}</DescriptionText>
           <CustomButton onClick={() => onSetDirection(action)}>HEAD {action.direction.toUpperCase()}</CustomButton>
       </Container>
-    </>
   )
 }

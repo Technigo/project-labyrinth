@@ -115,7 +115,6 @@ const StartScreen = () => {
   }
 
   return (
-    <>
       <Container>
         <Title>Welcome to the labyrinth!</Title>
         <SubTitle>Enter your name</SubTitle>
@@ -133,7 +132,6 @@ const StartScreen = () => {
           </CustomButton>
         </InputContainer>
       </Container>
-    </>
   )
 }
 

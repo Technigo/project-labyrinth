@@ -20,7 +20,7 @@ const Heading = styled.h1`
 const CustomButton = styled.button`     
   border-radius: 6px;
   border: 2px solid #3b2e36;
-  background-color: rgb(82,88,13, 0.7);
+  background-color: rgba(82,88,13, 0.7);
   margin: 10px;
   padding: 5px 10px;
   cursor: pointer;
