@@ -9,6 +9,7 @@ const ButtonContainer = styled.button`
   color: white;
   font-weight: bold;
   font-size: 1.2em;
+  cursor: pointer;
 `;
 
 export { ButtonContainer };
