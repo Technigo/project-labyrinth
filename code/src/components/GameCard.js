@@ -8,7 +8,7 @@ const Container = styled.div`
   box-shadow: 0 0 10px rgb(152,124,133);
   border-radius: 6px;
   border: none;
-  background-color: rgb(152,124,133, 0.5);
+  background-color: rgba(152,124,133, 0.5);
   margin: 10px 0;
   max-width: 100%;
   padding: 20px;
@@ -41,7 +41,7 @@ const DescriptionText = styled.p`
 const CustomButton = styled.button`
   border-radius: 6px;
   border: 2px solid #3b2e36;
-  background-color: rgb(82,88,13, 0.7);
+  background-color: rgba(82,88,13, 0.7);
   margin: 10px;
   padding: 5px 10px;
   cursor: pointer;
@@ -58,7 +58,7 @@ const CustomButton = styled.button`
   }
 
   &:hover {
-    background-color: rgb(82,88,13, 0.5);
+    background-color: rgba(82,88,13, 0.5);
   }
 `
 

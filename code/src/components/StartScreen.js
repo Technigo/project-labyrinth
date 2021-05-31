@@ -8,7 +8,7 @@ const Container = styled.div`
   box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
     0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
   border-radius: 6px;
-  background: rgb(246,226,189, 0.5);
+  background: rgba(246,226,189, 0.5);
   margin-bottom: 20px;
   width: 70%;
   padding: 40px;
@@ -55,7 +55,7 @@ const SubTitle = styled.h2`
 const CustomButton = styled.button`
   border-radius: 6px;
   border: 2px solid #3b2e36;
-  background-color: rgb(82,88,13, 0.7);
+  background-color: rgba(82,88,13, 0.7);
   margin: 10px;
   padding: 5px 10px;
   cursor: pointer;
@@ -74,7 +74,7 @@ const CustomButton = styled.button`
   }
   
   &:hover {
-    background-color: rgb(82,88,13, 0.5);
+    background-color: rgba(82,88,13, 0.5);
   }
 `
 

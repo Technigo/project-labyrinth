@@ -27,6 +27,10 @@ const CustomButton = styled.button`
   font-size: 18px;
   font-family: 'New Tegomin', serif;
 
+  &:hover {
+    background-color: rgba(82,88,13, 0.5);
+  }
+
   @media (min-width: 768px) {
     font-size: 22px;
     padding: 5px 15px;
