@@ -10,6 +10,10 @@ const ButtonContainer = styled.button`
   font-weight: bold;
   font-size: 1.2em;
   cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  &:hover {
+    background-color: #d65400;
+  }
 `;
 
 export { ButtonContainer };
