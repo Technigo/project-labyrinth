@@ -1,4 +1,4 @@
-This is a project built during the Technigo Bootcamp
+Project week 16 of Technigo bootcamp
 
 # Project Labyrinth
 
