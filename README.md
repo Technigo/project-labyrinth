@@ -1,13 +1,15 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
+The goal of this project is to build a text-based Maze game adventure using React Redux and thunks.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## What we learned
 
-## The problem
+- First approach to communication with the Backend > sending and receiving data.
+- Storing actions in Redux's global store.
+- Each post request is performed via a thunk with does the fetch, gathers the response data and passes the data to the reducer in our Redux store. This reducer then saves the data into the global store, becoming the current game state.
+- Styled components and nes.css (nostalgic retro styling).
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://estefania-tina-project-laberynth.netlify.app/
