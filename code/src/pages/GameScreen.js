@@ -2,8 +2,10 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import "nes.css/css/nes.min.css"
+import Loading from './Loading'
+import Finish from './Finish'
 
-import questions, { generateNextQuestion } from '../reducers/questions'
+import {questions, generateNextQuestion } from '../reducers/questions'
 
 const Header = styled.header`
   display: flex;
@@ -22,6 +24,10 @@ const GameScreenMainDiv = styled.div`
   max-width: 1000px;
   margin: auto;
   margin-top: 100px;
+
+  @media (min-width 668px) {
+    max-width: 500px;
+  }
 `;
 
 const OneMoveContainer = styled.div`
@@ -53,52 +59,56 @@ const MovesText = styled.h3`
 
 const GameScreen = () => {
     const gameStatus = useSelector(store => store.questions.gameStatus)
+    const actions = useSelector(store => store.questions.gameStatus.actions)
     const userName = useSelector(store => store.questions.userName)
+    const loading = useSelector(store => store.questions.loading)
     const history= useSelector(store => store.questions.history)
 
     const dispatch = useDispatch()
 
+    if (loading) {
+      return (
+        <Loading />
+      ) 
+    }
     const onGameStatusRevert = () => {
       dispatch(questions.actions.setPreviousGameStatus())
     }
     const RestartGame = () => {
       window.location.reload()
     }
-    //const onQuestionRegenerate = (tag) => {
-        //dispatch(generateNextQuestion(tag))
-
-   // }
-
-	   // When the user has reached the end of the game, the actions array becomes empty,
-  // so we can show the end game page conditionally based on that
     
 
    return (
+     <>
        <GameScreenMainDiv>
-         <Header>
-           <button 
-           class="nes-btn is-error"
-           disabled={history.length}
-           onClick={onGameStatusRevert}>Go Back</button>
-         <QuestionsText>{gameStatus.description}</QuestionsText>
-         <button
-           class="nes-btn is-success"
-           onClick={RestartGame}>Restart Game</button>
-         </Header>
+          <Header>
+             <button 
+             class="nes-btn is-error"
+             disabled={history.length}
+             onClick={onGameStatusRevert}>Go Back</button>
+             <QuestionsText>{gameStatus.description}</QuestionsText>
+             <button
+             class="nes-btn is-success"
+             onClick={RestartGame}>Restart Game</button>
+          </Header>
+    
+			 <MovesText>Your options are:</MovesText>
 
-					 <MovesText>Your options are:</MovesText>
-
-           {gameStatus.actions.map(action => (
-               <OneMoveContainer>
-                 <p>{action.description}</p>
-								 <button class="nes-btn is-primary"
-								 key={userName}
-								 onClick={() => dispatch(generateNextQuestion(userName, action.direction))}
-								 >{action.direction}</button>
-               </OneMoveContainer>
+        {gameStatus.actions.map(action => (
+         <OneMoveContainer>
+            <p>{actions.description}</p>
+						<button class="nes-btn is-primary"
+						key={userName}
+						onClick={() => dispatch(generateNextQuestion(userName, action.direction))}
+						>{action.direction}</button>
+         </OneMoveContainer>
 
            ))}
        </GameScreenMainDiv>
+       
+       <Finish />
+       </>
    )
 }
 export default GameScreen

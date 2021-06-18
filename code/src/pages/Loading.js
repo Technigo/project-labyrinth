@@ -9,12 +9,14 @@ import GameScreen from './GameScreen'
 const LoadingText = styled.h1`
   text-align: center;
   margin-top: 350px;
+
+  @media (min-width: 668px) {
+    font-size: 25px; 
+   }
   `;
 
-
-const Home = () => {
+const Loading = () => {
     const gameStatus = useSelector(store => store.questions.gameStatus)
-    console.log(gameStatus)
     const loading = useSelector(store => store.questions.loading)
 
    return (
@@ -29,4 +31,4 @@ const Home = () => {
    )
 }
 
-export default Home
+export default Loading
