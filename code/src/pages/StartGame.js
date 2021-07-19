@@ -7,14 +7,8 @@ import { StartGameButton } from 'styled-components/StartGameButton';
 import { questions, initiateGame} from '../reducers/questions';
 import Loading from './Loading'
 
-const StartGameBackground = styled.div`
-  height: 700px;
 
-  @media (min-width: 668px) {
-    font-size: 45px; 
-   }
-`
-const StartGameFormContainer = styled.div`
+const StartGameFormContainer = styled.form`
   background-color: #000;
   width: 100vw;
   height: 100vh;
@@ -47,17 +41,21 @@ const Title = styled.h1`
   `
 
 const StartGame = () => {   
-  const [userName, setUserName] = useState('');
+  const [inputValue, setInputValue] = useState('');
   const gameStatus = useSelector(store => store.questions.gameStatus)
   const loading = useSelector(store => store.questions.loading)
   const dispatch = useDispatch();
 
     const handleStartGame = (event) => {
         event.preventDefault()
-        dispatch(questions.actions.setUserName(userName));
-        dispatch(initiateGame(userName));
-        setUserName('')
+        dispatch(questions.actions.setUserName(inputValue));
+        dispatch(initiateGame(inputValue));
+       
     }
+    const onUserNameSet = () => {
+      dispatch(questions.actions.setUserName(inputValue));
+      dispatch(initiateGame(inputValue));
+    };
 
     if (gameStatus) {
       return (
@@ -71,27 +69,30 @@ const StartGame = () => {
     }
   
     return (
-      <>
-      <StartGameBackground>
+    <>
           <StartGameFormContainer autocomplete='off' onSubmit={handleStartGame}>
-            <Title>Welcome to Labyrinth! Enter your name to start playing.</Title>
+            <Title>Welcome to Labyrinth! Enter your name to start playing</Title>
+            <div className="nes-field is-inline">
             <label htmlFor="inline_field"></label>
             <input
                 required
                 type="text"
                 id="inline_field"
-                className="nes-input"
+                className="nes-input is-success"
                 placeholder="Enter name here..."
-                value={userName}
-                onChange={event => setUserName(event.target.value)}
+                value={inputValue}
+                onChange={(event) => setInputValue(event.target.value)}
             />
-            <StartGameButton type="submit">START</StartGameButton>
-            <StartImage src="https://media.giphy.com/media/lAce6rIFOcqPu/giphy.gif" alt="start animation" />
+            </div>
+            <StartGameButton onClick={onUserNameSet}>START</StartGameButton>
             </StartGameFormContainer>
-        </StartGameBackground>
-      </>
+            <StartImage src="https://media.giphy.com/media/lAce6rIFOcqPu/giphy.gif" alt="start animation" />
+        
+    </>
     )
+  
 }
+
 
 
 export default StartGame

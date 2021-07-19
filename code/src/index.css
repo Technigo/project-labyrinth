@@ -17,3 +17,66 @@ p {
   justify-content: center;
   align-items: center;
 }
+
+
+.nes-input {
+  width: 250px;
+  height: 40px;
+  font-size: 13px;
+  padding: 10px;
+  text-align: center;
+}
+
+.nes-container {
+  color: #000;
+}
+
+.nes-field.is-inline {
+  display: block;
+}
+
+.is-normal {
+  background-color:#59e686;
+  margin-top: 50px;
+}
+
+.is-rounded {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nes-icon {
+  animation: blinking 1.2s infinite;
+}
+
+.nes-btn {
+  width: fit-content;
+}
+.hide {
+  display: none;
+}
+
+ @keyframes blinking {
+  50% {
+    opacity: 0;
+  }
+ } 
+
+@media (min-width: 668px) {
+  .nes-balloon {
+    max-width: 70%; 
+  }
+
+  .message {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+  }
+
+  .nes-bcrikko {
+    margin-right: 20px;
+  }
+
+} 

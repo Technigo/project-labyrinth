@@ -37,7 +37,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
  export const initiateGame = (userName) => {
  return (dispatch) => {
-    dispatch(questions.actions.setLoading(true))
+    //dispatch(questions.actions.setLoading(true))//
     fetch('https://wk16-backend.herokuapp.com/start', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -53,7 +53,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
  export const generateNextQuestion = (userName, direction) => {
  return (dispatch) => {
-   dispatch(questions.actions.setLoading(true))
+   //dispatch(questions.actions.setLoading(true))//
     fetch('https://wk16-backend.herokuapp.com/action', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
