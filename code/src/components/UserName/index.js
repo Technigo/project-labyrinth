@@ -21,7 +21,7 @@ const BarWrapperBox = styled(Box)({
     padding: "1rem",
     flexDirection: 'column',
     justifyContent: 'flex-start',
-    ['@media (min-width:768px)']: {
+    '@media (min-width:768px)': {
         flexDirection: 'row',
         justifyContent: 'space-around',
     },

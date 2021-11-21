@@ -26,10 +26,10 @@ const MainBox = styled(Box)({
     color: "white",
     borderRadius: "10px",
     background: "rgb(0 0 0 / 80%)",
-    ['@media (min-width:768px)']: {
+    '@media (min-width:768px)': {
         width: '60%'
     },
-    ['@media (min-width:992px)']: {
+    '@media (min-width:992px)': {
         width: '50%'
     },
 
@@ -54,7 +54,7 @@ const InputBox = styled(Box)({
     margin: "5% auto",
     width: "80%",
     height: "auto",
-    ['@media (min-width:768px)']: {
+    '@media (min-width:768px)': {
         width: '60%',
     },
 });

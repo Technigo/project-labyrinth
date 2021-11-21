@@ -14,7 +14,6 @@ const ChoiceButton = styled(Button)({
     height: 48,
     padding: '0 30px',
     width: "fit-content",
-
 });
 
 const ButtonWrapperBox = styled(Box)({

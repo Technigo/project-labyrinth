@@ -10,8 +10,8 @@ This week's project comes in the form of a text-based adventure. Classic games l
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This week I started designing the game, and what I wanted to show. I read carefully what I get from the backend and based on that I designed the functions and the store. I used fake data to design the CSS and then I used the functions to get the info and understand the logic of the game. Once the logic and the maze were working, I decided to finish the design of the app. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+See: 

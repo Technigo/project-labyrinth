@@ -4,8 +4,8 @@ import { Box, Typography } from '@mui/material';
 import { ChoicesButton } from '../ChoicesButton'
 import { useSelector } from 'react-redux'
 import { StartPage } from 'components/StartPage';
-import { ui } from 'Reducers/ui';
-import Loader from 'components/Loader'
+// import { ui } from 'Reducers/ui';
+// import Loader from 'components/Loader'
 import {
     createTheme,
     responsiveFontSizes,
@@ -29,7 +29,7 @@ const UpperBox = styled(Box)({
     borderRadius: "10px",
     color: "white",
     padding: "2% auto",
-    ['@media (min-width:768px)']: {
+    '@media (min-width:768px)': {
         width: '60%'
     },
 });
@@ -71,7 +71,7 @@ const ButtonWrapperBox = styled(Box)({
 
 
 export const Options = () => {
-    const isLoading = useSelector(store => store.ui.isLoading)
+    // const isLoading = useSelector(store => store.ui.isLoading)
     const actualStep = useSelector(store => store.maze.actualStep)
 
     return (

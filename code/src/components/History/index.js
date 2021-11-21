@@ -17,14 +17,13 @@ const HistoryContainer = styled(Box)({
     height: "auto",
     borderRadius: "10px",
     color: "white",
-    ['@media (min-width:768px)']: {
+    '@media (min-width:768px)': {
         width: '60%',
     },
 });
 
 const StepContainer = styled(Box)({
     display: 'flex',
-    alignContent: "center",
     flexDirection: 'column',
     flexWrap: 'wrap',
     margin: "0 auto",
@@ -37,7 +36,7 @@ const StepContainer = styled(Box)({
     padding: "5px 10px",
     color: "white",
     alignContent: "flex-start",
-    ['@media (min-width:768px)']: {
+    '@media (min-width:768px)': {
         width: '80%',
     },
 });
@@ -46,8 +45,7 @@ const OptionSelected = styled(Box)({
     display: 'flex',
     alignContent: "center",
     flexWrap: 'wrap',
-    margin: "0 auto",
-    margin: "2% 0",
+    margin: "2% auto",
     textTransform: 'capitalize',
 
 });
