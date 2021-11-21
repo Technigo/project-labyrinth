@@ -4,8 +4,7 @@ import { Box, Typography } from '@mui/material';
 import { ChoicesButton } from '../ChoicesButton'
 import { useSelector } from 'react-redux'
 import { StartPage } from 'components/StartPage';
-// import { ui } from 'Reducers/ui';
-// import Loader from 'components/Loader'
+import { Loader } from 'components/Loader'
 import {
     createTheme,
     responsiveFontSizes,
@@ -71,37 +70,42 @@ const ButtonWrapperBox = styled(Box)({
 
 
 export const Options = () => {
-    // const isLoading = useSelector(store => store.ui.isLoading)
+    const isLoading = useSelector(store => store.ui.isLoading)
     const actualStep = useSelector(store => store.maze.actualStep)
 
+    if (isLoading === true) {
+        return <Loader />
+    }
+
+
+    if (Object.keys(actualStep).length === 0) {
+        return <StartPage />
+    }
+
     return (
-        <>
-            {Object.keys(actualStep).length === 0 && <StartPage />}
-            {Object.keys(actualStep).length !== 0 &&
-                <UpperBox component="section">
-                    <ThemeProvider theme={theme}>
-                        <Typography variant="h3" color="inherit" component="div">
-                            Coordinates:  {actualStep && actualStep.coordinates}
-                        </Typography>
-                        <DescriptiontWraper >
-                            <Typography variant="h6" color="inherit" component="div">
-                                {actualStep && actualStep.description}
-                            </Typography>
-                        </DescriptiontWraper>
-                        <WhatToDoWraper>
-                            <Typography variant="h5" color="inherit" component="div">
-                                {actualStep.actions.length !== 0 ?
-                                    "What do you want to do?" :
-                                    "You found the exit! Congratulations!"}
-                            </Typography>
-                        </WhatToDoWraper>
-                        <ButtonWrapperBox />
-                        {actualStep.actions.length !== 0 && actualStep.actions.map(action => {
-                            return <ChoicesButton direction={action.direction} type={action.type} />
-                        })}
-                        <ButtonWrapperBox />
-                    </ThemeProvider>
-                </UpperBox>}
-        </>
+        <UpperBox component="section">
+            <ThemeProvider theme={theme}>
+                <Typography variant="h3" color="inherit" component="div">
+                    Coordinates:  {actualStep && actualStep.coordinates}
+                </Typography>
+                <DescriptiontWraper >
+                    <Typography variant="h6" color="inherit" component="div">
+                        {actualStep && actualStep.description}
+                    </Typography>
+                </DescriptiontWraper>
+                <WhatToDoWraper>
+                    <Typography variant="h5" color="inherit" component="div">
+                        {actualStep.actions.length !== 0 ?
+                            "What do you want to do?" :
+                            "You found the exit! Congratulations!"}
+                    </Typography>
+                </WhatToDoWraper>
+                <ButtonWrapperBox />
+                {actualStep.actions.length !== 0 && actualStep.actions.map(action => {
+                    return <ChoicesButton direction={action.direction} type={action.type} />
+                })}
+                <ButtonWrapperBox />
+            </ThemeProvider>
+        </UpperBox>
     )
 }

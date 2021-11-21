@@ -62,14 +62,14 @@ export const maze = createSlice({
 })
 
 export const fetchNextStep = (url, options) => {
-    console.log("call fetchNexStep", url, options)
+
     return (dispatch) => {
         dispatch(ui.actions.isLoading(true))
         fetch(url, options)
             .then(res => res.json())
             .then(step => {
+                dispatch(ui.actions.isLoading(false))
                 dispatch(maze.actions.setNextStep(step))
-                dispatch(ui.actions.setLoading(false))
             })
             .catch((error) => {
                 console.log('Error in Fetch:' + error.message);

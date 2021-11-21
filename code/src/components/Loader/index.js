@@ -2,7 +2,6 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const LoaderContainer = styled.div`
-    background: cadetblue;
     height: 100px;
     margin: 100px auto;
     max-width: 20%;
@@ -17,8 +16,8 @@ const rotate = keyframes`
 `;
 
 const LoaderImg = styled.button`
-    width: ${props => props.size};
-    background-color: ${props => props.color};
+    width: 100px;
+    background-color: purple;
     margin: 0 auto;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
@@ -29,26 +28,11 @@ const LoaderImg = styled.button`
     position: relative;
 `
 
-const NotLoaderImg = styled.button`
-    width: ${props => props.size};
-    background-color: ${props => props.color};
-    margin: 0 auto;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    height: 50px;
-    border: none;
-`
+export const Loader = () => {
 
-const Loader = ({ color, size, loading, setLoading }) => {
-    const handleDisable = () => {
-        setLoading(!loading)
-    }
     return (
         <LoaderContainer>
-            {loading && <LoaderImg color={color} size={size} onClick={handleDisable}></LoaderImg>}
-            {!loading && <NotLoaderImg color={color} size={size} onClick={handleDisable}></NotLoaderImg>}
+            <LoaderImg />
         </LoaderContainer>
     );
 }
-
-export default Loader;
