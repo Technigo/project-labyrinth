@@ -3,34 +3,23 @@ import { ui } from "./ui";
 
 const initialState = {
     userName: "",
-    actualStep:
-    {
-        coordinates: "0,0",
-        description: "You find yourself in under a large archway opening into a cavern.  A sense of purpose fills you.",
-        actions: [
-            {
-                "type": "move",
-                "direction": "East",
-                "description": "A worn sign 'The Temple of *ech*igo'. Some of the letters are missing. An overgrown paved path leads to the East"
-            }
-        ]
-    },
+    actualStep: {},
     history: [
-        {
-            choice: {
-                type: "move",
-                direction: "East"
-            },
-            coordinates: "0,0",
-            description: "You find yourself in under a large archway opening into a cavern.  A sense of purpose fills you.",
-            actions: [
-                {
-                    "type": "move",
-                    "direction": "East",
-                    "description": "A worn sign 'The Temple of *ech*igo'. Some of the letters are missing. An overgrown paved path leads to the East"
-                }
-            ]
-        }
+        // {
+        //     choice: {
+        //         type: "move",
+        //         direction: "East"
+        //     },
+        //     coordinates: "0,0",
+        //     description: "You find yourself in under a large archway opening into a cavern.  A sense of purpose fills you.",
+        //     actions: [
+        //         {
+        //             "type": "move",
+        //             "direction": "East",
+        //             "description": "A worn sign 'The Temple of *ech*igo'. Some of the letters are missing. An overgrown paved path leads to the East"
+        //         }
+        //     ]
+        // }
     ]
 }
 
@@ -39,32 +28,24 @@ export const maze = createSlice({
     initialState,
 
     reducers: {
-        //action to start the game
-        start: (state, action) => {
-            const { coordinates, description, actions } = action.payload.step;
-            //validate 
-            state.actualStep = { coordinates, description, actions };
-        },
-
         //action to set the User name
         addUserName: (state, action) => {
-            console.log(action)
             state.userName = action.payload;
         },
 
         //action to set every step
         setNextStep: (state, action) => {
-            const { coordinates, description, actions } = action.payload.step;
-            state.actualStep.push({
+            const { coordinates, description, actions } = action.payload;
+            state.actualStep = {
                 coordinates: coordinates,
                 description: description,
                 actions: actions
-            })
+            }
         },
 
         //action to save info in history
         addToHistory: (state, action) => {
-            const { coordinates, description, actions, choice } = action.payload.choice;
+            const { coordinates, description, actions, choice } = action.payload;
             if (choice) {
                 state.history.push({
                     coordinates: coordinates,
@@ -80,14 +61,18 @@ export const maze = createSlice({
 
 })
 
-export const fetchNextStep = (url) => {
+export const fetchNextStep = (url, options) => {
+    console.log("call fetchNexStep", url, options)
     return (dispatch) => {
-        dispatch(ui.actions.setLoading(true))
-        fetch(url)
+        dispatch(ui.actions.isLoading(true))
+        fetch(url, options)
             .then(res => res.json())
             .then(step => {
                 dispatch(maze.actions.setNextStep(step))
                 dispatch(ui.actions.setLoading(false))
             })
+            .catch((error) => {
+                console.log('Error in Fetch:' + error.message);
+            });
     }
 }

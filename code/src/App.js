@@ -4,28 +4,31 @@ import { Provider } from 'react-redux'
 import { Options } from 'components/Options'
 import { UserName } from 'components/UserName'
 import { History } from 'components/History'
-import Container from '@mui/material/Container';
+import { Box } from '@mui/material';
 import { styled } from '@mui/styles';
 
-const MainContainer = styled(Container)({
-  background: 'blue',
-  border: "1px solid red",
+const BackgroundImage = styled(Box)({
+  backgroundImage: "url(https://images.unsplash.com/photo-1574390353491-92705370c72e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1128&q=80)",
+  position: "absolute",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  overflow: "hidden",
   minHeight: "100vh",
-  display: "flex",
-  flexDirection: 'column',
   textAlign: "center",
+  width: '100%',
 })
+
+
 
 export const App = () => {
   return (
-    <div>
-      <MainContainer maxWidth="sm">
-        <Provider store={store} >
-          <UserName />
-          <Options />
-          <History />
-        </Provider>
-      </MainContainer>
-    </div>
+    <BackgroundImage >
+      <Provider store={store} >
+        <UserName />
+        <Options />
+        <History />
+      </Provider>
+    </BackgroundImage>
   )
 }
