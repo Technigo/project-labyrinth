@@ -4,32 +4,33 @@ import { batch } from 'react-redux';
 export const start = createSlice({
   name: 'start',
   initialState: {
-    startMode: [{ name: 'hello' }],
+    username: null,
+    response: {},
   },
   reducers: {
-    setStartList: (state, action) => {
-      state.startMode = action.payload;
+    setUsername: (store, action) => {
+      store.username = action.payload;
+    },
+    setResponse: (store, action) => {
+      store.response = action.payload;
     },
   },
 });
 
 export const fetchStart = () => {
-  return dispatch => {
+  return (dispatch, getStore) => {
     //   dispatch(ui.actions.setLoading(true));
     fetch('https://wk16-backend.herokuapp.com/start', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username: 'Hamburger' }),
+      body: JSON.stringify({ username: getStore().start.username }),
     })
       .then(res => res.json())
       .then(json => {
-        batch(() => {
-          dispatch(start.actions.setStartList(json));
-          //      dispatch(ui.action.setLoading(false));
-          console.log('FETCH START', json);
-        });
+        dispatch(start.actions.setResponse(json));
+        //      dispatch(ui.action.setLoading(false));
       });
   };
 };
