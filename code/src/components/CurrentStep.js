@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { game } from 'reducers/game'
+import { game, nextStep } from 'reducers/game'
 import styled from 'styled-components'
 
 export const CurrentStep = () => {
@@ -13,9 +13,9 @@ export const CurrentStep = () => {
       <p>{currentStep?.description}</p>
       {currentStep?.actions?.map(action => {
         return (
-          <div>
+          <div key={action.direction}>
             {action.description}
-            <button>
+            <button onClick={() => dispatch(nextStep(action))}>
               {action.type} {action.direction}
             </button>
           </div>
