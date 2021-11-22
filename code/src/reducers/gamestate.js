@@ -16,12 +16,12 @@ export const gamestate = createSlice({
     setUsername: (state, action) => {
       state.username = action.payload; //username property 
     },
-    setGameStatus: (state, action) => {
-      state.gameStatus = action.payload;
+    setCurrentChoice: (state, action) => {
+      state.currentChoice = action.payload; //CurrentChoice property where the actual question is renderd 
     },
     setDirection: (state, action) => {
       state.direction = action.payload;
-      state.history = [...state.history, action.payload]
+      state.history = [...state.history, action.payload] //Direction property 
     },
     setResetGame: (state, action) => { //here we reset game using state
       state.username = '';
@@ -42,7 +42,7 @@ export const fetchGameInstructions = (username) => {
     })
       .then((res) => res.json())
       .then((json) => {
-        dispatch(gamestate.actions.setGameStatus(json));
+        dispatch(gamestate.actions.setCurrentChoice(json));
         dispatch(ui.actions.setLoading(false))
       });
   };
@@ -64,7 +64,7 @@ export const directionAnswer = () => {
     })
       .then((res) => res.json())
       .then(data => {
-        dispatch(gamestate.actions.setGameStatus(data))
+        dispatch(gamestate.actions.setCurrentChoice(data))
         dispatch(ui.actions.setLoading(false));
       });
   };
