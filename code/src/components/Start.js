@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { startSlice, fetchUsername } from "../reducers/startSlice";
 
 export const Start = () => {
-	const [username, setLocalUsername] = useState("Hello username");
+	const [username, setLocalUsername] = useState("");
 
 	const dispatch = useDispatch();
 
