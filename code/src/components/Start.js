@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "../reducers/quest";
+import { HeroAnimation } from "./HeroAnimation";
 
 export const Start = () => {
   const quest = useSelector((store) => store.quest.items);
@@ -14,7 +15,7 @@ export const Start = () => {
 
   return (
     <>
-      <h1>hello {player}</h1>
+      <h1>Hi {player}</h1>
       {quest.map((item) => {
         return (
           <div key={item.coordinates}>
@@ -22,6 +23,8 @@ export const Start = () => {
           </div>
         );
       })}
+      <HeroAnimation />
+      <button>Begin</button>
     </>
   );
 };

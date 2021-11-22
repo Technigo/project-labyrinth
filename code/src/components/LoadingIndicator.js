@@ -15,5 +15,13 @@ export const LoadingIndicator = () => {
     },
   };
 
-  return <>{loading && <Lottie options={defaultOptions} height={400} width={400} />}</>;
+  return (
+    <>
+      {loading && (
+        <div className="loader">
+          <Lottie options={defaultOptions} height={400} width={400} />
+        </div>
+      )}
+    </>
+  );
 };
