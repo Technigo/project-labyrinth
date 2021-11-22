@@ -4,11 +4,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import game from '../reducers/game'
 import { fetchFirstQuestion } from '../reducers/game'
 import GameQuestion from './GameQuestion'
+import Summary from './Summary'
 
 
 const StartPage = () => {
     const [input, setInput] = useState('')
     const dispatch = useDispatch()
+    const userName = useSelector((store) => store.game.username);
 
     const onUsernameInput = (event, input) => {
         dispatch(game.actions.setUsername(input))
@@ -16,10 +18,10 @@ const StartPage = () => {
         dispatch(fetchFirstQuestion(input))
     }
     const gameQuestion = useSelector((store) => store.game.gameQuestions)
-
+    const lastDescription = useSelector((store) => store.game.gameQuestions.description)
     return (
         <>
-            {gameQuestion.length === 0 && (
+            {userName === '' && (
                 <div>
                     <h1>Welcome to the maze</h1>
                     <input
@@ -40,6 +42,9 @@ const StartPage = () => {
             {gameQuestion.actions ? gameQuestion.actions.length !== 0 && (
                 <GameQuestion />
             ) : ''}
+            {(userName !== '' && gameQuestion.actions ? gameQuestion.actions.length === 0 : '') && (
+                <Summary description={lastDescription} />
+            )}
         </>
     )
 }
