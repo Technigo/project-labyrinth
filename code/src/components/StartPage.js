@@ -10,7 +10,6 @@ export const StartPage = () => {
   const [input, setInput] = useState('')
 
   const onStartGame = () => {
-    // dispatch(game.actions.createUser(input))
     dispatch(startGame(input))
   }
 

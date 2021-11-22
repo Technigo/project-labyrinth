@@ -22,9 +22,9 @@ export const game = createSlice({
 
 export const startGame = input => {
   return dispatch => {
-    dispatch(ui.actions.setLoading(true))
     dispatch(game.actions.createUser(input))
-    console.log('[startGame]', game.username)
+    dispatch(ui.actions.setLoading(true))
+
     const options = {
       method: 'POST',
       headers: {
@@ -38,7 +38,6 @@ export const startGame = input => {
     fetch('https://wk16-backend.herokuapp.com/start', options)
       .then(res => res.json())
       .then(json => {
-        console.log('[startGame: from fetch]', json)
         dispatch(game.actions.setCurrentStep(json))
         dispatch(ui.actions.setLoading(false))
       })
