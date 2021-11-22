@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const startSlice = createSlice({
 	name: "startSlice",
 	initialState: {
-		username: "",
+		username: "Hello username",
 		data: [],
 	},
 	reducers: {
@@ -17,18 +17,33 @@ export const startSlice = createSlice({
 });
 
 export const fetchUsername = () => {
-	const options = {
-		method: "POST",
-		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify({ username: startSlice.username }),
-	};
+	// console.log(username);
 
 	return (dispatch) => {
+		const options = {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ username: "Another username" }),
+		};
+		console.log("are you fetching?");
+
 		fetch("https://wk16-backend.herokuapp.com/start", options)
-			.then((response) => response.json)
-			.then((json) => {
-				dispatch(console.log(json));
-				dispatch(startSlice.actions.setData(json));
-			});
+			.then((response) => response.json())
+			.then((json) => dispatch(startSlice.actions.setData(json)));
 	};
 };
+
+// toggleTodo: (store, action) => {
+// 	const updatedItems = store.items.map((item) => {
+// 		if (item.id === action.payload) {
+// 			const updatedTodo = {
+// 				...item,
+// 				isComplete: !item.isComplete,
+// 			};
+// 			return updatedTodo;
+// 		} else {
+// 			return item;
+// 		}
+// 	});
+// 	store.items = updatedItems;
+// },

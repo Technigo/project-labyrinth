@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { startSlice, fetchUsername } from "../reducers/startSlice";
 
 export const Start = () => {
-	const [username, setLocalUsername] = useState("");
+	const [username, setLocalUsername] = useState("Hello username");
 
 	const dispatch = useDispatch();
 
@@ -14,10 +14,17 @@ export const Start = () => {
 
 	const sendUsername = () => {
 		dispatch(startSlice.actions.setUsername(username));
-		if (username !== "") {
-			fetchUsername();
-		}
+		// if (username !== "") {
+		// 	fetchUsername();
+		// }
 	};
+
+	const start = () => {
+		console.log("are you working?");
+		fetchUsername();
+		console.log(fetchUsername);
+	};
+
 	return (
 		<div>
 			<label>
@@ -29,7 +36,8 @@ export const Start = () => {
 					onChange={onInputChange}
 				/>
 			</label>
-			<button onClick={sendUsername}>Submit</button>
+			<button onClick={sendUsername}>Submit username</button>
+			<button onClick={start}>Start</button>
 		</div>
 	);
 };
