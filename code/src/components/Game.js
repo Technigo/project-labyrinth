@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { game } from "../reducers/game";
 import { FetchNextMove } from "../reducers/game";
 
 const Game = () => {
@@ -8,12 +7,10 @@ const Game = () => {
   console.log(story);
   const dispatch = useDispatch();
 
-  const [direction, setDirection] = useState("");
-
   const onNextMove = (direction) => {
     dispatch(FetchNextMove(direction));
+    console.log("test", direction);
   };
-  console.log("test", direction);
 
   return (
     <div>
@@ -22,7 +19,7 @@ const Game = () => {
         {story?.actions?.map((item) => (
           <div key={item.description}>
             <p>{item.description}</p>
-            <button onClick={() => onNextMove(setDirection(direction))}>
+            <button onClick={() => onNextMove(item.direction)}>
               {item.direction}
             </button>
           </div>

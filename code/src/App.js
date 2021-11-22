@@ -4,11 +4,12 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 import StartGame from "components/StartGame";
 import { game } from "./reducers/game";
-import { loading } from "./reducers/loading";
+import { ui } from "./reducers/ui";
+import { Loading } from "components/Loading";
 
 const reducer = combineReducers({
   game: game.reducer,
-  loading: loading.reducer,
+  ui: ui.reducer,
 });
 
 const store = configureStore({ reducer });
@@ -16,6 +17,7 @@ const store = configureStore({ reducer });
 export const App = () => {
   return (
     <Provider store={store}>
+      <Loading />
       <StartGame />
     </Provider>
   );

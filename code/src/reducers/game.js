@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { NEXT_MOVE, START_GAME } from "utils/urls";
 
-import { loading } from "./loading";
+import { ui } from "./ui";
 
 export const game = createSlice({
   name: "game",
@@ -22,30 +22,32 @@ export const fetchGame = () => {
     body: JSON.stringify({ username: "Lightwarrior" }),
   };
   return (dispatch) => {
-    dispatch(loading.actions.setLoading(true));
+    dispatch(ui.actions.setLoading(true));
     fetch(START_GAME, options)
       .then((res) => res.json())
       .then((json) => {
         dispatch(game.actions.nextMove(json));
-        dispatch(loading.actions.setLoading(false));
+        dispatch(ui.actions.setLoading(false));
       });
   };
 };
-export const FetchNextMove = () => {
+export const FetchNextMove = (direction) => {
   const options = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       username: "Lightwarrior",
-      direction: `${direction}`,
+      direction: direction,
       type: "move",
     }),
   };
   return (dispatch) => {
+    dispatch(ui.actions.setLoading(true));
     fetch(NEXT_MOVE, options)
       .then((res) => res.json())
       .then((json) => {
         dispatch(game.actions.nextMove(json));
+        dispatch(ui.actions.setLoading(false));
       });
   };
 };
