@@ -1,6 +1,8 @@
 import React from 'react'
 import { styled } from '@mui/styles';
-import { Box, Typography } from '@mui/material';
+import { maze } from 'Reducers/maze';
+import { useDispatch } from 'react-redux'
+import { Box, Typography, Button } from '@mui/material';
 import { ChoicesButton } from '../ChoicesButton'
 import { useSelector } from 'react-redux'
 import { StartPage } from 'components/StartPage';
@@ -60,6 +62,24 @@ const WhatToDoWraper = styled(Box)({
     justifyContent: "center",
 });
 
+const StartAgainButtonBox = styled(Box)({
+    display: 'flex',
+    alignContent: "center",
+    alignItems: "center",
+    margin: "3rem auto",
+    height: "auto",
+    justifyContent: "center",
+});
+
+const StartAgainButton = styled(Button)({
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    borderRadius: 3,
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    height: 48,
+    padding: '0 30px',
+    width: "6rem",
+});
+
 const ButtonWrapperBox = styled(Box)({
     display: 'flex',
     flexDirection: 'row',
@@ -74,6 +94,7 @@ const ButtonWrapperBox = styled(Box)({
 
 
 export const Options = () => {
+    const dispatch = useDispatch();
     const isLoading = useSelector(store => store.ui.isLoading);
     const actualStep = useSelector(store => store.maze.actualStep);
     const defaultOptions = {
@@ -84,6 +105,9 @@ export const Options = () => {
             preserveAspectRatio: "xMidYMid slice"
         }
     };
+    const handleOnClick = () => {
+        dispatch(maze.actions.startAgain());
+    }
 
     if (isLoading === true) {
         return <Loader />
@@ -115,6 +139,9 @@ export const Options = () => {
                                 "You found the exit! Congratulations!"
                             </Typography>
                             <Lottie options={defaultOptions} height={200} width={200} />
+                            <StartAgainButtonBox>
+                                <StartAgainButton onClick={() => handleOnClick()}>Play Again</StartAgainButton>
+                            </StartAgainButtonBox>
                         </>
                     }
                 </WhatToDoWraper>

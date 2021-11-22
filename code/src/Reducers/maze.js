@@ -57,6 +57,11 @@ export const maze = createSlice({
 
         },
 
+        // action to restart a new game
+        startAgain: () => {
+            return initialState
+        }
+
     }
 
 })
