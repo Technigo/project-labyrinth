@@ -11,6 +11,7 @@ This week's project comes in the form of a text-based adventure. Classic games l
 ## The problem
 
 This week I started designing the game, and what I wanted to show. I read carefully what I get from the backend and based on that I designed the functions and the store. I used fake data to design the CSS and then I used the functions to get the info and understand the logic of the game. Once the logic and the maze were working, I decided to I added the loader that I created with styles components. 
+Finally I added some animations from [Lottie library](https://lottiefiles.com/blog/working-with-lottie/how-to-use-lottie-in-react-app)
 
 ## View it live
 

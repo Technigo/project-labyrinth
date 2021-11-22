@@ -103,7 +103,8 @@ const ButtonWrapperBox = styled(Box)({
     flexWrap: 'wrap',
     width: "95%",
     height: "auto",
-    borderRadius: "10px"
+    borderRadius: "10px",
+    margin: "1rem auto"
 });
 
 
@@ -162,11 +163,12 @@ export const Options = () => {
                         </>
                     }
                 </WhatToDoWraper>
-                <ButtonWrapperBox />
-                {actualStep.actions.length !== 0 && actualStep.actions.map(action => {
-                    return <ChoicesButton direction={action.direction} type={action.type} />
-                })}
-                <ButtonWrapperBox />
+                <ButtonWrapperBox>
+                    {actualStep.actions.length !== 0 && actualStep.actions.map(action => {
+                        return <ChoicesButton direction={action.direction} type={action.type} />
+                    })}
+                </ButtonWrapperBox>
+
             </ThemeProvider>
         </UpperBox >
     )

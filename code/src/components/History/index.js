@@ -43,11 +43,10 @@ const StepContainer = styled(Box)({
 
 const OptionSelected = styled(Box)({
     display: 'flex',
-    alignContent: "center",
     flexWrap: 'wrap',
-    margin: "2% auto",
     textTransform: 'capitalize',
-
+    textAlign: "left",
+    margin: "0.5rem 0",
 });
 
 export const History = () => {
