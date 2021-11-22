@@ -1,17 +1,32 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { LoadingIndicator } from './LoadingIndicator'
+import { game, gameStart } from '../reducers/game'
 
-import { game } from '../reducers/game'
+import { GameStartPage } from 'components/GameStartPage'
+import { GamePage } from 'components/GamePage'
+import { GameEndPage } from 'components/GameEndPage'
 
 export const FirstPage = () => {
-  const [username, setUsername] = useState('')
-
   const dispatch = useDispatch()
+  const [username, setUsername] = useState('')
+  const location = useSelector((store) => store.game.location)
 
   const onSubmitUsername = () => {
     dispatch(game.actions.submitUsername(username))
+    dispatch(gameStart(username))
+  }
+
+  if (location === '0,0') {
+    return <GameStartPage />
+  }
+
+  if (location !== '' && location !== '0,0') {
+    return <GamePage />
+  }
+
+  if (location === '3,1') {
+    return <GameEndPage />
   }
 
   return (
@@ -25,7 +40,6 @@ export const FirstPage = () => {
       <button disabled={username === ''} onClick={onSubmitUsername}>
         Submit
       </button>
-      <LoadingIndicator />
     </>
   )
 }

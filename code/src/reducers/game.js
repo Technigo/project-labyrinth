@@ -3,7 +3,7 @@ import { ui } from './ui'
 
 const initialState = {
   username: '',
-  playerLocation: ''
+  location: ''
 }
 
 export const game = createSlice({
@@ -11,7 +11,7 @@ export const game = createSlice({
   initialState,
   reducers: {
     submitUsername: (store, action) => {
-      console.log(action)
+      // console.log(action)
 
       const input = action.payload
 
@@ -19,6 +19,9 @@ export const game = createSlice({
         username: input
       }
       store.username = selectedUsername
+    },
+    startGame: (store, action) => {
+      console.log(action)
     },
     setLocation: (store, action) => {
       console.log(action)
@@ -36,26 +39,21 @@ export const game = createSlice({
   }
 })
 
-export const gameStart = () => {
+export const gameStart = (username) => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true))
     fetch('https://wk16-backend.herokuapp.com/start', {
-      method: 'POST'
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: username })
     })
       .then((res) => res.json())
       .then((json) => {
         dispatch(game.actions.startGame(json))
+        // dispatch(game.actions.setLocation())   - Lagra koordinater hur? Finns i console.log
         dispatch(ui.actions.setLoading(false))
       })
   }
 }
 
-// fetch('', {
-//     method: 'POST'
-//   })
-//     .then((res) => res.json())
-//     .then(() => {
-//       fetchThoughts()
-//       setYourLikes((value) => value + 1)
-//     }, [])
 export default game
