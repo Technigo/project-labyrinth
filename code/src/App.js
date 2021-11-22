@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import { Provider } from "react-redux";
+import Start from "./components/Start";
 
-export const App = () => {
+const App = () => {
   return (
-    <div>
-      Find me in src/app.js!
-    </div>
-  )
-}
+    <Provider store={store}>
+      <Start />
+    </Provider>
+  );
+};
+
+export default App;
