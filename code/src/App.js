@@ -1,14 +1,11 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { combineReducers, configureStore } from "@reduxjs/toolkit"; // createStore
-import { startSlice } from "./reducers/startSlice";
-import { moveSlice } from "./reducers/moveSlice";
-import { Start } from "./components/Start";
-import { Move } from "./components/Move";
+import { game } from "./reducers/game";
+import { StartPage } from "./components/StartPage";
 
 const reducer = combineReducers({
-	startSlice: startSlice.reducer,
-	moveSlice: moveSlice.reducer,
+	game: game.reducer,
 });
 const store = configureStore({ reducer });
 
@@ -32,8 +29,7 @@ const store = configureStore({ reducer });
 export const App = () => {
 	return (
 		<Provider store={store}>
-			<Start />
-			<Move />
+			<StartPage />
 		</Provider>
 	);
 };

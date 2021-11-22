@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { startSlice, fetchUsername } from "../reducers/startSlice";
+import { game, fetchUsername } from "../reducers/game";
 
-export const Start = () => {
+export const StartPage = () => {
 	const [username, setLocalUsername] = useState("");
 
 	const dispatch = useDispatch();
@@ -13,7 +13,7 @@ export const Start = () => {
 	};
 
 	const sendUsername = () => {
-		dispatch(startSlice.actions.setUsername(username));
+		dispatch(game.actions.setUsername(username));
 		// if (username !== "") {
 		// 	fetchUsername();
 		// }

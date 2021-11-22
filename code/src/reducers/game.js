@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const startSlice = createSlice({
-	name: "startSlice",
+export const game = createSlice({
+	name: "game",
 	initialState: {
 		username: "",
 		data: [],
+		// gameStatus: {},
+		// history: [],
 	},
 	reducers: {
 		setUsername: (state, action) => {
@@ -13,6 +15,12 @@ export const startSlice = createSlice({
 		setData: (state, action) => {
 			state.data = action.payload;
 		},
+		// setGameStatus: (state, action) => {
+		// 	if (state.gameStatus) {
+		// 		state.history = [...state.history, state.gameStatus]
+		// 	}
+		// 	state.data = action.payload;
+		// },
 	},
 });
 
@@ -30,7 +38,7 @@ export const fetchUsername = (username) => {
 		fetch("https://wk16-backend.herokuapp.com/start", options)
 			.then((response) => response.json())
 			.then((json) => {
-				dispatch(startSlice.actions.setData(json));
+				dispatch(game.actions.setData(json));
 			});
 	};
 };
