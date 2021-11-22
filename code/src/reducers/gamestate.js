@@ -24,7 +24,6 @@ export const fetchGame = () => {
     })
       .then((res) => res.json())
       .then((json) => {
-				console.log("json", json)
         dispatch(gamestate.actions.setGameStatus(json));
         //dispatch(ui.actions.setLoading(false));
       });

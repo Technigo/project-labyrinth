@@ -1,21 +1,19 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchGame, gamestate} from "reducers/gamestate";
+import { fetchGame } from "reducers/gamestate";
 
 export const StartGame = () => {
-  const game = useSelector((store) => store.gamestate.gameStatus);
+  const description = useSelector((state) => state.gamestate.gameStatus.description);
+	const actions = useSelector((state) => state.gamestate.gameStatus.actions)
   const dispatch = useDispatch();
 
-	const test = gamestate;
-	console.log(test)
+	// for actions to show need to do another fetch for actions :) 
 
-
-
-	console.log(game)
+	console.log(actions)
 
   return (
     <>
-      <h1>hello</h1>
+
       <button
         onClick={() => {
           dispatch(fetchGame());
@@ -23,6 +21,9 @@ export const StartGame = () => {
       >
         FETCH 
       </button>
+			<p>Description: {description}</p>
+			<p>Actions:  </p>
+			
 			{/*{game.map(item => console.log(item))}*/}
       {/*{game.map((item) => (
         <p key={item.name}>{item.name}</p>

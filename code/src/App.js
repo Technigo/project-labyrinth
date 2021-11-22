@@ -5,6 +5,7 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { gamestate } from "./reducers/gamestate";
 import { StartGame } from './components/StartGame'
 
+// setting the reducer
 const reducer = combineReducers({
   //ui: ui.reducer,
   gamestate: gamestate.reducer
