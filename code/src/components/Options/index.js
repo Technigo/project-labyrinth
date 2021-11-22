@@ -119,6 +119,7 @@ export const Options = () => {
             preserveAspectRatio: "xMidYMid slice"
         }
     };
+
     const handleOnClick = () => {
         dispatch(maze.actions.startAgain());
     }

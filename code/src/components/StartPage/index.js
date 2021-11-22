@@ -10,6 +10,8 @@ import {
     responsiveFontSizes,
     ThemeProvider,
 } from '@mui/material/styles';
+import Lottie from "react-lottie";
+import animationData from '../../lotties/epsy-loader';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -45,7 +47,20 @@ const TextBox = styled(Box)({
     height: "auto",
     color: "white",
     background: "rgb(0 0 0 / 80%)",
+    padding: "1rem 0",
 });
+
+const BottomWrapper = styled(Box)({
+    display: 'flex',
+    alignContent: "center",
+    alignItems: "center",
+    flexDirection: 'column',
+    height: "auto",
+    justifyContent: "center",
+    width: "90%",
+    margin: "0 auto",
+});
+
 
 const InputBox = styled(Box)({
     display: 'flex',
@@ -96,6 +111,14 @@ export const StartPage = () => {
         body: JSON.stringify({ "username": name })
     }
 
+    const defaultOptionsForLotties = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice"
+        }
+    };
 
     const handleOnClick = () => {
         dispatch(maze.actions.addUserName(name));
@@ -112,24 +135,29 @@ export const StartPage = () => {
                     </Typography>
                     <Typography variant="h6" color="inherit" component="div">
                         This game will lead you to unimaginable spaces.
-                        You need to use your creativity to find the exit
+                        You need to use your creativity to find the exit.
+                    </Typography>
+                    <Typography variant="h5" color="inherit" component="div">
                         Do you want to enter the maze?
                     </Typography>
                 </ThemeProvider>
             </TextBox>
-            <InputBox>
-                <InputField
-                    required
-                    id="outlined-required"
-                    label="Required"
-                    variant="outlined"
-                    value={name}
-                    onChange={e => setName(e.target.value)}
-                />
-            </InputBox>
-            <ButtonBox>
-                <StartButton disabled={name === ""} onClick={() => handleOnClick()}>Start</StartButton>
-            </ButtonBox>
+            <BottomWrapper>
+                <Lottie options={defaultOptionsForLotties} height={100} width={200} />
+                <InputBox>
+                    <InputField
+                        required
+                        id="outlined-required"
+                        label="Required"
+                        variant="outlined"
+                        value={name}
+                        onChange={e => setName(e.target.value)}
+                    />
+                </InputBox>
+                <ButtonBox>
+                    <StartButton disabled={name === ""} onClick={() => handleOnClick()}>Start</StartButton>
+                </ButtonBox>
+            </BottomWrapper>
         </MainBox>
     )
 }
