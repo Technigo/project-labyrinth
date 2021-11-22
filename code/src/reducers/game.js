@@ -33,19 +33,15 @@ export const fetchGame = (userName) => {
     })
       .then((res) => res.json())
       .then((json) => {
+        console.log(json);
         dispatch(game.actions.setGameElements(json));
       })
       .finally(() => dispatch(ui.actions.setLoading(false)));
   };
 };
 
-export const fetchGameInstructions = ({
-  userName,
-  move = "move",
-  direction,
-}) => {
+export const fetchGameInstructions = ({ move = "move", direction }) => {
   return (dispatch, getState) => {
-    console.log(getState());
     const { username } = getState().game;
     dispatch(ui.actions.setLoading(true));
     fetch("https://wk16-backend.herokuapp.com/action", {
@@ -54,7 +50,7 @@ export const fetchGameInstructions = ({
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: userName,
+        username: username,
         type: move,
         direction: direction,
       }),
