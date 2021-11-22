@@ -1,28 +1,39 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { gamestate } from 'reducers/gamestate';
 
 import { fetchGameInstructions } from 'reducers/gamestate';
 
 
 export const StartPage = () => {
-    const StartPage = useSelector((store) => state.gamestate.username);
-    const dispatch = useDispatch();
+  const [username, setUsername] = useState('');
 
-    return (
-        <>
-          <h1>hello</h1>
-          <button
-            onClick={() => {
-              dispatch(fetchGameInstructions());
-            }}
-          >
-            FETCH COINS
-          </button>
-          {coins.map((item) => (
-            <p key={item.name}>{item.name}</p>
-          ))}
-        </>
-      );
-    };
-    
-  
+  const dispatch = useDispatch();
+
+  const setUsernameInStore = (event) => {
+    event.preventDefault();
+
+    dispatch(gamestate.actions.setUsername(username))
+
+    dispatch(fetchGameInstructions(username));
+
+  };
+
+  return (
+    <>
+      <form onSubmit={setUsernameInStore}>
+        <label>
+          Enter a Username:
+          <input
+            type="text"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+          />
+        </label>
+        <button type="submit">Let's go!</button>
+      </form>
+    </>
+  );
+};
+
