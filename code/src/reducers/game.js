@@ -31,3 +31,4 @@ export const gameStart = () => {
 //       fetchThoughts()
 //       setYourLikes((value) => value + 1)
 //     }, [])
+export default game;
