@@ -5,7 +5,7 @@ import { startGame } from 'reducers/game'
 
 export const StartPage = () => {
   const dispatch = useDispatch()
-  const username = useSelector(store => store.game.username)
+  // const username = useSelector(store => store.game.username)
 
   const [input, setInput] = useState('')
 
