@@ -1,12 +1,39 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { ui } from './ui'
 
+const initialState = {
+  username: '',
+  playerLocation: ''
+}
+
 export const game = createSlice({
   name: 'game',
-  initialState: {
-    username: 'player1'
-  },
-  reducers: {}
+  initialState,
+  reducers: {
+    submitUsername: (store, action) => {
+      console.log(action)
+
+      const input = action.payload
+
+      const selectedUsername = {
+        username: input
+      }
+      store.username = selectedUsername
+    },
+    setLocation: (store, action) => {
+      console.log(action)
+
+      const location = action.payload
+
+      const newLocation = {
+        username: location
+      }
+      store.playerLocation = newLocation
+    },
+    restart: () => {
+      return initialState
+    }
+  }
 })
 
 export const gameStart = () => {
@@ -31,4 +58,4 @@ export const gameStart = () => {
 //       fetchThoughts()
 //       setYourLikes((value) => value + 1)
 //     }, [])
-export default game;
+export default game

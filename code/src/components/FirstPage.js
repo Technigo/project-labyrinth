@@ -1,30 +1,32 @@
-import React, {useState} from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { game, gameStart } from "../reducers/game";
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
-// export const FirstPage = () => {
-//   const firstPage = useSelector((store) => store.action.payload);
-//   const dispatch = useDispatch();
-  
-  export const FirstPage = () => {
-    const [input, setInput] = useState ('')
-  
-    const dispatch = useDispatch();
-  
-    const onSubmitUsername = () => {
-      dispatch(game.actions.gameStart(input));
-      
-    };
-  
+import { LoadingIndicator } from './LoadingIndicator'
+
+import { game } from '../reducers/game'
+
+export const FirstPage = () => {
+  const [username, setUsername] = useState('')
+
+  const dispatch = useDispatch()
+
+  const onSubmitUsername = () => {
+    dispatch(game.actions.submitUsername(username))
+  }
+
   return (
     <>
-     <input 
-        type="text" 
-        value={input}
-        onChange={(event) => setInput(event.target.value)}
-        />
-      <button onClick={onSubmitUsername}>Submit</button>
+      <h1>Are you ready to trust the process?</h1>
+      <input
+        type="text"
+        value={username}
+        onChange={(event) => setUsername(event.target.value)}
+      />
+      <button disabled={username === ''} onClick={onSubmitUsername}>
+        Submit
+      </button>
+      <LoadingIndicator />
     </>
-  );
-};
-export default FirstPage;
+  )
+}
+export default FirstPage
