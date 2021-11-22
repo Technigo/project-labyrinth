@@ -32,17 +32,31 @@ const UpperBox = styled(Box)({
     height: "auto",
     borderRadius: "10px",
     color: "white",
-    padding: "2% auto",
+    padding: "2rem auto",
     '@media (min-width:768px)': {
         width: '60%'
     },
 });
 
-const DescriptiontWraper = styled(Box)({
+const TitleWraper = styled(Box)({
     display: 'flex',
     alignContent: "center",
     flexWrap: 'wrap',
-    margin: "7% auto",
+    margin: "1rem auto",
+    // background: "rgb(0 0 0 / 80%)",
+    width: "90%",
+    height: "auto",
+    color: "white",
+    borderRadius: "15px",
+    padding: "1rem",
+    justifyContent: "center",
+});
+
+const DescriptionWraper = styled(Box)({
+    display: 'flex',
+    alignContent: "center",
+    flexWrap: 'wrap',
+    margin: "1rem auto",
     background: "rgb(0 0 0 / 80%)",
     width: "90%",
     height: "auto",
@@ -57,8 +71,8 @@ const WhatToDoWraper = styled(Box)({
     flexDirection: 'column',
     alignContent: "center",
     flexWrap: 'wrap',
-    margin: "5% auto",
-    padding: "2%",
+    margin: "1rem auto",
+    padding: "1rem",
     justifyContent: "center",
 });
 
@@ -121,14 +135,16 @@ export const Options = () => {
     return (
         <UpperBox component="section">
             <ThemeProvider theme={theme}>
-                <Typography variant="h3" color="inherit" component="div">
-                    Coordinates:  {actualStep && actualStep.coordinates}
-                </Typography>
-                <DescriptiontWraper >
+                <TitleWraper>
+                    <Typography variant="h3" color="inherit" component="div">
+                        Coordinates:  {actualStep && actualStep.coordinates}
+                    </Typography>
+                </TitleWraper>
+                <DescriptionWraper>
                     <Typography variant="h6" color="inherit" component="div">
                         {actualStep && actualStep.description}
                     </Typography>
-                </DescriptiontWraper>
+                </DescriptionWraper>
                 <WhatToDoWraper>
                     {actualStep.actions.length !== 0 ?
                         <Typography variant="h5" color="inherit" component="div">
