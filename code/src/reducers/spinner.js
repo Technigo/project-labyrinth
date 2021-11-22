@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit'
 
 export const spinner = createSlice({
   name: 'spinner',
@@ -7,7 +7,7 @@ export const spinner = createSlice({
   },
   reducers: {
     setLoading: (state, action) => {
-      state.loading = action.payload;
+      state.loading = action.payload
     },
   },
-});
+})
