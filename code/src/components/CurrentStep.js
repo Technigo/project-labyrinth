@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { game, nextStep } from 'reducers/game'
-import styled from 'styled-components'
+import { nextStep } from 'reducers/game'
+// import styled from 'styled-components'
 
 export const CurrentStep = () => {
   const dispatch = useDispatch()
