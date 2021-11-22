@@ -5,6 +5,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 //reducers
 import { gamestate } from 'reducers/gamestate';
 import { ui } from 'reducers/ui';
+import { StartPage } from "components/StartPage";
 
 
 
@@ -19,6 +20,7 @@ const store = configureStore({ reducer });
 export const App = () => {
   return (
   <Provider store={store}>
+    <StartPage />
     </Provider>
   );
 };
