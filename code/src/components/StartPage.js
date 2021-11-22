@@ -37,7 +37,9 @@ export const StartPage = () => {
 					<button type="submit">Submit username</button>
 				</form>
 			)}
-			{username && <button onClick={fetchUsername}>Start</button>}
+			{username && (
+				<button onClick={() => dispatch(fetchUsername(username))}>Start</button>
+			)}
 		</>
 	);
 };
