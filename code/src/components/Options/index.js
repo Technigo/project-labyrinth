@@ -10,6 +10,9 @@ import {
     responsiveFontSizes,
     ThemeProvider,
 } from '@mui/material/styles';
+import Lottie from "react-lottie";
+import animationData from '../../lotties/congrats-success-batch';
+
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -49,6 +52,7 @@ const DescriptiontWraper = styled(Box)({
 
 const WhatToDoWraper = styled(Box)({
     display: 'flex',
+    flexDirection: 'column',
     alignContent: "center",
     flexWrap: 'wrap',
     margin: "5% auto",
@@ -70,8 +74,16 @@ const ButtonWrapperBox = styled(Box)({
 
 
 export const Options = () => {
-    const isLoading = useSelector(store => store.ui.isLoading)
-    const actualStep = useSelector(store => store.maze.actualStep)
+    const isLoading = useSelector(store => store.ui.isLoading);
+    const actualStep = useSelector(store => store.maze.actualStep);
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice"
+        }
+    };
 
     if (isLoading === true) {
         return <Loader />
@@ -94,11 +106,17 @@ export const Options = () => {
                     </Typography>
                 </DescriptiontWraper>
                 <WhatToDoWraper>
-                    <Typography variant="h5" color="inherit" component="div">
-                        {actualStep.actions.length !== 0 ?
-                            "What do you want to do?" :
-                            "You found the exit! Congratulations!"}
-                    </Typography>
+                    {actualStep.actions.length !== 0 ?
+                        <Typography variant="h5" color="inherit" component="div">
+                            What do you want to do?
+                        </Typography> :
+                        <>
+                            <Typography variant="h5" color="inherit" component="div">
+                                "You found the exit! Congratulations!"
+                            </Typography>
+                            <Lottie options={defaultOptions} height={200} width={200} />
+                        </>
+                    }
                 </WhatToDoWraper>
                 <ButtonWrapperBox />
                 {actualStep.actions.length !== 0 && actualStep.actions.map(action => {
@@ -106,6 +124,6 @@ export const Options = () => {
                 })}
                 <ButtonWrapperBox />
             </ThemeProvider>
-        </UpperBox>
+        </UpperBox >
     )
 }
