@@ -20,7 +20,7 @@ export const quest = createSlice({
   },
 });
 
-export const fetchData = () => {
+export const fetchInitialData = () => {
   return (dispatch, getState) => {
     const state = getState();
     dispatch(ui.actions.setLoading(true));
@@ -30,12 +30,48 @@ export const fetchData = () => {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username: `${state.player}` }),
+      body: JSON.stringify({ username: state.quest.player }),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status >= 400) {
+          throw new Error();
+        }
+        return res.json();
+      })
       .then((json) => {
         dispatch(quest.actions.selectData(json));
         dispatch(ui.actions.setLoading(false));
+      })
+      .catch((error) => {
+        dispatch(ui.actions.setError(true));
+      });
+  };
+};
+
+export const fetchNavigationData = ({ type, direction }) => {
+  return (dispatch, getState) => {
+    const state = getState();
+    dispatch(ui.actions.setLoading(true));
+    fetch("https://wk16-backend.herokuapp.com/action", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username: state.quest.player, type, direction }),
+    })
+      .then((res) => {
+        if (res.status >= 400) {
+          throw new Error();
+        }
+        return res.json();
+      })
+      .then((json) => {
+        dispatch(quest.actions.selectData(json));
+        dispatch(ui.actions.setLoading(false));
+      })
+      .catch((error) => {
+        dispatch(ui.actions.setError(true));
       });
   };
 };
