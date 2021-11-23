@@ -39,9 +39,8 @@ export const fetchStartGame = () => {
   };
 };
 
-export const continueGame = (type, direction) => {
-  return (dispatch, getState) => {
-    const state = getState();
+export const continueGame = (username, direction) => {
+  return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
     fetch("https://wk16-backend.herokuapp.com/action", {
       method: "POST",
@@ -49,9 +48,9 @@ export const continueGame = (type, direction) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: `${state.game.username}`,
-        type: type,
-        direction: direction,
+        username,
+        type: "move",
+        direction,
       }),
     })
       .then((res) => res.json())
