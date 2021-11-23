@@ -1,10 +1,15 @@
 import React from "react";
-import { InitialPage } from "./InitialPage";
+import { useSelector } from "react-redux";
+import { UsernameScreen } from "../screens/UsernameScreen";
+import { GameScreen } from "screens/GameScreen";
 
 export const Main = () => {
+  const currentScreen = useSelector((store) => store.screen.currentScreen);
+
   return (
-    <section>
-      <InitialPage />
-    </section>
+    <>
+      {currentScreen === "username" && <UsernameScreen />}
+      {currentScreen === "game" && <GameScreen />}
+    </>
   );
 };

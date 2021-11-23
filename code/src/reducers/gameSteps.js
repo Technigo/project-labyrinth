@@ -8,26 +8,26 @@ export const gameSteps = createSlice({
     gameStepList: [],
   },
   reducers: {
-    setGameStep: (state, action) => {
-      state.gameStepList = action.payload;
+    setGameStep: (store, action) => {
+      store.gameStepList = action.payload;
     },
-    setUsername: (state, action) => {
+    setUsername: (store, action) => {
       const { username } = action.payload;
-      state.username = username;
+      store.username = username;
     },
   },
 });
 
-export const fetchGameData = (username) => {
+export const fetchGameData = (name) => {
   return (dispatch) => {
     fetch(STARTGAMEAPI, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(username),
+      body: JSON.stringify({ username: name }),
     })
       .then((results) => results.json())
       .then((json) => {
-        dispatch(gameSteps.actions.setGameStep(json));
+        console.log(json);
       });
   };
 };
