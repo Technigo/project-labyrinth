@@ -6,6 +6,8 @@ export const Maze = () => {
   const maze = useSelector((store) => store.maze.mazeMessage)
   const dispatch = useDispatch()
 
+  console.log("maze", maze)
+
   return (
     <>
         <h1>Welcome to the maze</h1>

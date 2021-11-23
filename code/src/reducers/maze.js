@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-// import { START_URL } from "../utils/urls"
+import { START_URL } from "../utils/urls"
 
 export const maze = createSlice({
     name: "maze",
@@ -9,7 +9,7 @@ export const maze = createSlice({
     },
     reducers: {
       setMazeMessage: (state, action) => {
-        state.MazeMessage = action.payload
+        state.mazeMessage = [action.payload]
       }
     }
   })
@@ -27,7 +27,7 @@ export const maze = createSlice({
           "username": "ReadyTechnigoPlayerOne",
         }),
       }
-        fetch('https://wk16-backend.herokuapp.com/start', options)
+        fetch(START_URL, options)
         .then((res) => res.json())
         .then((json) => {
             dispatch(maze.actions.setMazeMessage(json))
