@@ -4,6 +4,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
 import { game } from './reducers/game';
 import StartPage from './components/StartPage';
+import MainGame from './components/MainGame';
 import LoadingSpinner from './components/LoadingSpinner';
 import { spinner } from 'reducers/spinner';
 
@@ -20,8 +21,7 @@ export const App = () => {
     <Provider store={store}>
       <LoadingSpinner />
       <StartPage />
-      {/* Kanske kan vi ha hela spelet i en sida, annars har jag förberett för en action-page för de olika "dragen" spelaren gör efter att ha startat spelet */}
-      {/* <ActionsPage /> */}
+      <MainGame />
     </Provider>
   );
 };

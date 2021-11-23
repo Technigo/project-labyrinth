@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchStartGame, game } from '../reducers/game'
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchGame, game } from '../reducers/game';
 
 const StartPage = () => {
-  const newGame = useSelector((store) => store.game.gameArray)
-  const dispatch = useDispatch()
+  const [name, setName] = useState('');
+  // const newGame = useSelector((store) => store.game.gameObject);
+  const dispatch = useDispatch();
   // console logen visar initial state som empty array från början, och när en klickar start-knappen så kommer svaret från APIn.
-  console.log(newGame)
+  // console.log(newGame);
 
   // använda useState för att spara userName, ihopkopplad med input value och onchange på rad 25-26
   // const [userName, setUserName] = useState('')
@@ -22,21 +23,27 @@ const StartPage = () => {
   //   userName('')
   // }
 
+  const onNameSubmit = (name) => {
+    dispatch(game.actions.setUserName(name));
+  };
+
+  const onSetName = (event) => {
+    setName(event.target.value);
+  };
+
   return (
     <section>
-      {/* <input
-        type='text'
-        // value={userName}
-        // onChange={(event) => setUserName(event.target.value)}
-      /> */}
+      <input type='text' value={name} onChange={onSetName} />
 
       <button
         onClick={() => {
-          dispatch(fetchStartGame())
+          onNameSubmit(name);
+          dispatch(fetchGame(name));
         }}
       >
         Start
       </button>
+
       {/* <p>{userName}</p> */}
 
       {/* Här försökte jag displaya informationen som vi får tillbaka från APIn, men lyckades inte. */}
@@ -55,7 +62,7 @@ const StartPage = () => {
         <p key={item.description}>{item.description}</p>
       ))} */}
     </section>
-  )
-}
+  );
+};
 
-export default StartPage
+export default StartPage;
