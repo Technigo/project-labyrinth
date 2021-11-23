@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import img from '../img/forest-background.jpeg';
+
 import { gamestate, directionAnswer } from '../reducers/gamestate'
 
 import styled from 'styled-components';
@@ -21,9 +21,9 @@ export const GamePage = () => {
     }
 
     return (
-        // <GameBackground>
-        // <img src={img} alt="forest-img">
-    
+        <>
+        <GameBackground backgroundImage={"../assets/img/image.png"}>
+
         <GameCard>
            {gameStatus.description}
            {gameStatus.actions && gameStatus.actions.map((item, index) => ( //&& check if gameStatus is undefined. if false don't go further in game.
@@ -39,32 +39,34 @@ export const GamePage = () => {
         </div>
       ))}
       <button
-        onClick={onRestartGame}>Restart game
-        </button>
+        onClick={onRestartGame}>Restart game</button>
         </GameCard>
-        // </GameBackground>
+        </GameBackground>
+        </>
     )
 }
 
-
-export const GameBackground = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-background-color: red;
-img {
+const GameBackground = styled.div`
 width: 100%;
 height: 100vh;
-}
+background-image: url("${props => props.backgroundImage}");
+background-size: cover;
+background-position: center;
 `
 
-export const GameCard = styled.section`
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-width: 100%;
-height: 100vh;
+const GameCard = styled.section`
+max-width:700px;
+max-height: 200px;
+position: absolute;
+margin: auto;
+left: 0;
+right: 0;
+top: 0;
+bottom: 0;
+background-color: #000;
+opacity: 0.5;
+padding: 20px;
 text-align: center;
+color: #fff;
 font-family: 'Philosopher', sans-serif;
 `
