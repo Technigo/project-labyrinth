@@ -26,11 +26,11 @@ export const GameScreen = () => {
     <GameQuestionContainer>
       <div></div>
       <QuestionWrapper>
-        {lastMove && <p>You went {lastMove}.</p>}
+        {lastMove && <LastMove>You went {lastMove}.</LastMove>}
         <QuestionDescription>{game.description}</QuestionDescription>
         {game.actions.map((action) => {
           return (
-            <div key={action.direction}>
+            <OptionsContainer key={action.direction}>
               <OptionDescription>{action.description}</OptionDescription>
               <MoveButton
                 onClick={() => {
@@ -45,16 +45,15 @@ export const GameScreen = () => {
               >
                 Go {action.direction}
               </MoveButton>
-            </div>
+            </OptionsContainer>
           );
         })}
+        {game.actions.length === 0 && (
+          <div>
+            Congratulations you finished the game in {gameHistory.length} moves!
+          </div>
+        )}
       </QuestionWrapper>
-
-      {game.actions.length === 0 && (
-        <div>
-          Congratulations you finished the game in {gameHistory.length} moves!
-        </div>
-      )}
     </GameQuestionContainer>
   );
 };
@@ -86,6 +85,11 @@ const QuestionWrapper = styled.div`
   min-height: 250px;
 `;
 
+const OptionsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 const MoveButton = styled.button`
   font-family: "Raleway", sans-serif;
   background-color: transparent;
@@ -100,4 +104,8 @@ const OptionDescription = styled.span`
   text-align: center;
   margin-top: 20px;
   font-size: 14px;
+`;
+
+const LastMove = styled.p`
+  font-size: 18px;
 `;

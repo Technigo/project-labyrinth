@@ -20,7 +20,6 @@ export const gameSteps = createSlice({
     setGameHistory: (store, action) => {
       const { direction } = action.payload;
       store.gameHistory = [...store.gameHistory, direction];
-      console.log("store.gamehistory", store.gameHistory);
     },
   },
 });
