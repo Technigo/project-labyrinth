@@ -1,24 +1,25 @@
-import React from "react";
+import React from 'react';
 
-export const Switcher = () => {
-  switch (currentStep.coordinates) {
-    case "0,0":
-      return <MainGame />;
+// useSelector game
+export const Switcher = (coordinates) => {
+  switch (coordinates) {
+    case '0,0':
+      return 'archway';
 
-    case "1,0":
-      return <MainGame />;
-    case "1,1":
-      return <MainGame />;
+    case '1,0':
+      return 'ceiling';
+    case '1,1':
+      return 'colorfulCavernWall';
 
-    case "0,1":
-      return <MainGame />;
-    case "0,2":
-      return <MainGame />;
-    case "0,3":
-      return <MainGame />;
-    case "1,3":
-      return <MainGame />;
+    case '0,1':
+      return '4walledRoom';
+    case '0,2':
+      return 'changingColor';
+    case '0,3':
+      return 'chestPaper';
+    case '1,3':
+      return 'endGame';
     default:
-      return <MainGame />;
+      return 'error';
   }
 };
