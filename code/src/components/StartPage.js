@@ -72,6 +72,9 @@ const UserNameInput = styled.input`
     font-family: "Chakra Petch", sans-serif;
     font-style: italic;
   }
+  @media (min-width: 768px) {
+    width: 45vw;
+  }
 `;
 
 const StartPage = () => {
