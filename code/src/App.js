@@ -1,9 +1,22 @@
 import React from 'react'
+import { Provider } from 'react-redux'
+import { configureStore, combineReducers } from '@reduxjs/toolkit'
 
+import ui from './reducers/ui'
+import { game } from './reducers/game'
+
+const reducer = combineReducers({
+  ui: ui.reducer,
+  game: game.reducer
+})
+
+const store = configureStore({ reducer })
+
+//we still need to import the loading indicator <LoadingSpinner />
 export const App = () => {
   return (
-    <div>
-      Find me in src/app.js!
-    </div>
+    <Provider store={store}>
+
+    </Provider>
   )
 }

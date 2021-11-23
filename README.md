@@ -1,4 +1,10 @@
 ## ToDo
+
+- configuring the Browserrouter in App.js (Aschwin)
+- creating slices for the store (Birgit)
+
+
+
 ## **🔵 Blue Level (Minimum Requirements)**
 
 - Your page should be responsive.
