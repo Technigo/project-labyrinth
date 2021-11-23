@@ -6,10 +6,10 @@ import { labyrinth } from './reducers/description';
 
 import { StartPage } from 'components/StartPage';
 import { Description } from 'components/Description';
+import { LoadingLottie } from 'components/Lottie';
 
 const reducer = combineReducers({
   labyrinth: labyrinth.reducer
-  /*   loader: loader.reducer, */
 });
 
 const store = configureStore({ reducer });
@@ -19,6 +19,7 @@ export const App = () => {
     <Provider store={store}>
       <StartPage />
       {/* <Description /> */}
+      <LoadingLottie />
     </Provider>
   );
 };
