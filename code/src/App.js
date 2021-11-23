@@ -5,6 +5,8 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
 import { FirstPage } from './components/FirstPage'
 import { LoadingIndicator } from './components/LoadingIndicator'
+// import { GameStartPage } from './components/GameStartPage'
+
 
 import { ui } from 'reducers/ui'
 import { game } from 'reducers/game'
@@ -20,6 +22,7 @@ export const App = () => {
   return (
     <Provider store={store}>
       <FirstPage />
+      {/* <GameStartPage /> */}
       <LoadingIndicator />
     </Provider>
   )
