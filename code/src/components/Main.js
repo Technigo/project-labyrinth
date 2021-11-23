@@ -35,21 +35,22 @@ export const MainPage = () => {
           />
           <button onClick={onGameStart}>Start game</button>
         </div>
-
-        <div>{response.description}</div>
+        <h1>{response.description}</h1>
         {response.actions !== undefined && (
-          <div>
-            {actions.map((action) => (
-              <div key={action.description}>
-                <button
-                  onClick={() => onButtonClick(action.type, action.direction)}
-                >
-                  Move {action.direction}
-                </button>
-                <p>{action.description}</p>
-              </div>
-            ))}
-          </div>
+          <>
+            <div>
+              {actions.map((action) => (
+                <div key={action.description}>
+                  <button
+                    onClick={() => onButtonClick(action.type, action.direction)}
+                  >
+                    Move {action.direction}
+                  </button>
+                  <p>{action.description}</p>
+                </div>
+              ))}
+            </div>
+          </>
         )}
       </>
     )

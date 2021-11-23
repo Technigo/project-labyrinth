@@ -5,9 +5,11 @@
 5. Perform a POST request based on the action selected
 6. Handle the response from the `POST /action` to update the game state
 
-
-1- Postman 
+1- Postman
 2- Username component to fetch the data from Postman
-3- Button to start the game with the username 
+3- Button to start the game with the username
 4- Loading component and ui reducer for loading component
 
+---
+
+Jamie said to capture options (button) and then map trough them.

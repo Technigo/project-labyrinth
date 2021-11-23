@@ -12,11 +12,7 @@ export const labyrinth = createSlice({
     setusername: (state, action) => {
       state.username = action.payload
     },
-    // received as payload containing the starting data.
-    // setInitialData: (state, action) => {
-    //   state.content = action.payload
-    //   localStorage.setItem("labyrinth", JSON.stringify(action.payload))
-    // },
+
     setResponse: (state, action) => {
       state.response = action.payload
     },
@@ -45,7 +41,7 @@ export const fetchInitialData = (username) => {
 }
 
 export const continueLabyrinth = (type, direction) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     dispatch(ui.actions.setLoading(true))
     fetch(`https://wk16-backend.herokuapp.com/action`, {
       method: "POST",
@@ -53,7 +49,7 @@ export const continueLabyrinth = (type, direction) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // username: username,
+        username: getState().labyrinth.username,
         type: type,
         direction: direction,
       }),
