@@ -10,6 +10,8 @@ export const GameContainer = () => {
   const gameStatus = useSelector((store) => store.gamestate.gameStatus);
   const loader = useSelector((store) => store.gamestate.isLoading);
 
+//stackoverflow: https://stackoverflow.com/questions/48224862/how-to-create-loader-spin-for-react-redux/48225371
+
   return (
     <>
       {loader ? <LoadingIndicator/> : 
@@ -20,9 +22,7 @@ export const GameContainer = () => {
           )}
           {gameStatus.coordinates === "1,3" && (
           <>
-            <TheEndGame description = {gameStatus.description} />
-						<p>{gameStatus.description}</p>
-            <button onClick={() => window.location.reload()}>Restart</button>
+            <TheEndGame/>
           </> )}
         </div>
       }     
