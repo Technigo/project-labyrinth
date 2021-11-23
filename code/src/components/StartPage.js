@@ -4,6 +4,8 @@ import { startGame } from "reducers/game";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
+import labyrith from "../images/labyrinth.jpg";
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -12,10 +14,6 @@ const Container = styled.div`
   width: 300px;
   padding: 10px;
   margin: 0 auto;
-`;
-
-const Header = styled.h1`
-  font-size: 20px;
 `;
 
 const SmallHeader = styled.h2`
@@ -30,9 +28,15 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  width: 100px;
+  width: 130px;
   height: 30px;
   border-radius: 6px;
+  font-family: IBM Plex Mono;
+  font-weight: bold;
+`;
+
+const HeaderImage = styled.img`
+  width: 150px;
 `;
 
 export const StartPage = () => {
@@ -47,24 +51,26 @@ export const StartPage = () => {
     dispatch(startGame(input));
   };
 
-  const onKeyDown = e => {
-    if (e.key === 'Enter') {
-      onStartGame()
+  const onKeyDown = (e) => {
+    if (e.key === "Enter") {
+      onStartGame();
     }
-  }
+  };
 
   return (
     <div>
       <Container>
-        <Header>Let's play Labyrinth!</Header>
+        <HeaderImage src={labyrith} />
+
         <SmallHeader>What's your name?</SmallHeader>
+
         <Input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={onKeyDown}
         />
-        <Button disabled={input === ""} onClick={onStartGame} >
+        <Button disabled={input === ""} onClick={onStartGame}>
           Start game!
         </Button>
       </Container>

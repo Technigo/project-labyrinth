@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import { game } from './reducers/game'
 import { ui } from './reducers/ui'
+import { Header } from './components/Header'
 import { StartPage } from './components/StartPage'
 import { CurrentStep } from './components/CurrentStep'
 
@@ -34,6 +35,7 @@ const store = configureStore({ reducer })
 export const App = () => {
   return (
     <Provider store={store}>
+      <Header/>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<StartPage/>} />
