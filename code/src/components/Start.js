@@ -5,33 +5,36 @@ import { game, fetchStartPosition } from "../reducers/game"
 
 // startar spelet genom inmatning av namn + klicka start
 export const Start = () => {
-  const [userName, setUserName] = useState("")
+  const [player, setPlayer] = useState("")
 
   const dispatch = useDispatch()
 
-  const onNameinput = () => {
-    dispatch(game.actions.setUserName(userName))
+  const onNameinput = (event) => {
+    event.preventDefault()
+    dispatch(game.actions.setPlayer(player))
+
     // dispatch(fetchStartPosition(userName))
   }
 
   // function for onChange
   const onUserNameChange = (event) => {
-    setUserName(event.target.value)
+    // event.preventDefault()
+    setPlayer(event.target.value)
   }
 
-  console.log("USERNAME", userName)
+  console.log("USERNAME", player)
 
   return (
     // onFormSubmit, uppdatera store
     <>
-      <form>
-        <input type="text" value={userName} onChange={onUserNameChange} />
+      <form onSubmit={onNameinput}>
+        <input type="text" value={player} onChange={onUserNameChange} />
         {/* tar oss vidare till spelet */}
-        <button type="submit" onSubmit={onNameinput}>
+        {/* <button type="submit" onSubmit={onNameinput}>
           SUBMIT NAME
-        </button>
+        </button> */}
       </form>
-      <p> hello {userName}</p>
+      <p> hello {player}</p>
     </>
   )
 }

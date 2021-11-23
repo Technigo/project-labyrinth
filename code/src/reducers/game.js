@@ -9,20 +9,21 @@ export const game = createSlice({
   reducers: {
     // när store och state?
     setUserName: (state, action) => {
-      state.username = action.payload
+      state.userName = action.payload
     },
   },
 })
 
-export const fetchStartPosition = (username) => {
-  return (dispatch) => {
+export const fetchStartPosition = () => {
+  return (dispatch, getState) => {
+    const state = getState()
     dispatch(ui.actions.setLoading(true))
     fetch("https://wk16-backend.herokuapp.com/start", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username: username }),
+      body: JSON.stringify({ username: `${state.game.userName}` }),
     })
       .then((res) => res.json())
       .then((data) => {

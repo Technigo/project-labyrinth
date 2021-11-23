@@ -8,7 +8,7 @@ export const Game = () => {
   const startData = useSelector((store) => store.game.userName)
   // const nextMove = useSelector((store) => store.game.userName.actions)
   const dispatch = useDispatch()
-  console.log("ACTIONS", startData.actions)
+  console.log("ACTIONS", startData)
   return (
     <>
       <div>
