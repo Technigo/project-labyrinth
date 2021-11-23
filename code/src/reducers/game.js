@@ -5,21 +5,28 @@ import { ui } from "./ui";
 
 export const game = createSlice({
   name: "game",
+  username: "",
   initialState: {
     moves: [],
+    history: [],
   },
   reducers: {
     nextMove: (store, action) => {
       store.moves = action.payload;
+      store.history = [...store.history, action.payload];
+    },
+
+    addUserName: (store, action) => {
+      store.username = action.payload;
     },
   },
 });
 
-export const fetchGame = () => {
+export const fetchGame = (username) => {
   const options = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username: "Lightwarrior" }),
+    body: JSON.stringify({ username }),
   };
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
@@ -31,13 +38,13 @@ export const fetchGame = () => {
       });
   };
 };
-export const FetchNextMove = (direction) => {
+export const FetchNextMove = (direction, username) => {
   const options = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      username: "Lightwarrior",
-      direction: direction,
+      username,
+      direction,
       type: "move",
     }),
   };

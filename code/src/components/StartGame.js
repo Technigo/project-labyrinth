@@ -1,17 +1,19 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchGame } from "../reducers/game";
+import { useSelector } from "react-redux";
+
 import Game from "components/Game";
+import Username from "components/Username";
+import { Loading } from "./Loading";
 
 const StartGame = () => {
-  const dispatch = useDispatch();
-  const story = useSelector((store) => store.game.moves);
-  console.log(story);
+  const userName = useSelector((store) => store.game.username);
+  const loading = useSelector((store) => store.ui.loading);
+
   return (
-    <div>
-      <button onClick={() => dispatch(fetchGame())}>Start Game</button>
-      <Game />
-    </div>
+    <>
+      {loading && <Loading />}
+      {!userName ? <Username /> : <Game />}
+    </>
   );
 };
 export default StartGame;

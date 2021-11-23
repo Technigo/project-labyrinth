@@ -1,6 +1,7 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { useSelector } from "react-redux";
 
 import StartGame from "components/StartGame";
 import { game } from "./reducers/game";
@@ -17,7 +18,6 @@ const store = configureStore({ reducer });
 export const App = () => {
   return (
     <Provider store={store}>
-      <Loading />
       <StartGame />
     </Provider>
   );
