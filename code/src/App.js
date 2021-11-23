@@ -1,6 +1,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit' //createStore
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import { game } from './reducers/game'
 import { ui } from './reducers/ui'
@@ -33,8 +34,12 @@ const store = configureStore({ reducer })
 export const App = () => {
   return (
     <Provider store={store}>
-      <StartPage />
-      <CurrentStep />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<StartPage/>} />
+          <Route path="/game" element={<CurrentStep/>} />
+        </Routes>
+      </BrowserRouter>
     </Provider>
   )
 }
