@@ -1,22 +1,44 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { StartGame } from './StartGame';
+import { continueGame } from 'reducers/start';
+import { End } from './End';
 
-const Labyrinth = () => {
-  const response = useSelector(state => state.start.response);
-  const coordinates = useSelector(state => state.start.response.coordinates);
+export const Labyrinth = () => {
+  const dispatch = useDispatch();
 
-  // const isEmpty = obj => {
-  //   for (var prop in obj) {
-  //     if (obj.hasOwnProperty(prop)) {
-  //       return false;
-  //     }
-  //   }
-  //   return JSON.stringify(obj) === JSON.stringify({});
-  // };
+  const coordinates = useSelector(store => store.start.coordinates);
+  const gameDescription = useSelector(store => store.start.description);
+  const gameActions = useSelector(store => store.start.actions);
+  const username = useSelector(store => store.start.username);
 
-  return <main coordinates={coordinates}>{/* <Loading /> */}</main>;
+  const onMove = direction => {
+    dispatch(continueGame(username, direction));
+  };
+
+  console.log(gameDescription);
+  return (
+    <>
+      {coordinates === '1,3' && <End gameDescription={gameDescription} />}
+      {username && (
+        <container>
+          <div>
+            <div>
+              <h3>{gameDescription}</h3>
+              <div>
+                {gameActions.map((choice, index) => (
+                  <div key={index}>
+                    <h4>{choice.description}</h4>
+                    <button onClick={() => onMove(choice.direction)}>
+                      Go {choice.direction}
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </container>
+      )}
+    </>
+  );
 };
-
-export default Labyrinth;
