@@ -18,7 +18,7 @@ export const LandingPage = () => {
   return (
     <form onSubmit={(e) => createHeroName(e)}>
       <h1>Start your adventure!</h1>
-      <h2>Tell us your name, Hero!</h2>
+      <h2>Tell us your name, Hero.</h2>
       <input type="text" onChange={(e) => setName(e.target.value)}></input>
       {error && <div>please fill in your hero name</div>}
     </form>

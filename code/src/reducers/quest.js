@@ -6,6 +6,7 @@ export const quest = createSlice({
   initialState: {
     player: "",
     items: [],
+    moveHistory: [],
   },
   reducers: {
     selectData: (state, action) => {
@@ -16,6 +17,10 @@ export const quest = createSlice({
       const playerName = action.payload;
       state.player = playerName;
       console.log("playersName", playerName);
+    },
+    setHistory: (state, action) => {
+      state.moveHistory.push(action.payload);
+      console.log("moveHistory", action.payload);
     },
   },
 });
@@ -51,6 +56,7 @@ export const fetchInitialData = () => {
 export const fetchNavigationData = ({ type, direction }) => {
   return (dispatch, getState) => {
     const state = getState();
+    dispatch(quest.actions.setHistory(direction));
     dispatch(ui.actions.setLoading(true));
     fetch("https://wk16-backend.herokuapp.com/action", {
       method: "POST",

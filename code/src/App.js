@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { ui } from "./reducers/ui";
 import { quest } from "./reducers/quest";
 
@@ -14,7 +14,18 @@ const reducer = combineReducers({
   quest: quest.reducer,
 });
 
-const store = configureStore({ reducer });
+const persistedStateJSON = localStorage.getItem("reduxState");
+let persistedState = {};
+
+if (persistedStateJSON) {
+  persistedState = JSON.parse(persistedStateJSON);
+}
+
+const store = configureStore({ reducer, preloadedState: persistedState });
+
+store.subscribe(() => {
+  localStorage.setItem("reduxState", JSON.stringify(store.getState()));
+});
 
 export const App = () => {
   return (

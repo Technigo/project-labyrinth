@@ -4,7 +4,7 @@ import { fetchInitialData, fetchNavigationData } from "../reducers/quest";
 import { LoadingIndicator } from "./LoadingIndicator";
 import { GameOver } from "./GameOver";
 
-export const Quest = () => {
+export const QuestBody = () => {
   const quest = useSelector((store) => store.quest.items);
   const player = useSelector((store) => store.quest.player);
   const currentQuest = quest[quest.length - 1];
@@ -26,12 +26,7 @@ export const Quest = () => {
 
   return (
     <>
-      <h1>
-        <span className="highlight" aria-label="decoration">
-          {player}'s
-        </span>{" "}
-        quest.
-      </h1>
+      <p>{player}'s quest.</p>
       <div>
         <p>{currentQuest.description}</p>
 
