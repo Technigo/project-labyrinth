@@ -1,5 +1,4 @@
 import React from 'react'
-/* import { useDispatch } from 'react-redux' */
 
 const LandingPage = () => {
   //Here we need a text-input and a button (onClick = dispatching (setUserName))
