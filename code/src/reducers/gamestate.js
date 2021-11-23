@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-//import { ui } from "./ui";
+import { ui } from "./ui";
 
-export const gamestate = createSlice({
-  name: 'gamestate',
+export const gamestate  = createSlice({
+  name: 'gamestate ',
   initialState: {
-		userName: '',
+		username: '',
     gameStatus: {},
-    loading: false,
-    history: []
+		isLoading: false,
+    //history: []
   },
   reducers: {
     setUsername: (state, action) => {
@@ -17,42 +17,41 @@ export const gamestate = createSlice({
       state.gameStatus= action.payload;
     },  
     setLoading: (state, action) => {
-      state.loading = action.payload;
+      state.isLoading = action.payload;
     },
     setRestartGame: (state) => {
-      state.userName = '';
+      state.username = '';
       state.gameStatus = {}; 
     }
   }
 });
 
-export const fetchGame = () => {
+export const fetchGame = (username) => {
   return (dispatch) => {
-    // dispatch(ui.actions.setLoading(true));
+    dispatch(ui.actions.setLoading(true));
     fetch('https://wk16-backend.herokuapp.com/start', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }, 
-      body: JSON.stringify({ username: 'TechnigoPlayer'}),
+      body: JSON.stringify({ username: username}),
     })
       .then((res) => res.json())
       .then((json) => {
         dispatch(gamestate.actions.setGameStatus(json));
-        //dispatch(ui.actions.setLoading(false));
+        dispatch(ui.actions.setLoading(false));
       });
   };
 };
 
-export const nextMove = () => {
+export const nextMove = (username, direction) => {
   return (dispatch) => {
-
     fetch('https://wk16-backend.herokuapp.com/action', {
       method: "POST",
       headers: { 'Content-Type': 'application/json' }, 
-      body: JSON.stringify({ username: '', type: 'move', direction: '' }),
+      body: JSON.stringify({ username, type: 'move', direction }),
     })
       .then((res) => res.json())
       .then((json) => {
-        dispatch(gamestate.actions.setGameStatus) //add reducer in the end
+        dispatch(gamestate.actions.setGameStatus(json)) //add reducer in the end
       })
       .finally(() => dispatch(gamestate.actions.setLoading(false)))
   };
