@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchGameInstructions } from 'reducers/game';
-import styled from 'styled-components';
-import { useWindowSize } from '@react-hook/window-size';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { fetchGameInstructions } from "reducers/game";
+import styled from "styled-components/macro";
+import { useWindowSize } from "@react-hook/window-size";
 
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 const GameBox = styled.div`
   height: ${(props) => props.hgt}px;
   width: ${(props) => props.wid}px;
-  background-image: url('https://media.giphy.com/media/xT0xePQA4e8tTvFWta/giphy.gif');
-  background-no-repeat: no-repeat;
+  background-image: url("https://media.giphy.com/media/xT0xePQA4e8tTvFWta/giphy.gif");
+  background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -22,8 +22,8 @@ const GameBox = styled.div`
   color: white;
 
   h1 {
-    font-size: 0.6em;
-    font-family: 'Libre Baskerville', serif;
+    font-size: 1em;
+    font-family: "Libre Baskerville", serif;
   }
 `;
 
@@ -34,6 +34,7 @@ const DescriptionBox = styled.div`
   width: 70%;
   height: auto;
   padding: 2em;
+  align-items: center;
 `;
 
 const TextBox = styled.div`
@@ -44,12 +45,16 @@ const TextBox = styled.div`
   height: auto;
   padding: 2em;
 
+  .step-container {
+    margin: 20px 0px;
+  }
+
   .btn-home {
     margin: 10px auto;
     width: 250px;
     letter-spacing: 2px;
     border-radius: 8px;
-    font-family: 'Libre Baskerville', serif;
+    font-family: "Libre Baskerville", serif;
     color: #ffc000;
     font-size: 18px;
     font-weight: 400;
@@ -76,13 +81,14 @@ const TextBox = styled.div`
 `;
 
 const NextStepText = styled.p`
-	&.show
-	font-size: 1em;
-  margin: 0px 0px 10px 0px;
+  &.show {
+    font-size: 1em;
+    margin: 0px 0px 10px 0px;
+  }
 
-	&.hide {
-		display: none;
-	}
+  &.hide {
+    display: none;
+  }
 `;
 
 export const MainGame = () => {
@@ -101,10 +107,10 @@ export const MainGame = () => {
         <h1>{gameList.description}</h1>
         <TextBox>
           {gameList.actions.map((item, index) => (
-            <div key={item.direction} className=''>
+            <div key={item.direction} className="step-container">
               <NextStepText>{item.description}</NextStepText>
               <button
-                className='btn-home'
+                className="btn-home"
                 key={item.description}
                 onClick={() => {
                   onToggleClass();
