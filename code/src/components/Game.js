@@ -3,24 +3,26 @@ import { useDispatch, useSelector } from 'react-redux'
 import { startThunk, actionThunk, game } from '../reducers/game'
 
 export const Game = () => {
-    const gameInformation = useSelector((store)=> store.game)
     const dispatch = useDispatch()
-
-    const[newUserName,setNewUserName] = useState('')     
+    const gameInformation = useSelector((store)=> store.game)
+    const[newUserName,setNewUserName] = useState('')   
+    const [showBeginning, setShowBeginning] = useState(true)
     
-    {/*const onStart=()=> {
-        console.log('onStartFunction')
+    const onStart = () => {
         dispatch(startThunk(newUserName))
         dispatch(game.actions.setUserName(newUserName))
-    }*/}
+        setShowBeginning(false)
+    } // a function to start the game and invoke the first Thunk whilst setting the username
     
     const onAction = (action) => {
         dispatch(actionThunk(newUserName, action))
-    }
+    } // a function to continue the game, invoking the second thunk (and API), with user name and action arguments 
 
     return (
         <>
-        <form >
+        {showBeginning && (
+
+            <form onSubmit={() => onStart()}>
             <input
             type="text"
             placeholder="Your User Name"
@@ -28,28 +30,31 @@ export const Game = () => {
             value={newUserName}>
             </input>
             <button 
-                onClick={() => dispatch(startThunk(newUserName))}
+                
                 
                 type= 'submit'
                 >Start The Game </button>
+
+            </form>
+        )}
         
-        </form>
             
 
-         <div>
-            {gameInformation.description}
-            {gameInformation.actions.map((action) => (
-              <button 
-                key={action.description} 
-                onClick={() => onAction(action)}
-              >
-            
-                {action.type} {action.direction}
-              </button>
-            ))}
+        
+            {!showBeginning && (
+                 <div>
+                {gameInformation.description}
+                {gameInformation.actions.map((action) => (
+                  <button 
+                    key={action.description} 
+                    onClick={() => onAction(action)}>
+                    {action.type} {action.direction}
+                  </button>
+                ))}
+                </div> 
+            )}
 
-
-         </div>       
+             
         </>
     )
 }
