@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { fetchGame, game } from 'reducers/game';
+import { game } from 'reducers/game';
 import { useDispatch } from 'react-redux';
 import { StartPage } from './StartPage';
 
@@ -10,7 +10,7 @@ const RestartBtn = styled.button`
   position: absolute;
   top: 70%;
 `;
-const RestartButton = ({}) => {
+const RestartButton = () => {
   const dispatch = useDispatch();
 
   const onNameSubmit = (name) => {
