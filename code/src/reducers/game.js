@@ -4,8 +4,8 @@ import { ui } from "./ui";
 export const game = createSlice({
   name: "game",
   initialState: {
+    gameList: {},
     username: "",
-    gameList: [],
   },
   reducers: {
     setGameList: (state, action) => {
@@ -39,7 +39,7 @@ export const fetchStartGame = () => {
   };
 };
 
-export const continueGame = () => {
+export const continueGame = (type, direction) => {
   return (dispatch, getState) => {
     const state = getState();
     dispatch(ui.actions.setLoading(true));
@@ -48,7 +48,11 @@ export const continueGame = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username: `${state.game.username}` }),
+      body: JSON.stringify({
+        username: `${state.game.username}`,
+        type: type,
+        direction: direction,
+      }),
     })
       .then((res) => res.json())
       .then((json) => {

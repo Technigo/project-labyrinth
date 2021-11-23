@@ -2,28 +2,31 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { continueGame } from "../reducers/game";
-import { StartGame } from "./StartGame";
+// import { StartGame } from "./StartGame";
 
 export const Game = () => {
   const gameList = useSelector((store) => store.game.gameList);
   //   const username = useSelector((store) => store.game.username);
+  const actions = useSelector((store) => store.game.gameList.actions);
   const dispatch = useDispatch();
+  const onButtonClick = (type, direction) => {
+    dispatch(continueGame(type, direction));
+  };
 
   return (
     <>
-      {gameList === null && <StartGame />}
-
       <div>
         <p>Coordinates: {gameList.coordinates}</p>
         <h1>{gameList.description}</h1>
       </div>
-      <div>
-        {/* {gameList.actions.map((item) => (
-        <div key={item.description}>
-          <button>Move {item.direction}</button>
+
+      {/* {actions.map((action) => (
+        <div key={action.description}>
+          <button onClick={() => onButtonClick(action.type, action.direction)}>
+            Move {action.direction}
+          </button>
         </div>
       ))} */}
-      </div>
     </>
   );
 };
