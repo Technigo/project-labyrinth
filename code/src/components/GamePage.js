@@ -7,13 +7,14 @@ import { Direction } from './Direction';
 
 
 
+
 export const GamePage = () => {
   const labyrinth = useSelector(store => store.labyrinth.labyrinth)
   const username = useSelector(store => store.labyrinth.username)
-  const [direction, setDirection] = useState("")
+ 
   const dispatch = useDispatch();
 
-  const chosenAction = labyrinth.actions.filter(action => action.direction === direction)
+  const [direction, setDirection] = useState('')
  
 const start = () =>{
 
@@ -32,15 +33,13 @@ const start = () =>{
       <p> {labyrinth.coordinates} </p>
    
 
-        
-        
-
         {labyrinth.actions.map(item =>
           <Direction
             direction={item.direction}
             key={item.description}
             direction={item.direction}
-            setdDirection={item.setDirection}
+            setdDirection={setDirection}
+            
              />)}
 
       

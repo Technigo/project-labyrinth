@@ -24,9 +24,6 @@ const labyrinth = createSlice({
       store.action = action.payload
     }
 
-
-
-
   }
 });
 
