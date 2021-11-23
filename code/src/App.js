@@ -16,7 +16,7 @@ const store = configureStore({ reducer });
 
 export const App = () => {
   return (
-    <Provider state={state} >
+    <Provider store={store} >
       <GameContainer/>
     </Provider>
   )
