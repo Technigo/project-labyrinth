@@ -1,25 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchGame } from "reducers/gamestate";
 
 export const StartGame = () => {
+  const [userName, setUserName] = useState('')
   const description = useSelector((state) => state.gamestate.gameStatus.description);
-	const actions = useSelector((state) => state.gamestate.gameStatus.actions)
+	const actions = useSelector((state) => state.gamestate.gameStatus.actions);
+  const loading = useSelector((state) => state.gamestate.loading);
   const dispatch = useDispatch();
-
-	// for actions to show need to do another fetch for actions :) 
-
-	console.log(actions)
 
   return (
     <>
-
-      <button
-        onClick={() => {
-          dispatch(fetchGame());
-        }}
-      >
-        FETCH 
+      <label htmlFor="inline_field"></label>
+        <input 
+          required
+          type="text" 
+          placeholder="enter username"
+          value={userName}
+          onChange={(event) => setUserName(event.target.value)}
+          />
+      <button type='submit'>
+        Start game
       </button>
 			<p>Description: {description}</p>
 			<p>Actions:  </p>
