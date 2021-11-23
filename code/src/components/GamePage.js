@@ -37,7 +37,8 @@ export const GamePage = () => {
         </div>
       ))}
       <button
-        onClick={onRestartGame}>Restart game</button>
+        onClick={onRestartGame}>Restart game
+        </button>
         </GameCard>
         </>
     )
