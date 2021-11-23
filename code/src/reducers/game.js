@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import ui from "./ui"
+import { ui } from "./ui"
 
-export const Game = createSlice({
+export const game = createSlice({
   name: 'game',
   initialState: {
     places: [],
