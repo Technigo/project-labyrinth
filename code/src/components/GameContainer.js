@@ -12,8 +12,7 @@ export const GameContainer = () => {
 
   return (
     <>
-      {loader && <LoadingIndicator/> }
-      {!loader &&
+      {loader ? <LoadingIndicator/> : 
         <div>
           {!gameStatus.coordinates && <StartGame />}
           {gameStatus.coordinates && gameStatus.coordinates !== "1,3" && (
@@ -26,7 +25,7 @@ export const GameContainer = () => {
             <button onClick={() => window.location.reload()}>Restart</button>
           </> )}
         </div>
-      }
+      }     
     </>
   );
 };

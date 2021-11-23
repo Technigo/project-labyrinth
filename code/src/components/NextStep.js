@@ -19,14 +19,14 @@ export const NextStep = () => {
 
   return (
     <>
-			<h1>Hello {currentUser}</h1>
+			{/* <h1>Hello {currentUser}</h1>  */}
       <p>{gameStatus.description}</p>
       <p>Possible actions:</p>
         {gameStatus.actions.map((action, index) => (
           <div key={index}>
             <p>{action.description}</p>
             <button onClick={() => onNextMove(action.direction)}>
-              Go {action.direction.toLowerCase()}
+              Go {action.direction.toUpperCase()}
             </button>
           </div>
       ))}

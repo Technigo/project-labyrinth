@@ -7,7 +7,6 @@ export const gamestate  = createSlice({
 		username: '',
     gameStatus: {},
 		isLoading: false,
-    //history: []
   },
   reducers: {
     setUsername: (state, action) => {
@@ -19,10 +18,6 @@ export const gamestate  = createSlice({
     setLoading: (state, action) => {
       state.isLoading = action.payload;
     },
-    setRestartGame: (state) => {
-      state.username = '';
-      state.gameStatus = {}; 
-    }
   }
 });
 
@@ -35,24 +30,22 @@ export const fetchGame = (username) => {
       body: JSON.stringify({ username: username}),
     })
       .then((res) => res.json())
-      .then((json) => {
-        dispatch(gamestate.actions.setGameStatus(json));
-        dispatch(ui.actions.setLoading(false));
-      });
+      .then((json) => {dispatch(gamestate.actions.setGameStatus(json))})
+      .finally(() => dispatch(gamestate.actions.setLoading(false)))
   };
 };
 
 export const nextMove = (username, direction) => {
   return (dispatch) => {
+    dispatch(ui.actions.setLoading(true));
+
     fetch('https://wk16-backend.herokuapp.com/action', {
       method: "POST",
       headers: { 'Content-Type': 'application/json' }, 
       body: JSON.stringify({ username, type: 'move', direction }),
     })
       .then((res) => res.json())
-      .then((json) => {
-        dispatch(gamestate.actions.setGameStatus(json)) //add reducer in the end
-      })
+      .then((json) => {dispatch(gamestate.actions.setGameStatus(json))})
       .finally(() => dispatch(gamestate.actions.setLoading(false)))
   };
 };    
