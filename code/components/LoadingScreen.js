@@ -3,7 +3,7 @@ import Lottie from 'react-lottie';
 import animationData from '../animations/loading-double';
 import { useSelector } from 'react-redux';
 
-export const LoadingScreen = () => {
+const LoadingScreen = () => {
   const loading = useSelector((store) => store.loading);
 
   const defaultOptions = {
@@ -21,3 +21,5 @@ export const LoadingScreen = () => {
     </>
   );
 };
+
+export default LoadingS
