@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { useSelector } from 'react-redux'
-import Labyrinth, { fetchLabyrinth } from "reducers/Labyrinth";
+
 import { useDispatch } from "react-redux";
 import { Direction } from './Direction';
 
@@ -11,17 +11,9 @@ import { Direction } from './Direction';
 export const GamePage = () => {
   const labyrinth = useSelector(store => store.labyrinth.labyrinth)
   const username = useSelector(store => store.labyrinth.username)
- 
-  const dispatch = useDispatch();
-
   const [direction, setDirection] = useState('')
  
-const start = () =>{
 
-  dispatch(Labyrinth.actions.setLabyrinth("East"));
-
-
-}
 
 
 
