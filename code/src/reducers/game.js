@@ -7,7 +7,7 @@ const game = createSlice({
   name: "game",
   // initalstate is always an object
   initialState: {
-    gameStatus: null,
+    gameStatus: "",
     userName: " ",
     history: [],
   },
@@ -18,7 +18,15 @@ const game = createSlice({
       state.userName = action.payload;
     },
     setGameStatus: (state, action) => {
-      state.gameStatus = action.payload;
+      const currentGameStatus = action.payload;
+      state.history = [...state.history, state.gameStatus];
+      state.gameStatus = currentGameStatus;
+    },
+    SetGoBack: (state, action) => {
+      if (state.history.length > 0) {
+        state.gameStatus = state.history[state.history.length - 1];
+        state.history = state.history.slice(0, state.history.length - 1);
+      }
     },
   },
 });

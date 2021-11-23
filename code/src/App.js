@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 import game from "./reducers/game";
+import GamePage from "./components/GamePage";
 
 // a function to combine all reducers
 const reducer = combineReducers({
@@ -14,7 +15,7 @@ const store = configureStore({ reducer });
 export const App = () => {
   return (
     <Provider store={store}>
-      <div>Game Time</div>
+      <GamePage />
     </Provider>
   );
 };
