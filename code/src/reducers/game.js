@@ -24,9 +24,7 @@ export const game = createSlice({
 	},
 });
 
-export const fetchUsername = (username) => {
-	console.log(username);
-
+export const fetchGameData = (username) => {
 	return (dispatch) => {
 		const options = {
 			method: "POST",

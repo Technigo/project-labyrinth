@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { game, fetchUsername } from "../reducers/game";
+import { game, fetchGameData } from "../reducers/game";
 
 export const StartPage = () => {
 	const [inputName, setInputName] = useState("");
-	const username = useSelector((state) => state.game.username); // Proporty game does not exist on type "DefaultRootState"
+	const username = useSelector((state) => state.game.username);
 
 	const dispatch = useDispatch();
 
@@ -14,12 +14,6 @@ export const StartPage = () => {
 		dispatch(game.actions.setUsername(inputName));
 		// setInputName("");
 	};
-
-	// const start = () => {
-	// 	console.log("are you working?");
-	// 	fetchUsername();
-	// 	console.log(fetchUsername);
-	// };
 
 	return (
 		<>
@@ -38,7 +32,7 @@ export const StartPage = () => {
 				</form>
 			)}
 			{username && (
-				<button onClick={() => dispatch(fetchUsername(username))}>Start</button>
+				<button onClick={() => dispatch(fetchGameData(username))}>Start</button>
 			)}
 		</>
 	);
