@@ -52,4 +52,5 @@ align-items: center;
 width: 100%;
 height: 100vh;
 text-align: center;
+font-family: 'Philosopher', sans-serif;
 `
