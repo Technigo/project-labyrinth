@@ -3,7 +3,7 @@ import { ui } from './ui'
 
 const initialState = {
   username: '',
-  location: ''
+  gameStatus: null
 }
 
 export const game = createSlice({
@@ -19,23 +19,17 @@ export const game = createSlice({
       }
       store.username = selectedUsername
     },
-    startGame: (store, action) => {
+    setGameStatus: (store, action) => {
       console.log(action)
+      const currentStatus = action.payload
+      const newStatus = {
+        gameStatus: currentStatus
+      }
+      store.gameStatus = newStatus
     },
     // playGame: (store, action) => {
     //   console.log(action)
     // },
-
-    setLocation: (store, action) => {
-      console.log(action)
-
-      const location = action.payload
-
-      const newLocation = {
-        username: location
-      }
-      store.playerLocation = newLocation
-    },
     restart: () => {
       return initialState
     }
@@ -52,8 +46,7 @@ export const gameStart = (username) => {
     })
       .then((res) => res.json())
       .then((json) => {
-        dispatch(game.actions.startGame(json))
-        // dispatch(game.actions.setLocation())   - Lagra koordinater hur? Finns i console.log
+        dispatch(game.actions.setGameStatus(json))
         dispatch(ui.actions.setLoading(false))
       })
   }
@@ -76,7 +69,5 @@ export const gameStart = (username) => {
 //       })
 //   }
 // }
-
-
 
 export default game
