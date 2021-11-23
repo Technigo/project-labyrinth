@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ui } from "./ui";
+import { GAME_URL } from '../components/utils/urls.js'
+import { ACTION_URL } from '../components/utils/urls.js'
 
 export const gamestate  = createSlice({
   name: 'gamestate ',
@@ -24,7 +26,7 @@ export const gamestate  = createSlice({
 export const fetchGame = (username) => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
-    fetch('https://wk16-backend.herokuapp.com/start', {
+    fetch(GAME_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }, 
       body: JSON.stringify({ username: username}),
@@ -39,7 +41,7 @@ export const nextMove = (username, direction) => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
 
-    fetch('https://wk16-backend.herokuapp.com/action', {
+    fetch(ACTION_URL, {
       method: "POST",
       headers: { 'Content-Type': 'application/json' }, 
       body: JSON.stringify({ username, type: 'move', direction }),
