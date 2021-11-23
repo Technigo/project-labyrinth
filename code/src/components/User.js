@@ -1,7 +1,7 @@
 import React from "react"
 import { useSelector, useDispatch } from "react-redux"
 
-import { startMaze } from "../reducers/maze"
+import { startMaze, moveMaze } from "../reducers/maze"
 
 const User = () => {
 
@@ -14,7 +14,7 @@ const dispatch = useDispatch()
     return(
         <div>
             {console.log("data", data)}
-            <button type="button" onClick={() => dispatch(startMaze())}>
+            <button type="button" onClick={() => dispatch(startMaze("BestFox3hjdsjhfjksfkhdsjfds"))}>
                 Button
             </button>
             <p>{data.description}</p>
@@ -23,7 +23,7 @@ const dispatch = useDispatch()
                 <>
                 <p>{data.actions[0].description}</p>
                 <p>{data.actions.coordinates}</p>
-                <button>{data.actions.map(action => action.direction)}</button>
+                <div>{data.actions.map(action => <button onClick={()=>dispatch(moveMaze())}>{action.direction}</button>)}</div>
                 </>
             )}
         </div>
