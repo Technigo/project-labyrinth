@@ -1,0 +1,8 @@
+input for username (to get a response with the story and the alternatives) -> gameReducer
+loader screen 
+
+fetch start API (use button?) -> gameReducer
+
+after user input, post request with username, type and direction 
+
+continue 
