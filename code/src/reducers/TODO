@@ -1,5 +1,5 @@
-input for username (to get a response with the story and the alternatives) -> gameReducer
-loader screen 
+input for username (to get a response with the story and the alternatives) -> game (reducer)
+loader screen -> done
 
 fetch start API (use button?) -> gameReducer
 

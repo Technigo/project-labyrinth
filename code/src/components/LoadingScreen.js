@@ -7,8 +7,8 @@ const LoadingScreen = () => {
   const loading = useSelector((store) => store.loading);
 
   const defaultOptions = {
-    loop: true,
-    autoplay: true,
+    loop: false,
+    autoplay: false,
     animationData,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice',
@@ -22,4 +22,4 @@ const LoadingScreen = () => {
   );
 };
 
-export default LoadingS
+export default LoadingScreen;
