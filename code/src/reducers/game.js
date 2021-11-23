@@ -45,7 +45,6 @@ export const fetchFirstQuestion = (input) => {
                 dispatch(game.actions.setGame(json))
                 dispatch(ui.actions.setLoading(false))
             })
-
     }
 
 }
