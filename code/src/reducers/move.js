@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-//const initialState = {
-    // coinList: []
+const initialState = {
+  
     // coordinates: "0,0",
     // description: "You find yourself in under a large archway opening into a cavern.  A sense of purpose fills you.",
     // actions: [
@@ -10,29 +10,53 @@ import { createSlice } from '@reduxjs/toolkit'
     //         direction: "East",
     //         description: "A worn sign 'The Temple of *ech*igo'. Some of the letters are missing. An overgrown paved path leads to the East"
     //     }
-    
-//}
+    // ]
+    content: {},
+}
 
 export const move = createSlice({
   name: 'move',
-  initialState: {
-    coinList: []
-  },
+  initialState,
   reducers: {
     setUserName: (state, action) => {
-        state.coinList = action.payload
+        state.content = action.payload
+        console.log("state.initialState", state.content)
     }
 }})
 
-export const fetchMaze = () => {
+// export const fetchMaze = () => {
+//     return (dispatch) => {
+//       /* dispatch(ui.actions.setLoading(true)); */
+//       fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd")
+//         .then((res) => res.json())
+//         .then((data) => {
+//           dispatch(move.actions.setUserName(data))
+//           console.log("json", data[0].name)
+//           /* dispatch(ui.actions.setLoading(false)); */
+//         });
+//     };
+//   };
+
+export const startMaze = (dispatch) => {
+    console.log("post innan")
+    const options = {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+          },
+        body: JSON.stringify({ username : "BestFox1" })
+    }
+
     return (dispatch) => {
-      /* dispatch(ui.actions.setLoading(true)); */
-      fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd")
+        
+    fetch('https://wk16-backend.herokuapp.com/start', options)
+    
         .then((res) => res.json())
-        .then((json) => {
-          dispatch(move.actions.setUserName(json))
-          console.log("json", json[0].name)
-          /* dispatch(ui.actions.setLoading(false)); */
-        });
-    };
-  };
+        .then((data) => {
+            console.log("post", data)
+            dispatch(move.actions.setUserName(data))
+            
+        })
+    }
+}
+
