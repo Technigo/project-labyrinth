@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from 'styled-components/macro'
-import game, { fetchOtherQuestions } from "../reducers/game";
+import { fetchOtherQuestions } from "../reducers/game";
 
 
 const GameQuestion = () => {
@@ -12,36 +12,37 @@ const GameQuestion = () => {
     const dispatch = useDispatch()
 
     const onNextQuestion = (direction) => {
-        dispatch(game.actions.setDirection(direction))
         dispatch(fetchOtherQuestions(userName, direction))
+        // onBackgroundImageChange()
     }
-
+    const currentCoordinates = useSelector((store) => store.game.gameQuestions.coordinates)
+    console.log(currentCoordinates)
     // const onBackgroundImageChange = () => {
-    //     switch (coordinates) {
-    //         case '0,0':
-    //             return ('green')
-    //         case '1,0':
-    //             return ('red')
-    //         case '1,1':
-    //             return ('blue')
-    //         case '0,1':
-    //             return ('grey')
-    //         case '0,2':
-    //             return ('yellow')
-    //         case '0,3':
-    //             return ('purple')
-    //         case '1,3':
-    //             return ('pink')
-    //         default:
-    //             return ('black')
+    //         
+    //         switch (currentCoordinates) {
+    //             case '0,0':
+    //                 return background.backgroundColor = "grey";
+    //             case '1,0':
+    //                 return background.backgroundColor = "lightgrey";
+
+    //             case '1,1':
+    //                 return background.backgroundColor = "whitesmoke";
+
+    //             case '0,1':
+    //                 return background.backgroundColor = "pink";
+
+    //             case '0,2':
+    //                 return background.backgroundColor = "green";
+    //             default:
+    //                 return background.backgroundColor = "black"
+    //         }
     //     }
 
 
-
     return (
-        <MainWrapperQuestion>
+        <MainWrapperQuestion coordinates={currentCoordinates}>
             <QuestionWrapper>
-                <MainDescription> {gameQuestions.description}</MainDescription>
+                <div className="luminance"> {gameQuestions.description}</div>
                 {gameQuestions.actions.map((item, index) => (
                     <SmallContainer key={index}>
                         <OptionsDescriptions>{item.description}</OptionsDescriptions>
@@ -57,24 +58,21 @@ const GameQuestion = () => {
     )
 
 }
-
 export default GameQuestion
 
 
 const MainWrapperQuestion = styled.div`
     width: 100%;
+    background-color: black;
     min-height: 100%;
     display: flex;
-    background-color: black;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 `
 
 const QuestionWrapper = styled.div`
-    width: 90%;
-    height: 80%;
-    padding: 15px;
+    width: 100%;
     display: flex;
     flex-direction:column;
     text-align: center;
@@ -83,17 +81,12 @@ const QuestionWrapper = styled.div`
     font-family: 'Roboto', sans-serif;
 `
 
-const MainDescription = styled.p`
-    text-align:center;
-    font-weight: 800;
-    color: white;
-    font-size: 18px;
-    margin-bottom: 40px;
-`
+
 
 const SmallContainer = styled.div`
-    padding: 15px;
     display: flex;
+    width: 90%;
+    padding: 10px 3px 10px 3px;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     align-items: center;
@@ -104,9 +97,12 @@ const SmallContainer = styled.div`
 `
 const OptionsDescriptions = styled.p`
     text-align:center;
-    font-size: 15px;
-    color: white;
-    font-weight: 600;
+    font-size: 16px;
+    color: #2E8B57;
+    margin: 0;
+    font-weight: 300;
+    font-family: 'Vollkorn', serif;
+
 `
 
 const OptionsButton = styled.button`
@@ -119,5 +115,8 @@ const OptionsButton = styled.button`
     background-color: #01FFC3;
     border: none;
     font-family: 'IBM Plex Serif', serif;
- 
+    &:hover{
+        color: #01FFC3;
+        background-color: black;
+    }
  `

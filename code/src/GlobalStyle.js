@@ -7,7 +7,5 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
-  width: 100vw;
-  height: 100vh;
 }
 `

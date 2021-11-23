@@ -1,6 +1,6 @@
 import React from "react";
 import Lottie from 'react-lottie';
-import animationData from './lotties/compass';
+import animationData from './lotties/compass2';
 import styled from 'styled-components/macro'
 
 
@@ -19,8 +19,8 @@ const Loading = () => {
         <MainWrapperLoading>
             <Lottie
                 options={defaultOptions}
-                height={400}
-                width={400}
+                height={300}
+                width={300}
             />
         </MainWrapperLoading>
     );

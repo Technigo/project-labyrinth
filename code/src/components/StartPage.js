@@ -15,10 +15,11 @@ const StartPage = () => {
         dispatch(fetchFirstQuestion(input))
     }
 
+
     return (
         <MainWrapper>
             <FormWrapper>
-                <HeaderGame>Welcome to the maze</HeaderGame>
+                <h1>Welcome to labyrinth maze</h1>
                 <UserInput
                     type="text"
                     value={input}
@@ -35,7 +36,6 @@ const StartPage = () => {
             </FormWrapper>
         </MainWrapper>
     )
-
 }
 
 export default StartPage
@@ -47,20 +47,16 @@ const FormWrapper = styled.div`
     justify-content: center;
 `
 
-const HeaderGame = styled.h1`
-    text-align: center;
-    font-size: 35px;
-    font-family: 'Cinzel Decorative', cursive;
-`
 const UserInput = styled.input`
     padding:7px;
     border: none;
+    font-size: 16px;
     background-color: black;
     border-top: none;
     border-right:none;
     border-left: none;
     border-bottom: 2px solid whitesmoke;
-    margin: 20px 0px;
+    margin: 10px 0px 20px 0px;
     color: white;
     border-radius: 6px;
 `
@@ -69,12 +65,17 @@ const StartButton = styled.button`
     margin-top: 10px;
     padding:10px;
     border-radius: 15px;
-    color:white;
+    color:black;
     font-size: 18px;
     font-weight: bold;
-    background-color: green;
+    background-color: #01FFC3;
     border: none;
     font-family: 'IBM Plex Serif', serif;
+    cursor: pointer;
+    &:hover{
+        color: #01FFC3;
+        background-color: black;
+    }
 `
 const MainWrapper = styled.main`
   background-image: url(${img});
