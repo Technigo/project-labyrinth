@@ -1,23 +1,39 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ui } from "./ui";
 
-const Labyrinth = createSlice({
+const labyrinth = createSlice({
   name: "labyrinth",
   initialState: {
-    Labyrinth: [ {username: ""} ]
+    userName: null,
+    labyrinth: null,
+    action: null,
+    loading: false,
   },
+  
 
   reducers: {
     setLabyrinth: (state, action) => {
-      state.Labyrinth = action.payload;
+      state.labyrinth = action.payload;
+    },
+
+    setUsername: (store, action) => {
+      store.username = action.payload
+    },
+    
+    setAction: (store, action) => {
+      store.action = action.payload
     }
+
+
+
+
   }
 });
 
-export default Labyrinth;
+export default labyrinth;
 
 export const fetchLabyrinth = () => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     dispatch(ui.actions.setLoading(true));
 
     const config = {
@@ -25,12 +41,39 @@ export const fetchLabyrinth = () => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ username: "jess" })
+      body: JSON.stringify({ 
+        username: getState().labyrinth.username,
+        
+      })
     };
 
-    fetch("https://wk16-backend.herokuapp.com/start", config).then((json) => {
-      dispatch(Labyrinth.actions.setLabyrinth(json));
-      dispatch(ui.actions.setLoading(false));
-    });
+    fetch("https://wk16-backend.herokuapp.com/start", config)
+    .then(res => res.json())
+    .then(json => dispatch(labyrinth.actions.setLabyrinth(json)))
+    .finally(() => dispatch(ui.actions.setLoading(false)));
+
   };
 };
+
+export const continueGame = () => {
+  return (dispatch, getState) => {
+    dispatch(ui.actions.setLoading(true));
+
+    const config = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username:getState().labyrinth.username,  
+        direction: getState().labyrinth.action,
+        type: 'move'
+      })
+    }
+
+    fetch('https://wk16-backend.herokuapp.com/action', config)
+    .then(res => res.json())
+    .then(json => dispatch(labyrinth.actions.setLabyrinth(json)))
+    .finally(() => dispatch(ui.actions.setLoading(false)));
+  } 
+} 

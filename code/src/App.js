@@ -4,7 +4,8 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { StartPage } from "components/StartPage";
 import Labyrinth from "./reducers/Labyrinth";
 import { ui } from "reducers/ui";
-import { Loading } from "components/Loading";
+import { Game } from "components/Game";
+
 
 const reducer = combineReducers({
  
@@ -19,8 +20,7 @@ export const App = () => (
 
   <Provider store={store}>
    <article>
-   <Loading />
-<StartPage />
+<Game />
 
    </article>
      
