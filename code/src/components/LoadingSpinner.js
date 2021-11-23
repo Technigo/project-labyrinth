@@ -25,11 +25,12 @@ const StyledLoader = styled.div`
 `;
 
 const LoadingSpinner = () => {
-  const loading = useSelector((store) => store.game.loading);
+  const loading = useSelector((store) => store.spinner.loading);
+  //Jag hade råkat hämta loading från store.game.loading, men ändrade till store.spinner.loading
+  // där intial state finns att hämta, och då funkade den. Yay! men den ser ut som skit så vi måste spexa till den
 
   return (
     <>
-      {/* Om jag tar bort {loading &&} så syns iaf spinnern... så måste ha att göra med knappen och att vi inte lyckas fetcha? */}
       {loading && (
         <StyledLoader className='loader-overlay'>
           <div className='loader-spinner' />

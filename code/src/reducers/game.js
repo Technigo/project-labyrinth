@@ -24,7 +24,7 @@ export const game = createSlice({
 });
 
 //Fetchen + spinner-setLoading funkar och syns i console-log/redux devtools, men jag har inte lyckats displaya varken spinnern eller resultaten från fetchen
-export const fetchGame = (userName) => {
+export const fetchGame = (username) => {
   return (dispatch) => {
     dispatch(spinner.actions.setLoading(true));
 
@@ -33,7 +33,7 @@ export const fetchGame = (userName) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username: userName }),
+      body: JSON.stringify({ username: username }),
     };
 
     fetch('https://wk16-backend.herokuapp.com/start', options)
@@ -46,6 +46,7 @@ export const fetchGame = (userName) => {
 };
 
 export const fetchGameSteps = ({ direction }) => {
+  //getState gör så att värdet username senast blivit tilldelat hänger med in i denna thunk
   return (dispatch, getState) => {
     const { username } = getState().game;
     dispatch(spinner.actions.setLoading(true));

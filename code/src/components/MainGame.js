@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchGameSteps } from '../reducers/game';
-import { game } from '../reducers/game';
 
 const MainGame = () => {
   const gameObject = useSelector((store) => store.game.gameObject);
@@ -12,18 +11,24 @@ const MainGame = () => {
 
   return (
     <div>
-      <p>User: {username}</p>
+      {/* Tänker att p-tagen med username dyker upp när spelet startas, och i samband med det göms input field */}
+      <p>
+        User:
+        {username}
+      </p>
       <h1>{gameObject.description}</h1>
       <p>{gameObject.coordinates}</p>
-      {gameObject.actions.map((item) => (
-        <div key={item.direction}>
-          <p>{item.description}</p>
+      {gameObject.actions.map((action) => (
+        <div key={action.direction}>
+          <p>{action.description}</p>
+          {/* med knappens dispatch action skickar vi med informtion om vilken direction spelaren väljer.
+          Informationen finns också med som param(eller är det ett props?) i fetchGameSteps-thunken i game.js) */}
           <button
             onClick={() =>
-              dispatch(fetchGameSteps({ direction: item.direction }))
+              dispatch(fetchGameSteps({ direction: action.direction }))
             }
           >
-            {item.direction}
+            Go {action.direction}
           </button>
         </div>
       ))}
