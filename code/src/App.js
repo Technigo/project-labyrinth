@@ -1,12 +1,14 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
-import { start } from 'reducers/start'
+import { StartPage } from 'components/StartPage'
+import { loader } from 'reducers/loader'
+import { labyrinth } from 'reducers/labyrinth'
 
-import { Start } from './components/Start'
 
 const reducer = combineReducers({
-  start: start.reducer
+   labyrinth: labyrinth.reducer,
+   loader: loader.reducer
 })
 
 const store = configureStore({ reducer })
@@ -15,8 +17,7 @@ export const App = () => {
   return (
     <Provider store={store}>
     <main>
-      <h1>This is the labyrint, do you dare to enter?</h1> 
-      <Start />
+      <StartPage />
     </main>
     </Provider>
   )
