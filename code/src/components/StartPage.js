@@ -19,12 +19,20 @@ export const PageContainer = styled.section`
   right: 10%;
   border-radius: 5px;
   padding: 10px;
+  @media (min-width: 768px) {
+    justify-content: space-evenly;
+    padding: 20px;
+  }
 `;
 
 const WelcomeMessage = styled.h1`
   font-family: "Press Start 2P";
   text-align: center;
   line-height: 30px;
+  @media (min-width: 768px) {
+    font-size: 40px;
+    line-height: 40px;
+  }
 `;
 
 export const StartButton = styled.button`

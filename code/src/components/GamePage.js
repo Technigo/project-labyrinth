@@ -9,12 +9,18 @@ import footsteps from "../assets/footsteps-audio.mp3";
 const GameDescription = styled.h3`
   text-align: center;
   font-size: 20px;
+  @media (min-width: 768px) {
+    font-size: 30px;
+  }
 `;
 
 const PathDescription = styled.p`
   text-align: center;
   margin: 0;
   font-size: 12px;
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const ButtonPathContainer = styled.div`
