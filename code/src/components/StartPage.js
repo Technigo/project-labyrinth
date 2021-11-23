@@ -5,6 +5,8 @@ import { gamestate } from 'reducers/gamestate';
 
 import { fetchGameInstructions } from 'reducers/gamestate';
 
+import styled from 'styled-components';
+
 
 export const StartPage = () => {
   const [username, setUsername] = useState('');
@@ -22,6 +24,7 @@ export const StartPage = () => {
 
   return (
     <>
+    <StartScreen>
       <form onSubmit={setUsernameInStore}>
         <label>
           Enter a Username:
@@ -33,7 +36,18 @@ export const StartPage = () => {
         </label>
         <button type="submit">Let's go!</button>
       </form>
+      </StartScreen>
     </>
   );
 };
+
+export const StartScreen = styled.section`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 100vh;
+text-align: center;
+`
 
