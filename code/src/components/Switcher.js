@@ -12,13 +12,13 @@ export const Switcher = (coordinates) => {
       return 'colorfulCavernWall';
 
     case '0,1':
-      return '4walledRoom';
+      return '4walledMechanicalRoom';
     case '0,2':
-      return 'changingColor';
+      return 'changingColorInTheRoom';
     case '0,3':
       return 'chestPaper';
     case '1,3':
-      return 'endGame';
+      return 'NewBeginning';
     default:
       return 'error';
   }

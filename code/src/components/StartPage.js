@@ -80,7 +80,9 @@ const StartBox = styled.div`
   }
 
   h1 {
-    color: white;
+    color: #9296ac;
+    font-size: 2.5em;
+    margin-top: 3em;
   }
 `;
 
