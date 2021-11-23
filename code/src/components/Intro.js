@@ -1,6 +1,8 @@
-import React, { useState } from "react"
-import { useDispatch } from "react-redux"
-import styled from "styled-components/macro"
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import styled from "styled-components/macro";
+// import { fetchMaze } from "reducers/maze";
+import { maze } from "reducers/maze";
 
 export const Intro = () => {
 
@@ -8,8 +10,8 @@ export const Intro = () => {
     const dispatch = useDispatch();
 
     const onSubmit = () => {
-        dispatch(maze.action.setUserName(userName));
-        setInput(""); //clears the input
+        dispatch(maze.actions.setUserName(userName));
+        // setUserName(""); //clears the input
     }
 
 
@@ -19,15 +21,14 @@ export const Intro = () => {
             type="text" 
             value={userName}
             placeholder="Type your name here ..."
-            onChange={(e) => setInput(e.target.value)}
+            onChange={(e) => setUserName(e.target.value)}
             />
 
             <button type='submit'
-            onClick={ onSubmit}>
-            start the game
+            onClick={ onSubmit }
+            >
+            Start the game
             </button>
-
-
 
         </div>
 
