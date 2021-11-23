@@ -4,12 +4,12 @@ import { ui } from "./ui"
 export const game = createSlice({
   name: "game",
   initialState: {
-    userName: "",
+    player: "",
   },
   reducers: {
     // när store och state?
-    setUserName: (state, action) => {
-      state.userName = action.payload
+    setPlayer: (state, action) => {
+      state.player = action.payload
     },
   },
 })
@@ -23,11 +23,11 @@ export const fetchStartPosition = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username: `${state.game.userName}` }),
+      body: JSON.stringify({ username: `${state.game.player}` }),
     })
       .then((res) => res.json())
       .then((data) => {
-        dispatch(game.actions.setUserName(data))
+        dispatch(game.actions.setPlayer(data))
         // console.log("FIRST STARTING GAME POSITION", data)
         dispatch(ui.actions.setLoading(false))
       })
