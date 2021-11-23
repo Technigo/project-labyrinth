@@ -15,6 +15,11 @@ export const StartPage = () => {
 		// setInputName("");
 	};
 
+	const startGame = () => {
+		dispatch(fetchGameData(username));
+		dispatch(game.actions.setGameStarted());
+	};
+
 	return (
 		<>
 			{!username && (
@@ -31,9 +36,7 @@ export const StartPage = () => {
 					<button type="submit">Submit username</button>
 				</form>
 			)}
-			{username && (
-				<button onClick={() => dispatch(fetchGameData(username))}>Start</button>
-			)}
+			{username && <button onClick={startGame}>Start</button>}
 		</>
 	);
 };
