@@ -8,14 +8,13 @@ export const PageContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
   background-color: #ffffff56;
   backdrop-filter: blur(5px);
   position: absolute;
   box-sizing: border-box;
   overflow: auto;
-  height: 80%;
-  top: 5%;
+  height: 65%;
+  top: 10%;
   left: 10%;
   right: 10%;
   border-radius: 5px;
@@ -46,6 +45,9 @@ export const StartButton = styled.button`
   text-transform: uppercase;
   width: auto;
   &:hover {
+    background: #bcbcbc;
+  }
+  &:disabled {
     background: #bcbcbc;
   }
 `;
@@ -95,6 +97,7 @@ const StartPage = () => {
         />
         <StartButton
           type="button"
+          disabled={!name}
           onClick={() => {
             onNameSubmit(name);
             dispatch(fetchGame(name));

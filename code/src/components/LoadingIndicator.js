@@ -334,7 +334,7 @@ const LoadingSpinner = styled.span`
   height: 10px;
   width: 10px;
   position: absolute;
-  top: 90%;
+  top: 85%;
   left: 50%;
   margin: -5px;
 `;
