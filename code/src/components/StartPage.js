@@ -70,7 +70,7 @@ const StartButton = styled.button`
     font-weight: bold;
     background-color: #01FFC3;
     border: none;
-    font-family: 'IBM Plex Serif', serif;
+    font-family: 'Cinzel Decorative', cursive;
     cursor: pointer;
     &:hover{
         color: #01FFC3;

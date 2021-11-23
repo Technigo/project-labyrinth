@@ -76,17 +76,18 @@ h1 {
 
 
 .luminance {
+  width: 90%;
   background: radial-gradient(ellipse at middle, #fff, transparent, transparent);
   -webkit-background-clip: text;
   background-clip: text;
   text-align:center;
   font-weight: 800;
-  margin-bottom: 50px;
+  margin: 10px 0px 50px 0px;
   word-spacing: 2px;
   font-family: 'Alegreya', serif;
   color: transparent;
-  font-size: 20px;
-  animation: glow 3500ms linear infinite 1000ms;
+  font-size: 18px;
+  animation: glow 3500ms linear infinite 500ms;
 }
   @keyframes glow {
     40% {

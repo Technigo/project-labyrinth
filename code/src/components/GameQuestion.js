@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import styled from 'styled-components/macro'
 import { fetchOtherQuestions } from "../reducers/game";
 
+// import Lottie from 'react-lottie';
+// import animationData from './lotties/test';
 
 const GameQuestion = () => {
     //our empty array state with actions, coordinates and description
@@ -15,6 +17,16 @@ const GameQuestion = () => {
         dispatch(fetchOtherQuestions(userName, direction))
         // onBackgroundImageChange()
     }
+
+    // const defaultOptions = {
+    //     loop: true,
+    //     autoplay: true,
+    //     animationData: animationData,
+    //     rendererSettings: {
+    //         preserveAspectRatio: "xMidYMid slice"
+    //     }
+    // };
+
     const currentCoordinates = useSelector((store) => store.game.gameQuestions.coordinates)
     console.log(currentCoordinates)
     // const onBackgroundImageChange = () => {
@@ -53,6 +65,13 @@ const GameQuestion = () => {
                     </SmallContainer>
                 ))
                 }
+                {/* <ControlLottie>
+                    <Lottie
+                        options={defaultOptions}
+                        height={300}
+                        width={200}
+                    />
+                </ControlLottie> */}
             </QuestionWrapper >
         </MainWrapperQuestion>
     )
@@ -108,15 +127,18 @@ const OptionsDescriptions = styled.p`
 const OptionsButton = styled.button`
     margin-top: 10px;
     padding:10px;
-    border-radius: 15px;
+    border-radius: 13%;
     color:black;
     font-size: 13px;
     font-weight: bold;
     background-color: #01FFC3;
     border: none;
+    cursor: pointer;
     font-family: 'IBM Plex Serif', serif;
-    &:hover{
-        color: #01FFC3;
-        background-color: black;
-    }
  `
+// const ControlLottie = styled.div`
+//     display: none;
+//     @media (min-width: 375px) {
+//     display: flex;
+//   }
+//  `
