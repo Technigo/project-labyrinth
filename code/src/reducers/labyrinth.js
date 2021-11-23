@@ -6,7 +6,7 @@ export const labyrinth = createSlice({
   name: "labyrinth",
   initialState: {
     username: '',
-    content: {}
+    labyrinthData: []
   },
   
   reducers: {
@@ -14,13 +14,13 @@ export const labyrinth = createSlice({
       state.username = action.payload
     },
     setLabyrinthData: (state, action) => {
-      state.content = action.payload
+      state.labyrinthData = action.payload
     }
   }
 })
 
 //Starting the game by sending a post request 
-export const startGame =  () => {
+export const generateGame =  () => {
   return (dispatch) => {
     const options = {
       method: 'POST',

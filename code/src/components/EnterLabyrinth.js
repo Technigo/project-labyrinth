@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 
-import { startGame } from 'reducers/labyrinth'
+import { generateGame } from '../reducers/labyrinth'
 
 export const EnterLabyrinth = () => {
   /* const [username, setUsername] = useState(''); */
@@ -13,10 +13,10 @@ export const EnterLabyrinth = () => {
     <button
       type="submit"
       onClick={() => {
-        dispatch(startGame())
+        dispatch(generateGame())
       }}
       >
-        Enter the Labyrinth
+        Enter
       </button>
       </>
   )
