@@ -334,13 +334,14 @@ const LoadingSpinner = styled.span`
   height: 10px;
   width: 10px;
   position: absolute;
-  top: 85%;
+  top: 90%;
   left: 50%;
   margin: -5px;
 `;
 
-export const LoadingIndicator = () => {
-  const isLoading = useSelector((state) => state.ui.isLoading);
-
+const LoadingIndicator = () => {
+  const isLoading = useSelector((store) => store.ui.isLoading);
   return <>{isLoading && <LoadingSpinner></LoadingSpinner>}</>;
 };
+
+export default LoadingIndicator;

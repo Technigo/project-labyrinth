@@ -1,24 +1,54 @@
 import React from "react";
-import start from "reducers/start";
-import game from "reducers/game";
 import { PageContainer } from "./StartPage";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchInstructions } from "reducers/game";
+import { StartButton } from "./StartPage";
+import footsteps from "../assets/footsteps-audio.mp3";
 
-const PathDescription = styled.h2`
+const GameDescription = styled.h3`
   text-align: center;
-  line-height: 30px;
+  font-size: 20px;
 `;
 
-//testing testing
+const PathDescription = styled.p`
+  text-align: center;
+  margin: 0;
+  font-size: 12px;
+`;
+
+const ButtonPathContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const GamePage = () => {
-  const response = useSelector((store) => store.start.response);
-  const coordinates = useSelector((store) => store.start.response.coordinates);
+  const dispatch = useDispatch();
+  const gameList = useSelector((store) => store.game.gameList);
+  let audio = new Audio(footsteps);
+
+  const startFootsteps = () => {
+    audio.play();
+  };
 
   return (
     <PageContainer>
-      <PathDescription>{response.actions}</PathDescription>
+      <GameDescription>{gameList.description}</GameDescription>
+      {gameList.actions.map((item) => (
+        <ButtonPathContainer>
+          <PathDescription>{item.description}</PathDescription>
+          <StartButton
+            key={item.description}
+            onClick={() => {
+              startFootsteps();
+              dispatch(fetchInstructions({ direction: item.direction }));
+            }}
+          >
+            {item.direction}
+          </StartButton>
+        </ButtonPathContainer>
+      ))}
     </PageContainer>
   );
 };
