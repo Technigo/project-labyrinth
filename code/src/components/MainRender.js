@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 // components
 import { LoadingIndicator } from "./LoadingIndicator";
-import { Start } from "./Start";
+import { Quest } from "./Quest";
 // import { MoveHistory } from "./MoveHistory";
 import { LandingPage } from "./LandingPage";
 import { Opps } from "components/Opps";
@@ -23,7 +23,7 @@ export const MainRender = () => {
       ) : (
         <>
           <LoadingIndicator />
-          <Start />
+          <Quest />
           {/* <MoveHistory /> */}
         </>
       )}

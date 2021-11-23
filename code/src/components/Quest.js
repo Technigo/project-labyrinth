@@ -4,7 +4,7 @@ import { fetchInitialData, fetchNavigationData } from "../reducers/quest";
 import { LoadingIndicator } from "./LoadingIndicator";
 import { GameOver } from "./GameOver";
 
-export const Start = () => {
+export const Quest = () => {
   const quest = useSelector((store) => store.quest.items);
   const player = useSelector((store) => store.quest.player);
   const currentQuest = quest[quest.length - 1];
