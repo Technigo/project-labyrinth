@@ -19,10 +19,6 @@ export const game = createSlice({
     },
     setUserName: (state, action) => {
       state.username = action.payload;
-      // const newUser = {
-      //   text: action.payload,
-      // }
-      // state.startGame = [...state.startGame, newUser]
     },
   },
 });
@@ -39,7 +35,7 @@ export const fetchGame = (userName) => {
       },
       body: JSON.stringify({ username: userName }),
     };
-    //Jag funderade på om man var tvungen att lägga till description här ovan för att kunna displaya det i StartPage..
+
     fetch('https://wk16-backend.herokuapp.com/start', options)
       .then((res) => res.json())
       .then((json) => {
@@ -47,12 +43,30 @@ export const fetchGame = (userName) => {
         dispatch(spinner.actions.setLoading(false));
       });
   };
+};
 
-  // export const fetchGameDescription = () => {
-  //   return (dispatch) => {
-  //     fetch('https://wk16-backend.herokuapp.com/description', {
-  //       method: 'POST'
-  //     })
-  //   }
-  // }
+export const fetchGameSteps = ({ direction }) => {
+  return (dispatch, getState) => {
+    const { username } = getState().game;
+    dispatch(spinner.actions.setLoading(true));
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: username,
+        type: 'move',
+        direction: direction,
+      }),
+    };
+
+    fetch('https://wk16-backend.herokuapp.com/action', options)
+      .then((res) => res.json())
+      .then((json) => {
+        dispatch(game.actions.setGameObject(json));
+        dispatch(spinner.actions.setLoading(false));
+      });
+  };
 };
