@@ -1,15 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { ui } from "./ui";
+import { createSlice } from '@reduxjs/toolkit';
+import { ui } from './ui';
 
 export const game = createSlice({
-  name: "game",
+  name: 'game',
   initialState: {
-    username: "",
+    username: '',
     gameList: {
-      coordinates: "",
-      description: "",
-      actions: [],
-    },
+      coordinates: '',
+      description: '',
+      actions: []
+    }
   },
   reducers: {
     setGameElements: (state, action) => {
@@ -17,48 +17,54 @@ export const game = createSlice({
     },
     setUserName: (store, action) => {
       store.username = action.payload;
-    },
-  },
+    }
+  }
 });
 
 export const fetchGame = (userName) => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
-    fetch("https://wk16-backend.herokuapp.com/start", {
-      method: "POST",
+    fetch('https://wk16-backend.herokuapp.com/start', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ username: userName }),
+      body: JSON.stringify({ username: userName })
     })
       .then((res) => res.json())
       .then((json) => {
         console.log(json);
-        dispatch(game.actions.setGameElements(json));
+        setTimeout(() => dispatch(game.actions.setGameElements(json)), 1000);
       })
-      .finally(() => dispatch(ui.actions.setLoading(false)));
+      .finally(
+        setTimeout(() => dispatch(ui.actions.setLoading(false)), 1000),
+        1000
+      );
   };
 };
 
-export const fetchGameInstructions = ({ move = "move", direction }) => {
+export const fetchGameInstructions = ({ move = 'move', direction }) => {
   return (dispatch, getState) => {
     const { username } = getState().game;
     dispatch(ui.actions.setLoading(true));
-    fetch("https://wk16-backend.herokuapp.com/action", {
-      method: "POST",
+    fetch('https://wk16-backend.herokuapp.com/action', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         username: username,
         type: move,
-        direction: direction,
-      }),
+        direction: direction
+      })
     })
       .then((res) => res.json())
       .then((json) => {
-        dispatch(game.actions.setGameElements(json));
+        setTimeout(() => dispatch(game.actions.setGameElements(json)), 1000);
       })
-      .finally(() => dispatch(ui.actions.setLoading(false)));
+      .finally(
+        setTimeout(() => dispatch(ui.actions.setLoading(false)), 1000),
+        1000
+      );
   };
 };

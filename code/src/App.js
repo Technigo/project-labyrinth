@@ -5,9 +5,12 @@ import { game } from 'reducers/game';
 
 import GameBoard from 'components/GameBoard';
 import RestartButton from 'components/RestartButton';
+import LoadingStuff from 'components/LoadingStuff';
+import { ui } from 'reducers/ui';
 
 const reducer = combineReducers({
-  game: game.reducer
+  game: game.reducer,
+  ui: ui.reducer
 });
 
 const store = configureStore({ reducer });
@@ -20,6 +23,7 @@ export const App = () => {
       <div>
         <GameBoard />
         <RestartButton />
+        <LoadingStuff />
       </div>
     </Provider>
   );
