@@ -1,29 +1,31 @@
 import React from "react"
 import { useSelector, useDispatch } from "react-redux"
 
-import { startMaze } from "../reducers/move"
+import { startMaze } from "../reducers/maze"
 
 const User = () => {
 
-const data = useSelector((store)=>(store.move.content))
+const data = useSelector((store)=>(store.maze.response))
+const userName = useSelector((store)=>(store.maze.username))
+console.log("username", userName)
 
 const dispatch = useDispatch()
 
     return(
         <div>
-           
             {console.log("data", data)}
             <button type="button" onClick={() => dispatch(startMaze())}>
                 Button
             </button>
             <p>{data.description}</p>
-  
-            {/* {(data.length !== 0) && (
-                data.map((item) => (
-            <p key={item.name}>{item.name}</p>)))} */}
-            {/* <p>{data.actions[0].direction}</p> */}
-           {(data.length !== 0) ? (<p>data{data.description}</p>) : (<p>NEJ</p>)}
-            <button>East</button>
+            <p>{data.coordinates}</p>
+            {data.actions !== undefined && (
+                <>
+                <p>{data.actions[0].description}</p>
+                <p>{data.actions.coordinates}</p>
+                <button>{data.actions.map(action => action.direction)}</button>
+                </>
+            )}
         </div>
 
     )

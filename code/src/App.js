@@ -1,12 +1,12 @@
 import React from 'react'
 import { Provider } from "react-redux"
 import { configureStore, combineReducers } from "@reduxjs/toolkit"
-import { move } from 'reducers/move'
+import { maze } from 'reducers/maze'
 
 import User from "./components/User"
 
 const reducer = combineReducers({
-  move: move.reducer
+  maze: maze.reducer
 })
 
 const store = configureStore({ reducer })
