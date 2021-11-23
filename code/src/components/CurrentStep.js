@@ -1,10 +1,10 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { nextStep } from "reducers/game";
-import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { nextStep } from 'reducers/game'
+import styled from 'styled-components'
+import { useNavigate } from 'react-router-dom'
 
-import { Loader } from "./Loader";
+import { Loader } from './Loader'
 
 const Container = styled.div`
   display: flex;
@@ -16,21 +16,21 @@ const Container = styled.div`
   background-color: lightgrey;
   box-shadow: 5px 10px 18px #888888;
   border-radius: 6px;
-`;
+`
 
 const GameContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-`;
+`
 
 const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap; 10px;
-`;
+`
 
 const Button = styled.button`
   width: 120px;
@@ -39,7 +39,7 @@ const Button = styled.button`
   font-family: IBM Plex Mono;
   font-weight: bold;
   margin-top: 10px;
-`;
+`
 
 const StartOverButton = styled.button`
   width: 100px;
@@ -51,18 +51,18 @@ const StartOverButton = styled.button`
   margin-top: 30px;
   display: flex;
   align-items: center;
-`;
+`
 
 export const CurrentStep = () => {
-  const dispatch = useDispatch();
-  const currentStep = useSelector((store) => store.game.currentStep);
-  const steps = useSelector((store) => store.game.steps);
-  const loading = useSelector((store) => store.ui.loading);
-  let navigate = useNavigate();
+  const dispatch = useDispatch()
+  const currentStep = useSelector(store => store.game.currentStep)
+  // const steps = useSelector((store) => store.game.steps);
+  const loading = useSelector(store => store.ui.loading)
+  let navigate = useNavigate()
 
   const onRestart = () => {
-    navigate("/");
-  };
+    navigate('/')
+  }
 
   return (
     <GameContainer>
@@ -71,19 +71,17 @@ export const CurrentStep = () => {
         <Container>
           <p>Coordinates: {currentStep?.coordinates}</p>
           <p>{currentStep?.description}</p>
-          {currentStep?.actions?.map((action) => {
+          {currentStep?.actions?.map(action => {
             return (
               <ButtonContainer key={action.direction}>
                 <p>{action.description}</p>
-                <Button onClick={() => dispatch(nextStep(action))}>
-                  Go {action.direction}
-                </Button>
+                <Button onClick={() => dispatch(nextStep(action))}>Go {action.direction}</Button>
               </ButtonContainer>
-            );
+            )
           })}
         </Container>
       )}
       <StartOverButton onClick={onRestart}>Start over</StartOverButton>
     </GameContainer>
-  );
-};
+  )
+}
