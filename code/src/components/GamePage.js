@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import img from '../img/forest-background.jpeg';
 import { gamestate, directionAnswer } from '../reducers/gamestate'
 
 import styled from 'styled-components';
@@ -21,7 +21,9 @@ export const GamePage = () => {
     }
 
     return (
-        <>
+        // <GameBackground>
+        // <img src={img} alt="forest-img">
+    
         <GameCard>
            {gameStatus.description}
            {gameStatus.actions && gameStatus.actions.map((item, index) => ( //&& check if gameStatus is undefined. if false don't go further in game.
@@ -40,10 +42,21 @@ export const GamePage = () => {
         onClick={onRestartGame}>Restart game
         </button>
         </GameCard>
-        </>
+        // </GameBackground>
     )
-
 }
+
+
+export const GameBackground = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+background-color: red;
+img {
+width: 100%;
+height: 100vh;
+}
+`
 
 export const GameCard = styled.section`
 display: flex;
