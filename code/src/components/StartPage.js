@@ -11,6 +11,7 @@ export const StartPage = () => {
   return (
     <>
       <h1>Hej knapp 👇</h1>
+      <h1>Hej knapp 👇</h1>
       <button
         onClick={() => {
           dispatch(fetchStart());
