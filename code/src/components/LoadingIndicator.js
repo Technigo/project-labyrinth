@@ -1,7 +1,6 @@
 import React from "react";
 import Lottie from "react-lottie";
 import animationData from "../animations/lf30_editor_7adxmbhh"
-import { useSelector } from "react-redux";
 
 import { GameBackground } from './StyledComponents/GameBackground';
 
@@ -51,7 +50,6 @@ justify-content: center;
 & div {
 max-width: 500px;
 }
-
 `;
 
 const LoaderText = styled.p`
