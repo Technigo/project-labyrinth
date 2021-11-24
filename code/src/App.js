@@ -6,6 +6,7 @@ import { setupStore } from './store/setupStore'
 import { Header } from './components/Header'
 import { StartPage } from './components/StartPage'
 import { CurrentStep } from './components/CurrentStep'
+import { NotFound } from './components/NotFound'
 
 // Retrieve localstorage as initial state
 const persistedStateJSON = localStorage.getItem('gameReduxState')
@@ -30,6 +31,7 @@ export const App = () => {
         <Routes>
           <Route path='/' element={<StartPage />} />
           <Route path='/game' element={<CurrentStep />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </Provider>
