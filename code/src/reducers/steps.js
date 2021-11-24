@@ -8,6 +8,7 @@ const steps = createSlice({
     username: "",
     startingPosition: [],
     steps: [],
+    directions: [],
   },
   reducers: {
     setUsername: (store, action) => {
@@ -25,35 +26,11 @@ const steps = createSlice({
       console.log("setStartPosition: ", action.payload);
       store.startingPosition = action.payload;
     },
+    setMovement: (store, action) => {
+      store.directions.push(action.payload);
+    },
   },
 });
-
-export const fetchSteps = (direction) => {
-  return (dispatch, getState) => {
-    const state = getState();
-    const infoToAPI = {
-      username: state.steps.username,
-      type: "move",
-      direction: direction,
-    };
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(infoToAPI),
-    };
-    dispatch(ui.actions.setLoading(true));
-    fetch("https://wk16-backend.herokuapp.com/action", options)
-      .then((res) => res.json())
-      .then((json) => {
-        dispatch(steps.actions.setSteps(json));
-        console.log("Latest movement", json);
-        dispatch(ui.actions.setLoading(false));
-      });
-  };
-};
-
 export const fetchStart = () => {
   return (dispatch, getState) => {
     const state = getState();
@@ -74,6 +51,34 @@ export const fetchStart = () => {
       .then((json) => {
         dispatch(steps.actions.setSteps(json));
         console.log("Start: ", json);
+        dispatch(ui.actions.setLoading(false));
+      });
+  };
+};
+
+export const fetchSteps = (direction) => {
+  return (dispatch, getState) => {
+    dispatch(ui.actions.setLoading(true));
+    const state = getState();
+    dispatch(steps.actions.setMovement(direction));
+
+    const infoToAPI = {
+      username: state.steps.username,
+      type: "move",
+      direction: direction,
+    };
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(infoToAPI),
+    };
+
+    fetch("https://wk16-backend.herokuapp.com/action", options)
+      .then((res) => res.json())
+      .then((json) => {
+        dispatch(steps.actions.setSteps(json));
         dispatch(ui.actions.setLoading(false));
       });
   };

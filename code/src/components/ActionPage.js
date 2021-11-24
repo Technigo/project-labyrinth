@@ -59,6 +59,9 @@ const ActionPage = () => {
     store.steps.steps.at(-1)
   );
   const lastStep = useSelector((store) => store.steps.steps.at(-2));
+  const lastDirection = useSelector((store) =>
+    store.steps.directions.at(-1)
+  );
   const allSteps = useSelector((store) => store.steps.steps);
   const username = useSelector((store) => store.steps.username);
 
@@ -73,7 +76,7 @@ const ActionPage = () => {
         You have moved {allSteps.length} step
         {allSteps.length > 1 && "s"}
         {allSteps.length > 1 &&
-          `, and the latest movement was ${lastStep.direction}`}
+          `, and the latest movement was ${lastDirection}`}
       </SmallText>
       <div>
         <Title>{username}</Title>
