@@ -15,7 +15,7 @@ export const GamePage = () => {
   } else {
     return (
       <div>
-        <p>Welcome {username}</p>
+       
         <p>{labyrinth.description}</p>
         <p>{labyrinth.coordinates}</p>
         {labyrinth.actions.map((item) => (
