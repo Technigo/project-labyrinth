@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -6,6 +7,11 @@ import { gamestate, directionAnswer } from '../reducers/gamestate'
 import { GameBackground } from './StyledComponents/GameBackground';
 import { GameCard } from './StyledComponents/GameCard';
 import { RestartButton } from './StyledComponents/RestartButton';
+
+import styled from 'styled-components';
+
+
+
 
 export const GamePage = () => {
     const dispatch = useDispatch();
@@ -31,14 +37,15 @@ export const GamePage = () => {
         <div key={index}>{item.description}
        
     
-        <button
+        <DirectionButtons
         value={item.direction}
         onClick={(event) => onChooseDirection(event)}> 
         Go {item.direction}
-        </button>
+        </DirectionButtons>
 
         </div>
       ))}
+      
       <RestartButton
         onClick={onRestartGame}>Restart game</RestartButton>
         </GameCard>
@@ -46,3 +53,10 @@ export const GamePage = () => {
         </>
     )
 }
+
+const DirectionButtons = styled.button`
+border-radius: 10px;
+font-family: 'Philosopher', sans-serif;
+font-size: 15px;
+border:2px solid #fda; 
+`
