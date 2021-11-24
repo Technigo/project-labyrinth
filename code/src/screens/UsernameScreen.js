@@ -22,9 +22,9 @@ export const UsernameScreen = () => {
       <div></div>
       <Header>The Labyrinth</Header>
       <InputTextSpanButton>
-        <span>
+        <UserNameInformation>
           Please enter your username (minimum 4 characters) and start the game!
-        </span>
+        </UserNameInformation>
         <UsernameInput
           type="text"
           value={username}
@@ -53,16 +53,25 @@ export const UsernameScreen = () => {
 };
 
 const UsernameContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
   color: white;
-  display: grid;
-  justify-content: flex-end;
-  grid-template-rows: 1fr auto auto;
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
   flex-direction: column;
+  justify-content: flex-end;
+
   letter-spacing: 1px;
   line-height: 22px;
+  @media (min-width: 668px) and (max-width: 1024px) {
+    line-height: 30px;
+  }
+  @media (min-width: 1025px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
 `;
 
 const Header = styled.h1`
@@ -72,6 +81,23 @@ const Header = styled.h1`
   text-shadow: -1px -1px 0 #638270, 1px -1px 0 #638270, -1px 1px 0 #638270,
     1px 1px 0 #638270;
   margin-bottom: 20px;
+  @media (min-width: 668px) and (max-width: 1024px) {
+    font-size: 45px;
+  }
+  @media (min-width: 1025px) {
+    font-size: 55px;
+    margin-bottom: 40px;
+  }
+`;
+
+const UserNameInformation = styled.span`
+  @media (min-width: 668px) and (max-width: 1024px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1025px) {
+    font-size: 25px;
+    line-height: 35px;
+  }
 `;
 
 const InputTextSpanButton = styled.div`
@@ -83,6 +109,14 @@ const InputTextSpanButton = styled.div`
   padding: 20px;
   row-gap: 10px;
   min-height: 250px;
+  @media (min-width: 668px) and (max-width: 1024px) {
+    padding: 60px 80px;
+  }
+  @media (min-width: 1025px) {
+    padding: 50px;
+    width: 100%;
+    min-height: 500px;
+  }
 `;
 
 const UsernameButton = styled.button`
@@ -91,21 +125,43 @@ const UsernameButton = styled.button`
   padding: 10px;
   border: none;
   color: white;
-  border-bottom: white 1px solid;
+  border-bottom: 1px solid;
   font-size: 20px;
+  @media (min-width: 668px) and (max-width: 1024px) {
+    border-bottom: 2px solid;
+    font-size: 24px;
+  }
+  @media (min-width: 1025px) {
+    border-bottom: 2px solid;
+    font-size: 30px;
+  }
 `;
 
 const UsernameInput = styled.input`
   font-family: "Raleway", sans-serif;
   background-color: white;
   border: none;
-  border-bottom: white 1px solid;
   padding: 10px;
   &::placeholder {
     color: black;
     letter-spacing: 2px;
     font-size: 16px;
     font-weight: 300;
-    padding: 10px;
+  }
+  @media (min-width: 668px) and (max-width: 1024px) {
+    padding: 14px;
+    font-size: 18px;
+
+    &::placeholder {
+      font-size: 20px;
+    }
+  }
+  @media (min-width: 1025px) {
+    padding: 14px;
+    font-size: 18px;
+
+    &::placeholder {
+      font-size: 20px;
+    }
   }
 `;

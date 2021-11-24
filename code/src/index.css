@@ -9,10 +9,22 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+@media (min-width: 1025px) {
+  body {
+    background-position: top;
+  }
 }

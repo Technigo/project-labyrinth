@@ -65,9 +65,9 @@ export const GameScreen = () => {
             );
           })}
         {game.actions.length === 0 && (
-          <div>
+          <CongratulationText>
             Congratulations you finished the game in {gameHistory.length} moves!
-          </div>
+          </CongratulationText>
         )}
       </QuestionWrapper>
     </GameQuestionContainer>
@@ -75,20 +75,36 @@ export const GameScreen = () => {
 };
 
 const GameQuestionContainer = styled.div`
-  width: 100%;
-  height: 100%;
   min-height: 100vh;
+  width: 100%;
   color: white;
   display: grid;
-  grid-template-rows: 1fr auto auto;
   flex-direction: column;
+  justify-content: flex-end;
   letter-spacing: 1px;
   line-height: 22px;
+  @media (min-width: 668px) and (max-width: 1024px) {
+    line-height: 30px;
+  }
+  @media (min-width: 1025px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
 `;
 
 const QuestionDescription = styled.span`
   color: white;
   font-size: 18px;
+  @media (min-width: 668px) and (max-width: 1024px) {
+    font-size: 24px;
+  }
+  @media (min-width: 1025px) {
+    font-size: 25px;
+    line-height: 35px;
+  }
 `;
 
 const QuestionWrapper = styled.div`
@@ -100,6 +116,14 @@ const QuestionWrapper = styled.div`
   justify-content: space-between;
   min-height: 250px;
   transition: height 2s ease-in;
+  @media (min-width: 668px) and (max-width: 1024px) {
+    padding: 60px 80px;
+  }
+  @media (min-width: 1025px) {
+    padding: 50px;
+    width: 100%;
+    min-height: 500px;
+  }
 `;
 
 const OptionsContainer = styled.div`
@@ -115,14 +139,43 @@ const MoveButton = styled.button`
   color: white;
   border-bottom: white 1px solid;
   font-size: 20px;
+  @media (min-width: 1025px) {
+    font-size: 25px;
+    margin-top: 10px;
+  }
 `;
 
 const OptionDescription = styled.span`
   text-align: center;
   margin-top: 20px;
   font-size: 14px;
+  @media (min-width: 668px) and (max-width: 1024px) {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 30px;
+  }
+  @media (min-width: 1025px) {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 30px;
+  }
 `;
 
 const LastMove = styled.p`
   font-size: 18px;
+  @media (min-width: 668px) and (max-width: 1024px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1025px) {
+    font-size: 20px;
+  }
+`;
+
+const CongratulationText = styled.div`
+  @media (min-width: 668px) and (max-width: 1024px) {
+    font-size: 24px;
+  }
+  @media (min-width: 1025px) {
+    font-size: 32px;
+  }
 `;
