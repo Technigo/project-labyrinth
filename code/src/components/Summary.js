@@ -107,9 +107,8 @@ const RestartButton = styled.button`
     text-shadow: none;
     transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
     &:hover {
-    border: 1px solid;
+    border: 1px solid black;
     border-radius: 15px;
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
     outline-color: rgba(255, 255, 255, 0);
     outline-offset: 15px;
     text-shadow: 1px 1px 2px #427388; 
