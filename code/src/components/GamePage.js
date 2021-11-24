@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Direction } from "./Direction";
 import { EndPage } from "./EndPage";
 
 export const GamePage = () => {
-  const dispatch = useDispatch();
   const labyrinth = useSelector((store) => store.labyrinth.location);
   const username = useSelector((store) => store.labyrinth.username);
   const [direction, setDirection] = useState("");
@@ -26,9 +25,6 @@ export const GamePage = () => {
             setdDirection={setDirection}
           />
         ))}
-        {/* <button type="button" onClick={onGoBack}>
-          Go back
-        </button> */}
       </div>
     );
   }
