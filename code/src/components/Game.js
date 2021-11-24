@@ -1,26 +1,19 @@
 import React from "react"
 import { useSelector } from "react-redux"
 
-// import { fetchStartPosition } from "../reducers/game"
+import { Start } from "./Start"
+import { GameBoard } from "./GameBoard"
+import { LoadingIndicator } from "./LoadingIndicator"
 
-// Hej namn, hämtar spelinformation genom map
 export const Game = () => {
-  const player = useSelector((store) => store.game.player)
-  // const nextMove = useSelector((store) => store.game.userName.actions)
+  const currentPosition = useSelector((store) => store.game.currentPosition)
 
-  console.log("ACTIONS", player)
+  // console.log("ACTIONS", currentPosition)
+
   return (
     <>
-      <p>{player.description}</p>
-
-      {player.actions &&
-        player.actions.map((item) => (
-          <div key={item.description}>
-            <p>Make your choice</p>
-            <button>{item.direction}</button>
-            <p>{item.description}</p>
-          </div>
-        ))}
+      {currentPosition ? <GameBoard /> : <Start />}
+      <LoadingIndicator />
     </>
   )
 }

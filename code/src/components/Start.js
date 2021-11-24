@@ -1,46 +1,39 @@
-import React, { useState } from "react"
+import React from "react"
 import { useDispatch } from "react-redux"
-
 import { game, fetchStartPosition } from "../reducers/game"
 
 // startar spelet genom inmatning av namn + klicka start
 export const Start = () => {
-  const [player, setPlayer] = useState("")
-  const [error, setError] = useState(false)
   const dispatch = useDispatch()
-
-  const onPlayerInput = (event) => {
-    if (player === "") {
-      setError(true)
-    }
-    event.preventDefault(event)
-    dispatch(game.actions.setPlayer(player))
-    dispatch(fetchStartPosition(player))
-  }
 
   // function for onChange
   const onPlayerInputChange = (event) => {
     // event.preventDefault()
-    setPlayer(event.target.value)
+    // setPlayer(event.target.value)
+    dispatch(game.actions.setPlayer(event.target.value))
   }
 
-  // console.log("USERNAME", player)
+  // function for onSubmit
+  const onPlayerSubmit = (event) => {
+    event.preventDefault()
+    // dispatch(game.actions.setPlayer())
+    dispatch(fetchStartPosition())
+  }
 
   return (
     // onFormSubmit, uppdatera store
     <>
-      <form onSubmit={onPlayerInput}>
-        <input type="text" value={player} onChange={onPlayerInputChange} />
-        {/* tar oss vidare till spelet */}
-        {/* <button type="submit" onSubmit={onNameinput}>
-          SUBMIT NAME
-        </button> */}
-        <button type="onSubmit">Start game</button>
-        {/* <button type="button" onClick={() => dispatch(fetchStartPosition())}>
-          START THE GAME!
-        </button> */}
+      <h1>Lets play a game</h1>
+      <form onSubmit={onPlayerSubmit}>
+        <label htmlFor="name-input" />
+        <input
+          type="text"
+          onChange={onPlayerInputChange}
+          required
+          id="name-input"
+        />
+        <button type="submit">Start game</button>
       </form>
-      <p>Welcome {player}..</p>
     </>
   )
 }

@@ -1,39 +1,68 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { ui } from "./ui"
+import { API_START_URL, API_ACTION_URL } from "../utils/urls"
 
 export const game = createSlice({
   name: "game",
   initialState: {
-    player: "",
+    player: null,
+    currentPosition: null,
+    // loading: false,
+    // history: [],
   },
   reducers: {
-    // när store och state?
-    setPlayer: (state, action) => {
-      state.player = action.payload
+    setPlayer: (store, action) => {
+      store.player = action.payload
     },
+
+    setCurrentPosition: (store, action) => {
+      store.currentPosition = action.payload
+    },
+
+    // setHistory: (store, action) => {
+    //   if (store.currentPosition) {
+    //     store.history = [...store.history, action.payload]
+    //   }
+    // },
   },
 })
 
 export const fetchStartPosition = () => {
   return (dispatch, getState) => {
-    const state = getState()
+    // const state = getState()
     dispatch(ui.actions.setLoading(true))
-    fetch("https://wk16-backend.herokuapp.com/start", {
+    fetch(API_START_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username: `${state.game.player}` }),
+      body: JSON.stringify({ username: getState().game.player }),
+    })
+      .then((res) => res.json())
+      .then((data) => dispatch(game.actions.setCurrentPosition(data)))
+      .finally(() => dispatch(ui.actions.setLoading(false)))
+  }
+}
+
+export const nextStep = (type, direction) => {
+  return (dispatch, getState) => {
+    dispatch(ui.actions.setLoading(true))
+    fetch(API_ACTION_URL, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        username: getState().game.player,
+        type,
+        direction,
+      }),
     })
       .then((res) => res.json())
       .then((data) => {
-        dispatch(game.actions.setPlayer(data))
-        // console.log("FIRST STARTING GAME POSITION", data)
-        dispatch(ui.actions.setLoading(false))
+        dispatch(game.actions.setCurrentPosition(data))
+        // dispatch(game.actions.setHistory(data))
       })
-    // testar om vi kan göra så
-    // .finally(() => {
-    //   dispatch(ui.actions.setLoading(false))
-    // })
+      .finally(() => dispatch(ui.actions.setLoading(false)))
   }
 }
