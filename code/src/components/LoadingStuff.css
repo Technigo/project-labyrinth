@@ -1,7 +1,7 @@
 .circle-1 {
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: 250px;
+  height: 250px;
   border: 10px solid #fff;
   border-radius: 600px;
   border-right-color: transparent;
@@ -12,8 +12,8 @@
 
 .circle-2 {
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: 250px;
+  height: 250px;
   border: 10px solid #fff;
   border-radius: 600px;
   border-top-color: transparent;
@@ -24,12 +24,12 @@
 
 .circle-3 {
   position: absolute;
-  width: 300px;
-  height: 300px;
+  width: 150px;
+  height: 150px;
   border: 10px solid #fff;
   border-radius: 600px;
-  margin-top: 100px;
-  margin-left: 100px;
+  margin-top: 50px;
+  margin-left: 50px;
   border-right-color: transparent;
   border-left-color: transparent;
   animation: Move-Right-360 5s infinite;
@@ -38,12 +38,12 @@
 
 .circle-4 {
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   border: 10px solid #fff;
   border-radius: 600px;
-  margin-top: 150px;
-  margin-left: 150px;
+  margin-top: 75px;
+  margin-left: 75px;
   border-right-color: transparent;
   border-left-color: transparent;
   animation: Move-Left-360 5s infinite;
@@ -56,8 +56,8 @@
   height: 100px;
   border: 10px solid #fff;
   border-radius: 600px;
-  margin-top: 200px;
-  margin-left: 200px;
+  margin-top: 75px;
+  margin-left: 75px;
   border-right-color: transparent;
   border-left-color: transparent;
   animation: Move-Right-360 5s infinite;
@@ -69,10 +69,10 @@
 .square-3,
 .square-4 {
   position: absolute;
-  margin-top: 80px;
-  margin-left: 80px;
-  width: 340px;
-  height: 340px;
+  margin-top: 40px;
+  margin-left: 40px;
+  width: 170px;
+  height: 170px;
   border: 10px solid #fff;
 }
 

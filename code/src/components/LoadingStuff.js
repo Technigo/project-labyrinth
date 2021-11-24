@@ -11,9 +11,9 @@ const Loader = styled.div`
   position: absolute;
   /* top: ${(props) => props.hgt / 4}px;
   left: ${(props) => props.wid / 4}px; */
-  top: 25%;
-  left: 25%;
   display: block;
+  top: 40%;
+  left: 40%;
 `;
 
 const LoaderBox = styled.div`
