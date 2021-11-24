@@ -32,6 +32,9 @@ export const StartPage = () => {
           Enter Username:
           <div>
           <input
+            variant="filled"
+            placeholder="Write your username"
+            color="secondary"
             type="text"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
