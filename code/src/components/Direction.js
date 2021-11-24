@@ -13,15 +13,13 @@ export const Direction = ({ description, direction, setDirection }) => {
 
   return (
     <div>
-      <p>
-{description}
-</p>
+<p>{description}</p>
       <button
         value={direction}
         onChange={(e) => setDirection(e.target.value)}
         onClick={click}
       >
-        <p>{direction}</p>
+        {direction}
       </button>
     </div>
   );

@@ -1,0 +1,79 @@
+
+.startPageContainer{
+
+background-color: beige;
+height: 100vh;
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+
+}
+
+
+.animationBackground{
+position: absolute;
+z-index: -10;
+width: 95%;
+height: 100%;
+}
+
+.startPageContetnt{
+
+z-index: 10;
+display: flex;
+flex-direction: column;
+
+}
+
+.textInput{
+color: rgb(142, 187, 230);
+text-shadow: 1px 1px  rgb(60, 77, 105);
+text-align: center;
+font-size: 20px;
+font-weight: 700;
+border: none;
+background-color: rgb(207, 229, 250);
+border-radius: 15px;
+}
+.textInput:focus{
+
+  outline: none;
+  
+  }
+
+
+.OnclickTextOrBtn{
+  margin-top: 15px;
+height: 50px;
+width: 150px;
+display: flex;
+align-content: center;
+align-items: center;
+color: rgb(207, 229, 250);
+text-shadow: 1px 2px 2px rgb(60, 77, 105);
+font-weight: 700;
+
+}
+
+
+.startPageBtn{
+  color: rgb(142, 187, 230);
+text-shadow: 1px 1px  rgb(60, 77, 105);
+  background-color: rgb(207, 229, 250);
+ border-radius: 15px;
+  box-shadow: 1px 1px 1px 2px rgb(60, 77, 105);
+  border: none;
+  padding: 5px 15px;
+font-size: 16px;
+font-weight: 600;
+transition: ease-in 0.2s;
+}
+
+.startPageBtn:hover{
+
+  background-color: rgb(202, 225, 245);
+transform: scale(85%);
+}

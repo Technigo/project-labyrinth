@@ -8,7 +8,7 @@ export const GamePage = () => {
   const [direction, setDirection] = useState("");
 
   return (
-    <div>
+    <div >
       <p> Welcome {username} </p>
       <p> {labyrinth.description} </p>
       <p> {labyrinth.coordinates} </p>
