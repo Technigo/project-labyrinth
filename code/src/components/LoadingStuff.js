@@ -1,6 +1,4 @@
 import React from 'react';
-// import Lottie from 'react-lottie';
-// import animationData from './lotties/cube';
 import { useSelector } from 'react-redux';
 import styled, { keyframes } from 'styled-components';
 

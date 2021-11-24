@@ -42,11 +42,6 @@ const DescriptionBox = styled.div`
 
 export const MainGame = () => {
   const [width, height] = useWindowSize();
-  //   const [isActive, setActive] = useState(false);
-  //   const dispatch = useDispatch();
-  //   const onToggleClass = () => {
-  //     setActive(!isActive);
-  //   };
 
   const gameList = useSelector((store) => store.game.gameList);
 
@@ -60,4 +55,8 @@ export const MainGame = () => {
   );
 };
 
-// <Switch (coordinates)/>
+//   const [isActive, setActive] = useState(false);
+//   const dispatch = useDispatch();
+//   const onToggleClass = () => {
+//     setActive(!isActive);
+//   };
