@@ -3,19 +3,6 @@ import { useSelector } from 'react-redux';
 import Button from './Button';
 import styled from 'styled-components';
 
-const NextStepText = styled.p`
-  font-size: 1em;
-  margin: 0px 0px 20px 0px;
-  &.show {
-    font-size: 1em;
-    margin: 0px 0px 20px 0px;
-  }
-
-  &.hide {
-    display: none;
-  }
-`;
-
 const TextBox = styled.div`
   display: flex;
   flex-direction: column;
