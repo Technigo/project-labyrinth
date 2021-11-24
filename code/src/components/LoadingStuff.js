@@ -1,69 +1,19 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import styled, { keyframes } from 'styled-components';
-import { useWindowSize } from '@react-hook/window-size';
-import './LoadingStuff.css';
-
-const loaderAnim = keyframes`
-	from {transform: scale(0, 0)};
-    to {transform: scale(1, 1)};
-`;
+import React from "react";
+import { useSelector } from "react-redux";
+import styled from "styled-components";
+import { useWindowSize } from "@react-hook/window-size";
+import "./LoadingStuff.css";
 
 const Loader = styled.div`
   font-size: 0px;
   padding: 0px;
   z-index: 5;
   position: absolute;
-  top: ${(props) => props.hgt / 4}px;
-  left: ${(props) => props.wid / 4}px;
+  /* top: ${(props) => props.hgt / 4}px;
+  left: ${(props) => props.wid / 4}px; */
+  top: 50%;
+  left: 50%;
   display: block;
-
-  // span {
-  //   vertical-align: middle;
-  //   border-radius: 100%;
-  //   display: inline-block;
-  //   height: ${(props) => props.hgt * 0.05}px;
-  //   width: ${(props) => props.wid * 0.1}px;
-  //   margin: 3px 2px;
-  //   -webkit-animation: loader1 0.8s linear infinite alternate;
-  //   animation: ${loaderAnim} 0.8s linear infinite alternate;
-  // }
-  // span:nth-child(1) {
-  //   -webkit-animation-delay: -1s;
-  //   animation-delay: -1s;
-  //   background: rgba(245, 103, 115, 0.6);
-  // }
-  // span:nth-child(2) {
-  //   -webkit-animation-delay: -0.8s;
-  //   animation-delay: -0.8s;
-  //   background: rgba(245, 103, 115, 0.8);
-  // }
-  // span:nth-child(3) {
-  //   -webkit-animation-delay: -0.26666s;
-  //   animation-delay: -0.26666s;
-  //   background: rgba(245, 103, 115, 1);
-  // }
-  // span:nth-child(4) {
-  //   -webkit-animation-delay: -0.8s;
-  //   animation-delay: -0.8s;
-  //   background: rgba(245, 103, 115, 0.8);
-  // }
-  // span:nth-child(5) {
-  //   -webkit-animation-delay: -1s;
-  //   animation-delay: -1s;
-  //   background: rgba(245, 103, 115, 0.4);
-  // }
-
-  ${
-    '' /* @keyframes loader1 {
-    from {transform: scale(0, 0);}
-    to {transform: scale(1, 1);}
- }
- @-webkit-keyframes loader1 {
-    from {-webkit-transform: scale(0, 0);}
-    to {-webkit-transform: scale(1, 1);}
- } */
-  }
 `;
 
 const LoaderBox = styled.div`
@@ -78,33 +28,22 @@ const LoaderBox = styled.div`
 const LoadingStuff = () => {
   const [width, height] = useWindowSize();
   const loading = useSelector((store) => store.ui.loading);
-  console.log(loading);
-  console.log(width);
-
-  // const defaultOptions = {
-  //   loop: true,
-  //   autoplay: true,
-  //   animationData: animationData,
-  //   rendererSettings: {
-  //     preserveAspectRatio: 'xMidYMid slice'
-  //   }
-  // };
 
   return (
     <>
       {loading && (
         <LoaderBox hgt={height} wid={width}>
           <Loader hgt={height} wid={width}>
-            <div className='circle-1'></div>
-            <div className='circle-2'></div>
-            <div className='circle-3'></div>
-            <div className='circle-4'></div>
-            <div className='circle-5'></div>
+            <div className="circle-1"></div>
+            <div className="circle-2"></div>
+            <div className="circle-3"></div>
+            <div className="circle-4"></div>
+            <div className="circle-5"></div>
 
-            <div className='square-1'></div>
-            <div className='square-2'></div>
-            <div className='square-3'></div>
-            <div className='square-4'></div>
+            <div className="square-1"></div>
+            <div className="square-2"></div>
+            <div className="square-3"></div>
+            <div className="square-4"></div>
           </Loader>
         </LoaderBox>
       )}
