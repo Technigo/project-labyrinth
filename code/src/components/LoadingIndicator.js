@@ -10,7 +10,6 @@ import styled from 'styled-components';
 
 
 export const LoadingIndicator = () => {
-  const loading = useSelector((store) => store.ui.isLoading);
 
   const defaultOptions = {
     loop: true,
