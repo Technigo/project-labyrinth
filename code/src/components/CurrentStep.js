@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { nextStep } from 'reducers/game'
+import { nextStep, navigateWithKeys } from 'reducers/game'
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
 
@@ -75,29 +75,29 @@ export const CurrentStep = () => {
   const loading = useSelector(store => store.ui.loading)
   let navigate = useNavigate()
 
-  const onNavigate = e => {
-    let nextAction = undefined
-    if (e.key === 'ArrowUp') {
-      nextAction = currentStep?.actions?.find(action => action.direction === 'North')
-    } else if (e.key === 'ArrowDown') {
-      nextAction = currentStep?.actions?.find(action => action.direction === 'South')
-    } else if (e.key === 'ArrowLeft') {
-      nextAction = currentStep?.actions?.find(action => action.direction === 'West')
-    } else if (e.key === 'ArrowRight') {
-      nextAction = currentStep?.actions?.find(action => action.direction === 'East')
-    }
-    if (nextAction) {
-      console.log(nextAction)
-      dispatch(nextStep(nextAction))
-    }
-  }
+  // const onNavigate = e => {
+  //   let nextAction = undefined
+  //   if (e.key === 'ArrowUp') {
+  //     nextAction = currentStep?.actions?.find(action => action.direction === 'North')
+  //   } else if (e.key === 'ArrowDown') {
+  //     nextAction = currentStep?.actions?.find(action => action.direction === 'South')
+  //   } else if (e.key === 'ArrowLeft') {
+  //     nextAction = currentStep?.actions?.find(action => action.direction === 'West')
+  //   } else if (e.key === 'ArrowRight') {
+  //     nextAction = currentStep?.actions?.find(action => action.direction === 'East')
+  //   }
+  //   if (nextAction) {
+  //     console.log(nextAction)
+  //     dispatch(nextStep(nextAction))
+  //   }
+  // }
 
   useEffect(() => {
-    window.addEventListener('keydown', onNavigate)
+    window.addEventListener('keydown', e => dispatch(navigateWithKeys(e)))
     return () => {
-      window.removeEventListener('keydown', onNavigate)
+      window.removeEventListener('keydown', e => dispatch(navigateWithKeys(e)))
     }
-  }, [onNavigate])
+  }, [dispatch])
 
   const onRestart = () => {
     dispatch(game.actions.restartGame())

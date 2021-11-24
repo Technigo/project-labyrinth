@@ -82,3 +82,23 @@ export const nextStep = action => {
       })
   }
 }
+
+export const navigateWithKeys = action => {
+  return (dispatch, getState) => {
+    dispatch(game.actions.setSteps(action.direction))
+    let nextAction = undefined
+    if (action.key === 'ArrowUp') {
+      nextAction = getState().game.currentStep.actions.find(action => action.direction === 'North')
+    } else if (action.key === 'ArrowDown') {
+      nextAction = getState().game.currentStep.actions.find(action => action.direction === 'South')
+    } else if (action.key === 'ArrowLeft') {
+      nextAction = getState().game.currentStep.actions.find(action => action.direction === 'West')
+    } else if (action.key === 'ArrowRight') {
+      nextAction = getState().game.currentStep.actions.find(action => action.direction === 'East')
+    }
+    if (nextAction) {
+      console.log(nextAction)
+      dispatch(nextStep(nextAction))
+    }
+  }
+}
