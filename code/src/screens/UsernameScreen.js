@@ -9,6 +9,14 @@ export const UsernameScreen = () => {
   const [username, setUsername] = useState("");
   const usernameInvalid = username.length < 4;
 
+  const handleKeyPress = (event) => {
+    // -- enter input with enter key
+    if (event.key === "Enter") {
+      dispatch(gameSteps.actions.setUsername({ username }));
+      dispatch(screen.actions.currentScreen({ screen: "game" }));
+    }
+  };
+
   return (
     <UsernameContainer>
       <div></div>
@@ -22,6 +30,7 @@ export const UsernameScreen = () => {
           value={username}
           onChange={(event) => setUsername(event.target.value)}
           placeholder="Username"
+          onKeyPress={handleKeyPress}
         ></UsernameInput>
         <span></span>
         <UsernameButton
