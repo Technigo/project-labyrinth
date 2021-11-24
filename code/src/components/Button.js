@@ -48,7 +48,7 @@ const Button = ({ item }) => {
         dispatch(fetchGameInstructions({ direction: item.direction }));
       }}
     >
-      Go {item.direction}
+      {item.type} {item.direction.toLowerCase()}
     </GameButton>
   );
 };

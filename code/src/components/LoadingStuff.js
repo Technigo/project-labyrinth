@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import styled, { keyframes } from 'styled-components';
+import { useWindowSize } from '@react-hook/window-size';
 
 const loaderAnim = keyframes`
 	from {transform: scale(0, 0)};
@@ -14,15 +15,14 @@ const Loader = styled.div`
   z-index: 5;
   position: absolute;
   top: 50%;
-  left: 47%;
+  left: ${(props) => props.wid / 4}px;
 
   span {
     vertical-align: middle;
     border-radius: 100%;
-
     display: inline-block;
-    width: 10px;
-    height: 10px;
+    height: ${(props) => props.hgt * 0.05}px;
+    width: ${(props) => props.wid * 0.1}px;
     margin: 3px 2px;
     -webkit-animation: loader1 0.8s linear infinite alternate;
     animation: ${loaderAnim} 0.8s linear infinite alternate;
@@ -65,9 +65,20 @@ const Loader = styled.div`
   }
 `;
 
+const LoaderBox = styled.div`
+  height: ${(props) => props.hgt}px;
+  width: ${(props) => props.wid}px;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  z-index: 5;
+`;
+
 const LoadingStuff = () => {
+  const [width, height] = useWindowSize();
   const loading = useSelector((store) => store.ui.loading);
   console.log(loading);
+  console.log(width);
 
   // const defaultOptions = {
   //   loop: true,
@@ -81,13 +92,15 @@ const LoadingStuff = () => {
   return (
     <>
       {loading && (
-        <Loader>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </Loader>
+        <LoaderBox hgt={height} wid={width}>
+          <Loader hgt={height} wid={width}>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </Loader>
+        </LoaderBox>
       )}
     </>
   );
