@@ -14,6 +14,7 @@ export const Direction = ({ description, direction, setDirection }) => {
   return (
     <div>
 <p>{description}</p>
+   
       <button
         value={direction}
         onChange={(e) => setDirection(e.target.value)}
