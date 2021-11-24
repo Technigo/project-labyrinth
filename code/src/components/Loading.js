@@ -1,10 +1,11 @@
 import React from "react";
 import Lottie from "react-lottie";
-import animationData from "../animations/loading-double";
+import animationData from "../Lotties/spinner-slow-three-colors";
 import { useSelector } from "react-redux";
 
 export const Loading = () => {
-  const loading = useSelector((state) => state.ui.loading);
+  const loading = useSelector((store) => store.loading.loading);
+  console.log(animationData);
 
   const defaultOptions = {
     loop: true,
@@ -15,9 +16,5 @@ export const Loading = () => {
     },
   };
 
-  return (
-    <>
-      {loading && <Lottie options={defaultOptions} height={400} width={400} />}
-    </>
-  );
+  return <>{<Lottie options={defaultOptions} height={100} width={100} />}</>;
 };

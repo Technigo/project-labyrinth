@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchGameData } from "reducers/gameSteps";
 import { continueFetchGameData } from "reducers/gameSteps";
+import { Loading } from "components/Loading";
 import styled from "styled-components/macro";
 
 export const GameScreen = () => {
@@ -19,35 +20,46 @@ export const GameScreen = () => {
     dispatch(fetchGameData(username));
   }, [dispatch, username]);
 
-  if (isLoading || game.length === 0) {
-    return <div></div>;
+  if (game.length === 0) {
+    return (
+      <GameQuestionContainer>
+        <div></div>
+        <QuestionWrapper>
+          <Loading />
+        </QuestionWrapper>
+      </GameQuestionContainer>
+    );
   }
+
   return (
     <GameQuestionContainer>
       <div></div>
       <QuestionWrapper>
         {lastMove && <LastMove>You went {lastMove}.</LastMove>}
         <QuestionDescription>{game.description}</QuestionDescription>
-        {game.actions.map((action) => {
-          return (
-            <OptionsContainer key={action.direction}>
-              <OptionDescription>{action.description}</OptionDescription>
-              <MoveButton
-                onClick={() => {
-                  dispatch(
-                    continueFetchGameData(
-                      username,
-                      action.type,
-                      action.direction
-                    )
-                  );
-                }}
-              >
-                Go {action.direction}
-              </MoveButton>
-            </OptionsContainer>
-          );
-        })}
+        {isLoading && <Loading />}
+        {!isLoading &&
+          game.actions.map((action) => {
+            return (
+              <OptionsContainer key={action.direction}>
+                <OptionDescription>{action.description}</OptionDescription>
+
+                <MoveButton
+                  onClick={() => {
+                    dispatch(
+                      continueFetchGameData(
+                        username,
+                        action.type,
+                        action.direction
+                      )
+                    );
+                  }}
+                >
+                  Go {action.direction}
+                </MoveButton>
+              </OptionsContainer>
+            );
+          })}
         {game.actions.length === 0 && (
           <div>
             Congratulations you finished the game in {gameHistory.length} moves!
