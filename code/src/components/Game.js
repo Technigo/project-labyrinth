@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { startThunk, actionThunk, game } from '../reducers/game'
 
 import { Endscreen } from './Endscreen'
-import { LoadingIndicator} from "./LoadingIndicator"
+
 
 export const Game = () => {
     const dispatch = useDispatch()
@@ -23,7 +23,7 @@ export const Game = () => {
 
     return (
         <>
-        <LoadingIndicator />
+       
             {showBeginning && (
 
                 <form onSubmit={() => onStart()}>
