@@ -78,9 +78,12 @@ export const CurrentStep = () => {
   let navigate = useNavigate()
 
   useEffect(() => {
-    window.addEventListener('keydown', e => dispatch(navigateWithKeys(e)))
+    const handleKeyPress = e => {
+      dispatch(navigateWithKeys(e))
+    }
+    window.addEventListener('keydown', handleKeyPress)
     return () => {
-      window.removeEventListener('keydown', e => dispatch(navigateWithKeys(e)))
+      window.removeEventListener('keydown', handleKeyPress)
     }
   }, [dispatch])
 
