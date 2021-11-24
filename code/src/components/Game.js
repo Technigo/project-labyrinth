@@ -7,5 +7,5 @@ import { Labyrinth } from './Labyrinth';
 export const Game = () => {
   const currentPosition = useSelector((state) => state.labyrinthSlice.currentPosition);
   
-  return <>{currentPosition ? <Labyrinth /> : <Starting />}</>;
+  return <main className="main">{currentPosition ? <Labyrinth /> : <Starting />}</main>;
 };

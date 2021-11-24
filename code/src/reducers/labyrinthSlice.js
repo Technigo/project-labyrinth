@@ -33,16 +33,19 @@ export const startGameThunk = () => {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
+				// gets the local state for the username
 				username: getState().labyrinthSlice.username,
 			}),
 		})
 			.then((res) => res.json())
 			.then((data) => {
+				// dispatches the current position and its data to the state
 				dispatch(labyrinthSlice.actions.setCurrentPosition(data))
 			});
 	};
 };
 
+// this executes when the user chooses an option for where to go
 export const nextStepThunk = (type, direction) => {
 	return (dispatch, getState) => {
 		fetch('https://wk16-backend.herokuapp.com/action', {
