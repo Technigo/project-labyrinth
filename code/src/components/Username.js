@@ -42,6 +42,7 @@ const Username = () => {
       <Label>
         Choose your character
         <Input
+          required
           placeholder="Type your username"
           type="text"
           onChange={(e) => setUserName(e.target.value)}
@@ -49,7 +50,7 @@ const Username = () => {
         />
       </Label>
       <StartButton onClick={() => onSetUserName(userName)}>
-        Sart Game
+        Start Game
       </StartButton>
     </Form>
   );

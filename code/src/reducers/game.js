@@ -3,13 +3,17 @@ import { NEXT_MOVE, START_GAME } from "utils/urls";
 
 import { ui } from "./ui";
 
+const initialState = {
+  moves: [],
+  history: [],
+  username: "",
+};
+
 export const game = createSlice({
   name: "game",
-  username: "",
-  initialState: {
-    moves: [],
-    history: [],
-  },
+
+  initialState,
+
   reducers: {
     nextMove: (store, action) => {
       store.moves = action.payload;
@@ -18,6 +22,9 @@ export const game = createSlice({
 
     addUserName: (store, action) => {
       store.username = action.payload;
+    },
+    restart: () => {
+      return initialState;
     },
   },
 });

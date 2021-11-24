@@ -8,8 +8,15 @@ const LoadingContainer = styled.div`
   display: flex;
   align-items: center;
   background-color: red;
+  width: 500px;
+  height: 100vh; ;
+`;
+const Div = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
   width: 100%;
-  height: 100vh;
 `;
 
 export const Loading = () => {
@@ -24,8 +31,12 @@ export const Loading = () => {
     },
   };
   return (
-    <LoadingContainer>
-      {loading && <Lottie options={defaultOptions} height={400} height={400} />}
-    </LoadingContainer>
+    <Div>
+      <LoadingContainer>
+        {loading && (
+          <Lottie options={defaultOptions} height={400} height={400} />
+        )}
+      </LoadingContainer>
+    </Div>
   );
 };
