@@ -14,6 +14,7 @@ import color from "../assets/color.png";
 import paper from "../assets/paper.png";
 import steampunk from "../assets/steampunk.png";
 import colorfulcave from "../assets/colorfulcave.png";
+import back from "../assets/back.gif";
 
 import TypeWriterEffect from "react-typewriter-effect";
 
@@ -62,7 +63,7 @@ export const MainGame = () => {
       case "1,3":
         return last;
       default:
-        return "error";
+        return back;
     }
   };
 
