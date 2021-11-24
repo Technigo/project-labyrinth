@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchGame } from "reducers/game";
 import { nextStep } from "reducers/game";
 import styled from "styled-components";
+import TheGame from "./TheGame";
+import { game } from "../reducers/game";
 
 const StartCard = styled.div`
   background: lightblue;
@@ -36,10 +38,25 @@ const StartCard = styled.div`
 `;
 
 const StartPage = () => {
-  const game = useSelector((store) => store.game.gameList);
+  const gameState = useSelector((store) => store.game.currentPosition);
   const dispatch = useDispatch();
 
-  const [input, setInput] = useState("");
+  // const [input, setInput] = useState("");
+
+  const handleInputChange = (event) => {
+    dispatch(game.actions.setUsername(event.target.value));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    dispatch(fetchGame());
+  };
+
+  // const handleInputChange = () => {
+  //   dispatch(game.actions.setUsername("name"));
+  //   fetchGame();
+  // };
 
   return (
     <>
@@ -50,27 +67,18 @@ const StartPage = () => {
             navigate through this maze. Good luck...
           </h1>
           <h2>Let the games begin!</h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <label>
-              <input
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-              />
+              <input type="text" onChange={handleInputChange} />
             </label>
+
+            <button type="submit">Start</button>
           </form>
-          <button
-            disabled={input === ""}
-            type="button"
-            onClick={() => {
-              dispatch(fetchGame());
-            }}
-          >
-            Start
-          </button>
         </section>
 
-        {game?.actions?.map((item) => (
+        <TheGame />
+      </StartCard>
+      {/* {game?.actions?.map((item) => (
           <p key={item.description}>{item.description}</p>
         ))}
         {game?.actions?.map((item) => (
@@ -82,8 +90,7 @@ const StartPage = () => {
           >
             {item.direction}
           </button>
-        ))}
-      </StartCard>
+        ))} */}
     </>
   );
 };

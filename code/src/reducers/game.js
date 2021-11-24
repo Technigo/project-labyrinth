@@ -5,23 +5,22 @@ export const game = createSlice({
   name: "game",
   initialState: {
     username: "",
-    currentPosition: null,
+    currentPosition: "",
     gameList: [{ description: "hahahaah" }],
   },
   reducers: {
     setUsername: (store, action) => {
-      console.log("setUsername: ", action.payload);
       store.username = action.payload;
     },
 
-    setGameList: (state, action) => {
-      state.gameList = action.payload;
+    setCurrentPosition: (store, action) => {
+      store.currentPosition = action.payload;
     },
   },
 });
 
 export const fetchGame = () => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     dispatch(ui.actions.setLoading(true));
 
     const options = {
@@ -29,13 +28,13 @@ export const fetchGame = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username: "MajBritt" }),
+      body: JSON.stringify({ username: getState().game.username }),
     };
 
     fetch("https://wk16-backend.herokuapp.com/start", options)
       .then((res) => res.json())
       .then((json) => {
-        dispatch(game.actions.setGameList(json));
+        dispatch(game.actions.setCurrentPosition(json));
         dispatch(ui.actions.setLoading(false));
       });
   };
@@ -60,7 +59,7 @@ export const nextStep = (direction) => {
     fetch("https://wk16-backend.herokuapp.com/action", options)
       .then((res) => res.json())
       .then((json) => {
-        dispatch(game.actions.setGameList(json));
+        dispatch(game.actions.setCurrentPosition(json));
         dispatch(ui.actions.setLoading(false));
       });
   };

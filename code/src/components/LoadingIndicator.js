@@ -4,7 +4,7 @@ import animationData from "../animations/loading-double";
 import { useSelector } from "react-redux";
 
 export const LoadingIndicator = () => {
-  const loading = useSelector((store) => store.game.loading);
+  const loading = useSelector((store) => store.ui.loading);
 
   const defaultOptions = {
     loop: true,
