@@ -4,8 +4,8 @@ import { ui } from "./ui";
 export const game = createSlice({
   name: "game",
   initialState: {
-    currentPosition: {},
-    username: "",
+    currentPosition: null,
+    username: null,
     history: [],
   },
   reducers: {
@@ -26,31 +26,31 @@ export const game = createSlice({
 });
 
 export const fetchStartGame = () => {
-  return (dispatch, getStore) => {
-    // dispatch(ui.actions.setLoading(true));
+  return (dispatch, getState) => {
+    dispatch(ui.actions.setLoading(true));
     fetch("https://wk16-backend.herokuapp.com/start", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username: getStore().game.username }),
+      body: JSON.stringify({ username: getState().game.username }),
     })
       .then((res) => res.json())
-      .then((data) => dispatch(game.actions.setCurrentPosition({ data })));
-    // .finally(() => dispatch(ui.actions.setLoading(false)));
+      .then((data) => dispatch(game.actions.setCurrentPosition(data)))
+      .finally(() => dispatch(ui.actions.setLoading(false)));
   };
 };
 
 export const continueGame = (type, direction) => {
-  return (dispatch, getStore) => {
-    // dispatch(ui.actions.setLoading(true));
+  return (dispatch, getState) => {
+    dispatch(ui.actions.setLoading(true));
     fetch("https://wk16-backend.herokuapp.com/action", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: getStore().game.username,
+        username: getState().game.username,
         type,
         direction,
       }),
@@ -59,7 +59,7 @@ export const continueGame = (type, direction) => {
       .then((data) => {
         dispatch(game.actions.setCurrentPosition(data));
         dispatch(game.actions.setHistory(data));
-      });
-    // .finally(() => dispatch(ui.actions.setLoading(false)));
+      })
+      .finally(() => dispatch(ui.actions.setLoading(false)));
   };
 };

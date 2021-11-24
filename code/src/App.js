@@ -4,6 +4,7 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 
 import { ui } from "./reducers/ui";
 import { game } from "./reducers/game";
+
 import { Main } from "./components/Main";
 import { LoadingIndicator } from "./components/LoadingIndicator";
 // import { Game } from "./components/Game";
@@ -19,7 +20,6 @@ export const App = () => {
   return (
     <Provider store={store}>
       <main className="app">
-        <h1>Hello</h1>
         <Main />
         <LoadingIndicator />
       </main>
