@@ -23,7 +23,7 @@ export const GamePage = () => {
 
     return (
         <>
-        <GameBackground backgroundImage={"../assets/img/ingame-img.jpeg"}>
+        <GameBackground backgroundImage={"../assets/img/ingame-img.jpg"}>
 
         <GameCard>
            {gameStatus.description}

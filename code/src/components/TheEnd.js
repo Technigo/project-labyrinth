@@ -19,7 +19,7 @@ export const TheEnd = () => {
 
   return (
     <>
-      <GameBackground backgroundImage={"../assets/img/end-img.jpeg"}>
+      <GameBackground backgroundImage={"../assets/img/theend-image.jpg"}>
 
         <GameCard><p>Congratulations {username}, you finished the game!</p>
           {gameStatus.description}
