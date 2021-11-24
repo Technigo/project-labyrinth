@@ -2,14 +2,16 @@ import { createSlice } from "@reduxjs/toolkit";
 import { ui } from "./ui";
 import uniqid from "uniqid";
 
+const initialState = {
+  username: "",
+  startingPosition: [],
+  steps: [],
+  directions: [],
+};
+
 const steps = createSlice({
   name: "steps",
-  initialState: {
-    username: "",
-    startingPosition: [],
-    steps: [],
-    directions: [],
-  },
+  initialState,
   reducers: {
     setUsername: (store, action) => {
       console.log("setUsername: ", action.payload);
@@ -29,8 +31,12 @@ const steps = createSlice({
     setMovement: (store, action) => {
       store.directions.push(action.payload);
     },
+    setInitialState: (store, action) => {
+      return initialState;
+    },
   },
 });
+
 export const fetchStart = () => {
   return (dispatch, getState) => {
     const state = getState();

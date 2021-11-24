@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components/macro";
 
-import { fetchSteps } from "../reducers/steps";
+import steps from "../reducers/steps";
 
 const Title = styled.h1`
   margin: 0;
@@ -58,41 +58,29 @@ const ActionPage = () => {
   const currentStep = useSelector((store) =>
     store.steps.steps.at(-1)
   );
-  const lastDirection = useSelector((store) =>
-    store.steps.directions.at(-1)
-  );
-  const allSteps = useSelector((store) => store.steps.steps);
+  const stepsTaken = useSelector((store) => store.steps.steps);
   const username = useSelector((store) => store.steps.username);
 
   const dispatch = useDispatch();
 
-  const handleClick = (direction) => {
-    dispatch(fetchSteps(direction));
+  const handleClick = () => {
+    console.log("Handle click is activated");
+    dispatch(steps.actions.setInitialState());
   };
+
   return (
     <Content>
       <SmallText>
-        You have moved {allSteps.length} step
-        {allSteps.length > 1 && "s"}
-        {allSteps.length > 1 &&
-          `, and the latest movement was ${lastDirection}`}
+        It took you {stepsTaken.length} steps to reach the end
       </SmallText>
       <div>
         <Title>{username}</Title>
-        <SecondaryText>{currentStep.description}</SecondaryText>
+        <SecondaryText>{currentStep?.description}</SecondaryText>
       </div>
       <div>
-        {currentStep.actions.map((action) => (
-          <div key={action.description}>
-            <div>{action.description}</div>
-            <Button
-              type="button"
-              onClick={() => handleClick(action.direction)}
-            >
-              Go {action.direction}
-            </Button>
-          </div>
-        ))}
+        <Button type="button" onClick={() => handleClick()}>
+          Start over
+        </Button>
       </div>
     </Content>
   );
