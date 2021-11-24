@@ -1,13 +1,20 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
+A pair-programming project where we build a maze game that allows a user to navigate a game, in the form of a text-based adventure, provided by a backend. We used the API specified to build a frontend that gives the user control over what to do next. We focused on using thunks and redux to build the communication with the backend. 
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## What have we learned | How we built it
 
-## The problem
+What have we learned: 
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+- How to work with APIs together with Redux
+- How to use thunks
+- Other ways of writing Redux
+- Reusable components
+- How to structure your redux store to suit your data
+- To send JSON in the body of a request
+
+Technologies used in this project: React Redux, thunks for fetchning the data, Styled componenents, Lottie animation library.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://jds-labyrinth-game.netlify.app/
