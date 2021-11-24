@@ -3,12 +3,14 @@ import Lottie from 'react-lottie';
 import animationData from '../animations/loading-double';
 import { useSelector } from 'react-redux';
 
-const LoadingScreen = () => {
-  const loading = useSelector((store) => store.loading);
+import './loadingScreen.css';
+
+export const LoadingScreen = () => {
+  const loading = useSelector((store) => store.game.loading);
 
   const defaultOptions = {
-    loop: false,
-    autoplay: false,
+    loop: true,
+    autoplay: true,
     animationData,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice',
@@ -16,10 +18,8 @@ const LoadingScreen = () => {
   };
 
   return (
-    <>
-      {loading && <Lottie options={defaultOptions} height={400} width={400} />}
-    </>
+    <div className="lottie">
+      {loading && <Lottie options={defaultOptions} height={300} width={300} />}
+    </div>
   );
 };
-
-export default LoadingScreen;

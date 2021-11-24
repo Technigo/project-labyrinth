@@ -1,8 +1,31 @@
+BLUE
+
+- Your page should be responsive. 👻
+- Use redux to store the current state of the game 🌟
+- Focus on making the UX of your app good. Handle the response delay 🌟
+- Use thunks to wrap your API calls (but you don't _have to_ if you don't want to).🌟
+
+RED
+
+- If you want to focus more on design and make or use a design library (for example material-ui) (Optional) 👻
+
+BLACK
+
+- Style each room/state based on the description. For instance, if it contains the word "forest" you may want to change the background to a forest 👻
+- Create a visual representation (drawing) of the map/labyrinth that the player is navigating. It could update after each action. The coordinates might be helpful here, or you can track the directions yourself -> Only "nice to have"
+
 input for username (to get a response with the story and the alternatives) -> game (reducer)
-loader screen -> done
+loader screen -> done 🌟
 
-fetch start API (use button?) -> gameReducer
+fetch start API (use button?) -> gameReducer 🌟
 
-after user input, post request with username, type and direction 
+after user input, post request with username, type and direction 🌟
 
-continue 
+To-dos:
+
+- Check keywords for landscapes (scenes) -> Maria
+- Find background pictures for the scenes -> Isabel and Maria
+- Style Start screen
+- Style scenes
+- Style end screen
+- Style loading screen

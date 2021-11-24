@@ -1,6 +1,17 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+
+import { Labyrinth } from './Labyrinth';
+import { Start } from './Start';
+import { LoadingScreen } from './LoadingScreen';
 
 export const Game = () => {
-  //const
+  const currentPosition = useSelector((store) => store.game.currentPosition);
+
+  return (
+    <>
+      {currentPosition ? <Labyrinth /> : <Start />}
+      <LoadingScreen />
+    </>
+  );
 };
