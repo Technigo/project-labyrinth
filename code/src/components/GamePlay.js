@@ -11,11 +11,40 @@ const BackgroundImage = styled.div`
 	background-repeat: no-repeat;
 	width: 100vw;
 	height: 100vh;
-	position: fixed;
+	/* position: fixed; */
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+	color: #ffffff;
+`;
+
+const Container = styled.main`
+	padding: 30px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+`;
+
+const Keyboard = styled.div`
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	width: 75%;
+`;
+
+const KeyButton = styled.button`
+	grid-column: span 1;
+	background: none;
+	border: none;
+	margin: 5px;
+`;
+
+const EmptySpace = styled.div`
+	grid-column: span 1;
+`;
+
+const ImageButton = styled.img`
+	width: 100%;
 `;
 
 export const GamePlay = () => {
@@ -27,34 +56,43 @@ export const GamePlay = () => {
 	const moveDirectionOne = currentPosition?.actions[0].direction;
 	const moveDirectionTwo = currentPosition?.actions[1]?.direction;
 
-	// Change the assets to public folder "./assets/ice-cavern.jpg"
-
 	return (
-		<BackgroundImage image={require("../assets/ice-cavern.jpg")}>
-			{loading && <Loader />}
-			{currentPosition && (
-				<>
-					<h1>{currentPosition.description}</h1>
-					<h2>Your current position {currentPosition.coordinates}</h2>
-					<p>
-						{moveDescOne}. If you want to continue on this path go{" "}
-						{moveDirectionOne}.
-					</p>
-					{currentPosition.coordinates !== "0,0" && (
+		<BackgroundImage image={"./assets/ice-cavern.jpg"}>
+			<>
+				{loading && <Loader />}
+				{currentPosition && (
+					<Container>
+						<h1>{currentPosition.description}</h1>
+						{/* <h2>Your current position {currentPosition.coordinates}</h2> */}
 						<p>
-							{moveDescTwo}. If you want to continue on this path go{" "}
-							{moveDirectionTwo}.
+							{moveDescOne}. If you want to continue on this path go{" "}
+							{moveDirectionOne}.
 						</p>
-					)}
-					<div>
-						<button onClick={() => dispatch(nextStep("North"))}>North</button>
-						<button onClick={() => dispatch(nextStep("East"))}>East</button>
-						<button onClick={() => dispatch(nextStep("South"))}>South</button>
-						<button onClick={() => dispatch(nextStep("West"))}>West</button>
-					</div>
-					<div></div>
-				</>
-			)}
+						{currentPosition.coordinates !== "0,0" && (
+							<p>
+								{moveDescTwo}. If you want to continue on this path go{" "}
+								{moveDirectionTwo}.
+							</p>
+						)}
+						<Keyboard>
+							<EmptySpace></EmptySpace>
+							<KeyButton onClick={() => dispatch(nextStep("North"))}>
+								<ImageButton src={"./assets/key_up.png"} alt="North" />
+							</KeyButton>
+							<EmptySpace></EmptySpace>
+							<KeyButton onClick={() => dispatch(nextStep("West"))}>
+								<ImageButton src={"./assets/key_left.png"} alt="West" />
+							</KeyButton>
+							<KeyButton onClick={() => dispatch(nextStep("South"))}>
+								<ImageButton src={"./assets/key_down.png"} alt="South" />
+							</KeyButton>
+							<KeyButton onClick={() => dispatch(nextStep("East"))}>
+								<ImageButton src={"./assets/key_right.png"} alt="East" />
+							</KeyButton>
+						</Keyboard>
+					</Container>
+				)}
+			</>
 		</BackgroundImage>
 	);
 };

@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Loader } from "./Loader";
 
 import { game, startGame } from "../reducers/game";
-// import { icecavern } from "../assets/ice-cavern.jpg";
 
 export const StartPage = () => {
 	const [inputName, setInputName] = useState("");
@@ -24,7 +23,6 @@ export const StartPage = () => {
 
 	return (
 		<>
-			{/* <img src={require("../assets/ice-cavern.jpg")} alt="Ice Cavern"></img> */}
 			{loading && <Loader />}
 			{!username && (
 				<form onSubmit={onInputNameChange}>
