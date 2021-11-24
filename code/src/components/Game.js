@@ -41,20 +41,28 @@ export const Game = () => {
 
 
             {!showBeginning && (
-                <>
+                
                 <div>
+                    
                     <div>{newUserName}</div>
                     {gameInformation.description}
+                 
                     {gameInformation.actions.map((action) => (
+                        <div>
+                            <div key={action.description}>{action.description}</div>
                         <button
-                            key={action.coordinates}
-                            onClick={() => onAction(action)}>
-                            {action.type} {action.direction} {action.description}
-                        </button>
+                                key={action.coordinates}
+                                onClick={() => onAction(action)}>
+                                {action.type} {action.direction} 
+                            </button>
+                        </div>
+                        
+                         
                         ))}
-
+                   
+                    
                 </div>
-                </>
+                
             )}
 
 
