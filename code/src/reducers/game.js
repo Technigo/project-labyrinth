@@ -3,13 +3,15 @@ import uniqid from 'uniqid'
 
 import { ui } from './ui'
 
+const initialState = {
+  username: '',
+  currentStep: {},
+  steps: [],
+}
+
 export const game = createSlice({
   name: 'game',
-  initialState: {
-    username: '',
-    currentStep: {},
-    steps: [],
-  },
+  initialState,
   reducers: {
     createUser: (store, action) => {
       store.username = action.payload
@@ -19,7 +21,10 @@ export const game = createSlice({
     },
     setSteps: (store, action) => {
       const newSteps = [...store.steps, action.payload]
-      store.steps =  [...newSteps] 
+      store.steps = [...newSteps]
+    },
+    restartGame: () => {
+      return initialState
     },
   },
 })

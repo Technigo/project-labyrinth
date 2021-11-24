@@ -4,6 +4,7 @@ import { nextStep } from 'reducers/game'
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
 
+import { game } from '../reducers/game'
 import { Loader } from './Loader'
 
 const Container = styled.div`
@@ -61,6 +62,7 @@ export const CurrentStep = () => {
   let navigate = useNavigate()
 
   const onRestart = () => {
+    dispatch(game.actions.restartGame())
     navigate('/')
   }
 
