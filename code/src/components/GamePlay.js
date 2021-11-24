@@ -1,19 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Loader } from "./Loader";
 
-import { game, fetchActions } from "../reducers/game";
+import { nextStep } from "../reducers/game";
 
 export const GamePlay = () => {
 	const dispatch = useDispatch();
-	const gameStatus = useSelector((state) => state.game.data);
+	const currentPosition = useSelector((state) => state.game.currentPosition);
+	const loading = useSelector((state) => state.ui.loading);
+
 	return (
 		<>
-			<div>{gameStatus.coordinates}</div>
-			<div>{gameStatus.description}</div>
-			<button onClick={() => dispatch(fetchActions("North"))}>North</button>
-			<button onClick={() => dispatch(fetchActions("East"))}>East</button>
-			<button onClick={() => dispatch(fetchActions("South"))}>South</button>
-			<button onClick={() => dispatch(fetchActions("West"))}>West</button>
+			{currentPosition && (
+				<>
+					{loading && <Loader />}
+					<div>{currentPosition.coordinates}</div>
+					<div>{currentPosition.description}</div>
+					<button onClick={() => dispatch(nextStep("North"))}>North</button>
+					<button onClick={() => dispatch(nextStep("East"))}>East</button>
+					<button onClick={() => dispatch(nextStep("South"))}>South</button>
+					<button onClick={() => dispatch(nextStep("West"))}>West</button>
+				</>
+			)}
 		</>
 	);
 };
