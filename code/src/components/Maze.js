@@ -1,6 +1,14 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchNextMove } from "../reducers/game"; //fetching the second thunk(fetch-request)
+import styled from "styled-components";
+
+const GameCard = styled.section`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+`;
 
 const Maze = () => {
   const { description, coordinates, actions } = useSelector(
@@ -22,13 +30,13 @@ const Maze = () => {
   );
 
   return (
-    <section>
+    <GameCard>
       <h1>{description}</h1>
       <p>{coordinates}</p>
       {actions.length === 0 && <h3>Wohooo you are free!</h3>}
       {actions.length > 0 &&
         actions.map((item) => <ActionCard key={item.direction} {...item} />)}
-    </section>
+    </GameCard>
   );
 };
 
