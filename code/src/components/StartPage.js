@@ -28,18 +28,18 @@ export const StartPage = () => {
    <GameBackground backgroundImage={"../assets/img/start-image.jpg"}>
     <StartScreen>
       <StartForm onSubmit={setUsernameInStore}>
-        <label>
+        <Label>
           Enter Username:
           <div>
           <Input
-            placeholder="Write your username"
             color="secondary"
             type="text"
+            required
             value={username}
             onChange={(event) => setUsername(event.target.value)} 
           />
           </div>
-        </label>
+        </Label>
         <StartButton type="submit">Begin!</StartButton>
       </StartForm>
       </StartScreen>
@@ -55,26 +55,24 @@ const StartScreen = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* max-width: 500px; */
-
-  /* @media (min-width: 768px) {
-    max-width: 800px;
-  } */
 
 `
 const Input = styled.input`
   line-height: 1.5;
-  margin: 50px 0 30px 0;
-  width: 20vw;
+  margin: 40px 0 30px 0;
   border: none;
   background: none;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid #fda;
   font-family: 'Philosopher', sans-serif;
   font-size: 20px;
   color: #fff;
+
+`
+const Label = styled.label`
+margin-left: 20px;
 `
 const StartForm = styled.form`
-  color: white;
+  color: #fda;
   font-size: 30px;
   margin-bottom: 10px;
   display: flex;
@@ -82,42 +80,41 @@ const StartForm = styled.form`
   justify-content: center;
   align-items: center;
 `
-
 const StartButton = styled.button`
   font-family: 'Philosopher', sans-serif;
-  display:inline-block;
-  position:relative;
-  padding:10px 20px;
-  border:2px solid #fda;
+  display: inline-block;
+  position: relative;
+  padding: 10px 20px;
+  border: 2px solid #fda;
   background-color: white;
-  color:#4F7942;
+  color: #4F7942;
   font-family: 'Philosopher', sans-serif;
-  font-size:20px;
-  text-decoration:none;
-  margin:20px auto;
+  font-size: 20px;
+  text-decoration: none;
+  margin: 20px auto;
   transition: color 0.4s; 
 
   &:after {
   content:" ";
-  border:2px solid rgba(0,0,0,0);
-  display:inline-block;
-  width:100%;
-  height:100%;
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  margin:auto;
-  transition:all 0.4s;
+  border: 2px solid rgba(0,0,0,0);
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  transition: all 0.4s;
   }
  
   &:hover {
-    color:#023020;
+    color: #023020;
   }
 
   &:hover:after { 
-  border:2px solid #fda;
+  border: 2px solid #fda;
   width: calc(100% - 10px);
   height: calc(100% + 10px); 
   }
