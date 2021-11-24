@@ -1,45 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { labyrinthSlice, startGame } from 'reducers/labyrinthSlice';
+import { nextStepThunk } from 'reducers/labyrinthSlice';
 
 export const Labyrinth = () => {
-	const dispatch = useDispatch();
-	const gameData = useSelector((store) => store.labyrinthSlice);
-	const [username, setUsername] = useState('');
-	const [beginning, setBeginning] = useState(true);
+  const dispatch = useDispatch();
+  const { description, coordinates, actions } = useSelector(
+    (store) => store.labyrinthSlice.currentPosition
+  );
 
-	const handleNameInput = (event) => {
-		setUsername(event.target.value);
-	};
+  const nextStep = (type, direction) => {
+    dispatch(nextStepThunk(type, direction));
+  };
 
-	const start = () => {
-		dispatch(startGame(username));
-		dispatch(labyrinthSlice.actions.setUserName(username));
-		setBeginning(false);
-	};
-	// const username = useSelector((store) => store.labyrinthSlice.username);
-	return (
-		<>
-			{beginning && (
-				<div>
-					<input
-						onChange={(event) => handleNameInput(event)}
-						value={username}
-						type='text'
-						placeholder='Write your name here..'></input>
-					<button type='submit' onClick={() => start()}>
-						Enter name
-					</button>
-				</div>
-			)}
-			{!beginning && (
-				<div>
-					<h2>{gameData.description}</h2>
-					{gameData.actions.map((action) => {
-						<button key={action.description}>{action.choices}</button>;
-					})}
-				</div>
-			)}
-		</>
-	);
+  const UserActions = ({ description, type, direction }) => (
+    <div>
+      <p>{description}</p>
+      <button onClick={() => nextStep(type, direction)}>
+        {type} {direction}
+      </button>
+    </div>
+  );
+
+  return (
+    <div>
+      <p>{description}</p>
+      <p>{coordinates}</p>
+      {actions.length === 0 && <h1>Yay, you made it out!</h1>}
+      {actions.lengt > 0 && actions.map((choice) => <UserActions key={choice.direction} {...choice} />)}
+    </div>
+  );
 };

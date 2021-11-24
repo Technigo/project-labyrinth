@@ -8,7 +8,7 @@ import { Loading } from 'components/Loading';
 import { labyrinthSlice } from 'reducers/labyrinthSlice';
 
 const reducer = combineReducers({
-	labyrinth: labyrinthSlice.reducer,
+	labyrinthSlice: labyrinthSlice.reducer,
 });
 
 const store = configureStore({ reducer });
