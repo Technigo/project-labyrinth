@@ -7,7 +7,7 @@ const labyrinth = createSlice({
     username: null,
     location: null,
     action: null,
-    loading: false
+    loading: false,
   },
 
   reducers: {
@@ -21,8 +21,8 @@ const labyrinth = createSlice({
 
     setAction: (store, action) => {
       store.action = action.payload;
-    }
-  }
+    },
+  },
 });
 
 export default labyrinth;
@@ -34,11 +34,11 @@ export const fetchLabyrinth = () => {
     const config = {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: getState().labyrinth.username
-      })
+        username: getState().labyrinth.username,
+      }),
     };
 
     fetch("https://wk16-backend.herokuapp.com/start", config)
@@ -55,13 +55,13 @@ export const continueLabyrinth = () => {
     const config = {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         username: getState().labyrinth.username,
         direction: getState().labyrinth.action,
-        type: "move"
-      })
+        type: "move",
+      }),
     };
 
     fetch("https://wk16-backend.herokuapp.com/action", config)
