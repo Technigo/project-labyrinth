@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { game } from '../reducers/game'
 import { Loader } from './Loader'
+import { History } from './History'
 
 const Container = styled.div`
   display: flex;
@@ -99,16 +100,17 @@ export const CurrentStep = () => {
               <ButtonContainer key={action.direction}>
                 <p>{action.description}</p>
                 <Button onClick={() => dispatch(nextStep(action))}>
-                  Go{' '}
-                  {action.direction === 'North'
-                    ? action.direction + ' ⬆' //&#8593;
-                    : action.direction === 'South'
-                    ? action.direction + ' ⬇' //&#8595;
-                    : action.direction === 'West'
-                    ? action.direction + ' ⬅' //&#8594;
-                    : action.direction === 'East'
-                    ? action.direction + ' ➡' //&#8592;
-                    : ''}
+                  {'Go ' +
+                    action.direction +
+                    (action.direction === 'North'
+                      ? ' ⬆' //&#8593;
+                      : action.direction === 'South'
+                      ? ' ⬇' //&#8595;
+                      : action.direction === 'West'
+                      ? ' ⬅' //&#8594;
+                      : action.direction === 'East'
+                      ? ' ➡' //&#8592;
+                      : '')}
                 </Button>
               </ButtonContainer>
             )
@@ -116,6 +118,7 @@ export const CurrentStep = () => {
         </Container>
       )}
       <StartOverButton onClick={onRestart}>Start over</StartOverButton>
+      <History />
     </GameContainer>
   )
 }

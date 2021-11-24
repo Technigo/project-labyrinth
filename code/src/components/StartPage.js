@@ -67,9 +67,7 @@ export const StartPage = () => {
     <div>
       <Container>
         <HeaderImage src={labyrith} />
-
         <SmallHeader>What's your name?</SmallHeader>
-
         <Input
           type='text'
           value={input}

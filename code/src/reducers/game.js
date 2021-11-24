@@ -6,7 +6,7 @@ import { ui } from './ui'
 const initialState = {
   username: '',
   currentStep: {},
-  steps: [],
+  history: [],
 }
 
 export const game = createSlice({
@@ -19,9 +19,9 @@ export const game = createSlice({
     setCurrentStep: (store, action) => {
       store.currentStep = { ...action.payload }
     },
-    setSteps: (store, action) => {
-      const newSteps = [...store.steps, action.payload]
-      store.steps = [...newSteps]
+    addHistory: (store, action) => {
+      const newHistory = [...store.history, action.payload]
+      store.history = [...newHistory]
     },
     restartGame: () => {
       return initialState
@@ -31,9 +31,9 @@ export const game = createSlice({
 
 export const startGame = input => {
   return dispatch => {
+    dispatch(ui.actions.setLoading(true))
     const newUser = input + uniqid()
     dispatch(game.actions.createUser(newUser))
-    dispatch(ui.actions.setLoading(true))
 
     const options = {
       method: 'POST',
@@ -59,7 +59,7 @@ export const startGame = input => {
 export const nextStep = action => {
   return (dispatch, getState) => {
     dispatch(ui.actions.setLoading(true))
-    dispatch(game.actions.setSteps(action.direction))
+    dispatch(game.actions.addHistory(action))
     const options = {
       method: 'POST',
       headers: {
@@ -85,7 +85,6 @@ export const nextStep = action => {
 
 export const navigateWithKeys = action => {
   return (dispatch, getState) => {
-    dispatch(game.actions.setSteps(action.direction))
     let nextAction = undefined
     if (action.key === 'ArrowUp') {
       nextAction = getState().game.currentStep.actions.find(action => action.direction === 'North')
@@ -97,7 +96,6 @@ export const navigateWithKeys = action => {
       nextAction = getState().game.currentStep.actions.find(action => action.direction === 'East')
     }
     if (nextAction) {
-      console.log(nextAction)
       dispatch(nextStep(nextAction))
     }
   }
