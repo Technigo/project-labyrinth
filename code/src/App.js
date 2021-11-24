@@ -41,7 +41,6 @@ export const App = () => {
           </nav>
           <Routes>
             <Route path="/" element={<LandingPage />} />
-
             <Route path="/startGame" element={<StartGame />} />
             <Route path="/game" element={<Game />} />
             <Route path="/end" element={<End />} />

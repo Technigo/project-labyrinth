@@ -8,7 +8,7 @@ export const game = createSlice({
   name: 'game',
   initialState: {
     places: [],
-    userName: ''
+    userName: 'Technigod'
   },
   reducers: {
     setUserName: (state, action) => {
@@ -21,44 +21,46 @@ export const game = createSlice({
 })
 
 //Doing a post request to API1 and sending the userName
-//The fetch is working, but the Username in the body needs to be changed from Technigoa to the action.payload, when the StartGame.js is set up
+//The fetch is working. UserName is send in as a function argument.
 export const startGame = () => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     const options = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ username: "Technigoa" })
+      body: JSON.stringify({ username: getState().game.userName })
     }
 
-    /* dispatch(ui.actions.setLoading(true)) */
+    dispatch(ui.actions.setLoading(true))
     fetch(START_API_URL, options)
       .then(response => response.json())
       .then(json => dispatch(game.actions.setPlaces(json))) 
+      .finally(() => dispatch(ui.actions.setLoading(false)))
   }
 }
 
 
 //Doing a post request to API2 and sending the userName, direction and type
-//The fetch is not tested yet/ Username and direction need to be changed to action.payload
-export const moveFurther = () => {
-  return (dispatch) => {
+//The fetch is tested and works/ type and direction need to be send from the OnClick
+export const moveFurther = (type, direction) => {
+  return (dispatch, getState) => {
     const options = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        username: "TechnigoPlayer", 
-        type: "move", 
-        direction: "East"
+        username: getState().game.userName, 
+        type, 
+        direction
       })
     }
 
-    /* dispatch(ui.actions.setLoading(true)) */
+    dispatch(ui.actions.setLoading(true))
     fetch(NEXT_PLACE_API_URL, options)
       .then(response => response.json())
       .then(json => dispatch(game.actions.setPlaces(json)))
+      .finally(() => dispatch(ui.actions.setLoading(false)))
   }
 }
