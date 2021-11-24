@@ -17,6 +17,7 @@ export const StartPage = () => {
   return (
     <div>
       <input
+      required
         type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}

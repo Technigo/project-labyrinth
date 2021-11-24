@@ -3,7 +3,7 @@ import { continueLabyrinth } from "reducers/Labyrinth";
 import { useDispatch } from "react-redux";
 import labyrinth from "reducers/Labyrinth";
 
-export const Direction = ({ direction, setDirection }) => {
+export const Direction = ({ description, direction, setDirection }) => {
   const dispatch = useDispatch();
 
   const click = () => {
@@ -13,6 +13,9 @@ export const Direction = ({ direction, setDirection }) => {
 
   return (
     <div>
+      <p>
+{description}
+</p>
       <button
         value={direction}
         onChange={(e) => setDirection(e.target.value)}

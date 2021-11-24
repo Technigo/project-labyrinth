@@ -12,11 +12,14 @@ export const GamePage = () => {
       <p> Welcome {username} </p>
       <p> {labyrinth.description} </p>
       <p> {labyrinth.coordinates} </p>
+      
+
 
       {labyrinth.actions.map((item) => (
         <Direction
           direction={item.direction}
           key={item.description}
+          description={item.description}
           direction={item.direction}
           setdDirection={setDirection}
         />
