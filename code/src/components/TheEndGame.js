@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { gamestate } from '../reducers/gamestate';
  
 export const TheEndGame = () => {
   const currentUser = useSelector((state) => state.gamestate.username);

@@ -3,6 +3,7 @@ import { ui } from "./ui";
 import { GAME_URL } from '../components/utils/urls.js'
 import { ACTION_URL } from '../components/utils/urls.js'
 
+// initialState should properties that you will reuse in the multiple componenents as Vanessa said :)  
 export const gamestate  = createSlice({
   name: 'gamestate ',
   initialState: {
@@ -33,7 +34,7 @@ export const fetchGame = (username) => {
     fetch(GAME_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }, 
-      body: JSON.stringify({ username: username}),
+      body: JSON.stringify({ username }),
     })
       .then((res) => res.json())
       .then((json) => {dispatch(gamestate.actions.setGameStatus(json))})
@@ -41,6 +42,7 @@ export const fetchGame = (username) => {
   };
 };
 
+/* takes in two arguments username and direction that user choose */
 export const nextMove = (username, direction) => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
@@ -48,6 +50,7 @@ export const nextMove = (username, direction) => {
     fetch(ACTION_URL, {
       method: "POST",
       headers: { 'Content-Type': 'application/json' }, 
+			// setting username and direction to the json here and sending to backend
       body: JSON.stringify({ username, type: 'move', direction }),
     })
       .then((res) => res.json())

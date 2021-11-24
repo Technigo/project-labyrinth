@@ -14,12 +14,16 @@ export const GameContainer = () => {
 
   return (
     <>
+			{/* if loader true return loadingindicatior, otherwise return code below */}
       {loader ? <LoadingIndicator/> : 
         <div>
+					{/* if not gamecoordinates return start game */}
           {!gameStatus.coordinates && <StartGame />}
+					{/* if coordinates true and not the last page of the game return Nextstep*/}
           {gameStatus.coordinates && gameStatus.coordinates !== "1,3" && (
             <NextStep /> 
           )}
+					{/* if coordinates 1.3(last page) return the end */}
           {gameStatus.coordinates === "1,3" && (
           <>
             <TheEndGame/>
