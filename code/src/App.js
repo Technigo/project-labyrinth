@@ -19,7 +19,7 @@ export const App = () => {
     <Provider store={store}>
       <StartPage />
 
-      <LoadingLottie />
+      {/* <LoadingLottie /> */}
     </Provider>
   );
 };
