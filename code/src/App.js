@@ -15,7 +15,20 @@ const reducer = combineReducers({
   game: game.reducer,
 });
 
-const store = configureStore({ reducer });
+const preloadedStateJSON = localStorage.getItem('gameReduxState')
+let preloadedState = {}
+
+if (preloadedStateJSON) {
+  preloadedState = JSON.parse(preloadedStateJSON) 
+}
+
+//configures the store with the slices and the localstate
+const store = configureStore({ reducer, preloadedState })
+
+//Store the state in localstorage, when Redux state changes
+store.subscribe(() => {
+  localStorage.setItem('gameReduxState', JSON.stringify(store.getState()))
+})
 
 //we still need to import the loading indicator <LoadingIndicator />
 export const App = () => {
@@ -23,7 +36,7 @@ export const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <div>
-          <nav>
+{/*           <nav>
             <ul>
               <li>
                 <Link to="/">LandingPage</Link>
@@ -38,7 +51,7 @@ export const App = () => {
                 <Link to="/end">End</Link>
               </li>
             </ul>
-          </nav>
+          </nav> */}
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/start" element={<StartGame />} />

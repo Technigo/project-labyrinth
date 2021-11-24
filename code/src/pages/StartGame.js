@@ -1,15 +1,25 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router'
 
 import { startGame } from '../reducers/game'
 import { LoadingIndicator } from 'components/LoadingIndicator'
 import { LandingPageAnimation } from 'components/LandingPageAnimation'
 
 
+
 const StartGame = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   const name = useSelector(state => state.game.userName)
   const loading = useSelector(state => state.ui.loading)
+
+  const handleStartGame = () => {
+    dispatch(startGame())
+    navigate('/game')
+  }
+  
 
   return (
     <div>
@@ -21,7 +31,7 @@ const StartGame = () => {
       <p>Click this button to start the game</p>
       <button
         type="submit"
-        onClick={() => dispatch(startGame())}
+        onClick={() => handleStartGame()}
       >Click</button>
     </div>
   )

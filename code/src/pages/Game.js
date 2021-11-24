@@ -1,11 +1,31 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import { LoadingIndicator } from "../components/LoadingIndicator";
+import { moveFurther } from "../reducers/game";
+
+
 
 const Game = () => {
-  //Here we need a text-input and a button (onClick = dispatching (setUserName))
+  const places = useSelector(state => state.game.places)
+  const dispatch = useDispatch()
+
+  const handleMoveFurther = (type, direction) => {
+    dispatch(moveFurther(type, direction))
+  }
+
   return (
     <div>
-      <p>Welcome Warrior to the tribe of Technigo!</p>
-      <p>What's your name?</p>
+      <LoadingIndicator />
+      <p>{places.description}</p>
+      {places.actions.map((item) =>
+      <div key={item.direction}>
+        <p>{item.description}</p>
+        <button
+          type="submit"
+          onClick={() => handleMoveFurther(item.type, item.direction)}
+        >{item.type} {item.direction}</button>
+      </div>)}
     </div>
   );
 };
