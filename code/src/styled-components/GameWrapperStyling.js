@@ -1,41 +1,40 @@
 import styled from 'styled-components/macro'
 
 export const Section = styled.section`
-		max-width:700px;
-		//max-height: 300px;
-		position: absolute;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
-		padding: 20px;
-		text-align: center;
-		color: #fff;
-		// blur effect (fönster skydd)
-		background-color: hsla(0,0%,100%,.06274509803921569);
-    backdrop-filter: blur(12px);
-
-		@media (min-width:768px) {
-			max-width:700px;
-			max-height: 300px;
-		}
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	
 `;
 
 export const ContentContainer = styled.section`
-	display: flex;
-	flex-direction: column;
+	width: 80%;
+	//max-height: 300px;
+	padding: 20px;
+	text-align: center;
+	color: #fff;
+	// blur effect (fönster skydd)
+	background-color: hsla(0,0%,100%,.06274509803921569);
+	backdrop-filter: blur(6px);
 	margin: 20px auto;
+
+	/* @media (min-width:768px) {
+		max-width:700px;
+		max-height: 300px;
+	} */
 `;
 
 export const Line = styled.hr`
 	margin: 10px auto;
-	border: 1px dashed white;
-	width:400px;
+	border: 1px dashed #C2D200;
+	width: 400px;
 `;
 
 export const Title = styled.h1`
 		margin: 0;
-		font-size: 30px;
+		font-size: 18px;
 `;
 
 export const ActionDescription = styled.p`
@@ -45,7 +44,7 @@ export const ActionDescription = styled.p`
 export const Button = styled.button`
 	padding: 10px;
 	border-radius: 10px;
-	border:none;
+	border: 2px solid #C2D200;
 	background-color: black;
 	color:white;
 

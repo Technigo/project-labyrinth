@@ -9,6 +9,15 @@ import { LoadingIndicator } from "./LoadingIndicator";
 import styled from 'styled-components/macro';
 import img from 'img/background-image.jpeg'
 
+const MainContainer = styled.main`
+	width: 100%;
+	height: 100vh;
+	background-color: black;
+	background-image: url("${props => props.backgroundImage}");
+	background-size: cover;
+	background-position: center;
+`;
+
 export const GameContainer = () => {
   const gameStatus = useSelector((state) => state.gamestate.gameStatus);
   const loader = useSelector((state) => state.gamestate.isLoading);
@@ -18,7 +27,7 @@ export const GameContainer = () => {
     <>
 			{/* if loader true return loadingindicatior, otherwise return code below */}
       {loader ? <LoadingIndicator/> : 
-        <MainCointainer backgroundImage={img}>
+        <MainContainer backgroundImage={img}>
 					{/* if not gamecoordinates return start game */}
           {!gameStatus.coordinates && <StartGame />}
 					{/* if coordinates true and not the last page of the game return Nextstep*/}
@@ -30,19 +39,8 @@ export const GameContainer = () => {
           <>
             <TheEndGame/>
           </> )}
-        </MainCointainer>
+        </MainContainer>
       }     
     </>
   );
 };
-
-const MainCointainer = styled.main`
-	width: 100%;
-	height: 100vh;
-	background-color: black;
-	background-image: url("${props => props.backgroundImage}");
-	background-size: cover;
-	background-position: center;
-`;
-
-  

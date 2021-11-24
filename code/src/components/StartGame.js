@@ -2,6 +2,61 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchGame, gamestate } from "reducers/gamestate";
 
+import styled from 'styled-components'; 
+
+const Container = styled.section`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: auto
+`
+const Wrapper = styled.section`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 70%;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  background-color: hsla(0,0%,100%,.06274509803921569);
+  backdrop-filter: blur(4px);
+  font-family: 'Press Start 2P';
+  color: #C2D200;
+  
+  h1 {
+    font-size: 26px;
+  }
+
+  form {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  }
+
+  input {
+    height: 24px;
+  }
+
+  button {
+    margin-top: 15px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 2px solid #C2D200;
+    background-color: black;
+    color:white;
+    font-size: 14px;
+
+	:hover {
+		background: white;
+		color: black;
+		border: 1px solid black;
+  }
+  }
+`
+
 export const StartGame = () => {
   const [nameInput, setNameInput] = useState('')
 
@@ -22,12 +77,12 @@ export const StartGame = () => {
 };
 
   return (
-  <>
+  <Container>
 		{!gameStatus.coordinates && (
-		<>
-			<h1>Welcome to the JD:s Labyrinth Game!</h1>
-			<form onSubmit={onGameStart}>
-				<label htmlFor="inline_field">Enter your name</label>
+		<Wrapper>
+			<h1>Welcome to JD:s Labyrinth!</h1>
+      <form onSubmit={onGameStart}>
+				<label htmlFor="inline_field"></label>
 					<input 
 						required
 						type="text" 
@@ -36,12 +91,12 @@ export const StartGame = () => {
 						onChange={(event) => setNameInput(event.target.value)}
 					/>
 					<button type='submit'>
-						Start game
+						Let's GO!
 					</button>
-			</form>
-		</>
+      </form>    
+		</Wrapper>
 		)}
-  </>
+  </Container>
   );
 };
 
