@@ -8,7 +8,7 @@ export const game = createSlice({
   name: 'game',
   initialState: {
     places: [],
-    userName: 'Technigod'
+    userName: ''
   },
   reducers: {
     setUserName: (state, action) => {

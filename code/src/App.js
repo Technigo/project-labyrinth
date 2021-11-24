@@ -29,7 +29,7 @@ export const App = () => {
                 <Link to="/">LandingPage</Link>
               </li>
               <li>
-                <Link to="/startGame">StartGame</Link>
+                <Link to="/start">StartGame</Link>
               </li>
               <li>
                 <Link to="/game">Game</Link>
@@ -41,7 +41,7 @@ export const App = () => {
           </nav>
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/startGame" element={<StartGame />} />
+            <Route path="/start" element={<StartGame />} />
             <Route path="/game" element={<Game />} />
             <Route path="/end" element={<End />} />
           </Routes>
