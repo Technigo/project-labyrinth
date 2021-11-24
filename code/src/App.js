@@ -56,7 +56,7 @@ export const App = () => {
             <Route path="/" element={<LandingPage />} />
             <Route path="/start" element={<StartGame />} />
             <Route path="/game" element={<Game />} />
-            <Route path="/end" element={<End />} />
+            {/* <Route path="/end" element={<End />} /> */}
           </Routes>
         </div>
       </BrowserRouter>
