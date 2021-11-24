@@ -33,7 +33,7 @@ export const GamePage = () => {
         <button
         value={item.direction}
         onClick={(event) => onChooseDirection(event)}> 
-        {item.direction}
+        Go {item.direction}
         </button>
 
         </div>
