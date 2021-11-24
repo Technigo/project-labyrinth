@@ -20,6 +20,10 @@ export const gamestate  = createSlice({
     setLoading: (state, action) => {
       state.isLoading = action.payload;
     },
+		setRestartGame: (state) => {
+			state.username = '';
+			state.gameStatus = {};
+		}
   }
 });
 

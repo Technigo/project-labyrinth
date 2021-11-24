@@ -1,15 +1,21 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
  
-export const TheEndGame = ({ description }) => {
+export const TheEndGame = () => {
   const currentUser = useSelector((state) => state.gamestate.username);
-  const gameStatus = useSelector((store) => store.gamestate.gameStatus);
+  const gameStatus = useSelector((state) => state.gamestate.gameStatus);
+
+	const dispatch = useDispatch();
+
+	const onGameRestart = () => {
+		dispatch(gamestate.actions.setRestartGame())
+	}
 
   return (
     <>
       <p>Congratulations {currentUser}, you made it to the other side!</p>
       <p>{gameStatus.description}</p>
-            <button onClick={() => window.location.reload()}>Restart</button>
+            <button onClick={onGameRestart}>Restart</button>
     </>
   );
 };
