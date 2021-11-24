@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { ui } from "./ui"
 
+let user = ""
+
 export const maze = createSlice({
   name: 'maze',
   initialState: {
@@ -11,6 +13,7 @@ export const maze = createSlice({
     setUserName: (state, action) => {
         state.username = action.payload
         console.log("state.initialState", state.username)
+        user = state.username
     },
     setResponse: (state, action) => {
         state.response = action.payload
@@ -34,29 +37,30 @@ export const startMaze = ( username) => {
         .then((data) => {
             console.log("post", data)
             dispatch(maze.actions.setResponse(data))   
-            /* dispatch(maze.actions.setUserName(username)) */ // TEST
+            dispatch(maze.actions.setUserName(username))
             dispatch(ui.actions.setLoading(false)) 
         })
     }
 }
 
-export const moveMaze = (direction) => {
+export const moveMaze = (direction, type) => {
     console.log("before of fetch")
+    console.log("store.maze.username", user)
   
-    const option = {
+    const options = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: "BestFox3",
-        type: "move",
-        direction: "East",
+        username: user,
+        type: type,
+        direction: direction,
       }),
     }
-    return ( dispatch, direction) =>
+    return ( dispatch ) =>
       /* dispatch(ui.actions.setLoading(true)); */
-      fetch("https://wk16-backend.herokuapp.com/action", option)
+      fetch("https://wk16-backend.herokuapp.com/action", options)
         .then(res => res.json())
         .then(data => {
           dispatch(maze.actions.setResponse(data))

@@ -23,7 +23,7 @@ const dispatch = useDispatch()
                 <>
                 <p>{data.actions[0].description}</p>
                 <p>{data.actions.coordinates}</p>
-                <div>{data.actions.map(action => <button key={action.direction} onClick={()=>dispatch(moveMaze())}>{action.direction}</button>)}</div>
+                <div>{data.actions.map(action => <button key={action.direction} onClick={()=>dispatch(moveMaze(action.direction, action.type, userName))}>{action.direction}</button>)}</div>
                 </>
             )}
         </div>
