@@ -8,6 +8,7 @@ const InputContainer = styled.div`
     padding: 30px;
     margin: 10px;
     border: 1px solid black;
+   
 `
 
 export const Starter = () => {
@@ -22,8 +23,6 @@ export const Starter = () => {
         
     }
 
-    if (user!==""){return user }  
-    
     return (
         <>
         <InputContainer>

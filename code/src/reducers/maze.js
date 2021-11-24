@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { ui } from "./ui"
 
-let user = ""
+/* let user = "" */
 
 export const maze = createSlice({
   name: 'maze',
@@ -13,7 +13,7 @@ export const maze = createSlice({
     setUserName: (state, action) => {
         state.username = action.payload
         console.log("state.initialState", state.username)
-        user = state.username
+        /* user = state.username */
     },
     setResponse: (state, action) => {
         state.response = action.payload
@@ -21,7 +21,7 @@ export const maze = createSlice({
     }
 }})
 
-export const startMaze = ( username) => {
+export const startMaze = ( username ) => {
     console.log("username the newest", username)
     const options = {
         method: 'POST',
@@ -45,31 +45,32 @@ export const startMaze = ( username) => {
 
 export const moveMaze = (direction, type) => {
     console.log("before of fetch")
-    console.log("store.maze.username", user)
+    
   
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username: user,
-        type: type,
-        direction: direction,
-      }),
-    }
-    return ( dispatch ) =>
-      /* dispatch(ui.actions.setLoading(true)); */
-      fetch("https://wk16-backend.herokuapp.com/action", options)
+  
+    return ( dispatch, getStore ) => {
+      dispatch(ui.actions.setLoading(true)) 
+      fetch("https://wk16-backend.herokuapp.com/action", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: getStore().maze.username,
+          type: type,
+          direction: direction,
+        }),
+      })
         .then(res => res.json())
         .then(data => {
           dispatch(maze.actions.setResponse(data))
           console.log("json i moveMaze", data)
-          /* dispatch(ui.actions.setLoading(false)); */
-  
+          dispatch(ui.actions.setLoading(false))
+          console.log("HALLÅ ELLER", getStore().maze.username)
           console.log("outside of fetch")
         })
   }
+}
 
 
 
