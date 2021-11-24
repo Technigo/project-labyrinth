@@ -6,8 +6,8 @@ import { ui } from "./reducers/ui";
 import { game } from "./reducers/game";
 
 import { Main } from "./components/Main";
+
 import { LoadingIndicator } from "./components/LoadingIndicator";
-// import { Game } from "./components/Game";
 
 const reducer = combineReducers({
   ui: ui.reducer,
@@ -19,10 +19,8 @@ const store = configureStore({ reducer });
 export const App = () => {
   return (
     <Provider store={store}>
-      <main className="app">
-        <Main />
-        <LoadingIndicator />
-      </main>
+      <Main />
+      <LoadingIndicator />
     </Provider>
   );
 };
