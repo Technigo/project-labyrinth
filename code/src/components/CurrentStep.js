@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { nextStep } from 'reducers/game'
 import styled from 'styled-components'
@@ -11,26 +11,42 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px;
+  max-width: 260px;
   padding: 15px;
   margin: 0 auto;
   background-color: lightgrey;
   box-shadow: 5px 10px 18px #888888;
   border-radius: 6px;
+  gap: 10px;
+  & p {
+    margin: 5px 0 15px 0;
+  }
+
+  @media (min-width: 375px) {
+    max-width: 300px;
+  }
+  @media (min-width: 735px) {
+    max-width: 600px;
+  }
 `
 
 const GameContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
 `
 
 const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap; 10px;
+  border-top: 1px dashed grey;
+  &:last-child {
+    margin-top: 10px;
+  }
+  & p {
+    margin: 10px 0;
+  }
 `
 
 const Button = styled.button`
@@ -39,7 +55,6 @@ const Button = styled.button`
   border-radius: 6px;
   font-family: IBM Plex Mono;
   font-weight: bold;
-  margin-top: 10px;
 `
 
 const StartOverButton = styled.button`
@@ -57,9 +72,32 @@ const StartOverButton = styled.button`
 export const CurrentStep = () => {
   const dispatch = useDispatch()
   const currentStep = useSelector(store => store.game.currentStep)
-  // const steps = useSelector((store) => store.game.steps);
   const loading = useSelector(store => store.ui.loading)
   let navigate = useNavigate()
+
+  const onNavigate = e => {
+    let nextAction = undefined
+    if (e.key === 'ArrowUp') {
+      nextAction = currentStep?.actions?.find(action => action.direction === 'North')
+    } else if (e.key === 'ArrowDown') {
+      nextAction = currentStep?.actions?.find(action => action.direction === 'South')
+    } else if (e.key === 'ArrowLeft') {
+      nextAction = currentStep?.actions?.find(action => action.direction === 'West')
+    } else if (e.key === 'ArrowRight') {
+      nextAction = currentStep?.actions?.find(action => action.direction === 'East')
+    }
+    if (nextAction) {
+      console.log(nextAction)
+      dispatch(nextStep(nextAction))
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('keydown', onNavigate)
+    return () => {
+      window.removeEventListener('keydown', onNavigate)
+    }
+  }, [onNavigate])
 
   const onRestart = () => {
     dispatch(game.actions.restartGame())
@@ -71,13 +109,23 @@ export const CurrentStep = () => {
       {loading && <Loader />}
       {!loading && (
         <Container>
-          <p>Coordinates: {currentStep?.coordinates}</p>
           <p>{currentStep?.description}</p>
           {currentStep?.actions?.map(action => {
             return (
               <ButtonContainer key={action.direction}>
                 <p>{action.description}</p>
-                <Button onClick={() => dispatch(nextStep(action))}>Go {action.direction}</Button>
+                <Button onClick={() => dispatch(nextStep(action))}>
+                  Go{' '}
+                  {action.direction === 'North'
+                    ? action.direction + ' ⬆' //&#8593;
+                    : action.direction === 'South'
+                    ? action.direction + ' ⬇' //&#8595;
+                    : action.direction === 'West'
+                    ? action.direction + ' ⬅' //&#8594;
+                    : action.direction === 'East'
+                    ? action.direction + ' ➡' //&#8592;
+                    : ''}
+                </Button>
               </ButtonContainer>
             )
           })}

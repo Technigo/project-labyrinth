@@ -41,7 +41,7 @@ export const startGame = input => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        username: `${newUser}`,
+        username: newUser,
       }),
     }
 
@@ -66,9 +66,9 @@ export const nextStep = action => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        username: `${getState().game.username}`,
-        type: `${action.type}`,
-        direction: `${action.direction}`,
+        username: getState().game.username,
+        type: action.type,
+        direction: action.direction,
       }),
     }
 
