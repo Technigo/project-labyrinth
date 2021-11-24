@@ -46,12 +46,12 @@ export const fetchMazeAlternativesAction = (direction) => {
 			},
 			body: JSON.stringify({
 				username: 'banan',
-				// uniqueID??? kanske BRA MVH
+				// uniqueID??? kanske googlar mvh vad cd code
 				type: 'move',
 				direction: direction,
 				// error här^
 			}),
-		};
+		}; // gr8
 
 		fetch('https://wk16-backend.herokuapp.com/action', options)
 			.then((res) => res.json())
