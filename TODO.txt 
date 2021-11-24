@@ -1,3 +1,6 @@
+STYLING COLORS: 
+https://colorsui.com/popular-color-palettes/
+
 ## **🔵 Blue Level (Minimum Requirements)**
 
 - Your page should be responsive.
@@ -36,4 +39,4 @@ How you present the description and the actions is completely up to you.  Maybe 
 This project's backend is designed so that there is some delay until the request returns from the server.  Using thunks is a good way of making sure that the user doesn't do another action until the response is received from the server.
 
 If you notice that your request takes some time, this is intentional, think about a way of making this waiting time okay for your users. Add a loading state of some sort.
-                          
+                                                 
