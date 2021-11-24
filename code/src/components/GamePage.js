@@ -26,7 +26,8 @@ export const GamePage = () => {
         <GameBackground backgroundImage={"../assets/img/ingame-img.jpg"}>
 
         <GameCard>
-           {gameStatus.description}
+           <h2>{gameStatus.description}</h2>
+          
            {gameStatus.actions && gameStatus.actions.map((item, index) => ( //&& check if gameStatus is undefined. if false don't go further in game.
         <div key={index}>{item.description}
        
