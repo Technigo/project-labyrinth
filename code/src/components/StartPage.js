@@ -31,7 +31,9 @@ export const StartPage = () => {
         <label>
           Enter Username:
           <div>
-          <input
+          <Input
+            placeholder="Write your username"
+            color="secondary"
             type="text"
             value={username}
             onChange={(event) => setUsername(event.target.value)} 
@@ -45,7 +47,7 @@ export const StartPage = () => {
   );
 };
 
-export const StartScreen = styled.section`  
+const StartScreen = styled.section`  
   width: 100%;
   height: 100vh;
   font-family: 'Philosopher', sans-serif;
@@ -60,14 +62,28 @@ export const StartScreen = styled.section`
   } */
 
 `
-
-export const StartForm = styled.form`
-color: white;
-font-size: 30px;
-margin-bottom: 10px;
+const Input = styled.input`
+  line-height: 1.5;
+  margin: 50px 0 30px 0;
+  width: 20vw;
+  border: none;
+  background: none;
+  border-bottom: 2px solid #fff;
+  font-family: 'Philosopher', sans-serif;
+  font-size: 20px;
+  color: #fff;
+`
+const StartForm = styled.form`
+  color: white;
+  font-size: 30px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 
-export const StartButton = styled.button`
+const StartButton = styled.button`
   font-family: 'Philosopher', sans-serif;
   display:inline-block;
   position:relative;
