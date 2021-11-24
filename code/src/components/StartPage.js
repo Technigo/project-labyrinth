@@ -9,29 +9,28 @@ const StartPage = () => {
     const [input, setInput] = useState('')
     const dispatch = useDispatch()
 
-    const onUsernameInput = (event, input) => {
-        dispatch(game.actions.setUsername(input))
+    const onUsernameInput = (event) => {
         event.preventDefault()
+        dispatch(game.actions.setUsername(input))
         dispatch(fetchFirstQuestion(input))
     }
 
 
     return (
         <MainWrapper>
-            <FormWrapper>
+            <FormWrapper onSubmit={onUsernameInput}>
                 <h1>Welcome to labyrinth maze</h1>
                 <UserInput
                     type="text"
                     value={input}
                     placeholder="YOUR NAME"
                     onChange={(event) => setInput(event.target.value)}
-                    maxLength="15"
+                    minLength="3"
+                    maxLength="20"
+                    required
                 />
                 <StartButton
-                    type="button"
-                    disabled={input < 5}
-                    onClick={(event) => onUsernameInput(event, input)}
-                >
+                    type="submit">
                     Enter labyrinth</StartButton >
             </FormWrapper>
         </MainWrapper>
@@ -40,7 +39,7 @@ const StartPage = () => {
 
 export default StartPage
 
-const FormWrapper = styled.div`
+const FormWrapper = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,6 +74,9 @@ const StartButton = styled.button`
     &:hover{
         color: #01FFC3;
         background-color: black;
+    }
+    @media (min-width: 992px) {
+        font-size: 20px;
     }
 `
 const MainWrapper = styled.main`
