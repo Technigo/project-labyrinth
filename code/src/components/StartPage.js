@@ -5,9 +5,7 @@ import { useDispatch } from "react-redux";
 import music from "../assets/background-music.mp3";
 
 export const PageContainer = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
   background-color: #ffffff56;
   backdrop-filter: blur(5px);
   position: absolute;
@@ -20,7 +18,10 @@ export const PageContainer = styled.section`
   border-radius: 5px;
   padding: 10px;
   @media (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
+    align-items: center;
     padding: 20px;
   }
 `;

@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchInstructions } from "reducers/game";
 import { StartButton } from "./StartPage";
 import footsteps from "../assets/footsteps-audio.mp3";
+import knight from "../assets/walking-knight.gif";
 
 const GameDescription = styled.h3`
   text-align: center;
@@ -17,9 +18,9 @@ const GameDescription = styled.h3`
 const PathDescription = styled.p`
   text-align: center;
   margin: 0;
-  font-size: 12px;
+  font-size: 14px;
   @media (min-width: 768px) {
-    font-size: 16px;
+    font-size: 20px;
   }
 `;
 
@@ -27,6 +28,14 @@ const ButtonPathContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const KnightImg = styled.img`
+  width: 200px;
+  place-self: center;
+  @media (min-width: 768px) {
+    width: 300px;
+  }
 `;
 
 const GamePage = () => {
@@ -41,6 +50,7 @@ const GamePage = () => {
   return (
     <PageContainer>
       <GameDescription>{gameList.description}</GameDescription>
+      <KnightImg src={knight} alt="Walking Knight" />
       {gameList.actions.map((item) => (
         <ButtonPathContainer>
           <PathDescription>{item.description}</PathDescription>
