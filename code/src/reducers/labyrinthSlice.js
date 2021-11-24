@@ -5,7 +5,6 @@ export const labyrinthSlice = createSlice({
 	initialState: {
 		username: null,
 		currentPosition: null,
-		choices: [],
 		history: [],
 	},
 	reducers: {
@@ -22,24 +21,11 @@ export const labyrinthSlice = createSlice({
 			if(state.currentPosition) {
 				state.history = [...state.history, action.payload];
 			}
-		},
-		// // starts the game
-		// startGame: (state, action) => {
-		// 	state.choices = action.payload.choices;
-		// 	state.description = action.payload.description;
-		// 	state.coordinates = action.payload.coordinates;
-		// },
-		// // lets us continue the game
-		// continueGame: (state, action) => {
-		// 	state.choices = action.payload.choices;
-		// 	state.description = action.payload.description;
-		// 	state.coordinates = action.payload.coordinates;
-		// },
-		
+		},	
 	},
 });
 
-export const startGameThunk = (username) => {
+export const startGameThunk = () => {
 	return (dispatch, getState) => {
 		fetch('https://wk16-backend.herokuapp.com/start', {
 			method: 'POST',
@@ -78,5 +64,3 @@ export const nextStepThunk = (type, direction) => {
 			})
 	}
 }
-
-export default labyrinthSlice.reducer;
