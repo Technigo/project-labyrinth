@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import styled from 'styled-components'
 
 import { nextStep } from '../reducers/game'
 
@@ -52,7 +53,8 @@ export const InsideLabyrinth = () => {
   )
 
   return (
-    <section className='insideLabyrinth' style={{ background: setBgColor() }}>
+    <InsideLabyrinthSection style={{ background: setBgColor() }}>
+      {actions.length === 0 && <h2>You brave soul. You made it out alive.</h2>}
       <p className='text coords'>
         You've ended up at the coordinates <strong>{coordinates}</strong>.
       </p>
@@ -60,10 +62,16 @@ export const InsideLabyrinth = () => {
         desc1: {description}
       </p>
 
-      {actions.length === 0 && <h1>You made it!</h1>}
       {actions.length > 0 && actions.map(item => 
         <ActionCard key={item.direction} {...item} />
       )}
-    </section>
+    </InsideLabyrinthSection>
   )
 }
+
+//styling
+const InsideLabyrinthSection = styled.section`
+padding: 10px;
+margin: 0 auto;
+max-width: 600px;
+`

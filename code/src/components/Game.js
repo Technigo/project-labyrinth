@@ -10,7 +10,6 @@ export const Game = () => {
 
   return (
     <>
-      <h1>The Labyrinth...</h1>
       {currentCoordinates ? <InsideLabyrinth /> : <EnterLabyrinth />}
       <LoadingIndicator />
     </>

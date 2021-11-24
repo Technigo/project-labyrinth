@@ -5,6 +5,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: rgb(15, 15, 15);
+}
+
+h1, h2, p, label, input, button {
+  font-family: 'Press Start 2P', cursive;
+  color: orange;
 }
 
 code {
@@ -14,5 +21,5 @@ code {
 
 
 .action-card {
-  border: 1px solid black;
+  border: 1px solid #fff;
 }
