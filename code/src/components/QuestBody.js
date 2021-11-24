@@ -1,67 +1,34 @@
 import React, { useEffect } from "react";
-// import bg pics
-// import { arch } from "../assets/arch-00.jpg";
-// import { colorful } from "../assets/colorful1.1.jpg";
-// import { end } from "../assets/endofgame.jpg";
-// import { lights } from "../assets/lights1.0.jpg";
-// import { mechanic } from "../assets/mechanic0.1.jpg";
-// import { melody } from "../assets/melody0.2.jpg";
-// import { paper } from "../assets/paper0.3.jpg";
 
 import { useDispatch, useSelector } from "react-redux";
 import { fetchInitialData, fetchNavigationData } from "../reducers/quest";
 import { LoadingIndicator } from "./LoadingIndicator";
 import { GameOver } from "./GameOver";
-import { MoveHistory } from "./MoveHistory";
 import { quest } from "reducers/quest";
+import { useBackground } from "./useBackground";
+import { Container } from "./Container";
 
 export const QuestBody = () => {
   const questMoves = useSelector((store) => store.quest.items);
-  const player = useSelector((store) => store.quest.player);
+  // const player = useSelector((store) => store.quest.player);
+  const isLoading = useSelector((store) => store.ui.loading);
+
   const currentQuest = questMoves[questMoves.length - 1];
-  // const currentCoordinates = currentQuest.coordinates;
+  console.log("current quest", currentQuest);
+  const currentCoordinates = currentQuest?.coordinates;
   const dispatch = useDispatch();
 
   const onButtonClick = () => {
-    dispatch(quest.actions.setPlayersName(""));
-    dispatch(quest.actions.setHistory([]));
+    dispatch(quest.actions.resetGame());
   };
 
-  // useEffect(() => {
-  //   let bgImg;
-  //   switch (currentCoordinates) {
-  //     case "0,0":
-  //       bgImg = arch;
-  //       break;
-  //     case "1,0":
-  //       bgImg = lights;
-  //       break;
-  //     case "1,1":
-  //       bgImg = colorful;
-  //       break;
-  //     case "0,1":
-  //       bgImg = mechanic;
-  //       break;
-  //     case "0,2":
-  //       bgImg = melody;
-  //       break;
-  //     case "0,3":
-  //       bgImg = paper;
-  //       break;
-  //     case "1,3":
-  //       bgImg = end;
-  //       break;
-  //     default:
-  //       bgImg = arch;
-  //   }
-  //   return (document.body.style.backgroundImage = `url(${bgImg})`);
-  // }, [currentCoordinates]);
+  useBackground(currentCoordinates);
 
   useEffect(() => {
     dispatch(fetchInitialData());
   }, [dispatch]);
 
-  if (!currentQuest) {
+  if (isLoading || !currentQuest) {
     return <LoadingIndicator />;
   }
 
@@ -71,8 +38,7 @@ export const QuestBody = () => {
 
   return (
     <>
-      <p>{player}'s quest.</p>
-      <div>
+      <Container>
         <p>{currentQuest.description}</p>
 
         {currentQuest.actions.map((action) => (
@@ -94,12 +60,9 @@ export const QuestBody = () => {
             {currentQuest.coordinates}
           </span>
         </p>
-        <div>
-          {" "}
-          <MoveHistory />
-        </div>
+
         <button onClick={onButtonClick}>Play Again</button>
-      </div>
+      </Container>
     </>
   );
 };

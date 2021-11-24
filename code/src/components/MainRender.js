@@ -2,10 +2,11 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 // components
-import { LoadingIndicator } from "./LoadingIndicator";
+
 import { QuestBody } from "./QuestBody";
 import { LandingPage } from "./LandingPage";
 import { Opps } from "components/Opps";
+import { MoveHistory } from "./MoveHistory";
 
 export const MainRender = () => {
   const questName = useSelector((state) => state.quest.player);
@@ -21,8 +22,9 @@ export const MainRender = () => {
         <LandingPage />
       ) : (
         <>
-          <LoadingIndicator />
+          <div className="players-name">{questName}'s quest</div>
           <QuestBody />
+          <MoveHistory />
         </>
       )}
     </>

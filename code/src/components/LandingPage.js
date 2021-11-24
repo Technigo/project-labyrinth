@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { quest } from "reducers/quest";
 import styled from "styled-components/macro";
 import plus from "../assets/black-plus.svg";
-import colums from "../assets/colums.jpg";
+import start from "../assets/ssstart.jpg";
 
 const Input = styled.input`
   height: ${(props) => props.height}px;
@@ -13,13 +13,13 @@ const Input = styled.input`
   border: transparent;
   text-decoration: none;
   border-radius: 30px;
-  color: var(--theme-color);
+  color: white;
   font-size: 16px;
   padding: 4px;
   margin-left: 10px;
   background-color: transparent;
 
-  @media (min-width: 769px) {
+  @media (min-width: 768px) {
     width: 418px;
     height: 40px;
     font-size: 20px;
@@ -30,14 +30,14 @@ const InputBtn = styled.button`
   border-radius: 2px;
   border: none;
   background-color: transparent;
-  border-left: 2px solid black;
+  border-left: 2px solid white;
   color: black;
   display: flex;
   justify-content: center;
   align-items: center;
   width: ${(props) => props.width}px;
   height: ${(props) => props.height}px;
-  @media (min-width: 769px) {
+  @media (min-width: 768px) {
     width: 50px;
     height: 50px;
     padding: 16px;
@@ -51,7 +51,7 @@ const InputWrapper = styled.div`
   align-self: center;
   justify-self: center;
   flex-direction: row;
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 30px;
   background-color: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(10px);
@@ -61,13 +61,14 @@ const InputWrapper = styled.div`
 const PopUp = styled.div`
   margin-top: 16px;
   display: flex;
+  color: white;
   align-items: center;
   justify-content: center;
   flex-direction: row;
   text-align: center;
   font-weight: 700;
-  @media (min-width: 769px) {
-    font-size: 20px;
+  @media (min-width: 768px) {
+    font-size: 22px;
     margin-top: 50px;
   }
 `;
@@ -82,14 +83,15 @@ const FormWrapper = styled.div`
 const WelcomeHeader = styled.h1`
   font-family: "Bebas Neue", cursive;
   margin-bottom: 40px;
-  @media (min-width: 769px) {
+  color: white;
+  @media (min-width: 768px) {
     font-size: 56px;
     margin-bottom: 50px;
   }
 `;
 
 export const LandingPage = () => {
-  document.body.style.backgroundImage = `url(${colums})`;
+  document.body.style.backgroundImage = `url(${start})`;
   const [name, setName] = useState("");
   const [error, setError] = useState(false);
   const dispatch = useDispatch();

@@ -6,8 +6,7 @@ export const GameOver = () => {
   const dispatch = useDispatch();
 
   const onButtonClick = () => {
-    dispatch(quest.actions.setPlayersName(""));
-    dispatch(quest.actions.setHistory([]));
+    dispatch(quest.actions.resetGame());
   };
 
   return (

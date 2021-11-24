@@ -1,13 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ui } from "./ui";
 
+const initialState = {
+  player: "",
+  items: [],
+  moveHistory: [],
+};
+
 export const quest = createSlice({
   name: "quest",
-  initialState: {
-    player: "",
-    items: [],
-    moveHistory: [],
-  },
+  initialState: initialState,
   reducers: {
     selectData: (state, action) => {
       state.items.push(action.payload);
@@ -21,6 +23,9 @@ export const quest = createSlice({
     setHistory: (state, action) => {
       state.moveHistory.push(action.payload);
       console.log("moveHistory", action.payload);
+    },
+    resetGame: () => {
+      return initialState;
     },
   },
 });

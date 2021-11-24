@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const ui = createSlice({
   name: "ui",
   initialState: {
-    loading: false,
+    loading: true,
     // change error to true to see the error page
     error: false,
   },

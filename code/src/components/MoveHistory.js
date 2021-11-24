@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { quest } from "reducers/quest";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Move = ({ move, direction }) => {
   return (
@@ -14,14 +13,9 @@ const Move = ({ move, direction }) => {
 
 export const MoveHistory = () => {
   const [toggle, setToggle] = useState(false);
-  const dispatch = useDispatch();
-  let moves = useSelector((state) => state.quest.items.slice(0, state.quest.items.length - 1));
-  let movementHistory = useSelector((state) => state.quest.moveHistory);
+  const moves = useSelector((state) => state.quest.items.slice(0, state.quest.items.length - 1));
+  const movementHistory = useSelector((state) => state.quest.moveHistory);
   console.log("moverhistory array", movementHistory);
-
-  // useEffect(() => {
-
-  // }, []);
 
   const onHistoryButtonClick = () => {
     if (toggle === false) {
