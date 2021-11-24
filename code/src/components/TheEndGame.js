@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { gamestate } from '../reducers/gamestate';
+
  
 export const TheEndGame = () => {
   const currentUser = useSelector((state) => state.gamestate.username);
@@ -13,10 +14,10 @@ export const TheEndGame = () => {
 	}
 
   return (
-    <>
+    <section>
       <p>Congratulations {currentUser}, you made it to the other side!</p>
       <p>{gameStatus.description}</p>
             <button onClick={onGameRestart}>Play Again</button>
-    </>
+    </section>
   );
 };

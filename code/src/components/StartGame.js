@@ -11,7 +11,8 @@ export const StartGame = () => {
   //const loading = useSelector((state) => state.gamestate.loading);
   const dispatch = useDispatch();
 
-	const onGameStart = () => {
+	const onGameStart = (e) => {
+		e.preventDefault();
     if (!nameInput) {
       alert('Please enter your name first!')
     } else {
@@ -20,28 +21,27 @@ export const StartGame = () => {
   };
 };
 
-console.log(gameStatus.coordinates)
-
   return (
-    <>
+  <>
 		{!gameStatus.coordinates && (
-			  <>
-			      <label htmlFor="inline_field">Enter your name</label>
-						<input 
-							required
-							type="text" 
-							placeholder="enter username"
-							value={nameInput}
-							onChange={(event) => setNameInput(event.target.value)}
-							/>
-					<button 
-						type='submit' 
-						onClick={onGameStart}
-					>
+		<>
+			<h1>Welcome to the JD:s Labyrinth Game!</h1>
+			<form onSubmit={onGameStart}>
+				<label htmlFor="inline_field">Enter your name</label>
+					<input 
+						required
+						type="text" 
+						placeholder="enter username"
+						value={nameInput}
+						onChange={(event) => setNameInput(event.target.value)}
+					/>
+					<button type='submit'>
 						Start game
 					</button>
-				</>
+			</form>
+		</>
 		)}
-    </>
+  </>
   );
 };
+

@@ -6,17 +6,19 @@ import { NextStep } from "./NextStep";
 import { TheEndGame } from "./TheEndGame";
 import { LoadingIndicator } from "./LoadingIndicator";
 
+import styled from 'styled-components/macro';
+import img from 'img/background-image.jpeg'
+
 export const GameContainer = () => {
   const gameStatus = useSelector((state) => state.gamestate.gameStatus);
   const loader = useSelector((state) => state.gamestate.isLoading);
 
 //stackoverflow: https://stackoverflow.com/questions/48224862/how-to-create-loader-spin-for-react-redux/48225371
-
   return (
     <>
 			{/* if loader true return loadingindicatior, otherwise return code below */}
       {loader ? <LoadingIndicator/> : 
-        <div>
+        <MainCointainer backgroundImage={img}>
 					{/* if not gamecoordinates return start game */}
           {!gameStatus.coordinates && <StartGame />}
 					{/* if coordinates true and not the last page of the game return Nextstep*/}
@@ -28,10 +30,19 @@ export const GameContainer = () => {
           <>
             <TheEndGame/>
           </> )}
-        </div>
+        </MainCointainer>
       }     
     </>
   );
 };
+
+const MainCointainer = styled.main`
+	width: 100%;
+	height: 100vh;
+	background-color: black;
+	background-image: url("${props => props.backgroundImage}");
+	background-size: cover;
+	background-position: center;
+`;
 
   
