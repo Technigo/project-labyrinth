@@ -4,62 +4,62 @@ import { ui } from "./ui";
 export const game = createSlice({
   name: "game",
   initialState: {
-    currentPosition: null,
+    currentPosition: {},
     username: "",
     history: [],
   },
   reducers: {
-    setCurrentPosition: (state, action) => {
-      state.currentPosition = action.payload;
+    setCurrentPosition: (store, action) => {
+      store.currentPosition = action.payload;
     },
 
-    setUsername: (state, action) => {
-      state.username = action.payload;
+    setUsername: (store, action) => {
+      store.username = action.payload;
     },
 
-    setHistory: (state, action) => {
-      if (state.currentPosition) {
-        state.history = [...state.history, action.payload];
+    setHistory: (store, action) => {
+      if (store.currentPosition) {
+        store.history = [...store.history, action.payload];
       }
     },
   },
 });
 
 export const fetchStartGame = () => {
-  return (dispatch, getState) => {
-    dispatch(ui.actions.setLoading(true));
+  return (dispatch, getStore) => {
+    // dispatch(ui.actions.setLoading(true));
     fetch("https://wk16-backend.herokuapp.com/start", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username: getState().game.username }),
+      body: JSON.stringify({ username: getStore().game.username }),
     })
       .then((res) => res.json())
-      .then((data) => dispatch(game.actions.currentPosition(data)))
-      .finally(() => dispatch(game.actions.setLoading(false)));
+      .then((data) => dispatch(game.actions.setCurrentPosition({ data })));
+    // .finally(() => dispatch(ui.actions.setLoading(false)));
   };
 };
 
 export const continueGame = (type, direction) => {
-  return (dispatch, getState) => {
-    dispatch(ui.actions.setLoading(true));
+  return (dispatch, getStore) => {
+    // dispatch(ui.actions.setLoading(true));
     fetch("https://wk16-backend.herokuapp.com/action", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: getState().game.username,
+        username: getStore().game.username,
         type,
         direction,
       }),
     })
       .then((res) => res.json())
       .then((data) => {
-        dispatch(game.actions.currentPosition(data));
+        dispatch(game.actions.setCurrentPosition(data));
         dispatch(game.actions.setHistory(data));
-      })
-      .finally(() => dispatch(game.actions.setLoading(false)));
+      });
+    // .finally(() => dispatch(ui.actions.setLoading(false)));
   };
 };
