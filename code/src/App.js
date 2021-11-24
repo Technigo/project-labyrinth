@@ -5,7 +5,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import game from "./reducers/game";
 import GamePage from "./components/GamePage";
 
-// a function to combine all reducers
+// a function to combine all slices in the reducers folder
 const reducer = combineReducers({
   game: game.reducer,
 });
