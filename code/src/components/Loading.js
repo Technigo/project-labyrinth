@@ -1,7 +1,6 @@
 import React from "react";
 import Lottie from "react-lottie";
 import animationData from "../Lotties/spinner-slow-three-colors";
-import { useSelector } from "react-redux";
 
 export const Loading = () => {
   const defaultOptions = {

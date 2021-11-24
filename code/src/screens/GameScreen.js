@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchGameData } from "reducers/gameSteps";
 import { continueFetchGameData } from "reducers/gameSteps";
@@ -13,6 +13,7 @@ export const GameScreen = () => {
   const gameHistory = useSelector((store) => store.gameSteps.gameHistory);
   const lastMove =
     gameHistory.length > 0 ? gameHistory[gameHistory.length - 1] : undefined;
+  const [currentMove, setCurrentMove] = useState("");
 
   console.log(game);
 
@@ -35,15 +36,17 @@ export const GameScreen = () => {
     <GameQuestionContainer>
       <div></div>
       <QuestionWrapper>
-        {lastMove && <LastMove>You went {lastMove}.</LastMove>}
-        <QuestionDescription>{game.description}</QuestionDescription>
+        {lastMove && !isLoading && <LastMove>You went {lastMove}.</LastMove>}
+        {isLoading && <LastMove>You go {currentMove}...</LastMove>}
+        {!isLoading && (
+          <QuestionDescription>{game.description}</QuestionDescription>
+        )}
         {isLoading && <Loading />}
         {!isLoading &&
           game.actions.map((action) => {
             return (
               <OptionsContainer key={action.direction}>
                 <OptionDescription>{action.description}</OptionDescription>
-
                 <MoveButton
                   onClick={() => {
                     dispatch(
@@ -53,6 +56,7 @@ export const GameScreen = () => {
                         action.direction
                       )
                     );
+                    setCurrentMove(action.direction);
                   }}
                 >
                   Go {action.direction}
@@ -95,6 +99,7 @@ const QuestionWrapper = styled.div`
   padding: 20px;
   justify-content: space-between;
   min-height: 250px;
+  transition: height 2s ease-in;
 `;
 
 const OptionsContainer = styled.div`
