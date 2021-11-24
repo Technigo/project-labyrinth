@@ -1,26 +1,23 @@
-import React, { useReducer } from 'react';
-import { Provider } from "react-redux";
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import React from 'react'
+import { Provider } from 'react-redux'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
-//Reducers
-import { ui } from './reducers/ui';
-import { maze } from './reducers/maze'
-
+// Reducers
+import { game } from './reducers/game'
 // Components
-import { Loading } from 'components/Loading';
-import { Intro } from 'components/Intro';
-import { Button } from 'components/Button';
+import { Game } from './components/Game'
 
 //Redux setUp
-const reducer = combineReducers({ui: ui.reducer, maze: maze.reducer});
-const store = configureStore({ reducer });
+const reducer = combineReducers({
+  game: game.reducer,
+})
+const store = configureStore({ reducer })
 
 
 export const App = () => {
   return (
     <Provider store={store}>
-      <Intro />
-      <Button />
+      <Game />
     </Provider>
   )
 }
