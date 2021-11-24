@@ -4,43 +4,45 @@ import { ui } from "./ui";
 export const game = createSlice({
   name: "game",
   initialState: {
-    gameList: {},
+    currentPosition: null,
     username: "",
+    history: [],
   },
   reducers: {
-    setGameList: (state, action) => {
-      state.gameList = action.payload;
+    setCurrentPosition: (state, action) => {
+      state.currentPosition = action.payload;
     },
 
     setUsername: (state, action) => {
       state.username = action.payload;
-      console.log("state", state);
-      console.log("action", action);
+    },
+
+    setHistory: (state, action) => {
+      if (state.currentPosition) {
+        state.history = [...state.history, action.payload];
+      }
     },
   },
 });
 
 export const fetchStartGame = () => {
   return (dispatch, getState) => {
-    const state = getState();
     dispatch(ui.actions.setLoading(true));
     fetch("https://wk16-backend.herokuapp.com/start", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username: `${state.game.username}` }),
+      body: JSON.stringify({ username: getState().game.username }),
     })
       .then((res) => res.json())
-      .then((json) => {
-        dispatch(game.actions.setGameList(json));
-        dispatch(ui.actions.setLoading(false));
-      });
+      .then((data) => dispatch(game.actions.currentPosition(data)))
+      .finally(() => dispatch(game.actions.setLoading(false)));
   };
 };
 
-export const continueGame = (username, direction) => {
-  return (dispatch) => {
+export const continueGame = (type, direction) => {
+  return (dispatch, getState) => {
     dispatch(ui.actions.setLoading(true));
     fetch("https://wk16-backend.herokuapp.com/action", {
       method: "POST",
@@ -48,15 +50,16 @@ export const continueGame = (username, direction) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username,
-        type: "move",
+        username: getState().game.username,
+        type,
         direction,
       }),
     })
       .then((res) => res.json())
-      .then((json) => {
-        dispatch(game.actions.setGameList(json));
-        dispatch(ui.actions.setLoading(false));
-      });
+      .then((data) => {
+        dispatch(game.actions.currentPosition(data));
+        dispatch(game.actions.setHistory(data));
+      })
+      .finally(() => dispatch(game.actions.setLoading(false)));
   };
 };

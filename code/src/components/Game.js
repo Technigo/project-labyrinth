@@ -5,31 +5,45 @@ import { continueGame } from "../reducers/game";
 // import { StartGame } from "./StartGame";
 
 export const Game = () => {
-  const gameList = useSelector((store) => store.game.gameList);
+  const { description, coordinates, actions } = useSelector(
+    (store) => store.game.currentPosition
+  );
   //   const username = useSelector((store) => store.game.username);
-  const actions = useSelector((store) => store.game.gameList.actions);
+  // const actions = useSelector((store) => store.game.gameList.actions);
   const dispatch = useDispatch();
-  const onButtonClick = (type, direction) => {
+  const handleButtonClick = (type, direction) => {
     dispatch(continueGame(type, direction));
   };
+
+  const ActionCard = ({ description, type, direction }) => (
+    <div className="action-card">
+      <p>{description}</p>
+      <button onClick={() => handleButtonClick(type, direction)}>
+        {type} {direction.toLowerCase()}
+      </button>
+    </div>
+  );
 
   return (
     <>
       <div>
-        <p>Coordinates: {gameList.coordinates}</p>
-        <h1>{gameList.description}</h1>
+        <p>Coordinates: {coordinates}</p>
+        <h1>{description}</h1>
+        {actions.length === 0 && <h3>Yay, you made it out!</h3>}
+        {actions.length > 0 &&
+          actions.map((item) => <ActionCard key={item.direction} {...item} />)}
       </div>
-
-      {/* {actions.map((action) => (
-        <div key={action.description}>
-          <button onClick={() => onButtonClick(action.type, action.direction)}>
-            Move {action.direction}
-          </button>
-        </div>
-      ))} */}
     </>
   );
 };
 
 // {gameList.coordinates < 0 && <StartGame />}
 // {gameList.coordinates === 0.0 &&
+
+/* {actions.map((action) => (
+        <div key={action.description}>
+          <button onClick={() => onButtonClick(action.type, action.direction)}>
+            Move {action.direction}
+          </button>
+        </div>
+      ))} */

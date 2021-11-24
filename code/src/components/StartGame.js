@@ -1,28 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 
 import { game, fetchStartGame } from "../reducers/game";
 
 export const StartGame = () => {
-  const [username, setUsername] = useState("");
   const dispatch = useDispatch();
 
-  const onStartGame = () => {
-    dispatch(game.actions.setUsername(username));
-    dispatch(fetchStartGame(username));
+  const handleInputChange = (event) => {
+    dispatch(game.actions.setUsername(event.target.value));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(fetchStartGame());
   };
 
   return (
     <div>
       <h1>Are you ready for an adventure?</h1>
-      <p>Please enter your name</p>
+
       <div>
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <button onClick={onStartGame}>START GAME</button>
+        <form onSubmit={handleSubmit}>
+          <label>
+            <p>Please enter your name</p>
+            <input type="text" required onChange={handleInputChange} />
+            <button type="submit">START GAME</button>
+          </label>
+        </form>
       </div>
     </div>
   );
