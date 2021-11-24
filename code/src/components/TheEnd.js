@@ -4,8 +4,8 @@ import { gamestate } from '../reducers/gamestate'
 
 import { GameBackground } from './StyledComponents/GameBackground';
 import { GameCard } from './StyledComponents/GameCard';
+import { RestartButton } from './StyledComponents/RestartButton';
 
-//NOT DONE UNDER CONSTRUCTION!!!!
 
 export const TheEnd = () => {
   const dispatch = useDispatch();
@@ -19,15 +19,15 @@ export const TheEnd = () => {
 
   return (
     <>
-            <GameBackground backgroundImage={"../assets/img/image.png"}>
+      <GameBackground backgroundImage={"../assets/img/image.png"}>
 
-      <GameCard><p>Congratulations {username}, you finished the game!</p>
-        {gameStatus.description}
-      <button
-        onClick={onRestartGame}>
-        Restart game
-      </button>
-      </GameCard>
+        <GameCard><p>Congratulations {username}, you finished the game!</p>
+          {gameStatus.description}
+          <button
+            onClick={onRestartGame}>
+            Restart game
+          </button>
+        </GameCard>
       </GameBackground>
     </>
   );
