@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const GameCard = styled.section`
 max-width:700px;
-max-height: 200px;
+max-height: 275px;
 position: absolute;
 margin: auto;
 left: 0;
@@ -15,11 +15,11 @@ padding: 20px;
 text-align: center;
 color: #fff;
 font-family: 'Philosopher', sans-serif;
+border-radius: 25px;
 
-
-& h2{
+& div{
 text-align: center;
-font-size: 26px;
+font-size: 20px;
 margin: auto auto;
 color: #fff;
 font-weight: 600;
