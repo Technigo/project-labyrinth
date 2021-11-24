@@ -5,10 +5,10 @@ import { nextStep } from '../reducers/game'
 
 export const InsideLabyrinth = () => {
   const { description, coordinates, actions } = useSelector(store => store.game.currentCoordinates)
-  /* const dispatch = useDispatch() */
+  const dispatch = useDispatch()
 
   const handleButtonClick = (type, direction) => {
-    dispatchEvent(nextStep(type, direction))
+    dispatch(nextStep(type, direction))
   }
 
   const ActionCard = ({ description, type, direction }) => (
