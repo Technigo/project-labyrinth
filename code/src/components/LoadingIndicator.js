@@ -3,25 +3,11 @@ import Lottie from "react-lottie";
 import animationData from "../animations/72324-compass-element-animation"
 import { useSelector } from "react-redux";
 
+import { GameBackground } from './StyledComponents/GameBackground';
+
+
 import styled from 'styled-components';
 
-/* Styling for loader */
-const LoaderBackground = styled.main`
-background: #5c874d;
-height: 100vh;
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-`;
-
-const LoaderText = styled.p`
-color: #ffffff;
-font-size: 16px;
-`;
 
 export const LoadingIndicator = () => {
   const loading = useSelector((store) => store.ui.isLoading);
@@ -38,12 +24,31 @@ export const LoadingIndicator = () => {
 return (
   <> {
     loading && (
+      <GameBackground backgroundImage={"../assets/img/loading-img.jpeg"}>
       <LoaderBackground>
         <LoaderText>Loading...</LoaderText>
-        {loading && <Lottie options={defaultOptions} height={400} width={400} />}
+        {loading && <Lottie options={defaultOptions} height={250} width={250} />}
       </LoaderBackground>
+      </GameBackground>
     )
   }
   </>
 );
 };
+
+/* Styling for loader */
+const LoaderBackground = styled.main`
+height: 100vh;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+`;
+
+const LoaderText = styled.p`
+color: #ffffff;
+font-size: 16px;
+`;

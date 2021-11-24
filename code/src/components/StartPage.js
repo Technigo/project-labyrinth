@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { gamestate } from 'reducers/gamestate';
-
 import { fetchGameInstructions } from 'reducers/gamestate';
-
 import styled from 'styled-components';
+
+import { GameBackground } from './StyledComponents/GameBackground';
+
 
 
 export const StartPage = () => {
@@ -23,7 +24,8 @@ export const StartPage = () => {
   };
 
   return (
-    <>
+
+   <GameBackground backgroundImage={"../assets/img/start-img.jpeg"}>
     <StartScreen>
       <StartForm onSubmit={setUsernameInStore}>
         <label>
@@ -37,7 +39,7 @@ export const StartPage = () => {
         <StartButton type="submit">Begin!</StartButton>
       </StartForm>
       </StartScreen>
-    </>
+      </GameBackground>
   );
 };
 
