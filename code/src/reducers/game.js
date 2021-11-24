@@ -3,7 +3,8 @@ import { ui } from './ui'
 
 const initialState = {
   username: '',
-  gameStatus: null
+  gameStatus: null,
+  history: []
 }
 
 export const game = createSlice({
@@ -11,27 +12,19 @@ export const game = createSlice({
   initialState,
   reducers: {
     submitUsername: (store, action) => {
-      console.log(action)
-      const input = action.payload
-
-      const selectedUsername = {
-        username: input
-      }
-      store.username = selectedUsername
+      store.username = action.payload
     },
     setGameStatus: (store, action) => {
-      console.log(action)
-      const currentStatus = action.payload
-      const newStatus = {
-        gameStatus: currentStatus
-      }
-      store.gameStatus = newStatus
+      store.gameStatus = action.payload
     },
-    // playGame: (store, action) => {
-    //   console.log(action)
-    // },
+    setHistory: (store, action) => {
+      if (store.gameStatus) {
+        store.history = [action.payload, ...store.history]
+      }
+    },
     restart: () => {
       return initialState
+      // return location.reload()
     }
   }
 })
@@ -47,9 +40,9 @@ export const gameStart = (username) => {
       .then((res) => res.json())
       .then((json) => {
         dispatch(game.actions.setGameStatus(json))
-        dispatch(ui.actions.setLoading(false))
+        // dispatch(ui.actions.setLoading(false))
       })
-    // .finally(() => dispatch(ui.actions.setLoading(false)))
+      .finally(() => dispatch(ui.actions.setLoading(false)))
   }
 }
 
@@ -69,9 +62,10 @@ export const gamePlay = (username, direction) => {
       .then((json) => {
         console.log(gamePlay)
         dispatch(game.actions.setGameStatus(json))
-        dispatch(ui.actions.setLoading(false))
+        dispatch(game.actions.setHistory(json))
+        // dispatch(ui.actions.setLoading(false))
       })
-    // .finally(() => dispatch(ui.actions.setLoading(false)))
+      .finally(() => dispatch(ui.actions.setLoading(false)))
   }
 }
 
