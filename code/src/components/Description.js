@@ -1,9 +1,33 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchContinue } from '../reducers/description';
 
 export const Description = () => {
-  return (
+  const { description, actions } = useSelector(
+    (store) => store.labyrinth.currentPosition
+  );
+
+  const dispatch = useDispatch();
+
+  const onButtonClick = () => {};
+
+  const Actions = ({ description, type, direction }) => (
     <div>
-      <h1>Description</h1>
+      <p>{description}</p>
+      <button onClick={() => onButtonClick(type, direction)}>
+        {type} {direction.toLowerCase()}
+      </button>
     </div>
+  );
+
+  return (
+    <section>
+      <h1>{description}</h1>
+
+      {actions.length === 0 && <h3>Yay you made it out!</h3>}
+
+      {actions.length > 0 &&
+        actions.map((item) => <Actions key={item.direction} {...item} />)}
+    </section>
   );
 };
