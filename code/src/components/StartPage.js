@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { fetchGame, game } from '../reducers/game'
 import { useNavigate } from 'react-router-dom'
-import LoadingSpinner from './LoadingSpinner'
+import { StartButton } from './StartButton'
 import styled from 'styled-components/macro'
 import '../title.css'
 
@@ -25,6 +25,9 @@ const StyledStartPage = styled.section`
 const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 150px;
 
   & input {
     font-size: 1.5rem;
@@ -60,8 +63,6 @@ const StartPage = () => {
     }
   }
 
-  const loading = useSelector((store) => store.spinner.loading)
-
   return (
     <StyledStartPage>
       <div id='fly-in'>
@@ -93,9 +94,9 @@ const StartPage = () => {
           }}
         />
 
-        <button
+        <StartButton
           disabled={name.length === 0}
-          className='button-49'
+          className='start-button'
           onClick={() => {
             onNameSubmit(name)
             dispatch(fetchGame(name))
@@ -106,7 +107,7 @@ const StartPage = () => {
             src='https://img.icons8.com/ios/50/000000/bat--v2.png'
             alt='a bat'
           />
-        </button>
+        </StartButton>
       </InputWrapper>
     </StyledStartPage>
   )

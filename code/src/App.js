@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { game } from './reducers/game'
 import StartPage from './components/StartPage'
 import MainGame from './components/MainGame'
-import LoadingSpinner from './components/LoadingSpinner'
 import { spinner } from 'reducers/spinner'
 
 //storen är korrekt connectad med reducern :)
@@ -22,7 +21,6 @@ export const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          {/* <Route element={<LoadingSpinner />} /> */}
           <Route path='/' element={<StartPage />} />
           <Route path='/MainGame' element={<MainGame />} />
         </Routes>

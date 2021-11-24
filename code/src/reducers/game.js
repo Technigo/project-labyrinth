@@ -6,7 +6,6 @@ export const game = createSlice({
   name: 'game',
   initialState: {
     username: '',
-    // Jag la till allt som fanns i console-loggen men vet inte om det är rätt..Får det inte att funka
     gameObject: {
       coordinates: '',
       description: '',
@@ -39,15 +38,13 @@ export const fetchGame = () => {
       .then((res) => res.json())
       .then((json) => {
         dispatch(game.actions.setGameObject(json))
-        setTimeout(() => dispatch(spinner.actions.setLoading(false)), 5000)
+        setTimeout(() => dispatch(spinner.actions.setLoading(false)), 1000)
       })
   }
 }
 
 export const fetchGameSteps = ({ direction }) => {
-  //getState gör så att värdet username senast blivit tilldelat hänger med in i denna thunk
   return (dispatch, getState) => {
-    // const { username } = getState().game
     dispatch(spinner.actions.setLoading(true))
 
     const options = {

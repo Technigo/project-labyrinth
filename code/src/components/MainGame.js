@@ -4,6 +4,11 @@ import { fetchGameSteps } from '../reducers/game'
 import LoadingSpinner from './LoadingSpinner'
 import styled from 'styled-components/macro'
 
+import { DirectionButton } from './DirectionButton'
+import { StartButton } from './StartButton'
+import CreepyGirl from './CreepyGirl'
+import { useNavigate } from 'react-router-dom'
+
 const StyledMainGame = styled.div`
   display: flex;
   width: 100%;
@@ -11,7 +16,6 @@ const StyledMainGame = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 3;
   background-color: #111;
   background-image: radial-gradient(#333, #111);
   background-size: cover;
@@ -19,61 +23,107 @@ const StyledMainGame = styled.div`
   background-attachment: fixed;
   color: #fff;
   text-align: center;
+
+  .main-game-card {
+    max-width: 90%;
+    min-height: 50%;
+    max-height: 90%;
+    overflow-y: scroll;
+    border: 2px solid gray;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+  @media (max-width: 500x) {
+    h2 {
+      font-size: 16px;
+    }
+  }
 `
 
 const DirectionWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 800px;
+  width: 100%;
 `
 
 const DirectionCard = styled.div`
   width: 50%;
-  height: 200px;
+  min-height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 `
 
-const DirectionButton = styled.button`
-  width: 80px;
-  padding: 7px;
-  text-align: center;
+const EndWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  h3 {
+    margin: 10px 15px;
+  }
 `
 
 const MainGame = () => {
   const gameObject = useSelector((store) => store.game.gameObject)
   const username = useSelector((store) => store.game.username)
   console.log(gameObject)
+  const navigate = useNavigate()
 
   const dispatch = useDispatch()
+
+  const onRestartClick = () => {
+    navigate('/')
+  }
 
   return (
     <StyledMainGame>
       <LoadingSpinner />
-      <p>
-        User:
-        {username}
-      </p>
-      <h2>{gameObject.description}</h2>
+      <div className='main-game-card'>
+        <p>
+          User:
+          {username}
+        </p>
+        <h2>{gameObject.description}</h2>
 
-      <DirectionWrapper>
-        {gameObject.actions.map((action) => (
-          <DirectionCard key={action.direction}>
-            <p>{action.description}</p>
+        {gameObject.actions.length > 0 && (
+          <DirectionWrapper>
+            {gameObject.actions.map((action) => (
+              <DirectionCard key={action.direction}>
+                <p>{action.description}</p>
 
-            <DirectionButton
-              onClick={() =>
-                dispatch(fetchGameSteps({ direction: action.direction }))
-              }
-            >
-              Go {action.direction}
-            </DirectionButton>
-          </DirectionCard>
-        ))}
-      </DirectionWrapper>
+                <DirectionButton
+                  onClick={() =>
+                    dispatch(fetchGameSteps({ direction: action.direction }))
+                  }
+                >
+                  <span>Go {action.direction}</span>
+                </DirectionButton>
+              </DirectionCard>
+            ))}
+          </DirectionWrapper>
+        )}
+        {gameObject.actions.length === 0 && (
+          <EndWrapper>
+            <h3>You made it out alive!</h3>
+
+            <CreepyGirl />
+            <StartButton onClick={onRestartClick}>
+              Restart{' '}
+              <img
+                src='https://img.icons8.com/ios/50/000000/bat--v2.png'
+                alt='a bat'
+              />
+            </StartButton>
+          </EndWrapper>
+        )}
+      </div>
     </StyledMainGame>
   )
 }

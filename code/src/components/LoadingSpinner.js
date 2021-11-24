@@ -20,6 +20,7 @@ const LoadingBackground = styled.div`
   align-items: center;
   color: #fff;
   font-family: Creepster;
+  z-index: 5;
 `
 
 const LoadingSpinner = () => {
