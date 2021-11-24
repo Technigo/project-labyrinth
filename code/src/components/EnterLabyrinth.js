@@ -18,7 +18,7 @@ export const EnterLabyrinth = () => {
   return (
     <>
       <h2>What shall we call you, oh lost one?</h2>
-      <form onSubmit={handleSubmit} className="input-form">
+      <form onSubmit={handleSubmit} className='input-form'>
         <label>
           Player name:
           <input
