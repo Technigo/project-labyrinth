@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import styled, { keyframes } from 'styled-components';
 import { useWindowSize } from '@react-hook/window-size';
+import './LoadingStuff.css';
 
 const loaderAnim = keyframes`
 	from {transform: scale(0, 0)};
@@ -9,49 +10,49 @@ const loaderAnim = keyframes`
 `;
 
 const Loader = styled.div`
-  display: inline-block;
   font-size: 0px;
   padding: 0px;
   z-index: 5;
   position: absolute;
-  top: 50%;
+  top: ${(props) => props.hgt / 4}px;
   left: ${(props) => props.wid / 4}px;
+  display: block;
 
-  span {
-    vertical-align: middle;
-    border-radius: 100%;
-    display: inline-block;
-    height: ${(props) => props.hgt * 0.05}px;
-    width: ${(props) => props.wid * 0.1}px;
-    margin: 3px 2px;
-    -webkit-animation: loader1 0.8s linear infinite alternate;
-    animation: ${loaderAnim} 0.8s linear infinite alternate;
-  }
-  span:nth-child(1) {
-    -webkit-animation-delay: -1s;
-    animation-delay: -1s;
-    background: rgba(245, 103, 115, 0.6);
-  }
-  span:nth-child(2) {
-    -webkit-animation-delay: -0.8s;
-    animation-delay: -0.8s;
-    background: rgba(245, 103, 115, 0.8);
-  }
-  span:nth-child(3) {
-    -webkit-animation-delay: -0.26666s;
-    animation-delay: -0.26666s;
-    background: rgba(245, 103, 115, 1);
-  }
-  span:nth-child(4) {
-    -webkit-animation-delay: -0.8s;
-    animation-delay: -0.8s;
-    background: rgba(245, 103, 115, 0.8);
-  }
-  span:nth-child(5) {
-    -webkit-animation-delay: -1s;
-    animation-delay: -1s;
-    background: rgba(245, 103, 115, 0.4);
-  }
+  // span {
+  //   vertical-align: middle;
+  //   border-radius: 100%;
+  //   display: inline-block;
+  //   height: ${(props) => props.hgt * 0.05}px;
+  //   width: ${(props) => props.wid * 0.1}px;
+  //   margin: 3px 2px;
+  //   -webkit-animation: loader1 0.8s linear infinite alternate;
+  //   animation: ${loaderAnim} 0.8s linear infinite alternate;
+  // }
+  // span:nth-child(1) {
+  //   -webkit-animation-delay: -1s;
+  //   animation-delay: -1s;
+  //   background: rgba(245, 103, 115, 0.6);
+  // }
+  // span:nth-child(2) {
+  //   -webkit-animation-delay: -0.8s;
+  //   animation-delay: -0.8s;
+  //   background: rgba(245, 103, 115, 0.8);
+  // }
+  // span:nth-child(3) {
+  //   -webkit-animation-delay: -0.26666s;
+  //   animation-delay: -0.26666s;
+  //   background: rgba(245, 103, 115, 1);
+  // }
+  // span:nth-child(4) {
+  //   -webkit-animation-delay: -0.8s;
+  //   animation-delay: -0.8s;
+  //   background: rgba(245, 103, 115, 0.8);
+  // }
+  // span:nth-child(5) {
+  //   -webkit-animation-delay: -1s;
+  //   animation-delay: -1s;
+  //   background: rgba(245, 103, 115, 0.4);
+  // }
 
   ${
     '' /* @keyframes loader1 {
@@ -68,7 +69,7 @@ const Loader = styled.div`
 const LoaderBox = styled.div`
   height: ${(props) => props.hgt}px;
   width: ${(props) => props.wid}px;
-  background-color: black;
+  background-color: goldenrod;
   position: absolute;
   top: 0;
   z-index: 5;
@@ -94,11 +95,16 @@ const LoadingStuff = () => {
       {loading && (
         <LoaderBox hgt={height} wid={width}>
           <Loader hgt={height} wid={width}>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+            <div className='circle-1'></div>
+            <div className='circle-2'></div>
+            <div className='circle-3'></div>
+            <div className='circle-4'></div>
+            <div className='circle-5'></div>
+
+            <div className='square-1'></div>
+            <div className='square-2'></div>
+            <div className='square-3'></div>
+            <div className='square-4'></div>
           </Loader>
         </LoaderBox>
       )}

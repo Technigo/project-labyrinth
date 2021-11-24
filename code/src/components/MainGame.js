@@ -1,34 +1,21 @@
-import React from "react";
+import React, { useState } from 'react';
 
-import styled, { keyframes } from "styled-components";
-import { useWindowSize } from "@react-hook/window-size";
+import styled from 'styled-components';
+import { useWindowSize } from '@react-hook/window-size';
 
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
-import GameStage from "./GameStage";
-import ceiling from "../assets/ceiling.png";
-import cave from "../assets/cave.png";
-import last from "../assets/last.png";
-import color from "../assets/color.png";
-import paper from "../assets/paper.png";
-import steampunk from "../assets/steampunk.png";
-import colorfulcave from "../assets/colorfulcave.png";
+import GameStage from './GameStage';
+import Winner from './Winner';
+import ceiling from '../assets/ceiling.png';
+import cave from '../assets/cave.png';
+import last from '../assets/last.png';
+import color from '../assets/color.png';
+import paper from '../assets/paper.png';
+import steampunk from '../assets/steampunk.png';
+import colorfulcave from '../assets/colorfulcave.png';
 
-import TypeWriterEffect from "react-typewriter-effect";
-
-// const typing = keyframes`
-// 	from {width: 0};
-//     to {width:100%};
-// `;
-
-// const blinkCaret = keyframes`
-// 	from,
-//     to {border-color: transparent;
-//   }
-//   50% {
-//     border-color: orange;
-//   }
-// `;
+import TypeWriterEffect from 'react-typewriter-effect';
 
 const GameBox = styled.div`
   height: ${(props) => props.hgt}px;
@@ -44,69 +31,43 @@ const GameBox = styled.div`
   justify-content: center;
   align-items: center;
   color: white;
-
-  /* .typewriter {
-    word-break: break-word;
-    max-width: 65%;
-    display: inline-block;
-  } */
-  /* .typewriter h1 {
-    overflow: hidden;
-    border-right: 0.15em solid orange; 
-    white-space: normal;
-    margin: 0 auto;
-    letter-spacing: 0.15em;
-    animation: typing 3.5s steps(40, end), blinkCaret 0.75s step-end infinite;
-    font-size: 1em;
-    font-family: "Libre Baskerville", serif;
-    margin-top: 20px;
-  } */
-
-  /* The typing effect */
-  /* @keyframes typing {
-    from {
-      width: 0;
-    }
-    to {
-      width: 100%;
-    }
-  }  */
 `;
 
 const DescriptionBox = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #1b1a187a;
   width: 70%;
   height: auto;
   padding: 2em;
   align-items: center;
   border-radius: 20px;
+  justify-content: center;
 `;
 
 export const MainGame = () => {
   const bgSwitcher = (coordinates) => {
     switch (coordinates) {
-      case "0,0":
+      case '0,0':
         return cave;
-      case "1,0":
+      case '1,0':
         return ceiling;
-      case "1,1":
+      case '1,1':
         return colorfulcave;
-      case "0,1":
+      case '0,1':
         return steampunk;
-      case "0,2":
+      case '0,2':
         return color;
-      case "0,3":
+      case '0,3':
         return paper;
-      case "1,3":
+      case '1,3':
         return last;
       default:
-        return "error";
+        return 'error';
     }
   };
 
   const [width, height] = useWindowSize();
+  const description = useSelector((store) => store.game.gameList.description);
 
   const gameList = useSelector((store) => store.game.gameList);
 
@@ -118,15 +79,21 @@ export const MainGame = () => {
     >
       <DescriptionBox>
         <TypeWriterEffect
-          textStyle={{ fontFamily: "Red Hat Display" }}
-          startDelay={2000}
-          cursorColor="orange"
-          text={gameList.description}
+          textStyle={{
+            fontFamily: 'Red Hat Display',
+            backgroundColor: '#1b1a187a',
+            padding: '0.5rem',
+            borderRadius: '10px'
+          }}
+          startDelay={1000}
+          cursorColor='orange'
+          text={description}
           typeSpeed={100}
         />
 
         <GameStage />
       </DescriptionBox>
+      {gameList.actions.length === 0 && <Winner />}
     </GameBox>
   );
 };

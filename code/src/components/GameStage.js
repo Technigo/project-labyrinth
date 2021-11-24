@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Button from './Button';
 import styled from 'styled-components';
@@ -19,18 +19,24 @@ const NextStepText = styled.p`
 const TextBox = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #1b1a187a;
-  width: 70%;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
   height: auto;
   padding: 1em;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 
   .step-container {
     margin: 10px 0px;
     padding: 10px;
     display: flex;
-    flex-direction: column;
+    ${'' /* flex-direction: column; */}
     border-radius: 5px;
-    background-color: #8b0000a1;
+    align-items: center;
+    width: 70%;
   }
 `;
 
@@ -38,9 +44,8 @@ const GameStage = () => {
   const gameList = useSelector((store) => store.game.gameList);
   return (
     <TextBox>
-      {gameList.actions.map((item, index) => (
+      {gameList.actions.map((item) => (
         <div key={item.direction} className='step-container'>
-          <NextStepText>{item.description}</NextStepText>
           <Button item={item} />
         </div>
       ))}

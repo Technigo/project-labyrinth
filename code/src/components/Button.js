@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { fetchGameInstructions } from 'reducers/game';
@@ -23,7 +23,7 @@ const GameButton = styled.button`
     box-shadow: inset 0px 0px 5px 3px rgba(1, 1, 1, 0.3);
 
 	@media (min-width: 768px) {
-		width: 250px;
+		width: 200px;
 	}
 	
   }
@@ -39,18 +39,54 @@ const GameButton = styled.button`
   }
 `;
 
+const Box = styled.div`
+  height: 100px;
+  width: 300px;
+`;
+const Arrow = styled.p`
+  font-size: 20px;
+`;
 const Button = ({ item }) => {
+  const [isHovering, setIsHovering] = useState(false);
+  const [isActive, setActive] = useState(false);
   const dispatch = useDispatch();
+
+  const onToggleClass = () => {
+    setActive(!isActive);
+  };
+
+  const handleMouseOver = () => {
+    setIsHovering(true);
+  };
+
+  console.log(isHovering);
+
+  const handleMouseOut = () => {
+    setIsHovering(false);
+  };
+
   return (
-    <GameButton
-      key={item.description}
-      onClick={() => {
-        dispatch(fetchGameInstructions({ direction: item.direction }));
-      }}
-    >
-      {item.type} {item.direction.toLowerCase()}
-    </GameButton>
+    <Box>
+      <GameButton
+        onMouseOver={() => handleMouseOver()}
+        onMouseOut={() => handleMouseOut()}
+        key={item.description}
+        onClick={() => {
+          dispatch(fetchGameInstructions({ direction: item.direction }));
+        }}
+      >
+        {item.type} {item.direction.toLowerCase()}
+      </GameButton>
+      <Arrow onClick={() => onToggleClass()}> &#8964;</Arrow>
+      {isHovering ? <p>{item.description}</p> : null}
+      {isActive ? <p>{item.description}</p> : null}
+    </Box>
   );
 };
 
 export default Button;
+//   const [isActive, setActive] = useState(false);
+//   const dispatch = useDispatch();
+//   const onToggleClass = () => {
+//     setActive(!isActive);
+//   };
