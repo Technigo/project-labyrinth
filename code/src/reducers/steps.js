@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ui } from "./ui";
+import uniqid from "uniqid";
 
 const steps = createSlice({
   name: "steps",
@@ -15,7 +16,10 @@ const steps = createSlice({
     },
     setSteps: (store, action) => {
       console.log("setSteps: ", action.payload);
-      store.steps.push(action.payload);
+      const id = uniqid();
+      let latestStep = action.payload;
+      latestStep = { ...latestStep, id: id };
+      store.steps.push(latestStep);
     },
     setStartPosition: (store, action) => {
       console.log("setStartPosition: ", action.payload);

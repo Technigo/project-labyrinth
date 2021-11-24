@@ -57,7 +57,6 @@ const StartingPage = () => {
           type="text"
           name="newName"
           placeholder="An adventurers name..."
-          // value={newTodo}
           onChange={(username) =>
             dispatch(steps.actions.setUsername(username.target.value))
           }

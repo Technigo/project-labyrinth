@@ -19,7 +19,9 @@ const reducers = combineReducers({
 });
 
 const composeEnhancer =
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  (typeof window !== "undefined" &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  compose;
 
 const store = createStore(
   reducers,

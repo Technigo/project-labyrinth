@@ -14,19 +14,10 @@ const SecondaryText = styled.p`
   color: #6b6b6b;
 `;
 
-const Thumbnail = styled.div`
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background-image: url(${(props) => props.url});
-  background-size: cover;
-  margin-right: 10px;
-`;
-
-const TitleBar = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+const SmallText = styled.p`
+  margin: 0;
+  font-size: 12px;
+  color: #6b6b6b;
 `;
 
 const Content = styled.div`
@@ -62,32 +53,42 @@ const Button = styled.button`
   }
 `;
 
-const ActionPage = ({ user, description, actionOne, actionTwo }) => {
+const ActionPage = () => {
+  // get the latest step by getting the last item in the array steps from the store
   const currentStep = useSelector((store) =>
     store.steps.steps.at(-1)
   );
+  const lastStep = useSelector((store) => store.steps.steps.at(-2));
+  const allSteps = useSelector((store) => store.steps.steps);
   const username = useSelector((store) => store.steps.username);
 
   const dispatch = useDispatch();
+
+  const handleCLick = (direction) => {
+    dispatch(fetchSteps(direction));
+  };
   return (
     <Content>
-      <TitleBar>
-        <Thumbnail />
-        <div>
-          <Title>{username}</Title>
-          <SecondaryText>{currentStep.description}</SecondaryText>
-        </div>
-        <div>
-          {currentStep.actions.map((action) => (
-            <Button
-              type="button"
-              onClick={() => dispatch(fetchSteps(action.direction))}
-            >
-              {action.direction}
-            </Button>
-          ))}
-        </div>
-      </TitleBar>
+      <SmallText>
+        You have moved {allSteps.length} step
+        {allSteps.length > 1 && "s"}
+        {allSteps.length > 1 &&
+          `, and the latest movement was ${lastStep.direction}`}
+      </SmallText>
+      <div>
+        <Title>{username}</Title>
+        <SecondaryText>{currentStep.description}</SecondaryText>
+      </div>
+      <div>
+        {currentStep.actions.map((action) => (
+          <Button
+            type="button"
+            onClick={() => handleCLick(action.direction)}
+          >
+            Go {action.direction}
+          </Button>
+        ))}
+      </div>
     </Content>
   );
 };

@@ -15,7 +15,9 @@ const MainContainer = styled.div`
   flex-direction: column;
   box-sizing: border-box;
   border-radius: 6px;
-  margin-bottom: 20px;
+  margin: 50px auto;
+  width: 90%auto;
+  max-width: 400px;
 `;
 
 const Container = () => {
@@ -26,14 +28,7 @@ const Container = () => {
     <MainContainer>
       {loading && <Loader />}
       {!steps.length && <StartingPage />}
-      {steps.length && (
-        <ActionPage
-          user="SofiaW"
-          description="You are entering av great forest"
-          actionOne="East"
-          actionTwo="West"
-        />
-      )}
+      {steps.length && <ActionPage />}
     </MainContainer>
   );
 };
