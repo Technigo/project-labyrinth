@@ -1,43 +1,48 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import styled from 'styled-components/macro';
+import React from 'react'
+import { useSelector } from 'react-redux'
+import styled from 'styled-components/macro'
+import Lottie from 'react-lottie'
+import animationData from '../animations/loading-spinner.json'
 
-const StyledLoader = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgb(173, 96, 96, 0.5);
+const LoadingBackground = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: #111;
+  background-image: radial-gradient(#333, #111);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-align: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  .loader-spinner {
-    display: inline;
-    height: 50px;
-    width: 50px;
-    border: 5px solid rgb(205, 59, 59);
-    border-radius: 50%;
-    border-left: 5px solid rgb(239, 224, 179, 0.81);
-    animation: spinner infinite 1s linear;
-  }
-`;
+  color: #fff;
+  font-family: Creepster;
+`
 
 const LoadingSpinner = () => {
-  const loading = useSelector((store) => store.spinner.loading);
-  //Jag hade råkat hämta loading från store.game.loading, men ändrade till store.spinner.loading
-  // där intial state finns att hämta, och då funkade den. Yay! men den ser ut som skit så vi måste spexa till den
+  const loading = useSelector((store) => store.spinner.loading)
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    },
+  }
 
   return (
     <>
       {loading && (
-        <StyledLoader className='loader-overlay'>
-          <div className='loader-spinner' />
-        </StyledLoader>
+        <LoadingBackground>
+          <Lottie options={defaultOptions} height={400} width={400} />
+          <p>Loading...</p>
+        </LoadingBackground>
       )}
     </>
-  );
-};
+  )
+}
 
-export default LoadingSpinner;
+export default LoadingSpinner

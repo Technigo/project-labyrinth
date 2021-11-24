@@ -10,6 +10,13 @@ const StyledMainGame = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 3;
+  background-color: #111;
+  background-image: radial-gradient(#333, #111);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #fff;
 `
 
 const DirectionWrapper = styled.div`

@@ -40,7 +40,7 @@ export const fetchGame = (username) => {
       .then((res) => res.json())
       .then((json) => {
         dispatch(game.actions.setGameObject(json))
-        dispatch(spinner.actions.setLoading(false))
+        setTimeout(() => dispatch(spinner.actions.setLoading(false)), 5000)
       })
   }
 }
