@@ -1,51 +1,44 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { animation } from './animation'
 
 export const labyrinth = createSlice({
     name: 'labyrinth',
     initialState: {
     destination: [],
+    history: [],
+    userName: '',
     },
     reducers: {
     setLabyrinthPath: (state, action) => {
         state.destination = action.payload;
     },
+    addUserName: (state, action) =>{
+        state.userName = action.payload
     },
-});
+    setHistory: (state, action) => {
+        
+        state.history = [action.payload, ...state.history] 
+    },
+}}
+);
 
-export const fetchLabyrinth = () => {
+export const fetchLabyrinth = ({url, type, direction}) => { // this is passed along, depending on what user clicks on
     console.log('i am here');
-    return (dispatch) => {
-    // dispatch loading component with actions.set...(true)
-    fetch('https://wk16-backend.herokuapp.com/start', {
+    return (dispatch, getState) => {
+    dispatch (animation.actions.setLoading(true))
+    fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username: 'gulrukh' }),
-    })
-        .then((res) => res.json())
-        .then((json) => {
-        dispatch(labyrinth.actions.setLabyrinthPath(json));
-        // add code for set loading false
-        });
-    };
-};
-
-export const fetchActions = ({direction}) => {
-    console.log(direction)
-    return(dispatch) => {
-        fetch('https://wk16-backend.herokuapp.com/action', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(
-                { username: 'gulrukh',
-                type: 'move',
-                direction: direction,
+        body: JSON.stringify({ 
+            username: getState().labyrinth.userName,
+            type,
+            direction,
         }),
     })
         .then((res) => res.json())
         .then((json) => {
         dispatch(labyrinth.actions.setLabyrinthPath(json));
-        // add code for set loading false
+        dispatch (animation.actions.setLoading(false)) //we can type .finally
         });
     };
 };
- 
