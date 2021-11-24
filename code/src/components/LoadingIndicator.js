@@ -1,6 +1,6 @@
 import React from "react";
 import Lottie from "react-lottie";
-import animationData from "../animations/72324-compass-element-animation"
+import animationData from "../animations/lf30_editor_7adxmbhh"
 import { useSelector } from "react-redux";
 
 import { GameBackground } from './StyledComponents/GameBackground';
@@ -24,10 +24,10 @@ export const LoadingIndicator = () => {
 return (
   <> {
     loading && (
-      <GameBackground backgroundImage={"../assets/img/loading-img.jpeg"}>
+      <GameBackground backgroundImage={"../assets/img/loading-image.jpg"}>
       <LoaderBackground>
         <LoaderText>Loading...</LoaderText>
-        {loading && <Lottie options={defaultOptions} height={250} width={250} />}
+        {loading && <Lottie options={defaultOptions} height={500} width={500} />}
       </LoaderBackground>
       </GameBackground>
     )
@@ -39,6 +39,7 @@ return (
 /* Styling for loader */
 const LoaderBackground = styled.main`
 height: 100vh;
+opacity: 0.7;
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;

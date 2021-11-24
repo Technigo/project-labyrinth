@@ -4,7 +4,8 @@ import { ui } from 'reducers/ui';
 //initial state - when game starts
 const initialState = {
   username: '',
-  gameStatus: {},
+  setCurrentChoice: null,
+  setDirection: {},
   history: []
 };
 

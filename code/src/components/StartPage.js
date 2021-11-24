@@ -25,7 +25,7 @@ export const StartPage = () => {
 
   return (
 
-   <GameBackground backgroundImage={"../assets/img/start-img.jpeg"}>
+   <GameBackground backgroundImage={"../assets/img/start-image.jpg"}>
     <StartScreen>
       <StartForm onSubmit={setUsernameInStore}>
         <label>
@@ -34,7 +34,7 @@ export const StartPage = () => {
           <input
             type="text"
             value={username}
-            onChange={(event) => setUsername(event.target.value)}
+            onChange={(event) => setUsername(event.target.value)} 
           />
           </div>
         </label>
