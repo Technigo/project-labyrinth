@@ -21,7 +21,7 @@ export const EndPage = () => {
   };
 
   return (
-    <section>
+    <section className="endpage-section">
       <h1>Arrr, you found the treasure!</h1>
       <Lottie options={defaultOptions} height={400} width={400} />
       <button onClick={onStartOver} type="button">

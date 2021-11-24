@@ -8,12 +8,13 @@ export const GamePage = () => {
   const username = useSelector((store) => store.labyrinth.username);
   const [direction, setDirection] = useState("");
 
+
   if (labyrinth.actions.length === 0) {
     return <EndPage />;
   } else {
     return (
       <div>
-        <p>Welcome {username}</p>
+       
         <p>{labyrinth.description}</p>
         <p>{labyrinth.coordinates}</p>
         {labyrinth.actions.map((item) => (
@@ -28,4 +29,5 @@ export const GamePage = () => {
       </div>
     );
   }
+
 };

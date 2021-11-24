@@ -14,7 +14,7 @@ const store = configureStore({ reducer });
 
 export const App = () => (
   <Provider store={store}>
-    <article>
+    <article className="container">
       <SwitchPage />
     </article>
   </Provider>
