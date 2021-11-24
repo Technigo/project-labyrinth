@@ -4,9 +4,6 @@ import animationData from "../Lotties/spinner-slow-three-colors";
 import { useSelector } from "react-redux";
 
 export const Loading = () => {
-  const loading = useSelector((store) => store.loading.loading);
-  console.log(animationData);
-
   const defaultOptions = {
     loop: true,
     autoplay: true,
