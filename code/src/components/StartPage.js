@@ -1,8 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchGame } from "reducers/game";
+import { nextStep } from "reducers/game";
 
-const GameCard = () => {
+const StartPage = () => {
   const game = useSelector((store) => store.game.gameList);
   const dispatch = useDispatch();
 
@@ -17,6 +18,7 @@ const GameCard = () => {
       >
         Start
       </button>
+
       {game?.actions?.map((item) => (
         <p key={item.description}>{item.description}</p>
       ))}
@@ -24,7 +26,7 @@ const GameCard = () => {
         <button
           key={item.direction}
           onClick={() => {
-            dispatch();
+            dispatch(nextStep(item.direction));
           }}
         >
           {item.direction}
@@ -34,4 +36,4 @@ const GameCard = () => {
   );
 };
 
-export default GameCard;
+export default StartPage;
