@@ -1,6 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMazeAlternatives } from '../reducers/maze';
+import {
+	fetchMazeAlternatives,
+	fetchMazeAlternativesAction,
+} from '../reducers/maze';
 
 export const MazeAlternatives = () => {
 	const maze = useSelector((store) => store.maze.mazeList);
@@ -8,6 +11,7 @@ export const MazeAlternatives = () => {
 
 	return (
 		<>
+			{/* kanske måste dispatchea så loadingen syns? lade den andra apin i maze  */}
 			<h1>Maze</h1>
 			<button
 				onClick={() => {
@@ -23,7 +27,7 @@ export const MazeAlternatives = () => {
 				<button
 					key={item.direction}
 					onClick={() => {
-						dispatch();
+						dispatch(fetchMazeAlternativesAction(item.direction));
 					}}
 				>
 					{item.direction}
