@@ -48,7 +48,7 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 @media (max-width: 600px) {
-    max-width: 100vh;
+  
 }
 `;
 
