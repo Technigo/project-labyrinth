@@ -41,7 +41,7 @@ export const startThunk = (userName) => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data)
+               
                 dispatch(game.actions.startGame(data))
                 dispatch(ui.actions.setLoading(false))
             })
@@ -60,10 +60,12 @@ export const actionThunk = (userName, action) => {
                 username: userName,
                 type: action.type,
                 direction: action.direction,
+                description:action.description,
             })
         })
             .then((res) => res.json())
             .then((data) => {
+                console.log(data)
                 dispatch(game.actions.continueGame(data))
                 dispatch(ui.actions.setLoading(false))
             })
