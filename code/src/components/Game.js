@@ -1,9 +1,19 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { startThunk, actionThunk, game } from '../reducers/game'
-
+//import { Welcome } from './Welcome'
 import { Endscreen } from './Endscreen'
+import styled from "styled-components/macro"
 
+const Body = styled.section `
+width: 60%;
+margin: 0 auto,
+display: flex;
+background-color: black;
+color: green;
+font-family:`
+
+const ShortDesc= styled.div``
 
 export const Game = () => {
     const dispatch = useDispatch()
@@ -23,9 +33,7 @@ export const Game = () => {
 
     return (
         <>
-       
             {showBeginning && (
-
                 <form onSubmit={() => onStart()}>
                     <input
                         type="text" required
@@ -37,39 +45,35 @@ export const Game = () => {
                         type='submit'
                     >Start The Game </button>
                 </form>
-
             )}
 
             {!showBeginning && (
-                
-                <div>
+                <Body>
+                    <ShortDesc>{gameInformation.description}</ShortDesc>
                     
-                    <div>{newUserName}</div>
-                    {gameInformation.description}
-                 
                     {gameInformation.actions.map((action) => (
                         <div>
                             <div key={action.description}>{action.description}</div>
-                            
-                        <button
+
+                            <button
                                 key={action.coordinates}
                                 onClick={() => onAction(action)}>
-                                {action.type} {action.direction} 
+                                {action.type} {action.direction}
                             </button>
                         </div>
-                       
-                         
-                        ))}
-                   {gameInformation.actions.length === 0 && (
-                       //<div>
-                         //  Congratulations, you have made it!
-                           //<button onClick={() => onAction()}> Press to re-start</button>
-                       //</div>
-                       <Endscreen />
-                   )}
-                    
-                </div>
-                
+
+
+                    ))}
+                    {gameInformation.actions.length === 0 && (
+                        //<div>
+                        //  Congratulations, you have made it!
+                        //<button onClick={() => onAction()}> Press to re-start</button>
+                        //</div>
+                        <Endscreen />
+                    )}
+
+                </Body>
+
             )}
 
 

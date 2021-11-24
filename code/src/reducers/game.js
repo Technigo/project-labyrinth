@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { ui } from './ui'
+const initialState = {
+    username: '',
+    currentStep: {},
+    history: [],
+  }
 
 export const game = createSlice ({
     name: 'game',
@@ -25,11 +30,8 @@ export const game = createSlice ({
         setUserName: (store, action)=> {
             store.username = action.payload
         },
-        restartGame: (store) => {
-            store.username = ''
-            store.actions = []
-            store.description = ''
-            store.coordinates = ''
+        restartGame: () => {
+           return initialState
         }
     }
 }) 
