@@ -58,7 +58,6 @@ const ActionPage = () => {
   const currentStep = useSelector((store) =>
     store.steps.steps.at(-1)
   );
-  const lastStep = useSelector((store) => store.steps.steps.at(-2));
   const lastDirection = useSelector((store) =>
     store.steps.directions.at(-1)
   );
