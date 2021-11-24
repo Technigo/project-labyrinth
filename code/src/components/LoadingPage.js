@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 const LoadingText = styled.h1`
@@ -8,5 +9,7 @@ const LoadingText = styled.h1`
 `;
 
 export const LoadingPage = () => {
-  return <LoadingText>Loading.....</LoadingText>;
+  const loading = useSelector((state) => state.game.loader);
+
+  return <>{loading && <LoadingText>Loading.....</LoadingText>}</>;
 };

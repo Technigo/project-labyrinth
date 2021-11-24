@@ -7,8 +7,8 @@ const game = createSlice({
   name: "game",
   // initalstate is always an object
   initialState: {
-    userName: " ",
-    gameStatus: " ",
+    userName: null,
+    gameStatus: null,
     history: [],
   },
   // Each reducer is a property which is a function

@@ -3,8 +3,27 @@ import { useDispatch } from "react-redux";
 import game from "../reducers/game";
 import { fetchGame } from "../reducers/game";
 
-//Start page where the user will input their username
+import styled from "styled-components";
 
+const FormContainer = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const UserName = styled.h1`
+  text-align: center;
+`;
+
+//Start page where the user will input their username
 const StartPage = () => {
   const dispatch = useDispatch();
 
@@ -21,13 +40,17 @@ const StartPage = () => {
   };
 
   return (
-    <form>
-      <label>
-        <h1> Type your username! </h1>
-        <input type="text" required onChange={handleInputChange} />
-      </label>
-      <button type="submit"> Send </button>
-    </form>
+    <FormContainer onSubmit={handleSubmit}>
+      <Wrapper>
+        <label>
+          <h1> Type your username! </h1>
+        </label>
+        <div>
+          <input type="text" required onChange={handleInputChange} />
+          <button type="submit"> Send </button>
+        </div>
+      </Wrapper>
+    </FormContainer>
   );
 };
 
