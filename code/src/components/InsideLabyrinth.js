@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { nextStep } from '../reducers/game'
 
 export const InsideLabyrinth = () => {
-  const { description, coordinates, actions } = useSelector(store => store.game.labyrinthData)
+  const { description, coordinates, actions } = useSelector(store => store.game.currentCoordinates)
   /* const dispatch = useDispatch() */
 
 const handleButtonClick = (type, direction) => {

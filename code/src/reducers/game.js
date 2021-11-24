@@ -51,7 +51,7 @@ export const nextStep = (type, direction) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         username: getState().game.username,
-        type,
+        type, //shorthand of type: type
         direction,
       }),
     })

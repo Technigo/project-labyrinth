@@ -6,12 +6,13 @@ import { InsideLabyrinth } from './InsideLabyrinth'
 import { LoadingIndicator } from './LoadingIndicator'
 
 export const Game = () => {
-  const labyrinthData = useSelector(store => store.game.labyrinthData)
+  const currentCoordinates = useSelector(store => store.game.currentCoordinates)
 
   return (
     <>
-    {labyrinthData ? <InsideLabyrinth /> : <EnterLabyrinth />}
-    <LoadingIndicator />
+      <h1>The Labyrinth...</h1>
+      {currentCoordinates ? <InsideLabyrinth /> : <EnterLabyrinth />}
+      <LoadingIndicator />
     </>
   )
 }
