@@ -6,7 +6,6 @@ const initialState = {
   username: '',
   setCurrentChoice: null,
   setDirection: {},
-  history: []
 };
 
 

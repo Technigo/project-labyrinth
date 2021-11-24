@@ -16,6 +16,7 @@ export const GameWrapper = () => {
 
 
   //https://reactjs.org/docs/conditional-rendering.html
+  //switch syntax - depending on where the user is in the game it triggers different senarios
   let componentToShow;
   if (isLoading) {
     componentToShow = <LoadingIndicator />;
@@ -33,8 +34,7 @@ export const GameWrapper = () => {
       }
     }
   }
-  //if loading is true show loading indicator. Else if username is defined show gamePage else StartPage
-  //?: = if else
+
   return (
     <>
       {componentToShow}

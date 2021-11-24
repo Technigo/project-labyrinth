@@ -17,7 +17,6 @@ text-align: center;
 color: #fff;
 font-family: 'Philosopher', sans-serif;
 @media (max-width: 768px) {
-    opacity: 0.6;
     max-height: 500px;
 }
 
