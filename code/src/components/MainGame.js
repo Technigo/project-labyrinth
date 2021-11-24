@@ -92,7 +92,7 @@ export const MainGame = () => {
             startDelay={1000}
             cursorColor="orange"
             text={description}
-            typeSpeed={300}
+            typeSpeed={30}
           />
         ) : null}
 
