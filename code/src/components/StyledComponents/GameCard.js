@@ -11,14 +11,14 @@ top: 0;
 bottom: 0;
 background-color: #000;
 box-shadow: 0 0 10px 20px #000;
-opacity: 0.7;
+opacity: 0.6;
 padding: 20px;
 text-align: center;
 color: #fff;
 font-family: 'Philosopher', sans-serif;
 @media (max-width: 768px) {
-    max-width:100vh;
-    height: 100vh;
+    opacity: 0.6;
+    max-height: 500px;
 }
 
 & h2{
