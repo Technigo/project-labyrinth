@@ -36,12 +36,13 @@ export const StartPage = () => {
       <input
         className="textInput"
         required
+        maxLength="15"
         type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
 
-      {username.length > 4 ? (
+      {username.length > 0 ? (
         <div className="OnclickTextOrBtn">
         <button onClick={start} className="startPageBtn">
           {" "}
@@ -50,7 +51,7 @@ export const StartPage = () => {
         </div>
       ) : (
         <div className="OnclickTextOrBtn">
-        <p>Fill in your name </p>
+        <p className="textStartPage">Fill in your name </p>
         </div>
       )}
       </section>

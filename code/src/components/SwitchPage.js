@@ -23,6 +23,11 @@ export const SwitchPage = () => {
 
   return (
     <div>
+  
+
+      {!loadingState && labyrinth === null && <StartPage />}
+      {!loadingState && labyrinth !== null && <GamePage />}
+
       {loading &&  <Lottie className="animationLoading"
 options={defaultOptions}
 height={50}
@@ -30,8 +35,6 @@ width={180}
 />
  }
 
-      {!loadingState && labyrinth === null && <StartPage />}
-      {!loadingState && labyrinth !== null && <GamePage />}
     </div>
   );
 };
