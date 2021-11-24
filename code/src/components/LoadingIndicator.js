@@ -1,10 +1,10 @@
 import React from "react";
-import { Lottie } from "react-lottie";
+import Lottie from "react-lottie";
 import animationData from "../animations/loading-double";
 import { useSelector } from "react-redux";
 
-const LoadingIndicator = () => {
-  const loading = useSelector((store) => store.ui.loading);
+export const LoadingIndicator = () => {
+  const loading = useSelector((store) => store.game.loading);
 
   const defaultOptions = {
     loop: true,
@@ -21,5 +21,3 @@ const LoadingIndicator = () => {
     </>
   );
 };
-
-export default LoadingIndicator;

@@ -9,10 +9,10 @@ import {
 import StartPage from "components/StartPage";
 import { game } from "reducers/game";
 import { ui } from "reducers/ui";
-import LoadingIndicator from "components/LoadingIndicator";
+import { LoadingIndicator } from "components/LoadingIndicator";
 import thunk from "redux-thunk";
 
-import "./index";
+// import "./index";
 
 const reducer = combineReducers({
   game: game.reducer,
@@ -30,9 +30,8 @@ export const App = () => {
   return (
     <>
       <Provider store={store}>
-        Find me in src/app.js!
         <StartPage />
-        {/* <LoadingIndicator /> */}
+        <LoadingIndicator />
       </Provider>
     </>
   );

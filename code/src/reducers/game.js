@@ -4,9 +4,16 @@ import { ui } from "./ui";
 export const game = createSlice({
   name: "game",
   initialState: {
+    username: "",
+    currentPosition: null,
     gameList: [{ description: "hahahaah" }],
   },
   reducers: {
+    setUsername: (store, action) => {
+      console.log("setUsername: ", action.payload);
+      store.username = action.payload;
+    },
+
     setGameList: (state, action) => {
       state.gameList = action.payload;
     },
