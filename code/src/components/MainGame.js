@@ -28,15 +28,18 @@ const StyledMainGame = styled.div`
     max-width: 90%;
     min-height: 50%;
     max-height: 90%;
-    overflow-y: scroll;
+    overflow: auto;
     border: 2px solid gray;
+
+    @media (min-width: 800px) {
+      padding: 30px;
+      max-width: 600px;
+    }
   }
 
   h2 {
     font-size: 20px;
-  }
-  @media (max-width: 500x) {
-    h2 {
+    @media (max-width: 500x) {
       font-size: 16px;
     }
   }
@@ -56,6 +59,7 @@ const DirectionCard = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin: 10px;
 `
 
 const EndWrapper = styled.div`
@@ -73,7 +77,6 @@ const EndWrapper = styled.div`
 const MainGame = () => {
   const gameObject = useSelector((store) => store.game.gameObject)
   const username = useSelector((store) => store.game.username)
-  console.log(gameObject)
   const navigate = useNavigate()
 
   const dispatch = useDispatch()

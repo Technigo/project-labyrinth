@@ -32,10 +32,11 @@ export const DirectionButton = styled.div`
   vertical-align: baseline;
   white-space: nowrap;
   &:before {
+    color: #ffffff;
     animation: opacityFallbackOut 0.5s step-end forwards;
     backface-visibility: hidden;
     background-color: #880044;
-    border-radius: 6px;
+    border-radius: 5px;
     clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
     content: '';
     height: 100%;
@@ -46,13 +47,14 @@ export const DirectionButton = styled.div`
     transition: clip-path 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
       -webkit-clip-path 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
     width: 100%;
-    & span:hover {
+    & span {
       color: #ffffff;
     }
   }
   &:hover:before {
     animation: opacityFallbackIn 0s step-start forwards;
     clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+    color: #ffffff;
   }
   &:after {
     background-color: #ffffff;

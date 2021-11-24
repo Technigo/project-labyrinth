@@ -38,7 +38,7 @@ export const fetchGame = () => {
       .then((res) => res.json())
       .then((json) => {
         dispatch(game.actions.setGameObject(json))
-        setTimeout(() => dispatch(spinner.actions.setLoading(false)), 1000)
+        setTimeout(() => dispatch(spinner.actions.setLoading(false)), 4000)
       })
   }
 }

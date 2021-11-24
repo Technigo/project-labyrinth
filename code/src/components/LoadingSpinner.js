@@ -21,6 +21,9 @@ const LoadingBackground = styled.div`
   color: #fff;
   font-family: Creepster;
   z-index: 5;
+  & p {
+    font-size: 25px;
+  }
 `
 
 const LoadingSpinner = () => {
