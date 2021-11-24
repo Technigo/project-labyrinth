@@ -23,14 +23,15 @@ export const LoadingIndicator = () => {
 
 return (
   <> {
-    loading && (
       <GameBackground backgroundImage={"../assets/img/loading-image.jpg"}>
       <LoaderBackground>
+        <div>
         <LoaderText>Loading...</LoaderText>
-        {loading && <Lottie options={defaultOptions} height={500} width={500} />}
+        <Lottie options={defaultOptions} height={500} />
+        </div>
       </LoaderBackground>
       </GameBackground>
-    )
+    // )
   }
   </>
 );
@@ -47,12 +48,15 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-@media (max-width: 600px) {
-  
+
+& div {
+max-width: 500px;
 }
+
 `;
 
 const LoaderText = styled.p`
+text-align: center;
 color: #000;
 font-size: 25px;
 font-weight: bolder;
