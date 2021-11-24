@@ -4,17 +4,25 @@ import { coolestLoader } from './coolestLoader';
 export const maze = createSlice({
 	name: 'maze',
 	initialState: {
-		mazeList: [{ description: 'hahahaah', direction: '' }],
+		username: '',
+		currentPosition: '',
+		loading: false,
 	},
 	reducers: {
-		setMazeList: (state, action) => {
-			state.mazeList = action.payload;
+		setUsername: (store, action) => {
+			store.username = action.payload;
+		},
+		setCurrentPosition: (store, action) => {
+			store.currentPosition = action.payload;
+		},
+		setLoading: (store, action) => {
+			store.loading = action.payload;
 		},
 	},
 });
 
 export const fetchMazeAlternatives = () => {
-	return (dispatch) => {
+	return (dispatch, getState) => {
 		dispatch(coolestLoader.actions.setLoading(true));
 
 		const options = {
@@ -23,20 +31,20 @@ export const fetchMazeAlternatives = () => {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
-				username: 'banan',
+				username: getState().maze.username,
 			}),
 		};
 
 		fetch('https://wk16-backend.herokuapp.com/start', options)
 			.then((res) => res.json())
 			.then((json) => {
-				dispatch(maze.actions.setMazeList(json));
-				dispatch(coolestLoader.actions.setLoading(false));
-			});
+				dispatch(maze.actions.setCurrentPosition(json));
+			})
+			.finally(dispatch(coolestLoader.actions.setLoading(false)));
 	};
 };
-export const fetchMazeAlternativesAction = (direction) => {
-	return (dispatch) => {
+export const fetchMazeAlternativesAction = (type, direction) => {
+	return (dispatch, getState) => {
 		dispatch(coolestLoader.actions.setLoading(true));
 
 		const options = {
@@ -45,22 +53,17 @@ export const fetchMazeAlternativesAction = (direction) => {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
-				username: 'banan',
-				// uniqueID??? kanske googlar mvh vad cd code
-				type: 'move',
-				direction: direction,
-				// error här^
+				username: getState().maze.username,
+				type,
+				direction,
 			}),
-		}; // gr8
+		};
 
 		fetch('https://wk16-backend.herokuapp.com/action', options)
 			.then((res) => res.json())
 			.then((json) => {
-				console.log(json);
-				dispatch(maze.actions.setMazeList(json));
-				dispatch(coolestLoader.actions.setLoading(false));
-			});
+				dispatch(maze.actions.setCurrentPosition(json));
+			})
+			.finally(dispatch(coolestLoader.actions.setLoading(false)));
 	};
 };
-
-// detta är andra APIN https://wk16-backend.herokuapp.com/action

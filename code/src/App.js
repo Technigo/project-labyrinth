@@ -3,8 +3,7 @@ import { Provider } from 'react-redux';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { coolestLoader } from './reducers/coolestLoader';
 import { maze } from './reducers/maze';
-import { LoadingIndicator } from './components/LoadingIndicator';
-import { MazeAlternatives } from './components/MazeAlternatives';
+import { Game } from './components/Game';
 
 import './index';
 
@@ -19,10 +18,7 @@ const store = configureStore({ reducer });
 export const App = () => {
 	return (
 		<Provider store={store}>
-			<main className="app">
-				<LoadingIndicator />
-				<MazeAlternatives />
-			</main>
+			<Game />
 		</Provider>
 	);
 };

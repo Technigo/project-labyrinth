@@ -1,38 +1,32 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-	fetchMazeAlternatives,
-	fetchMazeAlternativesAction,
-} from '../reducers/maze';
+import { fetchMazeAlternativesAction } from '../reducers/maze';
 
 export const MazeAlternatives = () => {
-	const maze = useSelector((store) => store.maze.mazeList);
+	const { description, actions } = useSelector(
+		(store) => store.maze.currentPosition
+	);
 	const dispatch = useDispatch();
 
-	return (
-		<>
-			{/* kanske måste dispatchea så loadingen syns? lade den andra apin i maze  */}
-			<h1>Maze</h1>
-			<button
-				onClick={() => {
-					dispatch(fetchMazeAlternatives());
-				}}
-			>
-				En knapp
+	const handleButtonClick = (type, direction) => {
+		dispatch(fetchMazeAlternativesAction(type, direction));
+	};
+
+	const ActionCard = ({ description, type, direction }) => (
+		<div>
+			<p>{description}</p>
+			<button onClick={() => handleButtonClick(type, direction)}>
+				{type} {direction.toLowerCase()}
 			</button>
-			{maze?.actions?.map((item) => (
-				<p key={item.description}>{item.description}</p>
-			))}
-			{maze?.actions?.map((item) => (
-				<button
-					key={item.direction}
-					onClick={() => {
-						dispatch(fetchMazeAlternativesAction(item.direction));
-					}}
-				>
-					{item.direction}
-				</button>
-			))}
-		</>
+		</div>
+	);
+
+	return (
+		<section>
+			<h1>{description}</h1>
+			{actions.length === 0 && <h3>Yay you made it out!</h3>}
+			{actions.length > 0 &&
+				actions.map((item) => <ActionCard key={item.direction} {...item} />)}
+		</section>
 	);
 };
