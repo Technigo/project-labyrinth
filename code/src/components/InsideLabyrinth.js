@@ -7,6 +7,36 @@ export const InsideLabyrinth = () => {
   const { description, coordinates, actions } = useSelector(store => store.game.currentCoordinates)
   const dispatch = useDispatch()
 
+  const setBgColor = () => {
+    let bg = 'silver'
+    switch (coordinates) {
+      case '0,0':
+        bg = 'pink'
+        break
+      case '1,0':
+        bg = 'blue'
+        break
+      case '1,1':
+        bg = 'green'
+        break
+      case '0,1':
+        bg = 'yellow'
+        break;
+      case '0,2':
+        bg = 'orange'
+        break;
+      case '0,3':
+        bg = 'red'
+        break;
+      case '1,3':
+        bg = 'grey'
+        break;
+      default:
+        bg = 'silver'
+    }
+    return bg
+  }
+
   const handleButtonClick = (type, direction) => {
     dispatch(nextStep(type, direction))
   }
@@ -22,7 +52,7 @@ export const InsideLabyrinth = () => {
   )
 
   return (
-    <section className='insideLabyrinth'>
+    <section className='insideLabyrinth' style={{ background: setBgColor() }}>
       <p className='text coords'>
         You've ended up at the coordinates <strong>{coordinates}</strong>.
       </p>
