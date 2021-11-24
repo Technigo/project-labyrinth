@@ -16,7 +16,7 @@ export const TheEndGame = () => {
     <>
       <p>Congratulations {currentUser}, you made it to the other side!</p>
       <p>{gameStatus.description}</p>
-            <button onClick={onGameRestart}>Restart</button>
+            <button onClick={onGameRestart}>Play Again</button>
     </>
   );
 };
