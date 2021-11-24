@@ -168,3 +168,11 @@ export const EndTitle = styled.h1`
 export const DirectionButton = styled.button`
   align-self: center;
 `;
+
+export const Gif = styled.iframe`
+  margin: 10px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
