@@ -15,4 +15,13 @@ padding: 20px;
 text-align: center;
 color: #fff;
 font-family: 'Philosopher', sans-serif;
+
+
+& h2{
+text-align: center;
+font-size: 26px;
+margin: auto auto;
+color: #fff;
+font-weight: 600;
+}
 `
