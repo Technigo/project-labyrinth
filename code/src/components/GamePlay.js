@@ -11,32 +11,54 @@ const BackgroundImage = styled.div`
 	background-repeat: no-repeat;
 	width: 100vw;
 	height: 100vh;
-	/* position: fixed; */
+	position: fixed;
 	display: flex;
 	align-items: center;
-	justify-content: center;
 	flex-direction: column;
 	color: #ffffff;
 `;
 
 const Container = styled.main`
-	padding: 30px;
+	padding: 20px;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	overflow: scroll;
+`;
+
+const TextContainer = styled.div`
+	box-sizing: border-box;
+	padding: 25px 30px;
+	background-color: rgba(0, 0, 0, 0.6);
+	border-radius: 10px;
+	margin: 10px;
+	> * {
+		margin: 0;
+		padding: 0;
+	}
+`;
+
+const Heading = styled.h1`
+	font-size: 22px;
 `;
 
 const Keyboard = styled.div`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	width: 75%;
+	margin-top: 15px;
+	margin-bottom: 20px;
+	> * {
+		margin: 0;
+		padding: 0;
+	}
 `;
 
 const KeyButton = styled.button`
 	grid-column: span 1;
 	background: none;
 	border: none;
-	margin: 5px;
+	margin: 1px 3px;
 `;
 
 const EmptySpace = styled.div`
@@ -62,18 +84,22 @@ export const GamePlay = () => {
 				{loading && <Loader />}
 				{currentPosition && (
 					<Container>
-						<h1>{currentPosition.description}</h1>
+						<TextContainer>
+							<Heading>{currentPosition.description}</Heading>
+						</TextContainer>
 						{/* <h2>Your current position {currentPosition.coordinates}</h2> */}
-						<p>
-							{moveDescOne}. If you want to continue on this path go{" "}
-							{moveDirectionOne}.
-						</p>
-						{currentPosition.coordinates !== "0,0" && (
+						<TextContainer>
 							<p>
-								{moveDescTwo}. If you want to continue on this path go{" "}
-								{moveDirectionTwo}.
+								{moveDescOne}. If you want to continue on this path go{" "}
+								{moveDirectionOne}.
 							</p>
-						)}
+							{currentPosition.coordinates !== "0,0" && (
+								<p>
+									{moveDescTwo}. If you want to continue on this path go{" "}
+									{moveDirectionTwo}.
+								</p>
+							)}
+						</TextContainer>
 						<Keyboard>
 							<EmptySpace></EmptySpace>
 							<KeyButton onClick={() => dispatch(nextStep("North"))}>
