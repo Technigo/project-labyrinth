@@ -1,7 +1,7 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import Button from './Button';
-import styled from 'styled-components';
+import React from "react";
+import { useSelector } from "react-redux";
+import Button from "./Button";
+import styled from "styled-components";
 
 const TextBox = styled.div`
   display: flex;
@@ -20,7 +20,7 @@ const TextBox = styled.div`
     margin: 10px 0px;
     padding: 10px;
     display: flex;
-    ${'' /* flex-direction: column; */}
+    flex-direction: column;
     border-radius: 5px;
     align-items: center;
     width: 70%;
@@ -32,7 +32,7 @@ const GameStage = () => {
   return (
     <TextBox>
       {gameList.actions.map((item) => (
-        <div key={item.direction} className='step-container'>
+        <div key={item.direction} className="step-container">
           <Button item={item} />
         </div>
       ))}
