@@ -4,7 +4,7 @@ import { ui } from "./ui"
 export const maze = createSlice({
   name: 'maze',
   initialState: {
-      username: 'BestFox3',
+      username: "",
       response: {}
   },
   reducers: {
@@ -25,7 +25,7 @@ export const startMaze = ( username) => {
         headers: {
             "Content-Type": "application/json",
           },
-        body: JSON.stringify({ username : "BestFox3" })
+        body: JSON.stringify({ username })
     }
     return (dispatch) => {   
         dispatch(ui.actions.setLoading(true))     
@@ -34,7 +34,7 @@ export const startMaze = ( username) => {
         .then((data) => {
             console.log("post", data)
             dispatch(maze.actions.setResponse(data))   
-            dispatch(maze.actions.setUserName(username))
+            /* dispatch(maze.actions.setUserName(username)) */ // TEST
             dispatch(ui.actions.setLoading(false)) 
         })
     }

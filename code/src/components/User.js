@@ -14,16 +14,16 @@ const dispatch = useDispatch()
     return(
         <div>
             {console.log("data", data)}
-            <button type="button" onClick={() => dispatch(startMaze("BestFox3hjdsjhfjksfkhdsjfds"))}>
+{/*             <button type="button" onClick={() => dispatch(startMaze("BestFox3hjdsjhfjksfkhdsjfds"))}>
                 Button
-            </button>
+            </button> */}
             <p>{data.description}</p>
             <p>{data.coordinates}</p>
             {data.actions !== undefined && (
                 <>
                 <p>{data.actions[0].description}</p>
                 <p>{data.actions.coordinates}</p>
-                <div>{data.actions.map(action => <button onClick={()=>dispatch(moveMaze())}>{action.direction}</button>)}</div>
+                <div>{data.actions.map(action => <button key={action.direction} onClick={()=>dispatch(moveMaze())}>{action.direction}</button>)}</div>
                 </>
             )}
         </div>
