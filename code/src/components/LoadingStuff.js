@@ -3,14 +3,18 @@ import { useSelector } from 'react-redux';
 import styled, { keyframes } from 'styled-components';
 
 const loaderAnim = keyframes`
-	from {transform: scale(0, 0);}
-    to {transform: scale(1, 1);}
+	from {transform: scale(0, 0)};
+    to {transform: scale(1, 1)};
 `;
 
 const Loader = styled.div`
   display: inline-block;
   font-size: 0px;
   padding: 0px;
+  z-index: 5;
+  position: absolute;
+  top: 50%;
+  left: 47%;
 
   span {
     vertical-align: middle;

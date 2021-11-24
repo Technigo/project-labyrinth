@@ -34,12 +34,9 @@ export const fetchGame = (userName) => {
       .then((res) => res.json())
       .then((json) => {
         console.log(json);
-        setTimeout(() => dispatch(game.actions.setGameElements(json)), 1000);
+        setTimeout(() => dispatch(game.actions.setGameElements(json)), 2000);
       })
-      .finally(
-        setTimeout(() => dispatch(ui.actions.setLoading(false)), 1000),
-        1000
-      );
+      .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000));
   };
 };
 
@@ -62,9 +59,6 @@ export const fetchGameInstructions = ({ move = 'move', direction }) => {
       .then((json) => {
         setTimeout(() => dispatch(game.actions.setGameElements(json)), 1000);
       })
-      .finally(
-        setTimeout(() => dispatch(ui.actions.setLoading(false)), 1000),
-        1000
-      );
+      .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 1000));
   };
 };
