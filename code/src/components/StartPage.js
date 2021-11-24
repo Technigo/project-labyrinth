@@ -24,6 +24,7 @@ export const StartPage = () => {
 
   return (
     <>
+    <GameBackground backgroundImage={"../assets/img/image.png"}>
     <StartScreen>
       <StartForm onSubmit={setUsernameInStore}>
         <label>
@@ -37,6 +38,7 @@ export const StartPage = () => {
         <StartButton type="submit">Begin!</StartButton>
       </StartForm>
       </StartScreen>
+      </GameBackground>
     </>
   );
 };
@@ -56,7 +58,13 @@ export const StartScreen = styled.section`
   } */
 
 `
-
+const GameBackground = styled.div`
+width: 100%;
+height: 100vh;
+background-image: url("${props => props.backgroundImage}");
+background-size: cover;
+background-position: center;
+`
 export const StartForm = styled.form`
 
 `
