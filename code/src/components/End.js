@@ -1,25 +1,30 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { start } from 'reducers/start';
 
-export const End = () => {
-  const username = useSelector(store => store.start.username);
+import { EndPage, EndTitle } from './StyledComponents';
+
+export const End = ({ title, gameDescription }) => {
+  // const username = useSelector(store => store.start.username);
+  // const gameDescription = useSelector(store => store.start.description);
 
   const dispatch = useDispatch();
 
   const onRestart = () => {
-    dispatch(start.actions.setUsername(''));
+    // dispatch(start.actions.setUsername(''));
+    dispatch(start.actions.setRestartGame()); // skapade reducer så att vi kommer till startsidan, innan var sista bilden kvar och inputfältet endast tomt
   };
 
   return (
-    <div>
+    <EndPage>
       <div>
         <div>
-          <h1>Well done {username}, you made it to the end!</h1>
+          <EndTitle>{title}</EndTitle>
+          <p>{gameDescription}</p>
 
           <button onClick={onRestart}>Restart the game</button>
         </div>
       </div>
-    </div>
+    </EndPage>
   );
 };

@@ -1,37 +1,170 @@
 import styled from 'styled-components';
 
-import {
-  url0_0,
-  url0_1,
-  url0_2,
-  url0_3,
-  url1_1,
-  url1_3,
-} from '../images/images';
-
 export const Main = styled.main`
   display: flex;
   color: white;
+  background-image: url('https://i.ibb.co/wpDztHS/2435565.png');
+  background-size: cover;
   justify-content: center;
   position: relative;
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-image: ${props =>
-    props.coordinates === '1,3'
-      ? url1_3
-      : props.coordinates === '1,1'
-      ? url1_1
-      : props.coordinates === '1,0'
-      ? url1_1
-      : props.coordinates === '0,3'
-      ? url0_3
-      : props.coordinates === '0,2'
-      ? url0_2
-      : props.coordinates === '0,1'
-      ? url0_1
-      : props.coordinates === '0,0'
-      ? url0_0
-      : url0_0};
-  background-size: cover;
+  //background-size: cover;
+  letter-spacing: 1.5px;
+  text-shadow: -1px 2px white;
+  text-align: center;
+`;
+
+export const DescriptionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  color: black;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  width: 60%;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  border-top: 10px solid white;
+  border-bottom: 10px solid white;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: '';
+    top: 0;
+    width: 10px;
+    height: 100%;
+    position: absolute;
+    background: white;
+  }
+  &:before {
+    left: -10px;
+  }
+
+  &:after {
+    right: -10px;
+  }
+
+  @media (max-width: 768px) {
+    width: 70%;
+  }
+`;
+
+export const TitleContainer = styled.div`
+  text-align: center;
+  font-size: 18px;
+  font-weight: lighter;
+`;
+
+// export const Directions = styled.div`
+
+/* border-top: 5px solid orange;
+  border-bottom: 5px solid orange;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: '';
+    top: 0;
+    width: 5px;
+    height: 100%;
+    position: absolute;
+    background: orange;
+  }
+  &:before {
+    left: -5px;
+  }
+
+  &:after {
+    right: -5px;
+  } 
+`;*/
+
+export const Choices = styled.div`
+  margin: 10px;
+  padding: 10px;
+  border-top: 5px solid orange;
+  border-bottom: 5px solid orange;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: '';
+    top: 0;
+    width: 5px;
+    height: 100%;
+    position: absolute;
+    background: orange;
+  }
+  &:before {
+    left: -5px;
+  }
+
+  &:after {
+    right: -5px;
+  }
+`;
+
+export const StartContainer = styled.div`
+  text-align: center;
+  text-shadow: -1px 2px black;
+
+  input {
+    padding: 5px;
+  }
+`;
+
+export const InputFlex = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  button {
+    width: 50%;
+    margin: 10px auto;
+  }
+
+  @media (max-width: 768px) {
+    input {
+      width: 80%;
+    }
+  }
+`;
+
+export const EndPage = styled.div`
+  width: 80%;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  text-align: center;
+  color: black;
+  border-top: 10px dashed orange;
+  border-bottom: 10px dashed orange;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: '';
+    top: 0;
+    width: 10px;
+    height: 100%;
+    position: absolute;
+    background: orange;
+  }
+  &:before {
+    left: -10px;
+  }
+
+  &:after {
+    right: -10px;
+  }
+`;
+
+export const EndTitle = styled.h1`
+  display: inline;
+  width: 100%;
+`;
+
+export const DirectionButton = styled.button`
+  align-self: center;
 `;

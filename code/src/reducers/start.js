@@ -32,6 +32,10 @@ export const start = createSlice({
     setCurrentPosition: (store, action) => {
       store.currentPosition = action.payload;
     },
+    setRestartGame: store => {
+      store.username = null;
+      store.coordinates = null;
+    },
     // setHistory () => {
     // if (store.currentPosition) {
     //   store.history = [...store.history, action.payload]
