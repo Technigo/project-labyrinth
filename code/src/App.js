@@ -1,28 +1,21 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import { StartPage } from "components/StartPage";
 import Labyrinth from "./reducers/Labyrinth";
 import { ui } from "reducers/ui";
-import { Game } from "components/Game";
-
+import { SwitchPage } from "components/SwitchPage";
 
 const reducer = combineReducers({
- 
   labyrinth: Labyrinth.reducer,
-   ui: ui.reducer,
+  ui: ui.reducer
 });
 
 const store = configureStore({ reducer });
 
 export const App = () => (
-
-
   <Provider store={store}>
-   <article>
-<Game />
-
-   </article>
-     
+    <article>
+      <SwitchPage />
+    </article>
   </Provider>
 );

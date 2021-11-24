@@ -7,39 +7,26 @@ export const StartPage = () => {
   const dispatch = useDispatch();
 
   const start = () => {
-
-
-    if (username === ""){
-
-    } else{ 
-    dispatch(Labyrinth.actions.setUsername(username));
-    dispatch(fetchLabyrinth());}
+    if (username === "") {
+    } else {
+      dispatch(Labyrinth.actions.setUsername(username));
+      dispatch(fetchLabyrinth());
+    }
   };
 
-
-
   return (
-
-<div>
-
-<input
+    <div>
+      <input
         type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
 
-{username.length > 4 ? (
-       <button onClick={start}> Welcome </button> 
+      {username.length > 4 ? (
+        <button onClick={start}> Welcome </button>
       ) : (
-         <p>Fill in your name :)</p>
+        <p>Fill in your name </p>
       )}
-
-
-        
-  
     </div>
-)
-    
-    
-  
+  );
 };
