@@ -1,10 +1,10 @@
 import React from "react"
-import { Provider, useSelector } from "react-redux"
+import { Provider } from "react-redux"
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
-import { MainPage } from "./components/Main"
+// import { MainPage } from "./components/Main"
 import { labyrinth } from "reducers/labyrinth"
 import { ui } from "reducers/ui"
-import { Loader } from "components/Loader"
+// import { Loader } from "components/Loader"
 import { GameScreen } from "components/GameScreen"
 
 const reducer = combineReducers({

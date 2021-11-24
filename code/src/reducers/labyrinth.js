@@ -1,12 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { ui } from "./ui"
 
+const initialState = {
+  username: "",
+  response: {},
+  //history: []
+}
+
 export const labyrinth = createSlice({
   name: "labyrinth",
-  initialState: {
-    username: "",
-    response: {},
-  },
+  // initialState: {
+  //   username: "",
+  //   response: {},
+  // },
+  initialState: initialState,
   reducers: {
     // get username input from the player as payload and set it here.
     setusername: (state, action) => {
@@ -16,11 +23,14 @@ export const labyrinth = createSlice({
     setResponse: (state, action) => {
       state.response = action.payload
     },
+    reStart: () => {
+      return initialState
+    },
+    // create a set history action
   },
 })
 
 export const fetchInitialData = (username) => {
-  console.log("hello")
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true))
     fetch("https://wk16-backend.herokuapp.com/start", {
@@ -29,7 +39,7 @@ export const fetchInitialData = (username) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: username,
+        username,
       }),
     })
       .then((res) => res.json())

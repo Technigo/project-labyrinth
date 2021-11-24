@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux"
 
 export const GameStart = () => {
   const [username, setUsername] = useState("")
-  const loading = useSelector((state) => state.ui.loading)
+  const response = useSelector((state) => state.labyrinth.response)
   const dispatch = useDispatch()
 
   const onGameStart = (event) => {
@@ -19,9 +19,13 @@ export const GameStart = () => {
   }
 
   return (
-    loading === false && (
-      <>
+    <>
+      {response.coordinates === undefined && (
         <form>
+          <h1>
+            Would you like to play a Maze game? Enter your name to start...
+          </h1>
+
           <input
             type="text"
             value={username}
@@ -31,7 +35,7 @@ export const GameStart = () => {
             Start game
           </button>
         </form>
-      </>
-    )
+      )}
+    </>
   )
 }

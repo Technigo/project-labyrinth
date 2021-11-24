@@ -1,63 +1,51 @@
-import React, { useState } from "react"
-import {
-  fetchInitialData,
-  labyrinth,
-  continueLabyrinth,
-} from "reducers/labyrinth"
+import React from "react"
+import { labyrinth, continueLabyrinth } from "reducers/labyrinth"
 import { useSelector, useDispatch } from "react-redux"
 // import { GameStart } from "./GameStart"
 
 export const MainPage = () => {
-  //  const [username, setUsername] = useState("")
-  const loading = useSelector((state) => state.ui.loading)
+  // const loading = useSelector((state) => state.ui.loading)
   const response = useSelector((state) => state.labyrinth.response)
   const actions = useSelector((state) => state.labyrinth.response.actions)
 
   const dispatch = useDispatch()
   console.log(response)
 
-  // I added prevent default and username.lenght value to disable the button to start the game without a username
-  // const onGameStart = (event) => {
-  //   event.preventDefault()
-  //   if (username.length === 0) {
-  //     alert("Please enter a username to start")
-  //   } else {
-  //     dispatch(labyrinth.actions.setusername(username))
-  //     dispatch(fetchInitialData(username))
-  //     setUsername("") // added this to clean the input box
-  //   }
-  // }
   const onButtonClick = (type, direction) => {
     dispatch(continueLabyrinth(type, direction))
   }
 
-  // changed the first div to the form to make it work with the keypress with "enter"
+  // ReStart the game
+  const handleRestartButton = () => {
+    dispatch(labyrinth.actions.reStart())
+  }
 
   return (
-    loading === false && (
-      <>
-        <div>
-          <h1>{response.description}</h1>
-          {response.actions !== undefined && (
-            <>
-              <div>
-                {actions.map((action) => (
-                  <div key={action.description}>
-                    <button
-                      onClick={() =>
-                        onButtonClick(action.type, action.direction)
-                      }
-                    >
-                      Move {action.direction}
-                    </button>
-                    <p>{action.description}</p>
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
-        </div>
-      </>
-    )
+    // loading === false &&  dont need this line since loading has its own logic inside the component
+    <>
+      <div>
+        <h1>{response.description}</h1>
+        {response.coordinates !== undefined && (
+          <>
+            <div>
+              {actions.map((action) => (
+                <div key={action.description}>
+                  <button
+                    onClick={() => onButtonClick(action.type, action.direction)}
+                  >
+                    MOVE {action.direction.toUpperCase()}
+                  </button>
+                  <p>{action.description}</p>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
+        {response.coordinates === "1,3" && (
+          <button onClick={() => handleRestartButton()}> RESTART </button>
+        )}
+      </div>
+    </>
   )
 }
