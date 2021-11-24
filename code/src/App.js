@@ -18,7 +18,7 @@ export const App = () => {
   return (
     <Provider store={store}>
       <StartPage />
-      {/* <Description /> */}
+
       <LoadingLottie />
     </Provider>
   );
