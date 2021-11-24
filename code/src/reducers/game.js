@@ -49,6 +49,7 @@ export const gameStart = (username) => {
         dispatch(game.actions.setGameStatus(json))
         dispatch(ui.actions.setLoading(false))
       })
+    // .finally(() => dispatch(ui.actions.setLoading(false)))
   }
 }
 
@@ -70,6 +71,7 @@ export const gamePlay = (username, direction) => {
         dispatch(game.actions.setGameStatus(json))
         dispatch(ui.actions.setLoading(false))
       })
+    // .finally(() => dispatch(ui.actions.setLoading(false)))
   }
 }
 

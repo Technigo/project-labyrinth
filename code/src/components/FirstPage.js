@@ -22,14 +22,16 @@ export const FirstPage = () => {
   return (
     <>
       <h1>Are you ready to trust the process?</h1>
-      <input
-        type="text"
-        value={username}
-        onChange={(event) => setUsername(event.target.value)}
-      />
-      <button disabled={username === ''} onClick={onSubmitUsername}>
-        Submit
-      </button>
+      <form>
+        <input
+          type="text"
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
+        />
+        <button disabled={username === ''} onClick={onSubmitUsername}>
+          Submit
+        </button>
+      </form>
     </>
   )
 }
