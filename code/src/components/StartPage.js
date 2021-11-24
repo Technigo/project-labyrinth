@@ -8,7 +8,6 @@ import styled from 'styled-components';
 import { GameBackground } from './StyledComponents/GameBackground';
 
 
-
 export const StartPage = () => {
   const [username, setUsername] = useState('');
 
@@ -93,6 +92,7 @@ const StartButton = styled.button`
   text-decoration: none;
   margin: 20px auto;
   transition: color 0.4s; 
+  cursor: pointer;
 
   &:after {
   content:" ";

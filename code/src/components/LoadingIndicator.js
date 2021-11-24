@@ -47,9 +47,14 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+@media (max-width: 600px) {
+    max-width: 100vh;
+}
 `;
 
 const LoaderText = styled.p`
-color: #ffffff;
-font-size: 16px;
+color: #000;
+font-size: 25px;
+font-weight: bolder;
+font-family: 'Philosopher', sans-serif;
 `;

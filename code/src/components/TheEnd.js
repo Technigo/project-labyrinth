@@ -21,8 +21,11 @@ export const TheEnd = () => {
     <>
       <GameBackground backgroundImage={"../assets/img/theend-image.jpg"}>
 
-        <GameCard><p>Congratulations {username}, you finished the game!</p>
-          {gameStatus.description}
+        <GameCard><h2>Congratulations {username}, you finished the game!</h2>
+          <div>
+            {gameStatus.description}
+          </div>
+
           <RestartButton
             onClick={onRestartGame}>
             Restart game
