@@ -1,32 +1,34 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { gamestate } from '../reducers/gamestate'
 
-import { gamestate, gameStatus } from '../reducers/gamestate'
-
-import styled from 'styled-components';
+import { GameBackground } from './StyledComponents/GameBackground';
+import { GameCard } from './StyledComponents/GameCard';
 
 //NOT DONE UNDER CONSTRUCTION!!!!
 
 export const TheEnd = () => {
-    const [username, setUsername] = useState('');
+  const dispatch = useDispatch();
 
-    return (
-        <>
-          <p>Congratulations {username}, you finished the game!</p>
-          <Divider />
-          <Description>{gameStatus.description}</Description>
-          <button
-        onClick={onRestartGame}>Restart game</button>
-        </>
-      );
-    };    
+  const username = useSelector((store) => store.gamestate.username)
+  const gameStatus = useSelector(store => store.gamestate.currentChoice);
 
+  const onRestartGame = () => {
+    dispatch(gamestate.actions.setResetGame('')) //here is function to restartgame using empty state
+  }
 
-export const Description = styled.section`  
-width: 100%;
-height: 100vh;
-font-family: 'Philosopher', sans-serif;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-`
+  return (
+    <>
+            <GameBackground backgroundImage={"../assets/img/image.png"}>
+
+      <GameCard><p>Congratulations {username}, you finished the game!</p>
+        {gameStatus.description}
+      <button
+        onClick={onRestartGame}>
+        Restart game
+      </button>
+      </GameCard>
+      </GameBackground>
+    </>
+  );
+};
