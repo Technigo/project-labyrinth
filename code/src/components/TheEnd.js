@@ -23,10 +23,10 @@ export const TheEnd = () => {
 
         <GameCard><p>Congratulations {username}, you finished the game!</p>
           {gameStatus.description}
-          <button
+          <RestartButton
             onClick={onRestartGame}>
             Restart game
-          </button>
+          </RestartButton>
         </GameCard>
       </GameBackground>
     </>
