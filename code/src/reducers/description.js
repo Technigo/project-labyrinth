@@ -1,6 +1,4 @@
-import React from 'react';
 import { createSlice } from '@reduxjs/toolkit';
-/* import { useSelector } from 'react-redux'; */
 
 export const labyrinth = createSlice({
   name: 'labyrinth',
