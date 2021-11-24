@@ -29,12 +29,14 @@ export const StartPage = () => {
     <StartScreen>
       <StartForm onSubmit={setUsernameInStore}>
         <label>
-          Enter a Username:
+          Enter Username:
+          <div>
           <input
             type="text"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
           />
+          </div>
         </label>
         <StartButton type="submit">Begin!</StartButton>
       </StartForm>
@@ -60,7 +62,9 @@ export const StartScreen = styled.section`
 `
 
 export const StartForm = styled.form`
-
+color: white;
+font-size: 30px;
+margin-bottom: 10px;
 `
 
 export const StartButton = styled.button`
