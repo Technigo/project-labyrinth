@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchGame, game } from '../reducers/game'
+import { useNavigate } from 'react-router-dom'
+import LoadingSpinner from './LoadingSpinner'
 import styled from 'styled-components/macro'
 import '../title.css'
 
@@ -24,7 +26,7 @@ const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  input {
+  & input {
     font-size: 1.5rem;
     padding: 1rem 2rem;
     border-radius: 0.75rem;
@@ -39,9 +41,11 @@ const StartPage = () => {
   // const gameObject = useSelector((store) => store.game.gameObject)
   const [name, setName] = useState('')
   const dispatch = useDispatch()
+  let navigate = useNavigate()
 
   const onNameSubmit = (name) => {
     dispatch(game.actions.setUserName(name))
+    navigate('/MainGame')
     setName('')
   }
 
@@ -55,6 +59,8 @@ const StartPage = () => {
       dispatch(fetchGame(name))
     }
   }
+
+  const loading = useSelector((store) => store.spinner.loading)
 
   return (
     <StyledStartPage>
@@ -87,19 +93,20 @@ const StartPage = () => {
           }}
         />
 
-        <a href='#mainGame'>
-          <button
-            disabled={name.length === 0}
-            className='button-49'
-            onClick={() => {
-              onNameSubmit(name)
-              dispatch(fetchGame(name))
-            }}
-          >
-            Start
-            <img src='https://img.icons8.com/ios/50/000000/bat--v2.png' />
-          </button>
-        </a>
+        <button
+          disabled={name.length === 0}
+          className='button-49'
+          onClick={() => {
+            onNameSubmit(name)
+            dispatch(fetchGame(name))
+          }}
+        >
+          Start
+          <img
+            src='https://img.icons8.com/ios/50/000000/bat--v2.png'
+            alt='a bat'
+          />
+        </button>
       </InputWrapper>
     </StyledStartPage>
   )

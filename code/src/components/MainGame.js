@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchGameSteps } from '../reducers/game'
+import LoadingSpinner from './LoadingSpinner'
 import styled from 'styled-components/macro'
 
 const StyledMainGame = styled.div`
@@ -17,6 +18,7 @@ const StyledMainGame = styled.div`
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: #fff;
+  text-align: center;
 `
 
 const DirectionWrapper = styled.div`
@@ -49,34 +51,30 @@ const MainGame = () => {
   const dispatch = useDispatch()
 
   return (
-    <a id='mainGame'>
-      <StyledMainGame>
-        {/* Tänker att p-tagen med username dyker upp när spelet startas, och i samband med det göms input field */}
-        <p>
-          User:
-          {username}
-        </p>
-        <h1>{gameObject.description}</h1>
-        <p>Your coordinates: {gameObject.coordinates}</p>
-        <DirectionWrapper>
-          {gameObject.actions.map((action) => (
-            <DirectionCard key={action.direction}>
-              <p>{action.description}</p>
-              {/* med knappens dispatch action skickar vi med informtion om vilken direction spelaren väljer.
-          Informationen finns också med som param(eller är det ett props?) i fetchGameSteps-thunken i game.js) */}
+    <StyledMainGame>
+      <LoadingSpinner />
+      <p>
+        User:
+        {username}
+      </p>
+      <h2>{gameObject.description}</h2>
 
-              <DirectionButton
-                onClick={() =>
-                  dispatch(fetchGameSteps({ direction: action.direction }))
-                }
-              >
-                Go {action.direction}
-              </DirectionButton>
-            </DirectionCard>
-          ))}
-        </DirectionWrapper>
-      </StyledMainGame>
-    </a>
+      <DirectionWrapper>
+        {gameObject.actions.map((action) => (
+          <DirectionCard key={action.direction}>
+            <p>{action.description}</p>
+
+            <DirectionButton
+              onClick={() =>
+                dispatch(fetchGameSteps({ direction: action.direction }))
+              }
+            >
+              Go {action.direction}
+            </DirectionButton>
+          </DirectionCard>
+        ))}
+      </DirectionWrapper>
+    </StyledMainGame>
   )
 }
 
