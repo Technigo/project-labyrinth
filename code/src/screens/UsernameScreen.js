@@ -59,7 +59,6 @@ const UsernameContainer = styled.div`
   width: 100%;
   flex-direction: column;
   justify-content: flex-end;
-
   letter-spacing: 1px;
   line-height: 22px;
   @media (min-width: 668px) and (max-width: 1024px) {
@@ -111,6 +110,7 @@ const InputTextSpanButton = styled.div`
   min-height: 250px;
   @media (min-width: 668px) and (max-width: 1024px) {
     padding: 60px 80px;
+    min-height: 250px;
   }
   @media (min-width: 1025px) {
     padding: 50px;

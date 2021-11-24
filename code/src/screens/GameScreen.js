@@ -36,39 +36,44 @@ export const GameScreen = () => {
     <GameQuestionContainer>
       <div></div>
       <QuestionWrapper>
-        {lastMove && !isLoading && <LastMove>You went {lastMove}.</LastMove>}
-        {isLoading && <LastMove>You go {currentMove}...</LastMove>}
-        {!isLoading && (
-          <QuestionDescription>{game.description}</QuestionDescription>
-        )}
-        {isLoading && <Loading />}
-        {!isLoading &&
-          game.actions.map((action) => {
-            return (
-              <OptionsContainer key={action.direction}>
-                <OptionDescription>{action.description}</OptionDescription>
-                <MoveButton
-                  onClick={() => {
-                    dispatch(
-                      continueFetchGameData(
-                        username,
-                        action.type,
-                        action.direction
-                      )
-                    );
-                    setCurrentMove(action.direction);
-                  }}
-                >
-                  Go {action.direction}
-                </MoveButton>
-              </OptionsContainer>
-            );
-          })}
-        {game.actions.length === 0 && (
-          <CongratulationText>
-            Congratulations you finished the game in {gameHistory.length} moves!
-          </CongratulationText>
-        )}
+        <div>
+          {lastMove && !isLoading && <LastMove>You went {lastMove}.</LastMove>}
+          {isLoading && <LastMove>You go {currentMove}...</LastMove>}
+          {!isLoading && (
+            <QuestionDescription>{game.description}</QuestionDescription>
+          )}
+          {isLoading && <Loading />}
+        </div>
+        <div>
+          {!isLoading &&
+            game.actions.map((action) => {
+              return (
+                <OptionsContainer key={action.direction}>
+                  <OptionDescription>{action.description}</OptionDescription>
+                  <MoveButton
+                    onClick={() => {
+                      dispatch(
+                        continueFetchGameData(
+                          username,
+                          action.type,
+                          action.direction
+                        )
+                      );
+                      setCurrentMove(action.direction);
+                    }}
+                  >
+                    Go {action.direction}
+                  </MoveButton>
+                </OptionsContainer>
+              );
+            })}
+          {game.actions.length === 0 && (
+            <CongratulationText>
+              Congratulations you finished the game in {gameHistory.length}{" "}
+              moves!
+            </CongratulationText>
+          )}
+        </div>
       </QuestionWrapper>
     </GameQuestionContainer>
   );
@@ -78,7 +83,7 @@ const GameQuestionContainer = styled.div`
   min-height: 100vh;
   width: 100%;
   color: white;
-  display: grid;
+  display: flex;
   flex-direction: column;
   justify-content: flex-end;
   letter-spacing: 1px;
@@ -87,7 +92,6 @@ const GameQuestionContainer = styled.div`
     line-height: 30px;
   }
   @media (min-width: 1025px) {
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -110,14 +114,14 @@ const QuestionDescription = styled.span`
 const QuestionWrapper = styled.div`
   color: white;
   background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr auto;
   padding: 20px;
-  justify-content: space-between;
   min-height: 250px;
   transition: height 2s ease-in;
   @media (min-width: 668px) and (max-width: 1024px) {
     padding: 60px 80px;
+    min-height: 250px;
   }
   @media (min-width: 1025px) {
     padding: 50px;
@@ -129,6 +133,7 @@ const QuestionWrapper = styled.div`
 const OptionsContainer = styled.div`
   display: flex;
   flex-direction: column;
+  color: #bacede;
 `;
 
 const MoveButton = styled.button`
@@ -136,7 +141,7 @@ const MoveButton = styled.button`
   background-color: transparent;
   padding: 10px;
   border: none;
-  color: white;
+  color: #bacede;
   border-bottom: white 1px solid;
   font-size: 20px;
   @media (min-width: 1025px) {
@@ -163,6 +168,8 @@ const OptionDescription = styled.span`
 
 const LastMove = styled.p`
   font-size: 18px;
+  margin: 20px 0 0 0;
+  color: #8d8d8d;
   @media (min-width: 668px) and (max-width: 1024px) {
     font-size: 20px;
   }
@@ -171,11 +178,12 @@ const LastMove = styled.p`
   }
 `;
 
-const CongratulationText = styled.div`
+const CongratulationText = styled.p`
   @media (min-width: 668px) and (max-width: 1024px) {
     font-size: 24px;
   }
   @media (min-width: 1025px) {
     font-size: 32px;
+    line-height: 40px;
   }
 `;
