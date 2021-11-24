@@ -7,8 +7,7 @@ export const game = createSlice({
   initialState: {
     player: null,
     currentPosition: null,
-    // loading: false,
-    // history: [],
+    history: [],
   },
   reducers: {
     setPlayer: (store, action) => {
@@ -19,11 +18,13 @@ export const game = createSlice({
       store.currentPosition = action.payload
     },
 
-    // setHistory: (store, action) => {
-    //   if (store.currentPosition) {
-    //     store.history = [...store.history, action.payload]
-    //   }
-    // },
+    setHistory: (store, action) => {
+      // Here you need to continue to work on implementing the "go back" logic
+      // what should happen with the array when a user goes back a step?
+      if (store.currentPosition) {
+        store.history = [...store.history, action.payload]
+      }
+    },
   },
 })
 
@@ -61,7 +62,7 @@ export const nextStep = (type, direction) => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setCurrentPosition(data))
-        // dispatch(game.actions.setHistory(data))
+        dispatch(game.actions.setHistory(data))
       })
       .finally(() => dispatch(ui.actions.setLoading(false)))
   }
