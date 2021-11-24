@@ -41,6 +41,7 @@ const ButtonContainer = styled.div`
   flex-direction: column;
   align-items: center;
   border-top: 1px dashed grey;
+  width: 100%;
   &:last-child {
     margin-top: 10px;
   }
@@ -74,23 +75,6 @@ export const CurrentStep = () => {
   const currentStep = useSelector(store => store.game.currentStep)
   const loading = useSelector(store => store.ui.loading)
   let navigate = useNavigate()
-
-  // const onNavigate = e => {
-  //   let nextAction = undefined
-  //   if (e.key === 'ArrowUp') {
-  //     nextAction = currentStep?.actions?.find(action => action.direction === 'North')
-  //   } else if (e.key === 'ArrowDown') {
-  //     nextAction = currentStep?.actions?.find(action => action.direction === 'South')
-  //   } else if (e.key === 'ArrowLeft') {
-  //     nextAction = currentStep?.actions?.find(action => action.direction === 'West')
-  //   } else if (e.key === 'ArrowRight') {
-  //     nextAction = currentStep?.actions?.find(action => action.direction === 'East')
-  //   }
-  //   if (nextAction) {
-  //     console.log(nextAction)
-  //     dispatch(nextStep(nextAction))
-  //   }
-  // }
 
   useEffect(() => {
     window.addEventListener('keydown', e => dispatch(navigateWithKeys(e)))
