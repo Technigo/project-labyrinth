@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { fetchLabyrinth } from '../reducers/labyrinth'
 import { labyrinth } from '../reducers/labyrinth'
 import Labyrinth from './Labyrinth'
 import styled from 'styled-components'
@@ -24,7 +25,6 @@ flex-direction: column;
 gap:20px;
 justify-content: center;
 align-items: center;
-
 `
 const Button = styled.button`
 width:150px;
@@ -38,6 +38,7 @@ font-size: 20px;
 font-weight: 600;
 letter-spacing: 1.5px;
 `
+
 const Input = styled.input`
 height: 36px;
 border: 2px solid black;
@@ -52,8 +53,7 @@ font-weight: 500;
 &:focus {
     outline: #3c4f34 solid 2px; 
     background-color:#e4beba;
-  }
-
+}
 `
 
 
@@ -61,16 +61,23 @@ const StartPage = () => {
     const [userName, setUserName] = useState('')
     const dispatch = useDispatch()
     const currentUserName = useSelector((store) => store.labyrinth.userName)
-    
+
+    const handleSubmit = (event) =>{
+        event.preventDefault()
+        dispatch(labyrinth.actions.addUserName(userName))
+        dispatch(fetchLabyrinth({
+            url: 'https://wk16-backend.herokuapp.com/start',
+        }))
+    } 
+
     if (currentUserName === '') { 
 return (
     <Background>
-    <Form onSubmit={(event) => {event.preventDefault()
-        dispatch(labyrinth.actions.addUserName(userName))}}>
+        <Form onSubmit={(event)=> handleSubmit(event) }>
         <h1>To enter the labyrinth, please type your name:</h1>
         <Input type="text" required value={userName} onChange={(event) => setUserName(event.target.value)}/>
-        <Button type="submit" >Let's go!</Button>
-    </Form>    
+        <Button type="submit">Let's go!</Button>
+        </Form>    
     </Background>
 )} else {
     return <Labyrinth />
