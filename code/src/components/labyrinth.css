@@ -1,0 +1,20 @@
+.description {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 80%;
+  margin: 10% auto;
+  padding: 2%;
+  position: relative;
+  background-color: pink;
+}
+
+.action-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 80%;
+  margin: 10% auto;
+  padding: 2%;
+  position: relative;
+  background-color: black;
+  color: white;
+}

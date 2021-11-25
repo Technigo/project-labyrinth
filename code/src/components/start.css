@@ -1,0 +1,31 @@
+.start-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  margin: 0 auto;
+  border: 2px solid lime;
+}
+
+.start-wrapper h1 {
+  font-size: 20;
+  text-transform: uppercase;
+}
+.start-wrapper input {
+  height: 30px;
+  width: 200px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.start-wrapper button {
+  width: 100px;
+  height: 30px;
+  border-radius: 6px;
+}
+
+/* .start-wrapper form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
