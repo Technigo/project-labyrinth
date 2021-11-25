@@ -184,10 +184,11 @@ style={{
           </div>
         <section className="GamePageContent">
           <section className="GamePageStory">
-            <p>{labyrinth.description}</p>
-            <div className="GamePageCoordinates">
+          <div className="GamePageCoordinates">
               <p> coordinates:{labyrinth.coordinates}</p>
             </div>
+            <p>{labyrinth.description}</p>
+            
           </section>
 
           <section className="GamePageItemContainer">
