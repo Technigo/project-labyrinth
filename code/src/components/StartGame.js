@@ -12,8 +12,41 @@ const Container = styled.div`
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   border-radius: 6px;
+  background-color: rgb(171, 236, 243);
   margin: 10px;
+padding-top: 15px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+`;
+
+const StartTitle = styled.h1`
+  font-size: 1em;
+  @media (min-width: 1024px) {
+    font-size: 2em;
+  }
+`;
+
+const FormWrapper = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+const StartText = styled.p`
+  font-size: 0.7em;
+`;
+
+const TextInput = styled.input`
   padding: 10px;
+  margin: 10px;
+`;
+
+const SubmitButton = styled.button`
+padding 10px;
+box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  font-family: "Press Start 2P", cursive;
 `;
 
 export const StartGame = () => {
@@ -30,17 +63,15 @@ export const StartGame = () => {
 
   return (
     <Container>
-      <h1>Are you ready for an adventure?</h1>
+      <StartTitle>Are you ready for an adventure?</StartTitle>
 
-      <div>
-        <form onSubmit={handleSubmit}>
-          <label>
-            <p>Please enter your name</p>
-            <input type="text" required onChange={handleInputChange} />
-            <button type="submit">START GAME</button>
-          </label>
-        </form>
-      </div>
+      <FormWrapper onSubmit={handleSubmit}>
+        <label>
+          <StartText>Please enter your name:</StartText>
+          <TextInput type="text" required onChange={handleInputChange} />
+          <SubmitButton type="submit">START GAME</SubmitButton>
+        </label>
+      </FormWrapper>
     </Container>
   );
 };
