@@ -8,7 +8,7 @@ import styled from "styled-components";
 const MainContainer = styled.section`
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   flex-direction: column;
   background-size: cover;
   background-repeat: no-repeat;
@@ -17,6 +17,34 @@ const MainContainer = styled.section`
   width: 100%;
   padding: 20px;
   text-align: center;
+
+  h3 {
+    color: white;
+  }
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+`;
+
+const GlassCard = styled.div`
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  margin: 10px;
+  height: auto;
+  width: 270px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: #ffffff10;
+  backdrop-filter: blur(12px);
+  --webkit-backdrop-filter: blur(12px);
+  @media (min-width: 768px) {
+    width: 400px;
+  }
 `;
 
 const OptionsDescription = styled.p`
@@ -30,18 +58,39 @@ const OptionsActionCard = styled.div`
   flex-direction: column;
   color: white;
   text-align: center;
+  font-family: "Montserrat", sans-serif;
+
+  //   @media (min-width: 768px) {
+  //     width: 250px;
+  //   }
 `;
 
 const OptionsButton = styled.button`
-  width: 60px;
+  width: 100px;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: solid 2px rgb(90, 134, 148);
+  border-radius: 20px;
+  padding: 10px;
+  font-weight: bold;
+  background: rgb(90, 134, 148);
+  color: white;
+  margin-top: 15px;
 `;
 
 const MainDescription = styled.h1`
   color: white;
+  font-size: 20px;
+  font-family: "Langar", cursive;
+  letter-spacing: 2px;
+  @media (min-width: 768px) {
+    font-size: 25px;
+  }
 `;
 
 const MainCoordinates = styled.p`
-  color: white;
+  display: none;
 `;
 
 const Maze = () => {
@@ -103,11 +152,13 @@ const Maze = () => {
   };
   return (
     <MainContainer style={{ backgroundImage: setBgColor() }}>
-      <MainDescription>{description}</MainDescription>
-      <MainCoordinates>{coordinates}</MainCoordinates>
-      {actions.length === 0 && <h3>Wohooo you are free!</h3>}
-      {actions.length > 0 &&
-        actions.map((item) => <ActionCard key={item.direction} {...item} />)}
+      <GlassCard>
+        <MainDescription>{description}</MainDescription>
+        <MainCoordinates>{coordinates}</MainCoordinates>
+        {actions.length === 0 && <h3>Wohooo you are free!</h3>}
+        {actions.length > 0 &&
+          actions.map((item) => <ActionCard key={item.direction} {...item} />)}
+      </GlassCard>
     </MainContainer>
   );
 };
