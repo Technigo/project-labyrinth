@@ -25,7 +25,6 @@ const Container = styled.div`
   display: flex;
   align-items: center;
 
-  border: 2px solid pink;
   padding: 50px;
 `;
 
@@ -34,6 +33,4 @@ const InnerContainer = styled.div`
   max-width: 500px;
   margin: 0 auto;
   height: 100%;
-
-  border: 2px solid lime;
 `;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchContinue } from '../reducers/description';
+import styled from 'styled-components';
 
 export const Description = () => {
   const { description, actions } = useSelector(
@@ -16,9 +17,9 @@ export const Description = () => {
   const Actions = ({ description, type, direction }) => (
     <div>
       <p>{description}</p>
-      <button onClick={() => onButtonClick(type, direction)}>
+      <Button onClick={() => onButtonClick(type, direction)}>
         {type} {direction.toLowerCase()}
-      </button>
+      </Button>
     </div>
   );
 
@@ -32,3 +33,10 @@ export const Description = () => {
     </section>
   );
 };
+const Button = styled.button`
+  align-self: center;
+  width: fit-content;
+  padding: 5px 15px;
+  font-size: 1em;
+  border: none;
+`;

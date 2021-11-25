@@ -20,7 +20,6 @@ export const StartPage = () => {
     <>
       <Form onSubmit={onSubmit}>
         <h1>Do you want to enter the labyrinth?</h1>
-
         <p>
           Write your name in the box below{' '}
           <span role="img" aria-label="emoji">
@@ -53,14 +52,19 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
+  align-self: center;
+  margin: 15px;
+  padding: 5px;
   border: none;
   border-bottom: 1px solid black;
   width: 300px;
   text-align: center;
-  margin: 15px auto;
 `;
 
 const Button = styled.button`
-  padding: 0px 15px;
+  align-self: center;
+  width: fit-content;
+  padding: 5px 15px;
   font-size: 1em;
+  border: none;
 `;
