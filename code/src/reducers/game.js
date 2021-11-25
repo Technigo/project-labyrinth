@@ -30,8 +30,12 @@ export const game = createSlice ({
         setUserName: (store, action)=> {
             store.username = action.payload
         },
-        restartGame: () => {
-           return initialState
+        restartGame: (store) => {
+            store.username = ''
+            store.actions = []
+            store.description = ''
+            store.coordinates = ''
+
         }
     }
 }) 
