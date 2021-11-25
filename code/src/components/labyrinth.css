@@ -1,14 +1,17 @@
 .description {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 80%;
   margin: 10% auto;
   padding: 2%;
 }
 
 .action-card {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 80%;
   margin: 10% auto;
   padding: 2%;

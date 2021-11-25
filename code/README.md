@@ -6,7 +6,9 @@ Start by briefly describing the assignment in a sentence or two. Keep it short a
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+- How many reducers and how to use them, that was a challenge
+- The positioning of Lottie
+- Pain in the ass: Conditional rendering of local background images (googling around didn't help that much because most people use external links to images)
 
 ## View it live
 

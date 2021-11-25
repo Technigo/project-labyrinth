@@ -1,15 +1,16 @@
 .start-wrapper {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 300px;
   margin: 0 auto;
   border: 2px solid lime;
 }
 
-.start-wrapper h1 {
-  font-size: 20;
-  text-transform: uppercase;
+h1 {
+  font-size: 14;
+  text-align: center;
 }
 .start-wrapper input {
   height: 30px;

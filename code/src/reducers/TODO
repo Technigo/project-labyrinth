@@ -12,7 +12,7 @@ RED
 BLACK
 
 - Style each room/state based on the description. For instance, if it contains the word "forest" you may want to change the background to a forest 👻
-- Create a visual representation (drawing) of the map/labyrinth that the player is navigating. It could update after each action. The coordinates might be helpful here, or you can track the directions yourself -> Only "nice to have"
+- Create a visual representation (drawing) of the map/labyrinth that the player is navigating. It could update after each action. The coordinates might be helpful here, or you can track the directions yourself -> Only "nice to have" 
 
 input for username (to get a response with the story and the alternatives) -> game (reducer)
 loader screen -> done 🌟
@@ -23,10 +23,10 @@ after user input, post request with username, type and direction 🌟
 
 To-dos:
 
-- Check keywords for landscapes (scenes) -> Maria
-- Find background pictures for the scenes -> Isabel and Maria
+- Check keywords for landscapes (scenes) -> Maria 🌟
+- Find background pictures for the scenes -> Isabel and Maria 🌟
 - Style Start screen
 - Style scenes
 - Style end screen
 - Style loading screen
-- Hide everything when the the screen is loading
+- Hide everything when the screen is loading

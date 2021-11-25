@@ -19,7 +19,7 @@ export const Start = () => {
   return (
     <>
       <div className="start-wrapper">
-        <h1>Labyrinth</h1>
+        <h1>Welcome to the Labyrinth</h1>
         <form onSubmit={handleSubmit}>
           <label>
             <input
