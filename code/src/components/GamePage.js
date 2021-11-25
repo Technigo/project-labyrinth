@@ -7,7 +7,6 @@ import { LoadingPage } from "./LoadingPage";
 import Maze from "./Maze";
 
 const MainContainer = styled.main`
-  margin: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,11 +15,12 @@ const MainContainer = styled.main`
 
 const GamePage = () => {
   const gameStatus = useSelector((state) => state.game.gameStatus);
-
+  const loading = useSelector((state) => state.loader.loading);
+  console.log(loading);
   return (
     <MainContainer>
+      {loading && <LoadingPage />}
       {gameStatus ? <Maze /> : <StartPage />}
-      <LoadingPage />
     </MainContainer>
   );
 };
