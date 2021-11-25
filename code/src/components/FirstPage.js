@@ -6,28 +6,32 @@ import { game, gameStart } from '../reducers/game'
 import { GameStartPage } from 'components/GameStartPage'
 
 import styled from 'styled-components'
-// import { ReactComponent as MyBackground } from '..'
 
 const FirstPageContainer = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  // justify-content: start;
-  // background-color: lightblue;
+  position: fixed;
+  z-index: -1;
+  justify-content: start;
+  background-image: url('/assets/background.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 `
 const InputWrapper = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  border: 2px black solid;
 
   .submit-button {
+    width: 50vw;
     padding: 1.3em 3em;
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 2.5px;
-    font-weight: 500;
+    font-weight: 700;
     color: #000;
     background-color: #fff;
     border: none;
@@ -36,7 +40,7 @@ const InputWrapper = styled.div`
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
-    margin: 10px 100px 0px 100px;
+    margin: 10px 100px 10px 100px;
     font-family: 'Special Elite', cursive;
   }
 
@@ -52,26 +56,31 @@ const InputWrapper = styled.div`
     margin: 20px;
   }
 `
-const BackgroundStyled = styled.div`
-  height: 100vh;
-  position: fixed;
-  /* z-index: -1; */
+// const BackgroundStyled = styled.div`
+  /* height: 100vh;
+  /* position: fixed; */
+  /* z-index: -1;
   display: flex;
   justify-content: center;
-  background-image: url('./assets/background.jpg');
-  border: 2px solid green;
-`
+  background-image: url('/assets/background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */ 
+// `
 
 const HeaderWrapper = styled.div`
   // width: 98vw;
   height: 50vw;
   display: flex;
   align-items: center;
+  margin: 70px 0px 0px 0px;
   // justify-content: start;
-  border: 2px solid black;
+
 
   .first-page-header {
     text-align: center;
+    padding: 20px;
+    /* margin: 100px 10px 50px 10px; */
   }
 `
 
@@ -92,7 +101,7 @@ export const FirstPage = () => {
   return (
     <>
       <FirstPageContainer>
-        <BackgroundStyled></BackgroundStyled>
+        {/* <BackgroundStyled></BackgroundStyled> */}
         <HeaderWrapper>
           <h1 className="first-page-header">
             To begin the adventure enter your name.
