@@ -18,7 +18,7 @@ const CardContainer = styled.div`
   padding: 15px;
   box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
     0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
-  /* border: 1px solid black; */
+  background-color: rgba(255, 255, 255, 0.67);
   border-radius: 5px;
   width: 300px;
 `;
@@ -33,7 +33,7 @@ const Title = styled.h1`
   font-size: 16px;
 `;
 
-const ImageConatiner = styled.div`
+const ImageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,7 +72,7 @@ const Card = ({ title, description, direction, mainImage }) => {
     <OuterContainer>
       <CardContainer>
         <TitleContainer>{title && <Title>{title}</Title>}</TitleContainer>
-        <ImageConatiner>
+        <ImageContainer>
           {mainImage && <MainImage src={mainImage} />}
           {direction && (
             <NextButton onClick={() => onNextMove(direction)}>
@@ -80,7 +80,7 @@ const Card = ({ title, description, direction, mainImage }) => {
               Go {direction}
             </NextButton>
           )}
-        </ImageConatiner>
+        </ImageContainer>
       </CardContainer>
     </OuterContainer>
   );

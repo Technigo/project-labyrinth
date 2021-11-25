@@ -9,24 +9,41 @@ const OuterForm = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: linear-gradient(rgb(3, 3, 3), rgba(168, 231, 231, 0.568)),
+  background-image: linear-gradient(rgb(4, 4, 4), rgba(234, 231, 231, 0.568)),
     url("/assets/labyrinth.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 `;
+
 const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 100px auto;
   width: 275px;
+
+  @media (min-width: 768px) {
+    margin: 300px auto;
+    width: 450px;
+  }
+`;
+
+const Heading = styled.h1`
+  font-size: 30px;
+  color: white;
+  padding-bottom: 60px;
+  font-family: "Noto Sans KR", sans-serif;
+
+  @media (min-width: 768px) {
+    font-size: 50px;
+  }
 `;
 
 const Label = styled.label`
   color: white;
   text-align: center;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 900;
 `;
 
@@ -50,12 +67,12 @@ const Input = styled.input`
   }
 `;
 
-const StartButton = styled.button`
-  font-size: 15px;
+const Button = styled.button`
+  font-size: 18px;
   margin-top: 20px;
-  width: 110px;
+  width: 120px;
   border-radius: 6px;
-  padding: 2px;
+  padding: 4px;
   background-color: black;
   color: white;
 `;
@@ -74,6 +91,7 @@ const Username = () => {
   return (
     <OuterForm>
       <Form>
+        <Heading>메이즈 테크니고</Heading>
         <Label>
           Choose your character
           <Input
@@ -84,9 +102,7 @@ const Username = () => {
             value={userName}
           />
         </Label>
-        <StartButton onClick={() => onSetUserName(userName)}>
-          Start Game
-        </StartButton>
+        <Button onClick={() => onSetUserName(userName)}>Start Game</Button>
       </Form>
     </OuterForm>
   );
