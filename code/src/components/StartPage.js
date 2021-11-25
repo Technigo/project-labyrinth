@@ -111,7 +111,7 @@ export const StartPage = () => {
 
   let audio = new Audio(bgMusic);
   const startBgMusic = (e) => {
-    audio.volume = 0;
+    audio.volume = 0.2;
     audio.loop = true;
     audio.play();
   };
