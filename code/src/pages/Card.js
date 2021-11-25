@@ -20,14 +20,14 @@ const SecondaryText = styled.div`
   color: red;
 `;
 
-const Thumbnail = styled.div`
+/* const Thumbnail = styled.div`
   width: 70px;
   height: 70px;
   border-radius: 50%;
   background-image: url(${(props) => props.url});
   background-size: cover;
   margin-right: 10px;
-`;
+`; */
 const TitleBar = styled.div`
   display: flex;
   align-items: center;

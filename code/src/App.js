@@ -1,13 +1,12 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { ui } from "./reducers/ui";
 import { game } from "./reducers/game";
 import LandingPage from "pages/LandingPage";
 import Game from "pages/Game";
-import End from "pages/End";
 import StartGame from "pages/StartGame";
 
 const reducer = combineReducers({
