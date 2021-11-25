@@ -16,7 +16,7 @@ align-items: center;
 .animationBackground{
 position: absolute;
 z-index: -10;
-width: 95%;
+width: 95vw;
 height: 100%;
 }
 
