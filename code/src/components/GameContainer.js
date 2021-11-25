@@ -11,7 +11,7 @@ import img from 'img/background-image.jpeg'
 
 const MainContainer = styled.main`
 	width: 100%;
-	height: 100vh;
+	//height: 150vh;
 	background-color: black;
 	background-image: url("${props => props.backgroundImage}");
 	background-size: cover;
