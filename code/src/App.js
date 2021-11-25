@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react"
 import { Provider } from "react-redux"
 import { configureStore, combineReducers } from "@reduxjs/toolkit"
-import { maze } from 'reducers/maze'
-import { ui } from 'reducers/ui'
+import { maze } from "reducers/maze"
+import { ui } from "reducers/ui"
 import styled from "styled-components"
 
 import Game from "./components/Game"
@@ -12,6 +12,9 @@ import Loader from "./components/Loader"
 const AppBody = styled.main`
   background-image: url("./assets/maze-bg.jpg");
   background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -19,7 +22,7 @@ const AppBody = styled.main`
 
 const reducer = combineReducers({
   ui: ui.reducer,
-  maze: maze.reducer
+  maze: maze.reducer,
 })
 
 const store = configureStore({ reducer })
