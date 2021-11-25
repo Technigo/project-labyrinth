@@ -91,10 +91,9 @@ const StartPage = () => {
   };
 
   let audio = new Audio(music);
-
   const startMusic = () => {
     audio.play();
-    audio.volume = 0.1;
+    audio.volume = 0.4;
   };
 
   return (
