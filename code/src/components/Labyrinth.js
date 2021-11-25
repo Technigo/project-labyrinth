@@ -3,12 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { continueGame } from 'reducers/start';
 import { End } from './End';
-import { LoadingIndicator } from './LoadingIndicator';
 
 import {
   DescriptionContainer,
   TitleContainer,
-  Directions,
   Choices,
   Button,
 } from './StyledComponents';

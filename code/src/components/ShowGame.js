@@ -19,7 +19,7 @@ export const ShowGame = () => {
     '0,3': 'url(https://i.postimg.cc/R0TnZkBG/857152.jpg)',
     '1,3': 'url(https://i.postimg.cc/7YwfXPSY/start.jpg)',
   };
-  console.log(coordinates);
+
   const username = useSelector(store => store.start.username);
 
   return (

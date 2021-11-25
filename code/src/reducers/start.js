@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { batch } from 'react-redux';
 
 export const start = createSlice({
   name: 'start',
