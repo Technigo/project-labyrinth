@@ -9,11 +9,10 @@ What have we learned:
 - How to work with APIs together with Redux
 - How to use thunks
 - Other ways of writing Redux
-- Reusable components
 - How to structure your redux store to suit your data
 - To send JSON in the body of a request
 
-Technologies used in this project: React Redux, thunks for fetchning the data, Styled componenents, Lottie animation library.
+Technologies used in this project: React Redux, Styled componenents, Lottie animation library.
 
 ## View it live
 
