@@ -1,15 +1,15 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import img from "../images/maze.jpeg";
+import img from "../assets/background-maze.jpeg"
 //Reducer game
 import { game } from "../reducers/game";
 // Thunk startGame
 import { startGame } from "../reducers/game";
 
 // Styled components
+
 const HeaderContainer = styled.div`
-  border: 5px solid blue;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -18,38 +18,68 @@ const HeaderContainer = styled.div`
   background-repeat: no-repeat, repeat;
   background-size: cover;
   background-position: center;
-  background: pink;
 `;
 
 const Header = styled.header`
-  border: 2px solid red;
-  width: 80%;
-  /* margin:0 auto; */
+  width: 90%;
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.063);
+  backdrop-filter: blur(12px);
+  --webkit-backdrop-filter: blur(12px);
+
+  @media (min-width: 768px) {
+    margin: 0 auto;
+    max-width: 500px;
+  }
+`;
+
+const HeadingOneContainer = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 const HeadingOne = styled.h1`
-  width: 200px;
-  margin: 20px auto;
-  color: blue;
+  margin: 40px 0;
+  color: #fff;
+  font-family: 'Trispace', sans-serif;
 `;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 0 auto;
-  width: 200px;
+  width: 300px;
 `;
 
 const Label = styled.label`
-  color: pink;
-  margin-bottom: 5px;
+  color: #fff;
+  margin-bottom: 10px;
 `;
+
 const Input = styled.input`
-  height: 25px;
+  height: 20px;
   margin-bottom: 5px;
 `;
+
 const Button = styled.button`
-  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  margin: 35px 0;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: rgb(17, 101, 48);
+  background-color: rgb(255, 204, 29);
+
+
+  font-weight: bolder;
+  border: none;
+
+  :hover {
+    background-color: rgb(17, 101, 48);
+    color: rgb(255, 204, 29);
+    transform: scale(1.1, 1.1);
+  }
 `;
 
 export const Start = () => {
@@ -67,7 +97,9 @@ export const Start = () => {
   return (
     <HeaderContainer>
       <Header>
-        <HeadingOne>Welcome to Labyrinth!</HeadingOne>
+        <HeadingOneContainer>
+          <HeadingOne>Welcome to Labyrinth!</HeadingOne>
+        </HeadingOneContainer>
 
         <Form onSubmit={handleSubmit}>
           <Label>Enter your name here:</Label>
@@ -76,7 +108,7 @@ export const Start = () => {
             type="text"
             required
             onChange={handleInputChange}
-            placeholder={"Write your name here ..."}
+            placeholder={" Your name ..."}
           />
           <Button type="submit">Start game</Button>
         </Form>
