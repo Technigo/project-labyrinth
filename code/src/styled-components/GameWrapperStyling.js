@@ -21,24 +21,24 @@ export const Wrapper = styled.section`
   backdrop-filter: blur(4px);
   font-family: 'Press Start 2P';
 
-	@media (min-width:1024px){
-		width: 800px;
-	}
+  @media (min-width:1024px){
+    width: 800px;
+  }
 
   h1 {
     font-size: 22px;
-		color: #C2D200;
+    color: #C2D200;
   }
 
-	hr {
-		width: 300px;
-	}
+  hr {
+    width: 300px;
+  }
 
-	label {
-		animation: blinker 2s linear infinite;
-	}
+  label {
+    animation: blinker 2s linear infinite;
+  }
 
-	@keyframes blinker {
+  @keyframes blinker {
   50% {
     opacity: 0;
   }
@@ -52,16 +52,16 @@ export const Wrapper = styled.section`
   }
 
   input {
-		margin-top: 20px;
+    margin-top: 20px;
     height: 24px;
-		font-family: 'Press Start 2P';
-		text-align:center;
+    font-family: 'Press Start 2P';
+    text-align:center;
   }
 
-	::placeholder {
-		font-family: 'Press Start 2P';
+  ::placeholder {
+    font-family: 'Press Start 2P';
 
-	}
+  }
 
   button {
     margin: 15px auto;
@@ -71,15 +71,15 @@ export const Wrapper = styled.section`
     background-color: black;
     color:white;
     font-size: 14px;
-		font-family: 'Press Start 2P';
+    font-family: 'Press Start 2P';
 
-	:hover {
-		background: #C2D200;
-		color: black;
+  :hover {
+    background: #C2D200;
+    color: black;
   }
 
-	span {
-		color: red;
-	}
+  span {
+    color: red;
+  }
 }
 `;

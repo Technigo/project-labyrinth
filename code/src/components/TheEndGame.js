@@ -8,11 +8,11 @@ export const TheEndGame = () => {
   const currentUser = useSelector((state) => state.gamestate.username);
   const gameStatus = useSelector((state) => state.gamestate.gameStatus);
 
-	const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-	const onGameRestart = () => {
-		dispatch(gamestate.actions.setRestartGame())
-	};
+  const onGameRestart = () => {
+    dispatch(gamestate.actions.setRestartGame())
+  };
 
   return (
     <Container>

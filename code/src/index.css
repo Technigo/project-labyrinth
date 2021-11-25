@@ -8,11 +8,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-	background-color: black;
-	background-image: url("./img/background-image.jpeg");
-	background-size: cover;
-	background-position: center;
-	background-repeat:repeat
+  background-color: black;
+  background-image: url("./img/background-image.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat:repeat
 
 }
 
