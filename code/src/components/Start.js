@@ -22,7 +22,6 @@ const HeaderContainer = styled.div`
 
 const Header = styled.header`
   width: 90%;
-  height: 300px;
   background-color: rgba(255, 255, 255, 0.063);
   backdrop-filter: blur(12px);
   --webkit-backdrop-filter: blur(12px);
@@ -40,6 +39,7 @@ const HeadingOneContainer = styled.div`
 
 const HeadingOne = styled.h1`
   margin: 40px 0;
+  text-align: center;
   color: #fff;
   font-family: 'Trispace', sans-serif;
 `;
@@ -55,25 +55,28 @@ const Form = styled.form`
 const Label = styled.label`
   color: #fff;
   margin-bottom: 10px;
+  font-size: 1.3rem;
 `;
 
 const Input = styled.input`
-  height: 20px;
+  height: 25px;
+  font-size: 1.2rem;
   margin-bottom: 5px;
 `;
 
 const Button = styled.button`
   transition: all 0.3s ease;
   border-radius: 10px;
-  margin: 35px 0;
   padding: 10px 20px;
   cursor: pointer;
   color: rgb(17, 101, 48);
   background-color: rgb(255, 204, 29);
-
-
   font-weight: bolder;
   border: none;
+  font-size: 1.2rem;
+  margin-top: 50px;
+  margin-bottom: 30px;
+
 
   :hover {
     background-color: rgb(17, 101, 48);
