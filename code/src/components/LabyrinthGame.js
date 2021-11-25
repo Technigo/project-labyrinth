@@ -1,10 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-
+import { labyrinth } from '../reducers/description';
 import { StartPage } from './StartPage';
 import { Description } from './Description';
 import { LoadingLottie } from './Lottie';
-import Lottie from 'react-lottie';
 
 export const LabyrinthGame = () => {
   const currentPosition = useSelector(
@@ -13,7 +12,7 @@ export const LabyrinthGame = () => {
 
   return (
     <>
-      {currentPosition ? <LabyrinthGame /> : <StartPage />}
+      {currentPosition ? <Description /> : <StartPage />}
       <LoadingLottie />
     </>
   );
