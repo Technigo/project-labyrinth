@@ -14,7 +14,7 @@ const Move = ({ move, direction }) => {
 };
 
 export const MoveHistory = () => {
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(false);
   const moves = useSelector((state) => state.quest.items.slice(0, state.quest.items.length - 1));
   const movementHistory = useSelector((state) => state.quest.moveHistory);
   console.log("moverhistory array", movementHistory);
