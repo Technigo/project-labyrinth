@@ -4,8 +4,6 @@
   width: 80%;
   margin: 10% auto;
   padding: 2%;
-  position: relative;
-  background-color: pink;
 }
 
 .action-card {
@@ -17,4 +15,9 @@
   position: relative;
   background-color: black;
   color: white;
+}
+
+.action-card button {
+  padding: 2%;
+  border-radius: 6px;
 }
