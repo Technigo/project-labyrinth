@@ -7,7 +7,7 @@ import { LandingContainer } from "./LandingPage";
 
 const SmallerHeader = styled.h2`
   font-family: "Roboto Condensed", sans-serif;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   color: white;
   font-size: 24px;
   @media (min-width: 768px) {
