@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { fetchGame, game } from "reducers/game";
 import { useDispatch } from "react-redux";
 import music from "../assets/background-music.mp3";
+import sittingKnight from "../assets/sitting-knight.gif";
+import { KnightImg } from "./GamePage";
 
 export const PageContainer = styled.section`
   display: grid;
@@ -11,8 +13,8 @@ export const PageContainer = styled.section`
   position: absolute;
   box-sizing: border-box;
   overflow: auto;
-  height: 65%;
-  top: 10%;
+  height: 73%;
+  top: 5%;
   left: 10%;
   right: 10%;
   border-radius: 5px;
@@ -101,6 +103,7 @@ const StartPage = () => {
         <WelcomeMessage>
           Welcome to the Labyrinth! Do you dare go on an adventure?
         </WelcomeMessage>
+        <KnightImg src={sittingKnight} alt="Sitting Knight" />
         <UserNameInput
           type="text"
           value={name}

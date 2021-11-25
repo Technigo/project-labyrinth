@@ -5,7 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchInstructions } from "reducers/game";
 import { StartButton } from "./StartPage";
 import footsteps from "../assets/footsteps-audio.mp3";
-import knight from "../assets/walking-knight.gif";
+import walkingKnight from "../assets/walking-knight.gif";
+import restingKnight from "../assets/resting-knight.gif";
 
 const GameDescription = styled.h3`
   text-align: center;
@@ -30,7 +31,7 @@ const ButtonPathContainer = styled.div`
   align-items: center;
 `;
 
-const KnightImg = styled.img`
+export const KnightImg = styled.img`
   width: 200px;
   place-self: center;
   @media (min-width: 768px) {
@@ -41,8 +42,16 @@ const KnightImg = styled.img`
 const GamePage = () => {
   const dispatch = useDispatch();
   const gameList = useSelector((store) => store.game.gameList);
-  let audio = new Audio(footsteps);
+  const coordinates = useSelector((store) => store.game.gameList.coordinates);
 
+  let imgURL = "";
+  if (coordinates === "1,3") {
+    imgURL = restingKnight;
+  } else {
+    imgURL = walkingKnight;
+  }
+
+  let audio = new Audio(footsteps);
   const startFootsteps = () => {
     audio.play();
   };
@@ -50,7 +59,7 @@ const GamePage = () => {
   return (
     <PageContainer>
       <GameDescription>{gameList.description}</GameDescription>
-      <KnightImg src={knight} alt="Walking Knight" />
+      <KnightImg src={imgURL} alt="Knight" />
       {gameList.actions.map((item) => (
         <ButtonPathContainer>
           <PathDescription>{item.description}</PathDescription>
