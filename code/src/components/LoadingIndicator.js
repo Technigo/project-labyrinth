@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import Lottie from "react-lottie";
-import animationData from "../animations/83694-loading-double.json"; 
+import animationData from "../animations/66433-loader.json"; 
 import styled from 'styled-components'; 
 
 const Div = styled.div`
@@ -41,7 +41,7 @@ return (
   {loading && 
       <Div>
 				<Text>Loading ...</Text>
-        <Lottie options={defaultOptions} height={400} width={400} />
+        <Lottie options={defaultOptions} height={200} width={400} />
       </Div>
   }
   </>

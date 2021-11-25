@@ -2,7 +2,9 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { gamestate, nextMove } from "../reducers/gamestate";
 
-import { Section,Title, ContentContainer, ActionDescription, Button, Line } from '../styled-components/GameWrapperStyling'
+import {Container, Wrapper } from '../styled-components/GameWrapperStyling'
+
+//import { Section,Title, ContentContainer, ActionDescription, Button, Line } from '../styled-components/GameWrapperStyling'
 
 export const NextStep = () => {
 	
@@ -17,22 +19,25 @@ export const NextStep = () => {
   };
 
   return (
-    <Section>
-			<ContentContainer>
-				<Title>{gameStatus.description}</Title>
-				<Line></Line>
+    <Container>
+			<Wrapper>
+				<h1>{gameStatus.description}</h1>
+				<hr></hr>
 				<p>Possible actions:</p>
 					{gameStatus.actions.map((action, index) => (
 						<div key={index}>
-							<ActionDescription>{action.description}</ActionDescription>
+							<p>{action.description}</p>
 							{/* passing direction from the user as argument to onNextMove function */}
-							<Button onClick={() => onNextMove(action.direction)}>
-								<span>Go {action.direction.toUpperCase()}</span>
-							</Button>
+							<button onClick={() => onNextMove(action.direction)}>
+								Go {action.direction.toUpperCase()}
+							</button>
+							<hr></hr>
 						</div>
 				))}
-			</ContentContainer>
-    </Section>
+			</Wrapper>
+    </Container>
   );
 };
+
+
 

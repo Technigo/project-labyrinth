@@ -16,6 +16,7 @@ const MainContainer = styled.main`
 	background-image: url("${props => props.backgroundImage}");
 	background-size: cover;
 	background-position: center;
+	background-repeat:repeat;
 `;
 
 export const GameContainer = () => {
