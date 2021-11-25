@@ -4,6 +4,7 @@
   align-items: center;
   flex-direction: column;
   height: 100vh;
+  width: 100vw;
   color: black;
 }
 
@@ -19,6 +20,7 @@
   z-index: 10;
   border-radius: 15px;
   padding: 5px;
+  
 }
 
 .endpage-button:hover {
@@ -31,4 +33,6 @@
   color: rgba(245, 165, 35, 0.801);
   font-weight: 600;
   text-shadow: 1px 1px 1px #000;
+  width: 100vw;
+  text-align: center;
 }

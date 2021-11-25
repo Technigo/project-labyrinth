@@ -40,7 +40,7 @@ export const EndPage = () => {
         }}
       />
       <h1 className="endpage-text">Arrr, you found the treasure!</h1>
-      <Lottie options={defaultOptionsChest} height={400} width={400} />
+      <Lottie options={defaultOptionsChest} height={400} width={300} />
       <button onClick={onStartOver} type="button" className="endpage-button">
         Start over
       </button>
