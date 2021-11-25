@@ -27,10 +27,9 @@ export const GameStartPage = () => {
             <h3>{gameStatus.description}</h3>
           </HeaderWrapper>
           <Compass />
-
-          {actions.map((item) => (
-            <DirectionWrapper key={item.description}>
-              <div>
+          <DirectionWrapper>
+            {actions.map((item) => (
+              <div className="option" key={item.description}>
                 <h3>{item.description}</h3>
                 <button
                   value={item.direction}
@@ -38,13 +37,13 @@ export const GameStartPage = () => {
                   {item.direction}
                 </button>
               </div>
-              {actions.length === 0 && (
-                <button onClick={() => dispatch(game.actions.restart())}>
-                  Restart game?
-                </button>
-              )}
-            </DirectionWrapper>
-          ))}
+            ))}
+            {actions.length === 0 && (
+              <button onClick={() => dispatch(game.actions.restart())}>
+                Restart game?
+              </button>
+            )}
+          </DirectionWrapper>
         </ContentWrapper>
       </GamePageContainer>
     </>
@@ -83,13 +82,13 @@ const ContentWrapper = styled.div`
   display: block;
   z-index: 0;
   @media (min-width: 768px) {
-        height: 700px;
-        max-width: 500px;
-        text-align: center;
-        margin: 100px auto 0 auto;
-        display: block;
-        z-index: 0;
-    }
+    height: 700px;
+    max-width: 500px;
+    text-align: center;
+    margin: 100px auto 0 auto;
+    display: block;
+    z-index: 0;
+  }
 `
 const HeaderWrapper = styled.div`
   background-color: rgba(255, 255, 255, 0.9);
@@ -99,7 +98,7 @@ const HeaderWrapper = styled.div`
     margin: 0;
     margin-bottom: 15px;
     @media (min-width: 768px) {
-        font-size: 40px;
+      font-size: 40px;
     }
   }
   h3 {
@@ -111,12 +110,18 @@ const HeaderWrapper = styled.div`
 
 const DirectionWrapper = styled.div`
   margin: 0 auto;
-  margin-bottom: 20px;
-  padding: 5px;
+  /* margin-bottom: 20px;
+  padding: 5px; */
   display: block;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.9);
+  /* background-color: rgba(255, 255, 255, 0.9); */
   z-index: 1;
+
+  .option {
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+    padding: 5px;
+  }
 
   h3 {
     font-size: 20px;
