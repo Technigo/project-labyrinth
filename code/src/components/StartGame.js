@@ -2,15 +2,12 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchGame, gamestate } from "reducers/gamestate";
 
-import {Container, Wrapper} from '../styled-components/GameWrapperStyling'
+import { Container, Wrapper } from "../styled-components/GameWrapperStyling"
 
 export const StartGame = () => {
   const [nameInput, setNameInput] = useState('')
-
 	const gameStatus = useSelector((state) => state.gamestate.gameStatus);
 
-	//const actions = useSelector((state) => state.gamestate.gameStatus.actions);
-  //const loading = useSelector((state) => state.gamestate.loading);
   const dispatch = useDispatch();
 
 	const onGameStart = (e) => {

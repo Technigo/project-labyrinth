@@ -9,10 +9,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 	background-color: black;
-	background-image: url("${props => props.backgroundImage}");
+	background-image: url("./img/background-image.jpeg");
 	background-size: cover;
 	background-position: center;
-	background-repeat:repeat;
+	background-repeat:repeat
+
 }
 
 code {

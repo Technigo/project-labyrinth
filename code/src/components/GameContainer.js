@@ -6,17 +6,17 @@ import { NextStep } from "./NextStep";
 import { TheEndGame } from "./TheEndGame";
 import { LoadingIndicator } from "./LoadingIndicator";
 
-import styled from 'styled-components/macro';
-import img from 'img/background-image.jpeg'
+import styled from "styled-components/macro";
+import img from "img/background-image.jpeg";
 
 const MainContainer = styled.main`
-	width: 100%;
-	//height: 150vh;
+	/*width: 100%;
+	height: 150vh;
 	background-color: black;
 	background-image: url("${props => props.backgroundImage}");
 	background-size: cover;
 	background-position: center;
-	background-repeat:repeat;
+	background-repeat:repeat;*/
 `;
 
 export const GameContainer = () => {

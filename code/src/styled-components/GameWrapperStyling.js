@@ -26,7 +26,7 @@ export const Wrapper = styled.section`
 	}
 
   h1 {
-    font-size: 24px;
+    font-size: 22px;
 		color: #C2D200;
   }
 
