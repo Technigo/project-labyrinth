@@ -39,7 +39,7 @@ const GameButton = styled.button`
 `;
 
 const QuestionBox = styled.div`
-  height: 30vh;
+  height: 40vh;
   background-image: url('${scroll}');
   background-repeat: no-repeat;
   background-size: contain;
@@ -50,23 +50,25 @@ const QuestionBox = styled.div`
   position: absolute;
   top: 92%;
 
+  @media (min-width: 768px) {
+    height: 30vh;
+  }
+
   p {
     font-size: 16px;
     color: black;
     width: 48%;
 
-	@media (min-width: 768px) {
-		font-size: 18px;
-		width: 28%;
-	})
+    @media (min-width: 768px) {
+      font-size: 18px;
+      width: 45%;
+    }
 
-	@media (min-width: 1366px) {
-		width: 20%;
-		font-size: 20px;
-	})
-	
+    @media (min-width: 1366px) {
+      width: 25%;
+      font-size: 20px;
+    }
   }
-
 `;
 const ArrowDown = styled.p`
   font-size: 40px;

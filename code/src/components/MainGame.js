@@ -111,7 +111,6 @@ export const MainGame = () => {
   const loading = useSelector((store) => store.ui.loading);
 
   const gameList = useSelector((store) => store.game.gameList);
-  console.log(description);
 
   return (
     <GameBox
