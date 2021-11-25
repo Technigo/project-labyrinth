@@ -33,7 +33,7 @@ export const TheLabyrinth = () => {
                 <CardItemContainer>
                     <P>{description}</P>
                     <DirectionBtn onClick={() => handleButtonOnClick(type, direction)}>
-                    {type} {direction.toUpperCase()}
+                    {type.toUpperCase()} {direction.toUpperCase()}
                     </DirectionBtn>
                 </CardItemContainer>
             </TheCardContainer>

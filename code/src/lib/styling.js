@@ -5,24 +5,27 @@ import styled from "styled-components";
 
 export const H1 = styled.h1`
     font-size: 56px;
-    line-height: 60px;
+    line-height: 64px;
     // text-align: center;
     margin: 0;
     letter-spacing: 0.1rem;
     color: #adadad;
+    padding-bottom: 2rem;
 `
 
 export const H2 = styled.h2`
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 1.5rem;
+    line-height: 1.875rem;
     // text-align: center;
     letter-spacing: 0.1rem;
-    padding-top: 2rem;
+    padding 0 0 2rem 0;
     color: #adadad;
+    margin-top: 0;
 `
 
     export const P = styled.p`
     font-size: 1rem;
+    margin-top: 0;
     line-height: 1.275rem;
     // text-align: center;
     letter-spacing: 0.1rem;
@@ -34,7 +37,11 @@ export const H2 = styled.h2`
     line-height: 1.275rem;
     letter-spacing: 0.1rem;
     color: #60cd18;
+    `
 
+    export const QuestionMark = styled.span`
+    color: #60cd18;
+    margin-left: 1rem;
     `
 
 
@@ -149,7 +156,11 @@ export const TheCardContainer = styled.div`
 `
 
 export const CardItemContainer = styled.div`
-
+background-color: #1a1a1a;
+padding: 1rem;
+border-radius: 8px;
+margin-top: 1rem;
+width: 100%;
 `
 
 
@@ -180,13 +191,12 @@ export const DirectionBtn = styled.button`
     height: 48px;
     padding: 0 1rem;
     border: none;
-    color: #dedede;
+    color: #60cd18;
     background-color: #333;
     font-family: Fredoka One;
     letter-spacing: 0.1rem;
     cursor: pointer;
     border-radius: 12px;
-    margin-top: 2rem;
 `
 
 
