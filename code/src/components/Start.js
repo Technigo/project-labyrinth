@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-import { useDispatch } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
+import { fetchStart } from "reducers/start";
 
-const Start = () => {
+export const Start = () => {
   const [username, setUsername] = useState("");
   const dispatch = useDispatch();
 
   //   här dispatchar vi reducern där vi får användarnamnet och vi "callar" på den funktionen med onClick
-  const onNameSubmit = name => {
-    dispatch(start.actions.setUserName(name));
-    setName("");
+  const onNameSubmit = (name) => {
+    dispatch(Start.actions.setUsername(name));
+    setUsername("");
   };
   //  här sätter vi användarnamnet som hamnar i inputen
-  const onSetUsername = event => {
+  const onSetUsername = (event) => {
     setUsername(event.target.value);
   };
 
@@ -34,5 +35,3 @@ const Start = () => {
     </div>
   );
 };
-
-export default Start;

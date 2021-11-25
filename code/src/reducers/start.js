@@ -16,7 +16,7 @@ export const start = createSlice({
     setGameObject: (state, action) => {
       state.gameObject = action.payload;
     },
-    setUserName: (state, action) => {
+    setUsername: (state, action) => {
       state.username = action.payload;
     },
   },
@@ -24,8 +24,8 @@ export const start = createSlice({
 
 // Vi var rätt på det med att det var här vi skulle importa APIn. Har bara lagt till lite delar än så länge.
 
-export const fetchStart = username => {
-  return dispatch => {
+export const fetchStart = () => {
+  return (dispatch, getState) => {
     dispatch(loader.actions.setLoading(true));
 
     const options = {
@@ -33,13 +33,13 @@ export const fetchStart = username => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username: username }),
+      body: JSON.stringify({ username: getState().start.username }),
     };
 
     fetch("https://wk16-backend.herokuapp.com/start", options)
-      .then(res => res.json())
-      .then(json => {
-        dispatch(game.actions.setGameObject(json));
+      .then((res) => res.json())
+      .then((json) => {
+        dispatch(start.actions.setGameObject(json));
         dispatch(loader.actions.setLoading(false));
       });
   };
