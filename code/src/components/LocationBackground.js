@@ -15,8 +15,18 @@ const BackgroundImage = styled.div`
 `;
 
 export const LocationBackground = ({children, coordinates}) => {
+
+    const backgrounds = {
+        "0,0": "./assets/archway-cavern.png",
+        "1,0": "./assets/light-rays-cavern.jpg",
+        "1,1": "./assets/brighter-cavern.jpg",
+        "0,1": "./assets/ice-cavern.jpg",
+        "0,2": "./assets/ice-cavern.jpg",
+        "0,3": "./assets/bright-light.jpg",
+        "1,3": "./assets/calm.jpg",
+    }
     return (
-        <BackgroundImage image={"./assets/ice-cavern.jpg"}>
+        <BackgroundImage image={backgrounds[coordinates]}>
             {children}
         </BackgroundImage>
     );

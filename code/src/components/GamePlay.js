@@ -14,6 +14,9 @@ const Container = styled.main`
     align-items: center;
     flex-direction: column;
     overflow: scroll;
+    @media (min-width: 768px) {
+    width: 500px;
+  }
 `;
 
 const HeadingContainer = styled.div`
@@ -26,6 +29,10 @@ const HeadingContainer = styled.div`
         margin: 0;
         padding: 0;
     }
+    width: 300px;
+    @media (min-width: 768px) {
+    width: 500px;
+  }
 `;
 
 const Heading = styled.h1`
@@ -42,6 +49,11 @@ const Keyboard = styled.div`
         margin: 0;
         padding: 0;
     }
+    @media (min-width: 768px) {
+    width: 300px;
+    position: absolute;
+    bottom: 50px;
+  }
 `;
 
 const KeyButton = styled.button`

@@ -12,6 +12,10 @@ const StyledTextContainer = styled.div`
         margin: 0;
         padding: 0;
     }
+    width: 300px;
+    @media (min-width: 768px) {
+    width: 500px;
+  }
 `;
 
 export const TextContainer = ({ move }) => {
