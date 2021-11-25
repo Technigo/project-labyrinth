@@ -29,7 +29,7 @@ export const StartPage = () => {
     return (
         <BackgroundImg style={{ backgroundImage: `url(${startimg2})` }}>
             <ContentContainer>
-                    <H1>This is the Labyrinth, do you dare to enter<QuestionMark>?</QuestionMark></H1> 
+                    <H1>This is the Labyrinth, do you dare to enter<QuestionMark style={{transform: 'rotate(45deg)'}} >?</QuestionMark></H1> 
                     <P>Please type in your username</P>
                     <FormContainer onSubmit={startGame}>
                         <Inputfield type='text' value={username} required onChange={(event) => setUsername(event.target.value)}/>

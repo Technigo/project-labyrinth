@@ -22,27 +22,36 @@ export const H2 = styled.h2`
     color: #adadad;
     margin-top: 0;
 `
+export const H3 = styled.h3`
+font-size: 56px;
+line-height: 64px;
+// text-align: center;
+margin: 0;
+letter-spacing: 0.1rem;
+color: #adadad;
+padding: 2rem 0;
+`
 
-    export const P = styled.p`
-    font-size: 1rem;
-    margin-top: 0;
-    line-height: 1.275rem;
-    // text-align: center;
-    letter-spacing: 0.1rem;
-    color: #adadad;
-    `
+export const P = styled.p`
+font-size: 1rem;
+margin-top: 0;
+line-height: 1.275rem;
+// text-align: center;
+letter-spacing: 0.1rem;
+color: #adadad;
+`
 
-    export const Coordinates = styled.p`
-    font-size: 1rem;
-    line-height: 1.275rem;
-    letter-spacing: 0.1rem;
-    color: #60cd18;
-    `
+export const Coordinates = styled.p`
+font-size: 1rem;
+line-height: 1.275rem;
+letter-spacing: 0.1rem;
+color: #60cd18;
+`
 
-    export const QuestionMark = styled.span`
-    color: #60cd18;
-    margin-left: 1rem;
-    `
+export const QuestionMark = styled.span`
+color: #60cd18;
+margin-left: 1rem;
+`
 
 
 // CONTROLS
