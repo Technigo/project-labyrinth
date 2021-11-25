@@ -56,11 +56,13 @@ const QuestionBox = styled.div`
     width: 48%;
 
 	@media (min-width: 768px) {
+		font-size: 18px;
 		width: 28%;
 	})
 
 	@media (min-width: 1366px) {
 		width: 20%;
+		font-size: 20px;
 	})
 	
   }
@@ -71,6 +73,10 @@ const ArrowDown = styled.p`
   margin: 0px;
   padding: 0px;
   text-align: center;
+
+  &:hover {
+    filter: hue-rotate(212deg);
+  }
 `;
 
 const Button = ({ item }) => {

@@ -21,7 +21,7 @@ import back from '../assets/back.gif';
 import TypeWriterEffect from 'react-typewriter-effect';
 
 const GameBox = styled.div`
-  height: 100vh;
+  height: 150vh;
   width: 100vw;
   background-image: url(${(props) => props.bg});
   background-repeat: no-repeat;
@@ -34,6 +34,10 @@ const GameBox = styled.div`
   justify-content: center;
   align-items: center;
   color: white;
+
+  @media (min-width: 768px) {
+    height: 100vh;
+  }
 
   .compassBox {
     position: absolute;
@@ -105,7 +109,7 @@ export const MainGame = () => {
             key={description}
             textStyle={{
               fontFamily: 'Red Hat Display',
-              backgroundColor: '#1b1a187a',
+              backgroundColor: 'rgb(25, 25, 28, 0.7)',
               padding: '0.5rem',
               borderRadius: '10px'
             }}
