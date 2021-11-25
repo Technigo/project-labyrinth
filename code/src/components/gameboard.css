@@ -8,35 +8,48 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 5%;
+  justify-content: space-evenly;
   row-gap: 20px;
 }
 
-h1 {
+.top-description h1 {
   margin-top: 0;
   font-size: 18px;
   text-align: center;
 }
 
-.title-wrapper {
+/* .title-wrapper {
   justify-content: center;
-}
+} */
 
 .top-description,
 .action-container {
   justify-content: center;
   align-items: center;
   background-color: #e3dcc3c1;
-  width: 90%;
-  padding: 10px;
+  width: 75%;
+  padding: 8%;
   max-width: 800px;
 }
 
 .top-description {
   display: flex;
   flex-direction: column;
-  height: 200px;
+  margin-top: 10%;
+  /* height: 200px; */
   max-width: 800px;
+}
+
+.top-description h1 {
+  font-size: 20px;
+  padding-bottom: 0;
+}
+
+.top-description p {
+  font-size: 12px;
+  font-style: italic;
+  padding-top: 0;
+  margin: 0;
 }
 
 .action-container {
@@ -64,19 +77,22 @@ h1 {
   display: flex;
   column-gap: 40px;
 
-  position: sticky;
-  bottom: 0;
+  /* position: sticky; */
+  /* bottom: 0; */
   /* margin-bottom: 40px; */
-  z-index: 2;
+  /* z-index: 2; */
 }
 
 .button-wrapper button {
-  width: 90px;
+  /* width: 90px; */
 
-  background-color: #cda77b;
+  background-color: rgba(160, 126, 87, 0.6);
   padding: 10px 15px;
   text-transform: uppercase;
   font-weight: bold;
+  border: none;
+  width: 100px;
+  /* max-width: 200px; */
   /* bottom: 0;
   position: sticky; */
   /* z-index: 10; */
@@ -89,13 +105,25 @@ h1 {
 @media (min-width: 768px) {
   .top-description,
   .action-container {
-    width: 80%;
-    padding: 30px;
+    width: 70%;
+    padding: 5%;
   }
 
   .top-description {
     margin-top: 10vh;
-    padding: 30px;
+  }
+
+  .top-description p {
+    font-size: 16px;
+  }
+
+  .top-description h1 {
+    font-size: 25px;
+  }
+
+  .button-wrapper button {
+    font-size: 16px;
+    width: 150px;
   }
 }
 
@@ -109,7 +137,11 @@ h1 {
     padding: 40px;
   }
 
-  .top-description {
-    padding: 40px;
+  .action-container p {
+    font-size: 18px;
+  }
+
+  .button-wrapper button {
+    font-size: 18px;
   }
 }

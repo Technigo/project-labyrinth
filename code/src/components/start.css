@@ -11,18 +11,19 @@
   align-items: center;
 }
 
-/* .start-container h1 {
-  font-size: 25px;
-} */
-
 .start-wrapper {
   background-color: #c7bfb9af;
-  padding: 10% 20%;
+  padding: 10% 10%;
   margin-top: 30px;
+  width: 200px;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
 }
 
 .start-wrapper h1 {
   font-size: 35px;
+  text-align: center;
 }
 
 form {
@@ -35,6 +36,11 @@ input {
   border: none;
   border-bottom: 1px solid #000;
   max-width: 200px;
+  text-align: center;
+}
+
+input:hover {
+  font-style: italic;
 }
 
 .text-field {
@@ -59,6 +65,33 @@ button {
   padding: 10px 0;
   font-weight: 700;
   max-width: 200px;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background-color: #000;
+  color: #e3dcc3;
+}
+
+@media (min-width: 768px) {
+  .start-wrapper {
+    padding: 10%;
+    width: 300px;
+  }
+
+  .start-wrapper h1 {
+    font-size: 45px;
+  }
+
+  input {
+    margin-bottom: 5%;
+    padding: 2%;
+    font-size: 16px;
+  }
+
+  button {
+    font-size: 16px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -67,16 +100,16 @@ button {
   }
 
   .start-wrapper {
-    display: grid;
-    justify-content: center;
-    justify-items: center;
+    width: 500px;
   }
 
   button {
     max-width: 300px;
+    font-size: 18px;
   }
 
   input {
     max-width: 300px;
+    font-size: 18px;
   }
 }

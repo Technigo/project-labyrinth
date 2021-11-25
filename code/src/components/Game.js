@@ -8,8 +8,6 @@ import { LoadingIndicator } from "./LoadingIndicator"
 export const Game = () => {
   const currentPosition = useSelector((store) => store.game.currentPosition)
 
-  // console.log("ACTIONS", currentPosition)
-
   return (
     <>
       {currentPosition ? <GameBoard /> : <Start />}
