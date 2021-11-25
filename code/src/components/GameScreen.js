@@ -9,5 +9,5 @@ import { GameStart } from "components/GameStart"
 export const GameScreen = () => {
   const username = useSelector((state) => state.labyrinth.username)
 
-  return <>{username ? <MainPage /> : <GameStart />} </>
+  return <>{username ? <MainPage /> : <GameStart />}</>
 }

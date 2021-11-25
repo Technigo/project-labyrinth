@@ -11,13 +11,12 @@ export const GameStart = () => {
 
   const onGameStart = (event) => {
     event.preventDefault()
-    if (username.length === 0) {
-      alert("Please enter a username to start")
-    } else {
-      dispatch(labyrinth.actions.setusername(username))
-      dispatch(fetchInitialData(username))
-      setUsername("") // added this to clean the input box
-    }
+    // if (username.length === 0) {
+    //   alert("Please enter a username to start")
+    // } else {
+    dispatch(labyrinth.actions.setusername(username))
+    dispatch(fetchInitialData(username))
+    setUsername("") // added this to clean the input box
   }
 
   return (
@@ -31,6 +30,7 @@ export const GameStart = () => {
               </h1>
 
               <Input
+                required
                 type="text"
                 value={username}
                 onChange={(event) => setUsername(event.target.value)}
@@ -54,15 +54,20 @@ const Button = styled.button`
   height: 36px;
   border-radius: 3px;
   font-weight: 700;
+  cursor: pointer;
 `
 
 const Input = styled.input`
   background: none;
+  outline: none;
   border: 2px solid white;
   width: 200px;
   height: 30px;
   margin: 30px;
   border-radius: 3px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
 `
 
 const TextCard = styled.div`

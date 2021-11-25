@@ -36,7 +36,7 @@ export const Loader = () => {
   return (
     loading === true && (
       <LoadingWrapper>
-        <Circular color="red" size="100px" duration="5s" />
+        <Circular color="white" size="100px" duration="5s" />
       </LoadingWrapper>
     )
   )

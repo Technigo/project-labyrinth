@@ -27,7 +27,14 @@ export const MainPage = () => {
   }
 
   const Button = styled.button`
-    background-color: yellow;
+    background: white;
+    border: 2px solid white;
+    width: 110px;
+    height: 36px;
+    border-radius: 3px;
+    font-weight: 700;
+    margin: 20px;
+    cursor: pointer;
   `
   const MainWrapper = styled.section`
     ${"" /* background-image: url(./assets/forest.jpg); */}
@@ -64,7 +71,7 @@ export const MainPage = () => {
     "0,2":
       "url(https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80)",
     "0,3":
-      "url(https://images.pexels.com/photos/256477/pexels-photo-256477.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500)",
+      "url(https://images.pexels.com/photos/2553427/pexels-photo-2553427.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)",
     "1,3":
       "url(https://images.unsplash.com/photo-1509114397022-ed747cca3f65?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80)",
   }
@@ -97,7 +104,7 @@ export const MainPage = () => {
           )}
 
           {response.coordinates === "1,3" && (
-            <button onClick={() => handleRestartButton()}> RESTART </button>
+            <Button onClick={() => handleRestartButton()}> RESTART </Button>
           )}
         </TextCard>
       </MainWrapper>
