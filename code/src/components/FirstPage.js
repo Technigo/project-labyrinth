@@ -6,12 +6,58 @@ import { GameStartPage } from 'components/GameStartPage'
 
 import styled from 'styled-components'
 
+export const FirstPage = () => {
+  const dispatch = useDispatch()
+  const [username, setUsername] = useState('')
+  const gameStatus = useSelector((store) => store.game.gameStatus)
+
+  const onSubmitUsername = () => {
+    dispatch(game.actions.submitUsername(username))
+    dispatch(gameStart(username))
+  }
+
+  if (gameStatus) {
+    return (
+      <FirstPageContainer>
+        <GameStartPage />
+      </FirstPageContainer>
+    )
+  }
+
+  return (
+    <>
+      <FirstPageContainer>
+        <HeaderWrapper>
+          <h1 className="first-page-header">
+            To begin the adventure enter your name.
+          </h1>
+        </HeaderWrapper>
+        <InputWrapper>
+          <input
+            className="input-field"
+            type="text"
+            placeholder="Name"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+          />
+          <button
+            className="submit-button"
+            disabled={username === ''}
+            onClick={onSubmitUsername}>
+            Start
+          </button>
+        </InputWrapper>
+      </FirstPageContainer>
+    </>
+  )
+}
+
 const FirstPageContainer = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  position: fixed;
+  position: absolute;
   z-index: -1;
   justify-content: start;
   background-image: url('/assets/background.svg');
@@ -61,54 +107,9 @@ const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   margin: 70px 0px 0px 0px;
-  
 
   .first-page-header {
     text-align: center;
     padding: 20px;
   }
 `
-
-export const FirstPage = () => {
-  const dispatch = useDispatch()
-  const [username, setUsername] = useState('')
-  const gameStatus = useSelector((store) => store.game.gameStatus)
-
-  const onSubmitUsername = () => {
-    dispatch(game.actions.submitUsername(username))
-    dispatch(gameStart(username))
-  }
-
-  if (gameStatus) {
-    return <GameStartPage />
-  }
-
-  return (
-    <>
-      <FirstPageContainer>
-        <HeaderWrapper>
-          <h1 className="first-page-header">
-            To begin the adventure enter your name.
-          </h1>
-        </HeaderWrapper>
-        <InputWrapper>
-          <input
-            className="input-field"
-            type="text"
-            placeholder="Name"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-          />
-          <button
-            className="submit-button"
-            disabled={username === ''}
-            onClick={onSubmitUsername}>
-            Start
-          </button>
-        </InputWrapper>
-      </FirstPageContainer>
-    </>
-  )
-}
-
-export default FirstPage

@@ -11,4 +11,3 @@ export const ui = createSlice({
     }
   }
 })
-export default ui

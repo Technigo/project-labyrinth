@@ -1,15 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { ui } from './ui'
 
-const initialState = {
-  username: '',
-  gameStatus: null,
-  history: []
-}
-
 export const game = createSlice({
   name: 'game',
-  initialState,
+  initialState: {
+    username: '',
+    gameStatus: null,
+    history: [],
+    direction: ''
+  },
   reducers: {
     submitUsername: (store, action) => {
       store.username = action.payload
@@ -22,9 +21,11 @@ export const game = createSlice({
         store.history = [action.payload, ...store.history]
       }
     },
+    setDirection: (store, action) => {
+      store.direction = action.payload
+    },
     restart: () => {
-      return initialState
-      // return location.reload()
+      return window.location.reload()
     }
   }
 })
@@ -40,7 +41,6 @@ export const gameStart = (username) => {
       .then((res) => res.json())
       .then((json) => {
         dispatch(game.actions.setGameStatus(json))
-        // dispatch(ui.actions.setLoading(false))
       })
       .finally(() => dispatch(ui.actions.setLoading(false)))
   }
@@ -60,13 +60,10 @@ export const gamePlay = (username, direction) => {
     })
       .then((res) => res.json())
       .then((json) => {
-        console.log(gamePlay)
         dispatch(game.actions.setGameStatus(json))
         dispatch(game.actions.setHistory(json))
-        // dispatch(ui.actions.setLoading(false))
+        dispatch(game.actions.setDirection(direction))
       })
       .finally(() => dispatch(ui.actions.setLoading(false)))
   }
 }
-
-export default game
