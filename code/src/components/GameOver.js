@@ -31,7 +31,7 @@ export const Btn = styled.button`
   padding: 10px;
   font-weight: bolder;
   font-size: ${(props) => props.fontSize}px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 
   cursor: pointer;
   transition: 0.5s ease;
