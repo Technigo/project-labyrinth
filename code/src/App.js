@@ -1,16 +1,16 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { game } from 'reducers/game';
+import React from "react";
+import { Provider } from "react-redux";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { game } from "reducers/game";
 
-import GameBoard from 'components/GameBoard';
-import RestartButton from 'components/RestartButton';
-import LoadingStuff from 'components/LoadingStuff';
-import { ui } from 'reducers/ui';
+import GameBoard from "components/GameBoard";
+import RestartButton from "components/RestartButton";
+import LoadingStuff from "components/LoadingStuff";
+import { ui } from "reducers/ui";
 
 const reducer = combineReducers({
   game: game.reducer,
-  ui: ui.reducer
+  ui: ui.reducer,
 });
 
 const store = configureStore({ reducer });
@@ -20,11 +20,11 @@ const store = configureStore({ reducer });
 export const App = () => {
   return (
     <Provider store={store}>
-      <div>
+      <>
         <GameBoard />
         <RestartButton />
         <LoadingStuff />
-      </div>
+      </>
     </Provider>
   );
 };

@@ -1,15 +1,18 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const WinnerBox = styled.div`
   z-index: 5;
-  background: green;
+
+  h2 {
+    font-size: 40px;
+  }
 `;
 
 const Winner = () => {
   return (
     <WinnerBox>
-      <p>Winner!</p>
+      <h2>You solved the labyrinth!</h2>
     </WinnerBox>
   );
 };
