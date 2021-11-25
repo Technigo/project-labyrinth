@@ -2,6 +2,8 @@ import React from "react"
 import { useDispatch } from "react-redux"
 import { game, fetchStartPosition } from "../reducers/game"
 
+import "./start.css"
+
 // startar spelet genom inmatning av namn + klicka start
 export const Start = () => {
   const dispatch = useDispatch()
@@ -23,17 +25,23 @@ export const Start = () => {
   return (
     // onFormSubmit, uppdatera store
     <>
-      <h1>Lets play a game</h1>
-      <form onSubmit={onPlayerSubmit}>
-        <label htmlFor="name-input" />
-        <input
-          type="text"
-          onChange={onPlayerInputChange}
-          required
-          id="name-input"
-        />
-        <button type="submit">Start game</button>
-      </form>
+      <section className="start-container">
+        <div className="start-wrapper">
+          <h1>Let's play a game</h1>
+          <form onSubmit={onPlayerSubmit}>
+            <label htmlFor="name-input" />
+            <input
+              className="text-field"
+              type="text"
+              placeholder="Type your name"
+              onChange={onPlayerInputChange}
+              required
+              id="name-input"
+            />
+            <button type="submit">Start game</button>
+          </form>
+        </div>
+      </section>
     </>
   )
 }

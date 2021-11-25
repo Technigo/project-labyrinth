@@ -1,0 +1,82 @@
+.start-container {
+  background-image: url("../images/maze-bgr.jpg");
+  background-position: center;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .start-container h1 {
+  font-size: 25px;
+} */
+
+.start-wrapper {
+  background-color: #c7bfb9af;
+  padding: 10% 20%;
+  margin-top: 30px;
+}
+
+.start-wrapper h1 {
+  font-size: 35px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid #000;
+  max-width: 200px;
+}
+
+.text-field {
+  background: transparent;
+}
+
+::placeholder {
+  color: rgb(42, 41, 41);
+  text-align: center;
+}
+
+input:focus,
+input:active {
+  outline: none;
+  background: transparent;
+}
+
+button {
+  border: 1px solid #000;
+  border-radius: 5px;
+  background: transparent;
+  padding: 10px 0;
+  font-weight: 700;
+  max-width: 200px;
+}
+
+@media (min-width: 1024px) {
+  .start-wrapper h1 {
+    font-size: 60px;
+  }
+
+  .start-wrapper {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  button {
+    max-width: 300px;
+  }
+
+  input {
+    max-width: 300px;
+  }
+}

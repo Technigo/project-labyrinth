@@ -1,0 +1,115 @@
+.gameboard {
+  background-image: url("../images/arch-bgr.jpg");
+  background-position: center;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5%;
+  row-gap: 20px;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+.title-wrapper {
+  justify-content: center;
+}
+
+.top-description,
+.action-container {
+  justify-content: center;
+  align-items: center;
+  background-color: #e3dcc3c1;
+  width: 90%;
+  padding: 10px;
+  max-width: 800px;
+}
+
+.top-description {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  max-width: 800px;
+}
+
+.action-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 20px;
+  height: 138px;
+}
+
+.action-container button {
+  border: 2px solid #84705a;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.action-container button:hover {
+  background-color: #84705a;
+  color: #ffff;
+}
+
+.button-wrapper {
+  display: flex;
+  column-gap: 40px;
+
+  position: sticky;
+  bottom: 0;
+  /* margin-bottom: 40px; */
+  z-index: 2;
+}
+
+.button-wrapper button {
+  width: 90px;
+
+  background-color: #cda77b;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  /* bottom: 0;
+  position: sticky; */
+  /* z-index: 10; */
+}
+
+.button-wrapper button:hover {
+  color: #ffff;
+}
+
+@media (min-width: 768px) {
+  .top-description,
+  .action-container {
+    width: 80%;
+    padding: 30px;
+  }
+
+  .top-description {
+    margin-top: 10vh;
+    padding: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 25px;
+  }
+
+  .top-description,
+  .action-container {
+    padding: 40px;
+  }
+
+  .top-description {
+    padding: 40px;
+  }
+}

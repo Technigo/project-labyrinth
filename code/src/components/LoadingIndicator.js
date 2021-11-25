@@ -3,6 +3,8 @@ import Lottie from "react-lottie"
 import animationData from "../animations/loading-maze"
 import { useSelector } from "react-redux"
 
+import "./loadingindicator.css"
+
 export const LoadingIndicator = () => {
   const loading = useSelector((store) => store.ui.loading)
 
@@ -16,8 +18,8 @@ export const LoadingIndicator = () => {
   }
 
   return (
-    <>
+    <div className="lottie">
       {loading && <Lottie options={defaultOptions} height={400} width={400} />}
-    </>
+    </div>
   )
 }
