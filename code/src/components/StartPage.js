@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { StartButton } from './StartButton';
 import styled from 'styled-components/macro';
 
-import creepysound from '../sounds/creepy_sound.mp3';
 import '../title.css';
+import creepysound from '../sounds/creepy_sound.mp3';
 
 const StyledStartPage = styled.section`
   display: flex;
@@ -48,6 +48,7 @@ const StartPage = () => {
   const onNameSubmit = (name) => {
     dispatch(game.actions.setUserName(name));
     navigate('/MainGame');
+    startMusic();
     setName('');
   };
 
@@ -105,7 +106,6 @@ const StartPage = () => {
           onClick={() => {
             onNameSubmit(name);
             dispatch(fetchGame(name));
-            startMusic();
           }}
         >
           Start

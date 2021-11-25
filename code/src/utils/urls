@@ -1,5 +1,0 @@
-Här kan vi fixa till så länkarna är lite snyggare och så att hela addresserna inte behöver finnas med i reducern
-
-const START_URL = "https://wk16-backend.herokuapp.com/start"
-
-const ACTION_URL = "https://wk16-backend.herokuapp.com/action"

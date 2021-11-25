@@ -102,9 +102,9 @@ const MainGame = () => {
                 <p>{action.description}</p>
 
                 <DirectionButton
-                  onClick={() =>
-                    dispatch(fetchGameSteps({ direction: action.direction }))
-                  }
+                  onClick={() => {
+                    dispatch(fetchGameSteps({ direction: action.direction }));
+                  }}
                 >
                   <span>
                     Go {''}
