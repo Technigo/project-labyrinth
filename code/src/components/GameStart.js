@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { fetchInitialData, labyrinth } from "reducers/labyrinth"
 import { useSelector, useDispatch } from "react-redux"
 import styled from "styled-components"
+import { Maze } from "./Maze"
 
 export const GameStart = () => {
   const [username, setUsername] = useState("")
@@ -20,40 +21,64 @@ export const GameStart = () => {
   }
 
   return (
-    <div>
+    <MainWrapper>
       {response.coordinates === undefined && (
-        <Form>
-          <h1>
-            Would you like to play a Maze game? Enter your name to start...
-          </h1>
+        <>
+          <TextCard>
+            <form>
+              <h1>
+                Would you like to play a Maze game? Enter your name to start...
+              </h1>
 
-          <input
-            type="text"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-          />
-          <button type="submit" onClick={(event) => onGameStart(event)}>
-            Start game
-          </button>
-        </Form>
+              <Input
+                type="text"
+                value={username}
+                onChange={(event) => setUsername(event.target.value)}
+              />
+              <Button type="submit" onClick={(event) => onGameStart(event)}>
+                START
+              </Button>
+            </form>
+          </TextCard>
+          <Maze />
+        </>
       )}
-    </div>
+    </MainWrapper>
   )
 }
 
-const Form = styled.form`
-  position: absolute;
+const Button = styled.button`
+  background: white;
+  border: 2px solid white;
+  width: 100px;
+  height: 36px;
+  border-radius: 3px;
+  font-weight: 700;
+`
+
+const Input = styled.input`
+  background: none;
+  border: 2px solid white;
+  width: 200px;
+  height: 30px;
+  margin: 30px;
+  border-radius: 3px;
+`
+
+const TextCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
   padding: 30px;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgb(187, 187, 187, 0.25);
   width: 60%;
+  min-height: 250px;
 `
 const MainWrapper = styled.section`
   background-image: url(./assets/forest.jpg);
+  background-position: center center;
   background-size: cover;
   height: 100vh;
   width: 100wh;

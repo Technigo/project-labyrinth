@@ -30,8 +30,9 @@ export const MainPage = () => {
     background-color: yellow;
   `
   const MainWrapper = styled.section`
-    background-image: url(./assets/forest.jpg);
+    ${"" /* background-image: url(./assets/forest.jpg); */}
     background-size: cover;
+    background-position: center center;
     height: 100vh;
     width: 100wh;
     text-align: center;
@@ -47,7 +48,7 @@ export const MainPage = () => {
     justify-content: center;
     margin: 0 auto;
     padding: 30px;
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgb(187, 187, 187, 0.25);
     width: 60%;
   `
 
@@ -59,7 +60,7 @@ export const MainPage = () => {
     "1,1":
       "url(https://images.pexels.com/photos/45839/antelope-canyon-arizona-sandstone-rock-45839.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)",
     "0,1":
-      "url(https://images.unsplash.com/photo-1460302293840-dc1a23a7b226?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)",
+      "url(https://images.unsplash.com/photo-1567093322102-6bdd32fba67d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80)",
     "0,2":
       "url(https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80)",
     "0,3":
