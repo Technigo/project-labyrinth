@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { start } from 'reducers/start';
 
-import { EndPage, EndTitle, Gif } from './StyledComponents';
+import { EndPage, EndTitle, Gif, Button } from './StyledComponents';
 
 export const End = ({ title, gameDescription }) => {
   // const username = useSelector(store => store.start.username);
@@ -23,7 +23,7 @@ export const End = ({ title, gameDescription }) => {
             <EndTitle>{title}</EndTitle>
             <p>{gameDescription}</p>
 
-            <button onClick={onRestart}>Restart the game</button>
+            <Button onClick={onRestart}>Restart the game</Button>
           </div>
         </div>
         <Gif src='https://embed.lottiefiles.com/animation/53040'></Gif>

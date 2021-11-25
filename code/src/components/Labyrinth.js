@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { continueGame } from 'reducers/start';
 import { End } from './End';
+import { LoadingIndicator } from './LoadingIndicator';
 
 import {
   DescriptionContainer,
   TitleContainer,
   Directions,
   Choices,
-  DirectionButton,
+  Button,
 } from './StyledComponents';
 
 export const Labyrinth = () => {
@@ -42,9 +43,9 @@ export const Labyrinth = () => {
               {gameActions.map((choice, index) => (
                 <Choices key={index}>
                   <h4>{choice.description}</h4>
-                  <DirectionButton onClick={() => onMove(choice.direction)}>
+                  <Button onClick={() => onMove(choice.direction)}>
                     Go {choice.direction}
-                  </DirectionButton>
+                  </Button>
                 </Choices>
               ))}
             </div>

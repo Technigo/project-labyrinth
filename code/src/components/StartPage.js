@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { start, fetchStart } from '../reducers/start';
 
-import { StartContainer, InputFlex } from './StyledComponents';
+import { StartContainer, InputFlex, Button } from './StyledComponents';
 
 export const StartPage = () => {
   const [username, setUsername] = useState('');
@@ -33,7 +33,7 @@ export const StartPage = () => {
             onChange={e => setUsername(e.target.value)}
           />
         </form>
-        <button onClick={onNameSet}>Start game</button>
+        <Button onClick={onNameSet}>Start game</Button>
       </InputFlex>
     </StartContainer>
   );

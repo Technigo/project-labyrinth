@@ -1,5 +1,17 @@
 import styled from 'styled-components';
 
+export const LoaderContainer = styled.div`
+  position: relative;
+  width: 100vw;
+  height: 100%;
+  background-image: url('https://i.postimg.cc/MpzSgVzX/cropped-1920-1080-978581.png');
+  background-size: cover;
+`;
+
+export const Loader = styled.div`
+  padding: 15%;
+`;
+
 export const Main = styled.main`
   display: flex;
   color: white;
@@ -10,7 +22,6 @@ export const Main = styled.main`
   align-items: center;
   height: 100vh;
   width: 100vw;
-  //background-size: cover;
   letter-spacing: 1.5px;
   text-shadow: -1px 2px white;
   text-align: center;
@@ -165,14 +176,18 @@ export const EndTitle = styled.h1`
   width: 100%;
 `;
 
-export const DirectionButton = styled.button`
-  align-self: center;
-`;
-
 export const Gif = styled.iframe`
   margin: 10px;
 
   @media (max-width: 768px) {
     display: none;
   }
+`;
+
+export const Button = styled.button`
+  font-family: 'Press Start 2P', cursive;
+  padding: 5px;
+  cursor: pointer;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.6);
+  justify-content: center;
 `;

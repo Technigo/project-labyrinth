@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { batch } from 'react-redux';
-import { ui } from './ui';
 
 export const start = createSlice({
   name: 'start',
@@ -46,7 +45,7 @@ export const start = createSlice({
 
 export const fetchStart = username => {
   return dispatch => {
-    dispatch(ui.actions.setLoading(true));
+    dispatch(start.actions.setLoading(true));
     fetch('https://wk16-backend.herokuapp.com/start', {
       method: 'POST',
       headers: {
@@ -56,13 +55,11 @@ export const fetchStart = username => {
     })
       .then(res => res.json())
       .then(json => {
-        batch(() => {
-          dispatch(start.actions.setDescription(json.description));
-          dispatch(start.actions.setActions(json.actions));
-          dispatch(start.actions.setCoordinates(json.coordinates));
-          dispatch(start.actions.setLoading(false));
-        });
-      });
+        dispatch(start.actions.setDescription(json.description));
+        dispatch(start.actions.setActions(json.actions));
+        dispatch(start.actions.setCoordinates(json.coordinates));
+      })
+      .finally(() => dispatch(start.actions.setLoading(false)));
   };
 };
 
@@ -80,13 +77,12 @@ export const continueGame = (username, direction) => {
     })
       .then(res => res.json())
       .then(data => {
-        batch(() => {
-          dispatch(start.actions.setDescription(data.description));
-          dispatch(start.actions.setActions(data.actions));
-          dispatch(start.actions.setCoordinates(data.coordinates));
-          dispatch(start.actions.setLoading(false));
-          // dispatch(start.actions.setHistory(data))
-        });
-      });
+        dispatch(start.actions.setDescription(data.description));
+        dispatch(start.actions.setActions(data.actions));
+        dispatch(start.actions.setCoordinates(data.coordinates));
+      })
+      .finally(() => dispatch(start.actions.setLoading(false)));
+
+    // dispatch(start.actions.setHistory(data))
   };
 };

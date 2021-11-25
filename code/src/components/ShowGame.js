@@ -4,9 +4,11 @@ import { useSelector } from 'react-redux';
 import { StartPage } from './StartPage';
 import { Labyrinth } from './Labyrinth';
 
-import { Main } from './StyledComponents';
+import { Main, Loader, LoaderContainer } from './StyledComponents';
+import { LoadingIndicator } from './LoadingIndicator';
 
 export const ShowGame = () => {
+  const loading = useSelector(store => store.start.loading);
   const coordinates = useSelector(store => store.start.coordinates);
   const colorDictionary = {
     '0,0': 'url(https://i.postimg.cc/zfkqh53b/url0-1.jpg)',
@@ -21,12 +23,24 @@ export const ShowGame = () => {
   const username = useSelector(store => store.start.username);
 
   return (
-    <Main
-      style={{
-        backgroundImage: colorDictionary[coordinates],
-      }}
-    >
-      {username ? <Labyrinth /> : <StartPage />}
-    </Main>
+    <>
+      {loading && (
+        <LoaderContainer>
+          <Loader>
+            <LoadingIndicator />
+          </Loader>
+        </LoaderContainer>
+      )}
+
+      {!loading && (
+        <Main
+          style={{
+            backgroundImage: colorDictionary[coordinates],
+          }}
+        >
+          {username ? <Labyrinth /> : <StartPage />}
+        </Main>
+      )}
+    </>
   );
 };
