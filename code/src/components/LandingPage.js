@@ -103,6 +103,7 @@ export const LandingContainer = styled.section`
   background-color: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(10px);
   padding: 20px;
+  padding-bottom: 12px;
   @media (min-width: 768px) {
     width: 600px;
     padding: 40px;

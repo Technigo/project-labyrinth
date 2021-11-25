@@ -40,7 +40,7 @@ export const QuestBody = () => {
             <p>{action.description}</p>
             <Btn
               borderRadius={8}
-              width={86}
+              width={94}
               height={40}
               marginTop={0}
               widthMedia={120}

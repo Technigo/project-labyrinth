@@ -11,7 +11,6 @@ export const Container = styled.section`
   backdrop-filter: blur(10px);
   padding: 20px;
   padding-bottom: 40px;
-  margin-top: 50px;
 
   @media (min-width: 768px) {
     width: 600px;
