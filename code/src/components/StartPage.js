@@ -13,21 +13,18 @@ export const StartPage = () => {
     autoplay: true,
     animationData: animationData,
     rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
-    }
+      preserveAspectRatio: "xMidYMid slice",
+    },
   };
-
 
   const defaultOptionsBtn = {
     loop: true,
     autoplay: true,
-    animationData:animationBtn,
+    animationData: animationBtn,
     rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
-    }
+      preserveAspectRatio: "xMidYMid slice",
+    },
   };
-
-
 
   const start = () => {
     if (username === "") {
@@ -39,52 +36,56 @@ export const StartPage = () => {
 
   return (
     <section className="startPageContainer">
-      <Lottie className="animationBackground" options={defaultOptions} style={{ 
-           
-            position: 'absolute',
-
-          }}/>
-      <section className="startPageContetnt"> 
-      <div class="StartPageHeader">
-
-<section className="StartPageHeaderSection">
-  <div class="StartPageHeaderInner">
-  Find<br /> 
-    the<br />
-    Treasure<br />
-    </div>
-</section>
-
-</div>
-
-
-      <input
-        className="textInput"
-        required
-        maxLength="15"
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
+      <Lottie
+        className="animationBackground"
+        options={defaultOptions}
+        style={{
+          position: "absolute",
+        }}
       />
+      <section className="startPageContetnt">
+        <div className="StartPageHeader">
+          <section className="StartPageHeaderSection">
+            <div className="StartPageHeaderInner">
+              Find
+              <br />
+              the
+              <br />
+              Treasure
+              <br />
+            </div>
+          </section>
+        </div>
 
-      {username.length > 0 ? (
-        <div className="OnclickTextOrBtn">
-           <Lottie options={defaultOptionsBtn} height={50}
-        width={170} style={{ 
-           
-          position: 'absolute',
-zIndex:'-1',
-        }} />
-        <button onClick={start} className="startPageBtn">
-         
-          Welcome{" "}
-        </button>
-        </div>
-      ) : (
-        <div className="OnclickTextOrBtn">
-        <p className="textStartPage">Fill in your name </p>
-        </div>
-      )}
+        <input
+          className="textInput"
+          required
+          maxLength="15"
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+
+        {username.length > 0 ? (
+          <div className="OnclickTextOrBtn">
+            <Lottie
+              options={defaultOptionsBtn}
+              height={50}
+              width={170}
+              style={{
+                position: "absolute",
+                zIndex: "-1",
+              }}
+            />
+            <button onClick={start} className="startPageBtn">
+              Welcome{" "}
+            </button>
+          </div>
+        ) : (
+          <div className="OnclickTextOrBtn">
+            <p className="textStartPage">Fill in your name </p>
+          </div>
+        )}
       </section>
     </section>
   );
