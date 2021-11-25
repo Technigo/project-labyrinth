@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
-import { keyframes } from 'styled-components'
+/* import { keyframes } from 'styled-components' */
 import { useSelector } from "react-redux";
 import Lottie from "react-lottie"
 import animationData from "../lib/loader"
@@ -13,7 +13,7 @@ const LoaderOverlay = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
-    background: white;
+    background: black;
     opacity: 1;
     display: flex;
     justify-content: center;

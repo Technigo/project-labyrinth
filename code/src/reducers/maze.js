@@ -3,11 +3,12 @@ import { ui } from "./ui"
 
 /* let user = "" */
 
+// The Store
 export const maze = createSlice({
   name: 'maze',
   initialState: {
       username: "",
-      response: {}
+      response: null
   },
   reducers: {
     setUserName: (state, action) => {
@@ -21,6 +22,7 @@ export const maze = createSlice({
     }
 }})
 
+// Thunk for maze start fetch
 export const startMaze = ( username ) => {
     console.log("username the newest", username)
     const options = {
@@ -43,11 +45,11 @@ export const startMaze = ( username ) => {
     }
 }
 
+
+// Thunk for move fetch
 export const moveMaze = (direction, type) => {
     console.log("before of fetch")
     
-  
-  
     return ( dispatch, getStore ) => {
       dispatch(ui.actions.setLoading(true)) 
       fetch("https://wk16-backend.herokuapp.com/action", {
