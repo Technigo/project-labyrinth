@@ -4,6 +4,7 @@ import { fetchGameData } from "reducers/gameSteps";
 import { continueFetchGameData } from "reducers/gameSteps";
 import { Loading } from "components/Loading";
 import styled from "styled-components/macro";
+import { screen } from "reducers/screen";
 
 export const GameScreen = () => {
   const dispatch = useDispatch();
@@ -37,7 +38,9 @@ export const GameScreen = () => {
       <div></div>
       <QuestionWrapper>
         <div>
-          {lastMove && !isLoading && <LastMove>You went {lastMove}.</LastMove>}
+          {lastMove && !isLoading && (
+            <LastMove>You went {lastMove.direction}.</LastMove>
+          )}
           {isLoading && <LastMove>You go {currentMove}...</LastMove>}
           {!isLoading && (
             <QuestionDescription>{game.description}</QuestionDescription>
@@ -56,7 +59,8 @@ export const GameScreen = () => {
                         continueFetchGameData(
                           username,
                           action.type,
-                          action.direction
+                          action.direction,
+                          action.description
                         )
                       );
                       setCurrentMove(action.direction);
@@ -68,10 +72,27 @@ export const GameScreen = () => {
               );
             })}
           {game.actions.length === 0 && (
-            <CongratulationText>
-              Congratulations you finished the game in {gameHistory.length}{" "}
-              moves!
-            </CongratulationText>
+            <>
+              <CongratulationText>
+                Congratulations you finished the game in {gameHistory.length}{" "}
+                moves!
+              </CongratulationText>
+
+              <OverviewButton
+                onClick={() =>
+                  dispatch(screen.actions.currentScreen({ screen: "overview" }))
+                }
+              >
+                Overview
+              </OverviewButton>
+              <RestartButton
+                onClick={() =>
+                  dispatch(screen.actions.currentScreen({ screen: "username" }))
+                }
+              >
+                Restart Game
+              </RestartButton>
+            </>
           )}
         </div>
       </QuestionWrapper>
@@ -145,8 +166,12 @@ const MoveButton = styled.button`
   border-bottom: white 1px solid;
   font-size: 20px;
   @media (min-width: 1025px) {
+    border-bottom: 2px solid;
     font-size: 25px;
     margin-top: 10px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 `;
 
@@ -183,7 +208,22 @@ const CongratulationText = styled.p`
     font-size: 24px;
   }
   @media (min-width: 1025px) {
-    font-size: 32px;
+    font-size: 30px;
     line-height: 40px;
   }
 `;
+
+const RestartButton = styled(MoveButton)`
+  color: white;
+  border-bottom: 1px solid;
+  width: 100%;
+  @media (min-width: 1025px) {
+    border-bottom: 2px solid;
+    font-size: 30px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+`;
+
+const OverviewButton = styled(RestartButton)``;

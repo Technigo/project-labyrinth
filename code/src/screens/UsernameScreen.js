@@ -134,6 +134,9 @@ const UsernameButton = styled.button`
   @media (min-width: 1025px) {
     border-bottom: 2px solid;
     font-size: 30px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 `;
 

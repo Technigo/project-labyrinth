@@ -1,13 +1,23 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
+A React/Redux Labyrinth game, where the player follows a history and chooses a path until the end of the labyrinth. This project was made by pair-programming.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+# Features
 
-## The problem
+Use of different React components
+Use of Redux and Redux toolkit
+Use of hooks: useSelector, useDispatch, useState
+Asynchronous API calls using thunks
+POST request with information on the body
+Responsive styling
+Styled components
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+# Production Process
 
-## View it live
+I started by planning the functionalities and layout for the project and dividing those into components.
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Creating reducers was a new concept and this was a great oportunity to add different functionalities.
+
+The filter for completed and uncompleted tasks was initially creating conflits when published on Netlify, but after changing it to the tasks file in the reducer, the conflits were solved
+
+# View it live

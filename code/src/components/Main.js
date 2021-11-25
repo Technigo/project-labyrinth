@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { UsernameScreen } from "../screens/UsernameScreen";
 import { GameScreen } from "screens/GameScreen";
+import { OverviewScreen } from "screens/OverviewScreen";
 import styled from "styled-components/macro";
 
 export const Main = () => {
@@ -11,6 +12,7 @@ export const Main = () => {
     <MainContainer>
       {currentScreen === "username" && <UsernameScreen />}
       {currentScreen === "game" && <GameScreen />}
+      {currentScreen === "overview" && <OverviewScreen />}
     </MainContainer>
   );
 };

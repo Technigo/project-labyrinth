@@ -18,8 +18,8 @@ export const gameSteps = createSlice({
       store.username = username;
     },
     setGameHistory: (store, action) => {
-      const { direction } = action.payload;
-      store.gameHistory = [...store.gameHistory, direction];
+      const { direction, description } = action.payload;
+      store.gameHistory = [...store.gameHistory, { direction, description }];
     },
   },
 });
@@ -40,7 +40,12 @@ export const fetchGameData = (username) => {
   };
 };
 
-export const continueFetchGameData = (username, type, direction) => {
+export const continueFetchGameData = (
+  username,
+  type,
+  direction,
+  description
+) => {
   return (dispatch) => {
     dispatch(loading.actions.setLoading(true));
     fetch(CONTINUEGAMEAPI, {
@@ -55,7 +60,7 @@ export const continueFetchGameData = (username, type, direction) => {
       .then((results) => results.json())
       .then((json) => {
         dispatch(gameSteps.actions.setGameStep(json));
-        dispatch(gameSteps.actions.setGameHistory({ direction }));
+        dispatch(gameSteps.actions.setGameHistory({ direction, description }));
       })
       .finally(() => dispatch(loading.actions.setLoading(false)));
   };
