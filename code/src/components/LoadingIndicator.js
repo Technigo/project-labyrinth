@@ -48,7 +48,7 @@ align-items: center;
 justify-content: center;
 
 & div {
-max-width: 500px;
+max-width: 400px;
 }
 `;
 
