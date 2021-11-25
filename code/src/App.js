@@ -25,6 +25,7 @@ const Main = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin 0 auto;
   
 `   
 const store = configureStore({ reducer })

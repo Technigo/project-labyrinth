@@ -7,11 +7,11 @@ import styled from "styled-components/macro"
 
 const Body = styled.section `
 width: 60%;
-margin: 0 auto,
-display: flex;
-background-color: black;
-color: green;
-font-family:`
+background-color: #1C362D;
+color: #23C757;
+font-family: 'VT323', monospace;
+justify-content:center;
+border-radius: 10px;`
 
 const ShortDesc= styled.div``
 
