@@ -49,7 +49,7 @@ export const TheEndGame = () => {
   return (
     <Container>
       <Wrapper>
-        <h1>Congratulations <span>{currentUser}</span>, you made it to the other side!</h1>
+        <h1>Congratulations {currentUser},you made it to the other side!</h1>
         <p>{gameStatus.description}</p>
         <button onClick={onGameRestart}>Play Again</button>
       </Wrapper>
