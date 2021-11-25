@@ -5,9 +5,15 @@ import { labyrinth } from "../reducers/labyrinth"
 // import { ui } from "reducers/ui"
 // import { Loader } from "components/Loader"
 import { GameStart } from "components/GameStart"
+import { Footer } from "./Footer"
 
 export const GameScreen = () => {
   const username = useSelector((state) => state.labyrinth.username)
 
-  return <>{username ? <MainPage /> : <GameStart />}</>
+  return (
+    <>
+      {username ? <MainPage /> : <GameStart />}
+      <Footer />
+    </>
+  )
 }
