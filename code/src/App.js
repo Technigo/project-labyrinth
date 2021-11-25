@@ -7,7 +7,6 @@ import { labyrinth } from './reducers/labyrinth'
 import { animation } from './reducers/animation'
 
 import StartPage from './components/StartPage'
-import Labyrinth from './components/Labyrinth'
 import Loading from './components/Loading'
 
 

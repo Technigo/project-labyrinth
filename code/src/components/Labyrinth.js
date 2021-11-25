@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchLabyrinth } from '../reducers/labyrinth';
-import { labyrinth } from '../reducers/labyrinth';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
