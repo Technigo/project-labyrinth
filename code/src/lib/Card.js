@@ -42,6 +42,8 @@ const ImageContainer = styled.div`
 const MainImage = styled.img`
   width: 90%;
   border-radius: 5px;
+  height: 250px;
+  width: 300px;
 `;
 
 const NextButton = styled.div`
@@ -59,13 +61,12 @@ const NextButton = styled.div`
   }
 `;
 
-const Card = ({ title, description, direction, mainImage }) => {
+const Card = ({ title, direction, mainImage }) => {
   const dispatch = useDispatch();
   const userName = useSelector((store) => store.game.username);
 
   const onNextMove = (direction) => {
     dispatch(FetchNextMove(direction, userName));
-    console.log("test", direction);
   };
 
   return (

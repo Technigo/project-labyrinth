@@ -24,7 +24,7 @@ const Form = styled.form`
   width: 275px;
 
   @media (min-width: 768px) {
-    margin: 300px auto;
+    margin: 250px auto;
     width: 450px;
   }
 `;
@@ -80,8 +80,6 @@ const Button = styled.button`
 const Username = () => {
   const [userName, setUserName] = useState("");
   const dispatch = useDispatch();
-  const story = useSelector((store) => store.game.moves);
-  console.log(story);
 
   const onSetUserName = (userName) => {
     dispatch(game.actions.addUserName(userName));

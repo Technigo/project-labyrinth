@@ -16,6 +16,10 @@ const GameContainer = styled.section`
   @media (min-width: 768px) {
     height: 100vh;
   }
+
+  @media (min-width: 992px) {
+    height: 115vh;
+  }
 `;
 
 const DescriptionHeader = styled.h1`
@@ -45,35 +49,6 @@ const OptionContainer = styled.div`
 
 const Game = () => {
   const story = useSelector((store) => store.game.moves);
-  console.log(story);
-
-  const imageDictionary = {
-    "0,0": "/assets/north.jpg",
-    "1,0": "/assets/two.jpg",
-    "1,1": "/assets/thre.jpg",
-    "0,1": "http://www.fillmurray.com/460/300",
-    "0,2": "http://www.fillmurray.com/460/300",
-    "0,3": "http://www.fillmurray.com/460/300",
-    "1,3": "http://www.fillmurray.com/460/300",
-  };
-
-  // const setBgColor = () => {
-  //   switch (direction) {
-  //     case "North":
-  //       Image = "/assets/north.jpg";
-  //       break;
-  //     case "West":
-  //       Image = "/assets/thre.jpg";
-  //       break;
-  //     case "East":
-  //       Image = "http://www.fillmurray.com/460/300";
-  //       break;
-  //     case "South":
-  //       Image = "http://www.fillmurray.com/460/300";
-  //       break;
-  //   }
-  //   return Image;
-  // };
 
   return (
     <>

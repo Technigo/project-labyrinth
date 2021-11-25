@@ -7,7 +7,7 @@ import styled from "styled-components";
 const LoadingContainer = styled.div`
   display: flex;
   align-items: center;
-  background-color: red;
+  background-color: white;
   width: 500px;
   height: 100vh; ;
 `;
@@ -15,7 +15,7 @@ const Div = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: red;
+  background-color: white;
   width: 100%;
 `;
 
