@@ -5,7 +5,7 @@ import styled from "styled-components/macro"
 
 
 import { Game } from "./components/Game"
-import { LoadingIndicator} from "./components/LoadingIndicator"
+//import { LoadingIndicator} from "./components/LoadingIndicator"
 
 import { ui } from "./reducers/ui"
 import { game } from "./reducers/game"
@@ -35,7 +35,7 @@ export const App = () => {
     
     <Provider store={store}>
       <Main>
-        <LoadingIndicator />
+        {/*<LoadingIndicator />*/}
         <Game />
       </Main>
     </Provider>

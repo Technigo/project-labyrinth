@@ -49,9 +49,9 @@ export const startThunk = (userName) => {
         })
             .then((res) => res.json())
             .then((data) => {
-               
-                dispatch(game.actions.startGame(data))
                 dispatch(ui.actions.setLoading(false))
+                dispatch(game.actions.startGame(data))
+                
             })
             
     }
@@ -73,9 +73,10 @@ export const actionThunk = (userName, action) => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data)
-                dispatch(game.actions.continueGame(data))
+                
                 dispatch(ui.actions.setLoading(false))
+                dispatch(game.actions.continueGame(data))
+                
             })
             
     }
