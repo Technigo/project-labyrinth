@@ -5,6 +5,8 @@ import { EndPage } from "./EndPage";
 import map from "images/map.png";
 import Lottie from 'react-lottie';
 import animationData from "../lotties/loading";
+import animationDataShip from "../lotties/ship";
+import animationDataWater from "../lotties/water";
 
 export const GamePage = () => {
   const labyrinth = useSelector((store) => store.labyrinth.location);
@@ -18,6 +20,26 @@ export const GamePage = () => {
     loop: true,
     autoplay: true, 
     animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
+
+  
+  const defaultOptionsShip = {
+    loop: true,
+    autoplay: true, 
+    animationData: animationDataShip,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
+
+
+  const defaultOptionsWater = {
+    loop: true,
+    autoplay: true, 
+    animationData: animationDataWater,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice'
     }
@@ -45,7 +67,12 @@ export const GamePage = () => {
 if(mapTilesArray[i][j]){    
   mapTiles.push(
 
-  <div className="white">gg </div>
+  <div className="white">
+    <>
+    <Lottie options={defaultOptionsShip} width={100}
+    height={100} />
+    </>
+     </div>
 
 
       )    }
@@ -164,9 +191,20 @@ style={{
         </section>
 
 <section className="DirectionMap">
-
-       
+      
 <div className="map-grid">
+<Lottie 
+className="LottiMap"
+options={defaultOptionsWater}
+style={{ 
+
+  height:'30vh',
+        width:'96vw',   
+  position: 'absolute',
+
+}}
+/>
+
           {createMapTiles()}
          
         </div>
