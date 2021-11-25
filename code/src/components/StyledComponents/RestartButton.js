@@ -12,7 +12,7 @@ export const RestartButton = styled.button`
   font-size: 20px;
   text-decoration:none;
   margin: 20px auto;
-  margin-top: 18px;
+  margin-top: 25px;
   transition: color 0.4s; 
   cursor: pointer;
   color: #FFFFFF;
