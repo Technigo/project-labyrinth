@@ -1,10 +1,13 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { isStyledComponent } from 'styled-components';
 import { gamestate } from '../reducers/gamestate'
 
 import { GameBackground } from './StyledComponents/GameBackground';
 import { GameCard } from './StyledComponents/GameCard';
 import { RestartButton } from './StyledComponents/RestartButton';
+
+import styled from 'styled-components';
 
 
 export const TheEnd = () => {
@@ -21,10 +24,10 @@ export const TheEnd = () => {
     <>
       <GameBackground backgroundImage={"../assets/img/theend-image.jpg"}>
 
-        <GameCard><h2>Congratulations {username}, you finished the game!</h2>
-          <div>
+        <GameCard><HeadText>Congratulations {username}, you finished the game!</HeadText>
+          <HeadText>
             {gameStatus.description}
-          </div>
+          </HeadText>
 
           <RestartButton
             onClick={onRestartGame}>
@@ -35,3 +38,8 @@ export const TheEnd = () => {
     </>
   );
 };
+
+const HeadText = styled.h2`
+color: rgba(0,0,0,0.6);
+text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
+`

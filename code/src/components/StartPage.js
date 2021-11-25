@@ -85,8 +85,8 @@ const StartButton = styled.button`
   position: relative;
   padding: 10px 20px;
   border: 2px solid #fda;
-  background-color: white;
-  color: #4F7942;
+  background-color: #8A9A5B;
+  color: #355E3B;
   font-family: 'Philosopher', sans-serif;
   font-size: 20px;
   text-decoration: none;
@@ -110,7 +110,7 @@ const StartButton = styled.button`
   }
  
   &:hover {
-    color: #023020;
+    color: #fda;
   }
 
   &:hover:after { 

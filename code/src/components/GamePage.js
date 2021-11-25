@@ -9,6 +9,8 @@ import { GameCard } from './StyledComponents/GameCard';
 import { RestartButton } from './StyledComponents/RestartButton';
 import { DirectionButtons } from './StyledComponents/DirectionButtons';
 
+import styled from 'styled-components';
+
 
 
 
@@ -31,10 +33,10 @@ export const GamePage = () => {
       <GameBackground backgroundImage={"../assets/img/ingame-img.jpg"}>
 
         <GameCard>
-          <h2>{gameStatus.description}</h2>
+          <HeadText>{gameStatus.description}</HeadText>
 
           {gameStatus.actions && gameStatus.actions.map((item, index) => ( //&& check if gameStatus is undefined. if false don't go further in game.
-            <h3 key={index}>
+            <Text key={index}>
               {item.description}
 
               <DirectionButtons
@@ -42,7 +44,7 @@ export const GamePage = () => {
                 onClick={(event) => onChooseDirection(event)}>
                 Go {item.direction}
               </DirectionButtons>
-            </h3>
+            </Text>
           ))}
 
           <RestartButton
@@ -53,3 +55,14 @@ export const GamePage = () => {
   )
 }
 
+const HeadText = styled.h2`
+color: rgba(0,0,0,0.6);
+text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
+`
+
+const Text = styled.h3`
+justify-content: center;
+align-items: center;
+color: rgba(0,0,0,0.6);
+text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
+`
