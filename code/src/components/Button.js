@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { useDispatch } from "react-redux";
-import { fetchGameInstructions } from "reducers/game";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { fetchGameInstructions } from 'reducers/game';
 
 const GameButton = styled.button`
   margin: 10px auto;
   width: 160px;
   letter-spacing: 2px;
   border-radius: 8px;
-  font-family: "Libre Baskerville", serif;
+  font-family: 'Libre Baskerville', serif;
   color: #ffc000;
   font-size: 18px;
   font-weight: 400;
@@ -54,22 +54,11 @@ const ArrowDown = styled.p`
 `;
 
 const Button = ({ item }) => {
-  const [isHovering, setIsHovering] = useState(false);
   const [isActive, setActive] = useState(false);
   const dispatch = useDispatch();
 
   const onToggleClass = () => {
     setActive(!isActive);
-  };
-
-  const handleMouseOver = () => {
-    setIsHovering(true);
-  };
-
-  console.log(isHovering);
-
-  const handleMouseOut = () => {
-    setIsHovering(false);
   };
 
   return (
@@ -78,8 +67,6 @@ const Button = ({ item }) => {
         onClick={() => {
           dispatch(fetchGameInstructions({ direction: item.direction }));
         }}
-        onMouseOver={() => handleMouseOver()}
-        onMouseOut={() => handleMouseOut()}
         key={item.description}
         onTouchEnd={() => {
           dispatch(fetchGameInstructions({ direction: item.direction }));
@@ -88,7 +75,6 @@ const Button = ({ item }) => {
         {item.type} {item.direction.toLowerCase()}
       </GameButton>
       <ArrowDown onClick={() => onToggleClass()}> &#8964;</ArrowDown>
-      {isHovering ? <QuestionBox>{item.description}</QuestionBox> : null}
       {isActive ? <QuestionBox>{item.description}</QuestionBox> : null}
     </>
   );

@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import background from '../assets/back.gif';
 import { useWindowSize } from '@react-hook/window-size';
+import bgMusic from '../assets/bgmusic.wav';
 
 const StartBox = styled.div`
   height: ${(props) => props.hgt}px;
@@ -105,6 +106,14 @@ export const StartPage = () => {
     onNameSubmit(name);
     dispatch(fetchGame(name));
     setName('');
+    startBgMusic();
+  };
+
+  let audio = new Audio(bgMusic);
+  const startBgMusic = (e) => {
+    audio.volume = 0.2;
+    // audio.loop = true;
+    audio.play();
   };
 
   return (
