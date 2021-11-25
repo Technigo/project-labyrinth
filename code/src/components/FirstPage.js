@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { game, gameStart } from '../reducers/game'
 import { GameStartPage } from 'components/GameStartPage'
 
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 export const FirstPage = () => {
   const dispatch = useDispatch()
@@ -27,6 +27,7 @@ export const FirstPage = () => {
   return (
     <>
       <FirstPageContainer>
+        <ContentWrapper>
         <HeaderWrapper>
           <h1 className="first-page-header">
             To begin the adventure enter your name.
@@ -47,6 +48,7 @@ export const FirstPage = () => {
             Start
           </button>
         </InputWrapper>
+        </ContentWrapper>
       </FirstPageContainer>
     </>
   )
@@ -65,11 +67,22 @@ const FirstPageContainer = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
 `
+const ContentWrapper = styled.div`
+ @media (min-width: 768px) {
+        height: 450px;
+        max-width: 500px;
+        text-align: center;
+        margin: 20px auto 0 auto;
+        display: block;
+        z-index: 0;
+    }
+`
 const InputWrapper = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  max-width: 500px;
 
   .submit-button {
     width: 50vw;
@@ -88,6 +101,10 @@ const InputWrapper = styled.div`
     outline: none;
     margin: 10px 100px 10px 100px;
     font-family: 'Special Elite', cursive;
+    @media (min-width: 768px) {
+       width: 20vw;
+       margin: 0 auto;
+    }
   }
 
   .input-field {
@@ -107,9 +124,17 @@ const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   margin: 70px 0px 0px 0px;
+  max-width: 500px;
+  @media (min-width: 768px) {
+        margin: 10px auto 0 auto; 
+        height: 20vw; 
+    }
 
   .first-page-header {
     text-align: center;
     padding: 20px;
+    @media (min-width: 768px) {
+        font-size: 50px;  
+    }
   }
 `

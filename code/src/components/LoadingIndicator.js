@@ -28,8 +28,8 @@ export const LoadingIndicator = () => {
       preserveAspectRatio: 'xMidYMid slice'
     }
   }
-  // animationData flatten replaces all colors with one color, #000000
-  // console.log(getColors(animationData));
+  // animationData flatten replaces all previous colors with one color, #000000
+
 
   return (
     <>

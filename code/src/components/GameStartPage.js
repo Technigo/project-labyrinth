@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 import { game, gamePlay } from '../reducers/game'
 import { Compass } from './Compass'
@@ -39,7 +39,6 @@ export const GameStartPage = () => {
                 </button>
               </div>
               {actions.length === 0 && (
-                // <h1>You have arrived!<h1/>
                 <button onClick={() => dispatch(game.actions.restart())}>
                   Restart game?
                 </button>
@@ -83,6 +82,14 @@ const ContentWrapper = styled.div`
   margin: 40px auto 0 auto;
   display: block;
   z-index: 0;
+  @media (min-width: 768px) {
+        height: 700px;
+        max-width: 500px;
+        text-align: center;
+        margin: 100px auto 0 auto;
+        display: block;
+        z-index: 0;
+    }
 `
 const HeaderWrapper = styled.div`
   background-color: rgba(255, 255, 255, 0.9);
@@ -91,6 +98,9 @@ const HeaderWrapper = styled.div`
     line-height: 1.2;
     margin: 0;
     margin-bottom: 15px;
+    @media (min-width: 768px) {
+        font-size: 40px;
+    }
   }
   h3 {
     font-size: 20px;
