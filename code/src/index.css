@@ -8,6 +8,10 @@ body {
 		sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	background: url(assets/room.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	height:100vh;
 }
 
 code {
@@ -15,32 +19,16 @@ code {
 		monospace;
 }
 
-/* Game.js */
-.main {
-	width: 80%;
-	max-width: 800px;
-	margin: 100px auto;
-	/* margin-top: 40px; */
-	text-align: center;
-	display: flex;
+h1 {
+	font-size: 1.5rem;
+}
+
+.direction-buttons {
+	display:flex;
 	flex-direction: column;
 }
 
-/* Labyrinth.js */
-/* .button-container {
-	display: flex;
-} */
 
-/* .direction-buttons {
-	display: flex;
-	flex-direction: column;
-	width: 50%;
-	height: 100%;
-	position: relative;
+@media only screen and (min-width:599px) {
+
 }
-
-.direction-buttons button {
-	max-width: 100px;
-	margin: 0 auto;
-	align-self: flex-end;
-} */

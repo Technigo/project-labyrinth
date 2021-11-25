@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import styled from 'styled-components';
 
 import { labyrinthSlice } from 'reducers/labyrinthSlice';
 import { Game } from 'components/Game';
@@ -13,10 +14,13 @@ const store = configureStore({ reducer });
 
 export const App = () => {
 	return (
-		// <main>
 		<Provider store={store}>
 			<Game />
+			<MadeBy>This game was made by Linnea Isebrink and Rebecca Blixt</MadeBy>
 		</Provider>
-		// </main>
 	);
 };
+
+const MadeBy = styled.p`
+text-align:center;
+color:white;`
