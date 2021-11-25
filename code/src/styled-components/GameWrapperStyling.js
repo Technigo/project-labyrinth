@@ -14,6 +14,7 @@ export const Wrapper = styled.section`
   justify-content: center;
   flex-direction: column;
   width: 70%;
+  height: auto;
   padding: 20px;
   text-align: center;
   color: #fff;
