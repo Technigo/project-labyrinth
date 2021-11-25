@@ -58,7 +58,7 @@
   height: 20vh;
   margin-top: -35px;
   padding: 5px 0px 0 5px;
-  font-size: clamp(16px, 4.5vw, 35px);
+  font-size: clamp(15px, 4vw, 35px);
   text-align: center;
 }
 
