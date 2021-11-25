@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { startThunk, actionThunk, game } from '../reducers/game'
 //import { Welcome } from './Welcome'
-//import { Endscreen } from './Endscreen'
+import { Endscreen } from './Endscreen'
 import { LoadingIndicator} from "./LoadingIndicator"
 import styled from "styled-components/macro"
 import {ui} from'../reducers/ui'
@@ -11,7 +11,7 @@ import {ui} from'../reducers/ui'
 const GameContainer = styled.section `
     display: flex;
     justify-content:center;`
-const Body = styled.div `
+const ActionContainer = styled.div `
     width: 70%;
     background-color: #1C362D;
     color: #23C757;
@@ -62,8 +62,10 @@ export const Game = () => {
 
     return (
         <GameContainer>
-       {loading && (
+            {loading && (
+            
             <LoadWrapper><LoadingIndicator/></LoadWrapper>)}
+            
             {showBeginning && (
                 <form onSubmit={() => onStart()}>
                     <input
@@ -78,8 +80,8 @@ export const Game = () => {
                 </form>
             )}
 
-            {!showBeginning && (
-                <Body>
+            {!showBeginning && !loading && (
+                <ActionContainer>
                     <ShortDesc>{gameInformation.description}</ShortDesc>
                     
                     {gameInformation.actions.map((action) => (
@@ -96,15 +98,12 @@ export const Game = () => {
 
 
                     ))}
-                    {/*{gameInformation.actions.length === 0 && (
-                        <div>
-                          Congratulations, you have made it!
-                        <button onClick={() => onAction()}> Press to re-start</button>
-                        </div>
-                        <Endscreen />
-                    )}*/}
+                    {gameInformation.actions.length === 0 && (
+                      
+                        <Endscreen/>
+                    )}
 
-                </Body>
+                </ActionContainer>
 
             )}
  
