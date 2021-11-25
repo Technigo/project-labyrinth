@@ -1,10 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { ui } from './ui'
-const initialState = {
-    username: '',
-    currentStep: {},
-    history: [],
-  }
 
 export const game = createSlice ({
     name: 'game',
