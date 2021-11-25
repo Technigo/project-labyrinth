@@ -24,8 +24,6 @@ export const StartPage = () => {
           <input type="text" required onChange={onInputChange} />
         </label>
         <button>🗿 Lets do the labyrinth!</button>
-        <h1>Look at the startPage.js</h1>
-        {/* Jag har jobbat "från botten och upp" dvs har lagt in taggar osv för att info skall kunna synas på en "forstättningssida", den heter Descrition, kanske inte det bästa namnet, men namnet är med tanke på att en ny descrition visas för varje ledtråd. Det saknas en onButtonCklick på den sidan. Sedan tycker jag att vi skall göra en mostvarande sida som Jennie gjorde på lektionen som sorterar när start sidan skall visas och när descrition skall visas. Mitt i allt detta bör vi göra någon sjysst funktion som gör att the loading animation visas när sidan laddar.  */}
       </form>
     </>
   );
