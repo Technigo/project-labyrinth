@@ -11,9 +11,6 @@ import { DirectionButtons } from './StyledComponents/DirectionButtons';
 
 import styled from 'styled-components';
 
-
-
-
 export const GamePage = () => {
   const dispatch = useDispatch();
   const gameStatus = useSelector(store => store.gamestate.currentChoice); //here is function for GamePage and the currentChoice after selection direction on previus question
@@ -55,14 +52,22 @@ export const GamePage = () => {
   )
 }
 
-const HeadText = styled.h2`
+
+const HeadText = styled.section`
+text-align: center;
+font-size: 22px;
+margin: auto auto;
 color: rgba(0,0,0,0.6);
+font-weight: bolder;
+padding: 20px 30px 30px 30px;
 text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
 `
 
-const Text = styled.h3`
+const Text = styled.section`
 justify-content: center;
 align-items: center;
+font-weight: bolder;
+font-size: 18px;
 color: rgba(0,0,0,0.6);
 text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
 `
