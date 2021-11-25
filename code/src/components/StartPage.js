@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { gamestate } from 'reducers/gamestate';
 import { fetchGameInstructions } from 'reducers/gamestate';
 import styled from 'styled-components';
+import music from '../assets/audio/maze-music.mp3';
 
 import { GameBackground } from './StyledComponents/GameBackground';
 
@@ -20,6 +21,16 @@ export const StartPage = () => {
 
     dispatch(fetchGameInstructions(username));
 
+  };
+
+  // const setUsername = (event) => {
+  //   username(event.target.value);
+  // };
+
+  let audio = new Audio(music);
+  const startMusic = () => {
+    audio.play();
+    audio.volume = 0.4;
   };
 
   return (
@@ -39,7 +50,18 @@ export const StartPage = () => {
           />
           </div>
         </Label>
-        <StartButton type="submit">Begin!</StartButton>
+        <StartButton 
+           type="button"
+           disabled={!username}
+           onClick={() => {
+            setUsername(username);
+            //  dispatch(fetchGame(username));
+             startMusic();
+           }}
+         >
+           Begin!
+        </StartButton>
+      
       </StartForm>
       </StartScreen>
       </GameBackground>
