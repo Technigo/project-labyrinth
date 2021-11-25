@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import background from '../assets/back.gif';
 import { useWindowSize } from '@react-hook/window-size';
-import bgMusic from '../assets/bgmusic.wav';
 
 const StartBox = styled.div`
   height: 100vh;
@@ -87,7 +86,7 @@ const StartBox = styled.div`
   }
 `;
 
-export const StartPage = () => {
+export const StartPage = ({ startBgMusic }) => {
   const [width, height] = useWindowSize();
   const [name, setName] = useState('');
   const dispatch = useDispatch();
@@ -109,12 +108,12 @@ export const StartPage = () => {
     startBgMusic();
   };
 
-  let audio = new Audio(bgMusic);
-  const startBgMusic = (e) => {
-    audio.volume = 0.2;
-    audio.loop = true;
-    audio.play();
-  };
+  //   let audio = new Audio(bgMusic);
+  //   const startBgMusic = () => {
+  //     audio.volume = 0.2;
+  //     audio.loop = true;
+  //     audio.play();
+  //   };
 
   return (
     <StartBox hgt={height} wid={width}>

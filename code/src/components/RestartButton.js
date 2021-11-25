@@ -26,11 +26,12 @@ const RestartBtn = styled.button`
   top: 3%;
   right: 10%;
 `;
-const RestartButton = () => {
+const RestartButton = ({ stopBgMusic }) => {
   const dispatch = useDispatch();
 
   const onNameSubmit = (name) => {
     dispatch(game.actions.setUserName(name));
+    stopBgMusic();
   };
 
   return (
