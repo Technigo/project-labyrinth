@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { fetchGameInstructions } from 'reducers/game';
-import scroll from '../assets/scroll.png';
 
 const GameButton = styled.button`
   margin: 10px auto;
@@ -94,7 +93,12 @@ const Button = ({ item }) => {
       >
         {item.type} {item.direction.toLowerCase()}
       </GameButton>
-      <ArrowDown onClick={() => onToggleClass()}> ⚜️</ArrowDown>
+      <ArrowDown onClick={() => onToggleClass()}>
+        {' '}
+        <span role='img' aria-label='img'>
+          ⚜️
+        </span>
+      </ArrowDown>
       {isActive ? (
         <QuestionBox>
           <p>{item.description}</p>
