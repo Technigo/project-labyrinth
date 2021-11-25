@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styled from 'styled-components';
 import { useWindowSize } from '@react-hook/window-size';
@@ -41,8 +41,12 @@ const GameBox = styled.div`
 
   .compassBox {
     position: absolute;
-    top: 10%;
+    top: 3%;
     left: 10%;
+
+    @media (min-width: 768px) {
+      top: 10%;
+    }
   }
 
   .typeBox {
@@ -52,8 +56,20 @@ const GameBox = styled.div`
 
   .react-typewriter-text-wrap {
     position: absolute;
-    top: 20%;
+    top: 14%;
     width: 70%;
+
+    @media (min-width: 768px) {
+      top: 20%;
+    }
+
+    .react-typewriter-text {
+      font-size: 23px;
+
+      @media (min-width: 768px) {
+        font-size: 2em;
+      }
+    }
   }
 `;
 
@@ -116,13 +132,14 @@ export const MainGame = () => {
             startDelay={1000}
             cursorColor='orange'
             text={description}
-            typeSpeed={30}
+            typeSpeed={50}
+            hideCursorAfterText={true}
           />
         ) : null}
 
         <GameStage />
       </DescriptionBox>
-      {gameList.actions.length === 0 && <Winner />}
+      {gameList.actions.length === 0 ? <Winner /> : null}
       <div className='compassBox'>
         <Compass />
       </div>
