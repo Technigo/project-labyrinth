@@ -1,0 +1,53 @@
+.DirictionContainer{
+
+text-align: left;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+font-size:clamp(14px,4vw,25px);
+text-align: center;
+width: 92vw;
+
+}
+
+
+
+.DirectionBtnContainer{
+  margin-top: 15px;
+width: 120px;
+display: flex;
+align-content: center;
+align-items: center;
+color: rgb(207, 229, 250);
+text-shadow: 1px 2px 2px rgb(60, 77, 105);
+font-weight: 700;
+
+
+}
+
+
+.DirectionBtn{
+
+    color: rgb(255, 255, 255);
+   text-shadow: 1px 1px  rgb(60, 77, 105);
+   border: none;
+     background-color: transparent;
+     font-size:clamp(14px,3vw,25px);
+   font-weight: 600;
+   font-family: "Pirata One", cursive;
+   transition: ease-in 0.2s;
+   width: 200px;
+   background-color: rgb(5, 3, 2);
+   border-radius: 15px;
+   }
+   
+   .DirectionBtn:hover{
+     color: rgba(211, 195, 156, 0.596);
+    
+   transform: scale(85%);
+   }
+  
+  
+    
+    

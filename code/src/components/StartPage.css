@@ -1,9 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Pirata+One&display=swap");
 
 .startPageContainer{
 
 background-color: beige;
 height: 100vh;
-
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -38,6 +38,7 @@ border: none;
 background-color: rgb(230, 240, 250);
 border-radius: 15px;
 max-width: 300px;
+font-family: "Pirata One", cursive;
 }
 .textInput:focus{
 
@@ -49,8 +50,8 @@ max-width: 300px;
 
 .OnclickTextOrBtn{
   margin-top: 15px;
-height: 50px;
-width: 120px;
+height: 100px;
+width: 170px;
 display: flex;
 align-content: center;
 align-items: center;
@@ -58,31 +59,119 @@ color: rgb(207, 229, 250);
 text-shadow: 1px 2px 2px rgb(60, 77, 105);
 font-weight: 700;
 
+
 }
 .textStartPage{
 
   color: rgb(239, 247, 255);
   white-space: nowrap;
-  font-size: 18px;
+  font-size:clamp(16px,3vw,25px);
+  color: rgba(245, 165, 35, 0.801);
   font-weight: 600;
-
+  font-family: "Pirata One", cursive;
+ margin-top: -50px;
 }
 
 .startPageBtn{
-  color: rgb(68, 94, 129);
+ color: rgba(28, 38, 51, 0.397);
 text-shadow: 1px 1px  rgb(60, 77, 105);
-  background-color: rgb(230, 240, 250);
- border-radius: 15px;
-  box-shadow: 1px 1px 1px 2px rgb(60, 77, 105);
-  border: none;
-  padding: 5px 15px;
-font-size: 13px;
+border: none;
+  background-color: transparent;
+font-size: 19px;
 font-weight: 600;
+font-family: "Pirata One", cursive;
 transition: ease-in 0.2s;
+width: 200px;
+
 }
 
 .startPageBtn:hover{
-  color: rgb(44,78,126);
-  background-color: rgb(182, 197, 211);
+  color: rgba(44, 78, 126, 0.596);
+ 
 transform: scale(85%);
+}
+
+/* Header */
+
+.StartPageHeader {
+  font-family: "Pirata One", cursive;
+  text-align: center;
+  height: 160px;
+  color: #999;
+  font-size:70px;
+  text-shadow: 1px 5px 2px rgb(48, 62, 85);
+}
+.StartPageHeader p {
+  height: 70px;
+  float: left;
+  margin-right: 0.3em;
+ 
+ 
+}
+.StartPageHeaderSection {
+  float: left;
+  overflow: hidden;
+  position: relative;
+  height: 90px;
+  top: 40px;
+  
+}
+.StartPageHeader .StartPageHeaderInner {
+  display: inline-block;
+  color: rgb(245,166,35);
+  position: relative;
+  white-space: nowrap;
+  top: 0;
+  left: 0;
+
+
+/*animation*/
+-webkit-animation:move 7s;
+   -moz-animation:move 7s;
+    -ms-animation:move 7s;
+     -o-animation:move 7s;
+        animation:move 7s;
+/*animation-iteration-count*/
+-webkit-animation-iteration-count:infinite;
+   -moz-animation-iteration-count:infinite;
+    -ms-animation-iteration-count:infinite;
+     -o-animation-iteration-count:infinite;
+        animation-iteration-count:infinite;
+/*animation-delay*/
+-webkit-animation-delay:1s;
+   -moz-animation-delay:1s;
+    -ms-animation-delay:1s;
+     -o-animation-delay:1s;
+        animation-delay:1s;
+}
+@keyframes move{
+0%  { top: 0px; }
+20% { top: -85px; }
+40% { top: -180px; }
+
+}
+
+@-webkit-keyframes move {
+  0%  { top: 0px; }
+  20% { top: -85px; }
+  40% { top: -160px; }
+}
+@-moz-keyframes move {
+  0%  { top: 0px; }
+  20% { top: -90px; }
+  40% { top: -180px; }
+    
+}
+@-o-keyframes move {
+  0%  { top: 0px; }
+  20% { top: -90px; }
+  40% { top: -180px; }
+  
+}
+@keyframes move {
+  0%  { top: 0px; }
+20% { top: -90px; }
+40% { top: -180px; }
+   
+   
 }

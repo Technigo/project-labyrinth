@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Pirata+One&display=swap");
+
+.GamePageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  width: 100vw;
+  height: 100vh;
+  color: rgb(48, 33, 10);
+  overflow: hidden;
+}
+
+.GamePageMapContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0 auto;
+  margin: 0 auto;
+ 
+  height: 60vh;
+  width: 98vw;
+}
+
+.GamePageContent {
+  height: 100vh;
+  width: 98vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: flex-start;
+}
+
+.GampePageMap {
+  position: absolute;
+  height: 65vh;
+  width: 98vw;
+  z-index: -1;
+}
+
+.animationBackground {
+  position: absolute;
+  z-index: -100;
+  width: 100%;
+  height: 100%;
+}
+
+.GamePageStory {
+  width: 95vw;
+  height: 20vh;
+  margin-top: -35px;
+  padding: 5px 0px 0 5px;
+  font-size: clamp(16px, 4.5vw, 35px);
+  text-align: center;
+}
+
+.GamePageCoordinates {
+  text-align: left;
+  padding: 5px 0px 0 5px;
+  font-size: clamp(12px, 3vw, 25px);
+}
+
+.GamePageItemContainer {
+  width: 95vw;
+  z-index: 1;
+  padding: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
+}
+
+.GamePageItem {
+  margin-top: 15px;
+
+  border-radius: 15px;
+  margin-right: 10px;
+}
+
+/* Direction map */
+
+.DirectionMap {
+  height: 30vh;
+  width: 100vw;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: -50px;
+}
+
+.GampePageMapBottom {
+  position: absolute;
+  height: 10vh;
+  width: 100vw;
+  z-index: -10;
+}
+
+.LoadingContent {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: -100px;
+  top: -100px;
+}
+
+.LoadingAnimation {
+  position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.map-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  width: 40%;
+  height: 80%;
+  background-color: blanchedalmond;
+  
+}
+
+.map-tile {
+  width: 100%;
+  height: 100%;
+  border: 3px solid #212529;
+}
+
+.black {
+  background-color: #8f8787;
+  
+}
+
+.white{
+
+
+
+}
+
+

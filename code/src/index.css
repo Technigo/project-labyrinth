@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap");
+
 @import url("https://fonts.googleapis.com/css2?family=Pirata+One&display=swap");
 * {
   margin: 0 auto;
@@ -12,10 +12,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-y: visible;
-  /* font-family: 'Jura', sans-serif; */
   font-family: "Pirata One", cursive;
   font-weight: 500;
   color: black;
+  background-color: black;
 }
 
 code {
@@ -25,4 +25,5 @@ code {
 
 .container {
   height: 100vh;
+  
 }
