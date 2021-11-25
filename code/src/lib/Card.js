@@ -57,7 +57,7 @@ const NextButton = styled.div`
   text-align: center;
 
   &:hover {
-    background-color: beige;
+    background-color: #8c8c8c;
   }
 `;
 

@@ -1,13 +1,10 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { useSelector } from "react-redux";
 
 import StartGame from "components/StartGame";
 import { game } from "./reducers/game";
 import { ui } from "./reducers/ui";
-import { Loading } from "components/Loading";
-import Card from "lib/Card";
 
 const reducer = combineReducers({
   game: game.reducer,
@@ -20,7 +17,6 @@ export const App = () => {
   return (
     <Provider store={store}>
       <StartGame />
-      {/* <Card /> */}
     </Provider>
   );
 };
