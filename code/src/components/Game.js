@@ -7,6 +7,9 @@ import { moveMaze } from "../reducers/maze"
 import Loader from "./Loader"
 import { Rayoflight } from "lib/svg"
 
+import Lottie from "react-lottie"
+import animationData from "../lib/end"
+
 /* import { NavButton } from "styling/styling" */
 
 // Styled components
@@ -27,6 +30,9 @@ const InfoDiv = styled.div`
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
+  display: flex;
+flex-direction: column;
+align-items: center;
 `
 
 const NavDiv = styled.div`
@@ -58,6 +64,31 @@ const TheEndDiv = styled.div`
   border-radius: 10px;
   margin-top: 20px;
 `
+const IconImg = styled.img`
+  max-height: 200px;
+  width: 50px;
+  margin-top: 10px;
+  /* animation: bounce 1s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    30% {
+      transform: translateY(-10px);
+    }
+    50% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  } */
+`
+
 
 // Game component
 const Game = () => {
@@ -100,27 +131,35 @@ const Game = () => {
         return "./assets/img1.svg"
 
       case "1,0":
-        return "./assets/pic1.svg"
+        return "./assets/img2.svg"
 
       case "1,1":
-        return "#C3EEEE"
+        return "./assets/img3.svg"
 
       case "0,1":
-        return "#F0D5EB"
+        return "./assets/img4.svg"
 
       case "0,2":
-        return "#BCC5A3"
+        return "./assets/img5.svg"
 
       case "0,3":
-        return "#C0D0EE"
+        return "./assets/img6.svg"
 
       case "1,3":
-        return "#EAC082"
+        return "./assets/img7.svg"
 
       default:
         return "#FADD57"
     }
   }
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },}
 
   const dispatch = useDispatch()
 
@@ -129,9 +168,10 @@ const Game = () => {
       {!userName ? (
         <Starter />
       ) : (
+        <>
         <GameContainer>
           <InfoDiv>
-            <img src={setIcon()}></img>
+            <IconImg src={setIcon()}></IconImg>
             <p>{data.description}</p>
             <p>Your coordinates are: {data.coordinates}</p>
 
@@ -156,7 +196,7 @@ const Game = () => {
                       dispatch(moveMaze(action.direction, action.type))
                     }
                   >
-                    {action.type} {action.direction}
+                    Move {action.direction}
                   </NavButton>
                 ))}
               </ButtonContainer>
@@ -164,16 +204,21 @@ const Game = () => {
           ) : (
             <TheEndDiv>
               <p>
-                You made it{" "}
+                You made it
                 <span role="img" aria-label="emoji">
                   &#127891;
                 </span>
               </p>
-              <Loader />
+              
+             
             </TheEndDiv>
           )}
+
         </GameContainer>
+        {(data.coordinates === "1,3" ) && (<Lottie options={defaultOptions} height={400} width={400} />)}
+        </>
       )}
+
     </AppMain>
   )
 }
