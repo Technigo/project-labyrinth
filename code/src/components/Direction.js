@@ -2,21 +2,13 @@ import React from "react";
 import { continueLabyrinth } from "reducers/Labyrinth";
 import { useDispatch } from "react-redux";
 import labyrinth from "reducers/Labyrinth";
-import Lottie from "react-lottie";
 
-import animationBtn from "../lotties/btn";
+
 
 export const Direction = ({ description, direction, setDirection }) => {
   const dispatch = useDispatch();
 
-  const defaultOptionsBtn = {
-    loop: true,
-    autoplay: true,
-    animationData:animationBtn,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
-    }
-  };
+
 
 
   const click = () => {

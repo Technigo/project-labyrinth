@@ -11,8 +11,8 @@ import animationDataWater from "../lotties/water";
 export const GamePage = () => {
   const labyrinth = useSelector((store) => store.labyrinth.location);
   const loading = useSelector((store) => store.ui.loading);
-  const username = useSelector((store) => store.labyrinth.username);
-  const [direction, setDirection] = useState("");
+ 
+  const [ setDirection] = useState("");
 
   const defaultOptions = {
     loop: true,
@@ -65,7 +65,7 @@ export const GamePage = () => {
           );
         } else {
           mapTiles.push(
-            
+
             <div></div>
           );
         }
@@ -145,7 +145,7 @@ export const GamePage = () => {
                     direction={item.direction}
                     key={item.description}
                     description={item.description}
-                    direction={item.direction}
+                    directions={item.direction}
                     setdDirection={setDirection}
                   />
                 </div>

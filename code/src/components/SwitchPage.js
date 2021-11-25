@@ -1,7 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { ui } from "reducers/ui";
-import { EndPage } from "./EndPage";
 import { GamePage } from "./GamePage";
 import { StartPage } from "./StartPage";
 
