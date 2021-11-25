@@ -9,7 +9,9 @@ export const Description = () => {
 
   const dispatch = useDispatch();
 
-  const onButtonClick = () => {};
+  const onButtonClick = (type, direction) => {
+    dispatch(fetchContinue(type, direction));
+  };
 
   const Actions = ({ description, type, direction }) => (
     <div>
@@ -23,7 +25,6 @@ export const Description = () => {
   return (
     <section>
       <h1>{description}</h1>
-
       {actions.length === 0 && <h3>Yay you made it out!</h3>}
 
       {actions.length > 0 &&
