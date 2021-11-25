@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { fetchGameInstructions } from 'reducers/game';
+import scroll from '../assets/scroll.png';
 
 const GameButton = styled.button`
   margin: 10px auto;
@@ -39,7 +40,7 @@ const GameButton = styled.button`
 
 const QuestionBox = styled.div`
   height: 30vh;
-  background-image: url(/static/media/scroll.233516b7.png);
+  background-image: url('${scroll}');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;

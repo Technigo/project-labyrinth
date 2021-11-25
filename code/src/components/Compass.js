@@ -13,9 +13,9 @@ const Compass = () => {
   };
 
   return (
-    <div>
+    <>
       <Lottie options={compassOption} height={100} width={100} />
-    </div>
+    </>
   );
 };
 
