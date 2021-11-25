@@ -36,8 +36,8 @@ export const UsernameScreen = () => {
         <UsernameButton
           disabled={usernameInvalid}
           style={{
-            color: usernameInvalid ? "lightgray" : "white",
-            borderBottomColor: usernameInvalid ? "lightgray" : "white",
+            color: usernameInvalid ? "#8d8d8d" : "#bacede",
+            borderBottomColor: usernameInvalid ? "#8d8d8d" : "#bacede",
           }}
           onClick={() => {
             console.log(username);
@@ -124,20 +124,22 @@ const UsernameButton = styled.button`
   background-color: transparent;
   padding: 10px;
   border: none;
-  color: white;
   border-bottom: 1px solid;
   font-size: 20px;
-  @media (min-width: 668px) and (max-width: 1024px) {
-    border-bottom: 2px solid;
-    font-size: 24px;
-  }
   @media (min-width: 1025px) {
     border-bottom: 2px solid;
-    font-size: 30px;
+    font-size: 25px;
+    margin-top: 10px;
     &:hover {
       cursor: pointer;
     }
   }
+`;
+
+const ItemWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0px;
 `;
 
 const UsernameInput = styled.input`

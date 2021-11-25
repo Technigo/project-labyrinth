@@ -21,3 +21,5 @@ Creating reducers was a new concept and this was a great oportunity to add diffe
 The filter for completed and uncompleted tasks was initially creating conflits when published on Netlify, but after changing it to the tasks file in the reducer, the conflits were solved
 
 # View it live
+
+https://zancotti-santos-the-labyrinth.netlify.app

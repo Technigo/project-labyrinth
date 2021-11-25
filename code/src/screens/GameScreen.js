@@ -170,7 +170,9 @@ const MoveButton = styled.button`
     font-size: 25px;
     margin-top: 10px;
     &:hover {
+      transition: all 500ms;
       cursor: pointer;
+      color: white;
     }
   }
 `;
@@ -214,16 +216,7 @@ const CongratulationText = styled.p`
 `;
 
 const RestartButton = styled(MoveButton)`
-  color: white;
-  border-bottom: 1px solid;
   width: 100%;
-  @media (min-width: 1025px) {
-    border-bottom: 2px solid;
-    font-size: 30px;
-    &:hover {
-      cursor: pointer;
-    }
-  }
 `;
 
 const OverviewButton = styled(RestartButton)``;

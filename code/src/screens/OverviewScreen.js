@@ -89,7 +89,9 @@ const RestartButton = styled.button`
     font-size: 25px;
     margin-top: 10px;
     &:hover {
+      transition: all 500ms;
       cursor: pointer;
+      color: white;
     }
   }
 `;
