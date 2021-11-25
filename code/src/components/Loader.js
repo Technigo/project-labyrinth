@@ -60,9 +60,3 @@ const Loader = () => {
 }
 
 export default Loader
-
-{/* <LoaderOverlay>
-<LoaderAnimation>
-    <AnimationItem/>
-</LoaderAnimation>
-</LoaderOverlay> */}
