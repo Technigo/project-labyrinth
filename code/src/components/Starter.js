@@ -8,18 +8,20 @@ import { startMaze } from "../reducers/maze"
 
 // Styled components
 
-const InputContainer = styled.div`
+const StartContainer = styled.div`
   max-width: 500px;
-  padding: 30px;
+  padding: 20px;
   background-color: rgba(255, 255, 255, 0.4);
-  border: 1px solid black;
   border-radius: 10px;
+  text-align: center;
 `
-
+const InputContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+`
 const StyledInput = styled.input`
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
-  max-width: 300px;
   width: 100%;
   height: 20px;
   padding: 10px;
@@ -27,11 +29,26 @@ const StyledInput = styled.input`
   border: none;
 `
 const NavButton = styled.button`
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
   background-color: lightblue;
   border: none;
   border-radius: 10px;
   width: 60px;
   padding: 10px;
+    &:hover{
+      transform: scale(1.1);
+    }
+`
+const TitleH = styled.h1`
+  font-weight: 500;
+`
+const TextP1 = styled.p`
+  font-size: 1.1rem;
+  font-weight: 500;
+`
+const TextP2 = styled.p`
+  font-style: italic;
 `
 
 // Starter component
@@ -53,22 +70,22 @@ export const Starter = () => {
   }
 
   return (
-    <InputContainer>
-      <h1>
+    <StartContainer>
+      <TitleH>
         Welcome to our amazing maze. See if you can find you way out of it.
-      </h1>
-      <p>Start with entering your name.</p>
-
-      <StyledInput
-        type="text"
-        value={userName}
-        placeholder="Enter your username here"
-        onChange={event => setUserName(event.target.value)}
-        onKeyDown={event => checkKey(event)}
-      />
-
-      <NavButton onClick={startGame}> Start </NavButton>
-      <p>Good luck</p>
-    </InputContainer>
+      </TitleH>
+      <TextP2>Start with entering your name.</TextP2>
+      <InputContainer>
+        <StyledInput
+          type="text"
+          value={userName}
+          /* placeholder="Enter your username here" */
+          onChange={event => setUserName(event.target.value)}
+          onKeyDown={event => checkKey(event)}
+        />
+        <NavButton onClick={startGame}> Start </NavButton>
+      </InputContainer>
+      <TextP1>Good luck!</TextP1>
+    </StartContainer>
   )
 }

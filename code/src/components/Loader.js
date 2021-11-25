@@ -18,6 +18,7 @@ const LoaderOverlay = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 99;
 `
 // const Rotate = keyframes`
 //     from{

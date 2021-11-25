@@ -19,9 +19,8 @@ const AppMain = styled.section`
 `
 const GameContainer = styled.section`
   max-width: 500px;
-  padding: 30px;
+  padding: 20px;
   background-color: rgba(255, 255, 255, 0.4);
-  border: 1px solid black;
   border-radius: 10px;
 `
 const InfoDiv = styled.div`
@@ -31,8 +30,12 @@ const InfoDiv = styled.div`
   border-radius: 10px;
   margin-bottom: 20px;
   display: flex;
-flex-direction: column;
-align-items: center;
+  flex-direction: column;
+  align-items: center;
+`
+const TextP = styled.p`
+  color: grey;
+  font-style: italic;
 `
 
 const NavDiv = styled.div`
@@ -42,6 +45,10 @@ const NavDiv = styled.div`
   border-radius: 10px;
   margin-bottom: 15px;
 `
+const NavTextSpan = styled.span`
+  font-size: 1.2rem;
+  font-weight: 700;
+`
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -49,13 +56,17 @@ const ButtonContainer = styled.div`
   text-align: center;
 `
 const NavButton = styled.button`
-  //   background-color: lightblue;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
   border: none;
   border-radius: 10px;
   max-width: 100px;
   padding: 10px;
   margin: 0 20px;
   opacity: 1;
+  &:hover{
+      transform: scale(1.1);
+    }
 `
 const TheEndDiv = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
@@ -63,11 +74,14 @@ const TheEndDiv = styled.div`
   padding: 20px;
   border-radius: 10px;
   margin-top: 20px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
 `
 const IconImg = styled.img`
   max-height: 200px;
   width: 50px;
-  margin-top: 10px;
+  margin: 20px 0;
   /* animation: bounce 1s;
   animation-timing-function: ease;
   animation-iteration-count: infinite;
@@ -173,7 +187,7 @@ const Game = () => {
           <InfoDiv>
             <IconImg src={setIcon()}></IconImg>
             <p>{data.description}</p>
-            <p>Your coordinates are: {data.coordinates}</p>
+            <TextP>Your coordinates are: {data.coordinates}</TextP>
 
             {/* <Rayoflight /> */}
           </InfoDiv>
@@ -183,7 +197,7 @@ const Game = () => {
               <NavDiv>
                 {data.actions.map(action => (
                   <p key={action.direction}>
-                    {action.direction} - {action.description}
+                    <NavTextSpan style={{ color: setBgColor() }}>{action.direction}</NavTextSpan> - {action.description} {/* HÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄR */}
                   </p>
                 ))}
               </NavDiv>
@@ -203,19 +217,16 @@ const Game = () => {
             </>
           ) : (
             <TheEndDiv>
+              {(data.coordinates === "1,3" ) && (<Lottie options={defaultOptions} height={200} width={400} />)}
               <p>
-                You made it
-                <span role="img" aria-label="emoji">
-                  &#127891;
-                </span>
+                You made it!
               </p>
-              
-             
+                     
             </TheEndDiv>
           )}
 
         </GameContainer>
-        {(data.coordinates === "1,3" ) && (<Lottie options={defaultOptions} height={400} width={400} />)}
+        
         </>
       )}
 
