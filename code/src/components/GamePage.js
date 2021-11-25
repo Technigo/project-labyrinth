@@ -57,10 +57,10 @@ const HeadText = styled.section`
 text-align: center;
 font-size: 22px;
 margin: auto auto;
-color: rgba(0,0,0,0.6);
+color: #323232;
 font-weight: 700;
 padding: 0px 30px 20px 30px;
-text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
+text-shadow: 5px 5px 15px #003300;
 @media (max-width: 768px) {
   margin-top: 40px;
   font-size: 16px;
@@ -72,9 +72,9 @@ justify-content: center;
 align-items: center;
 font-weight: 700;
 font-size: 18px;
-color: rgba(0,0,0,0.6);
+color: #323232;
 padding: 0px 30px 0px 30px;
-text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
+text-shadow: 5px 5px 15px #003300;
 @media (max-width: 768px) {
   font-size: 15px;
 }

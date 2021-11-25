@@ -55,6 +55,7 @@ max-width: 400px;
 const LoaderText = styled.p`
 text-align: center;
 color: #000;
+padding-top: 65px;
 font-size: 25px;
 font-weight: bolder;
 font-family: 'Philosopher', sans-serif;

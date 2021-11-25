@@ -24,9 +24,9 @@ export const TheEnd = () => {
       <GameBackground backgroundImage={"../assets/img/theend-image.jpg"}>
 
         <GameCard><HeadText>Congratulations {username}, you finished the game!</HeadText>
-          <HeadText>
+          <Text>
             {gameStatus.description}
-          </HeadText>
+          </Text>
 
           <RestartButton
             onClick={onRestartGame}>
@@ -39,6 +39,14 @@ export const TheEnd = () => {
 };
 
 const HeadText = styled.h2`
-color: rgba(0,0,0,0.6);
-text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
+margin-top: 120px;
+padding: 10px;
+color: white;
+text-shadow: 5px 5px 15px #003300;
+font-size: 18px;
+`
+const Text = styled.h3`
+color: white;
+text-shadow: 5px 5px 15px #003300;
+font-size: 18px;
 `
