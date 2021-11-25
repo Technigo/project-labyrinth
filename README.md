@@ -1,12 +1,10 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week we worked with Redux and used Thunks to get fetches from an API and also POST to the API. The brief was to build a game that navigated through a maze. We both hade to fetch data, post data and build our Redux store to make the user be able to play the game.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The challenge in this project was to piece together everything we've learnd about react and redux in one project. When you are learning step by step and focusing so hard on whats new it's sometimes hard to remember the things you already know. This was a very challenging but fun project.
 
 ## View it live
 
