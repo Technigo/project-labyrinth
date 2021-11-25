@@ -25,7 +25,6 @@ export const MainRender = () => {
         <>
           <PlayersName>{questName}'s quest</PlayersName>
           <MoveHistory />
-
           <QuestBody />
         </>
       )}

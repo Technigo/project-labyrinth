@@ -86,3 +86,8 @@ export const fetchNavigationData = ({ type, direction }) => {
       });
   };
 };
+
+export const selectLabyrinth = (state) => {
+  const rooms = state.quest.items.filter((item, index) => state.quest.items.findIndex((it) => it.coordinates === item.coordinates) === index);
+  return rooms;
+};
