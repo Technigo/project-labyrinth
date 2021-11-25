@@ -24,6 +24,7 @@ return (
         >
         Start Labyrinth-Game!
     </StartButton>
+    
     }
     <p>
         {labyrinth.description}
@@ -49,7 +50,6 @@ return (
         </div>    
         )) }
 
-        
     </div>
     
     </>
