@@ -11,6 +11,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+
   --font-color: #3f3e3e;
   font-family: "Roboto Condensed", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -36,24 +37,9 @@ body {
   justify-content: center;
 }
 
-.players-name {
-  position: fixed;
-  color: white;
-  top: 20px;
-  left: 20px;
-  font-size: 18px;
-  font-weight: 600;
-}
-
 @media (min-width: 768px) {
-  /* .app {
-    height: 100%;
-  } */
   .plus {
     width: 22px;
     height: 22px;
-  }
-  .players-name {
-    font-size: 22px;
   }
 }

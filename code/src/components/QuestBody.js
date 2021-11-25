@@ -1,26 +1,20 @@
 import React, { useEffect } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
 import { fetchInitialData, fetchNavigationData } from "../reducers/quest";
 import { LoadingIndicator } from "./LoadingIndicator";
 import { GameOver } from "./GameOver";
-import { quest } from "reducers/quest";
 import { useBackground } from "./useBackground";
-import { Container } from "./Container";
+import { Container, QuestDescription, NavInfoCard } from "./QuestCard";
+import { Btn } from "./GameOver";
 
 export const QuestBody = () => {
   const questMoves = useSelector((store) => store.quest.items);
-  // const player = useSelector((store) => store.quest.player);
   const isLoading = useSelector((store) => store.ui.loading);
 
   const currentQuest = questMoves[questMoves.length - 1];
   console.log("current quest", currentQuest);
   const currentCoordinates = currentQuest?.coordinates;
   const dispatch = useDispatch();
-
-  const onButtonClick = () => {
-    dispatch(quest.actions.resetGame());
-  };
 
   useBackground(currentCoordinates);
 
@@ -39,29 +33,33 @@ export const QuestBody = () => {
   return (
     <>
       <Container>
-        <p>{currentQuest.description}</p>
+        <QuestDescription>{currentQuest.description}</QuestDescription>
 
         {currentQuest.actions.map((action) => (
-          <div key={action.direction}>
+          <NavInfoCard alignSelf={"flex-start"} key={action.direction}>
             <p>{action.description}</p>
-            <button
+            <Btn
+              borderRadius={8}
+              width={86}
+              height={40}
+              marginTop={0}
+              widthMedia={120}
+              heighMedia={50}
+              marginTopMedia={20}
+              fontSize={14}
+              color={"#3f3e3e"}
+              borderColor={"#3f3e3e"}
+              borderColorHover={"#3f3e3e"}
+              colorHover={"#3f3e3e"}
+              fontMedia={20}
               onClick={() => {
                 dispatch(fetchNavigationData({ type: action.type, direction: action.direction }));
               }}
             >
               Go {action.direction}
-            </button>
-          </div>
+            </Btn>
+          </NavInfoCard>
         ))}
-        <p>
-          Current coordinates:
-          <span className="highlight" aria-label="decoration">
-            {" "}
-            {currentQuest.coordinates}
-          </span>
-        </p>
-
-        <button onClick={onButtonClick}>Play Again</button>
       </Container>
     </>
   );

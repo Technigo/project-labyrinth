@@ -7,6 +7,7 @@ import { QuestBody } from "./QuestBody";
 import { LandingPage } from "./LandingPage";
 import { Opps } from "components/Opps";
 import { MoveHistory } from "./MoveHistory";
+import { PlayersName } from "./MainRenderStyling";
 
 export const MainRender = () => {
   const questName = useSelector((state) => state.quest.player);
@@ -22,9 +23,10 @@ export const MainRender = () => {
         <LandingPage />
       ) : (
         <>
-          <div className="players-name">{questName}'s quest</div>
-          <QuestBody />
+          <PlayersName>{questName}'s quest</PlayersName>
           <MoveHistory />
+
+          <QuestBody />
         </>
       )}
     </>

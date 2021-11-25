@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { quest } from "reducers/quest";
 import styled from "styled-components/macro";
 import plus from "../assets/black-plus.svg";
-import start from "../assets/ssstart.jpg";
+import start from "../assets/cosmos.jpg";
 
 const Input = styled.input`
   height: ${(props) => props.height}px;
@@ -12,11 +12,12 @@ const Input = styled.input`
   outline: none;
   border: transparent;
   text-decoration: none;
-  border-radius: 30px;
-  color: white;
+  border-radius: 20px;
+  color: goldenrod;
   font-size: 16px;
   padding: 4px;
   margin-left: 10px;
+  font-weight: bolder;
   background-color: transparent;
 
   @media (min-width: 768px) {
@@ -52,23 +53,24 @@ const InputWrapper = styled.div`
   justify-self: center;
   flex-direction: row;
   border: 2px solid white;
-  border-radius: 30px;
+  border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(10px);
-  filter: hue-rotate(-73deg);
+  filter: hue-rotate(-20deg);
 `;
 
 const PopUp = styled.div`
   margin-top: 16px;
   display: flex;
-  color: white;
+  color: #3f3e3e;
   align-items: center;
   justify-content: center;
   flex-direction: row;
   text-align: center;
   font-weight: 700;
+  font-size: 16px;
   @media (min-width: 768px) {
-    font-size: 22px;
+    font-size: 26px;
     margin-top: 50px;
   }
 `;
@@ -80,13 +82,32 @@ const FormWrapper = styled.div`
   flex-direction: column;
 `;
 
-const WelcomeHeader = styled.h1`
+export const Header = styled.h1`
   font-family: "Bebas Neue", cursive;
-  margin-bottom: 40px;
+  margin-bottom: ${(props) => props.marginBottom}px;
   color: white;
+  font-size: 30px;
   @media (min-width: 768px) {
     font-size: 56px;
     margin-bottom: 50px;
+  }
+`;
+
+export const LandingContainer = styled.section`
+  display: flex;
+  max-height: 300px;
+  height: 250px;
+  flex-direction: column;
+  width: 300px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  @media (min-width: 768px) {
+    width: 600px;
+    padding: 40px;
+    max-height: 600px;
+    height: ${(props) => props.heightMedia}px;
   }
 `;
 
@@ -105,18 +126,20 @@ export const LandingPage = () => {
   };
 
   return (
-    <FormWrapper>
-      <form onSubmit={(e) => createHeroName(e)}>
-        <WelcomeHeader>Start your adventure!</WelcomeHeader>
-        <InputWrapper>
-          <Input height={30} width={218} type="text" placeholder="type your name" onChange={(e) => setName(e.target.value)}></Input>
-          <InputBtn height={40} width={40} type="submit">
-            {" "}
-            <img className="plus" src={plus} alt="plus" area-label="plus"></img>{" "}
-          </InputBtn>
-        </InputWrapper>
-        {error && <PopUp>please fill in your hero name</PopUp>}
-      </form>
-    </FormWrapper>
+    <LandingContainer heightMedia={400}>
+      <FormWrapper>
+        <form onSubmit={(e) => createHeroName(e)}>
+          <Header marginBottom={40}>Start your adventure!</Header>
+          <InputWrapper>
+            <Input height={30} width={218} type="text" placeholder="type your name" onChange={(e) => setName(e.target.value)}></Input>
+            <InputBtn height={40} width={40} type="submit">
+              {" "}
+              <img className="plus" src={plus} alt="plus" area-label="plus"></img>{" "}
+            </InputBtn>
+          </InputWrapper>
+          {error && <PopUp>please fill in your hero name</PopUp>}
+        </form>
+      </FormWrapper>
+    </LandingContainer>
   );
 };

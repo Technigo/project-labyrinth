@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { HistoryBtnWrapper, HistoryBtn, HistoryItemsContainer } from "./MainRenderStyling";
 
 const Move = ({ move, direction }) => {
   return (
-    <div style={{ border: "1px solid #eee" }}>
+    <div style={{ borderBottom: "1px solid #3f3e3e", padding: "10px", marginTop: "10px" }}>
       <div>coordinates: {move.coordinates}</div>
       <p>{move.description}</p>
       <p>chosen path: {direction}</p>
@@ -31,21 +32,21 @@ export const MoveHistory = () => {
 
   if (toggle === false) {
     return (
-      <div>
-        <button onClick={onHistoryButtonClick}>History</button>
-      </div>
+      <HistoryBtnWrapper>
+        <HistoryBtn onClick={onHistoryButtonClick}>History</HistoryBtn>
+      </HistoryBtnWrapper>
     );
   } else if (toggle === true) {
     return (
       <>
-        <div>
-          <button onClick={onHistoryButtonClick}>History</button>
-        </div>
-        <div>
+        <HistoryBtnWrapper>
+          <HistoryBtn onClick={onHistoryButtonClick}>History</HistoryBtn>
+        </HistoryBtnWrapper>
+        <HistoryItemsContainer>
           {moves.map((move, i) => (
             <Move key={i} move={move} direction={movementHistory[i]} />
           ))}
-        </div>
+        </HistoryItemsContainer>
       </>
     );
   }

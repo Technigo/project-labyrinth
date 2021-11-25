@@ -3,9 +3,9 @@ import { useEffect } from "react";
 // import bg pics
 import arch from "../assets/path1.jpg";
 import colorful from "../assets/road.jpg";
-import end from "../assets/space.jpg";
-import lights from "../assets/b3.jpg";
-import mechanic from "../assets/cooper.jpg";
+import end from "../assets/cosmos.jpg";
+import lights from "../assets/bridge.jpg";
+import mechanic from "../assets/pix.jpg";
 import melody from "../assets/wall.jpg";
 import paper from "../assets/books.jpg";
 
