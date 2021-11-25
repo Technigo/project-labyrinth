@@ -218,7 +218,7 @@ style={{
   height:'30vh',
         width:'96vw',   
   position: 'absolute',
-
+  
 }}
 />
 
