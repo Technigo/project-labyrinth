@@ -18,27 +18,30 @@ color: #fff;
 font-family: 'Philosopher', sans-serif;
 @media (max-width: 768px) {
     max-height: 500px;
-}
 
-& h2{
+}
+& h2 { 
 text-align: center;
-font-size: 20px;
+font-size: 22px;
 margin: auto auto;
 color: #fff;
 font-weight: bolder;
-padding: 20px 15px 30px 15px;
+padding: 20px 30px 30px 30px;
 @media (max-width: 768px) {
 font-size: 19px;
 }
 
-& div{
+& h3 { 
 text-align: center;
-font-size: 17px;
+font-size: 45px;
 margin: auto auto;
 color: #fff;
-font-weight: 600;
-padding: 20px 10px 30px 10px;
+font-weight: bolder;
+padding: 20px 30px 30px 30px;
 @media (max-width: 768px) {
-font-size: 16px;
-}}}
+font-size: 19px;
+}
+
+}
+}
 `

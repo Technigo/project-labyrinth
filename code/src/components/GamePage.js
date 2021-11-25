@@ -34,7 +34,7 @@ export const GamePage = () => {
           <h2>{gameStatus.description}</h2>
 
           {gameStatus.actions && gameStatus.actions.map((item, index) => ( //&& check if gameStatus is undefined. if false don't go further in game.
-            <div key={index}>
+            <h3 key={index}>
               {item.description}
 
               <DirectionButtons
@@ -42,8 +42,7 @@ export const GamePage = () => {
                 onClick={(event) => onChooseDirection(event)}>
                 Go {item.direction}
               </DirectionButtons>
-
-            </div>
+            </h3>
           ))}
 
           <RestartButton
