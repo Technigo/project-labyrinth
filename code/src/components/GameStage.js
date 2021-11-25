@@ -5,16 +5,18 @@ import styled from 'styled-components';
 
 const TextBox = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 85%;
   height: auto;
   padding: 1em;
-  margin-top: 50%;
+  position: absolute;
+  top: 50%;
 
   @media (min-width: 768px) {
     flex-direction: row;
+    height: 10vh;
   }
 
   .step-container {
@@ -25,7 +27,6 @@ const TextBox = styled.div`
     border-radius: 5px;
     align-items: center;
     width: 70%;
-    height: 50vh;
   }
 `;
 

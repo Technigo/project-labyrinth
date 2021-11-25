@@ -21,8 +21,8 @@ import back from '../assets/back.gif';
 import TypeWriterEffect from 'react-typewriter-effect';
 
 const GameBox = styled.div`
-  height: ${(props) => props.hgt}px;
-  width: ${(props) => props.wid}px;
+  height: 100vh;
+  width: 100vw;
   background-image: url(${(props) => props.bg});
   background-repeat: no-repeat;
   background-position: center;
@@ -39,6 +39,17 @@ const GameBox = styled.div`
     position: absolute;
     top: 10%;
     left: 10%;
+  }
+
+  .typeBox {
+    margin-bottom: 20rem;
+    z-index: 5;
+  }
+
+  .react-typewriter-text-wrap {
+    position: absolute;
+    top: 20%;
+    width: 70%;
   }
 `;
 

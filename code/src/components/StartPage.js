@@ -7,8 +7,8 @@ import { useWindowSize } from '@react-hook/window-size';
 import bgMusic from '../assets/bgmusic.wav';
 
 const StartBox = styled.div`
-  height: ${(props) => props.hgt}px;
-  width: ${(props) => props.wid}px;
+  height: 100vh;
+  width: 100vw;
   background-image: url(${background});
   background-no-repeat: no-repeat;
   background-position: center;
@@ -112,7 +112,7 @@ export const StartPage = () => {
   let audio = new Audio(bgMusic);
   const startBgMusic = (e) => {
     audio.volume = 0.2;
-    // audio.loop = true;
+    audio.loop = true;
     audio.play();
   };
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { fetchGameInstructions } from 'reducers/game';
+import scroll from '../assets/scroll.png';
 
 const GameButton = styled.button`
   margin: 10px auto;
@@ -38,13 +39,32 @@ const GameButton = styled.button`
 `;
 
 const QuestionBox = styled.div`
-  height: 100px;
-  width: 200px;
+  height: 30vh;
+  background-image: url(/static/media/scroll.233516b7.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 92%;
 
   p {
-    font-size: 20px;
-    color: white;
+    font-size: 16px;
+    color: black;
+    width: 48%;
+
+	@media (min-width: 768px) {
+		width: 28%;
+	})
+
+	@media (min-width: 1366px) {
+		width: 20%;
+	})
+	
   }
+
 `;
 const ArrowDown = styled.p`
   font-size: 40px;
@@ -74,8 +94,12 @@ const Button = ({ item }) => {
       >
         {item.type} {item.direction.toLowerCase()}
       </GameButton>
-      <ArrowDown onClick={() => onToggleClass()}> &#8964;</ArrowDown>
-      {isActive ? <QuestionBox>{item.description}</QuestionBox> : null}
+      <ArrowDown onClick={() => onToggleClass()}> ⚜️</ArrowDown>
+      {isActive ? (
+        <QuestionBox>
+          <p>{item.description}</p>
+        </QuestionBox>
+      ) : null}
     </>
   );
 };
