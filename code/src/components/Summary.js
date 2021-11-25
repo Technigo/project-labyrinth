@@ -28,7 +28,7 @@ const Summary = ({ description }) => {
                 height={200}
                 width={300}
             />
-            <SummeryDescription>{description}</SummeryDescription>
+            <SummaryDescription>{description}</SummaryDescription>
             <HistoryContainer>
                 <HistoryPath>  This is the path that you took:</HistoryPath>
                 {history.map((item, index) => (
@@ -71,10 +71,11 @@ const HeadersSummery = styled.h3`
     margin:10px;
     @media (min-width:768px) {
        font-size:40px; 
+       margin: 20px;
     }
     
 `
-const SummeryDescription = styled.div`
+const SummaryDescription = styled.div`
     padding: 15px;
     display: flex;
     font-family: 'Roboto', sans-serif;
@@ -84,8 +85,9 @@ const SummeryDescription = styled.div`
     margin: 8px;
     min-width: 300px;
     @media (min-width:768px) {
-        font-size:30px;  
+        font-size:28px;  
         font-family: 'Alegreya', serif;
+        max-width: 1000px;
     }
 `
 const RestartButton = styled.button`
