@@ -149,7 +149,23 @@ style={{
         
 
         <section className="DirectionMap">
-     
+         
+<div className="map-grid">
+<Lottie 
+className="LottiMap"
+options={defaultOptionsWater}
+style={{ 
+
+  height:'30vh',
+        width:'96vw',   
+  position: 'absolute',
+
+}}
+/>
+
+          {createMapTiles()}
+         
+        </div>
 
 
 
