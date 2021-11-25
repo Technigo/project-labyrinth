@@ -13,8 +13,10 @@ const Container = styled.div`
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   border-radius: 6px;
   background-color: rgb(171, 236, 243);
-  margin: 10px;
-padding-top: 15px;
+  margin-top: 60px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding-top: 15px;
   padding-right: 10px;
   padding-bottom: 15px;
   padding-left: 10px;
@@ -32,6 +34,12 @@ const FormWrapper = styled.form`
   flex-direction: column;
 `;
 
+const LabelWrapper = styled.label`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const StartText = styled.p`
   font-family: "Lobster Two", cursive;
   font-size: 1.5em;
@@ -46,6 +54,7 @@ const TextInput = styled.input`
 `;
 
 const SubmitButton = styled.button`
+width: fit-content;
 padding 10px;
 box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
@@ -70,11 +79,11 @@ export const StartGame = () => {
       <StartTitle>Are you ready for an adventure?</StartTitle>
 
       <FormWrapper onSubmit={handleSubmit}>
-        <label>
+        <LabelWrapper>
           <StartText>Please enter your name:</StartText>
           <TextInput type="text" required onChange={handleInputChange} />
           <SubmitButton type="submit">START GAME</SubmitButton>
-        </label>
+        </LabelWrapper>
       </FormWrapper>
     </Container>
   );

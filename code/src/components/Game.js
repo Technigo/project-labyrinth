@@ -3,17 +3,17 @@ import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 
 import { continueGame } from "../reducers/game";
+import { EndPage } from "./EndPage";
 
 const GameContainer = styled.div`
-display: flex;
-flex-direction: column;
-justify-content; center; 
-text-align: center; 
-margin: 10px;
-padding-top: 15px;
-padding-right: 10px;
-padding-bottom: 15px;
-padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 10px;
+  padding-top: 15px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+  padding-left: 10px;
 `;
 
 const CoordinatesText = styled.p`
@@ -30,18 +30,17 @@ const HeadText = styled.h1`
 
 //ActionCard styling
 const CardContainer = styled.div`
-display: flex;
-flex-direction: column;
-justify-content; center; 
-text-align: center; 
-box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-  0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-border-radius: 6px;
-margin: 10px;
-padding-top: 15px;
-padding-right: 10px;
-padding-bottom: 15px;
-padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  margin: 10px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+  padding-left: 10px;
 `;
 
 const DescText = styled.p`
@@ -50,6 +49,7 @@ const DescText = styled.p`
 `;
 
 const SubmitButton = styled.button`
+width: fit-content;
 padding 10px;
 box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
@@ -83,7 +83,7 @@ export const Game = () => {
       case "1,3":
         return "rgb(114, 168, 216)";
       default:
-        return "honeydew";
+        return "white";
     }
   };
 
@@ -101,7 +101,7 @@ export const Game = () => {
       <GameContainer>
         <CoordinatesText>Coordinates: {coordinates}</CoordinatesText>
         <HeadText>{description}</HeadText>
-        {actions.length === 0 && <h3>Yay, you made it out!</h3>}
+        {actions.length === 0 && <EndPage />}
         {actions.length > 0 &&
           actions.map((item) => <ActionCard key={item.direction} {...item} />)}
       </GameContainer>
