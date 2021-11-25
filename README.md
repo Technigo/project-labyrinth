@@ -1,12 +1,16 @@
 # Project Labyrinth
 
+Short text quest made with React & Redux and fetching API with Thunks.
+
 ## Tech Stack: React & Redux, JSX, API, CSS
 
 ## Cool Features :
 
-- Lottie animations
+- Implemented Lottie animation
 
 ## View it live
+
+https://mary-snopok-text-quest.netlify.app/
 
 ## Attribution
 
