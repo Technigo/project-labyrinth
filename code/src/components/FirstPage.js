@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { game, gameStart } from '../reducers/game'
-
 import { GameStartPage } from 'components/GameStartPage'
 
 import styled from 'styled-components'
@@ -24,6 +23,7 @@ const InputWrapper = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  text-align: center;
 
   .submit-button {
     width: 50vw;
@@ -45,7 +45,6 @@ const InputWrapper = styled.div`
   }
 
   .input-field {
-    // width: 250px;
     background: #fff;
     color: $input-text-color;
     font: inherit;
@@ -56,31 +55,17 @@ const InputWrapper = styled.div`
     margin: 20px;
   }
 `
-// const BackgroundStyled = styled.div`
-  /* height: 100vh;
-  /* position: fixed; */
-  /* z-index: -1;
-  display: flex;
-  justify-content: center;
-  background-image: url('/assets/background.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; */ 
-// `
 
 const HeaderWrapper = styled.div`
-  // width: 98vw;
   height: 50vw;
   display: flex;
   align-items: center;
   margin: 70px 0px 0px 0px;
-  // justify-content: start;
-
+  
 
   .first-page-header {
     text-align: center;
     padding: 20px;
-    /* margin: 100px 10px 50px 10px; */
   }
 `
 
@@ -101,7 +86,6 @@ export const FirstPage = () => {
   return (
     <>
       <FirstPageContainer>
-        {/* <BackgroundStyled></BackgroundStyled> */}
         <HeaderWrapper>
           <h1 className="first-page-header">
             To begin the adventure enter your name.
