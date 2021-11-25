@@ -2,7 +2,7 @@ import React from "react"
 import { labyrinth, continueLabyrinth } from "reducers/labyrinth"
 import { useSelector, useDispatch } from "react-redux"
 import styled from "styled-components"
-
+import { Loader } from "./Loader"
 // import { GameStart } from "./GameStart"
 
 export const MainPage = () => {
@@ -11,7 +11,7 @@ export const MainPage = () => {
   // const { coordinates, actions } = useSelector(
   //   (state) => state.labyrinth.response.actions
   // )
-
+  const coordinates = useSelector((state) => state.labyrinth.coordinates)
   const actions = useSelector((state) => state.labyrinth.response.actions)
 
   const dispatch = useDispatch()
@@ -37,55 +37,50 @@ export const MainPage = () => {
     text-align: center;
     justify-content: center;
     margin: auto 0;
+    padding-top: 200px;
   `
 
-  // const setBgColor = () => {
-  //   let bg = "pink"
-  //   switch (coordinates) {
-  //     case "0,0":
-  //       bg = "red"
-  //       break
-  //     case "1,0":
-  //       bg = "green"
-  //       break
-  //     case "1,1":
-  //       bg = "blue"
-  //       break
-  //     case "0,1":
-  //       bg = "yellow"
-  //       break
-  //     case "0,2":
-  //       bg = "orange"
-  //       break
-  //     case "0,3":
-  //       bg = "brown"
-  //       break
-  //     case "1,3":
-  //       bg = "purple"
-  //       break
-  //     default:
-  //       bg = "peachypuff"
-  //   }
-  //   return bg
-  // }
+  const TextCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.25);
+    width: 60%;
+  `
 
-  //another way of doing it:
-  // const colorDictionary = {
-  //   "0,0": "red",
-  //   "1,0": "pink",
-  //   "1,1": "blue",
-  //   "0,1": "yellow",
-  //   "0,2": "purple",
-  //   "0,3": "green",
-  //   "1,3": "orange",
-  // }
+  const colorDictionary = {
+    "0,0":
+      "url(https://images.pexels.com/photos/2877375/pexels-photo-2877375.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "1,0":
+      "url(https://images.pexels.com/photos/3978594/pexels-photo-3978594.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)",
+    "1,1":
+      "url(https://images.pexels.com/photos/45839/antelope-canyon-arizona-sandstone-rock-45839.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)",
+    "0,1":
+      "url(https://images.unsplash.com/photo-1460302293840-dc1a23a7b226?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)",
+    "0,2":
+      "url(https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80)",
+    "0,3":
+      "url(https://images.pexels.com/photos/256477/pexels-photo-256477.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500)",
+    "1,3":
+      "url(https://images.unsplash.com/photo-1509114397022-ed747cca3f65?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80)",
+  }
+
   return (
-    // loading === false &&  dont need this line since loading has its own logic inside the component
+    // loading === false &&
     <>
-      <MainWrapper>
-        <h1>{response.description}</h1>
-        {response.coordinates !== undefined && (
-          <>
+      <Loader />
+
+      <MainWrapper
+        style={{
+          backgroundImage: colorDictionary[coordinates],
+        }}
+      >
+        <TextCard>
+          <h1>{response.description}</h1>
+          {response.coordinates !== undefined && (
             <div>
               {actions.map((action) => (
                 <div key={action.description}>
@@ -98,12 +93,12 @@ export const MainPage = () => {
                 </div>
               ))}
             </div>
-          </>
-        )}
+          )}
 
-        {response.coordinates === "1,3" && (
-          <button onClick={() => handleRestartButton()}> RESTART </button>
-        )}
+          {response.coordinates === "1,3" && (
+            <button onClick={() => handleRestartButton()}> RESTART </button>
+          )}
+        </TextCard>
       </MainWrapper>
     </>
   )
