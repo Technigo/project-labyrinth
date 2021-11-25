@@ -21,7 +21,8 @@ const CoordinatesText = styled.p`
 `;
 
 const HeadText = styled.h1`
-  font-size: 1em;
+  font-family: "Lobster Two", cursive;
+  font-size: 1.5em;
   @media (min-width: 1024px) {
     font-size: 2em;
   }
@@ -36,7 +37,6 @@ text-align: center;
 box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
   0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 border-radius: 6px;
-background-color: rgb(171, 236, 243);
 margin: 10px;
 padding-top: 15px;
 padding-right: 10px;
@@ -45,7 +45,7 @@ padding-left: 10px;
 `;
 
 const DescText = styled.p`
-  font-family: Roboto;
+  font-family: "Play", sans-serif;
   font-size: 16px;
 `;
 
@@ -68,8 +68,27 @@ export const Game = () => {
     dispatch(continueGame(type, direction));
   };
 
+  const handleColorSwitch = () => {
+    switch (coordinates) {
+      case "1,0":
+        return "rgb(195, 168, 235)";
+      case "1,1":
+        return "rgb(114, 168, 216)";
+      case "0,1":
+        return "rgb(195, 168, 235)";
+      case "0,2":
+        return "rgb(114, 168, 216)";
+      case "0,3":
+        return "rgb(195, 168, 235)";
+      case "1,3":
+        return "rgb(114, 168, 216)";
+      default:
+        return "honeydew";
+    }
+  };
+
   const ActionCard = ({ description, type, direction }) => (
-    <CardContainer>
+    <CardContainer style={{ background: handleColorSwitch() }}>
       <DescText>{description}</DescText>
       <SubmitButton onClick={() => handleButtonClick(type, direction)}>
         {type} {direction.toLowerCase()}

@@ -33,10 +33,14 @@ const FormWrapper = styled.form`
 `;
 
 const StartText = styled.p`
-  font-size: 0.7em;
+  font-family: "Lobster Two", cursive;
+  font-size: 1.5em;
 `;
 
 const TextInput = styled.input`
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
   padding: 10px;
   margin: 10px;
 `;

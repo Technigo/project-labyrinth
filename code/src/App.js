@@ -19,8 +19,8 @@ const store = configureStore({ reducer });
 export const App = () => {
   return (
     <Provider store={store}>
-      <Main />
       <LoadingIndicator />
+      <Main />
     </Provider>
   );
 };
