@@ -68,11 +68,13 @@ const Button = ({ item }) => {
   return (
     <Box>
       <GameButton
+        onClick={() => {
+          dispatch(fetchGameInstructions({ direction: item.direction }));
+        }}
         onMouseOver={() => handleMouseOver()}
         onMouseOut={() => handleMouseOut()}
         key={item.description}
-        type='submit'
-        onClick={() => {
+        onTouchEnd={() => {
           dispatch(fetchGameInstructions({ direction: item.direction }));
         }}
       >
