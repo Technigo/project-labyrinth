@@ -65,9 +65,8 @@ export const GamePage = () => {
           );
         } else {
           mapTiles.push(
-            <div
-              className={`map-tile ${mapTilesArray[i][j] ? "white" : "black"}`}
-            ></div>
+            
+            <div></div>
           );
         }
       }
