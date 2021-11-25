@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { nextStep, game } from "../reducers/game";
 
-// datan hämtas från slicen här, slicen är game och currentposition är från initialstate
+// data is collected from the slice (game) with currentposition from the initialstate.
 export const Labyrinth = () => {
   const { description, coordinates, actions } = useSelector(
     (store) => store.game.currentPosition
@@ -15,7 +15,7 @@ export const Labyrinth = () => {
     dispatch(nextStep(type, direction));
   };
 
-  // här byter vi direction eftersom logiken va crap. Actioncard är en component.
+  // changed the logic of direction to the opposite, to match our css grid
   const ActionCard = ({ description, type, direction }) => {
     let directionName = direction;
     if (direction === "North") {
@@ -23,9 +23,9 @@ export const Labyrinth = () => {
     } else if (direction === "South") {
       directionName = "North";
     }
-
+    // direction-buttons here
     return (
-      <div className="action-card">
+      <div className="actionCard">
         <p>{description}</p>
         <button onClick={() => handleButtonClick(type, direction)}>
           {type} {directionName.toLowerCase()}
@@ -33,16 +33,16 @@ export const Labyrinth = () => {
       </div>
     );
   };
-
+  // If the possible actions is only 1 (0), the user has made it out. If there are more than 1 (0) possible actions, display the actioncard featuring the content of the labyrinth
   return (
     <section className="labyrinth">
-      <h1>{description}</h1>
+      <h3>{description}</h3>
       {actions.length === 0 && <h3>Yay you made it out!</h3>}
       {actions.length > 0 &&
         actions.map((item) => <ActionCard key={item.direction} {...item} />)}
 
-      {/* om coordinates matchar strängen med coordinates, så blir tilen aktiv */}
       <div className="grid">
+        {/* if coordinates match the string coordinates, the tile will be the active class */}
         <div className="row">
           <div
             className={`tile ${coordinates === "0,0" ? "active-tile" : ""}`}

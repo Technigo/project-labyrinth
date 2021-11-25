@@ -9,8 +9,8 @@ export const Game = () => {
 
   return (
     <>
-      {currentPosition ? <Labyrinth /> : <Start />}
       <LoadingIndicator />
+      {currentPosition ? <Labyrinth /> : <Start />}
     </>
   );
 };

@@ -18,13 +18,19 @@ export const Start = () => {
 
   return (
     <>
-      <h1>Want to enter the labyrinth!?</h1>
+      <h1>It's a maze.... ing</h1>
+      <h2>¯\_(ツ)_/¯</h2>
 
       {/* Remember to use a form tag and the onSubmit event to handle enter clicks AND button clicks in one go */}
       <form onSubmit={handleSubmit}>
         <label>
           Username:
-          <input type="text" required onChange={handleInputChange} />
+          <input
+            type="text"
+            required
+            placeholder="type your name"
+            onChange={handleInputChange}
+          />
         </label>
         <button className="startGameButton" type="submit">
           Start game!
