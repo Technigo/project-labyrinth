@@ -18,10 +18,10 @@ const Div = styled.div`
 	justify-content: center;
 `;
 
-const Text = styled.p`
+const Text = styled.p`	
 	color: #ffffff;
 	font-size: 20px;
-  font-family: 'Press Start 2P';
+	font-family: 'Press Start 2P';
 `;
 
 export const LoadingIndicator = () => {
@@ -45,6 +45,5 @@ return (
       </Div>
   }
   </>
-);
-};
+)};
 

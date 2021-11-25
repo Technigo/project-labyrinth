@@ -17,8 +17,8 @@ export const StartGame = () => {
     } else {
     dispatch(gamestate.actions.setUsername(nameInput));
     dispatch(fetchGame(nameInput));
+    };
   };
-};
 
   return (
   <Container>
