@@ -7,7 +7,7 @@ import animationData from '../animations/31848-footprint.json'
 import styled from 'styled-components'
 
 const LoaderBackground = styled.div`
-  background-color: grey;
+  background-color: orange;
 `
 
 export const LoadingIndicator = () => {

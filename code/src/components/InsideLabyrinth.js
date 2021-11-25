@@ -12,28 +12,28 @@ export const InsideLabyrinth = () => {
     let bg = 'silver'
     switch (coordinates) {
       case '0,0':
-        bg = 'pink'
+        bg = '#777777'
         break
       case '1,0':
-        bg = 'blue'
+        bg = '#808080'
         break
       case '1,1':
-        bg = 'green'
+        bg = '#c6e2ff' 
         break
       case '0,1':
-        bg = 'yellow'
+        bg = '#216045'
         break;
       case '0,2':
-        bg = 'orange'
+        bg = '#8191dd'
         break;
       case '0,3':
-        bg = 'red'
+        bg = '#808080'
         break;
       case '1,3':
-        bg = 'grey'
+        bg = '#58AB6E'
         break;
       default:
-        bg = 'silver'
+        bg = '#102021'
     }
     return bg
   }
@@ -46,32 +46,83 @@ export const InsideLabyrinth = () => {
     <div className='action-card'>
       <p className='text desc-two'>desc2: {description}</p>
       <p className='text choice'>What will you do?</p>
-      <button onClick={() => handleButtonClick(type, direction)}>
+      <DirectionButton onClick={() => handleButtonClick(type, direction)}>
         {type} {direction.toLowerCase()}
-      </button>
+      </DirectionButton>
     </div>
   )
 
   return (
     <InsideLabyrinthSection style={{ background: setBgColor() }}>
-      {actions.length === 0 && <h2>You brave soul. You made it out alive.</h2>}
       <p className='text coords'>
-        You've ended up at the coordinates <strong>{coordinates}</strong>.
+        Coordinates: <strong>{coordinates}</strong>.
       </p>
-      <p className='text desc-one'>
-        desc1: {description}
-      </p>
+      {actions.length === 0 && <h2>You made it out alive, you brave soul.</h2>}
+      <p className='text desc-one'>desc1: {description}</p>
 
       {actions.length > 0 && actions.map(item => 
         <ActionCard key={item.direction} {...item} />
       )}
+
     </InsideLabyrinthSection>
   )
 }
 
 //styling
 const InsideLabyrinthSection = styled.section`
-padding: 10px;
-margin: 0 auto;
-max-width: 600px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+width: 100%;
+height: 100vh;
+
+.action-card {
+  border-bottom: 3px dashed #fff;
+  padding: 20px;
+}
+`
+const DirectionButton = styled.button`
+  background: #F2C409;
+  margin: 0 auto;
+  margin-top: 10px;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  text-align: center;
+  font-size: 12px;
+  padding: 8px;
+  text-decoration: none; 
+  color: white;
+  box-shadow: inset -3px -3px 0 0 #E59400;
+
+  &:hover,
+  &:focus {
+    background: orange;
+    box-shadow: inset (-3px*1.5) (-3px*1.5) 0 0  #E59400;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+  }
+
+  &:before {
+    top: -3px;
+    left: 0;
+    border-top: 3px #fff solid;
+    border-bottom: 3px #fff solid;
+  }
+
+  &:after {
+    left: -3px;
+    top: 0;
+    border-left: 3px #fff solid;
+    border-right: 3px #fff solid;
+  }
 `

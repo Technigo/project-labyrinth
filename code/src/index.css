@@ -14,12 +14,12 @@ h1, h2, p, label, input, button {
   color: orange;
 }
 
+p {
+  font-size: 14px;
+  line-height: 22px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-
-.action-card {
-  border: 1px solid #fff;
 }

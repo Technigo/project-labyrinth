@@ -29,7 +29,7 @@ export const EnterLabyrinth = () => {
             required
           />
         </label>
-        <StartButton type="submit">Enter the Labyrinth</StartButton>
+        <StartButton type="submit">Enter Labyrinth</StartButton>
       </Form>
     </Main>
   )
@@ -66,17 +66,49 @@ margin: 5px;
 }
 ` 
 const StartButton = styled.button`
-appearance: none;
-border: 2px solid #fff;
-background-color: orange;
-color: #fff;
-padding: 10px;
-border-radius: 6px;
-display: block;
-margin: 0 auto;
-margin-top: 40px;
+  background: #F2C409;
+  margin: 0 auto;
+  margin-top: 40px;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  text-align: center;
+  font-size: 14px;
+  padding: 20px;
+  text-decoration: none; 
+  color: white;
+  box-shadow: inset -3px -3px 0 0 #E59400;
 
-&:hover {
-  background-color: orangered;
-}
+  &:hover,
+  &:focus {
+    background: orange;
+    box-shadow: inset (-3px*1.5) (-3px*1.5) 0 0 #E59400;
+  }
+
+  &:active {
+        box-shadow: inset 3 3 0px 0px #E59400;
+    }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+  }
+
+  &:before {
+    top: -5px;
+    left: 0;
+    border-top: 5px #fff solid;
+    border-bottom: 5px #fff solid;
+  }
+
+  &:after {
+    left: -5px;
+    top: 0;
+    border-left: 5px #fff solid;
+    border-right: 5px #fff solid;
+  }
 `
