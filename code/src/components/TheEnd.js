@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { isStyledComponent } from 'styled-components';
 import { gamestate } from '../reducers/gamestate'
 
 import { GameBackground } from './StyledComponents/GameBackground';
