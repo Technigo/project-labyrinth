@@ -71,6 +71,7 @@ const Button = ({ item }) => {
         onMouseOver={() => handleMouseOver()}
         onMouseOut={() => handleMouseOut()}
         key={item.description}
+        type='submit'
         onClick={() => {
           dispatch(fetchGameInstructions({ direction: item.direction }));
         }}
