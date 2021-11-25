@@ -5,19 +5,8 @@ import styled from "styled-components";
 
 import { nextStep } from "../reducers/game";
 import { TextContainer } from "./TextContainer";
+import { LocationBackground } from "./LocationBackground";
 
-const BackgroundImage = styled.div`
-    background-image: url(${(props) => props.image});
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    color: #ffffff;
-`;
 
 const Container = styled.main`
     padding: 20px;
@@ -70,6 +59,8 @@ const ImageButton = styled.img`
     width: 100%;
 `;
 
+
+
 export const GamePlay = () => {
     const dispatch = useDispatch();
     const currentPosition = useSelector((state) => state.game.currentPosition);
@@ -80,7 +71,7 @@ export const GamePlay = () => {
     // const moveDirectionTwo = currentPosition?.actions[1]?.direction;
 
     return (
-        <BackgroundImage image={"./assets/ice-cavern.jpg"}>
+        <LocationBackground coordinates={currentPosition?.coordinates}>
             <>
                 {loading && <Loader />}
                 {currentPosition && (
@@ -88,11 +79,13 @@ export const GamePlay = () => {
                         <HeadingContainer>
                             <Heading>{currentPosition.description}</Heading>
                         </HeadingContainer>
-						{currentPosition.actions?.map(move => <TextContainer move={move}/>)}
+                        {currentPosition.actions?.map((move) => (
+                            <TextContainer move={move} />
+                        ))}
 
                         {/* <h2>Your current position {currentPosition.coordinates}</h2> */}
 
-						{/* I've changed this to a map (above) so we don't have to think about whether there's 0, 1 or 2 items in the actions array. The map will go over whatever is there and create a text container (TextContainer is now a component) */}
+                        {/* I've changed this to a map (above) so we don't have to think about whether there's 0, 1 or 2 items in the actions array. The map will go over whatever is there and create a text container (TextContainer is now a component) */}
                         {/* <TextContainer>
                             <p>
                                 {moveDescOne}.</p> <p>If you want to continue on this
@@ -146,6 +139,6 @@ export const GamePlay = () => {
                     </Container>
                 )}
             </>
-        </BackgroundImage>
+        </LocationBackground>
     );
 };
