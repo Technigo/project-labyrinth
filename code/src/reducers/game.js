@@ -6,7 +6,6 @@ export const game = createSlice({
   initialState: {
     username: "",
     currentPosition: "",
-    gameList: [{ description: "hahahaah" }],
   },
   reducers: {
     setUsername: (store, action) => {
@@ -15,6 +14,10 @@ export const game = createSlice({
 
     setCurrentPosition: (store, action) => {
       store.currentPosition = action.payload;
+    },
+
+    restart: () => {
+      return game;
     },
   },
 });
@@ -40,8 +43,8 @@ export const fetchGame = () => {
   };
 };
 
-export const nextStep = (direction) => {
-  return (dispatch) => {
+export const nextStep = (type, direction) => {
+  return (dispatch, getState) => {
     dispatch(ui.actions.setLoading(true));
 
     const options = {
@@ -50,9 +53,9 @@ export const nextStep = (direction) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: "MajBritt",
-        direction: direction,
-        type: "move",
+        username: getState().game.username,
+        direction,
+        type,
       }),
     };
 

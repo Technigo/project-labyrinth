@@ -1,9 +1,7 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { fetchGame } from "reducers/game";
-import { nextStep } from "reducers/game";
 import styled from "styled-components";
-import TheGame from "./TheGame";
 import { game } from "../reducers/game";
 
 const StartCard = styled.div`
@@ -38,10 +36,8 @@ const StartCard = styled.div`
 `;
 
 const StartPage = () => {
-  const gameState = useSelector((store) => store.game.currentPosition);
+  // const gameState = useSelector((store) => store.game.currentPosition);
   const dispatch = useDispatch();
-
-  // const [input, setInput] = useState("");
 
   const handleInputChange = (event) => {
     dispatch(game.actions.setUsername(event.target.value));
@@ -52,11 +48,6 @@ const StartPage = () => {
 
     dispatch(fetchGame());
   };
-
-  // const handleInputChange = () => {
-  //   dispatch(game.actions.setUsername("name"));
-  //   fetchGame();
-  // };
 
   return (
     <>
@@ -76,7 +67,7 @@ const StartPage = () => {
           </form>
         </section>
 
-        <TheGame />
+        {/* <TheGame /> */}
       </StartCard>
       {/* {game?.actions?.map((item) => (
           <p key={item.description}>{item.description}</p>

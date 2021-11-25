@@ -6,13 +6,10 @@ import {
   applyMiddleware,
   compose,
 } from "@reduxjs/toolkit";
-import StartPage from "components/StartPage";
 import { game } from "reducers/game";
 import { ui } from "reducers/ui";
-import { LoadingIndicator } from "components/LoadingIndicator";
 import thunk from "redux-thunk";
-
-// import "./index";
+import { TheBoard } from "components/TheBoard";
 
 const reducer = combineReducers({
   game: game.reducer,
@@ -30,8 +27,10 @@ export const App = () => {
   return (
     <>
       <Provider store={store}>
-        <StartPage />
-        <LoadingIndicator />
+        <TheBoard />
+        {/* <StartPage />
+        <TheGame />
+        <LoadingIndicator /> */}
       </Provider>
     </>
   );
