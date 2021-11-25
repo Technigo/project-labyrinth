@@ -38,35 +38,54 @@ const Game = () => {
 
   const Container = styled.div`
     box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-    padding: 20px;
+    padding: 20px 0;
+    margin: 2px;
+    width: 50%;
     border-radius: 6px;
-    background: gray;
+    background: lightgray;
+    color: black;
+    text-align: center;
+    display: inline-block;
+    opacity: 0.7;
+  `;
+
+  const Main = styled.main`
+    display: flex;
+    min-height: 100vh;
+    grid-template-rows: min-content;
+    justify-content: center;
+    padding: 0.625em;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
   `;
 
   return (
-    <div>
-      <LoadingIndicator />
+    <Main style={{ backgroundImage: `url(${ImagePicker()})` }}>
+      <div>
+        <LoadingIndicator />
 
-      <Card thumbnailUrl="https://www.fillmurray.com/100/100" title="The Labyrinth" secondaryText="Find your way to the light!" />
+        <Card thumbnailUrl title="The Labyrinth" secondaryText="Find your way to the light!" />
 
-      <Container style={{ backgroundImage: `url(${ImagePicker()})` }}>
-        <p>{places.description}</p>
-        {places.actions.map((item) => (
-          <div key={item.direction}>
-            <p>{item.description}</p>
-            <button type="submit" onClick={() => handleMoveFurther(item.type, item.direction)}>
-              {item.type} {item.direction}
+        <Container>
+          <p>{places.description}</p>
+          {places.actions.map((item) => (
+            <div key={item.direction}>
+              <p>{item.description}</p>
+              <button type="submit" onClick={() => handleMoveFurther(item.type, item.direction)}>
+                {item.type} {item.direction}
+              </button>
+            </div>
+          ))}
+
+          {end && (
+            <button type="button" onClick={() => navigate("/")}>
+              Restart
             </button>
-          </div>
-        ))}
-
-        {end && (
-          <button type="button" onClick={() => navigate("/")}>
-            Restart
-          </button>
-        )}
-      </Container>
-    </div>
+          )}
+        </Container>
+      </div>
+    </Main>
   );
 };
 
