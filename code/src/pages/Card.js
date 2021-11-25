@@ -1,3 +1,4 @@
+import { CardAnimation } from "components/CardAnimation";
 import React from "react";
 import styled from "styled-components";
 
@@ -35,7 +36,8 @@ const TitleBar = styled.div`
 export const Card = ({ title, secondaryText, thumbnailUrl }) => (
   <Container>
     <TitleBar>
-      {thumbnailUrl && <Thumbnail url={thumbnailUrl} />}
+      {/* {thumbnailUrl && <Thumbnail url={thumbnailUrl} />} */}
+      {thumbnailUrl && <CardAnimation />}
 
       <div>
         {title && <Title>{title}</Title>}
