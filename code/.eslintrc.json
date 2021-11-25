@@ -93,13 +93,7 @@
     "prefer-template": "error",
     "react/destructuring-assignment": "off",
     "react/forbid-prop-types": "off",
-    "react/jsx-closing-bracket-location": [
-      "error",
-      {
-        "selfClosing": "after-props",
-        "nonEmpty": "after-props"
-      }
-    ],
+    "react/jsx-closing-bracket-location": "off",
     "react/jsx-curly-spacing": [
       "error",
       {
@@ -131,6 +125,9 @@
     "react/jsx-indent": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "semi": "off"
+    "semi": "off",
+    "react/self-closing-comp": "off",
+    "jsx-quotes": "off",
+    "operator-linebreak": "off"
   }
 }

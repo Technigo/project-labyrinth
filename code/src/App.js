@@ -2,13 +2,14 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 
-import Loader from './components/Loader'
+import Game from './components/Game'
 import NotFoundPage from './components/NotFoundPage'
 import ui from './reducers/ui'
+import { game } from './reducers/game'
 
 const reducer = combineReducers({
   ui: ui.reducer,
-  // x: x.reducer
+  game: game.reducer,
 })
 
 const store = configureStore({ reducer })
@@ -16,7 +17,7 @@ const store = configureStore({ reducer })
 export const App = () => {
   return (
     <Provider store={store}>
-      <Loader />
+      <Game />
       <NotFoundPage />
     </Provider>
   )
