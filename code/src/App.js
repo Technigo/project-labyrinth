@@ -3,7 +3,6 @@ import { Provider } from "react-redux"
 import { configureStore, combineReducers } from "@reduxjs/toolkit"
 import styled from "styled-components/macro"
 
-
 import { Game } from "./components/Game"
 //import { LoadingIndicator} from "./components/LoadingIndicator"
 
@@ -35,7 +34,6 @@ export const App = () => {
     
     <Provider store={store}>
       <Main>
-        {/*<LoadingIndicator />*/}
         <Game />
       </Main>
     </Provider>

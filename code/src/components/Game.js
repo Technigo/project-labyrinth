@@ -1,19 +1,18 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { startThunk, actionThunk, game } from "../reducers/game";
-//import { Welcome } from './Welcome'
-//import { Endscreen } from './Endscreen'
-import { LoadingIndicator } from "./LoadingIndicator";
 import styled from "styled-components/macro";
+
+import { startThunk, actionThunk, game } from "../reducers/game";
 import { ui } from "../reducers/ui";
+
+import { LoadingIndicator } from "./LoadingIndicator";
 
 const IntroWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  
 `;
 const Title = styled.h1`
-  font-family: "Permanent Marker", cursive;
+font-family: 'Press Start 2P', cursive;
   color: #ee088d;
   text-shadow: 3px 3px yellow;
   display: flex;
@@ -21,8 +20,7 @@ const Title = styled.h1`
   align-item: center;
   margin: 40px auto 20px auto;
   font-size: 35px;
-  letter-spacing: 3px;
-  
+  letter-spacing: 3px; 
 `;
 const Form = styled.form`
   display: flex;
@@ -33,8 +31,7 @@ const GameContainer = styled.section`
   display: flex;
   justify-items: center;
   width: 70%;
-  margin 0 auto;
-  
+  margin 0 auto; 
 `;
 const ActionContainer = styled.div`
   width: 70%;
@@ -136,8 +133,6 @@ export const Game = () => {
               <button onClick={() => onRestart()}> Press to re-start</button>
 
             </div>
-
-            //<Endscreen/>
           )}
         </ActionContainer>
       )}
