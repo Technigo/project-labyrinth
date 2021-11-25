@@ -1,0 +1,34 @@
+.endpage-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  color: black;
+}
+
+.endpage-button {
+  color: black;
+  border: none;
+  background-color: rgba(245, 165, 35, 0.801);
+  font-size: 19px;
+  font-weight: 600;
+  font-family: "Pirata One", cursive;
+  transition: ease-in 0.2s;
+  width: 200px;
+  z-index: 10;
+  border-radius: 15px;
+  padding: 5px;
+}
+
+.endpage-button:hover {
+  transform: scale(85%);
+}
+
+.endpage-text {
+  z-index: 10;
+  font-size: 48px;
+  color: rgba(245, 165, 35, 0.801);
+  font-weight: 600;
+  text-shadow: 1px 1px 1px #000;
+}
