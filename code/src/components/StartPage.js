@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { fetchGame, game } from '../reducers/game'
-import { useNavigate } from 'react-router-dom'
-import { StartButton } from './StartButton'
-import styled from 'styled-components/macro'
-import '../title.css'
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchGame, game } from '../reducers/game';
+import { useNavigate } from 'react-router-dom';
+import { StartButton } from './StartButton';
+import styled from 'styled-components/macro';
+
+import creepysound from '../sounds/creepy_sound.mp3';
+import '../title.css';
 
 const StyledStartPage = styled.section`
   display: flex;
@@ -20,7 +22,7 @@ const StyledStartPage = styled.section`
   background-attachment: fixed;
   text-align: center;
   color: #fff;
-`
+`;
 
 const InputWrapper = styled.div`
   display: flex;
@@ -36,32 +38,35 @@ const InputWrapper = styled.div`
     border: 1px solid #ccc;
     font-family: Creepster;
   }
-`
-
-// const StartButton = styled.button``
+`;
 
 const StartPage = () => {
-  // const gameObject = useSelector((store) => store.game.gameObject)
-  const [name, setName] = useState('')
-  const dispatch = useDispatch()
-  let navigate = useNavigate()
+  const [name, setName] = useState('');
+  const dispatch = useDispatch();
+  let navigate = useNavigate();
 
   const onNameSubmit = (name) => {
-    dispatch(game.actions.setUserName(name))
-    navigate('/MainGame')
-    setName('')
-  }
+    dispatch(game.actions.setUserName(name));
+    navigate('/MainGame');
+    setName('');
+  };
 
   const onSetName = (event) => {
-    setName(event.target.value)
-  }
+    setName(event.target.value);
+  };
 
   const onEnter = (event) => {
     if (event.key === 'Enter') {
-      onNameSubmit(name)
-      dispatch(fetchGame(name))
+      onNameSubmit(name);
+      dispatch(fetchGame(name));
     }
-  }
+  };
+
+  let audio = new Audio(creepysound);
+  const startMusic = () => {
+    audio.play();
+    audio.volume = 0.5;
+  };
 
   return (
     <StyledStartPage>
@@ -90,7 +95,7 @@ const StartPage = () => {
           placeholder='Your name, if you dare...'
           onChange={onSetName}
           onKeyDown={(event) => {
-            onEnter(event)
+            onEnter(event);
           }}
         />
 
@@ -98,8 +103,9 @@ const StartPage = () => {
           disabled={name.length === 0}
           className='start-button'
           onClick={() => {
-            onNameSubmit(name)
-            dispatch(fetchGame(name))
+            onNameSubmit(name);
+            dispatch(fetchGame(name));
+            startMusic();
           }}
         >
           Start
@@ -110,7 +116,7 @@ const StartPage = () => {
         </StartButton>
       </InputWrapper>
     </StyledStartPage>
-  )
-}
+  );
+};
 
-export default StartPage
+export default StartPage;
