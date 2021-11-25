@@ -7,9 +7,9 @@ import { ACTION_URL } from '../components/utils/urls.js'
 export const gamestate  = createSlice({
   name: 'gamestate ',
   initialState: {
-		username: '',
+    username: '',
     gameStatus: {},
-		isLoading: false,
+    isLoading: false,
   },
   reducers: {
     setUsername: (state, action) => {
@@ -21,10 +21,10 @@ export const gamestate  = createSlice({
     setLoading: (state, action) => {
       state.isLoading = action.payload;
     },
-		setRestartGame: (state) => {
-			state.username = '';
-			state.gameStatus = {};
-		}
+    setRestartGame: (state) => {
+      state.username = '';
+      state.gameStatus = {};
+    }
   }
 });
 
@@ -50,7 +50,7 @@ export const nextMove = (username, direction) => {
     fetch(ACTION_URL, {
       method: "POST",
       headers: { 'Content-Type': 'application/json' }, 
-			// setting username and direction to the json here and sending to backend
+      // setting username and direction to the json here and sending to backend
       body: JSON.stringify({ username, type: 'move', direction }),
     })
       .then((res) => res.json())
