@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMazeAlternativesAction } from '../reducers/maze';
+import { fetchMazeAlternativesAction, maze } from '../reducers/maze';
+import { StartPage } from './StartPage';
 
 export const MazeAlternatives = () => {
 	const { description, actions } = useSelector(
@@ -24,7 +25,11 @@ export const MazeAlternatives = () => {
 	return (
 		<section>
 			<h1>{description}</h1>
-			{actions.length === 0 && <h3>Yay you made it out!</h3>}
+			{actions.length === 0 && <h3>Yay you made it out!</h3> && (
+				<button onClick={() => dispatch(maze.actions.restart())}>
+					Wanna play again?
+				</button>
+			)}
 			{actions.length > 0 &&
 				actions.map((item) => <ActionCard key={item.direction} {...item} />)}
 		</section>

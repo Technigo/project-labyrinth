@@ -18,6 +18,9 @@ export const maze = createSlice({
 		setLoading: (store, action) => {
 			store.loading = action.payload;
 		},
+		restart: () => {
+			return maze;
+		},
 	},
 });
 
