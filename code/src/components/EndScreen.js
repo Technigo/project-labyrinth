@@ -2,7 +2,6 @@ import React from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { game } from "../reducers/game"
 
-//CSS STYLING IMPORT
 import "./endscreen.css"
 
 export const EndScreen = () => {
@@ -21,7 +20,6 @@ export const EndScreen = () => {
         <p>{description}</p>
 
         <button className="end-button" onClick={onRestart}>
-          {" "}
           restart
         </button>
       </div>

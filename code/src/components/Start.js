@@ -4,26 +4,22 @@ import { game, fetchStartPosition } from "../reducers/game"
 
 import "./start.css"
 
-// startar spelet genom inmatning av namn + klicka start
+// Start the game by typing a name and press start
 export const Start = () => {
   const dispatch = useDispatch()
 
   // function for onChange
   const onPlayerInputChange = (event) => {
-    // event.preventDefault()
-    // setPlayer(event.target.value)
     dispatch(game.actions.setPlayer(event.target.value))
   }
 
   // function for onSubmit
   const onPlayerSubmit = (event) => {
     event.preventDefault()
-    // dispatch(game.actions.setPlayer())
     dispatch(fetchStartPosition())
   }
 
   return (
-    // onFormSubmit, uppdatera store
     <>
       <section className="start-container">
         <div className="start-wrapper">

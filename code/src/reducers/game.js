@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { ui } from "./ui"
 import { API_START_URL, API_ACTION_URL } from "../utils/urls"
+import { ui } from "./ui"
 
 export const game = createSlice({
   name: "game",
@@ -15,18 +15,15 @@ export const game = createSlice({
     },
 
     setCurrentPosition: (store, action) => {
-      store.history = [...store.history, store.currentPosition] //when setting the current position we also save the last position in history
+      store.history = [...store.history, store.currentPosition]
       store.currentPosition = action.payload
     },
-
-    // setHistory: (store, action) => {
-    //   store.history = [...store.history, action.payload]
-    // },
-
+    //when setting the current position we also save the last position in history
     setMoveBack: (store) => {
       if (store.history.length > 1) {
         store.currentPosition = store.history[store.history.length - 1]
-        store.history = store.history.slice(0, store.history.length - 1) //removes the move in history array when clicked on back
+        store.history = store.history.slice(0, store.history.length - 1)
+        //removes the current move in history array when clicked on back
       }
     },
 
@@ -40,7 +37,6 @@ export const game = createSlice({
 
 export const fetchStartPosition = () => {
   return (dispatch, getState) => {
-    // const state = getState()
     dispatch(ui.actions.setLoading(true))
     fetch(API_START_URL, {
       method: "POST",

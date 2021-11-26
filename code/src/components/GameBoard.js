@@ -4,23 +4,22 @@ import { nextStep } from "../reducers/game"
 import { game } from "../reducers/game"
 import { EndScreen } from "./EndScreen"
 
-//CSS STYLING IMPORT
 import "./gameboard.css"
 
 export const GameBoard = () => {
-  // Using {} to get all the values in currentPosition
+  // Using {} to get all the values we need in currentPosition
   const { description, actions } = useSelector(
     (store) => store.game.currentPosition
   )
-
   const history = useSelector((store) => store.game.history)
+
   const dispatch = useDispatch()
 
   const onButtonClick = (type, direction) => {
     dispatch(nextStep(type, direction))
   }
 
-  // A function that go back onClick
+  // A function that go back to previous steps onClick
   const onButtonBackClick = () => {
     dispatch(game.actions.setMoveBack())
   }
@@ -62,5 +61,3 @@ export const GameBoard = () => {
     )
   }
 }
-
-//<p>{coordinates}</p>
