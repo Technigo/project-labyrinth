@@ -7,18 +7,35 @@ import StartingPage from "./StartingPage";
 import LastPage from "./LastPage";
 import Loader from "./Loader";
 
+import img01 from '../images/img01.jpg'
+import img02 from '../images/img02.jpg'
+import img03 from '../images/img03.jpg'
+import img04 from '../images/img04.jpg'
+import img05 from '../images/img05.jpg'
+import img06 from '../images/img06.jpg'
+import img07 from '../images/img07.jpg'
+import img08 from '../images/img08.jpg'
+
+
+const GameBoard = styled.section`
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-size: cover;
+  object-fit: cover;
+  object-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+`
 const MainContainer = styled.div`
-  border-radius: 4px;
-  background-color: #fff;
+  border-radius: 6px;
   box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
     0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
-  display: flex;
-  flex-direction: column;
   box-sizing: border-box;
-  border-radius: 6px;
-  margin: 50px auto;
-  width: 90%;
-  max-width: 400px;
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.7);
 `;
 
 const Container = () => {
@@ -26,11 +43,41 @@ const Container = () => {
   const steps = useSelector((store) => store.steps.steps);
   const lastStep = useSelector((store) => store.steps.steps.at(-1));
   const currentStep = useSelector((store) => store.steps.currentStep);
-  console.log("currentSTate is", currentStep);
+  const coordinates = useSelector((store) => store?.steps?.currentStep?.coordinates);
 
-  const checkBoolean = (stepsLength, actionsLength) => {
-    if (stepsLength && !actionsLength) return <LastPage />;
-    else if (stepsLength && actionsLength) return <ActionPage />;
+  const backgroundImage = () => {
+    let bg = '';
+    switch (coordinates) {
+        case '0,0':
+            bg = img01;
+            break;
+        case '1,0':
+            bg = img01;
+            break;
+        case '1,1':
+            bg = img02;
+            break;
+        case '0,1':
+            bg = img03;
+            break;
+        case '0,2':
+            bg = img04;
+            break;
+        case '0,3':
+            bg = img05;
+            break;
+        case '1,3':
+            bg = img06;
+            break;
+        default:
+            return img07;
+    }
+    return bg;
+  };
+
+  const checkBoolean = (currentStep, actionsLength) => {
+    if (currentStep && !actionsLength) return <LastPage />;
+    else if (currentStep && actionsLength) return <ActionPage />;
     else return null;
   };
 
@@ -38,12 +85,16 @@ const Container = () => {
 Hämtat loading från store, om loading är sant så visas den
 !steps.lenght, betyder om det inte finns någon array så visas starting page*/
   return (
-    <MainContainer>
-      {loading && <Loader />}
-      {!currentStep && <StartingPage />}
-      {currentStep && <ActionPage />}
-      {/* {checkBoolean(steps.length, lastStep?.actions?.length)} */}
-    </MainContainer>
+    <GameBoard            
+      coordinates={coordinates}
+      style={{ backgroundImage: `url(${backgroundImage()})` }}
+    > 
+      <MainContainer>
+        {loading && <Loader />}
+        {!currentStep && <StartingPage />}
+        {checkBoolean(currentStep, currentStep?.actions?.length)}
+      </MainContainer>
+    </GameBoard> 
   );
 };
 

@@ -7,7 +7,6 @@ const initialState = {
   startingPosition: [],
   currentStep: null,
   steps: [],
-  directions: [],
 };
 
 const steps = createSlice({

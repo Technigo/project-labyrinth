@@ -56,7 +56,7 @@ const Button = styled.button`
 const ActionPage = () => {
   // get the latest step by getting the last item in the array steps from the store
   const currentStep = useSelector((store) =>
-    store.steps.steps.at(-1)
+    store.steps.currentStep
   );
   const stepsTaken = useSelector((store) => store.steps.steps);
   const username = useSelector((store) => store.steps.username);

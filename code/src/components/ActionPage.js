@@ -57,7 +57,7 @@ const ActionPage = () => {
   // get the latest step by getting the last item in the array steps from the store
   const currentStep = useSelector((store) => store.steps.currentStep);
   const lastDirection = useSelector((store) =>
-    store.steps.directions.at(-1)
+    store?.steps?.steps?.at(-1)?.directionTaken
   );
   const allSteps = useSelector((store) => store.steps.steps);
   const username = useSelector((store) => store.steps.username);
@@ -67,16 +67,12 @@ const ActionPage = () => {
   const handleClick = (direction) => {
     dispatch(fetchSteps(direction));
   };
+
   return (
     <Content>
       <SmallText>
-        {allSteps.length > 1 &&
-          `You have moved ${allSteps.length} step${
-            allSteps.length > 1 && "s"
-          }${
-            allSteps.length > 1 &&
-            `, and the latest movement was ${lastDirection}`
-          }`}
+        {allSteps.length === 1 && `You have moved 1 step and the last direction chosen was ${lastDirection.toLowerCase()}`}
+        {allSteps.length > 1 && `You have moved ${allSteps.length} steps and the last direction chosen was ${lastDirection}`}
       </SmallText>
       <div>
         <Title>{username}</Title>
@@ -90,7 +86,7 @@ const ActionPage = () => {
               type="button"
               onClick={() => handleClick(action.direction)}
             >
-              Go {action.direction}
+              Go {action.direction.toLowerCase()}
             </Button>
           </div>
         ))}
