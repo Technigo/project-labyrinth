@@ -65,7 +65,7 @@ const OptionsActionCard = styled.div`
   //   }
 `;
 
-const OptionsButton = styled.button`
+const Buttons = styled.button`
   width: 100px;
   font-family: "Montserrat", sans-serif;
   letter-spacing: 2px;
@@ -77,6 +77,9 @@ const OptionsButton = styled.button`
   background: rgb(90, 134, 148);
   color: white;
   margin-top: 15px;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const MainDescription = styled.h1`
@@ -97,18 +100,29 @@ const Maze = () => {
   const { description, coordinates, actions } = useSelector(
     (state) => state.game.gameStatus
   );
+
   const dispatch = useDispatch();
+
+  const history = useSelector((state) => state.game.history);
+
+  const onButtonBackClick = (game) => {
+    dispatch(game.actions.setGoBack());
+  };
 
   const handleButtonClick = (type, direction) => {
     dispatch(fetchNextMove(type, direction));
   };
 
+  const handleRestartButton = () => {
+    window.location.reload();
+  };
+
   const ActionCard = ({ description, type, direction }) => (
     <OptionsActionCard>
       <OptionsDescription>{description}</OptionsDescription>
-      <OptionsButton onClick={() => handleButtonClick(type, direction)}>
+      <Buttons onClick={() => handleButtonClick(type, direction)}>
         {type} {direction.toLowerCase()}
-      </OptionsButton>
+      </Buttons>
     </OptionsActionCard>
   );
 
@@ -155,7 +169,13 @@ const Maze = () => {
       <GlassCard>
         <MainDescription>{description}</MainDescription>
         <MainCoordinates>{coordinates}</MainCoordinates>
-        {actions.length === 0 && <h3>Wohooo you are free!</h3>}
+        <Buttons onClick={onButtonBackClick}> Go Back </Buttons>
+        {actions.length === 0 && (
+          <div>
+            <h3>Wohooo you are free!</h3>{" "}
+            <Buttons onClick={handleRestartButton}> Restart</Buttons>
+          </div>
+        )}
         {actions.length > 0 &&
           actions.map((item) => <ActionCard key={item.direction} {...item} />)}
       </GlassCard>

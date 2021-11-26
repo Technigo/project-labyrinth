@@ -16,7 +16,7 @@ const MainContainer = styled.main`
 const GamePage = () => {
   const gameStatus = useSelector((state) => state.game.gameStatus);
   const loading = useSelector((state) => state.loader.loading);
-  console.log(loading);
+
   return (
     <MainContainer>
       {loading && <LoadingPage />}
