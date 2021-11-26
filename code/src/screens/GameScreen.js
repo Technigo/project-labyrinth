@@ -5,6 +5,7 @@ import { continueFetchGameData } from "reducers/gameSteps";
 import { Loading } from "components/Loading";
 import styled from "styled-components/macro";
 import { screen } from "reducers/screen";
+import { gameSteps } from "reducers/gameSteps";
 
 export const GameScreen = () => {
   const dispatch = useDispatch();
@@ -16,16 +17,15 @@ export const GameScreen = () => {
     gameHistory.length > 0 ? gameHistory[gameHistory.length - 1] : undefined;
   const [currentMove, setCurrentMove] = useState("");
 
-  console.log(game);
-
+  // Dispatch the fetchGameData with the payload username as soon as the screencomponent is mounted.
   useEffect(() => {
     dispatch(fetchGameData(username));
   }, [dispatch, username]);
 
+  // if the length of the gameStepList is 0 it returns the Loading component.
   if (game.length === 0) {
     return (
       <GameQuestionContainer>
-        <div></div>
         <QuestionWrapper>
           <Loading />
         </QuestionWrapper>
@@ -35,24 +35,32 @@ export const GameScreen = () => {
 
   return (
     <GameQuestionContainer>
-      <div></div>
       <QuestionWrapper>
-        <div>
-          {lastMove && !isLoading && (
-            <LastMove>You went {lastMove.direction}.</LastMove>
-          )}
-          {isLoading && <LastMove>You go {currentMove}...</LastMove>}
-          {!isLoading && (
-            <QuestionDescription>{game.description}</QuestionDescription>
-          )}
-          {isLoading && <Loading />}
-        </div>
-        <div>
+        {/* If it is the last move and it is not loading this div will appear.*/}
+        {lastMove && !isLoading && (
+          <LastMove>You went {lastMove.direction}.</LastMove>
+        )}
+
+        {/* If it is loading this div will appear.*/}
+        {isLoading && <LastMove>You go {currentMove}...</LastMove>}
+
+        {/* If it is Loading the loading component will appear. */}
+        {isLoading && <Loading />}
+
+        {/* If it is not loading the game description will appear.*/}
+        {!isLoading && (
+          <QuestionDescription>{game.description}</QuestionDescription>
+        )}
+
+        <>
+          {/* If the game is not loading we map over the actions array and returns a option content and container */}
           {!isLoading &&
             game.actions.map((action) => {
               return (
                 <OptionsContainer key={action.direction}>
                   <OptionDescription>{action.description}</OptionDescription>
+                  {/* On click the button dispatch continueFetchGameData with the username, type, direction and description. 
+                  It also setCurrentMove to action.direction.*/}
                   <MoveButton
                     onClick={() => {
                       dispatch(
@@ -71,6 +79,8 @@ export const GameScreen = () => {
                 </OptionsContainer>
               );
             })}
+
+          {/* If game.actions.length is 0 it will return the congratulationText  */}
           {game.actions.length === 0 && (
             <>
               <CongratulationText>
@@ -78,6 +88,7 @@ export const GameScreen = () => {
                 moves!
               </CongratulationText>
 
+              {/* If the overview Button is clicked the user get dispatched to the overview Screen */}
               <OverviewButton
                 onClick={() =>
                   dispatch(screen.actions.currentScreen({ screen: "overview" }))
@@ -85,16 +96,21 @@ export const GameScreen = () => {
               >
                 Overview
               </OverviewButton>
+
+              {/* Restart button that returns the person to the username screen and resets the game. */}
               <RestartButton
-                onClick={() =>
-                  dispatch(screen.actions.currentScreen({ screen: "username" }))
-                }
+                onClick={() => {
+                  dispatch(
+                    screen.actions.currentScreen({ screen: "username" })
+                  );
+                  dispatch(gameSteps.actions.resetGame());
+                }}
               >
                 Restart Game
               </RestartButton>
             </>
           )}
-        </div>
+        </>
       </QuestionWrapper>
     </GameQuestionContainer>
   );
@@ -109,9 +125,11 @@ const GameQuestionContainer = styled.div`
   justify-content: flex-end;
   letter-spacing: 1px;
   line-height: 22px;
+
   @media (min-width: 668px) and (max-width: 1024px) {
     line-height: 30px;
   }
+
   @media (min-width: 1025px) {
     flex-direction: column;
     justify-content: center;
@@ -123,9 +141,11 @@ const GameQuestionContainer = styled.div`
 const QuestionDescription = styled.span`
   color: white;
   font-size: 18px;
+
   @media (min-width: 668px) and (max-width: 1024px) {
     font-size: 24px;
   }
+
   @media (min-width: 1025px) {
     font-size: 25px;
     line-height: 35px;
@@ -140,10 +160,12 @@ const QuestionWrapper = styled.div`
   padding: 20px;
   min-height: 250px;
   transition: height 2s ease-in;
+
   @media (min-width: 668px) and (max-width: 1024px) {
     padding: 60px 80px;
     min-height: 250px;
   }
+
   @media (min-width: 1025px) {
     padding: 50px;
     width: 100%;
@@ -165,6 +187,7 @@ const MoveButton = styled.button`
   color: #bacede;
   border-bottom: white 1px solid;
   font-size: 20px;
+
   @media (min-width: 1025px) {
     border-bottom: 2px solid;
     font-size: 25px;
@@ -181,11 +204,13 @@ const OptionDescription = styled.span`
   text-align: center;
   margin-top: 20px;
   font-size: 14px;
+
   @media (min-width: 668px) and (max-width: 1024px) {
     font-size: 18px;
     text-align: center;
     margin-top: 30px;
   }
+
   @media (min-width: 1025px) {
     font-size: 20px;
     text-align: center;
@@ -197,9 +222,11 @@ const LastMove = styled.p`
   font-size: 18px;
   margin: 20px 0 0 0;
   color: #8d8d8d;
+
   @media (min-width: 668px) and (max-width: 1024px) {
     font-size: 20px;
   }
+
   @media (min-width: 1025px) {
     font-size: 20px;
   }
@@ -209,6 +236,7 @@ const CongratulationText = styled.p`
   @media (min-width: 668px) and (max-width: 1024px) {
     font-size: 24px;
   }
+
   @media (min-width: 1025px) {
     font-size: 30px;
     line-height: 40px;

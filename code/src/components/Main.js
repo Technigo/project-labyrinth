@@ -6,9 +6,11 @@ import { OverviewScreen } from "screens/OverviewScreen";
 import styled from "styled-components/macro";
 
 export const Main = () => {
+  // UseSelector that gets information of what the currentScreen is from the redux store.
   const currentScreen = useSelector((store) => store.screen.currentScreen);
 
   return (
+    // condintional rendering depending of what information is picked up from the redux store.
     <MainContainer>
       {currentScreen === "username" && <UsernameScreen />}
       {currentScreen === "game" && <GameScreen />}

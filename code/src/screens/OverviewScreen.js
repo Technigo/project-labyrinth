@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { screen } from "reducers/screen";
 import { useDispatch, useSelector } from "react-redux";
+import { screen } from "reducers/screen";
+import { gameSteps } from "reducers/gameSteps";
 
 export const OverviewScreen = () => {
   const gameHistory = useSelector((store) => store.gameSteps.gameHistory);
@@ -10,6 +11,8 @@ export const OverviewScreen = () => {
     <OverviewContainer>
       <OverviewWrapper>
         <StepInformation>Steps that you have walked:</StepInformation>
+        {/* mapped over the gameHistory and return items containing the direction and the description 
+        of the steps the person has taken.*/}
         {gameHistory.map((item, index) => {
           return (
             <ItemWrapper>
@@ -22,11 +25,12 @@ export const OverviewScreen = () => {
           );
         })}
 
-        <span></span>
+        {/* Restart button that returns the person to the username screen and resets the game. */}
         <RestartButton
-          onClick={() =>
-            dispatch(screen.actions.currentScreen({ screen: "username" }))
-          }
+          onClick={() => {
+            dispatch(screen.actions.currentScreen({ screen: "username" }));
+            dispatch(gameSteps.actions.resetGame());
+          }}
         >
           Restart Game
         </RestartButton>
@@ -44,9 +48,11 @@ const OverviewContainer = styled.section`
   justify-content: flex-end;
   letter-spacing: 1px;
   line-height: 22px;
+
   @media (min-width: 668px) and (max-width: 1024px) {
     line-height: 30px;
   }
+
   @media (min-width: 1025px) {
     display: flex;
     flex-direction: column;
@@ -65,10 +71,12 @@ const OverviewWrapper = styled.div`
   padding: 20px;
   row-gap: 10px;
   min-height: 250px;
+
   @media (min-width: 668px) and (max-width: 1024px) {
     padding: 60px 80px;
     min-height: 250px;
   }
+
   @media (min-width: 1025px) {
     padding: 50px;
     width: 100%;
@@ -84,6 +92,7 @@ const RestartButton = styled.button`
   color: #bacede;
   border-bottom: white 1px solid;
   font-size: 20px;
+
   @media (min-width: 1025px) {
     border-bottom: 2px solid;
     font-size: 25px;

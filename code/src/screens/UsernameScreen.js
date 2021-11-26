@@ -19,7 +19,6 @@ export const UsernameScreen = () => {
 
   return (
     <UsernameContainer>
-      <div></div>
       <Header>The Labyrinth</Header>
       <InputTextSpanButton>
         <UserNameInformation>
@@ -32,15 +31,16 @@ export const UsernameScreen = () => {
           placeholder="Username"
           onKeyPress={handleKeyPress}
         ></UsernameInput>
-        <span></span>
+        {/* /Disabel the UsernameButton until the length of the username is at least 4 characters.
+        Change colors on the button text and border depending of the username is invalid or not.*/}
         <UsernameButton
           disabled={usernameInvalid}
           style={{
             color: usernameInvalid ? "#8d8d8d" : "#bacede",
             borderBottomColor: usernameInvalid ? "#8d8d8d" : "#bacede",
           }}
+          // On click we dispatch the username and dispatch that the screen should change to "game".
           onClick={() => {
-            console.log(username);
             dispatch(gameSteps.actions.setUsername({ username }));
             dispatch(screen.actions.currentScreen({ screen: "game" }));
           }}
@@ -61,9 +61,11 @@ const UsernameContainer = styled.div`
   justify-content: flex-end;
   letter-spacing: 1px;
   line-height: 22px;
+
   @media (min-width: 668px) and (max-width: 1024px) {
     line-height: 30px;
   }
+
   @media (min-width: 1025px) {
     display: flex;
     flex-direction: column;
@@ -80,9 +82,11 @@ const Header = styled.h1`
   text-shadow: -1px -1px 0 #638270, 1px -1px 0 #638270, -1px 1px 0 #638270,
     1px 1px 0 #638270;
   margin-bottom: 20px;
+
   @media (min-width: 668px) and (max-width: 1024px) {
     font-size: 45px;
   }
+
   @media (min-width: 1025px) {
     font-size: 55px;
     margin-bottom: 40px;
@@ -93,6 +97,7 @@ const UserNameInformation = styled.span`
   @media (min-width: 668px) and (max-width: 1024px) {
     font-size: 20px;
   }
+
   @media (min-width: 1025px) {
     font-size: 25px;
     line-height: 35px;
@@ -108,10 +113,12 @@ const InputTextSpanButton = styled.div`
   padding: 20px;
   row-gap: 10px;
   min-height: 250px;
+
   @media (min-width: 668px) and (max-width: 1024px) {
     padding: 60px 80px;
     min-height: 250px;
   }
+
   @media (min-width: 1025px) {
     padding: 50px;
     width: 100%;
@@ -126,6 +133,7 @@ const UsernameButton = styled.button`
   border: none;
   border-bottom: 1px solid;
   font-size: 20px;
+
   @media (min-width: 1025px) {
     border-bottom: 2px solid;
     font-size: 25px;
@@ -134,12 +142,6 @@ const UsernameButton = styled.button`
       cursor: pointer;
     }
   }
-`;
-
-const ItemWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 10px 0px;
 `;
 
 const UsernameInput = styled.input`
@@ -153,6 +155,7 @@ const UsernameInput = styled.input`
     font-size: 16px;
     font-weight: 300;
   }
+
   @media (min-width: 668px) and (max-width: 1024px) {
     padding: 14px;
     font-size: 18px;
@@ -161,10 +164,10 @@ const UsernameInput = styled.input`
       font-size: 20px;
     }
   }
+
   @media (min-width: 1025px) {
     padding: 14px;
     font-size: 18px;
-
     &::placeholder {
       font-size: 20px;
     }

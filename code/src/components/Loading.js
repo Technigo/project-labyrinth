@@ -2,6 +2,7 @@ import React from "react";
 import Lottie from "react-lottie";
 import animationData from "../Lotties/spinner-slow-three-colors";
 
+// The component for the Lottie spinner.
 export const Loading = () => {
   const defaultOptions = {
     loop: true,

@@ -5,6 +5,7 @@ import { gameSteps } from "reducers/gameSteps";
 import { loading } from "reducers/loading";
 import { screen } from "reducers/screen";
 
+// A configureStore component which combine the reducers and apply middleware to be able to return the store.
 export const configureStore = (preloadedState) => {
   const composedEnhancers =
     (process.env.NODE_ENV !== "production" &&

@@ -6,19 +6,18 @@ A React/Redux Labyrinth game, where the player follows a history and chooses a p
 
 Use of different React components
 Use of Redux and Redux toolkit
-Use of hooks: useSelector, useDispatch, useState
 Asynchronous API calls using thunks
+Use of hooks: useSelector, useDispatch, useState
 POST request with information on the body
 Responsive styling
 Styled components
 
 # Production Process
 
-I started by planning the functionalities and layout for the project and dividing those into components.
-
-Creating reducers was a new concept and this was a great oportunity to add different functionalities.
-
-The filter for completed and uncompleted tasks was initially creating conflits when published on Netlify, but after changing it to the tasks file in the reducer, the conflits were solved
+We started by planning the projects and it’s components / screens.
+We made thunks for the asynchronous functions, such as the API post request to display the game steps and the loading component. There’s also local storage to store the player’s position on the game.
+We used conditional rendering to be able to show different screens based on the game conditions.
+We created a final page that display the players choice history for the whole game. There’s also a restart button that reloads the game and empty the username field.
 
 # View it live
 
