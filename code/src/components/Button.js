@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
-import { fetchGameInstructions } from 'reducers/game';
-import scroll from '../assets/scroll.png';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { fetchGameInstructions } from "reducers/game";
+import scroll from "../assets/scroll.png";
 
 const GameButton = styled.button`
   margin: 10px auto;
   width: 160px;
   letter-spacing: 2px;
   border-radius: 8px;
-  font-family: 'Libre Baskerville', serif;
+  font-family: "Libre Baskerville", serif;
   color: #ffc000;
   font-size: 18px;
   font-weight: 400;
@@ -40,7 +40,7 @@ const GameButton = styled.button`
 
 const QuestionBox = styled.div`
   height: 40vh;
-  background-image: url('${scroll}');
+  background-image: url("${scroll}");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -103,8 +103,8 @@ const Button = ({ item }) => {
         {item.type} {item.direction.toLowerCase()}
       </GameButton>
       <ArrowDown onClick={() => onToggleClass()}>
-        {' '}
-        <span role='img' aria-label='img'>
+        {" "}
+        <span role="img" aria-label="img">
           ⚜️
         </span>
       </ArrowDown>
@@ -118,8 +118,3 @@ const Button = ({ item }) => {
 };
 
 export default Button;
-//   const [isActive, setActive] = useState(false);
-//   const dispatch = useDispatch();
-//   const onToggleClass = () => {
-//     setActive(!isActive);
-//   };

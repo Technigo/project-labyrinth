@@ -1,24 +1,24 @@
-import React from 'react';
+import React from "react";
 
-import styled from 'styled-components';
-import { useWindowSize } from '@react-hook/window-size';
+import styled from "styled-components";
+import { useWindowSize } from "@react-hook/window-size";
 
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
-import GameStage from './GameStage';
-import Winner from './Winner';
-import Compass from './Compass';
+import GameStage from "./GameStage";
+import Winner from "./Winner";
+import Compass from "./Compass";
 
-import ceiling from '../assets/ceiling.png';
-import cave from '../assets/cave.png';
-import last from '../assets/last.png';
-import color from '../assets/color.png';
-import paper from '../assets/paper.png';
-import steampunk from '../assets/steampunk.png';
-import colorfulcave from '../assets/colorfulcave.png';
-import back from '../assets/back.gif';
+import ceiling from "../assets/ceiling.png";
+import cave from "../assets/cave.png";
+import last from "../assets/last.png";
+import color from "../assets/color.png";
+import paper from "../assets/paper.png";
+import steampunk from "../assets/steampunk.png";
+import colorfulcave from "../assets/colorfulcave.png";
+import back from "../assets/back.gif";
 
-import TypeWriterEffect from 'react-typewriter-effect';
+import TypeWriterEffect from "react-typewriter-effect";
 
 const GameBox = styled.div`
   height: 150vh;
@@ -87,19 +87,19 @@ const DescriptionBox = styled.div`
 export const MainGame = () => {
   const bgSwitcher = (coordinates) => {
     switch (coordinates) {
-      case '0,0':
+      case "0,0":
         return cave;
-      case '1,0':
+      case "1,0":
         return ceiling;
-      case '1,1':
+      case "1,1":
         return colorfulcave;
-      case '0,1':
+      case "0,1":
         return steampunk;
-      case '0,2':
+      case "0,2":
         return color;
-      case '0,3':
+      case "0,3":
         return paper;
-      case '1,3':
+      case "1,3":
         return last;
       default:
         return back;
@@ -123,13 +123,13 @@ export const MainGame = () => {
           <TypeWriterEffect
             key={description}
             textStyle={{
-              fontFamily: 'Red Hat Display',
-              backgroundColor: 'rgb(25, 25, 28, 0.7)',
-              padding: '0.5rem',
-              borderRadius: '10px'
+              fontFamily: "Red Hat Display",
+              backgroundColor: "rgb(25, 25, 28, 0.7)",
+              padding: "0.5rem",
+              borderRadius: "10px",
             }}
             startDelay={1000}
-            cursorColor='orange'
+            cursorColor="orange"
             text={description}
             typeSpeed={50}
             hideCursorAfterText={true}
@@ -139,15 +139,9 @@ export const MainGame = () => {
         <GameStage />
       </DescriptionBox>
       {gameList.actions.length === 0 ? <Winner /> : null}
-      <div className='compassBox'>
+      <div className="compassBox">
         <Compass />
       </div>
     </GameBox>
   );
 };
-
-//   const [isActive, setActive] = useState(false);
-//   const dispatch = useDispatch();
-//   const onToggleClass = () => {
-//     setActive(!isActive);
-//   };

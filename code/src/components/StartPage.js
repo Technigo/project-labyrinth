@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { fetchGame, game } from 'reducers/game';
-import { useDispatch } from 'react-redux';
-import styled from 'styled-components';
-import background from '../assets/back.gif';
-import { useWindowSize } from '@react-hook/window-size';
+import React, { useState } from "react";
+import { fetchGame, game } from "reducers/game";
+import { useDispatch } from "react-redux";
+import styled from "styled-components";
+import background from "../assets/back.gif";
+import { useWindowSize } from "@react-hook/window-size";
 
 const StartBox = styled.div`
   height: 100vh;
@@ -18,7 +18,7 @@ const StartBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: 'Libre Baskerville', serif;
+  font-family: "Libre Baskerville", serif;
 
   .textBox {
     height: 15rem;
@@ -30,7 +30,7 @@ const StartBox = styled.div`
   }
 
   .btn-home {
-    font-family: 'Libre Baskerville', serif;
+    font-family: "Libre Baskerville", serif;
     margin: 10px auto;
     width: 200px;
     letter-spacing: 2px;
@@ -60,7 +60,7 @@ const StartBox = styled.div`
   }
 
   input {
-    font-family: 'Libre Baskerville', serif;
+    font-family: "Libre Baskerville", serif;
     margin: 10px auto;
     width: 200px;
     letter-spacing: 2px;
@@ -88,10 +88,8 @@ const StartBox = styled.div`
 
 export const StartPage = ({ startBgMusic }) => {
   const [width, height] = useWindowSize();
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
   const dispatch = useDispatch();
-
-  console.log(width);
 
   const onNameSubmit = (name) => {
     dispatch(game.actions.setUserName(name));
@@ -104,32 +102,25 @@ export const StartPage = ({ startBgMusic }) => {
   const onSubmit = (name) => {
     onNameSubmit(name);
     dispatch(fetchGame(name));
-    setName('');
+    setName("");
     startBgMusic();
   };
-
-  //   let audio = new Audio(bgMusic);
-  //   const startBgMusic = () => {
-  //     audio.volume = 0.2;
-  //     audio.loop = true;
-  //     audio.play();
-  //   };
 
   return (
     <StartBox hgt={height} wid={width}>
       <h1>The Labyrinth</h1>
-      <div className='textBox'>
+      <div className="textBox">
         <input
-          type='text'
-          placeholder='Enter your name'
+          type="text"
+          placeholder="Enter your name"
           value={name}
           onChange={onSetName}
-          onKeyDown={(e) => e.key === 'Enter' && onSubmit(name)}
+          onKeyDown={(e) => e.key === "Enter" && onSubmit(name)}
         />
 
         <button
-          disabled={name === ''}
-          className='btn-home'
+          disabled={name === ""}
+          className="btn-home"
           onClick={() => {
             onSubmit(name);
           }}

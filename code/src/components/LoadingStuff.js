@@ -8,8 +8,6 @@ const Loader = styled.div`
   font-size: 0px;
   padding: 0px;
   position: relative;
-  /* top: ${(props) => props.hgt / 4}px;
-  left: ${(props) => props.wid / 4}px; */
   width: 250px;
   height: 250px;
 `;
