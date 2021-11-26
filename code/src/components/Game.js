@@ -9,21 +9,28 @@ const GameContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
+  align-items: center;
   margin: 10px;
   padding-top: 15px;
   padding-right: 10px;
   padding-bottom: 15px;
   padding-left: 10px;
+  @media (min-width: 768px) {
+    margin: 50px;
+  }
 `;
 
 const CoordinatesText = styled.p`
   font-size: 0.5em;
+  @media (min-width: 768px) {
+    font-size: 1em;
+  }
 `;
 
 const HeadText = styled.h1`
   font-family: "Lobster Two", cursive;
   font-size: 1.5em;
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     font-size: 2em;
   }
 `;
@@ -41,11 +48,25 @@ const CardContainer = styled.div`
   padding-right: 10px;
   padding-bottom: 15px;
   padding-left: 10px;
+
+  @media (min-width: 768px) {
+    margin: 50px;
+    padding: 30px;
+    width: 450px;
+  }
+  @media (min-width: 1024px) {
+    width: 550px;
+  }
 `;
 
 const DescText = styled.p`
   font-family: "Play", sans-serif;
   font-size: 16px;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+    margin-top: 0;
+  }
 `;
 
 const SubmitButton = styled.button`
@@ -55,6 +76,11 @@ box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   border-radius: 6px;
   font-family: "Press Start 2P", cursive;
+  @media (min-width: 1024px) {
+    &:hover {
+      background-color: honeydew;
+    }
+  }
 `;
 
 export const Game = () => {
@@ -83,7 +109,7 @@ export const Game = () => {
       case "1,3":
         return "rgb(114, 168, 216)";
       default:
-        return "white";
+        return "rgb(171, 236, 243)";
     }
   };
 

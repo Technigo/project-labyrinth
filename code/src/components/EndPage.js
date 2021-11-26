@@ -40,6 +40,13 @@ const RestartButton = styled.button`
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   border-radius: 6px;
   font-family: "Press Start 2P", cursive;
+
+  @media (min-width: 1024px) {
+    padding: 20px;
+    &:hover {
+      background-color: rgb(195, 168, 235);
+    }
+  }
 `;
 
 export const EndPage = () => {
