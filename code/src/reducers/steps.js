@@ -31,7 +31,7 @@ const steps = createSlice({
     setMovement: (store, action) => {
       store.directions.push(action.payload);
     },
-    setInitialState: (store, action) => {
+    setInitialState: () => {
       return initialState;
     },
   },
