@@ -5,8 +5,6 @@ import styled, { keyframes } from "styled-components";
 import { game } from "../reducers/game";
 import Labyrinth from "../pictures/labyrinth.jpg";
 
-// import Labyrinth from "../pictures/labyrinth.jpg";
-
 const jump = keyframes`
   0%   {transform: translate3d(0,0,0) scale3d(1,1,1);}
   40%  {transform: translate3d(0,10%,0) scale3d(1,1,1);}
@@ -55,7 +53,6 @@ const StartCard = styled.div`
 `;
 
 const StartPage = () => {
-  // const gameState = useSelector((store) => store.game.currentPosition);
   const dispatch = useDispatch();
 
   const handleInputChange = (event) => {
@@ -64,32 +61,29 @@ const StartPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     dispatch(fetchGame());
   };
 
   return (
-    <>
-      <StartCard>
-        <section>
-          <h1>
-            Welcome to our Labyrinth. You will get a number och choices to
-            navigate through this maze. Good luck...
-          </h1>
-          <h2>Let the games begin!</h2>
-          <form onSubmit={handleSubmit}>
-            <label>
-              <input
-                type="text"
-                placeholder="Whats your name..?"
-                onChange={handleInputChange}
-              />
-            </label>
-            <button type="submit">Start</button>
-          </form>
-        </section>
-      </StartCard>
-    </>
+    <StartCard>
+      <section>
+        <h1>
+          Welcome to our Labyrinth. You will get a number och choices to
+          navigate through this maze. Good luck...
+        </h1>
+        <h2>Let the games begin!</h2>
+        <form onSubmit={handleSubmit}>
+          <label>
+            <input
+              type="text"
+              placeholder="Whats your name..?"
+              onChange={handleInputChange}
+            />
+          </label>
+          <button type="submit">Start</button>
+        </form>
+      </section>
+    </StartCard>
   );
 };
 

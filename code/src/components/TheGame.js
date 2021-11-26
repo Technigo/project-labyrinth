@@ -1,16 +1,16 @@
 import React from "react";
+import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { nextStep } from "reducers/game";
 import { game } from "reducers/game";
-import styled from "styled-components";
+import Archway from "pictures/archway.jpg";
 import Brickwall from "pictures/brickwall.jpg";
 import Bridge from "pictures/bridge.jpg";
 import EmptyRoom from "pictures/emptyroom.jpg";
+import Gizmoz from "pictures/gizmoz.jpg";
+import Labyrinth from "pictures/labyrinth.jpg";
 import LastPic from "pictures/lastpic.jpg";
 import Table from "pictures/table.jpg";
-import Labyrinth from "pictures/labyrinth.jpg";
-import Gizmoz from "pictures/gizmoz.jpg";
-import Archway from "pictures/archway.jpg";
 
 const GameCard = styled.div`
   background-position: center;
@@ -24,10 +24,6 @@ const GameCard = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  img {
-    width: 100%;
-  }
 
   main {
     background: rgba(0, 0, 0, 0.5);
@@ -144,10 +140,13 @@ const TheGame = () => {
           <i>Your coordinates: {coordinates}</i>
         </p>
         <article>
-          {gameStep?.actions?.length === 0 && <h3>Yay you made it out!</h3> && (
-            <button onClick={() => dispatch(game.actions.restart())}>
-              Lets go again!
-            </button>
+          {gameStep?.actions?.length === 0 && (
+            <div>
+              <h4>Congrats, you made your way out!</h4>
+              <button onClick={() => dispatch(game.actions.restart())}>
+                Lets go again!
+              </button>
+            </div>
           )}
           {gameStep?.actions?.length > 0 &&
             actions.map((item) => (

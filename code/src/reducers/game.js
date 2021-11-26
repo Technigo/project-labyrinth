@@ -10,10 +10,6 @@ export const game = createSlice({
   name: "game",
   initialState,
 
-  // {
-  //   username: "",
-  //   currentPosition: "",
-  // },
   reducers: {
     setUsername: (store, action) => {
       store.username = action.payload;

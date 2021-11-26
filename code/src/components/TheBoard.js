@@ -1,10 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import StartPage from "./StartPage";
 import { LoadingIndicator } from "./LoadingIndicator";
+import StartPage from "./StartPage";
 import TheGame from "./TheGame";
 import styled from "styled-components";
-// import Labyrinth from "../pictures/labyrinth.jpg";
 
 const BoardCard = styled.div`
   height: 100vh;
