@@ -55,9 +55,7 @@ const Button = styled.button`
 
 const ActionPage = () => {
   // get the latest step by getting the last item in the array steps from the store
-  const currentStep = useSelector((store) =>
-    store.steps.steps.at(-1)
-  );
+  const currentStep = useSelector((store) => store.steps.currentStep);
   const lastDirection = useSelector((store) =>
     store.steps.directions.at(-1)
   );
@@ -72,10 +70,13 @@ const ActionPage = () => {
   return (
     <Content>
       <SmallText>
-        You have moved {allSteps.length} step
-        {allSteps.length > 1 && "s"}
         {allSteps.length > 1 &&
-          `, and the latest movement was ${lastDirection}`}
+          `You have moved ${allSteps.length} step${
+            allSteps.length > 1 && "s"
+          }${
+            allSteps.length > 1 &&
+            `, and the latest movement was ${lastDirection}`
+          }`}
       </SmallText>
       <div>
         <Title>{username}</Title>

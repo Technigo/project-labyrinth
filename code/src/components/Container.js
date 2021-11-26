@@ -25,6 +25,8 @@ const Container = () => {
   const loading = useSelector((store) => store.ui.isLoading);
   const steps = useSelector((store) => store.steps.steps);
   const lastStep = useSelector((store) => store.steps.steps.at(-1));
+  const currentStep = useSelector((store) => store.steps.currentStep);
+  console.log("currentSTate is", currentStep);
 
   const checkBoolean = (stepsLength, actionsLength) => {
     if (stepsLength && !actionsLength) return <LastPage />;
@@ -38,8 +40,9 @@ Hämtat loading från store, om loading är sant så visas den
   return (
     <MainContainer>
       {loading && <Loader />}
-      {!steps.length && <StartingPage />}
-      {checkBoolean(steps.length, lastStep?.actions?.length)}
+      {!currentStep && <StartingPage />}
+      {currentStep && <ActionPage />}
+      {/* {checkBoolean(steps.length, lastStep?.actions?.length)} */}
     </MainContainer>
   );
 };

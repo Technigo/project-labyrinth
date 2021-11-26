@@ -5,6 +5,7 @@ import uniqid from "uniqid";
 const initialState = {
   username: "",
   startingPosition: [],
+  currentStep: null,
   steps: [],
   directions: [],
 };
@@ -14,22 +15,26 @@ const steps = createSlice({
   initialState,
   reducers: {
     setUsername: (store, action) => {
-      console.log("setUsername: ", action.payload);
       store.username = action.payload;
     },
+    setCurrentStep: (store, action) => {
+      store.currentStep = action.payload;
+    },
     setSteps: (store, action) => {
-      console.log("setSteps: ", action.payload);
       const id = uniqid();
       let latestStep = action.payload;
       latestStep = { ...latestStep, id: id };
       store.steps.push(latestStep);
     },
     setStartPosition: (store, action) => {
-      console.log("setStartPosition: ", action.payload);
       store.startingPosition = action.payload;
     },
-    setMovement: (store, action) => {
-      store.directions.push(action.payload);
+    setHistory: (store, action) => {
+      const latestStep = {
+        ...store.currentStep,
+        directionTaken: action.payload,
+      };
+      store.steps.push(latestStep);
     },
     setInitialState: () => {
       return initialState;
@@ -55,8 +60,7 @@ export const fetchStart = () => {
     fetch("https://wk16-backend.herokuapp.com/start", options)
       .then((res) => res.json())
       .then((json) => {
-        dispatch(steps.actions.setSteps(json));
-        console.log("Start: ", json);
+        dispatch(steps.actions.setCurrentStep(json));
         dispatch(ui.actions.setLoading(false));
       });
   };
@@ -66,7 +70,7 @@ export const fetchSteps = (direction) => {
   return (dispatch, getState) => {
     dispatch(ui.actions.setLoading(true));
     const state = getState();
-    dispatch(steps.actions.setMovement(direction));
+    dispatch(steps.actions.setHistory(direction));
 
     const infoToAPI = {
       username: state.steps.username,
@@ -84,7 +88,7 @@ export const fetchSteps = (direction) => {
     fetch("https://wk16-backend.herokuapp.com/action", options)
       .then((res) => res.json())
       .then((json) => {
-        dispatch(steps.actions.setSteps(json));
+        dispatch(steps.actions.setCurrentStep(json));
         dispatch(ui.actions.setLoading(false));
       });
   };
