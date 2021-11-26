@@ -18,7 +18,7 @@ export const game = createSlice({
     },
     setHistory: (store, action) => {
       if (store.gameStatus) {
-        store.history = [action.payload, ...store.history]
+        store.history = [...store.history, action.payload]
       }
     },
     setDirection: (store, action) => {

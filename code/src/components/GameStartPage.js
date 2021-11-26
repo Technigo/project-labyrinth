@@ -14,7 +14,7 @@ export const GameStartPage = () => {
   return (
     <>
       <GamePageContainer>
-        <BackgroundContainer />
+        {/* <BackgroundContainer /> */}
         <ContentWrapper>
           <HeaderWrapper>
             {actions.length === 1 && (
@@ -55,24 +55,18 @@ const GamePageContainer = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  /* position: fixed; */
-  /* z-index: -1; */
   justify-content: flex-start;
-  /* background-image: url('/assets/background.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; */
 `
-const BackgroundContainer = styled.div`
-  /* width: 100vw;
-  height: 100vh;
-  position: fixed;
-  z-index: -1;
-  background-image: url('/assets/background.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; */
-`
+// const BackgroundContainer = styled.div`
+//   width: 100vw;
+//   height: 100vh;
+//   position: fixed;
+//   z-index: -1;
+//   background-image: url('/assets/background.svg');
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// `
 
 const ContentWrapper = styled.div`
   width: 90%;
@@ -94,7 +88,7 @@ const HeaderWrapper = styled.div`
   background-color: rgba(255, 255, 255, 0.9);
   h1 {
     font-size: 22px;
-    line-height: 1.2;
+    line-height: 1.3;
     margin: 0;
     margin-bottom: 15px;
     @media (min-width: 768px) {
@@ -103,18 +97,15 @@ const HeaderWrapper = styled.div`
   }
   h3 {
     font-size: 20px;
-    line-height: 1.2;
+    line-height: 1.3;
     margin: 0;
   }
 `
 
 const DirectionWrapper = styled.div`
   margin: 0 auto;
-  /* margin-bottom: 20px;
-  padding: 5px; */
   display: block;
   text-align: center;
-  /* background-color: rgba(255, 255, 255, 0.9); */
   z-index: 1;
 
   .option {
@@ -125,7 +116,7 @@ const DirectionWrapper = styled.div`
 
   h3 {
     font-size: 20px;
-    line-height: 1.2;
+    line-height: 1.3;
     margin: 10px 0 5px;
   }
 

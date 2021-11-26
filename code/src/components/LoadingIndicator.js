@@ -14,7 +14,8 @@ const Wrapper = styled.div`
   backdrop-filter: blur(2px);
   display: flex;
   align-items: center;
-  z-index: 3;
+  z-index: 25;
+  position: fixed;
 `
 
 export const LoadingIndicator = () => {
@@ -29,7 +30,6 @@ export const LoadingIndicator = () => {
     }
   }
   // animationData flatten replaces all previous colors with one color, #000000
-
 
   return (
     <>

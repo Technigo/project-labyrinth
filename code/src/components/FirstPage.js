@@ -28,26 +28,26 @@ export const FirstPage = () => {
     <>
       <FirstPageContainer>
         <ContentWrapper>
-        <HeaderWrapper>
-          <h1 className="first-page-header">
-            To begin the adventure enter your name.
-          </h1>
-        </HeaderWrapper>
-        <InputWrapper>
-          <input
-            className="input-field"
-            type="text"
-            placeholder="Name"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-          />
-          <button
-            className="submit-button"
-            disabled={username === ''}
-            onClick={onSubmitUsername}>
-            Start
-          </button>
-        </InputWrapper>
+          <HeaderWrapper>
+            <h1 className="first-page-header">
+              To begin the adventure enter your name.
+            </h1>
+          </HeaderWrapper>
+          <InputWrapper>
+            <input
+              className="input-field"
+              type="text"
+              placeholder="Name"
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+            />
+            <button
+              className="submit-button"
+              disabled={username === ''}
+              onClick={onSubmitUsername}>
+              Start
+            </button>
+          </InputWrapper>
         </ContentWrapper>
       </FirstPageContainer>
     </>
@@ -68,14 +68,14 @@ const FirstPageContainer = styled.div`
   background-size: cover;
 `
 const ContentWrapper = styled.div`
- @media (min-width: 768px) {
-        height: 450px;
-        max-width: 500px;
-        text-align: center;
-        margin: 20px auto 0 auto;
-        display: block;
-        z-index: 0;
-    }
+  @media (min-width: 768px) {
+    height: 450px;
+    max-width: 500px;
+    text-align: center;
+    margin: 20px auto 0 auto;
+    display: block;
+    z-index: 0;
+  }
 `
 const InputWrapper = styled.div`
   display: flex;
@@ -102,8 +102,8 @@ const InputWrapper = styled.div`
     margin: 10px 100px 10px 100px;
     font-family: 'Special Elite', cursive;
     @media (min-width: 768px) {
-       width: 20vw;
-       margin: 0 auto;
+      width: 20vw;
+      margin: 0 auto;
     }
   }
 
@@ -126,15 +126,15 @@ const HeaderWrapper = styled.div`
   margin: 70px 0px 0px 0px;
   max-width: 500px;
   @media (min-width: 768px) {
-        margin: 10px auto 0 auto; 
-        height: 20vw; 
-    }
+    margin: 10px auto 0 auto;
+    height: 20vw;
+  }
 
   .first-page-header {
     text-align: center;
     padding: 20px;
     @media (min-width: 768px) {
-        font-size: 50px;  
+      font-size: 50px;
     }
   }
 `
