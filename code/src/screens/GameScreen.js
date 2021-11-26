@@ -84,8 +84,8 @@ export const GameScreen = () => {
           {game.actions.length === 0 && (
             <>
               <CongratulationText>
-                Congratulations you finished the game in {gameHistory.length}{" "}
-                moves!
+                Congratulations {username}, you finished the game in{" "}
+                {gameHistory.length} moves!
               </CongratulationText>
 
               {/* If the overview Button is clicked the user get dispatched to the overview Screen */}
