@@ -57,10 +57,11 @@ const HeadText = styled.section`
 text-align: center;
 font-size: 22px;
 margin: auto auto;
-color: #323232;
+color: #fff;
 font-weight: 700;
 padding: 0px 30px 20px 30px;
 text-shadow: 5px 5px 15px #003300;
+
 @media (max-width: 768px) {
   margin-top: 40px;
   font-size: 16px;
@@ -72,9 +73,9 @@ justify-content: center;
 align-items: center;
 font-weight: 700;
 font-size: 18px;
-color: #323232;
+color: #fff;
 padding: 0px 30px 0px 30px;
-text-shadow: 5px 5px 15px #003300;
+text-shadow: 10px 5px 15px #003300;
 @media (max-width: 768px) {
   font-size: 15px;
 }
