@@ -27,7 +27,7 @@ border-radius: 5px;
 padding: 20px;
     @media (min-width: 768px) {
         width: 500px;
-    }
+}
 `
 const Form = styled.form`
 display: flex;
@@ -37,10 +37,6 @@ justify-content: center;
 align-items: center;
 `
 const H1 = styled.h1`
-color: yellow;
-letter-spacing: 1.5px;
-`
-const H2 = styled.h2`
 color: yellow;
 letter-spacing: 1.5px;
 `
@@ -73,9 +69,8 @@ font-weight: 500;
     background-color:#e4beba;
 }
 @media (min-width: 768px) {
-        width: 370px;
-        
-    }
+    width: 370px;
+}
 `
 
 const StartPage = () => {

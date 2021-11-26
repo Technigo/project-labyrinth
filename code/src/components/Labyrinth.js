@@ -64,7 +64,6 @@ const Labyrinth = () => {
     const labyrinth = useSelector((store) => store.labyrinth.destination);
     const loading = useSelector ((store) => store.animation.loading)
     const dispatch = useDispatch();
-    console.log ('actions', labyrinth.actions)
 
     const setBgImage = (coordinates) => {
         let bg = 'black';
@@ -97,39 +96,35 @@ const Labyrinth = () => {
     }
     
 return (
-
-    loading === false && (
-        
+    loading === false && (        
     <Wrapper style={{ background: setBgImage(labyrinth.coordinates), backgroundSize:'cover'}}>
-        
-    <LabyrinthCard>    
-    <Description>
-        {labyrinth.description}
-    </Description>
-        <div>
-        {labyrinth.actions !== undefined &&
-        labyrinth.actions.map((item) => (
-        <div key={item.description}>
-            <ItemDescription>
+        <LabyrinthCard>    
+            <Description>
+                {labyrinth.description}
+        </Description>
+            <div>
+                {labyrinth.actions !== undefined &&
+                    labyrinth.actions.map((item) => (
+            <div key={item.description}>
+        <ItemDescription>
                 {item.description} 
-            </ItemDescription>
+        </ItemDescription>
             <Button onClick={() => {
                 dispatch(fetchLabyrinth({
                     url: 'https://wk16-backend.herokuapp.com/action',
                     type: 'move',
                     direction: item.direction,
                 }
-                    ))
+            ))
             }}>Go {item.direction}</Button>
         </div>  
         )) }
         {labyrinth.actions.length === 0 &&
-        <EndPage />
+            <EndPage />
         } 
     </div>   
-    </LabyrinthCard>
+        </LabyrinthCard>
     </Wrapper>
-   
     )
 );
 };

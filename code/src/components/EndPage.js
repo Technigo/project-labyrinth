@@ -1,7 +1,7 @@
 import React from "react";
-import { useHistory } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
-
+import { labyrinth } from '../reducers/labyrinth'
 
 const Button = styled.button`
 width:150px;
@@ -20,14 +20,13 @@ color:  rgb(236, 236, 126);
 letter-spacing: 1.5px;
 `
 
-
-
 const EndPage = () => {
+    const dispatch = useDispatch()
     return(
         <div>
         <H3>Nice work! You have made it out of the labyrinth!</H3>
 
-            <Button>Restart labyrinth</Button>
+            <Button onClick={() => dispatch(labyrinth.actions.restartLabyrinth())}>Restart labyrinth</Button>
         </div>
     )
 }

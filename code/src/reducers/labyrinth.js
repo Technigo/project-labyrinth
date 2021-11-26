@@ -16,10 +16,13 @@ export const labyrinth = createSlice({
         state.userName = action.payload
     },
     setHistory: (state, action) => {
-        
-        state.history = [action.payload, ...state.history] 
+        state.history = [...state.history, action.payload] 
     },
-}}
+    restartLabyrinth: (state) => {
+        state.destination = []
+        state.userName = ''
+    },
+}}  
 );
 
 export const fetchLabyrinth = ({url, type, direction}) => { // this is passed along, depending on what user clicks on
