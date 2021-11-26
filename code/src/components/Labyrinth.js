@@ -9,15 +9,23 @@ display: flex;
 flex-direction: column;
 opacity: 0.8;
 background-color: #3c4f34;
-background-size: cover;
-height: 100vh;
-width: 100vw;
+background-size: ;
+background-repeat: no-repeat;
+min-height: 100vh;
+width: 100%;
 text-align: center;
 justify-content: center;
 align-items: center;
 margin:0;
 padding:0;
 color: white;
+`
+const LabyrinthCard = styled.section`
+width: 275px;
+height: 100%;
+background: rgba(0, 0, 0, 0.5);
+border-radius: 5px;
+padding: 10px;
 `
 const Description = styled.p`
 display: flex;
@@ -26,16 +34,25 @@ gap:20px;
 justify-content: center;
 align-items: center;
 padding: 10px;
+color: yellow;
+`
+const ItemDescription = styled.p`
+display: flex;
+flex-direction: column;
+gap:20px;
+justify-content: center;
+align-items: center;
+padding: 10px;
+color: white;
 `
 const Button = styled.button`
 width:150px;
 background: #3c4f34;
-border: 2px solid black;
 border-radius: 5px;
 padding: 8px;
-color: white;
+color: rgb(236, 236, 126);
 font-family: 'Courgette', cursive;
-font-size: 20px;
+font-size: 18px;
 font-weight: 600;
 letter-spacing: 1.5px;
 `
@@ -50,25 +67,25 @@ const Labyrinth = () => {
         let bg = 'black';
         switch (coordinates) { //switch: needs a case that ends with a break, then more cases can be added
             case '0,0':
-                bg = 'url(https://images.unsplash.com/photo-1471045220822-f3f0ad3a5416?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80) no-repeat center center fixed';
+                bg = 'url(https://images.unsplash.com/photo-1471045220822-f3f0ad3a5416?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80) ';
                 break 
             case '1,0':
-                bg = 'url(https://images.unsplash.com/photo-1467745870897-1f66443c8c04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=354&q=80) no-repeat center center fixed';
+                bg = 'url(https://images.unsplash.com/photo-1467745870897-1f66443c8c04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=354&q=80) ';
                 break
             case '1,1':
-                bg = 'url(https://images.unsplash.com/photo-1428737289360-ca73c271d197?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80) no-repeat center center fixed';
+                bg = 'url(https://images.unsplash.com/photo-1428737289360-ca73c271d197?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80)';
                 break
             case '0,1':
-                bg = 'url(https://images.unsplash.com/photo-1611643892561-9759a32e0c10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80) no-repeat center center fixed';
+                bg = 'url(https://images.unsplash.com/photo-1611643892561-9759a32e0c10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)';
                 break
             case '0,2':
-                bg = 'url(https://images.unsplash.com/photo-1533693637260-257bd3834be2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80) no-repeat center center fixed'
+                bg = 'url(https://images.unsplash.com/photo-1533693637260-257bd3834be2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80)'
                 break
             case '0,3':
-                bg = 'url(https://images.unsplash.com/photo-1540979730456-da51523895df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80) no-repeat center center fixed'
+                bg = 'url(https://images.unsplash.com/photo-1540979730456-da51523895df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80)'
                 break
             case '1,3':
-                bg = 'url(https://images.unsplash.com/photo-1541429222367-285a893182f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) no-repeat center center fixed'
+                bg = 'url(https://images.unsplash.com/photo-1541429222367-285a893182f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)'
                 break
         default:
             bg = 'black'
@@ -80,20 +97,19 @@ return (
 
     loading === false && (
         
-    <Wrapper style={{ background: setBgImage(labyrinth.coordinates)}}>
+    <Wrapper style={{ background: setBgImage(labyrinth.coordinates), backgroundSize:'cover'}}>
         
-        
+    <LabyrinthCard>    
     <Description>
         {labyrinth.description}
     </Description>
-    <div>
-        
+        <div>
         {labyrinth.actions !== undefined &&
         labyrinth.actions.map((item) => (
         <div key={item.description}>
-            <Description>
+            <ItemDescription>
                 {item.description} 
-            </Description>
+            </ItemDescription>
             <Button onClick={() => {
                 dispatch(fetchLabyrinth({
                     url: 'https://wk16-backend.herokuapp.com/action',
@@ -101,20 +117,16 @@ return (
                     direction: item.direction,
                 }
                     ))
-            }}>{item.direction}</Button>
-
-        
+            }}>Go {item.direction}</Button>
         </div>  
-          
         )) }
-        {labyrinth.coordinates==='1,3' && 
+        {labyrinth.actions.length === 0 &&
         <EndPage />
-        
         } 
-    </div>
-    
-    
+    </div>   
+    </LabyrinthCard>
     </Wrapper>
+   
     )
 );
 };

@@ -8,7 +8,7 @@ import styled from 'styled-components'
 const Background = styled.div`
 display: flex;
 flex-direction: column;
-background: url(https://source.unsplash.com/_qXjdWm8YEo/2400x2400) no-repeat center center fixed;
+background: url(https://source.unsplash.com/_qXjdWm8YEo/2400x2400);
 opacity: 0.7;
 background-color: #3c4f34;
 background-size: cover;
@@ -19,6 +19,13 @@ text-align: center;
 justify-content: center;
 align-items: center;
 `
+const StartCard = styled.section`
+width: 275px;
+height: auto;
+background: rgba(0, 0, 0, 0.5);
+border-radius: 5px;
+padding: 20px;
+`
 const Form = styled.form`
 display: flex;
 flex-direction: column;
@@ -26,26 +33,30 @@ gap:20px;
 justify-content: center;
 align-items: center;
 `
+const H1 = styled.h1`
+color: yellow;
+letter-spacing: 1.5px;
+`
 const Button = styled.button`
 width:150px;
 background: #3c4f34;
 border: 2px solid black;
 border-radius: 5px;
 padding: 8px;
-color: white;
+color: rgb(236, 236, 126);
 font-family: 'Courgette', cursive;
 font-size: 20px;
 font-weight: 600;
 letter-spacing: 1.5px;
 `
-
 const Input = styled.input`
 height: 36px;
 border: 2px solid black;
 border-radius: 5px;
 font-family: 'Courgette', cursive;
-width:300px;
+width:225px;
 padding-left: 10px;
+margin-bottom: 30px;
 color: #3c4f34;
 letter-spacing: 1.5px;
 font-size: 15px;
@@ -55,7 +66,6 @@ font-weight: 500;
     background-color:#e4beba;
 }
 `
-
 
 const StartPage = () => {
     const [userName, setUserName] = useState('')
@@ -73,11 +83,13 @@ const StartPage = () => {
     if (currentUserName === '') { 
 return (
     <Background>
-        <Form onSubmit={(event)=> handleSubmit(event) }>
-        <h1>To enter the labyrinth, please type your name:</h1>
-        <Input type="text" required value={userName} onChange={(event) => setUserName(event.target.value)}/>
-        <Button type="submit">Let's go!</Button>
-        </Form>    
+        <StartCard>
+            <Form onSubmit={(event)=> handleSubmit(event) }>
+            <H1>To enter the labyrinth, please type your name:</H1>
+                <Input type="text" required value={userName} onChange={(event) => setUserName(event.target.value)}/>
+                <Button type="submit">Let's go!</Button>
+            </Form> 
+        </StartCard>   
     </Background>
 )} else {
     return <Labyrinth />

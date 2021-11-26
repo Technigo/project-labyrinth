@@ -5,10 +5,17 @@ import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 const Section = styled.section`
-&:active {
-    height: 100vh;
-    width: 100%;
-}   
+display: flex;
+width: 100%;
+height: 100vh;
+position: absolute;
+justify-content: center;
+align-items: center;
+background-color: #3c4f34;
+`
+const Spinner = styled.div`
+position: relative;
+
 `
 const LoadingAnimation = () => {
     const loading = useSelector ((store) => store.animation.loading)
@@ -23,9 +30,9 @@ const LoadingAnimation = () => {
 }
 return (
     <Section>   
-        
+        <Spinner>   
         {loading && <Lottie options={defaultOptions} height={325} width={325} />}
-        
+        </Spinner>
     </Section>
 
     );
