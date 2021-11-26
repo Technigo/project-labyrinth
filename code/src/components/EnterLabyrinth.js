@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import img from '../images/1347872.jpg'
-
+import { Button } from './Button'
 import { game, generateGame } from '../reducers/game'
 
 export const EnterLabyrinth = () => {
@@ -31,14 +31,14 @@ export const EnterLabyrinth = () => {
             required
           />
         </label>
-        <StartButton type="submit">Enter Labyrinth</StartButton>
+        <Button type="submit">Enter Labyrinth</Button>
       </Form>
       </TextContainer>
     </Main>
   )
 }
 
-//styling
+//Styling
 const Main = styled.main`
 width: 100%;
 height: 100vh;
@@ -67,7 +67,6 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 text-align: center;
-/* border: 3px dashed #fff; */
 padding: 20px;
 margin: 0 auto;
 width: 80vw;
@@ -79,7 +78,6 @@ opacity: 0.7;
   width: 60vw;
 }
 `
-
 const Form = styled.form`
 margin-top: 25px;
 
@@ -90,53 +88,6 @@ border: none;
 border-bottom: 2px solid orange;
 margin: 5px;
 margin-top: 15px;
+margin-bottom: 20px;
 }
 ` 
-const StartButton = styled.button`
-  background: #F2C409;
-  margin: 0 auto;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  cursor: pointer;
-  display: block;
-  position: relative;
-  text-align: center;
-  font-size: 14px;
-  padding: 20px;
-  text-decoration: none; 
-  color: white;
-  box-shadow: inset -3px -3px 0 0 #E59400;
-
-  &:hover,
-  &:focus {
-    background: orange;
-    box-shadow: inset (-3px*1.5) (-3px*1.5) 0 0 #E59400;
-  }
-
-  &:active {
-        box-shadow: inset 3 3 0px 0px #E59400;
-    }
-
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    box-sizing: content-box;
-  }
-
-  &:before {
-    top: -5px;
-    left: 0;
-    border-top: 5px #fff solid;
-    border-bottom: 5px #fff solid;
-  }
-
-  &:after {
-    left: -5px;
-    top: 0;
-    border-left: 5px #fff solid;
-    border-right: 5px #fff solid;
-  }
-`

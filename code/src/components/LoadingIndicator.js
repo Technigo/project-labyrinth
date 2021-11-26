@@ -20,7 +20,7 @@ export const LoadingIndicator = () => {
     autoplay: true,
     animationData,
     rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
+    preserveAspectRatio: "xMidYMid slice"
     }
   }
 
