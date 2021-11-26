@@ -13,15 +13,7 @@ const reducer = combineReducers({
   steps: steps.reducer,
 });
 
-// const composeEnhancer =
-//   (typeof window !== "undefined" &&
-//     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
-//   compose;
-
-const store = configureStore(
-  { reducer }
-  // composeEnhancer(applyMiddleware(thunk))
-);
+const store = configureStore({ reducer });
 
 export const App = () => {
   return (
