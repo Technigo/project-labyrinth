@@ -11,8 +11,7 @@ import animationDataWater from "../lotties/water";
 export const GamePage = () => {
   const labyrinth = useSelector((store) => store.labyrinth.location);
   const loading = useSelector((store) => store.ui.loading);
- 
-  const [ setDirection] = useState("");
+  const [setDirection] = useState("");
 
   const defaultOptions = {
     loop: true,
@@ -64,10 +63,7 @@ export const GamePage = () => {
             </div>
           );
         } else {
-          mapTiles.push(
-
-            <div></div>
-          );
+          mapTiles.push(<div></div>);
         }
       }
 
@@ -133,22 +129,18 @@ export const GamePage = () => {
           <section className="GamePageContent">
             <section className="GamePageStory">
               <div className="GamePageCoordinates">
-                <div  height={40}
-                width={40} style={{
-                  position: "relative",
-                  right:"45vw",
-                  display:"block",
-                  marginTop:'-5px',
-                  
-                }}>
-              <Lottie
-                options={defaultOptions}
-                height={40}
-                width={40}
-                
-               
-              />
-              </div>
+                <div
+                  height={40}
+                  width={40}
+                  style={{
+                    position: "relative",
+                    right: "45vw",
+                    display: "block",
+                    marginTop: "-5px",
+                  }}
+                >
+                  <Lottie options={defaultOptions} height={40} width={40} />
+                </div>
                 <p> coordinates:{labyrinth.coordinates}</p>
               </div>
               <p>{labyrinth.description}</p>
@@ -170,27 +162,21 @@ export const GamePage = () => {
           </section>
         </section>
 
+        <section className="DirectionMap">
+          <div className="map-grid">
+            <Lottie
+              className="LottiMap"
+              options={defaultOptionsWater}
+              style={{
+                height: "30vh",
+                width: "96vw",
+                position: "absolute",
+              }}
+            />
 
-<section className="DirectionMap">
-      
-<div className="map-grid">
-<Lottie 
-className="LottiMap"
-options={defaultOptionsWater}
-style={{ 
-
-  height:'30vh',
-        width:'96vw',   
-  position: 'absolute',
-  
-}}
-/>
-
-          {createMapTiles()}
-         
-        </div>
-</section>
-
+            {createMapTiles()}
+          </div>
+        </section>
       </article>
     );
   }
