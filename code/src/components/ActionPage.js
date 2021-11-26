@@ -4,19 +4,21 @@ import styled from "styled-components/macro";
 
 import { fetchSteps } from "../reducers/steps";
 
-const Title = styled.h1`
+const MainText = styled.p`
+  font-size: 42px;
   margin: 0;
-  font-size: 24px;
+  color: black;
 `;
 
 const SecondaryText = styled.p`
+  font-size: 32px;
   margin: 0;
   color: #6b6b6b;
 `;
 
 const SmallText = styled.p`
   margin: 0;
-  font-size: 12px;
+  font-size: 24px;
   color: #6b6b6b;
 `;
 
@@ -31,21 +33,21 @@ const Button = styled.button`
   padding: 10px 10px;
   text-align: center;
   font-family: inherit;
-  font-size: 16px;
+  font-size: 24px;
   letter-spacing: 1px;
   text-decoration: none;
-  color: #725ac1;
-  background: rgba(46, 81, 218, 0.3);
+  color: rgb(114, 84, 38);
+  background: rgba(114, 84, 38, 0.3);
   cursor: pointer;
   transition: ease-out 0.5s;
   border-radius: 30px;
-  border: 2px solid #725ac1;
+  border: 2px solid rgb(114, 84, 38);
   border-radius: 10px;
-  box-shadow: inset 0 0 0 0 #725ac1;
+  box-shadow: inset 0 0 0 0 rgb(114, 84, 38);
 
   &:hover {
     color: white;
-    box-shadow: inset 0 -100px 0 0 #725ac1;
+    box-shadow: inset 0 -100px 0 0 rgb(114, 84, 38);
   }
 
   &:active {
@@ -56,11 +58,10 @@ const Button = styled.button`
 const ActionPage = () => {
   // get the latest step by getting the last item in the array steps from the store
   const currentStep = useSelector((store) => store.steps.currentStep);
-  const lastDirection = useSelector((store) =>
-    store?.steps?.steps?.at(-1)?.directionTaken
+  const lastDirection = useSelector(
+    (store) => store?.steps?.steps?.at(-1)?.directionTaken
   );
   const allSteps = useSelector((store) => store.steps.steps);
-  const username = useSelector((store) => store.steps.username);
 
   const dispatch = useDispatch();
 
@@ -71,17 +72,20 @@ const ActionPage = () => {
   return (
     <Content>
       <SmallText>
-        {allSteps.length === 1 && `You have moved 1 step and the last direction chosen was ${lastDirection.toLowerCase()}`}
-        {allSteps.length > 1 && `You have moved ${allSteps.length} steps and the last direction chosen was ${lastDirection}`}
+        {allSteps.length === 1 &&
+          `You have moved 1 step and the last direction chosen was ${lastDirection.toLowerCase()}`}
+        {allSteps.length > 1 &&
+          `You have moved ${
+            allSteps.length
+          } steps and the last direction chosen was ${lastDirection.toLowerCase()}`}
       </SmallText>
       <div>
-        <Title>{username}</Title>
-        <SecondaryText>{currentStep.description}</SecondaryText>
+        <MainText>{currentStep.description}</MainText>
       </div>
       <div>
         {currentStep.actions.map((action) => (
           <div key={action.description}>
-            <div>{action.description}</div>
+            <SecondaryText>{action.description}</SecondaryText>
             <Button
               type="button"
               onClick={() => handleClick(action.direction)}
