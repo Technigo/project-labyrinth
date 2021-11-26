@@ -17,7 +17,7 @@ export const Direction = ({ description, direction, setDirection }) => {
 
 
 
-  const click = () => {
+  const onClick = () => {
     dispatch(labyrinth.actions.setAction(direction));
     dispatch(continueLabyrinth());
     SoundPlay()
@@ -38,7 +38,7 @@ export const Direction = ({ description, direction, setDirection }) => {
       className="DirectionBtn"
         value={direction}
         onChange={(e) => setDirection(e.target.value)}
-        onClick={click}
+        onClick={onClick}
       >
         {direction}
       </button>
