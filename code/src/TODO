@@ -1,25 +1,4 @@
-1. Try starting the game with Postman
-2. Get the game started in your code using fetch
-3. Display the description and actions from the response
-4. Allow the user/player to select an action
-5. Perform a POST request based on the action selected
-6. Handle the response from the `POST /action` to update the game state
 
-1- Postman
-2- Username component to fetch the data from Postman
-3- Button to start the game with the username
-4- Loading component and ui reducer for loading component
-
----
-
-Jamie said to capture options (button) and then map trough them.
-
-Restart button
-Styling
-history
-
-Styling ideas ----->
-Start page: forrest image
 
 coordinates(pin):"0,0"
 description(pin):"You find yourself in under a large archway opening into a cavern. A sense of purpose fills you."

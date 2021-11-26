@@ -5,7 +5,6 @@ const initialState = {
   username: "",
   response: {},
   coordinates: "",
-  //history: []
 }
 
 export const labyrinth = createSlice({
@@ -28,7 +27,6 @@ export const labyrinth = createSlice({
     reStart: () => {
       return initialState
     },
-    // create a set history action
   },
 })
 

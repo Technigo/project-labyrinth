@@ -1,42 +1,34 @@
-// import React from "react"
-// import { useSelector } from "react-redux"
-// // import styled from "styled-components"
-// import { Circular } from "styled-loaders-react"
-// //import { ui } from "../reducers/ui"
-
-// export const Loader = () => {
-//   const loading = useSelector((state) => state.ui.loading)
-
-//   return (
-//     loading === true && (
-//       <div>
-//         <Circular color="red" size="60px" duration="5s" />
-//       </div>
-//     )
-//   )
-// }
-
 import React from "react"
 import { useSelector } from "react-redux"
 import styled from "styled-components"
-import { Circular } from "styled-loaders-react"
-//import { ui } from "../reducers/ui"
+
+import Lottie from "react-lottie"
+import animationData from "./lotties/loader"
 
 const LoadingWrapper = styled.div`
   display: flex;
   align-items: center;
   margin: 0 auto;
   height: 100vh;
-  background-color: black;
+  background-color: rgb(72, 80, 82);
 `
 
 export const Loader = () => {
   const loading = useSelector((state) => state.ui.loading)
 
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  }
+
   return (
     loading === true && (
       <LoadingWrapper>
-        <Circular color="white" size="100px" duration="5s" />
+        <Lottie options={defaultOptions} height={350} width={350} />
       </LoadingWrapper>
     )
   )

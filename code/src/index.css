@@ -11,14 +11,27 @@ body {
 }
 
 h1 {
+  font-size: 30px;
   margin: 0 auto;
   padding-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: solid 2px #efeded;
 }
 p {
+  font-size: 20px;
   font-weight: 400;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 20px;
+  }
+  p {
+    font-size: 16px;
+  }
 }

@@ -2,8 +2,7 @@ import React from "react"
 import { labyrinth, continueLabyrinth } from "reducers/labyrinth"
 import { useSelector, useDispatch } from "react-redux"
 import styled from "styled-components"
-import { Loader } from "./Loader"
-// import { GameStart } from "./GameStart"
+import { Loader } from "components/Loader"
 
 export const MainPage = () => {
   const response = useSelector((state) => state.labyrinth.response)
@@ -40,7 +39,11 @@ export const MainPage = () => {
     text-align: center;
     justify-content: center;
     margin: auto 0;
-    padding-top: 200px;
+    padding-top: 120px;
+
+    @media (max-width: 768px) {
+      padding-top: 40px;
+    }
   `
 
   const TextCard = styled.div`
@@ -52,6 +55,11 @@ export const MainPage = () => {
     padding: 30px;
     background-color: rgb(187, 187, 187, 0.25);
     width: 60%;
+
+    @media (max-width: 768px) {
+      padding: 15px;
+      width: 80%;
+    }
   `
 
   const imageLibrary = {
@@ -85,12 +93,12 @@ export const MainPage = () => {
             <div>
               {actions.map((action) => (
                 <div key={action.description}>
+                  <p>{action.description}</p>
                   <Button
                     onClick={() => onButtonClick(action.type, action.direction)}
                   >
                     MOVE {action.direction.toUpperCase()}
                   </Button>
-                  <p>{action.description}</p>
                 </div>
               ))}
             </div>

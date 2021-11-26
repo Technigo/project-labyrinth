@@ -11,8 +11,9 @@ export const Footer = () => {
   )
 }
 
-const FooterBox = styled.footer`
+const FooterBox = styled.div`
   position: fixed;
+  left: 30%;
   bottom: 20px;
   color: white;
   margin: 0 auto;
@@ -20,17 +21,22 @@ const FooterBox = styled.footer`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   font-size: 16px;
   padding: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    left: 20px;
+  }
 `
 
-const Text = styled.p`
+const Text = styled.h5`
   margin: 20px 0 0 0;
-  color: white;
-  margin: 20px;
+  color: grey;
+  margin-left: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  align-text: center;
 `

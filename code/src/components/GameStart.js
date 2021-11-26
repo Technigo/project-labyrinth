@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import { fetchInitialData, labyrinth } from "reducers/labyrinth"
 import { useSelector, useDispatch } from "react-redux"
 import styled from "styled-components"
+import { MazeLoader } from "components/MazeLoader"
+import thelord from "components/thelord.mp3"
 
 export const GameStart = () => {
   const [username, setUsername] = useState("")
@@ -10,13 +12,18 @@ export const GameStart = () => {
 
   const onGameStart = (event) => {
     event.preventDefault()
-    // if (username.length === 0) {
-    //   alert("Please enter a username to start")
-    // } else {
     dispatch(labyrinth.actions.setusername(username))
     dispatch(fetchInitialData(username))
-    setUsername("") // added this to clean the input box
+    setUsername("")
   }
+
+  const audio = new Audio(thelord)
+
+  const startMusic = () => {
+    audio.play()
+    audio.volume = 0.3
+  }
+  startMusic()
 
   return (
     <MainWrapper>
@@ -24,8 +31,8 @@ export const GameStart = () => {
         <>
           <TextCard>
             <form>
-              <h1>Would you like to play a game? </h1>
-              <h3> Enter your name to start. </h3>
+              <h2> 'The Temple of *ech*igo' </h2>
+              <p> Enter your name to start. </p>
 
               <Input
                 required
@@ -40,6 +47,7 @@ export const GameStart = () => {
           </TextCard>
         </>
       )}
+      <MazeLoader />
     </MainWrapper>
   )
 }
@@ -60,7 +68,7 @@ const Input = styled.input`
   border: 2px solid white;
   width: 200px;
   height: 30px;
-  margin: 30px;
+  margin: 15px;
   border-radius: 3px;
   color: white;
   font-size: 16px;
@@ -77,6 +85,10 @@ const TextCard = styled.div`
   background-color: rgb(187, 187, 187, 0.25);
   width: 60%;
   min-height: 250px;
+  @media (max-width: 768px) {
+    padding: 15px;
+    width: 80%;
+  }
 `
 const MainWrapper = styled.section`
   background-image: url(./assets/forest.jpg);
@@ -87,5 +99,9 @@ const MainWrapper = styled.section`
   text-align: center;
   justify-content: center;
   margin: auto 0;
-  padding-top: 200px;
+  padding-top: 120px;
+
+  @media (max-width: 768px) {
+    padding-top: 40px;
+  }
 `
