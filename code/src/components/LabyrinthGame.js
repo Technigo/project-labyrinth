@@ -4,6 +4,7 @@ import { StartPage } from './StartPage';
 import { Description } from './Description';
 import { LoadingLottie } from './Lottie';
 import styled from 'styled-components';
+import { DirectionButtons } from './DirectionButtons';
 
 export const LabyrinthGame = () => {
   const currentPosition = useSelector(
@@ -11,12 +12,16 @@ export const LabyrinthGame = () => {
   );
 
   return (
-    <Container>
-      <InnerContainer>
-        {currentPosition ? <Description /> : <StartPage />}
-        <LoadingLottie />
-      </InnerContainer>
-    </Container>
+    <>
+      <Container>
+        <InnerContainer>
+          {currentPosition ? <Description /> : <StartPage />}
+          <LoadingLottie />
+        </InnerContainer>
+      </Container>
+
+      <DirectionButtons />
+    </>
   );
 };
 
@@ -24,7 +29,6 @@ const Container = styled.div`
   min-height: 100vh;
   display: flex;
   align-items: center;
-
   padding: 50px;
 `;
 
