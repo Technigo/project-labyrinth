@@ -54,9 +54,6 @@ const OptionContainer = styled.div`
 const Game = () => {
   const story = useSelector((store) => store.game.moves);
 
-  const audio = new Audio("/epic.mp3");
-  audio.play();
-
   const ChooseBg = () => {
     if (story?.coordinates === "0,0") {
       return "/assets/three.jpg";
