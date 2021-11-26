@@ -6,11 +6,8 @@ import { Loader } from "./Loader"
 // import { GameStart } from "./GameStart"
 
 export const MainPage = () => {
-  // const loading = useSelector((state) => state.ui.loading)
   const response = useSelector((state) => state.labyrinth.response)
-  // const { coordinates, actions } = useSelector(
-  //   (state) => state.labyrinth.response.actions
-  // )
+
   const coordinates = useSelector((state) => state.labyrinth.coordinates)
   const actions = useSelector((state) => state.labyrinth.response.actions)
 
@@ -37,7 +34,6 @@ export const MainPage = () => {
     cursor: pointer;
   `
   const MainWrapper = styled.section`
-    ${"" /* background-image: url(./assets/forest.jpg); */}
     background-size: cover;
     background-position: center center;
     height: 100vh;
@@ -59,7 +55,7 @@ export const MainPage = () => {
     width: 60%;
   `
 
-  const colorDictionary = {
+  const imageLibrary = {
     "0,0":
       "url(https://images.pexels.com/photos/2877375/pexels-photo-2877375.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "1,0":
@@ -77,13 +73,11 @@ export const MainPage = () => {
   }
 
   return (
-    // loading === false &&
     <>
       <Loader />
-
       <MainWrapper
         style={{
-          backgroundImage: colorDictionary[coordinates],
+          backgroundImage: imageLibrary[coordinates],
         }}
       >
         <TextCard>

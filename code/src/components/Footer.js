@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <>
       <FooterBox>
-        <Text>Developed and Designed by Pinar & Alexandra 2021</Text>
+        <Text>Developed and Designed by Pinar & Alexandra © 2021</Text>
       </FooterBox>
     </>
   )

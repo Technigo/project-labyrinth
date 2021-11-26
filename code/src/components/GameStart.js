@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { fetchInitialData, labyrinth } from "reducers/labyrinth"
 import { useSelector, useDispatch } from "react-redux"
 import styled from "styled-components"
-import { Maze } from "./Maze"
 
 export const GameStart = () => {
   const [username, setUsername] = useState("")
@@ -40,7 +39,6 @@ export const GameStart = () => {
               </Button>
             </form>
           </TextCard>
-          <Maze />
         </>
       )}
     </MainWrapper>
