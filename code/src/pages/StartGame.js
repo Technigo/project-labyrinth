@@ -8,12 +8,12 @@ import { LoadingIndicator } from "../components/LoadingIndicator";
 import { CompassAnimation } from "../components/CompassAnimation";
 import Button from "../components/Button";
 
-const TextContainer = styled.div `
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 25px;
-`
+const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 25px;
+`;
 
 const StartGame = () => {
   const dispatch = useDispatch();
@@ -29,7 +29,7 @@ const StartGame = () => {
 
   return (
     <TextContainer>
-      {loading ? <LoadingIndicator /> : <CompassAnimation width= '300px' height= '300px'/>}
+      {loading ? <LoadingIndicator /> : <CompassAnimation width="300px" height="300px" />}
       <p>Hello {name}, welcome to the labyrinth! Search your way to the light</p>
       <p>To move from a place to another. Click the button with "east", "west", "south" or "north"</p>
       <p>To examine where you are read the descriptions.</p>

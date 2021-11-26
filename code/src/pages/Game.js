@@ -49,11 +49,11 @@ const Game = () => {
     color: black;
     text-align: center;
     display: inline-block;
-    opacity: 0.7;
+    opacity: 0.8;
 
     @media (max-width: 667px) {
-    width: 80%;
-  }
+      width: 80%;
+    }
   `;
 
   const Main = styled.main`
@@ -72,7 +72,9 @@ const Game = () => {
   return (
     <Main style={{ backgroundImage: `url(${ImagePicker()})` }}>
       <div>
-        {loading ? <LoadingIndicator /> : 
+        {loading ? (
+          <LoadingIndicator />
+        ) : (
           <>
             <Card thumbnailUrl title="The Labyrinth" secondaryText="Find your way to the light!" />
             <Container>
@@ -84,14 +86,15 @@ const Game = () => {
                     {item.type} {item.direction}
                   </Button>
                 </div>
-              ))} 
+              ))}
               {end && (
                 <Button type="button" onClick={() => navigate("/")}>
                   Restart
                 </Button>
               )}
-            </Container> 
-          </>}
+            </Container>
+          </>
+        )}
       </div>
     </Main>
   );

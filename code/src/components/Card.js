@@ -22,7 +22,7 @@ const Container = styled.div`
 
 const Title = styled.h2`
   font-size: 30px;
-  color: #32281f
+  color: #32281f;
 `;
 
 const SecondaryText = styled.h3`
@@ -32,8 +32,8 @@ const SecondaryText = styled.h3`
 
 export const Card = ({ title, thumbnailUrl, secondaryText }) => (
   <Container>
-    {title && <Title>{title}</Title>} 
+    {title && <Title>{title}</Title>}
     {secondaryText && <SecondaryText>{secondaryText}</SecondaryText>}
-    {thumbnailUrl && <CompassAnimation width= '80px' height= '80px' />}
+    {thumbnailUrl && <CompassAnimation width="80px" height="80px" />}
   </Container>
 );
