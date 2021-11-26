@@ -94,25 +94,12 @@ const IconImg = styled.img`
     }
   }
 `
-const LoaderOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: black;
-  opacity: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 99;
-`
 
 // Game component
 const Game = () => {
   const data = useSelector(store => store.maze.response)
   const userName = useSelector(store => store.maze.username)
-  const history = useSelector(store => store.maze.history)
+  
   console.log("username", userName) // CONSOLE
   console.log("data", data) // CONSOLE
 

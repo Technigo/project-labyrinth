@@ -20,7 +20,6 @@ const Overlay = styled.div`
 
 // Loader component
 const Confetti = () => {
-  const loading = useSelector(store => store.ui.loading)
 
   const defaultOptions = {
     loop: false,
