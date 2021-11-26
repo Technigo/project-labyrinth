@@ -90,6 +90,8 @@ const TheGame = () => {
     dispatch(nextStep(type, direction));
   };
 
+  const username = useSelector((store) => store.game.username);
+
   const backgroundImage = () => {
     let bg = "";
     switch (coordinates) {
@@ -142,7 +144,7 @@ const TheGame = () => {
         <article>
           {gameStep?.actions?.length === 0 && (
             <div>
-              <h4>Congrats, you made your way out!</h4>
+              <h4>Congrats {username}, you made your way out!</h4>
               <button onClick={() => dispatch(game.actions.restart())}>
                 Lets go again!
               </button>
