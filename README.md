@@ -1,13 +1,15 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
+Project for a text based adventure navigation through a maze. Built with react redux using thunks for API post fetch.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+By Daniel Vestin & Elin Elmvik Diczfalusy
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+<!-- Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next? -->
+
+We started out making a redux store and a couple of reducers for managing the Username input for starting the Maze and for the navigation through the maze.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://das-maze.netlify.app/

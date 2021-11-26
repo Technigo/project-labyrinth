@@ -9,6 +9,7 @@ import { startMaze } from "../reducers/maze"
 const StartContainer = styled.div`
   max-width: 500px;
   padding: 20px;
+  margin: 10px;
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 10px;
   text-align: center;

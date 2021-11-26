@@ -12,10 +12,9 @@ import Loader from "./components/Loader"
 const AppBody = styled.main`
   background-image: url("./assets/maze-bg.jpg");
   background-size: cover;
-  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
 `

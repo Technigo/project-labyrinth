@@ -17,6 +17,7 @@ const GameContainer = styled.section`
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 10px;
+  margin: 10px;
 `
 const InfoDiv = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
@@ -31,6 +32,7 @@ const InfoDiv = styled.div`
 const TextP = styled.p`
   color: grey;
   font-style: italic;
+  
 `
 
 const NavDiv = styled.div`
@@ -75,12 +77,13 @@ const TheEndDiv = styled.div`
 `
 const IconImg = styled.img`
   max-height: 100px;
-  /* width: 50px; */
+  
   margin: 20px 0;
   animation: pulse 3s;
   animation-timing-function: ease;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+
 
   @keyframes pulse {
     0% {
@@ -97,6 +100,7 @@ const IconImg = styled.img`
 const EndP = styled.p`
   color: #FADD57;
   font-size: 1.5em;
+
 `
 
 // Game component
