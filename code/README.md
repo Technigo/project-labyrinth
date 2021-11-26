@@ -1,13 +1,10 @@
-# Project Labyrinth
+Project Labyrinth
+This project "Labyrinth" was made as a Week 14 pair-programming project for Technigo bootcamp by Hedvig Mejstedt and Harry Bäcklin. You were supposed to build a project which allows a user to navigate a maze, in the form of a text-based adventure, provided by a backend. The aim of this project was to dig deeper into redux, learn how to use thunks and work with API together with Redux. We practiced again how to send JSON in the body of a request and structure the redux store and made two slices: ui and game.
 
-Replace this readme with your own information about your project.
+The problem
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week have been going pretty okay, I felt like we got off to a good start and we got the two first fetches done rather quickly. Still not super comfortable working with branches but its getting there we had some problem with merging but other than that we feel it have been going rather smoothly, We worked very remotely and it have worked fine we have been having our communication through text on slack.
 
-## The problem
+View it live
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
-
-## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://harrys-hedvigs-labyrinth.netlify.app
