@@ -133,6 +133,22 @@ export const GamePage = () => {
           <section className="GamePageContent">
             <section className="GamePageStory">
               <div className="GamePageCoordinates">
+                <div  height={40}
+                width={40} style={{
+                  position: "relative",
+                  right:"45vw",
+                  display:"block",
+                  marginTop:'-5px',
+                  
+                }}>
+              <Lottie
+                options={defaultOptions}
+                height={40}
+                width={40}
+                
+               
+              />
+              </div>
                 <p> coordinates:{labyrinth.coordinates}</p>
               </div>
               <p>{labyrinth.description}</p>

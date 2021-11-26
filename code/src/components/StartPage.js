@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import Lottie from "react-lottie";
 import animationData from "../lotties/Background";
 import animationBtn from "../lotties/btn";
+import sea from "sounds/sea.mp3"
 
 export const StartPage = () => {
   const [username, setUsername] = useState("");
@@ -26,11 +27,19 @@ export const StartPage = () => {
     },
   };
 
-  const start = () => {
+  let sound =  new Audio(sea);
+  const SoundPlay = () => {
+    
+    sound.play();
+  };
+
+
+  const onClickStart = () => {
     if (username === "") {
     } else {
       dispatch(Labyrinth.actions.setUsername(username));
       dispatch(fetchLabyrinth());
+      SoundPlay()
     }
   };
 
@@ -77,7 +86,7 @@ export const StartPage = () => {
                 zIndex: "-1",
               }}
             />
-            <button onClick={start} className="startPageBtn">
+            <button onClick={onClickStart} className="startPageBtn">
               Welcome{" "}
             </button>
           </div>

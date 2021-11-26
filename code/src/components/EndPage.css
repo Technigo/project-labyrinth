@@ -6,6 +6,10 @@
   height: 100vh;
   width: 100vw;
   color: black;
+
+overflow: hidden;
+margin: 0 auto;
+padding: 0 auto;
   
 }
 

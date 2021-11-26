@@ -4,12 +4,22 @@ import labyrinth from "../reducers/Labyrinth";
 import Lottie from "react-lottie";
 import animationChest from "../lotties/treasure-chest-animation";
 import animationBackground from "../lotties/Background";
+import restart from "sounds/restart.wav"
 
 export const EndPage = () => {
   const dispatch = useDispatch();
 
+
+  let sound =  new Audio(restart);
+  const SoundPlay = () => {
+    sound.play();
+  };
+
+
+
   const onStartOver = () => {
     dispatch(labyrinth.actions.setLocation(null));
+    SoundPlay()
   };
 
   const defaultOptionsChest = {

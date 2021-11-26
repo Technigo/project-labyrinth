@@ -3,12 +3,15 @@
 .startPageContainer{
 
 background-color: beige;
-height: 100vh;
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-
+width: 100vw;
+height: 100vh;;
+overflow: hidden;
+margin: 0 auto;
+padding: 0 auto;
 
 }
 

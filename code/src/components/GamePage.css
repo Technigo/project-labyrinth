@@ -24,6 +24,8 @@
   height: 65vh;
   width: 98vw;
   margin-bottom: 10px;
+  transform: translatey(0px);
+	animation: float 6s ease-in-out infinite;
 }
 
 .GamePageContent {
@@ -35,7 +37,41 @@
   align-items: center;
   text-align: flex-start;
   padding-top: 5px;
+
+	
+
 }
+
+@keyframes float {
+	0% {
+		
+		transform: translatey(0px);
+	}
+	50% {
+	
+		transform: translatey(-17px);
+	}
+	100% {
+		
+		transform: translatey(0px);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .GampePageMap {
   position: absolute;

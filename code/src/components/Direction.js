@@ -2,7 +2,7 @@ import React from "react";
 import { continueLabyrinth } from "reducers/Labyrinth";
 import { useDispatch } from "react-redux";
 import labyrinth from "reducers/Labyrinth";
-
+import blip from "sounds/effectTwo.wav"
 
 
 export const Direction = ({ description, direction, setDirection }) => {
@@ -10,10 +10,17 @@ export const Direction = ({ description, direction, setDirection }) => {
 
 
 
+  let sound =  new Audio(blip);
+  const SoundPlay = () => {
+    sound.play();
+  };
+
+
 
   const click = () => {
     dispatch(labyrinth.actions.setAction(direction));
     dispatch(continueLabyrinth());
+    SoundPlay()
   };
 
 
