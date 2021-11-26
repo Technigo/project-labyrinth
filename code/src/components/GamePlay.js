@@ -7,7 +7,6 @@ import { nextStep } from "../reducers/game";
 import { TextContainer } from "./TextContainer";
 import { LocationBackground } from "./LocationBackground";
 
-
 const Container = styled.main`
     padding: 20px;
     display: flex;
@@ -15,8 +14,8 @@ const Container = styled.main`
     flex-direction: column;
     overflow: scroll;
     @media (min-width: 768px) {
-    width: 500px;
-  }
+        width: 500px;
+    }
 `;
 
 const HeadingContainer = styled.div`
@@ -31,8 +30,8 @@ const HeadingContainer = styled.div`
     }
     width: 300px;
     @media (min-width: 768px) {
-    width: 500px;
-  }
+        width: 500px;
+    }
 `;
 
 const Heading = styled.h1`
@@ -50,10 +49,10 @@ const Keyboard = styled.div`
         padding: 0;
     }
     @media (min-width: 768px) {
-    width: 300px;
-    position: absolute;
-    bottom: 50px;
-  }
+        width: 300px;
+        position: absolute;
+        bottom: 50px;
+    }
 `;
 
 const KeyButton = styled.button`
@@ -71,16 +70,10 @@ const ImageButton = styled.img`
     width: 100%;
 `;
 
-
-
 export const GamePlay = () => {
     const dispatch = useDispatch();
     const currentPosition = useSelector((state) => state.game.currentPosition);
     const loading = useSelector((state) => state.ui.loading);
-    // const moveDescOne = currentPosition?.actions[0]?.description;
-    // const moveDescTwo = currentPosition?.actions[1]?.description;
-    // const moveDirectionOne = currentPosition?.actions[0]?.direction;
-    // const moveDirectionTwo = currentPosition?.actions[1]?.direction;
 
     return (
         <LocationBackground coordinates={currentPosition?.coordinates}>
@@ -95,23 +88,6 @@ export const GamePlay = () => {
                             <TextContainer move={move} />
                         ))}
 
-                        {/* <h2>Your current position {currentPosition.coordinates}</h2> */}
-
-                        {/* I've changed this to a map (above) so we don't have to think about whether there's 0, 1 or 2 items in the actions array. The map will go over whatever is there and create a text container (TextContainer is now a component) */}
-                        {/* <TextContainer>
-                            <p>
-                                {moveDescOne}.</p> <p>If you want to continue on this
-                                path go {moveDirectionOne}.
-                            </p>
-                        </TextContainer>
-                        <TextContainer>
-                            {currentPosition.coordinates !== "0,0" && (
-                                <p>
-                                    {moveDescTwo}. If you want to continue on
-                                    this path go {moveDirectionTwo}.
-                                </p>
-                            )}
-                        </TextContainer> */}
                         <Keyboard>
                             <EmptySpace></EmptySpace>
                             <KeyButton
