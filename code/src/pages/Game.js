@@ -7,6 +7,7 @@ import { LoadingIndicator } from "../components/LoadingIndicator";
 import { moveFurther } from "../reducers/game";
 import { Card } from "./Card";
 import { imgUrl_00, imgUrl_10, imgUrl_11, imgUrl_01, imgUrl_02, imgUrl_03, imgUrl_13 } from "../utils/urls";
+import Button from "../components/Button";
 
 const Game = () => {
   const places = useSelector((state) => state.game.places);
@@ -74,15 +75,15 @@ const Game = () => {
           {places.actions.map((item) => (
             <div key={item.direction}>
               <p>{item.description}</p>
-              <button type="submit" onClick={() => handleMoveFurther(item.type, item.direction)}>
+              <Button type="submit" onClick={() => handleMoveFurther(item.type, item.direction)}>
                 {item.type} {item.direction}
-              </button>
+              </Button>
             </div>
           ))} 
           {end && (
-            <button type="button" onClick={() => navigate("/")}>
+            <Button type="button" onClick={() => navigate("/")}>
               Restart
-            </button>
+            </Button>
           )}
         </Container> </>}
       </div>

@@ -1,9 +1,25 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+import styled from "styled-components";
 
 import { game } from "../reducers/game";
-import { CompassAnimation } from "components/CompassAnimation";
+import { CompassAnimation } from "../components/CompassAnimation";
+import Button from "../components/Button";
+
+const TextContainer = styled.form `
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30px;
+
+    & input {
+      font-size: inherit;
+      font-family: inherit;
+      border-radius: 2px;
+      border: none;
+    }
+`
 
 const LandingPage = () => {
   const dispatch = useDispatch();
@@ -21,14 +37,14 @@ const LandingPage = () => {
       <CompassAnimation 
         width= '300px'
         height= '300px'/>
-      <form>
+      <TextContainer>
         <p>Welcome Warrior to the tribe of Technigo!</p>
         <p>What's your name?</p>
         <input type="text" onChange={(event) => setInput(event.target.value)} />
-        <button type="submit" disabled={!input} onClick={() => onButtonClick(input)}>
+        <Button type="submit" disabled={!input} onClick={() => onButtonClick(input)}>
           Enter
-        </button>
-      </form>
+        </Button>
+      </TextContainer>
     </>
   );
 };

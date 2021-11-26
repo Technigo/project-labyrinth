@@ -1,10 +1,19 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import styled from "styled-components";
 
 import { startGame } from "../reducers/game";
-import { LoadingIndicator } from "components/LoadingIndicator";
-import { CompassAnimation } from "components/CompassAnimation";
+import { LoadingIndicator } from "../components/LoadingIndicator";
+import { CompassAnimation } from "../components/CompassAnimation";
+import Button from "../components/Button";
+
+const TextContainer = styled.div `
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30px;
+`
 
 const StartGame = () => {
   const dispatch = useDispatch();
@@ -19,17 +28,17 @@ const StartGame = () => {
   };
 
   return (
-    <div>
+    <TextContainer>
       {loading ? <LoadingIndicator /> : <CompassAnimation width= '300px' height= '300px'/>}
-      <p>Hello {name}, Welcome To the labyrinth! Search your way to the light</p>
+      <p>Hello {name}, welcome to the labyrinth! Search your way to the light</p>
       <p>To move from a place to another. Click the button with "east", "west", "south" or "north"</p>
-      <p>To examine where you are read the the descriptions.</p>
-      <p>Enjoy this little adventure and explore the labyrinth. Good Luck {name} !</p>
-      <p>Click this button to start the game</p>
-      <button type="submit" onClick={() => handleStartGame()}>
+      <p>To examine where you are read the descriptions.</p>
+      <p>Enjoy this little adventure and explore the labyrinth.</p>
+      <p>Good Luck {name} !</p>
+      <Button type="submit" onClick={() => handleStartGame()}>
         Click
-      </button>
-    </div>
+      </Button>
+    </TextContainer>
   );
 };
 
