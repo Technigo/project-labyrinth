@@ -18,8 +18,12 @@ export const LoadingScreen = () => {
   };
 
   return (
-    <div className="lottie">
-      {loading && <Lottie options={defaultOptions} height={300} width={300} />}
+    <div className="lottie-wrapper">
+      <div className="lottie">
+        {loading && (
+          <Lottie options={defaultOptions} height={500} width={300} />
+        )}
+      </div>
     </div>
   );
 };
