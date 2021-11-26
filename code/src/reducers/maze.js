@@ -1,13 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { coolestLoader } from './coolestLoader';
 
+const initialState = {
+	username: '',
+	currentPosition: '',
+	loading: false,
+};
+
 export const maze = createSlice({
 	name: 'maze',
-	initialState: {
-		username: '',
-		currentPosition: '',
-		loading: false,
-	},
+	initialState,
 	reducers: {
 		setUsername: (store, action) => {
 			store.username = action.payload;
@@ -15,11 +17,8 @@ export const maze = createSlice({
 		setCurrentPosition: (store, action) => {
 			store.currentPosition = action.payload;
 		},
-		setLoading: (store, action) => {
-			store.loading = action.payload;
-		},
 		restart: () => {
-			return maze;
+			return initialState;
 		},
 	},
 });
@@ -42,8 +41,8 @@ export const fetchMazeAlternatives = () => {
 			.then((res) => res.json())
 			.then((json) => {
 				dispatch(maze.actions.setCurrentPosition(json));
-			})
-			.finally(dispatch(coolestLoader.actions.setLoading(false)));
+				dispatch(coolestLoader.actions.setLoading(false));
+			});
 	};
 };
 export const fetchMazeAlternativesAction = (type, direction) => {
@@ -66,7 +65,9 @@ export const fetchMazeAlternativesAction = (type, direction) => {
 			.then((res) => res.json())
 			.then((json) => {
 				dispatch(maze.actions.setCurrentPosition(json));
-			})
-			.finally(dispatch(coolestLoader.actions.setLoading(false)));
+				dispatch(coolestLoader.actions.setLoading(false));
+			});
 	};
 };
+
+// fixa setHistory
