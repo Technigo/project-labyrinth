@@ -7,7 +7,7 @@ import { LandingContainer } from "./LandingPage";
 
 const SmallerHeader = styled.p`
   font-family: "Roboto Condensed", sans-serif;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   color: #3f3e3e;
   font-size: 14px;
   @media (min-width: 768px) {
