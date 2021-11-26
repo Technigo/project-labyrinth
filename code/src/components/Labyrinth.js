@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router';
 import { nextStep } from '../reducers/game';
 
 import './labyrinth.css';
@@ -9,6 +10,7 @@ export const Labyrinth = () => {
     (store) => store.game.currentPosition
   );
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const setBgImg = () => {
     let bg = '';
@@ -47,7 +49,7 @@ export const Labyrinth = () => {
 
   // This is the alternatives the player can choose from
   const ActionCard = ({ description, type, direction }) => (
-    <div className="action-card">
+    <div className='action-card'>
       <p>{description}</p>
       <button onClick={() => handleButtonClick(type, direction)}>
         Head {direction.toLowerCase()}
@@ -57,7 +59,7 @@ export const Labyrinth = () => {
 
   return (
     <section
-      className="background"
+      className='background'
       style={{
         backgroundImage: `url(${setBgImg()})`,
         backgroundPosition: 'center',
@@ -66,11 +68,15 @@ export const Labyrinth = () => {
         height: '100vh',
       }}
     >
-      <div className="description">
+      <div className='description'>
         <p>{description}</p>
         {/* <p>{coordinates}</p> */}
       </div>
-      {actions.length === 0 && <h3>restart button here</h3>}
+      {actions.length === 0 && (
+        <button type='button' onClick={() => navigate('/start')}>
+          Restart
+        </button>
+      )}
       {actions.length > 0 &&
         actions.map((item) => <ActionCard key={item.direction} {...item} />)}
     </section>

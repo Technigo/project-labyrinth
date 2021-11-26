@@ -17,21 +17,21 @@ export const Start = () => {
   };
 
   return (
-    <div className="start-background">
-      <div className="start-wrapper">
+    <div className='start-background'>
+      <div className='start-wrapper'>
         <h1>Enter the labyrinth</h1>
         <form onSubmit={handleSubmit}>
           {/* <label> */}
           <>
             <input
-              type="text"
+              type='text'
               placeholder="What's your name?"
               required
               onChange={handleInputChange}
             />
           </>
           {/* </label> */}
-          <button type="submit">Let's get lost</button>
+          <button type='submit'>Let's get lost</button>
         </form>
       </div>
     </div>
