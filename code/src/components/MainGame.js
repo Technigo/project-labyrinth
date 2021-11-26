@@ -74,7 +74,7 @@ const EndWrapper = styled.div`
   }
 `;
 
-const MainGame = () => {
+const MainGame = ({ stopMusic }) => {
   const gameObject = useSelector((store) => store.game.gameObject);
   const username = useSelector((store) => store.game.username);
   const navigate = useNavigate();
@@ -83,6 +83,7 @@ const MainGame = () => {
 
   const onRestartClick = () => {
     navigate('/');
+    stopMusic();
   };
 
   return (

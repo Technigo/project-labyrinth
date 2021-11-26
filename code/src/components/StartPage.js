@@ -6,7 +6,6 @@ import { StartButton } from './StartButton';
 import styled from 'styled-components/macro';
 
 import '../title.css';
-import creepysound from '../sounds/creepy_sound.mp3';
 
 const StyledStartPage = styled.section`
   display: flex;
@@ -40,7 +39,7 @@ const InputWrapper = styled.div`
   }
 `;
 
-const StartPage = () => {
+const StartPage = ({ startMusic }) => {
   const [name, setName] = useState('');
   const dispatch = useDispatch();
   let navigate = useNavigate();
@@ -61,12 +60,6 @@ const StartPage = () => {
       onNameSubmit(name);
       dispatch(fetchGame(name));
     }
-  };
-
-  let audio = new Audio(creepysound);
-  const startMusic = () => {
-    audio.play();
-    audio.volume = 0.5;
   };
 
   return (
