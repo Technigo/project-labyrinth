@@ -12,23 +12,20 @@ export const GameBoard = () => {
   const { description, actions } = useSelector(
     (store) => store.game.currentPosition
   )
-  // ok att ha två useSelector?
+
   const history = useSelector((store) => store.game.history)
-  // const currentPosition = useSelector((store) => store.game.currentPosition)
-
-  // const restart = useSelector((store) => store.game.restartGame)
-
   const dispatch = useDispatch()
 
   const onButtonClick = (type, direction) => {
     dispatch(nextStep(type, direction))
   }
-  // Knappen fungerar inte riktigt, jag får fram rätt data i redux för history men knappen behöver skicka in props...
+
+  // A function that go back onClick
   const onButtonBackClick = () => {
-    dispatch(game.actions.setHistory())
+    dispatch(game.actions.setMoveBack())
   }
 
-  // A function that restarts the game by dispatching avtion to reset to initial state.
+  // A function that restarts the game by dispatching action to reset to initial state.
   const onRestart = () => {
     dispatch(game.actions.restartGame())
   }
@@ -67,7 +64,10 @@ export const GameBoard = () => {
           ))}
         <span className="button-wrapper">
           <button onClick={onButtonBackClick}>BACK</button>
-          <button onClick={onRestart}> RESTART</button>
+          <button disabled={!history} onClick={onRestart}>
+            {" "}
+            RESTART
+          </button>
         </span>
       </section>
     )
