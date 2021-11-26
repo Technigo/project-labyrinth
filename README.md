@@ -1,13 +1,24 @@
-# Project Labyrinth
+# Enter the Labyrinth - A Redux app
 
-Replace this readme with your own information about your project.
+The purpose of this web app was practicing async actions through a text adventure game. It presents the user with binary options to get out of a maze. The app was built via pair programming by Maria Petersson and Isabel González.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## Features
 
-## The problem
+- Responsive UI for all devices
+- Fetching game data from an API
+- Thunks
+- Redux Toolkit
+- Hooks: createSlice, useSelector, useDispatch, useNavigate, configureStore, combineReducers, BrowserRouter, Routes, Route
+- Custom background images presented through conditional rendering (via a switch statement)
+- Loading screen featuring an animation from the Lottie library
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+## Main challenges and lessons
+
+- In the beginning, finding out the use and amount of reducers took a while. We finally decided to keep it simple by only having one 'game' reducer.
+- The positioning of Lottie was also challenging. As with many CSS libraries, the solution came through trial and error.
+- The biggest challenge of the project was the conditional rendering of local background images. Googling around didn't help that much because most people use external links to images. In the end, a switch statement and the correct use of template literals solved the problem.
+- Routing the restart was a bit challenging. We solved it by using useNavigate.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://pedantic-euclid-57ea62.netlify.app/
