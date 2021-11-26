@@ -94,6 +94,10 @@ const IconImg = styled.img`
     }
   }
 `
+const EndP = styled.p`
+  color: #FADD57;
+  font-size: 1.5em;
+`
 
 // Game component
 const Game = () => {
@@ -106,7 +110,7 @@ const Game = () => {
   const setBgColor = () => {
     switch (data.coordinates) {
       case "0,0":
-        return "#FADD57"
+        return "#EAC082"
 
       case "1,0":
         return "#C0E5AC"
@@ -124,7 +128,7 @@ const Game = () => {
         return "#C0D0EE"
 
       case "1,3":
-        return "#EAC082"
+        return "#FADD57"
 
       default:
         return "#FADD57"
@@ -184,7 +188,7 @@ const Game = () => {
                       <p key={action.direction}>
                         <NavTextSpan style={{ color: setBgColor() }}>
                           {action.direction}
-                        </NavTextSpan>{" "}
+                        </NavTextSpan>
                         - {action.description}
                       </p>
                     ))}
@@ -208,7 +212,7 @@ const Game = () => {
                   {data.actions.length === 0 && (
                    <Confetti />
                   )}
-                  <p>You made it!</p>
+                  <EndP>You made it!</EndP>
                   
                 </TheEndDiv>
               )}

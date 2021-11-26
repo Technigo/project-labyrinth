@@ -30,7 +30,7 @@ const StyledInput = styled.input`
 const NavButton = styled.button`
   font-family: "Roboto", sans-serif;
   font-weight: 700;
-  background-color: lightblue;
+  background-color: #FADD57;
   border: none;
   border-radius: 0 10px 10px 0;
   width: 60px;
@@ -40,8 +40,9 @@ const NavButton = styled.button`
     }
 `
 const TitleH = styled.h1`
+  font-size: 2rem;
   font-weight: 500;
-  color: lightblue;
+  color: #FADD57;
 `
 const TextP1 = styled.p`
   font-size: 1.1rem;
@@ -76,7 +77,7 @@ export const Starter = () => {
   return (
     <StartContainer>
       <TitleH>
-        Welcome to our amazing maze. 
+        Welcome to the amazing maze. 
       </TitleH>
       <TextP1>See if you can find your way out of it.            </TextP1>
       
