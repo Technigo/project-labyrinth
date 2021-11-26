@@ -25,6 +25,9 @@ height: auto;
 background: rgba(0, 0, 0, 0.5);
 border-radius: 5px;
 padding: 20px;
+    @media (min-width: 768px) {
+        width: 500px;
+    }
 `
 const Form = styled.form`
 display: flex;
@@ -34,6 +37,10 @@ justify-content: center;
 align-items: center;
 `
 const H1 = styled.h1`
+color: yellow;
+letter-spacing: 1.5px;
+`
+const H2 = styled.h2`
 color: yellow;
 letter-spacing: 1.5px;
 `
@@ -65,6 +72,10 @@ font-weight: 500;
     outline: #3c4f34 solid 2px; 
     background-color:#e4beba;
 }
+@media (min-width: 768px) {
+        width: 370px;
+        
+    }
 `
 
 const StartPage = () => {
@@ -85,7 +96,7 @@ return (
     <Background>
         <StartCard>
             <Form onSubmit={(event)=> handleSubmit(event) }>
-            <H1>To enter the labyrinth, please type your name:</H1>
+            <H1>Welcome! To enter the maze, type your name:</H1>
                 <Input type="text" required value={userName} onChange={(event) => setUserName(event.target.value)}/>
                 <Button type="submit">Let's go!</Button>
             </Form> 

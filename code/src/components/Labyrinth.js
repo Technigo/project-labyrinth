@@ -26,6 +26,9 @@ height: 100%;
 background: rgba(0, 0, 0, 0.5);
 border-radius: 5px;
 padding: 10px;
+@media (min-width: 768px) {
+    width: 500px;
+}
 `
 const Description = styled.p`
 display: flex;
