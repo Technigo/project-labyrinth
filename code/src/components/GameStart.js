@@ -24,9 +24,8 @@ export const GameStart = () => {
         <>
           <TextCard>
             <form>
-              <h1>
-                Would you like to play a Maze game? Enter your name to start...
-              </h1>
+              <h1>Would you like to play a game? </h1>
+              <h3> Enter your name to start. </h3>
 
               <Input
                 required

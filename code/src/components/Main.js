@@ -12,7 +12,6 @@ export const MainPage = () => {
   const actions = useSelector((state) => state.labyrinth.response.actions)
 
   const dispatch = useDispatch()
-  console.log(response)
 
   const onButtonClick = (type, direction) => {
     dispatch(continueLabyrinth(type, direction))
