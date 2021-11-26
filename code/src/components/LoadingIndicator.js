@@ -18,8 +18,12 @@ export const LoadingIndicator = () => {
   }
 
   return (
-    <div className="lottie">
-      {loading && <Lottie options={defaultOptions} height={400} width={400} />}
+    <div className="lottie-container">
+      <div className="lottie">
+        {loading && (
+          <Lottie options={defaultOptions} height={500} width={500} />
+        )}
+      </div>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 .endscreen {
   background-image: url("../images/free-bgr.jpg");
   background-position: center;
-  object-fit: cover;
+  background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
   width: 100vw;

@@ -22,7 +22,7 @@ export const EndScreen = () => {
 
         <button className="end-button" onClick={onRestart}>
           {" "}
-          RESTART
+          restart
         </button>
       </div>
     </section>
