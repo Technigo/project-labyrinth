@@ -3,10 +3,10 @@ import styled from "styled-components"
 /* import { keyframes } from 'styled-components' */
 import { useSelector } from "react-redux"
 import Lottie from "react-lottie"
-import animationData from "../lib/loader"
+import animationData from "../lib/end"
 
 // Styled components
-const LoaderOverlay = styled.div`
+const Overlay = styled.div`
   position: absolute;
   top: 0;
   right: 0;
@@ -19,29 +19,13 @@ const LoaderOverlay = styled.div`
   align-items: center;
   z-index: 99;
 `
-// const Rotate = keyframes`
-//     from{
-//         transform: rotate(0deg)
-//     }
-//     to{
-//         transform: rotate(360deg)
-//     }
-// `
-// const LoaderAnimation = styled.div`
-//     animation: ${Rotate} infinite 2s;
-// `
-// const AnimationItem = styled.div`
-//     background-color: pink;
-//     height: 50px;
-//     width: 50px;
-// `
 
 // Loader component
-const Loader = () => {
+const Confetti = () => {
   const loading = useSelector(store => store.ui.loading)
 
   const defaultOptions = {
-    loop: true,
+    loop: false,
     autoplay: true,
     animationData: animationData,
     rendererSettings: {
@@ -51,13 +35,13 @@ const Loader = () => {
 
   return (
     <>
-      {loading && (
-        <LoaderOverlay>
-          <Lottie options={defaultOptions} height={400} width={400} />
-        </LoaderOverlay>
+      {!defaultOptions.loop && (
+        <Overlay>
+          <Lottie options={defaultOptions} min-height={400} min-width={400} />
+        </Overlay>
       )}
     </>
   )
 }
 
-export default Loader
+export default Confetti
