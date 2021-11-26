@@ -1,17 +1,26 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { fetchGame } from "reducers/game";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { game } from "../reducers/game";
+import Labyrinth from "../pictures/labyrinth.jpg";
+
+// import Labyrinth from "../pictures/labyrinth.jpg";
+
+const jump = keyframes`
+  0%   {transform: translate3d(0,0,0) scale3d(1,1,1);}
+  40%  {transform: translate3d(0,10%,0) scale3d(1,1,1);}
+  100% {transform: translate3d(0,30%,0) scale3d(1,1,1);}
+`;
 
 const StartCard = styled.div`
+  background-image: url(${Labyrinth});
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
 
   section {
     width: 80vw;
@@ -26,17 +35,20 @@ const StartCard = styled.div`
 
   button {
     width: 100px;
-    padding: 5px;
-    border-radius: 6px;
-    margin: 10px;
-    /* font-family: "Amatic SC", cursive; */
-    background: lightcoral;
+    padding: 10px 5px;
+    margin-top: 30px;
+    border: 1px solid white;
+    font-family: "Zen Kurenaido", sans-serif;
+    background: #b87333;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    animation: ${jump} 0.5s linear alternate infinite;
   }
 
   input {
     padding: 10px;
     border: none;
-    border-radius: 6px;
     font-family: "Zen Kurenaido", sans-serif;
     font-style: italic;
   }

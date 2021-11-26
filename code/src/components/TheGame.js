@@ -3,23 +3,53 @@ import { useDispatch, useSelector } from "react-redux";
 import { nextStep } from "reducers/game";
 import { game } from "reducers/game";
 import styled from "styled-components";
-import Brickwall from "../pictures/brickwall.jpg";
+import Brickwall from "pictures/brickwall.jpg";
+import Bridge from "pictures/bridge.jpg";
+import EmptyRoom from "pictures/emptyroom.jpg";
+import LastPic from "pictures/lastpic.jpg";
+import Table from "pictures/table.jpg";
+import Labyrinth from "pictures/labyrinth.jpg";
+import Gizmoz from "pictures/gizmoz.jpg";
+import Archway from "pictures/archway.jpg";
 
 const GameCard = styled.div`
-  background-image: url(${Brickwall});
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
+  object-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 80vw;
-  background: rgba(0, 0, 0, 0.5);
-  text-align: center;
-  font-size: 12px;
-  padding: 10px;
-  border-radius: 6px;
+
+  img {
+    width: 100%;
+  }
+
+  main {
+    background: rgba(0, 0, 0, 0.5);
+    width: 80vw;
+    text-align: center;
+    padding: 10px 10px 30px 10px;
+  }
 
   p {
     font-size: 14px;
+  }
+
+  button {
+    width: 100px;
+    padding: 5px;
+    margin-top: 30px;
+    border: 1px solid white;
+    font-family: "Zen Kurenaido", sans-serif;
+    background: #b87333;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
   }
 
   @media (min-width: 768px) {
@@ -27,6 +57,10 @@ const GameCard = styled.div`
 
     p {
       font-size: 20px;
+    }
+
+    main {
+      width: 80vw;
     }
 
     article {
@@ -42,7 +76,9 @@ const GameCard = styled.div`
   }
 
   @media (min-width: 1024px) {
-    width: 800px;
+    main {
+      width: 800px;
+    }
   }
 `;
 
@@ -58,6 +94,36 @@ const TheGame = () => {
     dispatch(nextStep(type, direction));
   };
 
+  const backgroundImage = () => {
+    let bg = "";
+    switch (coordinates) {
+      case "0,0":
+        bg = Archway;
+        break;
+      case "0,1":
+        bg = Gizmoz;
+        break;
+      case "0,2":
+        bg = EmptyRoom;
+        break;
+      case "0,3":
+        bg = Table;
+        break;
+      case "1,0":
+        bg = Brickwall;
+        break;
+      case "1,1":
+        bg = Bridge;
+        break;
+      case "1,3":
+        bg = LastPic;
+        break;
+      default:
+        bg = Labyrinth;
+    }
+    return bg;
+  };
+
   const AlternativesCard = ({ description, type, direction }) => (
     <div>
       <p>{description}</p>
@@ -68,22 +134,27 @@ const TheGame = () => {
   );
 
   return (
-    <GameCard>
-      <h2>{description}</h2>
-      <p>
-        <i>Your coordinates: {coordinates}</i>
-      </p>
-      <article>
-        {gameStep?.actions?.length === 0 && <h3>Yay you made it out!</h3> && (
-          <button onClick={() => dispatch(game.actions.restart())}>
-            Lets go again!
-          </button>
-        )}
-        {gameStep?.actions?.length > 0 &&
-          actions.map((item) => (
-            <AlternativesCard key={item.direction} {...item} />
-          ))}
-      </article>
+    <GameCard
+      coordinates={coordinates}
+      style={{ backgroundImage: `url(${backgroundImage()})` }}
+    >
+      <main>
+        <h2>{description}</h2>
+        <p>
+          <i>Your coordinates: {coordinates}</i>
+        </p>
+        <article>
+          {gameStep?.actions?.length === 0 && <h3>Yay you made it out!</h3> && (
+            <button onClick={() => dispatch(game.actions.restart())}>
+              Lets go again!
+            </button>
+          )}
+          {gameStep?.actions?.length > 0 &&
+            actions.map((item) => (
+              <AlternativesCard key={item.direction} {...item} />
+            ))}
+        </article>
+      </main>
     </GameCard>
   );
 };
