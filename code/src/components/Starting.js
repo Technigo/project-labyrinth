@@ -19,14 +19,19 @@ export const Starting = () => {
 
 	return (
 		<>
-			<h1>Welcome, do you want to enter our Labyrinth?</h1>
+			<WelcomeH1>Welcome, are you ready to enter our house?</WelcomeH1>
 			<form onSubmit={start}>
-				<NameInputField onChange={handleNameInput} type='text' required></NameInputField>
-				<InputButton type='submit'>Enter name</InputButton>
+				<NameInputField placeholder="Give us your name..." onChange={handleNameInput} type='text' required></NameInputField>
+				<InputButton type='submit'>Enter house</InputButton>
 			</form>
 		</>
 	);
 };
+
+const WelcomeH1 = styled.h1`
+margin-top:150px;
+`
+
 
 const NameInputField = styled.input`
 border:none;
