@@ -9,15 +9,15 @@ export const RestartButton = styled.button`
   background-color: #8A9A5B;
   color:#355E3B;
   font-family: 'Philosopher', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   text-decoration:none;
   margin: 20px auto;
   margin-top: 25px;
   transition: color 0.4s; 
   cursor: pointer;
   color: #FFFFFF;
-background: #232323;
-text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 30px #49FF18, 0 0 50px #49FF18, 0 0 55px #49ff18;
+  background: #232323;
+  text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 30px #49FF18, 0 0 50px #49FF18, 0 0 55px #49ff18;
   @media (max-width: 768px) {
   font-size: 16px;
   margin: 16px auto;

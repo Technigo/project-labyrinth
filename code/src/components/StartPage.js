@@ -23,9 +23,6 @@ export const StartPage = () => {
 
   };
 
-  // const setUsername = (event) => {
-  //   username(event.target.value);
-  // };
 
   let audio = new Audio(music);
   const startMusic = () => {
