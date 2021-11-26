@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
+import img from '../images/1347872.jpg'
 
 import { game, generateGame } from '../reducers/game'
 
@@ -17,7 +18,8 @@ export const EnterLabyrinth = () => {
   }
 
   return (
-    <Main>
+    <Main backgroundImage={img}>
+      <TextContainer>
       <h1>The Labyrinth</h1>
       <p>What shall we call you, oh lost one?</p>
       <Form onSubmit={handleSubmit} className='input-form'>
@@ -31,19 +33,24 @@ export const EnterLabyrinth = () => {
         </label>
         <StartButton type="submit">Enter Labyrinth</StartButton>
       </Form>
+      </TextContainer>
     </Main>
   )
 }
 
 //styling
 const Main = styled.main`
+width: 100%;
+height: 100vh;
+overflow: hidden;
+background-image: url("${props => props.backgroundImage}");
+background-size: cover; 
+background-repeat: no-repeat;
+background-attachment: fixed;
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-text-align: center;
-width: 100%;
-height: 100vh;
 
 h1 {
   margin-bottom: 40px;
@@ -54,6 +61,21 @@ p {
   font-size: 16px;
 }
 `
+const TextContainer = styled.section`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: left;
+border: 3px dashed #fff;
+padding: 20px;
+margin: 0 auto;
+width: 60vw;
+height: auto;
+background: #000000;
+opacity: 0.7;
+`
+
 const Form = styled.form`
 margin-top: 25px;
 

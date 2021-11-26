@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
+import img from '../images/1347872.jpg'
 
 import { nextStep } from '../reducers/game'
 
@@ -53,7 +54,7 @@ export const InsideLabyrinth = () => {
   )
 
   return (
-    <LabyrinthBackground /* style={{ background: setBgColor() }} */>
+    <LabyrinthBackground backgroundImage={img}>
 
     
     <InsideLabyrinthSection /* style={{ background: setBgColor() }} */>
@@ -61,6 +62,8 @@ export const InsideLabyrinth = () => {
         <p className='text-coords'>
          Coordinates: <strong>{coordinates}</strong>.
         </p>
+
+        
     
         {actions.length === 0 && <h2>You made it out alive, you brave soul.</h2>}
         <p className='text desc-one'>{description}</p>
@@ -78,11 +81,10 @@ const LabyrinthBackground = styled.div`
 width: 100%;
 height: 100vh;
 overflow: hidden;
-background: url('../images/1347872.jpg');
+background-image: url("${props => props.backgroundImage}");
 background-size: cover; 
 background-repeat: no-repeat;
 background-attachment: fixed;
-/* position: relative; */
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -100,7 +102,9 @@ padding: 20px;
 margin: 0 auto;
 width: 60vw;
 height: auto;
-background-color: grey;
+background: #000000;
+opacity: 0.7;
+/* border-image: linear-gradient(to right, transparent, #999, transparent) 5; */
 
 .text-coords {
   font-size: 12px;
