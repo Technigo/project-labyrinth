@@ -19,10 +19,9 @@ const GameQuestion = () => {
     const currentCoordinates = useSelector((store) => store.game.gameQuestions.coordinates)
     console.log(currentCoordinates)
     const onBackgroundImageChange = () => {
-        // const background = document.body.style
         switch (currentCoordinates) {
             case '1,0':
-                return "#071814"
+                return "#071814";
             case '1,1':
                 return "#0f3029";
             case '0,1':
@@ -37,7 +36,6 @@ const GameQuestion = () => {
                 return "black"
         }
     }
-    // window.onload = onBackgroundImageChange()
 
     return (
         <MainWrapperQuestion style={{ background: onBackgroundImageChange() }}>
