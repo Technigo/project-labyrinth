@@ -1,13 +1,12 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week we used react and redux to create a labyrinth game. We used a thunk to fetch API's and styled everything with styled components.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We used google and looked at other students projects to solve our problems. There was a lot of trial and error, but we managed to solve almost everything.
+If we had more time we would have liked to add some background audio and user history making it possible to go back in the game.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+watch it live here: https://theabsolutebestfoxes.netlify.app/
