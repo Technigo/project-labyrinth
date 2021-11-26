@@ -5,14 +5,10 @@ import { start } from 'reducers/start';
 import { EndPage, EndTitle, Gif, Button } from './StyledComponents';
 
 export const End = ({ title, gameDescription }) => {
-  // const username = useSelector(store => store.start.username);
-  // const gameDescription = useSelector(store => store.start.description);
-
   const dispatch = useDispatch();
 
   const onRestart = () => {
-    // dispatch(start.actions.setUsername(''));
-    dispatch(start.actions.setRestartGame()); // skapade reducer så att vi kommer till startsidan, innan var sista bilden kvar och inputfältet endast tomt
+    dispatch(start.actions.setRestartGame());
   };
 
   return (

@@ -9,7 +9,6 @@ export const start = createSlice({
     currentPosition: null,
     coordinates: '',
     loading: false,
-    // history: []
   },
   reducers: {
     setUsername: (store, action) => {
@@ -34,11 +33,6 @@ export const start = createSlice({
       store.username = null;
       store.coordinates = null;
     },
-    // setHistory () => {
-    // if (store.currentPosition) {
-    //   store.history = [...store.history, action.payload]
-    //   }
-    //}
   },
 });
 
@@ -81,7 +75,5 @@ export const continueGame = (username, direction) => {
         dispatch(start.actions.setCoordinates(data.coordinates));
       })
       .finally(() => dispatch(start.actions.setLoading(false)));
-
-    // dispatch(start.actions.setHistory(data))
   };
 };

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { StartPage } from './StartPage';
 import { Labyrinth } from './Labyrinth';
 
-import { Main, Loader, LoaderContainer } from './StyledComponents';
+import { Main, LoaderContainer, Body } from './StyledComponents';
 import { LoadingIndicator } from './LoadingIndicator';
 
 export const ShowGame = () => {
@@ -26,20 +26,18 @@ export const ShowGame = () => {
     <>
       {loading && (
         <LoaderContainer>
-          <Loader>
-            <LoadingIndicator />
-          </Loader>
+          <LoadingIndicator />
         </LoaderContainer>
       )}
 
       {!loading && (
-        <Main
+        <Body
           style={{
             backgroundImage: colorDictionary[coordinates],
           }}
         >
-          {username ? <Labyrinth /> : <StartPage />}
-        </Main>
+          <Main>{username ? <Labyrinth /> : <StartPage />}</Main>
+        </Body>
       )}
     </>
   );

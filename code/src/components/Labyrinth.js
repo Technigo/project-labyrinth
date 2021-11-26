@@ -9,6 +9,7 @@ import {
   TitleContainer,
   Choices,
   Button,
+  ChoicesText,
 } from './StyledComponents';
 
 export const Labyrinth = () => {
@@ -31,24 +32,23 @@ export const Labyrinth = () => {
           title={`Well done ${username}, you made it to the end!`}
         />
       )}
-      {username &&
-        coordinates < '1,3' && ( // ändrade så att vi kan styla slutsidan lättare och bara targeta den
-          <DescriptionContainer>
-            <TitleContainer>
-              <h3>{gameDescription}</h3>
-            </TitleContainer>
-            <div>
-              {gameActions.map((choice, index) => (
-                <Choices key={index}>
-                  <h4>{choice.description}</h4>
-                  <Button onClick={() => onMove(choice.direction)}>
-                    Go {choice.direction}
-                  </Button>
-                </Choices>
-              ))}
-            </div>
-          </DescriptionContainer>
-        )}
+      {username && coordinates < '1,3' && (
+        <DescriptionContainer>
+          <TitleContainer>
+            <h3>{gameDescription}</h3>
+          </TitleContainer>
+          <div>
+            {gameActions.map((choice, index) => (
+              <Choices key={index}>
+                <ChoicesText>{choice.description}</ChoicesText>
+                <Button onClick={() => onMove(choice.direction)}>
+                  Go {choice.direction}
+                </Button>
+              </Choices>
+            ))}
+          </div>
+        </DescriptionContainer>
+      )}
     </>
   );
 };

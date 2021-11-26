@@ -9,7 +9,7 @@ export const StartPage = () => {
 
   const dispatch = useDispatch();
 
-  const onNameSet = event => {
+  const onNameSet = () => {
     dispatch(start.actions.setUsername(username));
     dispatch(fetchStart(username));
   };
@@ -23,7 +23,6 @@ export const StartPage = () => {
       <label htmlFor='name'>Can you get through the labyrinth?</label>
       <p>Enter your name here</p>
       <InputFlex>
-        {/* form? onSubmit i form, required på input */}
         <form onSubmit={onSubmitName}>
           <input
             required
