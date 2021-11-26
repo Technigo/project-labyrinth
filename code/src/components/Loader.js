@@ -1,6 +1,6 @@
 import React from "react";
 import Lottie from "react-lottie";
-import animationData from "../lotties/loader";
+import animationData from "../lotties/loader.json";
 import styled from "styled-components";
 
 const LoadingContainer = styled.div`

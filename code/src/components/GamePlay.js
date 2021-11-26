@@ -85,7 +85,7 @@ export const GamePlay = () => {
                             <Heading>{currentPosition.description}</Heading>
                         </HeadingContainer>
                         {currentPosition.actions?.map((move) => (
-                            <TextContainer move={move} />
+                            <TextContainer key={move.description} move={move} />
                         ))}
 
                         <Keyboard>
