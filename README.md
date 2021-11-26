@@ -7,6 +7,8 @@ Short text quest made with React & Redux , fetching and processing an API with T
 ## Cool Features :
 
 - Implemented Lottie animation
+- Quest Map
+- Quest History
 
 ## View it live
 
