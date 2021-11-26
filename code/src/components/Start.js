@@ -1,37 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
-import { fetchStart } from "reducers/start";
+import { game } from "../reducers/game";
+import { startGame } from "../reducers/game";
 
 export const Start = () => {
-  const [username, setUsername] = useState("");
   const dispatch = useDispatch();
 
-  //   här dispatchar vi reducern där vi får användarnamnet och vi "callar" på den funktionen med onClick
-  const onNameSubmit = (name) => {
-    dispatch(Start.actions.setUsername(name));
-    setUsername("");
+  const handleInputChange = (event) => {
+    dispatch(game.actions.setUsername(event.target.value));
   };
-  //  här sätter vi användarnamnet som hamnar i inputen
-  const onSetUsername = (event) => {
-    setUsername(event.target.value);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    dispatch(startGame());
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        value={username}
-        placeholder="Player.."
-        onChange={onSetUsername}
-      />
-      <button
-        onClick={() => {
-          onNameSubmit(username);
-          dispatch(fetchStart(username));
-        }}
-      >
-        Start game
-      </button>
-    </div>
+    <>
+      <h1>Want to enter the labyrinth!?</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Add your username
+          <input type="text" required onChange={handleInputChange} />
+        </label>
+        <button type="submit">Lets go</button>
+      </form>
+    </>
   );
 };
