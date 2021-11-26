@@ -8,6 +8,10 @@ export const LoaderContainer = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  @media (max-width: 768px) {
+    overflow: hidden;
+  }
 `;
 
 export const Body = styled.div`
@@ -16,6 +20,10 @@ export const Body = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  @media (max-width: 768px) {
+    padding-top: 100px;
+  }
 `;
 
 export const Main = styled.main`
@@ -29,12 +37,12 @@ export const Main = styled.main`
   letter-spacing: 1.5px;
   text-align: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     height: auto;
   }
 
-  @media (max-width: 1023px) {
-    top: 100px;
+  @media (min-width: 768) and (max-width: 1023px) {
+    //  top: 100px;
     align-items: flex-start;
   }
 `;
@@ -73,7 +81,7 @@ export const TitleContainer = styled.div`
 
 export const Choices = styled.div`
   margin: 10px auto;
-  padding: 20px;
+  padding: 10px;
   border-top: 5px solid blue;
   border-bottom: 5px solid blue;
   position: relative;
