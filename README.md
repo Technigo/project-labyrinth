@@ -6,4 +6,4 @@ We chose to use a loader to create a better UX since the API call delays the flo
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://admiring-ramanujan-4a7c71.netlify.app/
