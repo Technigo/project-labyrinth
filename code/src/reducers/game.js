@@ -24,6 +24,11 @@ export const game = createSlice({
     setLoading: (store, action) => {
       store.loading = action.payload
     },
+    setResetGame: (store) => {
+      store. username = ''
+      store.currentCoordinates = []
+      store.history = []
+    },
   },
 })
 

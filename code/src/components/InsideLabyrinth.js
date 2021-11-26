@@ -4,9 +4,11 @@ import styled from 'styled-components'
 import img from '../images/1347872.jpg'
 
 import { nextStep } from '../reducers/game'
+/* import { LoadingIndicator } from './LoadingIndicator' */
 
 export const InsideLabyrinth = () => {
   const { description, coordinates, actions } = useSelector(store => store.game.currentCoordinates)
+  const history = useSelector((store) => store.game.history)
   const dispatch = useDispatch()
 
   /* const setBgColor = () => {
@@ -53,25 +55,30 @@ export const InsideLabyrinth = () => {
     </div>
   )
 
+
+
   return (
     <LabyrinthBackground backgroundImage={img}>
-
-    
-    <InsideLabyrinthSection /* style={{ background: setBgColor() }} */>
+        <InsideLabyrinthSection>
       
-        <p className='text-coords'>
-         Coordinates: <strong>{coordinates}</strong>.
-        </p>
-    
-        {actions.length === 0 && <h2>You made it out alive, you brave soul.</h2>}
-        <p className='text-desc-one'>{description}</p>
+          <p className='text-coords'>
+          Coordinates: <strong>{coordinates}</strong>.
+          </p>
+      
+          {actions.length === 0 && <h2>You made it out alive, you brave soul.</h2>}
+          <p className='text-desc-one'>{description}</p>
 
-        <p className='text-choice'>What will you do?</p>
+          <p className='text-choice'>What will you do?</p>
 
-        {actions.length > 0 && actions.map(item => 
-        <ActionCard key={item.direction} {...item} />
-        )}
-    </InsideLabyrinthSection>
+          {actions.length > 0 && actions.map(item => 
+          <ActionCard key={item.direction} {...item} />
+          )}
+
+          {actions.length === 0 && (
+            <button type="button" onClick={() => window.location.reload()}>Restart</button>
+          )}
+          
+        </InsideLabyrinthSection>
     </LabyrinthBackground>
   )
 }
