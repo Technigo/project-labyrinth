@@ -12,7 +12,7 @@ const TextContainer = styled.div `
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 30px;
+    font-size: 25px;
 `
 
 const StartGame = () => {

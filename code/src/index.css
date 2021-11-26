@@ -2,6 +2,8 @@
 
 body {
   margin: 0;
+  height: 100vh;
+  padding: 20px;
   font-family: 'Lobster', cursive;
   font-size: 20px;
   background-color: black;

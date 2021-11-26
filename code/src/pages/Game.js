@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 import { LoadingIndicator } from "../components/LoadingIndicator";
 import { moveFurther } from "../reducers/game";
-import { Card } from "./Card";
+import { Card } from "../components/Card";
 import { imgUrl_00, imgUrl_10, imgUrl_11, imgUrl_01, imgUrl_02, imgUrl_03, imgUrl_13 } from "../utils/urls";
 import Button from "../components/Button";
 
@@ -41,7 +41,7 @@ const Game = () => {
 
   const Container = styled.div`
     box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-    padding: 20px 0;
+    padding: 20px 10px;
     margin: 2px;
     width: 50%;
     border-radius: 6px;
@@ -50,11 +50,16 @@ const Game = () => {
     text-align: center;
     display: inline-block;
     opacity: 0.7;
+
+    @media (max-width: 667px) {
+    width: 80%;
+  }
   `;
 
   const Main = styled.main`
     display: flex;
     min-height: 100vh;
+    min-width: 100vw;
     grid-template-rows: min-content;
     justify-content: center;
     padding: 0.625em;
@@ -68,24 +73,25 @@ const Game = () => {
     <Main style={{ backgroundImage: `url(${ImagePicker()})` }}>
       <div>
         {loading ? <LoadingIndicator /> : 
-        <>
-        <Card thumbnailUrl title="The Labyrinth" secondaryText="Find your way to the light!" />
-        <Container>
-          <p>{places.description}</p>
-          {places.actions.map((item) => (
-            <div key={item.direction}>
-              <p>{item.description}</p>
-              <Button type="submit" onClick={() => handleMoveFurther(item.type, item.direction)}>
-                {item.type} {item.direction}
-              </Button>
-            </div>
-          ))} 
-          {end && (
-            <Button type="button" onClick={() => navigate("/")}>
-              Restart
-            </Button>
-          )}
-        </Container> </>}
+          <>
+            <Card thumbnailUrl title="The Labyrinth" secondaryText="Find your way to the light!" />
+            <Container>
+              <p>{places.description}</p>
+              {places.actions.map((item) => (
+                <div key={item.direction}>
+                  <p>{item.description}</p>
+                  <Button type="submit" onClick={() => handleMoveFurther(item.type, item.direction)}>
+                    {item.type} {item.direction}
+                  </Button>
+                </div>
+              ))} 
+              {end && (
+                <Button type="button" onClick={() => navigate("/")}>
+                  Restart
+                </Button>
+              )}
+            </Container> 
+          </>}
       </div>
     </Main>
   );
