@@ -73,9 +73,14 @@ const Button = styled.button`
 `;
 const LongDesc = styled.div`
   font-size: 18px`;
-
-  const EndText = styled.div`
+const Crown = styled.img`
+  width: 30px;
+  height: 30px;
+  margin 0 auto;`
+const EndText = styled.div`
   font-size: 20px;
+  display: flex;
+  flex-direction: column;
   `
 
 export const Game = () => {
@@ -147,7 +152,7 @@ export const Game = () => {
             <EndText>
               
               Congratulations, {newUserName} you have made it!
-             
+              <Crown src="./assets/crown.png" alt="Nintendo crown"></Crown>
               <Button onClick={() => onRestart()}> Press to re-start</Button>
 
             </EndText>
