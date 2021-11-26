@@ -5,18 +5,23 @@ import styled from "styled-components";
 import { game } from "../reducers/game";
 
 const StartCard = styled.div`
-  background: lightblue;
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: "Amatic SC", cursive;
+  border-radius: 6px;
 
   section {
-    width: 500px;
+    width: 80vw;
     text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   button {
@@ -24,7 +29,7 @@ const StartCard = styled.div`
     padding: 5px;
     border-radius: 6px;
     margin: 10px;
-    font-family: "Amatic SC", cursive;
+    /* font-family: "Amatic SC", cursive; */
     background: lightcoral;
   }
 
@@ -32,6 +37,8 @@ const StartCard = styled.div`
     padding: 10px;
     border: none;
     border-radius: 6px;
+    font-family: "Zen Kurenaido", sans-serif;
+    font-style: italic;
   }
 `;
 
@@ -60,28 +67,16 @@ const StartPage = () => {
           <h2>Let the games begin!</h2>
           <form onSubmit={handleSubmit}>
             <label>
-              <input type="text" onChange={handleInputChange} />
+              <input
+                type="text"
+                placeholder="Whats your name..?"
+                onChange={handleInputChange}
+              />
             </label>
-
             <button type="submit">Start</button>
           </form>
         </section>
-
-        {/* <TheGame /> */}
       </StartCard>
-      {/* {game?.actions?.map((item) => (
-          <p key={item.description}>{item.description}</p>
-        ))}
-        {game?.actions?.map((item) => (
-          <button
-            key={item.direction}
-            onClick={() => {
-              dispatch(nextStep(item.direction));
-            }}
-          >
-            {item.direction}
-          </button>
-        ))} */}
     </>
   );
 };

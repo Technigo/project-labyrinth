@@ -1,12 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ui } from "./ui";
 
+const initialState = {
+  username: "",
+  currentPosition: "",
+};
+
 export const game = createSlice({
   name: "game",
-  initialState: {
-    username: "",
-    currentPosition: "",
-  },
+  initialState,
+
+  // {
+  //   username: "",
+  //   currentPosition: "",
+  // },
   reducers: {
     setUsername: (store, action) => {
       store.username = action.payload;
@@ -17,7 +24,7 @@ export const game = createSlice({
     },
 
     restart: () => {
-      return game;
+      return initialState;
     },
   },
 });
