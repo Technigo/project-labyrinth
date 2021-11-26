@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 export const labyrinthSlice = createSlice({
   name: 'labyrinthSlice',
   initialState: {
-    username: null,
-    currentPosition: null,
+    username: '',
+    currentPosition:[],
     history: [],
     loading: false,
   },

@@ -1,59 +1,59 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import img from '../assets/scaryhouse.jpg';
+
+// importing BG images
+import scaryhouse from '../assets/scaryhouse.jpg';
+import deadend from '../assets/deadend.jpg';
+import exitway from '../assets/exitway.jpg';
+import lightdoorway from '../assets/lightdoorway.jpg';
+import stairs from '../assets/stairs.jpg';
+import windows from '../assets/windows.jpg';
 
 import { Starting } from './Starting';
 import { Labyrinth } from './Labyrinth';
 import { Loading } from './Loading';
-import { labyrinthSlice } from 'reducers/labyrinthSlice';
+// import { labyrinthSlice } from 'reducers/labyrinthSlice';
 
 export const Game = () => {
-  const currentPosition = useSelector((state) => state.labyrinthSlice.currentPosition);
+  const { coordinates } = useSelector(
+    (state) => state.labyrinthSlice.currentPosition
+  );
 
-  const setBgImage = (currentPosition) => {
-    let bg = `url(${img})`;
-    switch (
-      currentPosition //switch: needs a case that ends with a break, then more cases can be added
-    ) {
+  const setBgImage = () => {
+    let bg = `url(${scaryhouse})`;
+    switch (coordinates) {
       case '0,0':
-        bg =
-          'url(https://images.unsplash.com/photo-1471045220822-f3f0ad3a5416?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80) no-repeat center center fixed';
+        bg = `url(${lightdoorway})`;
         break;
       case '1,0':
-        bg =
-          'url(https://images.unsplash.com/photo-1467745870897-1f66443c8c04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=354&q=80) no-repeat center center fixed';
+        bg = `url(${windows})`;
         break;
       case '1,1':
-        bg =
-          'url(https://images.unsplash.com/photo-1428737289360-ca73c271d197?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80) no-repeat center center fixed';
+        bg = `url(${deadend})`;
         break;
       case '0,1':
-        bg =
-          'url(https://images.unsplash.com/photo-1611643892561-9759a32e0c10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80) no-repeat center center fixed';
+        bg = `url(${lightdoorway})`;
         break;
       case '0,2':
-        bg =
-          'url(https://images.unsplash.com/photo-1533693637260-257bd3834be2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80) no-repeat center center fixed';
+        bg = `url(${stairs})`;
         break;
       case '0,3':
-        bg =
-          'url(https://images.unsplash.com/photo-1540979730456-da51523895df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80) no-repeat center center fixed';
+        bg = `url(${windows})`;
         break;
       case '1,3':
-        bg =
-          'url(https://images.unsplash.com/photo-1541429222367-285a893182f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) no-repeat center center fixed';
+        bg = `url(${exitway})`;
         break;
       default:
-        bg = `url(${img})`;
+        bg = `url(${scaryhouse})`;
     }
     return bg;
   };
 
   return (
-    <MainContainer style={{ background: setBgImage(labyrinthSlice.currentPosition) }}>
+    <MainContainer style={{ background: setBgImage(coordinates) }}>
       <GameContainer>
-        {currentPosition ? <Labyrinth /> : <Starting />}
+        {coordinates ? <Labyrinth /> : <Starting />}
         <Loading />
       </GameContainer>
       <MadeBy>This game was made by Linnea Isebrink and Rebecca Blixt</MadeBy>
@@ -69,6 +69,7 @@ const MainContainer = styled.main`
   width: 100%;
   margin: 0 auto;
   padding-top: 150px;
+  color:white;
 `;
 
 const GameContainer = styled.div`
@@ -82,7 +83,7 @@ const GameContainer = styled.div`
   align-content: center;
   align-items: center;
   height: calc(100vh - 70px);
-  background: rgb(255, 255, 255, 0.5);
+  background: rgb(0,0,0, 0.3);
 
   @media (min-width: 599px) {
     width: 80%;

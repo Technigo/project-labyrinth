@@ -7,6 +7,7 @@ import { Game } from 'components/Game';
 
 const reducer = combineReducers({
 	labyrinthSlice: labyrinthSlice.reducer,
+	
 });
 
 const store = configureStore({ reducer });

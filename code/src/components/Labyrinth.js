@@ -32,7 +32,7 @@ export const Labyrinth = () => {
       {/* Map over direction buttons and direction descriptions */}
       {actions.length > 0 &&
         actions.map((choice) => (
-          <ButtonContainer>
+          <ButtonContainer key={choice.direction}>
             <StyledDirectionText key={choice.description}>
               <YouLookToThe>
                 You look to the&nbsp;
