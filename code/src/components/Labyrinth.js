@@ -75,5 +75,5 @@ padding:10px 20px;
 background:black;
 color:white;
 border-radius: 2px;
-border:1 px solid black;
+border: 1px solid black !important;
 `

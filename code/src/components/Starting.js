@@ -32,7 +32,6 @@ const WelcomeH1 = styled.h1`
 margin-top:150px;
 `
 
-
 const NameInputField = styled.input`
 border:none;
 padding: 10px 20px;

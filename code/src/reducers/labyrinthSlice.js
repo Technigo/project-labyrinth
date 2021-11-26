@@ -5,7 +5,6 @@ export const labyrinthSlice = createSlice({
   initialState: {
     username: '',
     currentPosition:[],
-    history: [],
     loading: false,
   },
   reducers: {
@@ -16,12 +15,6 @@ export const labyrinthSlice = createSlice({
     // sets the current position in the labyrinth
     setCurrentPosition: (state, action) => {
       state.currentPosition = action.payload;
-    },
-    // sets where we've already been
-    setHistory: (state, action) => {
-      if (state.currentPosition) {
-        state.history = [...state.history, action.payload];
-      }
     },
     setLoading: (state, action) => {
       state.loading = action.payload;
@@ -69,7 +62,6 @@ export const nextStepThunk = (type, direction) => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(labyrinthSlice.actions.setCurrentPosition(data));
-        dispatch(labyrinthSlice.actions.setHistory(data));
       })
       .finally(() => dispatch(labyrinthSlice.actions.setLoading(false)));
   };

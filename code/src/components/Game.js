@@ -73,7 +73,7 @@ const MainContainer = styled.main`
   color:white;
 
   @media (min-width:599px) {
-    padding-top:150px;
+    padding-top:50px;
   }
 `;
 
