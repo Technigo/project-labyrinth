@@ -64,12 +64,17 @@ export const Game = () => {
 const MainContainer = styled.main`
   background-size: cover !important;
   background-repeat: no-repeat !important;
+  background-position:center;
   height: 100%;
   min-height: 100vh;
   width: 100%;
   margin: 0 auto;
-  padding-top: 150px;
+  padding-top: 10px;
   color:white;
+
+  @media (min-width:599px) {
+    padding-top:150px;
+  }
 `;
 
 const GameContainer = styled.div`

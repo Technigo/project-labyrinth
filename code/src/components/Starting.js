@@ -39,6 +39,11 @@ padding: 10px 20px;
 width:250px;
 margin-right:5px;
 border:1px solid black;
+margin-bottom:10px;
+
+@media (min-width:599px) {
+	margin-bottom:0px;
+}
 `
 
 const InputButton = styled.button`
