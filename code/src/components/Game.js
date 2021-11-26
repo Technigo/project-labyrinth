@@ -15,6 +15,7 @@ const GameContainer = styled.div`
   padding-right: 10px;
   padding-bottom: 15px;
   padding-left: 10px;
+
   @media (min-width: 768px) {
     margin: 50px;
   }
@@ -50,7 +51,8 @@ const CardContainer = styled.div`
   padding-left: 10px;
 
   @media (min-width: 768px) {
-    margin: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
     padding: 30px;
     width: 450px;
   }
