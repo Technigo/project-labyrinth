@@ -19,7 +19,7 @@ const store = configureStore({ reducer: reducer });
 let audio = new Audio(creepysound);
 const startMusic = () => {
   audio.play();
-  audio.volume = 0.3;
+  audio.volume = 0.2;
   audio.loop = true;
 };
 
