@@ -61,10 +61,7 @@ export const fetchNextMove = (type, direction) => {
       }),
     })
       .then((res) => res.json())
-      .then((json) => {
-        dispatch(game.actions.setGameStatus(json));
-        // dispatch(game.actions.setGoBack(json));
-      })
+      .then((json) => dispatch(game.actions.setGameStatus(json)))
       .finally(() => dispatch(loader.actions.setLoading(false)));
   };
 };

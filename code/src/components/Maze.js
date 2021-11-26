@@ -61,10 +61,6 @@ const OptionsActionCard = styled.div`
   color: white;
   text-align: center;
   font-family: "Montserrat", sans-serif;
-
-  //   @media (min-width: 768px) {
-  //     width: 250px;
-  //   }
 `;
 
 const Buttons = styled.button`
