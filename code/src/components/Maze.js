@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchNextMove } from "../reducers/game"; //fetching the second thunk(fetch-request)
 import styled from "styled-components";
 
+import game from "../reducers/game";
+
 //import maze from "assets/Maze1.jpg";
 
 const MainContainer = styled.section`
@@ -103,9 +105,9 @@ const Maze = () => {
 
   const dispatch = useDispatch();
 
-  const history = useSelector((state) => state.game.history);
+  // const history = useSelector((state) => state.game.history);
 
-  const onButtonBackClick = (game) => {
+  const onButtonBackClick = () => {
     dispatch(game.actions.setGoBack());
   };
 

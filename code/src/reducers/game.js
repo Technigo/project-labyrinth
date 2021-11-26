@@ -10,6 +10,7 @@ const game = createSlice({
     userName: null,
     gameStatus: null,
     history: [],
+    //previousStep[],
   },
   // Each reducer is a property which is a function
   // an object where each property is one method to update the store
@@ -18,12 +19,15 @@ const game = createSlice({
       state.userName = action.payload;
     },
     setGameStatus: (state, action) => {
+      state.history = [...state.history, state.gameStatus];
       state.gameStatus = action.payload;
     },
     setGoBack: (state, action) => {
-      if (state.history.length > 0) {
+      if (state.history.length > 1) {
         state.gameStatus = state.history[state.history.length - 1];
         state.history = state.history.slice(0, state.history.length - 1);
+      } else {
+        alert("You need to take a step before you can go back!");
       }
     },
   },
@@ -59,7 +63,7 @@ export const fetchNextMove = (type, direction) => {
       .then((res) => res.json())
       .then((json) => {
         dispatch(game.actions.setGameStatus(json));
-        dispatch(game.actions.setGoBack(json));
+        // dispatch(game.actions.setGoBack(json));
       })
       .finally(() => dispatch(loader.actions.setLoading(false)));
   };
