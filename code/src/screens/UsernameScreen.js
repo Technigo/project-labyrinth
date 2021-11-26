@@ -144,6 +144,12 @@ const UsernameButton = styled.button`
   }
 `;
 
+const ItemWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0px;
+`;
+
 const UsernameInput = styled.input`
   font-family: "Raleway", sans-serif;
   background-color: white;
