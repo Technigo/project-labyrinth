@@ -1,13 +1,18 @@
-# Project Labyrinth
+##Project Labyrinth
 
-Replace this readme with your own information about your project.
+In this project we allow the used  to navigate  through a text-based adventure maze provided by a backend.
+We used an API specified to build a frontend which gives the user control over what to do next.
+The project is build through pair-programming 
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+##How we built it
 
-## The problem
+This is our first project where we  used thunks and redux to build the communication with the backend.
+We started out by creating all the reducers and basic components to get all the functionality to work. After we got the API to work and the game to appear we added an animated loader from the library Lottie . All styling is made through React Redux Styled Components
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
+##Technologies used in this project: 
+
+React Redux Styled Components
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+
