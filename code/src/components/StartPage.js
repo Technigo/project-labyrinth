@@ -28,7 +28,6 @@ export const StartPage = () => {
   const startMusic = () => {
     audio.play();
     audio.volume = 0.4;
-    audio.loop = true;
   };
   startMusic();
 
