@@ -1,4 +1,4 @@
-import { CardAnimation } from "components/CardAnimation";
+import { CompassAnimation } from "components/CompassAnimation";
 import React from "react";
 import styled from "styled-components";
 
@@ -43,6 +43,6 @@ export const Card = ({ title, thumbnailUrl }) => (
       <div>{title && <Title>{title}</Title>}</div>
     </TitleBar>
 
-    {thumbnailUrl && <CardAnimation />}
+    {thumbnailUrl && <CompassAnimation width= '100px' height= '100px' />}
   </Container>
 );

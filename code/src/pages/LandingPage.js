@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 
 import { game } from "../reducers/game";
-import { LandingPageAnimation } from "components/LandingPageAnimation";
+import { CompassAnimation } from "components/CompassAnimation";
 
 const LandingPage = () => {
   const dispatch = useDispatch();
@@ -18,7 +18,9 @@ const LandingPage = () => {
 
   return (
     <>
-      <LandingPageAnimation />
+      <CompassAnimation 
+        width= '300px'
+        height= '300px'/>
       <form>
         <p>Welcome Warrior to the tribe of Technigo!</p>
         <p>What's your name?</p>

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 
 import { startGame } from "../reducers/game";
 import { LoadingIndicator } from "components/LoadingIndicator";
-import { LandingPageAnimation } from "components/LandingPageAnimation";
+import { CompassAnimation } from "components/CompassAnimation";
 
 const StartGame = () => {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const StartGame = () => {
 
   return (
     <div>
-      {loading ? <LoadingIndicator /> : <LandingPageAnimation />}
+      {loading ? <LoadingIndicator /> : <CompassAnimation width= '300px' height= '300px'/>}
       <p>Hello {name}, Welcome To the labyrinth! Search your way to the light</p>
       <p>To move from a place to another. Click the button with "east", "west", "south" or "north"</p>
       <p>To examine where you are read the the descriptions.</p>

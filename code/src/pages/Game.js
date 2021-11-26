@@ -11,6 +11,8 @@ import { imgUrl_00, imgUrl_10, imgUrl_11, imgUrl_01, imgUrl_02, imgUrl_03, imgUr
 const Game = () => {
   const places = useSelector((state) => state.game.places);
   const end = useSelector((state) => state.game.places.actions.length === 0);
+  const loading = useSelector((state) => state.ui.loading);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -58,15 +60,15 @@ const Game = () => {
     background-size: cover;
     background-position: center;
     text-align: center;
+    flex-direction: column;
   `;
 
   return (
     <Main style={{ backgroundImage: `url(${ImagePicker()})` }}>
       <div>
-        <LoadingIndicator />
-
+        {loading ? <LoadingIndicator /> : 
+        <>
         <Card thumbnailUrl title="The Labyrinth" secondaryText="Find your way to the light!" />
-
         <Container>
           <p>{places.description}</p>
           {places.actions.map((item) => (
@@ -76,14 +78,13 @@ const Game = () => {
                 {item.type} {item.direction}
               </button>
             </div>
-          ))}
-
+          ))} 
           {end && (
             <button type="button" onClick={() => navigate("/")}>
               Restart
             </button>
           )}
-        </Container>
+        </Container> </>}
       </div>
     </Main>
   );

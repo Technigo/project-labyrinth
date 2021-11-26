@@ -2,7 +2,7 @@ import React from "react";
 import Lottie from "react-lottie";
 import animationData from "../animations/72324-compass-element-animation.json";
 
-export const CardAnimation = () => {
+export const CompassAnimation = ( {width, height}) => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -14,7 +14,7 @@ export const CardAnimation = () => {
 
   return (
     <>
-      <Lottie options={defaultOptions} height={100} width={100} />
+      <Lottie options={defaultOptions} height={height} width={width} />
     </>
   );
 };
