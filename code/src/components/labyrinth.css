@@ -1,10 +1,25 @@
+/* .background {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+} */
+
 .description {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 80%;
-  margin: 10% auto;
-  padding: 2%;
+  margin: 0 auto;
+  padding: 10% 4% 15% 4%;
+}
+
+.description p {
+  font-size: 14px;
+  padding: 6%;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
 }
 
 .action-card {
@@ -13,14 +28,24 @@
   justify-content: center;
   align-items: center;
   width: 80%;
-  margin: 10% auto;
-  padding: 2%;
-  position: relative;
-  background-color: black;
+  margin: 1% auto;
+  padding: 3%;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
+  font-size: 10px;
 }
 
 .action-card button {
-  padding: 2%;
+  font-family: 'Oxygen Mono', monospace;
+  font-size: 8px;
+  text-transform: uppercase;
+  border: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2% 4%;
   border-radius: 6px;
+}
+
+.action-card button:hover {
+  background-color: rgba(255, 181, 70, 0.8);
 }

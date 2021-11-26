@@ -10,8 +10,8 @@ export const Game = () => {
 
   return (
     <>
-      {currentPosition ? <Labyrinth /> : <Start />}
       <LoadingScreen />
+      {currentPosition ? <Labyrinth /> : <Start />}
     </>
   );
 };
