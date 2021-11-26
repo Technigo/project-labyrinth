@@ -1,6 +1,6 @@
 # Project Labyrinth
 
-Short text quest made with React & Redux and fetching API with Thunks.
+Short text quest made with React & Redux , fetching and processing an API with Thunks.
 
 ## Tech Stack: React & Redux, JSX, API, CSS
 

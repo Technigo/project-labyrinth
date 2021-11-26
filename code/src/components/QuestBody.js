@@ -14,6 +14,7 @@ export const QuestBody = () => {
   const currentQuest = questMoves[questMoves.length - 1];
   console.log("current quest", currentQuest);
   const currentCoordinates = currentQuest?.coordinates;
+  const currentDescription = currentQuest?.description;
   const dispatch = useDispatch();
 
   useBackground(currentCoordinates);
@@ -27,7 +28,7 @@ export const QuestBody = () => {
   }
 
   if (currentQuest.actions.length === 0) {
-    return <GameOver />;
+    return <GameOver description={currentDescription} />;
   }
 
   return (

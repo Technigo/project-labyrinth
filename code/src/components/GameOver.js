@@ -5,13 +5,13 @@ import styled from "styled-components";
 import { Header } from "./LandingPage";
 import { LandingContainer } from "./LandingPage";
 
-const SmallerHeader = styled.h2`
+const SmallerHeader = styled.p`
   font-family: "Roboto Condensed", sans-serif;
   margin-bottom: 30px;
-  color: white;
-  font-size: 24px;
+  color: #3f3e3e;
+  font-size: 14px;
   @media (min-width: 768px) {
-    font-size: 44px;
+    font-size: 22px;
     margin-bottom: 70px;
   }
 `;
@@ -52,7 +52,7 @@ export const Btn = styled.button`
   }
 `;
 
-export const GameOver = () => {
+export const GameOver = ({ description }) => {
   const dispatch = useDispatch();
 
   const onButtonClick = () => {
@@ -63,7 +63,7 @@ export const GameOver = () => {
     <>
       <LandingContainer heightMedia={450}>
         <Header marginBottom={10}>This journey is complete!</Header>
-        <SmallerHeader>...many others yet to come.</SmallerHeader>
+        <SmallerHeader>{description}</SmallerHeader>
         <Btn
           alignSelf={"center"}
           borderRadius={20}
