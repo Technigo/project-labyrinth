@@ -1,12 +1,8 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This is a pair-programming project done by Jessica Falk & Fatima Gamero Romero.
+We have created a Labyrinth game that renders different background images depending on the coordinates we get from the API. We created reducers and actions in order to display and store different data depending on which actions are dispatched. We also created two thunks to make asynchronous actions when posting data to an API.
+We chose to use a loader to create a better UX since the API call delays the flow. All styling is made through React Redux Styled Components.
 
 ## View it live
 

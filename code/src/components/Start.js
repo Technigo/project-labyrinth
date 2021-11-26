@@ -1,7 +1,7 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import img from "../assets/background-maze.jpeg"
+import img from "../assets/background-maze.jpeg";
 //Reducer game
 import { game } from "../reducers/game";
 // Thunk startGame
@@ -26,7 +26,7 @@ const Header = styled.header`
   backdrop-filter: blur(12px);
   --webkit-backdrop-filter: blur(12px);
 
-  @media (min-width: 768px) {
+  @media (min-width: 500px) {
     margin: 0 auto;
     max-width: 500px;
   }
@@ -41,7 +41,7 @@ const HeadingOne = styled.h1`
   margin: 40px 0;
   text-align: center;
   color: #fff;
-  font-family: 'Trispace', sans-serif;
+  font-family: "Trispace", sans-serif;
 `;
 
 const Form = styled.form`
@@ -76,7 +76,6 @@ const Button = styled.button`
   font-size: 1.2rem;
   margin-top: 50px;
   margin-bottom: 30px;
-
 
   :hover {
     background-color: rgb(17, 101, 48);

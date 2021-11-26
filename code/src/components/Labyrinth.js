@@ -1,14 +1,13 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
-import img from "../assets/candles.jpeg";
-import Trophy from "../assets/trophy.webp";
+//Image
+import trophy from "../assets/trophy.webp";
 // Thunk nextStep
 import { nextStep } from "../reducers/game";
 
 // Styled components
 const Section = styled.section`
-  background-image: url(${img});
   background-repeat: no-repeat, repeat;
   background-size: cover;
   background-position: center;
@@ -28,7 +27,7 @@ const Main = styled.main`
 
   @media (min-width: 768px) {
     margin: 0 auto;
-    max-width: 600px;
+    max-width: 500px;
   }
 `;
 
@@ -50,7 +49,7 @@ const Coordinates = styled.p`
   color: orange;
   font-family: "Indie Flower", cursive;
 `;
-
+// ActionCard component
 const Action = styled.div`
   display: flex;
   flex-direction: column;
@@ -90,6 +89,7 @@ const Description = styled.p`
   margin: 5px;
 `;
 
+//EndCard component
 const EndCardContainer = styled.div`
   display: flex;
   position: relative;
@@ -100,19 +100,18 @@ const EndCardContainer = styled.div`
 
 const HeadingThree = styled.h3`
   position: absolute;
-  top:5px;
+  top: 5px;
   font-size: 0.9rem;
   width: 200px;
   font-family: "Trispace", sans-serif;
   color: orange;
   text-align: center;
-  border:1px solid orange;
+  border: 1px solid orange;
   background-color: red;
   padding: 5px;
 
   @media (min-width: 400px) {
-font-size: 1.1rem;
-
+    font-size: 1.1rem;
   }
 `;
 
@@ -121,7 +120,7 @@ const Image = styled.img`
 
   @media (min-width: 400px) {
     width: 300px;
-   height: 300px;
+    height: 300px;
   }
 `;
 
@@ -131,54 +130,51 @@ export const Labyrinth = () => {
   );
   const dispatch = useDispatch();
 
-  const setBgColor = () => {
-    let bg = "pink";
+  const setBackground = () => {
+    let image = "#000";
 
     switch (coordinates) {
       case "0,0":
-        bg = "red";
+        image =
+          "url(https://images.unsplash.com/photo-1476900164809-ff19b8ae5968?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FuZGxlc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60)";
         break;
       case "1,0":
-        bg = "green";
+        image =
+          "url(https://media.istockphoto.com/photos/abstract-full-frame-fire-cloud-background-picture-id1279551163?b=1&k=20&m=1279551163&s=170667a&w=0&h=b9FcjtXjwk2CHA8rAfMnjO5fUdd7M_Avt5JNO7fHs5Q=)";
         break;
       case "1,1":
-        bg = "blue";
+        image =
+          "url(https://media.istockphoto.com/photos/spooky-halloween-sky-picture-id1270108421?b=1&k=20&m=1270108421&s=170667a&w=0&h=t5hpRm4Mf4DO66tMx5_ajlMiLB7xbIA86SaWAB9ylgA=)";
         break;
       case "0,1":
-        bg = "yellow";
+        image =
+          "url(https://images.unsplash.com/photo-1568478595157-5a428426c165?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHR1bm5lbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60)";
         break;
       case "0,2":
-        bg = "orange";
+        image =
+          "url(https://images.unsplash.com/photo-1599941662219-f95e5d125ce7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHR1bm5lbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60)";
         break;
       case "0,3":
-        bg = "brown";
+        image =
+          "url(https://media.istockphoto.com/photos/an-abandoned-haunted-house-at-night-picture-id1283059337?b=1&k=20&m=1283059337&s=170667a&w=0&h=QXH3jpMp-JYcJzZe4xg1iOE2Tt97QKf2kcMDfBUlJ0U=)";
         break;
       case "1,3":
-        bg = "purple";
+        image =
+          "url(https://media.istockphoto.com/photos/closeup-of-confetti-picture-id1312429048?b=1&k=20&m=1312429048&s=170667a&w=0&h=Cp0aE5L9j5yNk7-jiKcrcouRMvYBVWPV0BBG0rpc61U=)";
         break;
       default:
-        bg = "peach";
+        image =
+          "url(https://images.unsplash.com/photo-1541336817102-1ce19112c4f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bWlzdGVyeXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60)";
     }
-    return bg;
+    return image;
   };
-
-  //another way of doing it:
-  // const colorDictionary = {
-  //   '0,0': 'red',
-  //   '1,0': 'pink',
-  //   '1,1': 'blue',
-  //   '0,1': 'yellow',
-  //   '0,2': 'purple',
-  //   '0,3': 'green',
-  //   '1,3': 'orange',
-  // }
 
   const handleButtonClick = (type, direction) => {
     // call the api, pass along type and direction to use as part of the body for the post method
     dispatch(nextStep(type, direction));
   };
 
-  // Action component
+  // ActionCard component
   const ActionCard = ({ description, type, direction }) => (
     <Action>
       <Button onClick={() => handleButtonClick(type, direction)}>
@@ -192,15 +188,12 @@ export const Labyrinth = () => {
   const EndCard = () => (
     <EndCardContainer>
       <HeadingThree>You made it out! Congratulations!</HeadingThree>
-      <Image src={Trophy} />
+      <Image src={trophy} />
     </EndCardContainer>
   );
 
   return (
-    // Two ways of implementing the color change
-    // <section className='labyrinth' style={{ background: setBgColor() }}>
-    // <Section style={{ background: colorDictionary[coordinates] }}>
-    <Section>
+    <Section style={{ backgroundImage: setBackground() }}>
       <Main>
         <HeadingTwo>{description}</HeadingTwo>
         <CoordinatesContainer>
