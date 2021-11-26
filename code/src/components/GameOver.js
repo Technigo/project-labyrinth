@@ -9,7 +9,7 @@ const SmallerHeader = styled.p`
   font-family: "Roboto Condensed", sans-serif;
   margin-bottom: 20px;
   color: #3f3e3e;
-  font-size: 14px;
+  font-size: 12px;
   @media (min-width: 768px) {
     font-size: 22px;
     margin-bottom: 70px;
