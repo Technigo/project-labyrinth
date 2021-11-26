@@ -26,6 +26,10 @@ const HistoryContainer = styled.div`
 
     p {
       width: 600px;
+      font-size: 20px;
+    }
+    h1 {
+      font-size: 40px;
     }
   }
 `;
@@ -47,6 +51,7 @@ const Button = styled.button`
 const History = () => {
   const history = useSelector((store) => store.game.history);
   const initialState = useSelector((store) => store.game.initialState);
+  const username = useSelector((store) => store.game.username);
   const dispatch = useDispatch();
 
   const onRestart = () => {
@@ -59,7 +64,7 @@ const History = () => {
 
   return (
     <HistoryContainer>
-      <h1>You Made it!!</h1>
+      <h1>You Made it {username}!!</h1>
       <p>{history.map((item) => item.description)}</p>
       <Button onClick={() => onRestart()}>Play again</Button>
     </HistoryContainer>

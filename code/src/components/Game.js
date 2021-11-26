@@ -45,10 +45,35 @@ const OptionContainer = styled.div`
     flex-direction: row;
     justify-content: space-around;
   }
+
+  @media (min-width: 992px) {
+    justify-content: center;
+  }
 `;
 
 const Game = () => {
   const story = useSelector((store) => store.game.moves);
+
+  const audio = new Audio("/epic.mp3");
+  audio.play();
+
+  const ChooseBg = () => {
+    if (story?.coordinates === "0,0") {
+      return "/assets/three.jpg";
+    } else if (story?.coordinates === "1,0") {
+      return "/assets/two.jpg";
+    } else if (story?.coordinates === "1,1") {
+      return "/assets/one.jpg";
+    } else if (story?.coordinates === "0,1") {
+      return "/assets/four.jpg";
+    } else if (story?.coordinates === "0,2") {
+      return "/assets/five.jpg";
+    } else if (story?.coordinates === "0,3") {
+      return "/assets/six.jpg";
+    } else {
+      return "/assets/two.jpg";
+    }
+  };
 
   return (
     <>
@@ -57,21 +82,7 @@ const Game = () => {
       ) : (
         <GameContainer
           style={{
-            backgroundImage: `url(${
-              story?.coordinates === "0,0"
-                ? "/assets/three.jpg"
-                : story?.coordinates === "1,0"
-                ? "/assets/two.jpg"
-                : story?.coordinates === "1,1"
-                ? "/assets/thre.jpg"
-                : story?.coordinates === "0,1"
-                ? "/assets/four.jpg"
-                : story?.coordinates === "0,2"
-                ? "/assets/five.jpg"
-                : story?.coordinates === "0,3"
-                ? "/assets/six.jpg"
-                : "https://www.familjetapeter.se/images/thumbs/0313463_Fiery%20Soccer%20Ball%20In%20Goal%20With%20Net%20In%20Flames.jpeg"
-            })`,
+            backgroundImage: `url(${ChooseBg()}`,
           }}
         >
           <DescriptionHeader>{story.description}</DescriptionHeader>
@@ -87,28 +98,24 @@ const Game = () => {
                     : item.description.includes("rickety")
                     ? "/assets/cavern.png"
                     : item.description.includes("archeway")
-                    ? "/assets/arcway.jpg"
+                    ? "/assets/archway.jpg"
                     : item.description.includes("sturdier")
-                    ? "/assets/bridgee.jpg"
-                    : item.description.includes("rickety")
-                    ? "/assets/stones.jpg"
+                    ? "/assets/bridge2.jpg"
                     : item.description.includes("pavers")
                     ? "/assets/stones.jpg"
                     : item.description.includes("sounds")
                     ? "/assets/door.jpg"
                     : item.description.includes("pathway")
-                    ? "/assets/colorroad.jpg"
+                    ? "/assets/color_road.jpg"
                     : item.description.includes("gizmos")
                     ? "/assets/gizmo.jpg"
                     : item.description.includes("chest")
                     ? "/assets/chest.jpg"
                     : item.description.includes("threshold")
                     ? "/assets/notes.jpg"
-                    : "/assets/lightdoor.jpg"
+                    : "/assets/light_door.jpg"
                 }
-              >
-                {console.log(item.description)}
-              </Card>
+              ></Card>
             ))}
           </OptionContainer>
         </GameContainer>
@@ -118,3 +125,8 @@ const Game = () => {
 };
 
 export default Game;
+
+// In Dreams by Scott Buckley | www.scottbuckley.com.au
+// Music promoted by https://www.chosic.com/free-music/all/
+// Attribution 4.0 International (CC BY 4.0)
+// https://creativecommons.org/licenses/by/4.0/

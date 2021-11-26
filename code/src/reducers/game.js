@@ -11,7 +11,6 @@ const initialState = {
 
 export const game = createSlice({
   name: "game",
-
   initialState,
 
   reducers: {
