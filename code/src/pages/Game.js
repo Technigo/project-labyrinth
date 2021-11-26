@@ -11,7 +11,6 @@ import Button from "../components/Button";
 
 const Game = () => {
   const places = useSelector((state) => state.game.places);
-/*   const end = useSelector((state) => state.game.places.actions.length === 0); */
   const loading = useSelector((state) => state.ui.loading);
 
   const dispatch = useDispatch();
