@@ -1,13 +1,11 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The classic text-based labyrinth game. Turn up the volume and solve the game.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This project used React and Redux Toolkit to display and move you along the labyrinth. The description of the way is hidden and can be toggles to show if you press a emoji below the direction. The background changes with the help of a switcher and reflect the description. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://the-magic-labyrinth-game.netlify.app
