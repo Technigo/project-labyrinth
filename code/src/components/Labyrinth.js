@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchLabyrinth } from '../reducers/labyrinth';
 import styled from 'styled-components';
+import EndPage from './EndPage'
 
 const Wrapper = styled.div`
 display: flex;
@@ -80,6 +81,8 @@ return (
     loading === false && (
         
     <Wrapper style={{ background: setBgImage(labyrinth.coordinates)}}>
+        
+        
     <Description>
         {labyrinth.description}
     </Description>
@@ -96,14 +99,20 @@ return (
                     url: 'https://wk16-backend.herokuapp.com/action',
                     type: 'move',
                     direction: item.direction,
-
                 }
                     ))
             }}>{item.direction}</Button>
-        </div>    
-        )) }
 
+        
+        </div>  
+          
+        )) }
+        {labyrinth.coordinates==='1,3' && 
+        <EndPage />
+        
+        } 
     </div>
+    
     
     </Wrapper>
     )
