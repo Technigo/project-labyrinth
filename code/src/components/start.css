@@ -52,3 +52,9 @@
   background-color: rgba(10, 50, 0, 0.8);
   color: white;
 }
+
+@media screen and (min-width: 1024px) {
+  .start-wrapper {
+    width: 60%;
+  }
+}

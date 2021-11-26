@@ -6,13 +6,21 @@
   width: 100vw;
 } */
 
+.background {
+  display: flexbox;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  padding-top: 25%;
+}
+
 .description {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 80%;
   margin: 0 auto;
-  padding: 10% 4% 15% 4%;
+  padding: 3%;
 }
 
 .description p {
@@ -20,6 +28,10 @@
   padding: 6%;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 .action-card {
@@ -27,13 +39,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80%;
-  margin: 1% auto;
+  width: 74%;
+  margin: 1% auto 1% auto;
   padding: 3%;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   font-size: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 .action-card button {
@@ -48,4 +64,57 @@
 
 .action-card button:hover {
   background-color: rgba(255, 181, 70, 0.8);
+}
+
+.button-restart {
+  display: flex;
+  font-family: 'Oxygen Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  border: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2% 4%;
+  border-radius: 6px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button-restart:hover {
+  background-color: rgba(10, 50, 0, 0.8);
+  color: white;
+}
+
+@media screen and (min-width: 768px) {
+  .action-card {
+    font-size: 16px;
+  }
+  .action-card button {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .background {
+    padding-top: 5%;
+  }
+  .description {
+    padding: 3%;
+  }
+
+  .description p {
+    font-size: 20px;
+  }
+
+  .action-card {
+    padding: 3%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .description {
+    padding: 1%;
+  }
+  .action-card {
+    padding: 1%;
+  }
 }

@@ -73,7 +73,11 @@ export const Labyrinth = () => {
         {/* <p>{coordinates}</p> */}
       </div>
       {actions.length === 0 && (
-        <button type='button' onClick={() => navigate('/start')}>
+        <button
+          className='button-restart'
+          type='button'
+          onClick={() => navigate('/')}
+        >
           Restart
         </button>
       )}

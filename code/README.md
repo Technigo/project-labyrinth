@@ -9,6 +9,7 @@ Start by briefly describing the assignment in a sentence or two. Keep it short a
 - How many reducers and how to use them, that was a challenge
 - The positioning of Lottie
 - Pain in the ass: Conditional rendering of local background images (googling around didn't help that much because most people use external links to images)
+- Routing the restart was a bit challenging. We solved it by using useNavigate.
 
 ## View it live
 
