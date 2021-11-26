@@ -4,8 +4,6 @@ import { nextStep } from '../reducers/game';
 
 import './labyrinth.css';
 
-import '../assets/music.jpg';
-
 export const Labyrinth = () => {
   const { description, coordinates, actions } = useSelector(
     (store) => store.game.currentPosition
@@ -16,7 +14,7 @@ export const Labyrinth = () => {
     let bg = '';
     switch (coordinates) {
       case '0,0':
-        bg = '../assets/bookshelf.jpg';
+        bg = '../assets/cavern-arch.jpg';
         break;
       case '1,0':
         bg = '../assets/ceiling.jpg';
@@ -28,16 +26,16 @@ export const Labyrinth = () => {
         bg = '../assets/soundwaves.jpg';
         break;
       case '0,2':
-        bg = '../assets/walls.jpg';
+        bg = '../assets/music.jpg';
         break;
       case '0,3':
-        bg = '../assets/brigth-light.jpg';
+        bg = '../assets/bookshelf.jpg';
         break;
       case '1,3':
-        bg = '../assets/cavern-arch.jpg';
+        bg = '../assets/bright-light.jpg';
         break;
       default:
-        bg = '../assets/music.jpg';
+        bg = '../assets/cavern-arch.jpg';
     }
     return bg;
   };
@@ -58,12 +56,23 @@ export const Labyrinth = () => {
   );
 
   return (
-    <section className="description" style={{ backgroundImage: setBgImg() }}>
-      <p>{description}</p>
-      <p>{coordinates}</p>
-      {actions.length === 0 && <h3>Yay, you made it out!</h3>}
-      {actions.length > 0 &&
-        actions.map((item) => <ActionCard key={item.direction} {...item} />)}
+    <section
+      className="background"
+      style={{
+        backgroundImage: `url(${setBgImg()})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        height: '100vh',
+      }}
+    >
+      <div className="description">
+        <p>{description}</p>
+        <p>{coordinates}</p>
+        {actions.length === 0 && <h3>Yay, you made it out!</h3>}
+        {actions.length > 0 &&
+          actions.map((item) => <ActionCard key={item.direction} {...item} />)}
+      </div>
     </section>
   );
 };
