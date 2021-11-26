@@ -15,6 +15,8 @@ import img05 from '../images/img05.jpg'
 import img06 from '../images/img06.jpg'
 import img07 from '../images/img07.jpg'
 import img08 from '../images/img08.jpg'
+import img09 from '../images/img09.jpg'
+import img10 from '../images/img10.jpg'
 
 
 const GameBoard = styled.section`
@@ -35,7 +37,7 @@ const MainContainer = styled.div`
     0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
   box-sizing: border-box;
   width: 400px;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.8);
 `;
 
 const Container = () => {
@@ -52,25 +54,25 @@ const Container = () => {
             bg = img01;
             break;
         case '1,0':
-            bg = img01;
-            break;
-        case '1,1':
-            bg = img02;
-            break;
-        case '0,1':
-            bg = img03;
-            break;
-        case '0,2':
             bg = img04;
             break;
-        case '0,3':
-            bg = img05;
-            break;
-        case '1,3':
+        case '1,1':
             bg = img06;
             break;
+        case '0,1':
+            bg = img09;
+            break;
+        case '0,2':
+            bg = img10;
+            break;
+        case '0,3':
+            bg = img08;
+            break;
+        case '1,3':
+            bg = img03;
+            break;
         default:
-            return img07;
+            return img06;
     }
     return bg;
   };
