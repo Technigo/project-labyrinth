@@ -17,7 +17,7 @@ The purpose of this web app was practicing async actions through a text adventur
 - In the beginning, finding out the use and amount of reducers took a while. We finally decided to keep it simple by only having one 'game' reducer.
 - The positioning of Lottie was also challenging. As with many CSS libraries, the solution came through trial and error.
 - The biggest challenge of the project was the conditional rendering of local background images. Googling around didn't help that much because most people use external links to images. In the end, a switch statement and the correct use of template literals solved the problem.
-- Routing the restart was a bit challenging. We solved it by using useNavigate.
+- Routing the restart was a bit challenging. We solved it by dispatching the function inside the onClick of the button.
 
 ## View it live
 

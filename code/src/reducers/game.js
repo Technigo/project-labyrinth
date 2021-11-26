@@ -1,5 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const initialState = {
+  player: '',
+  items: [],
+  moveHistory: [],
+};
+
 export const game = createSlice({
   name: 'game',
   initialState: {
@@ -20,6 +26,9 @@ export const game = createSlice({
 
     setLoading: (store, action) => {
       store.loading = action.payload;
+    },
+    resetGame: () => {
+      return initialState;
     },
   },
 });

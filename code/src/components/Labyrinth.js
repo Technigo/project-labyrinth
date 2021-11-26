@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router';
 import { nextStep } from '../reducers/game';
+import { game } from '../reducers/game';
 
 import './labyrinth.css';
 
@@ -10,7 +10,6 @@ export const Labyrinth = () => {
     (store) => store.game.currentPosition
   );
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const setBgImg = () => {
     let bg = '';
@@ -47,7 +46,7 @@ export const Labyrinth = () => {
     dispatch(nextStep(type, direction));
   };
 
-  // This is the alternatives the player can choose from
+  // These are the alternatives the player can choose from
   const ActionCard = ({ description, type, direction }) => (
     <div className='action-card'>
       <p>{description}</p>
@@ -57,6 +56,10 @@ export const Labyrinth = () => {
     </div>
   );
 
+  /* const handleRestart = () => {
+    dispatch(actions.resetGame());
+  };
+ */
   return (
     <section
       className='background'
@@ -76,7 +79,7 @@ export const Labyrinth = () => {
         <button
           className='button-restart'
           type='button'
-          onClick={() => navigate('/')}
+          onClick={() => dispatch(game.actions.resetGame())}
         >
           Restart
         </button>
