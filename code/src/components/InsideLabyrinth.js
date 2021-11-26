@@ -45,7 +45,7 @@ export const InsideLabyrinth = () => {
 
   const ActionCard = ({ description, type, direction }) => (
     <div className='action-card'>
-      <p className='text desc-two'>{description}</p>
+      <p className='text-desc-two'>{description}</p>
       {/* <p className='text choice'>What will you do?</p> */}
       <DirectionButton onClick={() => handleButtonClick(type, direction)}>
         {type} {direction.toLowerCase()}
@@ -62,11 +62,11 @@ export const InsideLabyrinth = () => {
         <p className='text-coords'>
          Coordinates: <strong>{coordinates}</strong>.
         </p>
-
-        
     
         {actions.length === 0 && <h2>You made it out alive, you brave soul.</h2>}
-        <p className='text desc-one'>{description}</p>
+        <p className='text-desc-one'>{description}</p>
+
+        <p className='text-choice'>What will you do?</p>
 
         {actions.length > 0 && actions.map(item => 
         <ActionCard key={item.direction} {...item} />
@@ -97,17 +97,25 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 text-align: left;
-border: 3px dashed #fff;
 padding: 20px;
 margin: 0 auto;
-width: 60vw;
+width: 80vw;
 height: auto;
 background: #000000;
 opacity: 0.7;
-/* border-image: linear-gradient(to right, transparent, #999, transparent) 5; */
 
 .text-coords {
   font-size: 12px;
+  text-align: left;
+}
+
+.text-desc-one {
+  border-bottom: 3px dashed orange;
+  padding-bottom: 20px;
+}
+
+@media (min-width: 667px) {
+  width: 60vw;
 }
 `
 const DirectionButton = styled.button`

@@ -66,14 +66,18 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-text-align: left;
-border: 3px dashed #fff;
+text-align: center;
+/* border: 3px dashed #fff; */
 padding: 20px;
 margin: 0 auto;
-width: 60vw;
+width: 80vw;
 height: auto;
 background: #000000;
 opacity: 0.7;
+
+@media (min-width: 667px) {
+  width: 60vw;
+}
 `
 
 const Form = styled.form`
@@ -85,12 +89,14 @@ appearance: none;
 border: none;
 border-bottom: 2px solid orange;
 margin: 5px;
+margin-top: 15px;
 }
 ` 
 const StartButton = styled.button`
   background: #F2C409;
   margin: 0 auto;
   margin-top: 40px;
+  margin-bottom: 20px;
   cursor: pointer;
   display: block;
   position: relative;
