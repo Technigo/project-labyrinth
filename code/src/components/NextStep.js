@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { gamestate, nextMove } from "../reducers/gamestate";
 
-import {Container, Wrapper } from "../styled-components/GameWrapperStyling";
+import { Container, Wrapper } from "../styled-components/GameWrapperStyling";
 
 
 export const NextStep = () => {
@@ -17,12 +17,14 @@ export const NextStep = () => {
     dispatch(gamestate.actions.setLoading(true));
   };
 
+	console.log(gameStatus.coordinates)
+
   return (
     <Container>
       <Wrapper>
         <h1>{gameStatus.description}</h1>
         <hr></hr>
-        <p>Possible actions:</p>
+        <p>Coordinates: {gameStatus.coordinates}</p>
           {gameStatus.actions.map((action, index) => (
             <div key={index}>
               <p>{action.description}</p>

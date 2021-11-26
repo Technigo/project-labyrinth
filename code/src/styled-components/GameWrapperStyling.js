@@ -13,7 +13,7 @@ export const Wrapper = styled.section`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 70%;
+  width: 80%;
   height: auto;
   padding: 20px;
   text-align: center;
@@ -27,7 +27,7 @@ export const Wrapper = styled.section`
   }
 
   h1 {
-    font-size: 22px;
+    font-size: 20px;
     color: #C2D200;
   }
 
