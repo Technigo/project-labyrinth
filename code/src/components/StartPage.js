@@ -5,6 +5,7 @@ import Lottie from "react-lottie";
 import animationData from "../lotties/Background";
 import animationBtn from "../lotties/btn";
 import sea from "sounds/sea.mp3"
+import arr from "sounds/arr.mp3"
 
 export const StartPage = () => {
   const [username, setUsername] = useState("");
@@ -26,10 +27,10 @@ export const StartPage = () => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
-
+let arrsound = new Audio(arr);
   let sound =  new Audio(sea);
   const SoundPlay = () => {
-    
+    arrsound.play();
     sound.play();
   };
 
