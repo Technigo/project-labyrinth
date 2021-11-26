@@ -41,6 +41,7 @@ const NavButton = styled.button`
 `
 const TitleH = styled.h1`
   font-weight: 500;
+  color: lightblue;
 `
 const TextP1 = styled.p`
   font-size: 1.1rem;
@@ -48,7 +49,11 @@ const TextP1 = styled.p`
 `
 const TextP2 = styled.p`
   font-style: italic;
+
 `
+
+
+
 
 // Starter component
 export const Starter = () => {
@@ -71,8 +76,10 @@ export const Starter = () => {
   return (
     <StartContainer>
       <TitleH>
-        Welcome to our amazing maze. See if you can find you way out of it.
+        Welcome to our amazing maze. 
       </TitleH>
+      <TextP1>See if you can find your way out of it.            </TextP1>
+      
       <TextP2>Start with entering your name.</TextP2>
       <InputContainer>
         <StyledInput

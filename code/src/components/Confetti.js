@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { useSelector } from "react-redux"
 import Lottie from "react-lottie"
 import animationData from "../lib/end"
 
