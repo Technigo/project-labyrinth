@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-/* import { keyframes } from 'styled-components' */
 import { useSelector } from "react-redux"
 import Lottie from "react-lottie"
 import animationData from "../lib/loader"
@@ -19,22 +18,6 @@ const LoaderOverlay = styled.div`
   align-items: center;
   z-index: 99;
 `
-// const Rotate = keyframes`
-//     from{
-//         transform: rotate(0deg)
-//     }
-//     to{
-//         transform: rotate(360deg)
-//     }
-// `
-// const LoaderAnimation = styled.div`
-//     animation: ${Rotate} infinite 2s;
-// `
-// const AnimationItem = styled.div`
-//     background-color: pink;
-//     height: 50px;
-//     width: 50px;
-// `
 
 // Loader component
 const Loader = () => {

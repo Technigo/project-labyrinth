@@ -1,16 +1,10 @@
-import React, { useState } from "react"
+import React from "react"
 import { useSelector, useDispatch } from "react-redux"
 import styled from "styled-components/macro"
 
 import { Starter } from "./Starter"
 import { moveMaze } from "../reducers/maze"
-import Loader from "./Loader"
 import Confetti from "./Confetti"
-
-import Lottie from "react-lottie"
-import animationData from "../lib/end"
-
-/* import { NavButton } from "styling/styling" */
 
 // Styled components
 const AppMain = styled.section`
@@ -83,25 +77,22 @@ const IconImg = styled.img`
   max-height: 100px;
   /* width: 50px; */
   margin: 20px 0;
-  /* animation: bounce 1s;
+  animation: pulse 3s;
   animation-timing-function: ease;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 
-  @keyframes bounce {
+  @keyframes pulse {
     0% {
-      transform: translateY(0);
-    }
-    30% {
-      transform: translateY(-10px);
+      transform: scale(1)
     }
     50% {
-      transform: translateY(0);
+      transform: scale(1.05)
     }
     100% {
-      transform: translateY(0);
+      transform: scale(1)
     }
-  } */
+  }
 `
 const LoaderOverlay = styled.div`
   position: absolute;
@@ -181,14 +172,7 @@ const Game = () => {
     }
   }
 
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  }
+ 
 
   const dispatch = useDispatch()
 
@@ -214,7 +198,7 @@ const Game = () => {
                         <NavTextSpan style={{ color: setBgColor() }}>
                           {action.direction}
                         </NavTextSpan>{" "}
-                        - {action.description} {/* HÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄR */}
+                        - {action.description}
                       </p>
                     ))}
                   </NavDiv>
@@ -235,14 +219,10 @@ const Game = () => {
               ) : (
                 <TheEndDiv>
                   {data.actions.length === 0 && (
-                    <Lottie
-                      options={defaultOptions}
-                      max-height={400}
-                      max-width={400}
-                    />
+                   <Confetti />
                   )}
                   <p>You made it!</p>
-                  {/* <Confetti /> */}
+                  
                 </TheEndDiv>
               )}
             </GameContainer>

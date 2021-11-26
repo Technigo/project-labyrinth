@@ -4,8 +4,6 @@ import styled from "styled-components"
 
 import { startMaze } from "../reducers/maze"
 
-/* import { NavButton } from "styling/styling" */
-
 // Styled components
 
 const StartContainer = styled.div`
@@ -25,15 +23,16 @@ const StyledInput = styled.input`
   width: 100%;
   height: 20px;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 10px 0 0 10px;
   border: none;
+  text-align: center;
 `
 const NavButton = styled.button`
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   background-color: lightblue;
   border: none;
-  border-radius: 10px;
+  border-radius: 0 10px 10px 0;
   width: 60px;
   padding: 10px;
     &:hover{
@@ -79,7 +78,6 @@ export const Starter = () => {
         <StyledInput
           type="text"
           value={userName}
-          /* placeholder="Enter your username here" */
           onChange={event => setUserName(event.target.value)}
           onKeyDown={event => checkKey(event)}
         />
