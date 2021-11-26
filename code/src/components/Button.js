@@ -9,9 +9,12 @@ const Button = styled.button`
   border-radius: 2px;
   margin-top: 5px;
   padding: 0 20px;
-  box-shadow: 3px 1px 1px white;
+  box-shadow: 2px 1px 1px #32281f;
+
   &:hover {
-    background-color: brown;
+    background-color: #32281f;
+    color: white;
+    box-shadow: 2px 1px 1px gray;
   }
 `;
 
