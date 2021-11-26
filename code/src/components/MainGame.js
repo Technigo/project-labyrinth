@@ -1,13 +1,13 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchGameSteps } from '../reducers/game';
-import LoadingSpinner from './LoadingSpinner';
-import styled from 'styled-components/macro';
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchGameSteps } from '../reducers/game'
+import LoadingSpinner from './LoadingSpinner'
+import styled from 'styled-components/macro'
 
-import { DirectionButton } from './DirectionButton';
-import { StartButton } from './StartButton';
-import CreepyGirl from './CreepyGirl';
-import { useNavigate } from 'react-router-dom';
+import { DirectionButton } from './DirectionButton'
+import { StartButton } from './StartButton'
+import CreepyGirl from './CreepyGirl'
+import { useNavigate } from 'react-router-dom'
 
 const StyledMainGame = styled.div`
   display: flex;
@@ -43,14 +43,14 @@ const StyledMainGame = styled.div`
       font-size: 16px;
     }
   }
-`;
+`
 
 const DirectionWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
-`;
+`
 
 const DirectionCard = styled.div`
   width: 50%;
@@ -60,7 +60,7 @@ const DirectionCard = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 10px;
-`;
+`
 
 const EndWrapper = styled.div`
   width: 100%;
@@ -72,19 +72,19 @@ const EndWrapper = styled.div`
   h3 {
     margin: 10px 15px;
   }
-`;
+`
 
 const MainGame = ({ stopMusic }) => {
-  const gameObject = useSelector((store) => store.game.gameObject);
-  const username = useSelector((store) => store.game.username);
-  const navigate = useNavigate();
+  const gameObject = useSelector((store) => store.game.gameObject)
+  const username = useSelector((store) => store.game.username)
+  const navigate = useNavigate()
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const onRestartClick = () => {
-    navigate('/');
-    stopMusic();
-  };
+    navigate('/')
+    stopMusic()
+  }
 
   return (
     <StyledMainGame>
@@ -104,7 +104,7 @@ const MainGame = ({ stopMusic }) => {
 
                 <DirectionButton
                   onClick={() => {
-                    dispatch(fetchGameSteps({ direction: action.direction }));
+                    dispatch(fetchGameSteps({ direction: action.direction }))
                   }}
                 >
                   <span>
@@ -141,7 +141,7 @@ const MainGame = ({ stopMusic }) => {
         )}
       </div>
     </StyledMainGame>
-  );
-};
+  )
+}
 
-export default MainGame;
+export default MainGame

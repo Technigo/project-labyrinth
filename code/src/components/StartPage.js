@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchGame, game } from '../reducers/game';
-import { useNavigate } from 'react-router-dom';
-import { StartButton } from './StartButton';
-import styled from 'styled-components/macro';
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { fetchGame, game } from '../reducers/game'
+import { useNavigate } from 'react-router-dom'
+import { StartButton } from './StartButton'
+import styled from 'styled-components/macro'
 
-import '../title.css';
+import '../title.css'
 
 const StyledStartPage = styled.section`
   display: flex;
@@ -21,7 +21,7 @@ const StyledStartPage = styled.section`
   background-attachment: fixed;
   text-align: center;
   color: #fff;
-`;
+`
 
 const InputWrapper = styled.div`
   display: flex;
@@ -31,36 +31,36 @@ const InputWrapper = styled.div`
   min-height: 150px;
 
   & input {
-    font-size: 1.5rem;
-    padding: 1rem 2rem;
+    font-size: 1.3rem;
+    padding: 1rem 2.5rem;
     border-radius: 0.75rem;
     border: 1px solid #ccc;
     font-family: Creepster;
   }
-`;
+`
 
 const StartPage = ({ startMusic }) => {
-  const [name, setName] = useState('');
-  const dispatch = useDispatch();
-  let navigate = useNavigate();
+  const [name, setName] = useState('')
+  const dispatch = useDispatch()
+  let navigate = useNavigate()
 
   const onNameSubmit = (name) => {
-    dispatch(game.actions.setUserName(name));
-    navigate('/MainGame');
-    startMusic();
-    setName('');
-  };
+    dispatch(game.actions.setUserName(name))
+    navigate('/MainGame')
+    startMusic()
+    setName('')
+  }
 
   const onSetName = (event) => {
-    setName(event.target.value);
-  };
+    setName(event.target.value)
+  }
 
   const onEnter = (event) => {
     if (event.key === 'Enter') {
-      onNameSubmit(name);
-      dispatch(fetchGame(name));
+      onNameSubmit(name)
+      dispatch(fetchGame(name))
     }
-  };
+  }
 
   return (
     <StyledStartPage>
@@ -89,7 +89,7 @@ const StartPage = ({ startMusic }) => {
           placeholder='Your name, if you dare...'
           onChange={onSetName}
           onKeyDown={(event) => {
-            onEnter(event);
+            onEnter(event)
           }}
         />
 
@@ -97,8 +97,8 @@ const StartPage = ({ startMusic }) => {
           disabled={name.length === 0}
           className='start-button'
           onClick={() => {
-            onNameSubmit(name);
-            dispatch(fetchGame(name));
+            onNameSubmit(name)
+            dispatch(fetchGame(name))
           }}
         >
           Start
@@ -109,7 +109,7 @@ const StartPage = ({ startMusic }) => {
         </StartButton>
       </InputWrapper>
     </StyledStartPage>
-  );
-};
+  )
+}
 
-export default StartPage;
+export default StartPage
