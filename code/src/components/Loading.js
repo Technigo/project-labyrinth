@@ -34,7 +34,7 @@ export const Loading = () => {
     <Div>
       <LoadingContainer>
         {loading && (
-          <Lottie options={defaultOptions} height={400} height={400} />
+          <Lottie options={defaultOptions} height={400} width={400} />
         )}
       </LoadingContainer>
     </Div>

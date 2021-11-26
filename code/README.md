@@ -1,8 +1,6 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+In this week's project which was a pair programming by Helena Wiklund and Efthymios Karakasis we build an app
 
 ## The problem
 
