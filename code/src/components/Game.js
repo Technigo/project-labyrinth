@@ -7,19 +7,27 @@ import { ui } from "../reducers/ui";
 
 import { LoadingIndicator } from "./LoadingIndicator";
 
+const GameContainer = styled.section`
+  display: flex;
+  justify-items: center;
+  width: 70%;
+  margin: 0 auto; 
+  min-width: 300px;
+  max-width: 400px;
+`;
 const IntroWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
 const Title = styled.h1`
-font-family: 'Press Start 2P', cursive;
+  font-family: 'Press Start 2P', cursive;
   color: #ee088d;
   text-shadow: 3px 3px yellow;
   display: flex;
   text-align: center;
   align-item: center;
   margin: 40px auto 20px auto;
-  font-size: 35px;
+  font-size: 30px;
   letter-spacing: 3px; 
 `;
 const Form = styled.form`
@@ -27,14 +35,14 @@ const Form = styled.form`
   flex-direction: column;
   width: 100%;
   `
-const GameContainer = styled.section`
-  display: flex;
-  justify-items: center;
-  width: 70%;
-  margin 0 auto; 
-`;
+const Input = styled.input`
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  width:70%;
+  margin 0 auto;
+  `
 const ActionContainer = styled.div`
-  width: 70%;
+  width: 80%;
   background-color: #1c362d;
   color: #23c757;
   font-family: "VT323", monospace;
@@ -44,11 +52,13 @@ const ActionContainer = styled.div`
 const LoadWrapper = styled.div`
   display: flex;
   justify-content: center;
+  margin 0 auto;
 `;
 
 const ShortDesc = styled.div`
   border-bottom: dashed 2px;
   padding-bottom: 10px;
+  font-size: 20px;
 `;
 
 const DescButtonWrapper = styled.div`
@@ -57,10 +67,16 @@ const DescButtonWrapper = styled.div`
     border-bottom: dashed 2px;
     padding: 3px 0 10px 0;`;
 const Button = styled.button`
-  margin: 10px auto;
-  display: flex;
+    margin: 10px auto;
+    display: flex;
+    font-family: 'Press Start 2P', cursive;
 `;
-const LongDesc = styled.div``;
+const LongDesc = styled.div`
+  font-size: 18px`;
+
+  const EndText = styled.div`
+  font-size: 20px;
+  `
 
 export const Game = () => {
   const dispatch = useDispatch();
@@ -74,15 +90,16 @@ export const Game = () => {
     dispatch(ui.actions.setNoBeginning(false));
     dispatch(startThunk(newUserName));
     dispatch(game.actions.setUserName(newUserName));
-  }; // a function to start the game and invoke the first Thunk whilst setting the username
+  }; // a function to start the game and invoke the first Thunk to set the username
 
   const onAction = (action) => {
-    dispatch(actionThunk(newUserName, action));
+    dispatch(actionThunk(newUserName, action)); 
   }; // a function to continue the game, invoking the second thunk (and API), with user name and action arguments
 
   const onRestart = () => {
-    dispatch(game.actions.restartGame())
-    dispatch(ui.actions.setNoBeginning(true))// this is needed to restart the game
+    dispatch(game.actions.restartGame()); 
+    dispatch(ui.actions.setNoBeginning(true));// this is needed to restart the game
+    setNewUserName('');// this clears the input field
    
  }
   return (
@@ -96,14 +113,14 @@ export const Game = () => {
       {showBeginning && (
         <IntroWrapper>
           <Title>Welcome to the Labryinth</Title>
-          <Form onSubmit={() => onStart()}>
-            <input
+          <Form onSubmit={() => onStart()}> 
+            <Input
               type="text"
               required
               placeholder="Your User Name"
               onChange={(event) => setNewUserName(event.target.value)}
               value={newUserName}
-            ></input>
+            ></Input>
             <Button type="submit">Start The Game </Button>
           </Form>
         </IntroWrapper>
@@ -126,13 +143,14 @@ export const Game = () => {
               </Button>
             </DescButtonWrapper>
           ))}
-          {gameInformation.coordinates === "1,3" && (
-            <div>
+          {gameInformation.actions.length === 0 && (
+            <EndText>
+              
               Congratulations, {newUserName} you have made it!
              
-              <button onClick={() => onRestart()}> Press to re-start</button>
+              <Button onClick={() => onRestart()}> Press to re-start</Button>
 
-            </div>
+            </EndText>
           )}
         </ActionContainer>
       )}

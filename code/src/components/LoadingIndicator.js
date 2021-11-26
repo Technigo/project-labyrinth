@@ -18,8 +18,8 @@ export const LoadingIndicator = () => {
         <div>
         <Lottie 
             options={defaultOptions}
-            height={300}
-            width={300}
+            height={275}
+            width={275}
           />
         </div>
       
