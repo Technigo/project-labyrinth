@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import styled from "styled-components"
 
 import { startMaze } from "../reducers/maze"
@@ -54,15 +54,10 @@ const TextP2 = styled.p`
 
 `
 
-
-
-
 // Starter component
 export const Starter = () => {
   const [userName, setUserName] = useState("")
-  const user = useSelector(store => store.maze.username)
-  console.log("user", user) // CONSOLE
-
+  
   const dispatch = useDispatch()
 
   const startGame = () => {
@@ -78,11 +73,10 @@ export const Starter = () => {
   return (
     <StartContainer>
       <TitleH>
-        Welcome to the amazing maze. 
+        Welcome to the amazing maze! 
       </TitleH>
-      <TextP1>See if you can find your way out of it.            </TextP1>
-      
-      <TextP2>Start with entering your name.</TextP2>
+      <TextP1>See if you can find your way out of it</TextP1>   
+      <TextP2>Start with entering your name</TextP2>
       <InputContainer>
         <StyledInput
           type="text"

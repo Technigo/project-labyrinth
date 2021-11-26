@@ -108,9 +108,6 @@ const Game = () => {
   const data = useSelector(store => store.maze.response)
   const userName = useSelector(store => store.maze.username)
   
-  console.log("username", userName) // CONSOLE
-  console.log("data", data) // CONSOLE
-
   const setBgColor = () => {
     switch (data.coordinates) {
       case "0,0":
@@ -166,8 +163,6 @@ const Game = () => {
         return "#FADD57"
     }
   }
-
- 
 
   const dispatch = useDispatch()
 

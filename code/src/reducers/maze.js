@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { ui } from "./ui"
 
-/* let user = "" */
-
 // The Store
 export const maze = createSlice({
   name: "maze",
@@ -14,26 +12,21 @@ export const maze = createSlice({
   reducers: {
     setUserName: (state, action) => {
       state.username = action.payload
-      console.log("state.initialState", state.username)
-      /* user = state.username */
     },
     setResponse: (state, action) => {
       state.response = action.payload
-      console.log("state.initialState", state.response)
     },
-
     setHistory: (state, action) => {
       if (state.respone !== null) {
         state.history = [...state.history, action.payload]
-      }
-      console.log("history", state.history)
+      }   
     },
   },
 })
 
 // Thunk for maze start fetch
 export const startMaze = username => {
-  console.log("username the newest", username)
+  
   const options = {
     method: "POST",
     headers: {
@@ -46,7 +39,7 @@ export const startMaze = username => {
     fetch("https://wk16-backend.herokuapp.com/start", options)
       .then(res => res.json())
       .then(data => {
-        console.log("post", data)
+        
         dispatch(maze.actions.setResponse(data))
         dispatch(maze.actions.setUserName(username))
         dispatch(ui.actions.setLoading(false))
@@ -56,8 +49,7 @@ export const startMaze = username => {
 
 // Thunk for move fetch
 export const moveMaze = (direction, type) => {
-  console.log("before of fetch")
-
+  
   return (dispatch, getStore) => {
     dispatch(ui.actions.setLoading(true))
     fetch("https://wk16-backend.herokuapp.com/action", {
@@ -79,17 +71,3 @@ export const moveMaze = (direction, type) => {
       })
   }
 }
-
-/* const initialState = { */
-
-// coordinates: "0,0",
-// description: "You find yourself in under a large archway opening into a cavern.  A sense of purpose fills you.",
-// actions: [
-//     {
-//         type: "move",
-//         direction: "East",
-//         description: "A worn sign 'The Temple of *ech*igo'. Some of the letters are missing. An overgrown paved path leads to the East"
-//     }
-// ]
-/*     content: {},
-} */
