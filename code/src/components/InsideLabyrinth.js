@@ -8,7 +8,7 @@ export const InsideLabyrinth = () => {
   const { description, coordinates, actions } = useSelector(store => store.game.currentCoordinates)
   const dispatch = useDispatch()
 
-  const setBgColor = () => {
+  /* const setBgColor = () => {
     let bg = 'silver'
     switch (coordinates) {
       case '0,0':
@@ -36,7 +36,7 @@ export const InsideLabyrinth = () => {
         bg = '#102021'
     }
     return bg
-  }
+  } */
 
   const handleButtonClick = (type, direction) => {
     dispatch(nextStep(type, direction))
@@ -44,8 +44,8 @@ export const InsideLabyrinth = () => {
 
   const ActionCard = ({ description, type, direction }) => (
     <div className='action-card'>
-      <p className='text desc-two'>desc2: {description}</p>
-      <p className='text choice'>What will you do?</p>
+      <p className='text desc-two'>{description}</p>
+      {/* <p className='text choice'>What will you do?</p> */}
       <DirectionButton onClick={() => handleButtonClick(type, direction)}>
         {type} {direction.toLowerCase()}
       </DirectionButton>
@@ -53,34 +53,57 @@ export const InsideLabyrinth = () => {
   )
 
   return (
-    <InsideLabyrinthSection style={{ background: setBgColor() }}>
-      <p className='text coords'>
-        Coordinates: <strong>{coordinates}</strong>.
-      </p>
-      {actions.length === 0 && <h2>You made it out alive, you brave soul.</h2>}
-      <p className='text desc-one'>desc1: {description}</p>
+    <LabyrinthBackground /* style={{ background: setBgColor() }} */>
 
-      {actions.length > 0 && actions.map(item => 
+    
+    <InsideLabyrinthSection /* style={{ background: setBgColor() }} */>
+      
+        <p className='text-coords'>
+         Coordinates: <strong>{coordinates}</strong>.
+        </p>
+    
+        {actions.length === 0 && <h2>You made it out alive, you brave soul.</h2>}
+        <p className='text desc-one'>{description}</p>
+
+        {actions.length > 0 && actions.map(item => 
         <ActionCard key={item.direction} {...item} />
-      )}
-
+        )}
     </InsideLabyrinthSection>
+    </LabyrinthBackground>
   )
 }
 
 //styling
+const LabyrinthBackground = styled.div`
+width: 100%;
+height: 100vh;
+overflow: hidden;
+background: url('../images/1347872.jpg');
+background-size: cover; 
+background-repeat: no-repeat;
+background-attachment: fixed;
+/* position: relative; */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+`
+
 const InsideLabyrinthSection = styled.section`
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-text-align: center;
-width: 100%;
-height: 100vh;
+text-align: left;
+border: 3px dashed #fff;
+padding: 20px;
+margin: 0 auto;
+width: 60vw;
+height: auto;
+background-color: grey;
 
-.action-card {
-  border-bottom: 3px dashed #fff;
-  padding: 20px;
+.text-coords {
+  font-size: 12px;
 }
 `
 const DirectionButton = styled.button`
@@ -126,3 +149,4 @@ const DirectionButton = styled.button`
     border-right: 3px #fff solid;
   }
 `
+
