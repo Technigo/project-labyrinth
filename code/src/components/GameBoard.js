@@ -39,8 +39,6 @@ export const GameBoard = () => {
     </div>
   )
 
-  console.log("HISTORY", history)
-
   if (actions.length === 0) {
     return <EndScreen />
   } else {

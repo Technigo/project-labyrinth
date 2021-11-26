@@ -1,6 +1,5 @@
 import React from "react"
 import { useSelector } from "react-redux"
-import { ui } from "../reducers/ui"
 import { Start } from "./Start"
 import { GameBoard } from "./GameBoard"
 import { LoadingIndicator } from "./LoadingIndicator"
