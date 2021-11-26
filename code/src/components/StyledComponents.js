@@ -69,30 +69,6 @@ export const TitleContainer = styled.div`
   font-weight: lighter;
 `;
 
-// export const Directions = styled.div`
-
-/* border-top: 5px solid orange;
-  border-bottom: 5px solid orange;
-  position: relative;
-
-  &:before,
-  &:after {
-    content: '';
-    top: 0;
-    width: 5px;
-    height: 100%;
-    position: absolute;
-    background: orange;
-  }
-  &:before {
-    left: -5px;
-  }
-
-  &:after {
-    right: -5px;
-  } 
-`;*/
-
 export const Choices = styled.div`
   margin: 10px;
   padding: 10px;

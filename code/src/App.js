@@ -14,6 +14,7 @@ const store = configureStore({ reducer });
 export const App = () => {
   return (
     <Provider store={store}>
+      {/* // ta bort denna?  */}
       <main>
         <ShowGame />
       </main>
