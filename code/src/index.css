@@ -5,3 +5,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-y: hidden;
 }
+
+* {
+  box-sizing: border-box;
+}

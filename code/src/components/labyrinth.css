@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 10px;
   justify-content: center;
-  padding-top: 25%;
+  padding-top: 15%; /* more padding pushes the answers too low on small screens */
 }
 
 .description {
