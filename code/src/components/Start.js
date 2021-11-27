@@ -18,14 +18,16 @@ export const Start = () => {
 
   return (
     <>
-      <h1>Want to enter the labyrinth!?</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Add your username
-          <input type="text" required onChange={handleInputChange} />
-        </label>
-        <button type="submit">Lets go</button>
-      </form>
+      <section className="first-page">
+        <h1>Want to enter the labyrinth!?</h1>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Add your username
+            <input type="text" required onChange={handleInputChange} />
+          </label>
+          <button type="submit">Lets go</button>
+        </form>
+      </section>
     </>
   );
 };

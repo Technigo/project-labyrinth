@@ -9,9 +9,9 @@ export const Game = () => {
   const currentPosition = useSelector((store) => store.game.currentPosition);
 
   return (
-    <>
+    <div className="container">
+      {/* <LoadingIndicator /> */}
       {currentPosition ? <Labyrinth /> : <Start />}
-      <LoadingIndicator />
-    </>
+    </div>
   );
 };

@@ -54,7 +54,6 @@ export const nextStep = (type, direction) => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setCurrentPosition(data));
-        dispatch(game.actions.setHistory(data));
       })
       .finally(() => dispatch(game.actions.setLoading(false)));
   };
