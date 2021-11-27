@@ -1,17 +1,9 @@
-/* .background {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw;
-} */
-
 .background {
   display: flexbox;
   flex-direction: column;
   gap: 10px;
   justify-content: center;
-  padding-top: 25%;
+  padding-top: 15%; /* more padding pushes the answers too low on small screens */
 }
 
 .description {
