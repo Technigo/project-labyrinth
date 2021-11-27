@@ -21,4 +21,4 @@ The purpose of this web app was practicing async actions through a text adventur
 
 ## View it live
 
-https://pedantic-euclid-57ea62.netlify.app/
+https://maria-and-isabel-labyrinth.netlify.app/

@@ -11,7 +11,7 @@ export const game = createSlice({
   initialState: {
     username: null,
     currentPosition: null,
-    history: [], // this can be used to implement a go back functionality
+    history: [],
     loading: false,
   },
 
@@ -22,8 +22,6 @@ export const game = createSlice({
     setCurrentPosition: (store, action) => {
       store.currentPosition = action.payload;
     },
-    // Here we could implement setHistory
-
     setLoading: (store, action) => {
       store.loading = action.payload;
     },
@@ -47,8 +45,6 @@ export const startGame = () => {
       .then((res) => res.json())
       .then((data) => dispatch(game.actions.setCurrentPosition(data)))
       .finally(() => dispatch(game.actions.setLoading(false)));
-
-    // remember: we removed seUserName and switched to setCurrentPosition
   };
 };
 
@@ -69,7 +65,6 @@ export const nextStep = (type, direction) => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setCurrentPosition(data));
-        // dispatch(game.actions.setHistory(data));
       })
       .finally(() => dispatch(game.actions.setLoading(false)));
   };

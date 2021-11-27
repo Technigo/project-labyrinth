@@ -56,10 +56,6 @@ export const Labyrinth = () => {
     </div>
   );
 
-  /* const handleRestart = () => {
-    dispatch(actions.resetGame());
-  };
- */
   return (
     <section
       className='background'
@@ -73,7 +69,6 @@ export const Labyrinth = () => {
     >
       <div className='description'>
         <p>{description}</p>
-        {/* <p>{coordinates}</p> */}
       </div>
       {actions.length === 0 && (
         <button

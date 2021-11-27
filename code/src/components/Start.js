@@ -21,7 +21,6 @@ export const Start = () => {
       <div className='start-wrapper'>
         <h1>Enter the labyrinth</h1>
         <form onSubmit={handleSubmit}>
-          {/* <label> */}
           <>
             <input
               type='text'
@@ -30,7 +29,6 @@ export const Start = () => {
               onChange={handleInputChange}
             />
           </>
-          {/* </label> */}
           <button type='submit'>Let's get lost</button>
         </form>
       </div>
