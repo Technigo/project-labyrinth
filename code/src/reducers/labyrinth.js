@@ -1,12 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-
 export const labyrinth = createSlice ({
   name: 'labyrinth',
   initialState: {
     username: null,
     currentPosition: null,
-    history: [],
+    // history: [],
     loading: false,
   },
 
@@ -17,23 +16,22 @@ export const labyrinth = createSlice ({
     setCurrentPosition: (store, action) => {
       store.currentPosition = action.payload
     },
+    setLoading: (store, action) => {
+      store.loading = action.payload
+    }
     // setHistory: (store, action) => {
     //   if (store.currentPosition) {
     //     store.history = [...store.history, action.payload]
     //   }
     // },
-    // setLoading: (store, action) => {
-    //   store.loading = action.payload
-    // }
     }
  })
 
 
  export const fetchStartData = (username) => {
-  // console.log("hello")
 
   return (dispatch) => {
-    // dispatch(labyrinth.actions.setLoading(true))
+    dispatch(labyrinth.actions.setLoading(true))
     fetch("https://wk16-backend.herokuapp.com/start", {
       method: "POST",
       headers: {
@@ -45,8 +43,7 @@ export const labyrinth = createSlice ({
       .then((data) => {
         dispatch(labyrinth.actions.setCurrentPosition(data))
         dispatch(labyrinth.actions.setUsername(username))
-        console.log('come on now will ya')
-        // dispatch(labyrinth.actions.setLoading(false))
+        dispatch(labyrinth.actions.setLoading(false))
       })
   }
 }
@@ -54,7 +51,7 @@ export const labyrinth = createSlice ({
 export const fetchLabyrinthPath = (type, direction) => {
 
   return (dispatch, getState) => {
-    // dispatch(labyrinth.actions.setLoading(true))
+    dispatch(labyrinth.actions.setLoading(true))
     fetch(`https://wk16-backend.herokuapp.com/action`, {
       method: "POST",
       headers: {
@@ -69,8 +66,9 @@ export const fetchLabyrinthPath = (type, direction) => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(labyrinth.actions.setCurrentPosition(data))
+        dispatch(labyrinth.actions.setLoading(false))
         // dispatch(labyrinth.actions.setHistory(data))
       })
-      // .finally (() => dispatch(labyrinth.actions.setLoading(false)))
+    
   }
 }

@@ -1,6 +1,23 @@
 import styled from "styled-components";
 
 
+export const LoaderContainer = styled.div`
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-position: center;
+    background-repeat: repeat;
+    background-color: #60cd18;
+`
+
+export const LoadingText = styled.h3`
+    position: relative;
+    color: #1a1a1a;
+    font-size: 48px;
+    text-align: center;
+    margin-top: 0;
+`
+
 // TYPOGRAPHY
 
 export const H1 = styled.h1`
@@ -160,16 +177,17 @@ export const PositionContainer = styled.div`
 `
 
 export const TheCardContainer = styled.div`
+    position: relative;
     display: flex;
     flex-direction: row;
 `
 
 export const CardItemContainer = styled.div`
-background-color: #1a1a1a;
-padding: 1rem;
-border-radius: 8px;
-margin-top: 1rem;
-width: 100%;
+    background-color: #1a1a1a;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    width: 100%;
 `
 
 

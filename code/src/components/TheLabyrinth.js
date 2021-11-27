@@ -1,7 +1,13 @@
 import React from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { fetchLabyrinthPath } from "reducers/labyrinth"
-import position00 from 'position00.png'
+// import one from '../assets/one.png'
+// import two from '../assets/two.png'
+// import three from '../assets/three.png'
+// import four from '../assets/four.png'
+// import five from '../assets/five.png'
+// import six from '../assets/six.png'
+// import seven from '../assets/seven.png'
 import { PositionIcon } from "./PositionIcon"
 import { 
     H3,
@@ -13,17 +19,16 @@ import {
     Coordinates,
     PositionContainer,
     TheCardContainer,
-    CardItemContainer
+    CardItemContainer,
     } from '../lib/styling' 
 
 
 
 export const TheLabyrinth = () => {
     const dispatch = useDispatch()   
-    const { description, coordinates, actions} = useSelector(store =>  store.labyrinth.currentPosition)
+    const { description, coordinates, actions} = useSelector(store=>  store.labyrinth.currentPosition)
     
     const handleButtonOnClick = (type, direction) => {
-            // call the api, pass along type and direction as part of the body
             dispatch(fetchLabyrinthPath(type, direction))
         }
 
@@ -39,10 +44,21 @@ export const TheLabyrinth = () => {
             </TheCardContainer>
             </div>
         )
+
+        const imgLibrary = {
+            '0,0': "url(https://i.ibb.co/g3B61jW/one.jpg)",
+            '1,0': "url(https://i.ibb.co/D9m3m0T/two.jpg)",
+            '1,1': "url(https://i.ibb.co/71W1pwP/three.jpg)",
+            '0,1': "url(https://i.ibb.co/S3ytgrr/four.jpg)",
+            '0,2': "url(https://i.ibb.co/89PmqTx/five.jpg)",
+            '0,3': "url(https://i.ibb.co/qnxJntc/six.jpg)",
+            '1,3': "url(https://i.ibb.co/nc62pm4/seven.jpg)",
+          }
    
         return (
+
             
-            <BackgroundImg style={{ backgroundImage: `url(${position00})` }}>
+            <BackgroundImg style={{ backgroundImage: imgLibrary[coordinates], }}>
                 <ContentContainer>
                     <H2>{description}</H2>
                     <PositionContainer>
