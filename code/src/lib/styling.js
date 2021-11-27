@@ -146,7 +146,7 @@ export const ContentContainer = styled.section`
     flex-direction: column;
     justify-content: center;
     max-width: 767px;
-    background-color: #111111;
+    background-color: #111111CC;
     padding: 4rem;
     border-radius: 12px;
     // margin-top: 150px;
