@@ -1,3 +1,9 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'Josefin Sans', sans-serif;
@@ -6,6 +12,11 @@ body {
   background-image: url('/assets/bg-image.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 code {
@@ -22,6 +33,14 @@ form {
   text-align: center;
 }
 
+.start-page,
+.labyrinth-page {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 2rem;
+  border: none;
+  border-radius: 4px;
+}
+
 .start-page input {
   font-family: 'Josefin Sans', sans-serif;
   border: none;
@@ -29,6 +48,22 @@ form {
   width: 16rem;
   height: 2rem;
   font-size: 16px;
+  background: #eff8ff;
+  box-shadow: 4px 4px 5px #a6a9b6;
+}
+
+::placeholder {
+  /* padding-left: 8px; */
+  text-align: center;
+  font-size: 14px;
+  color: #717171;
+}
+
+.start-page p {
+  margin: 10px;
+  font-size: 14px;
+  font-style: italic;
+  color: #717171;
 }
 
 .start-page button,
@@ -42,15 +77,147 @@ form {
   height: 2rem;
   font-size: 16px;
   background: #c9cbff;
+  box-shadow: 4px 4px 5px #a6a9b6;
   cursor: pointer;
 }
 
-.show-map {
-  border: 2px solid red;
-  display: flex;
-  flex-direction: column;
+.start-page button:active,
+.game-card button:active,
+.restart-btn:active {
+  color: #ffe5b9;
+  background: #a6a9b6;
 }
 
-.show-map p {
-  margin: 0;
+.labyrinth-page p {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.labyrinth-page h1,
+.start-page h1 {
+  text-shadow: 2px 2px 1px #a6a9b6;
+}
+
+.gamecards-container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.game-card {
+  background: rgba(225, 225, 225, 0.5);
+  padding: 1rem;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  margin: 4px 6px;
+  grid-column: 1fr;
+}
+
+.game-card p {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.show-map {
+  border: 2px solid #000;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.map {
+  position: relative;
+  width: 40px;
+  height: 80px;
+}
+
+.map div {
+  border: 1px solid;
+}
+
+.map .prev-position {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #eff8ff;
+}
+
+.map .prev-position i {
+  display: none;
+}
+
+.map .active-position {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ffe5b9;
+}
+
+.map .active-position i,
+.map .start-position i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.map .start-position {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #c9cbff;
+  bottom: 0;
+  left: 0;
+}
+
+.ending-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.username {
+  color: #c9cbff;
+}
+
+footer {
+  font-size: 14px;
+  text-align: center;
+}
+
+footer a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #ffe5b9;
+  text-shadow: 1px 1px 1px black;
+}
+
+footer a:visited {
+  text-decoration: none;
+  font-weight: 700;
+  color: #ffe5b9;
+}
+
+@media (min-width: 768px) {
+  .labyrinth-page {
+    width: 80%;
+    margin: auto;
+  }
+  .labyrinth-page p {
+    font-size: 24px;
+  }
+  .game-card p {
+    font-size: 18px;
+  }
+  .gamecards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

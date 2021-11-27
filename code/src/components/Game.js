@@ -6,16 +6,16 @@ import Labyrinth from './Labyrinth'
 import Loader from './Loader'
 
 const Game = () => {
+  const loading = useSelector((state) => state.ui.loading)
+
   const currentCoordinates = useSelector(
     (state) => state.game.currentCoordinates
   )
 
-  return (
-    <>
-      {currentCoordinates ? <Labyrinth /> : <StartPage />}
-      <Loader />
-    </>
-  )
+  if (loading) {
+    return <Loader />
+  }
+  return currentCoordinates ? <Labyrinth /> : <StartPage />
 }
 
 export default Game

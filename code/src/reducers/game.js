@@ -2,10 +2,9 @@ import { createSlice } from '@reduxjs/toolkit'
 import ui from './ui'
 
 const initialState = {
-  username: null,
+  username: '',
   currentCoordinates: null,
   storeCoordinates: [],
-  // loading: false,
 }
 
 export const game = createSlice({
@@ -23,9 +22,6 @@ export const game = createSlice({
         state.storeCoordinates = [...state.storeCoordinates, action.payload]
       }
     },
-    // setLoading: (state, action) => {
-    //   state.loading = action.payload
-    // },
     restart: () => {
       return initialState
       // do we want to clear in the backend too?
@@ -35,7 +31,6 @@ export const game = createSlice({
 
 export const startGame = () => {
   return (dispatch, getState) => {
-    // dispatch(game.actions.setLoading(true))
     dispatch(ui.actions.setLoading(true))
     fetch('https://wk16-backend.herokuapp.com/start', {
       method: 'POST',
@@ -46,14 +41,12 @@ export const startGame = () => {
     })
       .then((response) => response.json())
       .then((data) => dispatch(game.actions.setCurrentCoordinates(data)))
-      // .finally(() => dispatch(game.actions.setLoading(false)))
       .finally(() => dispatch(ui.actions.setLoading(false)))
   }
 }
 
 export const nextAction = (type, direction) => {
   return (dispatch, getState) => {
-    // dispatch(game.actions.setLoading(true))
     dispatch(ui.actions.setLoading(true))
     fetch('https://wk16-backend.herokuapp.com/action', {
       method: 'POST',
@@ -71,7 +64,6 @@ export const nextAction = (type, direction) => {
         dispatch(game.actions.setCurrentCoordinates(data))
         dispatch(game.actions.setStoreCoordinates(data))
       })
-      //   .finally(() => dispatch(game.actions.setLoading(false)))
       .finally(() => dispatch(ui.actions.setLoading(false)))
   }
 }
