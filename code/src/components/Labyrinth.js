@@ -43,6 +43,9 @@ const Labyrinth = () => {
               <span className='username'>{username}</span>, you made it out of
               the maze!
             </h1>
+            <p>
+              number of moves: <span>{showMap.length}</span>
+            </p>
             <button
               className='restart-btn'
               type='button'
