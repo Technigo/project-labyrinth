@@ -3,19 +3,29 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchContinue } from '../reducers/description';
 import styled from 'styled-components';
 
+// Importing BG URLS
+// import realentrance from '../assets/realentrance.jpg';
+// import Light from '../assets/Light.jpg';
+// import Light2 from '../assets/Light2.jpg';
+// import cave from '../assets/cave.jpg';
+// import cave2 from '../assets/cave2.jpg';
+// import cave23 from '../assets/cave23.jpg';
+// import Ending from '../assets/Ending.jpg';
+
 export const Description = () => {
   const { description, coordinates, actions } = useSelector(
     (store) => store.labyrinth.currentPosition
   );
   const dispatch = useDispatch();
 
-  const colorDictionary = {
-    '0,0': 'url(https://images.unsplash.com/photo-1588571590960-9d6bfc172e01?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)',
-    '1,1': 'blue',
-    '0,1': 'yellow',
-    '0,2': 'purple',
-    '0,3': 'green',
-    '1,3': 'url(https://images.unsplash.com/photo-1588571590960-9d6bfc172e01?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)',
+const colorDictionary = {
+  '0,0': 'red',
+  '1,0': 'pink',
+  '1,1': 'blue',
+  '0,1': 'yellow',
+  '0,2': 'purple',
+  '0,3': 'green',
+  '1,3': 'orange',
   }
 
   const onButtonClick = (type, direction) => {
@@ -23,22 +33,24 @@ export const Description = () => {
   };
 
   const Actions = ({ description, type, direction }) => (
-    <div>
+    <Div>
       <p>{description}</p>
       <Button onClick={() => onButtonClick(type, direction)}>
         {type} {direction.toLowerCase()}
       </Button>
-    </div>
+    </Div>
   );
-
+  
   return (
-    <section className='labyrinth' style={{ background: colorDictionary[coordinates] }}>
+    <Section style={{ background: colorDictionary[coordinates] }}>
+      <Article>
       <h1>{description}</h1>
       {actions.length === 0 && <h3>Yay you made it out!</h3>}
 
       {actions.length > 0 &&
         actions.map((item) => <Actions key={item.direction} {...item} />)}
-    </section>
+      </Article>
+    </Section>
   );
 };
 const Button = styled.button`
@@ -47,4 +59,31 @@ const Button = styled.button`
   padding: 5px 15px;
   font-size: 1em;
   border: none;
+`;
+
+const Div = styled.div`
+display:flex;
+flex-direction: column;
+/* margin: 0 0 1em 1em; */
+`;
+
+const Section = styled.section`
+width:100vw;
+height:100%;
+display:flex;
+text-align: center;
+
+`;
+
+const Article =styled.article`
+display:flex;
+flex-direction: column;
+justify-content: center;
+/* align-content: center; */
+
+
+@media (min-width:1025px) {
+width:50%;
+padding: 25%;
+}
 `;
