@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   player: '',
   items: [],
-  moveHistory: [],
+  // moveHistory: [],
 };
 
 export const game = createSlice({
@@ -11,7 +11,7 @@ export const game = createSlice({
   initialState: {
     username: null,
     currentPosition: null,
-    history: [],
+    // history: [],
     loading: false,
   },
 
