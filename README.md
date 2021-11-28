@@ -1,13 +1,16 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The goal of this assignment was to create a labyrinth by using Redux and API's.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+First planning due to this being a pair programming project we decided to start with the basics and going through what type of design/styling we wanted to apply.
+
+We when made our first components and also our first reducers.
+We used React, Redux, JSX and CSS for this project.
+
+Adding a chaging background depending on the question from the API.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://retro-labyrinth.netlify.app/
