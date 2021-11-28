@@ -7,4 +7,4 @@ The goal for this week was to use the API specified to build a frontend which gi
 ## View it live
 
 Enter the labyrinth...
-https://pensive-snyder-29d2df.netlify.app/
+https://please-help-me.netlify.app/
