@@ -20,17 +20,20 @@ export const LabyrinthGame = () => {
   );
 };
 
-const Container = styled.div`
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
 
-  padding: 50px;
+
+const Container = styled.div`
+  height: 100vh;
+  display: flex;
+  
+  
 `;
 
 const InnerContainer = styled.div`
-  min-width: 334px;
-  max-width: 500px;
+  
+  display:flex;
+  justify-content:center;
+  align-items: center;
   margin: 0 auto;
-  height: 100%;
+  
 `;
