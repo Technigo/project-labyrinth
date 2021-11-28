@@ -23,7 +23,7 @@ export const LoadingText = styled.h3`
 export const H1 = styled.h1`
     font-size: 56px;
     line-height: 64px;
-    // text-align: center;
+    text-align: center;
     margin: 0;
     letter-spacing: 0.1rem;
     color: #adadad;
@@ -33,89 +33,47 @@ export const H1 = styled.h1`
 export const H2 = styled.h2`
     font-size: 1.5rem;
     line-height: 1.875rem;
-    // text-align: center;
+    text-align: center;
     letter-spacing: 0.1rem;
     padding 0 0 2rem 0;
     color: #adadad;
     margin-top: 0;
+    max-width: 500px;
+    margin: 0 auto;
 `
 export const H3 = styled.h3`
-font-size: 56px;
-line-height: 64px;
-// text-align: center;
-margin: 0;
-letter-spacing: 0.1rem;
-color: #adadad;
-padding: 2rem 0;
+    font-size: 56px;
+    line-height: 64px;
+    text-align: center;
+    margin: 0;
+    letter-spacing: 0.1rem;
+    color: #adadad;
+    padding: 2rem 0;
 `
 
 export const P = styled.p`
-font-size: 1rem;
-margin-top: 0;
-line-height: 1.275rem;
-// text-align: center;
-letter-spacing: 0.1rem;
-color: #adadad;
+    font-size: 1rem;
+    margin-top: 0;
+    line-height: 1.275rem;
+    text-align: center;
+    letter-spacing: 0.1rem;
+    color: #adadad;
 `
 
 export const Coordinates = styled.p`
-font-size: 1rem;
-line-height: 1.275rem;
-letter-spacing: 0.1rem;
-color: #60cd18;
+    font-size: 1rem;
+    line-height: 1.275rem;
+    letter-spacing: 0.1rem;
+    color: #60cd18;
 `
 
 export const QuestionMark = styled.span`
-color: #60cd18;
-margin-left: 1rem;
+    color: #60cd18;
+    margin-left: 1rem;
 `
 
 
 // CONTROLS
-
-export const EastBtn = styled.button`
-    width: 64px;
-    height: 64px;
-    border: none;
-    border-radius: 32px;
-    background-color: #1a1a1a;
-    color: #dedede;
-    cursor: pointer;
-    margin: 0.5rem;
-`
-
-export const WestBtn = styled.button`
-    width: 64px;
-    height: 64px;
-    border: none;
-    border-radius: 32px;
-    background-color: #1a1a1a;
-    color: #dedede;
-    cursor: pointer;
-    margin: 0.5rem;
-`
-
-export const NorthBtn = styled.button`
-    width: 64px;
-    height: 64px;
-    border: none;
-    border-radius: 32px;
-    background-color: #1a1a1a;
-    color: #dedede;
-    cursor: pointer;
-    margin: 0.5rem;
-`
-
-export const SouthBtn = styled.button`
-    width: 64px;
-    height: 64px;
-    border: none;
-    border-radius: 32px;
-    background-color: #1a1a1a;
-    color: #dedede;
-    cursor: pointer;
-    margin: 0 0.5rem;
-`
 
 export const DirectionBtns = styled.div`
     max-width: 343px;
@@ -141,10 +99,7 @@ export const BackgroundImg = styled.div`
 // CONTAINERS
 
 export const ContentContainer = styled.section`
-    display: flex;
     margin-bottom: 4rem;
-    flex-direction: column;
-    justify-content: center;
     max-width: 767px;
     background-color: #111111CC;
     padding: 4rem;
@@ -159,7 +114,7 @@ export const ContentContainer = styled.section`
 
 export const FormContainer = styled.form`
     max-width: 500px;
-    // margin: 0 auto;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     aling-items: center;
@@ -169,25 +124,43 @@ export const FormContainer = styled.form`
 export const PositionContainer = styled.div`
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
     color: #adadad;
-    background-color: #1a1a1a;
+    background-color: #1a1a1aCC;
     padding: 0.5rem 1rem;
     border-radius: 8px;
 `
 
 export const TheCardContainer = styled.div`
-    position: relative;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
 `
 
 export const CardItemContainer = styled.div`
-    background-color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // background-color: #1a1a1aCC;
     padding: 1rem;
     border-radius: 8px;
     margin-top: 1rem;
     width: 100%;
+`
+
+export const StyledFooter = styled.footer`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 2rem;
+    text-align: center;
+    box-sizing: border-box;
+    gap: 2rem;
 `
 
 
@@ -197,7 +170,7 @@ export const Inputfield = styled.input`
     height: 48px;
     border: none;
     padding: 0 1rem;
-    border-radius: 12px;
+    border-radius: 8px;
     background-color: #adadad;
 `
 
@@ -205,13 +178,47 @@ export const FormButton = styled.button`
     height: 48px;
     padding: 0 1rem;
     border: none;
-    color: #dedede;
+    color: #60cd18;
     background-color: #333;
     font-family: Fredoka One;
     letter-spacing: 0.1rem;
     cursor: pointer;
-    border-radius: 12px;
-    margin-top: 1rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    position: relative;
+    &::before,
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: -1;
+      transition: all .25s ease-out;
+    }
+    &::before {
+    border: 2px solid #60cd18;
+    border-radius: 8px;
+    top: -8px;
+    left: -8px;
+    }
+    &::after {
+        background-color: #60cd18;
+        border-radius: 8px;
+        bottom: -8px;
+        right: -8px;
+    }
+    &:hover {
+      &::before {
+        border: 2px solid #60cd18;
+        border-radius: 8px;
+        top: 8px;
+        left: 8px;
+      }
+      &::after {
+        bottom: 8px;
+        right: 8px;
+      }
+    }
 `
 
 export const DirectionBtn = styled.button`
@@ -223,7 +230,41 @@ export const DirectionBtn = styled.button`
     font-family: Fredoka One;
     letter-spacing: 0.1rem;
     cursor: pointer;
-    border-radius: 12px;
+    border-radius: 8px;
+    position: relative;
+    &::before,
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: -1;
+      transition: all .25s ease-out;
+    }
+    &::before {
+    border: 2px solid #60cd18;
+    border-radius: 8px;
+    top: -8px;
+    left: -8px;
+    }
+    &::after {
+        background-color: #60cd18;
+        border-radius: 8px;
+        bottom: -8px;
+        right: -8px;
+    }
+    &:hover {
+      &::before {
+        border: 2px solid #60cd18;
+        border-radius: 8px;
+        top: 8px;
+        left: 8px;
+      }
+      &::after {
+        bottom: 8px;
+        right: 8px;
+      }
+    }
 `
 
 

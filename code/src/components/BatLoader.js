@@ -1,7 +1,7 @@
-import React from "react"
-import { useSelector } from "react-redux"
-import Lottie from "react-lottie"
-import animationData from "../lib/loader.json"
+import React from 'react'
+import { useSelector } from 'react-redux'
+import Lottie from 'react-lottie'
+import animationData from '../lib/loader.json'
 
 export const BatLoader = () => {
     const loading = useSelector(store => store.labyrinth.loading)

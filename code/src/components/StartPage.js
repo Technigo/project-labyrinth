@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { fetchStartData } from "reducers/labyrinth"
+import { Footer } from './Footer'
 import { 
     H1,
     P,
@@ -27,7 +28,7 @@ export const StartPage = () => {
         <BackgroundImg style={{ backgroundImage: "url(https://i.ibb.co/K5kfZ3x/one.png)" }}>
             <ContentContainer>
                     <H1>This is the Labyrinth, do you dare to enter<QuestionMark style={{transform: 'rotate(45deg)'}} >?</QuestionMark></H1> 
-                    <P>Please type in your username</P>
+                    <P>Tell me your name</P>
                     <FormContainer onSubmit={startGame}>
                         <Inputfield type='text' value={username} required onChange={(event) => setUsername(event.target.value)}/>
                             <FormButton onClick={(event) => startGame(event)}>
@@ -35,6 +36,7 @@ export const StartPage = () => {
                             </FormButton>
                     </FormContainer>
             </ContentContainer>
+            <Footer />
         </BackgroundImg>
     )
 }

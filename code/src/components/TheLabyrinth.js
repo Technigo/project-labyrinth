@@ -1,14 +1,8 @@
-import React from "react"
-import { useSelector, useDispatch } from "react-redux"
-import { fetchLabyrinthPath } from "reducers/labyrinth"
-// import one from '../assets/one.png'
-// import two from '../assets/two.png'
-// import three from '../assets/three.png'
-// import four from '../assets/four.png'
-// import five from '../assets/five.png'
-// import six from '../assets/six.png'
-// import seven from '../assets/seven.png'
-import { PositionIcon } from "./PositionIcon"
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchLabyrinthPath } from 'reducers/labyrinth'
+import { PositionIcon } from './PositionIcon'
+import { Footer} from './Footer'
 import { 
     H3,
     H2,
@@ -33,16 +27,12 @@ export const TheLabyrinth = () => {
         }
 
         const TheCard = ({ description, type, direction }) => (
-            <div>
-            <TheCardContainer>
                 <CardItemContainer>
                     <P>{description}</P>
                     <DirectionBtn onClick={() => handleButtonOnClick(type, direction)}>
-                    {type.toUpperCase()} {direction.toUpperCase()}
+                    {type.toUpperCase()} {direction.toUpperCase()} <span> ?</span>
                     </DirectionBtn>
                 </CardItemContainer>
-            </TheCardContainer>
-            </div>
         )
 
         const imgLibrary = {
@@ -52,8 +42,8 @@ export const TheLabyrinth = () => {
             '0,1': "url(https://i.ibb.co/S3ytgrr/four.jpg)",
             '0,2': "url(https://i.ibb.co/89PmqTx/five.jpg)",
             '0,3': "url(https://i.ibb.co/qnxJntc/six.jpg)",
-            '1,3': "url(https://i.ibb.co/nc62pm4/seven.jpg)",
-          }
+            '1,3': "url(https://i.ibb.co/nc62pm4/seven.jpg)",      
+        }
    
         return (
 
@@ -65,9 +55,13 @@ export const TheLabyrinth = () => {
                         <PositionIcon className="fas fa-map-marker-alt"></PositionIcon>
                         <Coordinates>Your current position is {coordinates}</Coordinates>
                     </PositionContainer>
-                    {actions.length > 0 && actions.map(item => <TheCard key={item.direction} {...item} />)}
-                    {actions.length === 0 && <H3>I have been waiting for you...</H3>}
+                    <TheCardContainer>
+                        {actions.length > 0 && actions.map(item => 
+                                <TheCard key={item.direction} {...item} />)}
+                        {actions.length === 0 && <H3>I have been waiting for you...</H3>}
+                    </TheCardContainer>
                 </ContentContainer>
+                <Footer />
             </BackgroundImg>
         )
 }
