@@ -5,6 +5,7 @@ import { labyrinth } from '../reducers/labyrinth'
 import Labyrinth from './Labyrinth'
 import styled from 'styled-components'
 
+//styling of components, with mobile-first responsiveness:
 const Background = styled.div`
 display: flex;
 flex-direction: column;
@@ -26,8 +27,8 @@ background: rgba(0, 0, 0, 0.5);
 border-radius: 5px;
 padding: 20px;
     @media (min-width: 768px) {
-        width: 500px;
-}
+    width: 500px;
+    }
 `
 const Form = styled.form`
 display: flex;
@@ -64,13 +65,13 @@ color: #3c4f34;
 letter-spacing: 1.5px;
 font-size: 15px;
 font-weight: 500;
-&:focus {
+    &:focus {
     outline: #3c4f34 solid 2px; 
     background-color:#e4beba;
-}
-@media (min-width: 768px) {
+    }
+    @media (min-width: 768px) {
     width: 370px;
-}
+    }
 `
 
 const StartPage = () => {
@@ -80,27 +81,24 @@ const StartPage = () => {
 
     const handleSubmit = (event) =>{
         event.preventDefault()
-        dispatch(labyrinth.actions.addUserName(userName))
+        dispatch(labyrinth.actions.addUserName(userName)) {/*userName is attached to an action, to set state*/}
         dispatch(fetchLabyrinth({
             url: 'https://wk16-backend.herokuapp.com/start',
         }))
     } 
-
     if (currentUserName === '') { 
 return (
     <Background>
         <StartCard>
             <Form onSubmit={(event)=> handleSubmit(event) }>
             <H1>Welcome! To enter the maze, type your name:</H1>
-                <Input type="text" required value={userName} onChange={(event) => setUserName(event.target.value)}/>
+                <Input type="text" required value={userName} onChange={(event) => setUserName(event.target.value)}/> {/*username is required to be able to click button*/}
                 <Button type="submit">Let's go!</Button>
             </Form> 
         </StartCard>   
     </Background>
 )} else {
-    return <Labyrinth />
+    return <Labyrinth /> {/*when username is typed, the Labyrinth component is mounted, on submit/button is clicked */}
 }
 }
-
-
 export default StartPage

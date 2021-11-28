@@ -4,6 +4,7 @@ import { fetchLabyrinth } from '../reducers/labyrinth';
 import styled from 'styled-components';
 import EndPage from './EndPage'
 
+//styling of components, with mobile-first responsiveness:
 const Wrapper = styled.div`
 display: flex;
 flex-direction: column;
@@ -26,9 +27,9 @@ height: 100%;
 background: rgba(0, 0, 0, 0.5);
 border-radius: 5px;
 padding: 10px;
-@media (min-width: 768px) {
+    @media (min-width: 768px) {
     width: 500px;
-}
+    }
 `
 const Description = styled.p`
 display: flex;
@@ -62,12 +63,12 @@ letter-spacing: 1.5px;
 
 const Labyrinth = () => {
     const labyrinth = useSelector((store) => store.labyrinth.destination);
-    const loading = useSelector ((store) => store.animation.loading)
+    const loading = useSelector ((store) => store.animation.loading) //this comes from the Loading-component
     const dispatch = useDispatch();
 
-    const setBgImage = (coordinates) => {
+    const setBgImage = (coordinates) => { //this gives different background images depending on what question the user is on, in the labyrinth:
         let bg = 'black';
-        switch (coordinates) { //switch: needs a case that ends with a break, then more cases can be added
+        switch (coordinates) { //switch: needs a case that ends with a break, -then more cases can be added
             case '0,0':
                 bg = 'url(https://images.unsplash.com/photo-1471045220822-f3f0ad3a5416?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80) ';
                 break 
@@ -93,40 +94,37 @@ const Labyrinth = () => {
             bg = 'black'
         }
         return bg
-    }
-    
+    }    
 return (
-    loading === false && (        
+    loading === false && (  //to make the loading-spinner show in-between fetch       
     <Wrapper style={{ background: setBgImage(labyrinth.coordinates), backgroundSize:'cover'}}>
         <LabyrinthCard>    
             <Description>
                 {labyrinth.description}
-        </Description>
+            </Description>
             <div>
-                {labyrinth.actions !== undefined &&
+                {labyrinth.actions !== undefined && //this is required because the labyrinth is mounted, and username needs to me written and button clicked first, before it should appear
                     labyrinth.actions.map((item) => (
-            <div key={item.description}>
+            <div key={item.description}> {/*key to make .map work*/}
         <ItemDescription>
                 {item.description} 
         </ItemDescription>
             <Button onClick={() => {
-                dispatch(fetchLabyrinth({
+                dispatch(fetchLabyrinth({ //second fetch
                     url: 'https://wk16-backend.herokuapp.com/action',
                     type: 'move',
                     direction: item.direction,
-                }
-            ))
-            }}>Go {item.direction}</Button>
-        </div>  
-        )) }
-        {labyrinth.actions.length === 0 &&
+                }))
+                }}>Go {item.direction}</Button> 
+            </div>  
+            )) }
+            {labyrinth.actions.length === 0 && //when the labyrinth is ended, the EndPage is mounted
             <EndPage />
-        } 
-    </div>   
+            } 
+            </div>   
         </LabyrinthCard>
     </Wrapper>
     )
-);
-};
+)}
 
 export default Labyrinth;
