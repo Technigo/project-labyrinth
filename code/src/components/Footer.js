@@ -38,5 +38,5 @@ const Text = styled.h5`
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-weight: 400;
+  font-weight: 300;
 `

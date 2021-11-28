@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { Loader } from "components/Loader"
 import styled from "styled-components"
 
-export const MainPage = () => {
+export const GamePage = () => {
   const dispatch = useDispatch()
 
   const response = useSelector((state) => state.labyrinth.response)

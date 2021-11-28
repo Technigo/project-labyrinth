@@ -7,7 +7,7 @@ import { MazeLoader } from "components/MazeLoader"
 import styled from "styled-components"
 import thelord from "components/thelord.mp3"
 
-export const GameStart = () => {
+export const StartPage = () => {
   const dispatch = useDispatch()
   const response = useSelector((state) => state.labyrinth.response)
   const [username, setUsername] = useState("")
