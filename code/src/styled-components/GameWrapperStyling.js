@@ -22,65 +22,86 @@ export const Wrapper = styled.section`
   backdrop-filter: blur(4px);
   font-family: 'Press Start 2P';
 
-  @media (min-width:1024px){
-    width: 800px;
-  }
+	@media (min-width: 324px){
+		h1 {
+			font-size: 16px;
+			color: #C2D200;
+		}
 
-  h1 {
-    font-size: 20px;
-    color: #C2D200;
-  }
+		p {
+			font-size: 14px;
+		}
 
-  hr {
-    width: 300px;
-  }
+		hr {
+			width: 300px;
+		}
 
-  label {
-    animation: blinker 2s linear infinite;
-  }
+		label {
+			animation: blinker 2s linear infinite;
+		}
 
-  @keyframes blinker {
-  50% {
-    opacity: 0;
-  }
+		@keyframes blinker {
+			50% {
+				opacity: 0;
+			}
+		}
+
+		form {
+		display: flex;
+		flex-direction: column; 
+		justify-content: center;
+		align-items: center;
+		}
+
+		input {
+			margin-top: 20px;
+			height: 24px;
+			font-family: 'Press Start 2P';
+			text-align:center;
+		}
+
+		::placeholder {
+			font-family: 'Press Start 2P';
+
+		}
+
+		button {
+			margin: 15px auto;
+			padding: 8px;
+			border-radius: 5px;
+			border: 2px solid #C2D200;
+			background-color: black;
+			color:white;
+			font-size: 14px;
+			font-family: 'Press Start 2P';
+			cursor: pointer;
+
+		:hover {
+			background: #C2D200;
+			color: black;
+		}
+
+		span {
+			color: red;
+		}
 }
 
-  form {
-  display: flex;
-  flex-direction: column; 
-  justify-content: center;
-  align-items: center;
-  }
+	@media (min-width: 768px){
+		h1 {
+			font-size: 22px;
+		}
 
-  input {
-    margin-top: 20px;
-    height: 24px;
-    font-family: 'Press Start 2P';
-    text-align:center;
-  }
+		label {
+			font-size: 18px;
+		}
 
-  ::placeholder {
-    font-family: 'Press Start 2P';
-
-  }
-
-  button {
-    margin: 15px auto;
-    padding: 8px;
-    border-radius: 5px;
-    border: 2px solid #C2D200;
-    background-color: black;
-    color:white;
-    font-size: 14px;
-    font-family: 'Press Start 2P';
-
-  :hover {
-    background: #C2D200;
-    color: black;
-  }
-
-  span {
-    color: red;
-  }
+		button {
+			font-size: 18px;
+		}
+		
+		p {
+			font-size: 18px;
+		}
+	}
 }
 `;
