@@ -68,8 +68,8 @@ const StartPage = () => {
     <StartCard>
       <section>
         <h1>
-          Welcome to our Labyrinth. You will get a number och choices to
-          navigate through this maze. Good luck...
+          Welcome to the Labyrinth. You will get a number of choices to navigate
+          through this maze. Good luck...
         </h1>
         <h2>Let the games begin!</h2>
         <form onSubmit={handleSubmit}>
