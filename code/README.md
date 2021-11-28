@@ -1,5 +1,7 @@
-# Project Labyrinth
+Project Labyrinth
+This project "Labyrinth" was made as a Week 14 pair-programming project for Technigo bootcamp by Hedvig Mejstedt and Harry Bäcklin. You were supposed to build a project which allows a user to navigate a maze, in the form of a text-based adventure, provided by a backend. The aim of this project was to dig deeper into redux, learn how to use thunks and work with API together with Redux. We practiced again how to send JSON in the body of a request and structure the redux store and made two slices: ui and game.
 
+Harry-branch-new
 This project "Labyrinth" was made as a Week 14 pair-programming project for Technigo bootcamp by Hedvig Mejstedt and Harry Bäcklin. 
 You were supposed to build a project which allows a user to navigate a maze, in the form of a text-based adventure, provided by a backend.
 The aim of this project was to dig deeper into redux, learn how to use thunks and work with API together with Redux.
@@ -12,4 +14,9 @@ Still not super comfortable working with branches but its getting there we had s
 
 ## View it live
 
---Insert netlify link here--
+https://harrys-hedvigs-labyrinth.netlify.app
+
+
+
+
+
