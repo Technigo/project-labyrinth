@@ -1,14 +1,16 @@
+// GAMESTART TO STARTPAGE
+
 import React, { useState } from "react"
 import { fetchInitialData, labyrinth } from "reducers/labyrinth"
 import { useSelector, useDispatch } from "react-redux"
-import styled from "styled-components"
 import { MazeLoader } from "components/MazeLoader"
+import styled from "styled-components"
 import thelord from "components/thelord.mp3"
 
 export const GameStart = () => {
-  const [username, setUsername] = useState("")
-  const response = useSelector((state) => state.labyrinth.response)
   const dispatch = useDispatch()
+  const response = useSelector((state) => state.labyrinth.response)
+  const [username, setUsername] = useState("")
 
   const onGameStart = (event) => {
     event.preventDefault()
@@ -18,7 +20,6 @@ export const GameStart = () => {
   }
 
   const audio = new Audio(thelord)
-
   const startMusic = () => {
     audio.play()
     audio.volume = 0.3
@@ -33,7 +34,7 @@ export const GameStart = () => {
             <form>
               <h2> 'The Temple of *ech*igo' </h2>
               <p> Enter your name to start. </p>
-
+              <MazeLoader />
               <Input
                 required
                 type="text"
@@ -47,7 +48,6 @@ export const GameStart = () => {
           </TextCard>
         </>
       )}
-      <MazeLoader />
     </MainWrapper>
   )
 }
@@ -90,18 +90,25 @@ const TextCard = styled.div`
     width: 80%;
   }
 `
+
 const MainWrapper = styled.section`
   background-image: url(./assets/forest.jpg);
-  background-position: center center;
   background-size: cover;
+  background-position: center center;
   height: 100vh;
   width: 100wh;
   text-align: center;
   justify-content: center;
-  margin: auto 0;
-  padding-top: 120px;
+  margin: 0px;
+  // padding-top: 120px;
 
-  @media (max-width: 768px) {
-    padding-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ${
+    "" /* @media (max-width: 768px) {
+  padding-top: 40px;
+} */
   }
 `

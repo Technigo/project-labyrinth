@@ -14,7 +14,7 @@ export const MazeLoader = () => {
 
   return (
     <div>
-      <Lottie options={defaultOptions} height={350} width={350} />
+      <Lottie options={defaultOptions} height={300} width={300} />
     </div>
   )
 }

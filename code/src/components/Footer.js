@@ -14,7 +14,7 @@ export const Footer = () => {
 const FooterBox = styled.div`
   position: fixed;
   left: 30%;
-  bottom: 20px;
+  bottom: 10px;
   color: white;
   margin: 0 auto;
   display: flex;
@@ -32,11 +32,11 @@ const FooterBox = styled.div`
 
 const Text = styled.h5`
   margin: 20px 0 0 0;
-  color: grey;
-  margin-left: 20px;
+  color: rgb(203, 203, 203);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  align-text: center;
+  text-align: center;
+  font-weight: 400;
 `

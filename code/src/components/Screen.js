@@ -1,7 +1,9 @@
+// GAMESCREEN to SCREEN
+
 import React from "react"
 import { useSelector } from "react-redux"
-import { MainPage } from "components/Main"
-import { GameStart } from "components/GameStart"
+import { GamePage } from "components/GamePage"
+import { StartPage } from "components/StartPage"
 import { Footer } from "./Footer"
 
 export const GameScreen = () => {
@@ -9,7 +11,7 @@ export const GameScreen = () => {
 
   return (
     <>
-      {username ? <MainPage /> : <GameStart />}
+      {username ? <GamePage /> : <StartPage />}
       <Footer />
     </>
   )

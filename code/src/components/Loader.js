@@ -10,7 +10,7 @@ const LoadingWrapper = styled.div`
   align-items: center;
   margin: 0 auto;
   height: 100vh;
-  background-color: rgb(72, 80, 82);
+  background-color: rgb(72, 80, 82, 0.2);
 `
 
 export const Loader = () => {

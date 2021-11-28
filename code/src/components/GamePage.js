@@ -1,17 +1,19 @@
+// MAIN(PAGE) TO GAMEPAGE
+
 import React from "react"
 import { labyrinth, continueLabyrinth } from "reducers/labyrinth"
 import { useSelector, useDispatch } from "react-redux"
-import styled from "styled-components"
 import { Loader } from "components/Loader"
+import styled from "styled-components"
 
 export const MainPage = () => {
-  const response = useSelector((state) => state.labyrinth.response)
+  const dispatch = useDispatch()
 
+  const response = useSelector((state) => state.labyrinth.response)
   const coordinates = useSelector((state) => state.labyrinth.coordinates)
   const actions = useSelector((state) => state.labyrinth.response.actions)
 
-  const dispatch = useDispatch()
-
+  // move and actions
   const onButtonClick = (type, direction) => {
     dispatch(continueLabyrinth(type, direction))
   }
@@ -39,7 +41,9 @@ export const MainPage = () => {
     text-align: center;
     justify-content: center;
     margin: auto 0;
-    padding-top: 120px;
+    //  padding-top: 120px;
+    display: flex;
+    align-items: center;
 
     @media (max-width: 768px) {
       padding-top: 40px;

@@ -17,6 +17,7 @@ export const labyrinth = createSlice({
       state.username = action.payload
     },
 
+    // get moved directions as payload
     setResponse: (state, action) => {
       state.response = action.payload
     },
@@ -24,6 +25,8 @@ export const labyrinth = createSlice({
     setCoordinates: (state, action) => {
       state.coordinates = action.payload
     },
+
+    // to use global state value of initial state
     reStart: () => {
       return initialState
     },
