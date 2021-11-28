@@ -24,7 +24,6 @@ export const game = createSlice({
     },
     restart: () => {
       return initialState
-      // do we want to clear in the backend too?
     },
   },
 })

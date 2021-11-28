@@ -15,6 +15,7 @@ const GameCharacter = () => {
     (store) => store.game.currentCoordinates.coordinates
   )
 
+  // change game character according to current coordinates
   const showGameCharacter = () => {
     switch (coordinates) {
       case '0,0':

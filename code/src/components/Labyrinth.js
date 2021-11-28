@@ -10,17 +10,14 @@ const Labyrinth = () => {
   const { actions, description } = useSelector(
     (state) => state.game.currentCoordinates
   )
-
   const showMap = useSelector((state) => state.game.storeCoordinates)
-  // console.log(showMap)
-
   const username = useSelector((state) => state.game.username)
 
   const handleActionBtn = (type, direction) => {
     dispatch(nextAction(type, direction))
   }
 
-  // prop "description" is already declared on line 9
+  // prop "description" is already declared on line 10
   // renamed the prop "description" to "actionDescription"
   const GameCard = ({ description: actionDescription, direction, type }) => (
     <div className='game-card'>
@@ -30,27 +27,6 @@ const Labyrinth = () => {
       </button>
     </div>
   )
-
-  // const showGameCharacter = (coordinates) => {
-  //   switch (coordinates) {
-  //     case '0,0':
-  //       return <GameCharacter />
-  //     case '1,0':
-  //       return <GameCharacter />
-  //     case '1,1':
-  //       return <GameCharacter />
-  //     case '0,1':
-  //       return <GameCharacter />
-  //     case '0,2':
-  //       return <GameCharacter />
-  //     case '0,3':
-  //       return <GameCharacter />
-  //     case '1,3':
-  //       return <GameCharacter />
-  //     default:
-  //       return <GameCharacter />
-  //   }
-  // }
 
   return (
     <div className='labyrinth-page'>
@@ -78,41 +54,33 @@ const Labyrinth = () => {
           </div>
         </>
       )}
+
       <div className='gamecards-container'>
         {actions.length > 0 &&
           actions.map((action) => (
             <GameCard key={action.direction} {...action} />
           ))}
       </div>
-      <div className='player-container'>
-        <div className='map-player-wrapper'>
+      <div className='player-info-container'>
+        <div>
           <div className='show-map'>
             <div className='map'>
               {showMap.map((action, index) => {
-                // const previousCoordinate =
-                //   index === 0 ? '0,0' : showMap[index - 1].coordinates
-
-                // const [previousX, previousY] = previousCoordinate.split(',')
                 // split up the X-, and Y-coordinate
                 const [currentX, currentY] = action.coordinates.split(',')
-                // const width = currentX - previousX
-                // const height = currentY - previousY
 
                 return (
                   <div
                     // eslint-disable-next-line react/no-array-index-key
                     key={index}
+                    // style the previous steps and active step differently
                     className={
                       index === showMap.length - 1
                         ? 'active-position'
                         : 'prev-position'
                     }
+                    // current coordinate multiply 20, each square is 20x20px
                     style={{
-                      // width: Math.max(Math.abs(width * 20), 1),
-                      // height: Math.max(Math.abs(height * 20), 1),
-                      // bottom: height < 0 ? currentY * 20 : previousY * 20,
-                      // left: width < 0 ? currentX * 20 : previousX * 20,
-                      // current coordinate multiply 20, each square is 20x20px
                       bottom: currentY * 20,
                       left: currentX * 20,
                     }}
@@ -130,8 +98,7 @@ const Labyrinth = () => {
             Player: <span>{username}</span>
           </p>
         </div>
-        <div className='game-character'>
-          {/* {showGameCharacter({ coordinates })} */}
+        <div>
           <GameCharacter />
         </div>
       </div>
