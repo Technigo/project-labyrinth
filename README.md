@@ -1,13 +1,16 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
+The challenge for this week was to merge all of the knowledge within redux and react that we´ve learned so far -and create a maze.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Me and Naushin worked in a pair, together with live-share, in VS code. We planned our project in jamboard and followed it, throughout the process of coding. 
+
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We had a couple of "bumps on the road", mostly regarding styled components. But we worked some of it out together -and by reaching out to team-members and stackoverflow, we managed to solve all of our styling issues.
+
+If we had ore time, we would have added useHistory and displayed the users steps and path through the maze.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://app.netlify.com/sites/labyrinth-by-naushin-and-jessicanordahl
