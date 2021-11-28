@@ -17,7 +17,11 @@ export const BatLoader = () => {
     
       return (
         <>
-          {loading  && (<Lottie options={defaultOptions} height={600} width={600} /> )}
+          {loading  && 
+          (<Lottie 
+          options={defaultOptions} 
+          style={{ height:600, width:600 }}/> 
+          )}
         </>
       )
     }

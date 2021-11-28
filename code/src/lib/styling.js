@@ -6,8 +6,18 @@ export const LoaderContainer = styled.div`
     width: 100vw;
     height: 100vh;
     background-position: center;
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     background-color: #60cd18;
+`
+
+export const LottieContainer = styled.div `
+        width: 600px;
+        height: 600px;
+
+    @media (max-width: 767px) {
+        width: 300px;
+        height: 300px;
+     }
 `
 
 export const LoadingText = styled.h3`
@@ -16,6 +26,10 @@ export const LoadingText = styled.h3`
     font-size: 48px;
     text-align: center;
     margin-top: 0;
+
+    @media (max-width: 767px) {
+        font-size: 32px;
+    }
 `
 
 // TYPOGRAPHY
@@ -28,6 +42,10 @@ export const H1 = styled.h1`
     letter-spacing: 0.1rem;
     color: #adadad;
     padding-bottom: 2rem;
+
+    @media (max-width: 767px) {
+        font-size: 32px;
+        line-height: 36px;
 `
 
 export const H2 = styled.h2`
@@ -58,6 +76,18 @@ export const P = styled.p`
     text-align: center;
     letter-spacing: 0.1rem;
     color: #adadad;
+`
+
+export const FooterP = styled.p`
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.275rem;
+    text-align: center;
+    letter-spacing: 0.1rem;
+    color: #adadad;
+
+    @media (max-width: 767px) {
+        display: none;
 `
 
 export const Coordinates = styled.p`
@@ -99,7 +129,8 @@ export const BackgroundImg = styled.div`
 // CONTAINERS
 
 export const ContentContainer = styled.section`
-    margin-bottom: 4rem;
+box-sizing: border-box;
+    // margin-bottom: 4rem;
     max-width: 767px;
     background-color: #111111CC;
     padding: 4rem;
@@ -110,6 +141,12 @@ export const ContentContainer = styled.section`
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    
+    @media (max-width: 767px) { 
+        padding: 2rem;
+        width: 343px;
+        // margin-bottom: 2rem;
+    
 `
 
 export const FormContainer = styled.form`
@@ -118,7 +155,12 @@ export const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
     aling-items: center;
-    width: 100%;
+    // width: 100%;
+
+
+    @media (max-width: 767px) {
+        max-width: 343px;
+     }
 `
 
 export const PositionContainer = styled.div`
@@ -137,6 +179,13 @@ export const TheCardContainer = styled.div`
     flex-direction: row;
     justify-content: space-between;
     gap: 1rem;
+
+
+    @media (max-width: 767px) {
+        flex-direction: column;
+        margin: 0 auto;
+        gap: 0;
+     }
 `
 
 export const CardItemContainer = styled.div`
@@ -144,9 +193,9 @@ export const CardItemContainer = styled.div`
     flex-direction: column;
     justify-content: space-between;
     // background-color: #1a1a1aCC;
-    padding: 1rem;
+    // padding: 1rem;
     border-radius: 8px;
-    margin-top: 1rem;
+    margin: 1rem 0;
     width: 100%;
 `
 
@@ -161,6 +210,13 @@ export const StyledFooter = styled.footer`
     text-align: center;
     box-sizing: border-box;
     gap: 2rem;
+
+    @media (max-width: 767px) {
+        position: relative;
+        padding: 1rem;
+        flex-direction: column;
+        gap: 0;
+     }
 `
 
 
@@ -223,7 +279,10 @@ export const FormButton = styled.button`
 
 export const DirectionBtn = styled.button`
     height: 48px;
+    width: 90%;
+    margin: 0 auto;
     padding: 0 1rem;
+    margin-top: 1rem;
     border: none;
     color: #60cd18;
     background-color: #333;
@@ -265,6 +324,10 @@ export const DirectionBtn = styled.button`
         right: 8px;
       }
     }
+
+    @media (max-width: 767px) {
+        margin-top: 0.5rem;
+     }
 `
 
 
