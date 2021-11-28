@@ -113,7 +113,8 @@ export const Labyrinth = () => {
   );
 };
 
-/* 
+/* Sketch for our little maze coordinates
+
   [0, 0, 0, 0],   x: 1, y: 3
   [0, 0, 0, 0],
   [0, 0, 0, 0],
