@@ -8,18 +8,30 @@ const MainText = styled.p`
   font-size: 42px;
   margin: 0;
   color: black;
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
 `;
 
 const SecondaryText = styled.p`
   font-size: 32px;
   margin: 0;
   color: #6b6b6b;
+
+  @media (max-width: 768px) {
+    font-size: 22px;
+  }
 `;
 
 const SmallText = styled.p`
   margin: 0;
   font-size: 24px;
   color: #6b6b6b;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const Content = styled.div`
@@ -52,6 +64,10 @@ const Button = styled.button`
 
   &:active {
     transform: scale(0.9);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
   }
 `;
 

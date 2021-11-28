@@ -32,7 +32,8 @@ const MainContainer = styled.div`
   box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
     0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
   box-sizing: border-box;
-  width: 400px;
+  width: 90%;
+  max-width: 600px;
   background-color: rgba(255, 255, 255, 0.8);
 `;
 
@@ -79,9 +80,6 @@ const Container = () => {
     else return null;
   };
 
-  /* Bestämmer vad som ska visas, maincontainer är själva cardet
-Hämtat loading från store, om loading är sant så visas den
-!steps.lenght, betyder om det inte finns någon array så visas starting page*/
   return (
     <Background
       coordinates={coordinates}

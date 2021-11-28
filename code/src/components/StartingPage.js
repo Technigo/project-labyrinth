@@ -21,7 +21,11 @@ const InputField = styled.input`
 `;
 
 const Label = styled.label`
-  font-size: 28px;
+  font-size: 42px;
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
 `;
 
 const Button = styled.button`
@@ -42,7 +46,6 @@ const Button = styled.button`
   border: 2px solid rgb(114, 84, 38);
   border-radius: 10px;
   box-shadow: inset 0 0 0 0 rgb(114, 84, 38);
-  margin-top: 15px;
 
   &:hover {
     color: white;
@@ -51,6 +54,10 @@ const Button = styled.button`
 
   &:active {
     transform: scale(0.9);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
   }
 `;
 
