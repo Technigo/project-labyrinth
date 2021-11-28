@@ -4,7 +4,6 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit'
 
 import Footer from 'components/Footer'
 import Game from './components/Game'
-// import NotFoundPage from './components/NotFoundPage'
 import ui from './reducers/ui'
 import { game } from './reducers/game'
 
@@ -19,7 +18,6 @@ export const App = () => {
   return (
     <Provider store={store}>
       <Game />
-      {/* <NotFoundPage /> */}
       <Footer />
     </Provider>
   )

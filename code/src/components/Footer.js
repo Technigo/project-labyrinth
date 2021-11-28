@@ -14,6 +14,9 @@ const Footer = () => {
         </a>
         &nbsp;| Team Foxes 🦊 | Technigo
       </p>
+      <p className='animation-credit'>
+        Animation by Selva Kumar S S & Marco Cagnina on LottieFiles
+      </p>
     </footer>
   )
 }

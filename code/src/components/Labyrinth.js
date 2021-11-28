@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { nextAction, game } from '../reducers/game'
+import GameCharacter from './GameCharacter'
 
 const Labyrinth = () => {
   const dispatch = useDispatch()
@@ -10,8 +11,6 @@ const Labyrinth = () => {
     (state) => state.game.currentCoordinates
   )
 
-  // const store = useSelector((state) => state)
-  // console.log(store)
   const showMap = useSelector((state) => state.game.storeCoordinates)
   // console.log(showMap)
 
@@ -31,6 +30,27 @@ const Labyrinth = () => {
       </button>
     </div>
   )
+
+  // const showGameCharacter = (coordinates) => {
+  //   switch (coordinates) {
+  //     case '0,0':
+  //       return <GameCharacter />
+  //     case '1,0':
+  //       return <GameCharacter />
+  //     case '1,1':
+  //       return <GameCharacter />
+  //     case '0,1':
+  //       return <GameCharacter />
+  //     case '0,2':
+  //       return <GameCharacter />
+  //     case '0,3':
+  //       return <GameCharacter />
+  //     case '1,3':
+  //       return <GameCharacter />
+  //     default:
+  //       return <GameCharacter />
+  //   }
+  // }
 
   return (
     <div className='labyrinth-page'>
@@ -64,49 +84,57 @@ const Labyrinth = () => {
             <GameCard key={action.direction} {...action} />
           ))}
       </div>
-      <div className='show-map'>
-        <div className='map'>
-          {showMap.map((action, index) => {
-            // const previousCoordinate =
-            //   index === 0 ? '0,0' : showMap[index - 1].coordinates
+      <div className='player-container'>
+        <div className='map-player-wrapper'>
+          <div className='show-map'>
+            <div className='map'>
+              {showMap.map((action, index) => {
+                // const previousCoordinate =
+                //   index === 0 ? '0,0' : showMap[index - 1].coordinates
 
-            // const [previousX, previousY] = previousCoordinate.split(',')
-            // split up the X-, and Y-coordinate
-            const [currentX, currentY] = action.coordinates.split(',')
-            // const width = currentX - previousX
-            // const height = currentY - previousY
+                // const [previousX, previousY] = previousCoordinate.split(',')
+                // split up the X-, and Y-coordinate
+                const [currentX, currentY] = action.coordinates.split(',')
+                // const width = currentX - previousX
+                // const height = currentY - previousY
 
-            return (
-              <div
-                // eslint-disable-next-line react/no-array-index-key
-                key={index}
-                className={
-                  index === showMap.length - 1
-                    ? 'active-position'
-                    : 'prev-position'
-                }
-                style={{
-                  // width: Math.max(Math.abs(width * 20), 1),
-                  // height: Math.max(Math.abs(height * 20), 1),
-                  // bottom: height < 0 ? currentY * 20 : previousY * 20,
-                  // left: width < 0 ? currentX * 20 : previousX * 20,
-                  // current coordinate multiply 20, each square is 20x20px
-                  bottom: currentY * 20,
-                  left: currentX * 20,
-                }}
-              >
-                <i className='fas fa-map-marker-alt' />
+                return (
+                  <div
+                    // eslint-disable-next-line react/no-array-index-key
+                    key={index}
+                    className={
+                      index === showMap.length - 1
+                        ? 'active-position'
+                        : 'prev-position'
+                    }
+                    style={{
+                      // width: Math.max(Math.abs(width * 20), 1),
+                      // height: Math.max(Math.abs(height * 20), 1),
+                      // bottom: height < 0 ? currentY * 20 : previousY * 20,
+                      // left: width < 0 ? currentX * 20 : previousX * 20,
+                      // current coordinate multiply 20, each square is 20x20px
+                      bottom: currentY * 20,
+                      left: currentX * 20,
+                    }}
+                  >
+                    <i className='fas fa-map-marker-alt' />
+                  </div>
+                )
+              })}
+              <div className='start-position'>
+                <i className='fas fa-map-pin' />
               </div>
-            )
-          })}
-          <div className='start-position'>
-            <i className='fas fa-map-pin' />
+            </div>
           </div>
+          <p className='display-player'>
+            Player: <span>{username}</span>
+          </p>
+        </div>
+        <div className='game-character'>
+          {/* {showGameCharacter({ coordinates })} */}
+          <GameCharacter />
         </div>
       </div>
-      <p className='display-player'>
-        Player: <span>{username}</span>
-      </p>
     </div>
   )
 }

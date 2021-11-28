@@ -41,6 +41,7 @@ export const startGame = () => {
     })
       .then((response) => response.json())
       .then((data) => dispatch(game.actions.setCurrentCoordinates(data)))
+      .catch((error) => console.error(error))
       .finally(() => dispatch(ui.actions.setLoading(false)))
   }
 }
@@ -64,6 +65,7 @@ export const nextAction = (type, direction) => {
         dispatch(game.actions.setCurrentCoordinates(data))
         dispatch(game.actions.setStoreCoordinates(data))
       })
+      .catch((error) => console.error(error))
       .finally(() => dispatch(ui.actions.setLoading(false)))
   }
 }
