@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchLabyrinthPath } from 'reducers/labyrinth'
 import { PositionIcon } from './PositionIcon'
 import { Footer} from './Footer'
+import { RestartBtn } from './RestartBtn'
 import { 
     H3,
     H2,
@@ -14,6 +15,7 @@ import {
     PositionContainer,
     TheCardContainer,
     CardItemContainer,
+    EndingText
     } from '../lib/styling' 
 
 
@@ -58,7 +60,7 @@ export const TheLabyrinth = () => {
                     <TheCardContainer>
                         {actions.length > 0 && actions.map(item => 
                                 <TheCard key={item.direction} {...item} />)}
-                        {actions.length === 0 && <H3>I have been waiting for you...</H3>}
+                        {actions.length === 0 && <EndingText><H3>I have been waiting for you...</H3> <RestartBtn/></EndingText>}
                     </TheCardContainer>
                 </ContentContainer>
                 <Footer />

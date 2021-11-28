@@ -8,7 +8,6 @@ export const labyrinth = createSlice ({
     // history: [],
     loading: false,
   },
-
   reducers: {
     setUsername: (store, action) => {
       store.username = action.payload
@@ -18,7 +17,10 @@ export const labyrinth = createSlice ({
     },
     setLoading: (store, action) => {
       store.loading = action.payload
-    }
+    },
+    reStartGame: () => {
+      return labyrinth
+    },
     // setHistory: (store, action) => {
     //   if (store.currentPosition) {
     //     store.history = [...store.history, action.payload]
