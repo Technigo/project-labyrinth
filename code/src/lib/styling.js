@@ -28,8 +28,8 @@ export const LoadingText = styled.h3`
 // TYPOGRAPHY
 
 export const H1 = styled.h1`
-    font-size: 64px;
-    line-height: 72px;
+    font-size: 56px;
+    line-height: 62px;
     text-align: center;
     margin: 0;
     letter-spacing: 0.1rem;
