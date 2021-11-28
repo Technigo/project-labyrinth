@@ -37,7 +37,13 @@ export const Labyrinth = () => {
   return (
     <section className="labyrinth">
       <h3>{description}</h3>
-      {actions.length === 0 && <h3>Yay you made it out!</h3>}
+      {actions.length === 0 && <h3>Yay you made it out!</h3> && (
+        <div className="restartBtn">
+          <button onClick={() => dispatch(game.actions.restart())}>
+            Wanna play again?
+          </button>
+        </div>
+      )}
       {actions.length > 0 &&
         actions.map((item) => <ActionCard key={item.direction} {...item} />)}
 

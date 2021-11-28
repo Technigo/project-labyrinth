@@ -1,13 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = {
+  username: null,
+  previousCoordinates: [""], // this can be used to implement a go back functionality
+  loading: false,
+  currentPosition: undefined,
+};
+
 export const game = createSlice({
   name: "game",
-  initialState: {
-    username: null,
-    previousCoordinates: [""], // this can be used to implement a go back functionality
-    loading: false,
-    currentPosition: undefined,
-  },
+  initialState,
   reducers: {
     setUsername: (store, action) => {
       store.username = action.payload;
@@ -27,6 +29,9 @@ export const game = createSlice({
     },
     setLoading: (store, action) => {
       store.loading = action.payload;
+    },
+    restart: () => {
+      return initialState;
     },
   },
 });

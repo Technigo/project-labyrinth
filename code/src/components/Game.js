@@ -9,7 +9,11 @@ export const Game = () => {
 
   return (
     <>
-      <LoadingIndicator />
+      <div className="loading-container">
+        <div className="loader">
+          <LoadingIndicator />
+        </div>
+      </div>
       {currentPosition ? <Labyrinth /> : <Start />}
     </>
   );
