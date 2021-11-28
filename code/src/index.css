@@ -177,6 +177,19 @@ form {
   left: 0;
 }
 
+.labyrinth-page .display-player {
+  text-align: center;
+  margin: 4px 0 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  text-shadow: 2px 2px 1px #ffe5b9;
+}
+
+.labyrinth-page .display-player span {
+  font-weight: 700;
+  font-style: italic;
+}
+
 .ending-message {
   display: flex;
   flex-direction: column;

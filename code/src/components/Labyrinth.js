@@ -104,6 +104,9 @@ const Labyrinth = () => {
           </div>
         </div>
       </div>
+      <p className='display-player'>
+        Player: <span>{username}</span>
+      </p>
     </div>
   )
 }
