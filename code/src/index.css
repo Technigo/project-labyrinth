@@ -83,7 +83,7 @@ button:focus {
   background-image: url('./pictures/Parchment.png');
   background-size:cover;
   text-align: center;
-  width: 70%;
+  width: 50%;
 }
 
 .action-card {
