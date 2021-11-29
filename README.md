@@ -1,13 +1,12 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The assignment consisted of creating an app which retrieves a list of actions from the backend and presents them to the user as interactable items. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We used pair-programming for the whole developement and didn´t split up the tasks at all, that was fun to try. We learned alot about the technical parts of communicating and coding via distance. 
+If we had more time we would have added different pictures for different directions in the maze and used redux to store a history of what the player has done.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+See what it's all about: https://theevenmoreabsolutebestfoxes.netlify.app/
