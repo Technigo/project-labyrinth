@@ -24,8 +24,8 @@ export const LabyrinthGame = () => {
         className="labyrinth"
         style={{ background: colorDictionary[coordinates] }}>
         <InnerContainer>
-          {currentPosition ? <Description /> : <StartPage />}
           <LoadingLottie />
+          {currentPosition ? <Description /> : <StartPage />}
         </InnerContainer>
       </Container>
 
