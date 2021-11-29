@@ -1,26 +1,110 @@
-import React from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { fetchMazeMessage } from "../reducers/maze"
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { nextStep } from '../reducers/game'
+import { End } from './End'
+import { LoadingIndicator } from './LoadingIndicator'
+
+// Styling
+import { GameBoard, Container, ContentWrapper } from '../styling/GlobalStyling';
+import styled from 'styled-components/macro'
+import Button from '@mui/material/Button'
+import img00 from '../images/img00.jpg'
+import img01 from '../images/img01.jpg'
+import img02 from '../images/img02.jpg'
+import img03 from '../images/img03.jpg'
+import img10 from '../images/img10.jpg'
+import img11 from '../images/img11.jpg'
+import img13 from '../images/img13.jpg'
+
+const TextContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+
+  @media (min-width: 992px) {
+    padding: 0 100px;
+    justify-content: center;
+  }
+`
+
+// container to make ui button fit to the text
+const ButtonContainer = styled.div`
+`
 
 export const Maze = () => {
-  const maze = useSelector((store) => store.maze.mazeMessage)
-  const dispatch = useDispatch()
+    const { description, coordinates, actions } = useSelector(store => store.game.currentPosition)
+    const dispatch = useDispatch()
+    const loading = useSelector(store => store.ui.loading)
 
-  console.log("maze", maze)
+    const backgroundImage = () => {
+      let bg = '';
+      switch (coordinates) {
+          case '0,0':
+              bg = img00;
+              break;
+          case '1,0':
+              bg = img10;
+              break;
+          case '1,1':
+              bg = img11;
+              break;
+          case '0,1':
+              bg = img01;
+              break;
+          case '0,2':
+              bg = img02;
+              break;
+          case '0,3':
+              bg = img03;
+              break;
+          case '1,3':
+              bg = img13;
+              break;
+          default:
+              return img13;
+      }
+      return bg;
+  };
 
-  return (
-    <>
-        <h1>Welcome to the maze</h1>
-        <button
-            onClick={() => {
-                dispatch(fetchMazeMessage())
-            }}
-            >
-                FETCH MESSAGE
-        </button>
-        {maze.map((item) => (
-            <p key={item.coordinates}>{item.description}</p>
-        ))}
-    </>
-  )
+    const handleButtonClick = (type, direction) => {
+        // call the api, pass along type and direction to use as part of the body
+        dispatch(nextStep(type, direction))
+    }
+
+    const ActionCard = ({ description, type, direction }) => (
+        <TextContent> 
+            <p>{description}</p>
+            <ButtonContainer>
+              <Button 
+                variant="contained"
+                color="secondary"
+                style={{ fontFamily: 'MedievalSharp', letterSpacing: '2px', marginTop: '10px' }}
+                onClick={() => handleButtonClick(type, direction)}>
+                  {type} {direction.toLowerCase()}
+              </Button>
+            </ButtonContainer>
+        </TextContent>
+    )
+
+    return (
+      <GameBoard coordinates={coordinates}
+        style={{ backgroundImage: `url(${backgroundImage()})` }}
+        >
+          <Container>
+            {loading && <LoadingIndicator />}
+              {!loading && (
+                <ContentWrapper>
+                    {actions.length !== 0 && 
+                    <>
+                      <h1>{description}</h1>
+                      <p>Your current position: {coordinates}</p>
+                    </>
+                    } 
+                    {actions.length === 0 ? <End /> :
+                    actions.length > 0 && actions.map(item => <ActionCard key={item.direction} {...item} />)}
+                </ContentWrapper>
+              )}
+            </Container>
+        </GameBoard>
+    )
 }
