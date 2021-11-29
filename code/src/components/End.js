@@ -14,7 +14,7 @@ export const End = () => {
             <Button 
               variant="contained"
               color="secondary"
-              style={{ fontFamily: 'MedievalSharp', letterSpacing: '2px', marginTop: '10px' }}
+              style={{ fontFamily: 'MedievalSharp, cursive', fontSize: '1.1em', letterSpacing: '2px', marginTop: '5px' }}
               onClick={() => dispatch(game.actions.setNewGame())}>
                 Restart game
             </Button>

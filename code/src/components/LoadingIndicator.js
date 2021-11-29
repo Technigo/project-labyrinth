@@ -17,7 +17,7 @@ export const LoadingIndicator = () => {
 
   return (
     <>
-      {loading && <Lottie options={defaultOptions} height={400} width={400} />}
+      {loading && <Lottie options={defaultOptions} height={300} width={300} />}
     </>
   )
 }

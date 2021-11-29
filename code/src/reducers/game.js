@@ -6,7 +6,6 @@ import { START_URL, ACTION_URL } from "../utils/urls"
 const initialState = {
   username: '',
   currentStep: {},
-  // history: [], this can be used to implement a go back functionality
   loading: false,
 }
 
@@ -20,13 +19,6 @@ export const game = createSlice({
       setCurrentPosition: (store, action) => {
         store.currentPosition = action.payload
       },
-      // setHistory: (store, action) => {
-        // Here you need to continue to work on implementing the "go back" logic
-        // what should happen with the array when a user goes back a step?
-        // if (store.currentPosition) {
-        //  store.history = [...store.history, action.payload]
-        //}
-      // },
       setLoading: (store, action) => {
         store.loading = action.payload
       },
@@ -72,13 +64,8 @@ export const nextStep = (type, direction) => {
       .then(res => res.json())
       .then(json => {
         dispatch(game.actions.setCurrentPosition(json))
-        // dispatch(game.actions.setHistory(data))
       })
       .finally(() => dispatch(ui.actions.setLoading(false)))
   }
 }
-
-//export const restart = () => {
-//  return initialState
-//}
   

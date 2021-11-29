@@ -16,20 +16,24 @@ input {
   text-align: center;
 }
 
+p {
+  font-size: 1.2em;
+}
+
 h1 {
-  font-size: 1.4em;
+  font-size: 1.6em;
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 1.4em;
 }
 
 @media (min-width: 768px) {
   h1 {
-    font-size: 1.7em;
+    font-size: 1.8em;
   }
   
   h2 {
-    font-size: 1.4em;
+    font-size: 1.5em;
   }
 }

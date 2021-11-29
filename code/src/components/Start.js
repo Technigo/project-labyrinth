@@ -12,9 +12,6 @@ import maze from '../images/maze.jpg'
 import Box from '@mui/material/Box'
 import Input from '@mui/material/Input'
 
-
-const ariaLabel = { 'aria-label': 'description' }
-
 const GameBoard = styled.section`
   background-image: url(${(maze)});
   background-position: center;
@@ -29,6 +26,8 @@ const GameBoard = styled.section`
     justify-content: center;
   }
 `
+
+const ariaLabel = { 'aria-label': 'description' }
 
 export const Start = () => {
   const { username } = useSelector(store => store.game)
@@ -71,7 +70,7 @@ export const Start = () => {
                         inputProps={ariaLabel}
                         onChange={handleInputChange}
                         color="primary"
-                        style={{ fontFamily: 'MedievalSharp', letterSpacing: '1.2px' }}
+                        style={{ fontFamily: 'MedievalSharp, cursive', fontSize: '1.1em', letterSpacing: '1.2px' }}
                         value={username}
                       />
                       <Button
@@ -79,7 +78,7 @@ export const Start = () => {
                         disabled={!username}
                         color="primary"
                         type='submit'
-                        style={{ fontFamily: 'MedievalSharp', letterSpacing: '2px' }}
+                        style={{ fontFamily: 'MedievalSharp, cursive', fontSize: '1.1em', letterSpacing: '2px' }}
                       >
                         Enter the maze
                       </Button>
