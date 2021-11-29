@@ -4,23 +4,32 @@ import { StartPage } from './StartPage';
 import { Description } from './Description';
 import { LoadingLottie } from './Lottie';
 import styled from 'styled-components';
-import { DirectionButtons } from './DirectionButtons';
+/* import { DirectionButtons } from './DirectionButtons'; */
 
 export const LabyrinthGame = () => {
   const currentPosition = useSelector(
     (store) => store.labyrinth.currentPosition
   );
 
+  let coordinates = 'start';
+
+  if (currentPosition) {
+    coordinates = currentPosition.coordinates;
+  }
+  console.log(coordinates);
+
   return (
     <>
-      <Container>
+      <Container
+        className="labyrinth"
+        style={{ background: colorDictionary[coordinates] }}>
         <InnerContainer>
           {currentPosition ? <Description /> : <StartPage />}
           <LoadingLottie />
         </InnerContainer>
       </Container>
 
-      <DirectionButtons />
+      {/* <DirectionButtons /> */}
     </>
   );
 };
@@ -38,3 +47,14 @@ const InnerContainer = styled.div`
   margin: 0 auto;
   height: 100%;
 `;
+
+const colorDictionary = {
+  start: 'green',
+  '0,0': 'red',
+  '0,1': 'yellow',
+  '0,2': 'purple',
+  '0,3': 'green',
+  '1,0': 'magenta',
+  '1,1': 'blue',
+  '1,3': 'blue'
+};
