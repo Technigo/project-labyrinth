@@ -8,4 +8,4 @@ The project was built by Maria Sjögren and Emelie Söderhielm. We used mob prog
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://the-wheel-of-times-labyrinth.netlify.app 
