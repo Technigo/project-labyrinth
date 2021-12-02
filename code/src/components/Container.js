@@ -85,8 +85,8 @@ const Container = () => {
       coordinates={coordinates}
       style={{ backgroundImage: `url(${backgroundImage()})` }}
     >
+      {loading && <Loader />}
       <MainContainer>
-        {loading && <Loader />}
         {!currentStep && <StartingPage />}
         {checkBoolean(currentStep, currentStep?.actions?.length)}
       </MainContainer>

@@ -74,11 +74,14 @@ const Button = styled.button`
 const ActionPage = () => {
   // get the latest step by getting the last item in the array steps from the store
   const currentStep = useSelector((store) => store.steps.currentStep);
-  const lastDirection = useSelector(
-    (store) => store?.steps?.steps?.at(-1)?.directionTaken
-  );
   const allSteps = useSelector((store) => store.steps.steps);
-
+  const lastDirection = useSelector((store) => {
+    if (store.steps.steps.length > 0) {
+      return store.steps.steps[store.steps.steps.length - 1]
+        .directionTaken;
+    } else return "";
+  });
+  console.log("this is allSteps", allSteps);
   const dispatch = useDispatch();
 
   const handleClick = (direction) => {

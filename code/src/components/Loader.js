@@ -4,7 +4,6 @@ import styled, { keyframes } from "styled-components";
 const LoaderContainer = styled.div`
   position: absolute;
   z-index: 1;
-  /* background-color: rgba(246, 246, 246, 0.5); */
 `;
 
 const spin = keyframes`

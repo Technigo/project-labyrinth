@@ -1,6 +1,5 @@
 import React from "react";
 import { Provider } from "react-redux";
-// import thunk from "redux-thunk";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 import { ui } from "./reducers/ui";
