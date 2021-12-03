@@ -1,6 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { ui } from './ui'
 
+import{ START_URL } from '../utils/urls'
+import { ACTION_URL } from '../utils/urls'
+
+
 export const game = createSlice ({
     name: 'game',
     initialState: {
@@ -38,7 +42,7 @@ export const game = createSlice ({
 export const startThunk = (userName) => {
     return (dispatch) => {
         dispatch(ui.actions.setLoading(true))
-        fetch("https://wk16-backend.herokuapp.com/start", {
+        fetch(START_URL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -59,7 +63,7 @@ export const startThunk = (userName) => {
 export const actionThunk = (userName, action) => {
     return (dispatch) => {
         dispatch(ui.actions.setLoading(true))
-        fetch("https://wk16-backend.herokuapp.com/action", {
+        fetch(ACTION_URL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"},           

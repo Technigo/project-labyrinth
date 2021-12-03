@@ -89,7 +89,7 @@ export const Game = () => {
   const loading = useSelector((store) => store.ui.isLoading);
   const showBeginning = useSelector((store) => store.ui.showBeginning);
   const [newUserName, setNewUserName] = useState("");
-  //const [showBeginning, setShowBeginning] = useState(true)
+  
 
   const onStart = () => {
     dispatch(ui.actions.setNoBeginning(false));
