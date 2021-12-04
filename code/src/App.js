@@ -29,35 +29,15 @@ store.subscribe(() => {
   localStorage.setItem('gameReduxState', JSON.stringify(store.getState()))
 })
 
-//we still need to import the loading indicator <LoadingIndicator />
 export const App = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <div>
-{/*           <nav>
-            <ul>
-              <li>
-                <Link to="/">LandingPage</Link>
-              </li>
-              <li>
-                <Link to="/start">StartGame</Link>
-              </li>
-              <li>
-                <Link to="/game">Game</Link>
-              </li>
-              <li>
-                <Link to="/end">End</Link>
-              </li>
-            </ul>
-          </nav> */}
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/start" element={<StartGame />} />
             <Route path="/game" element={<Game />} />
-            {/* <Route path="/end" element={<End />} /> */}
           </Routes>
-        </div>
       </BrowserRouter>
     </Provider>
   );
