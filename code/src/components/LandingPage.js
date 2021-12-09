@@ -34,6 +34,7 @@ const InputBtn = styled.button`
   border-left: 2px solid white;
   color: black;
   display: flex;
+  cursor: pointer;
   justify-content: center;
   align-items: center;
   width: ${(props) => props.width}px;
@@ -50,6 +51,7 @@ const InputWrapper = styled.div`
   padding: 6px;
   display: flex;
   align-self: center;
+  cursor: pointer;
   justify-self: center;
   flex-direction: row;
   border: 2px solid white;
