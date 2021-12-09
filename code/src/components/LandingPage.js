@@ -12,6 +12,7 @@ const Input = styled.input`
   outline: none;
   border: transparent;
   text-decoration: none;
+  cursor: pointer;
   border-radius: 20px;
   color: goldenrod;
   font-size: 16px;
