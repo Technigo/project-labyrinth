@@ -3,9 +3,8 @@ import { useSelector } from 'react-redux';
 import { StartPage } from './StartPage';
 import { Description } from './Description';
 import { LoadingLottie } from './Lottie';
+import { Footer } from './Footer';
 import styled from 'styled-components';
-/* import { ReactComponent as MyBackground } from '../assets/retro_bg.svg'; */
-/* import { DirectionButtons } from './DirectionButtons'; */
 
 export const LabyrinthGame = () => {
   const currentPosition = useSelector(
@@ -17,20 +16,18 @@ export const LabyrinthGame = () => {
   if (currentPosition) {
     coordinates = currentPosition.coordinates;
   }
-  console.log(coordinates);
 
   return (
     <>
       <Container
         className="labyrinth"
-        style={{ background: colorDictionary[coordinates] }}>
+        style={{ backgroundImage: colorDictionary[coordinates] }}>
         <InnerContainer>
           <LoadingLottie />
           {currentPosition ? <Description /> : <StartPage />}
         </InnerContainer>
       </Container>
-
-      {/* <DirectionButtons /> */}
+      <Footer />
     </>
   );
 };
@@ -40,6 +37,9 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   padding: 50px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 
 const InnerContainer = styled.div`
@@ -47,6 +47,7 @@ const InnerContainer = styled.div`
   max-width: 500px;
   margin: 0 auto;
   height: 100%;
+  backdrop-filter: blur(4px) contrast(70%);
 `;
 
 /* const StyledBackground = styled(MyBackground)`
@@ -54,12 +55,42 @@ const InnerContainer = styled.div`
 `; */
 
 const colorDictionary = {
-  start: '#ffadad',
-  '0,0': '#ffadad',
-  '0,1': '#ffadad',
-  '0,2': '#ffadad',
-  '0,3': '#ffadad',
-  '1,0': '#ffadad',
-  '1,1': '#ffadad',
-  '1,3': '#ffadad'
+  start: 'url("/assets/1.png")',
+  '0,0': 'url("/assets/2.png")',
+  '0,1': 'url("/assets/3.png")',
+  '0,2': 'url("/assets/1.png")',
+  '0,3': 'url("/assets/2.png")',
+  '1,0': 'url("/assets/3.png")',
+  '1,1': 'url("/assets/1.png")',
+  '1,3': 'url("/assets/2.png")'
 };
+/* const colorDictionary = () => {
+  let bg = '';
+  switch (coordinates) {
+    case '0,0':
+      bg = '../assets/1.png';
+      break;
+    case '1,0':
+      bg = '../assets/1.png';
+      break;
+    case '1,1':
+      bg = '../assets/1.png';
+      break;
+    case '0,1':
+      bg = '../assets/1.png';
+      break;
+    case '0,2':
+      bg = '../assets/1.png';
+      break;
+    case '0,3':
+      bg = '../assets/1.png';
+      break;
+    case '1,3':
+      bg = '../assets/1.png';
+      break;
+    default:
+      bg = '../assets/1.png';
+  }
+  return bg;
+};
+ */

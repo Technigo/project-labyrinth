@@ -44,12 +44,28 @@ export const Description = () => {
           </Button>
         </>
       )}
-
-      {actions.length > 0 &&
-        actions.map((item) => <Actions key={item.direction} {...item} />)}
+      <Container>
+        {actions.length > 0 &&
+          actions.map((item) => (
+            <InnerContainer>
+              <Actions key={item.direction} {...item} />
+            </InnerContainer>
+          ))}
+      </Container>
     </section>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+`;
+
+const InnerContainer = styled.div`
+  padding: 10px;
+`;
+
 const Button = styled.button`
   align-self: center;
   width: fit-content;
