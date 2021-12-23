@@ -4,6 +4,7 @@ import { StartPage } from './StartPage';
 import { Description } from './Description';
 import { LoadingLottie } from './Lottie';
 import styled from 'styled-components';
+/* import { ReactComponent as MyBackground } from '../assets/retro_bg.svg'; */
 /* import { DirectionButtons } from './DirectionButtons'; */
 
 export const LabyrinthGame = () => {
@@ -48,13 +49,17 @@ const InnerContainer = styled.div`
   height: 100%;
 `;
 
+/* const StyledBackground = styled(MyBackground)`
+  height: 100%;
+`; */
+
 const colorDictionary = {
-  start: 'green',
-  '0,0': 'red',
-  '0,1': 'yellow',
-  '0,2': 'purple',
-  '0,3': 'green',
-  '1,0': 'magenta',
-  '1,1': 'blue',
-  '1,3': 'blue'
+  start: '#ffadad',
+  '0,0': '#ffadad',
+  '0,1': '#ffadad',
+  '0,2': '#ffadad',
+  '0,3': '#ffadad',
+  '1,0': '#ffadad',
+  '1,1': '#ffadad',
+  '1,3': '#ffadad'
 };
