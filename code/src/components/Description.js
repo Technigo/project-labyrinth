@@ -90,8 +90,8 @@ const EndButton = styled.button`
 `;
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   padding: 10px;
 `;
 
@@ -104,7 +104,8 @@ const Button = styled.button`
   width: fit-content;
   padding: 5px 15px;
   font-size: 1em;
-  border: none;
+  border: 2px solid black;
+  background-color: #ff885e;
 
   :hover {
     background-color: #ffc16a;

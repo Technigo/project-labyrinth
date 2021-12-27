@@ -22,8 +22,10 @@ export const StartPage = () => {
         <h1>Do you want to enter the labyrinth?</h1>
         <p>
           Write your name in the box below{' '}
-          <Emoji role="img" aria-label="emoji">
-            👇
+          <Emoji>
+            <span role="img" aria-label="emoji">
+              👇
+            </span>
           </Emoji>
         </p>
         <Input
