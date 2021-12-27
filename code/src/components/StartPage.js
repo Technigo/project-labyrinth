@@ -47,7 +47,7 @@ export const StartPage = () => {
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding: 30px;
 `;
 
 const Input = styled.input`
