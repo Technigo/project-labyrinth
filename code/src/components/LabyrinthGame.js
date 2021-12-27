@@ -22,24 +22,27 @@ export const LabyrinthGame = () => {
       <Container
         className="labyrinth"
         style={{ backgroundImage: colorDictionary[coordinates] }}>
+        <div></div>
         <InnerContainer>
           <LoadingLottie />
           {currentPosition ? <Description /> : <StartPage />}
         </InnerContainer>
+        <Footer />
       </Container>
-      <Footer />
     </>
   );
 };
 
 const Container = styled.div`
-  min-height: 100vh;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  padding: 50px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+
+  min-height: 100vh;
 `;
 
 const InnerContainer = styled.div`
@@ -47,12 +50,9 @@ const InnerContainer = styled.div`
   max-width: 500px;
   margin: 0 auto;
   height: 100%;
-  backdrop-filter: blur(4px) contrast(70%);
+  backdrop-filter: blur(4px);
+  background-color: #ff895e57;
 `;
-
-/* const StyledBackground = styled(MyBackground)`
-  height: 100%;
-`; */
 
 const colorDictionary = {
   start: 'url("/assets/1.png")',
@@ -64,33 +64,3 @@ const colorDictionary = {
   '1,1': 'url("/assets/1.png")',
   '1,3': 'url("/assets/2.png")'
 };
-/* const colorDictionary = () => {
-  let bg = '';
-  switch (coordinates) {
-    case '0,0':
-      bg = '../assets/1.png';
-      break;
-    case '1,0':
-      bg = '../assets/1.png';
-      break;
-    case '1,1':
-      bg = '../assets/1.png';
-      break;
-    case '0,1':
-      bg = '../assets/1.png';
-      break;
-    case '0,2':
-      bg = '../assets/1.png';
-      break;
-    case '0,3':
-      bg = '../assets/1.png';
-      break;
-    case '1,3':
-      bg = '../assets/1.png';
-      break;
-    default:
-      bg = '../assets/1.png';
-  }
-  return bg;
-};
- */

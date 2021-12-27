@@ -4,7 +4,7 @@ export const Footer = () => {
   return (
     <StyledFooter>
       <h1>
-        © by Hedvig Mejstedt | Team Lions <span aria-label="lion">🦁</span> |
+        © Hedvig Mejstedt | Team Lions <span aria-label="lion">🦁</span> |
         Technigo
       </h1>
     </StyledFooter>
@@ -12,7 +12,10 @@ export const Footer = () => {
 };
 
 const StyledFooter = styled.footer`
-  border: 5px dotted black;
-  background-color: var(--main-color);
+  /* border: 5px dotted black; */
+  backdrop-filter: blur(4px);
+  background-color: #ff895e57;
   text-align: center;
+  width: 100%;
+  box-sizing: border-box;
 `;
