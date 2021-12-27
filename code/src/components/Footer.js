@@ -4,7 +4,18 @@ export const Footer = () => {
   return (
     <StyledFooter>
       <h1>
-        © Hedvig Mejstedt | Team Lions{' '}
+        ©
+        <a
+          href="https://github.com/HedvigM"
+          tabindex="0"
+          role="button"
+          aria-pressed="false"
+          aria-label="Link to my profile github"
+          target="_blank"
+          rel="noreferrer">
+          Hedvig Mejstedt
+        </a>{' '}
+        | Team Lions
         <span aria-label="lion" role="img">
           🦁
         </span>{' '}
