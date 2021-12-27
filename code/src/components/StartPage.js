@@ -47,6 +47,7 @@ const Form = styled.form`
   flex-direction: column;
   padding: 30px;
   color: black;
+  font-family: var(--font);
 `;
 
 const Input = styled.input`
@@ -57,9 +58,16 @@ const Input = styled.input`
   border-bottom: 1px solid black;
   background-color: #ff885e;
   width: 300px;
+  font-family: var(--font);
   text-align: center;
   text-transform: uppercase;
-  color: black;
+
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1; /* Firefox */
+    font-family: var(--font);
+  }
 `;
 
 const Button = styled.button`
@@ -70,6 +78,7 @@ const Button = styled.button`
   font-size: 1em;
   padding: 5px;
   border: 2px solid black;
+  font-family: var(--font);
 
   :hover {
     background-color: #ffc16a;

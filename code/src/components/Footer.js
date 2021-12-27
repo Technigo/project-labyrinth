@@ -15,10 +15,15 @@ export const Footer = () => {
 };
 
 const StyledFooter = styled.footer`
+  font-family: var(--font);
   background-color: #ff885e;
   border-top: 3px solid black;
   text-align: center;
   padding: 10px;
   width: 100%;
   box-sizing: border-box;
+
+  h1 {
+    font-size: 1.2em;
+  }
 `;

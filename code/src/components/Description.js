@@ -26,24 +26,26 @@ export const Description = () => {
   );
 
   return (
-    <section>
-      <h1>{description}</h1>
-      {actions.length === 0 && (
-        <>
-          <h3>Congrats {username}, you made it out!</h3>
-          <p>
-            Number of moves: <span>{showMap.length}</span>
-          </p>
-          <Button
-            className="restart-btn"
-            type="button"
-            onClick={() => {
-              dispatch(labyrinth.actions.restart());
-            }}>
-            Restart
-          </Button>
-        </>
-      )}
+    <Section>
+      <End>
+        <h1>{description}</h1>
+        {actions.length === 0 && (
+          <>
+            <h2>
+              Congrats {username}, you made it out in {showMap.length} moves!
+            </h2>
+
+            <EndButton
+              className="restart-btn"
+              type="button"
+              onClick={() => {
+                dispatch(labyrinth.actions.restart());
+              }}>
+              Restart
+            </EndButton>
+          </>
+        )}
+      </End>
       <Container>
         {actions.length > 0 &&
           actions.map((item) => (
@@ -52,9 +54,40 @@ export const Description = () => {
             </InnerContainer>
           ))}
       </Container>
-    </section>
+    </Section>
   );
 };
+
+const Section = styled.section`
+  font-family: var(--font);
+`;
+const End = styled.div`
+  padding: 15px;
+
+  h1 {
+    font-style: normal;
+    font-size: 1em;
+    margin-bottom: 40px;
+  }
+
+  h2 {
+    font-size: 1em;
+    font-style: normal;
+  }
+`;
+const EndButton = styled.button`
+  background-color: #ff885e;
+  align-self: center;
+  width: 100%;
+  padding: 5px 15px;
+  font-size: 1em;
+  padding: 5px;
+  border: 2px solid black;
+
+  :hover {
+    background-color: #ffc16a;
+  }
+`;
 
 const Container = styled.div`
   display: flex;
@@ -72,4 +105,7 @@ const Button = styled.button`
   padding: 5px 15px;
   font-size: 1em;
   border: none;
+
+  :hover {
+    background-color: #ffc16a;
 `;
