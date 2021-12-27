@@ -50,8 +50,8 @@ const InnerContainer = styled.div`
   max-width: 500px;
   margin: 0 auto;
   height: 100%;
-  backdrop-filter: blur(4px);
-  background-color: #ff895e57;
+  background-color: #ff885e;
+  border: 3px solid black;
 `;
 
 const colorDictionary = {

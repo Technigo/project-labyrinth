@@ -22,9 +22,9 @@ export const StartPage = () => {
         <h1>Do you want to enter the labyrinth?</h1>
         <p>
           Write your name in the box below{' '}
-          <span role="img" aria-label="emoji">
+          <Emoji role="img" aria-label="emoji">
             👇
-          </span>
+          </Emoji>
         </p>
         <Input
           type="text"
@@ -32,22 +32,21 @@ export const StartPage = () => {
           placeholder="Write your name here:"
           onChange={onInputChange}
         />
-        <Button>
-          {' '}
-          <span role="img" aria-label="emoji">
-            🗿
-          </span>{' '}
-          Lets do the labyrinth!
-        </Button>
+        <Button>Yay! Let's go!</Button>
       </Form>
     </>
   );
 };
 
+const Emoji = styled.span`
+  font-size: 25px;
+`;
+
 const Form = styled.form`
   display: flex;
   flex-direction: column;
   padding: 30px;
+  color: black;
 `;
 
 const Input = styled.input`
@@ -56,14 +55,23 @@ const Input = styled.input`
   padding: 5px;
   border: none;
   border-bottom: 1px solid black;
+  background-color: #ff885e;
   width: 300px;
   text-align: center;
+  text-transform: uppercase;
+  color: black;
 `;
 
 const Button = styled.button`
+  background-color: #ff885e;
   align-self: center;
   width: fit-content;
   padding: 5px 15px;
   font-size: 1em;
-  border: none;
+  padding: 5px;
+  border: 2px solid black;
+
+  :hover {
+    background-color: #ffc16a;
+  }
 `;
