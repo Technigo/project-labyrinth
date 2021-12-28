@@ -18,7 +18,13 @@ export const LoadingLottie = () => {
 
   return (
     <div>
-      {loading && <Lottie options={defaultOptions} height={400} width={400} />}
+      {
+        /* loading && */ <Lottie
+          options={defaultOptions}
+          height={400}
+          width={400}
+        />
+      }
     </div>
   );
 };

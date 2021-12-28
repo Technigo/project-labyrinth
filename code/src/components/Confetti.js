@@ -22,5 +22,5 @@ export const ConfettiLottie = () => {
 };
 
 const DivMarginLeft = styled.div`
-  margin-left: -50px;
+  margin-left: -276px;
 `;

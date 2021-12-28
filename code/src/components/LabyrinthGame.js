@@ -11,12 +11,25 @@ export const LabyrinthGame = () => {
     (store) => store.labyrinth.currentPosition
   );
 
+  const loading = useSelector((state) => state.labyrinth.loading);
+
   let coordinates = 'start';
 
   if (currentPosition) {
     coordinates = currentPosition.coordinates;
   }
 
+  if (loading) {
+    return (
+      <>
+        <Wrapper>
+          <InnerWrapper>
+            <LoadingLottie />
+          </InnerWrapper>
+        </Wrapper>
+      </>
+    );
+  }
   return (
     <>
       <Container
@@ -24,7 +37,6 @@ export const LabyrinthGame = () => {
         style={{ backgroundImage: colorDictionary[coordinates] }}>
         <div></div>
         <InnerContainer>
-          <LoadingLottie />
           {currentPosition ? <Description /> : <StartPage />}
         </InnerContainer>
         <Footer />
@@ -32,6 +44,27 @@ export const LabyrinthGame = () => {
     </>
   );
 };
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  background-color: #ff885e;
+`;
+
+const InnerWrapper = styled.div`
+  min-width: 334px;
+  max-width: 500px;
+  margin: 0 auto;
+  height: 100%;
+  background-color: white;
+  border: 3px solid black;
+`;
 
 const Container = styled.div`
   display: flex;
@@ -41,7 +74,6 @@ const Container = styled.div`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-
   min-height: 100vh;
 `;
 

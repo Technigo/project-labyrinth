@@ -65,6 +65,7 @@ const Section = styled.section`
 `;
 const End = styled.div`
   padding: 15px;
+  background-color: #ff885e;
 
   h1 {
     font-style: bold;
@@ -96,7 +97,8 @@ const EndButton = styled.button`
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 10px;
+  /* padding: 10px; */
+  background-color: #ff885e;
 `;
 
 const InnerContainer = styled.div`
