@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchContinue, labyrinth } from '../reducers/description';
 import styled from 'styled-components';
+import { ConfettiLottie } from './Confetti';
 
 export const Description = () => {
   const dispatch = useDispatch();
@@ -28,12 +29,12 @@ export const Description = () => {
   return (
     <Section>
       <End>
-        <h1>{description}</h1>
         {actions.length === 0 && (
           <>
-            <h2>
-              Congrats {username}, you made it out in {showMap.length} moves!
-            </h2>
+            <h1>Congrats {username}!</h1>
+            <ConfettiLottie />
+            <p>{description}</p>
+            <h1>You made it out in {showMap.length} moves!</h1>
 
             <EndButton
               className="restart-btn"
@@ -60,13 +61,16 @@ export const Description = () => {
 
 const Section = styled.section`
   font-family: var(--font);
+  background-color: white;
 `;
 const End = styled.div`
   padding: 15px;
 
   h1 {
-    font-style: normal;
-    font-size: 1em;
+    font-style: bold;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2em;
     margin-bottom: 40px;
   }
 

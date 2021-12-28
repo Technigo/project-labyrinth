@@ -14,11 +14,11 @@ export const Footer = () => {
           target="_blank"
           rel="noreferrer">
           Hedvig Mejstedt
-        </a>{' '}
+        </a>
         | Team Lions
         <span aria-label="lion" role="img">
           🦁
-        </span>{' '}
+        </span>
         | Technigo
       </h1>
     </StyledFooter>
@@ -36,5 +36,16 @@ const StyledFooter = styled.footer`
 
   h1 {
     font-size: 1.2em;
+  }
+
+  a {
+    font-family: var(--font);
+    color: black;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #ffc16a;
+    border: 1px solid black;
+    padding: 2px;
   }
 `;
