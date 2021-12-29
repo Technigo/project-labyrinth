@@ -2,7 +2,7 @@ import React from 'react';
 
 import Lottie from 'react-lottie';
 import animationData from '../Lottie/bicycle.json';
-import { useSelector } from 'react-redux';
+/* import { useSelector } from 'react-redux'; */
 
 export const LoadingLottie = () => {
   /*   const loading = useSelector((store) => store.labyrinth.loading); */
