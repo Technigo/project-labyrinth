@@ -5,7 +5,7 @@ import animationData from '../Lottie/bicycle.json';
 import { useSelector } from 'react-redux';
 
 export const LoadingLottie = () => {
-  const loading = useSelector((store) => store.labyrinth.loading);
+  /*   const loading = useSelector((store) => store.labyrinth.loading); */
 
   const defaultOptions = {
     loop: true,

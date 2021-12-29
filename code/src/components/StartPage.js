@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { labyrinth } from '../reducers/description';
 import { fetchStart } from '../reducers/description';
 import styled from 'styled-components';
-import { ConfettiLottie } from './Confetti';
 
 export const StartPage = () => {
   const dispatch = useDispatch();
