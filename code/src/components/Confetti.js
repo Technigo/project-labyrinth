@@ -14,13 +14,5 @@ export const ConfettiLottie = () => {
     }
   };
 
-  return (
-    <DivMarginLeft>
-      {<Lottie options={defaultOptions} height={482} width={1021} />}
-    </DivMarginLeft>
-  );
+  return <>{<Lottie options={defaultOptions} height={300} width={500} />}</>;
 };
-
-const DivMarginLeft = styled.div`
-  margin-left: -276px;
-`;

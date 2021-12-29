@@ -21,32 +21,34 @@ export const Description = () => {
     <div>
       <p>{description}</p>
       <Button onClick={() => onButtonClick(type, direction)}>
-        {type} {direction.toLowerCase()} {/* To uppercase istället??!=) */}
+        {type} {direction.toLowerCase()}
       </Button>
     </div>
   );
 
   return (
-    <Section>
-      <End>
+    <>
+      <EndContainer>
         {actions.length === 0 && (
           <>
-            <h1>Congrats {username}!</h1>
-            <ConfettiLottie />
-            <p>{description}</p>
-            <h1>You made it out in {showMap.length} moves!</h1>
+            <InnerContainer>
+              <h1>Congrats {username}!</h1>
+              <ConfettiLottie />
+              <p>{description}</p>
+              <h1>You made it out in {showMap.length} moves!</h1>
 
-            <EndButton
-              className="restart-btn"
-              type="button"
-              onClick={() => {
-                dispatch(labyrinth.actions.restart());
-              }}>
-              Restart
-            </EndButton>
+              <EndButton
+                className="restart-btn"
+                type="button"
+                onClick={() => {
+                  dispatch(labyrinth.actions.restart());
+                }}>
+                Restart
+              </EndButton>
+            </InnerContainer>
           </>
         )}
-      </End>
+      </EndContainer>
       <Container>
         {actions.length > 0 &&
           actions.map((item) => (
@@ -55,24 +57,26 @@ export const Description = () => {
             </InnerContainer>
           ))}
       </Container>
-    </Section>
+    </>
   );
 };
 
-const Section = styled.section`
+/* const Section = styled.section`
   font-family: var(--font);
+  margin: 50px 0px;
+`; */
+const EndContainer = styled.div`
+  /* padding: 15px; */
+  /* background-color: #ff885e; */
   background-color: white;
-`;
-const End = styled.div`
-  padding: 15px;
-  background-color: #ff885e;
+  width: 100%;
 
   h1 {
     font-style: bold;
     text-transform: uppercase;
     text-align: center;
     font-size: 2em;
-    margin-bottom: 40px;
+    margin-top: 20px;
   }
 
   h2 {
@@ -80,6 +84,7 @@ const End = styled.div`
     font-style: normal;
   }
 `;
+
 const EndButton = styled.button`
   background-color: #ff885e;
   align-self: center;

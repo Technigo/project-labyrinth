@@ -30,7 +30,7 @@ const StyledFooter = styled.footer`
   background-color: #ff885e;
   border-top: 3px solid black;
   text-align: center;
-  padding: 10px;
+  padding: 5px;
   width: 100%;
   box-sizing: border-box;
 
