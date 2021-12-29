@@ -11,8 +11,7 @@ export const Footer = () => {
           role="button"
           aria-pressed="false"
           aria-label="Link to my profile github"
-          target="_blank"
-          rel="noreferrer">
+          target="_blank">
           Hedvig Mejstedt
         </a>
         | Team Lions
