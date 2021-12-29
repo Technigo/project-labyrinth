@@ -61,10 +61,6 @@ export const Description = () => {
   );
 };
 
-/* const Section = styled.section`
-  font-family: var(--font);
-  margin: 50px 0px;
-`; */
 const EndContainer = styled.div`
   /* padding: 15px; */
   /* background-color: #ff885e; */
@@ -102,7 +98,6 @@ const EndButton = styled.button`
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* padding: 10px; */
   background-color: #ff885e;
 `;
 
@@ -111,7 +106,7 @@ const InnerContainer = styled.div`
 `;
 
 const Button = styled.button`
-  align-self: center;
+  /* align-self: center; */
   width: fit-content;
   padding: 5px 15px;
   font-size: 1em;
