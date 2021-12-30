@@ -84,6 +84,11 @@ const InnerContainer = styled.div`
   height: 100%;
   background-color: #ff885e;
   border: 3px solid black;
+
+  @media (min-width: 0px) and (max-width: 767px) {
+    min-width: 200px;
+    max-width: 300px;
+  }
 `;
 
 const colorDictionary = {

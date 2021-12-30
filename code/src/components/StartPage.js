@@ -50,6 +50,12 @@ const Form = styled.form`
   padding: 30px;
   color: black;
   font-family: var(--font);
+
+  @media (min-width: 0px) and (max-width: 767px) {
+    h1 {
+      font-size: 1.5em;
+    }
+  }
 `;
 
 const Input = styled.input`
@@ -70,6 +76,14 @@ const Input = styled.input`
     opacity: 1; /* Firefox */
     font-family: var(--font);
   }
+
+  @media (min-width: 0px) and (max-width: 767px) {
+    max-width: 200px;
+
+    h1 {
+      font-size: 2em;
+    }
+  }
 `;
 
 const Button = styled.button`
@@ -82,7 +96,10 @@ const Button = styled.button`
   border: 2px solid black;
   font-family: var(--font);
 
-  :hover {
-    background-color: #ffc16a;
+  /* Small laptop */
+  @media (min-width: 992px) {
+    :hover {
+      background-color: #ffc16a;
+    }
   }
 `;
