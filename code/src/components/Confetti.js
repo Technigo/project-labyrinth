@@ -2,7 +2,6 @@ import React from 'react';
 
 import Lottie from 'react-lottie';
 import animationData from '../Lottie/confetti.json';
-import styled from 'styled-components';
 
 export const ConfettiLottie = () => {
   const defaultOptions = {
