@@ -1,15 +1,26 @@
-# Project Labyrinth
+# Project Labyrinth 
 
-The challenge for this week was to merge all of the knowledge within redux and react that we´ve learned so far -and create a maze.
+This labyrinth app is created by me and Naushin Malik. 
 
-Me and Naushin worked in a pair, together with live-share, in VS code. We planned our project in jamboard and followed it, throughout the process of coding. 
+The goal for this week is to build a project which uses the API specified, 
+to build a frontend which gives the user control over what to do next, 
+in the form of a text-based adventure, provided by a backend.
 
+Based on the choice (Go East or Go South etc.), the state of the game (where the player is) will update. Then, a new description and set of actions can be displayed to the player.
 
-## The problem
+This project's backend is designed so that there is some delay until the request returns from the server.  
+Using thunks is a good way of making sure that the user doesn't do another action until the response is received from the server.
 
-We had a couple of "bumps on the road", mostly regarding styled components. But we worked some of it out together -and by reaching out to team-members and stackoverflow, we managed to solve all of our styling issues.
+We planned our project in jamboard and followed it throughout the whole process of coding. 
 
-If we had ore time, we would have added useHistory and displayed the users steps and path through the maze.
+## The challenge
+
+How to make reusable components
+How to set up Lotties with react, as a loader
+Async actions
+Using thunks and redux to build the communication with the backend
+
+(If we had more time, we would have added useHistory and displayed the users steps and path through the maze)
 
 ## View it live
 
