@@ -13,5 +13,5 @@ export const ConfettiLottie = () => {
     }
   };
 
-  return <>{<Lottie options={defaultOptions} height={300} width={500} />}</>;
+  return <>{<Lottie options={defaultOptions} height={300} width={334} />}</>;
 };

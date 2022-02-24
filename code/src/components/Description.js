@@ -62,8 +62,6 @@ export const Description = () => {
 };
 
 const EndContainer = styled.div`
-  /* padding: 15px; */
-  /* background-color: #ff885e; */
   background-color: white;
   width: 100%;
 
@@ -106,7 +104,6 @@ const InnerContainer = styled.div`
 `;
 
 const Button = styled.button`
-  /* align-self: center; */
   width: fit-content;
   padding: 5px 15px;
   font-size: 1em;
@@ -115,4 +112,5 @@ const Button = styled.button`
 
   :hover {
     background-color: #ffc16a;
+  }
 `;

@@ -60,6 +60,7 @@ const Form = styled.form`
 
 const Input = styled.input`
   align-self: center;
+  font-size: 17px;
   margin: 15px;
   padding: 5px;
   border: none;
