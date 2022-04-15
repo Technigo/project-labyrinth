@@ -1,8 +1,6 @@
-# Project Labyrinth
+# Week 15: Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week's project is to build a labyrinth app posting to an API and displaying the response in an interactive frontend.
 
 ## The problem
 
@@ -10,4 +8,6 @@ Describe how you approached to problem, and what tools and techniques you used t
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Project deployed here: [Title](URL)
+
+Made by Joanna Ringqvist and Nadia Lefebvre
