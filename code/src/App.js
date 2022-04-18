@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Provider } from 'react-redux'
 import { createStore, combineReducers } from '@reduxjs/toolkit'
 import { applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 
-import Game from './components/Game'
 import game from 'reducer/game'
+import ui from 'reducer/ui'
 import StartPage from 'components/StartPage'
+import Loadingspinner from 'components/Loadingspinner'
 
 const reducer = combineReducers({
 	game: game.reducer,
+	ui: ui.reducer,
 })
 
 //________Handle Local storage________
@@ -30,6 +32,7 @@ store.subscribe(() => {
 export const App = () => {
 	return (
 		<Provider store={store}>
+			<Loadingspinner />
 			<StartPage />
 		</Provider>
 	)

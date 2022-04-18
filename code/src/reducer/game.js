@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import ui from '../reducer/ui'
 
 const game = createSlice({
 	name: 'game',
@@ -20,6 +21,7 @@ const game = createSlice({
 
 export const fetchGame = () => {
 	return (dispatch, getState) => {
+		dispatch(ui.actions.setLoading(true))
 		fetch('https://labyrinth-technigo.herokuapp.com/start', {
 			method: 'POST',
 			headers: {
@@ -29,11 +31,13 @@ export const fetchGame = () => {
 		})
 			.then((res) => res.json())
 			.then((data) => dispatch(game.actions.setItem(data)))
+			.finally(dispatch(ui.actions.setLoading(false)))
 	}
 }
 
 export const navigateGame = (type, direction) => {
 	return (dispatch, getState) => {
+		dispatch(ui.actions.setLoading(true))
 		fetch('https://labyrinth-technigo.herokuapp.com/start', {
 			method: 'POST',
 			headers: {
@@ -47,6 +51,7 @@ export const navigateGame = (type, direction) => {
 		})
 			.then((res) => res.json())
 			.then((data) => console.log(data, 'secondAPi'))
+			.finally(dispatch(ui.actions.setLoading(false)))
 	}
 }
 
