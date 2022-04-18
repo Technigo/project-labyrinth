@@ -41,8 +41,8 @@ export const navigateGame = (type, direction) => {
 			},
 			body: JSON.stringify({
 				username: getState().game.username,
-				type: type,
-				direction: direction,
+				type,
+				direction,
 			}),
 		})
 			.then((res) => res.json())

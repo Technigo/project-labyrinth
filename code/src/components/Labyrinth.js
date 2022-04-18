@@ -14,7 +14,7 @@ const Labyrinth = () => {
 	)
 	return (
 		<>
-			<button onClick={dispatch(navigateGame(items.actions[0].type, items.actions[0].direction))}>
+			<button onClick={() => dispatch(navigateGame(items.actions[0].type, items.actions[0].direction))}>
 				hello
 			</button>
 			<p>{items.description}</p>
