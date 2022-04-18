@@ -1,13 +1,16 @@
-import quotes from '..reducers/quotes';
+import React, { useState } from 'react';
+
+import quotes, { generateQuote } from '../reducers/quotes';
 import { useDispatch } from 'react-redux';
 
 const StartPage  = () => {
-    const [userName, setUserName] = useState('');
+    const [inputValue, setInputValue] = useState('');
 
     const dispatch = useDispatch();
 
-    const onUserNameSet = () => {
-        dispatch(quotes.actions.setUserName(inputValue));
+    const onAuthorSet = () => {
+        dispatch(quotes.actions.setAuthor(inputValue));
+        dispatch(generateQuote());
     }
 
     return (
@@ -16,9 +19,11 @@ const StartPage  = () => {
             <input
                 type='text'
                 value={inputValue}
-                onChange={event => onUserNameSet(event.target.value)}
+                onChange={event => setInputValue(event.target.value)}
             />
-            <button onClick={onUserNameSet}>Let's begin!</button>
+            <button onClick={onAuthorSet}>Let's begin!</button>
         </div>
     )
 }
+
+export default StartPage;
