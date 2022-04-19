@@ -18,14 +18,14 @@ export const StartScreen = () => {
     <div>
       <form onSubmit={onSetUsername}>
         Hello
-        <input 
-          type="text" 
-          value={inputUsername} 
+        <input
+          type="text"
+          value={inputUsername}
           onChange={e => setInputUsername(e.target.value)} />
         <button type="submit">Start</button>
-        </form>
+      </form>
     </div>
-    )
+  )
 }
 
 export default StartScreen

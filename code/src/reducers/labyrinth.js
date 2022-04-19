@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { ui } from './ui'
+import ui from './ui'
 
 const initialState = {
   username: null,
@@ -10,7 +10,7 @@ const initialState = {
 
 const labyrinth = createSlice({
   name: 'labyrinth',
-  initialState:  initialState,
+  initialState: initialState,
   reducers: {
     setUsername: (store, action) => {
       store.username = action.payload
@@ -18,7 +18,7 @@ const labyrinth = createSlice({
 
     setCurrentStep: (store, action) => {
       store.currentStep = action.payload
-    }, 
+    },
 
     setHistory: (store, action) => {
       store.history.push(action.payload)
@@ -45,7 +45,7 @@ export const startGame = () => {
         console.log(data)
         dispatch(labyrinth.actions.setCurrentStep(data))
         dispatch(ui.actions.setLoading(false))
-      })  
+      })
   }
 }
 
@@ -56,21 +56,20 @@ export const continueGame = (direction) => {
     fetch('https://labyrinth-technigo.herokuapp.com/action', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ 
-        username: `${getState().labyrinth.username}`, 
-        type: "move", 
-        direction: direction })
+      body: JSON.stringify({
+        username: `${getState().labyrinth.username}`,
+        type: "move",
+        direction: direction
+      })
     })
       .then(res => res.json())
       .then(data => {
         console.log(data)
         dispatch(labyrinth.actions.setCurrentStep(data))
         dispatch(labyrinth.actions.setHistory(direction))
-        console.log(`${getState().labyrinth.history}`)
         dispatch(ui.actions.setLoading(false))
-      })  
+      })
   }
 }
-
 
 export default labyrinth
