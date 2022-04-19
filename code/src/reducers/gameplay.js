@@ -4,26 +4,26 @@ const gameplay = createSlice({
   name: "gameplay",
   initialState: {
     username: null,
-    questions: [],
+    question: {},
   },
   reducers: {
     setUsername: (state, action) => {
       state.username = action.payload;
     },
     setGameQuestion: (state, action) => {
-      state.questions = [...state.questions, action.payload]
-    }
+      state.question = action.payload;
+    },
   },
 });
 
 export default gameplay;
 
 export const generateQuestion = () => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     fetch("https://labyrinth-technigo.herokuapp.com/start", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username: "Testname" }),
+      body: JSON.stringify({ username: getState().gameplay.username }),
     })
       .then((response) => response.json())
       .then((data) => dispatch(gameplay.actions.setGameQuestion(data)));

@@ -1,7 +1,21 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Game = () => {
-  return <h2>Now you're in the game! Instructions and buttons will be added here.</h2>;
+  const question = useSelector((state) => state.gameplay.question);
+
+  return (
+    <>
+      {question.actions?.map((item, index) => {
+        return (
+          <div key={index}>
+            <p>{item.description}</p>
+            <button type="button">Go {item.direction}</button>
+          </div>
+        );
+      })}
+    </>
+  );
 };
 
 export default Game;
