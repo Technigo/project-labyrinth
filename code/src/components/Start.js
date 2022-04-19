@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import gameplay, { generateQuestion } from "reducers/gameplay";
 
 const Start = () => {
   const [inputValue, setInputValue] = useState("");
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const submitHandler = (event) => {
     event.preventDefault();
-    // dispatch();
+    dispatch(gameplay.actions.setUsername(inputValue));
+		dispatch(generateQuestion());
     setInputValue("");
   };
 
