@@ -6,13 +6,13 @@ const game = createSlice({
 	initialState: {
 		items: null,
 		username: '',
+		
 	},
 	reducers: {
 		setName: (store, action) => {
 			store.username = action.payload
 		},
 		setItem: (store, action) => {
-			console.log(store.username)
 			store.items = action.payload
 			console.log(store.items)
 		},
@@ -38,7 +38,7 @@ export const fetchGame = () => {
 export const navigateGame = (type, direction) => {
 	return (dispatch, getState) => {
 		dispatch(ui.actions.setLoading(true))
-		fetch('https://labyrinth-technigo.herokuapp.com/start', {
+		fetch('https://labyrinth-technigo.herokuapp.com/action', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ export const navigateGame = (type, direction) => {
 			}),
 		})
 			.then((res) => res.json())
-			.then((data) => console.log(data, 'secondAPi'))
+			.then((data) => dispatch(game.actions.setItem(data)))
 			.finally(dispatch(ui.actions.setLoading(false)))
 	}
 }

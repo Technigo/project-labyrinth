@@ -7,6 +7,7 @@ const Game = () => {
 	const [userName, setUserName] = useState('')
 
 	const dispatch = useDispatch()
+	console.log('game')
 
 	const onChangeUserName = () => {
 		dispatch(game.actions.setName(userName))
