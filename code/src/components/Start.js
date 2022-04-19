@@ -3,6 +3,15 @@ import { useDispatch } from "react-redux"
 
 import { game } from "reducers/game"
 import { startGame } from "reducers/game"
+import styled from "styled-components"
+
+const Section = styled.section`
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+`
 
 export const Start = () => {
 
@@ -17,18 +26,18 @@ export const Start = () => {
         dispatch(startGame())
     }
     return (
-        <>
-        <h1>Start game</h1>
-        <form onSubmit={handleSubmit}>
-        <label>
-            Username:
-         <input 
-         type="text"
-         onChange={handleInputChange}
-         required/>
-         </label>
-         <button type="submit">Start</button>
-        </form>
-        </>
+        <Section>
+            <h1>Start game</h1>
+            <form onSubmit={handleSubmit}>
+            <label>
+                Username:
+            <input 
+            type="text"
+            onChange={handleInputChange}
+            required/>
+            </label>
+            <button type="submit">Start</button>
+            </form>
+        </Section>
     )
 }

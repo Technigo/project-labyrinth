@@ -41,7 +41,7 @@ export const startGame = () => {
           })
           .then(res => res.json())
           .then(data => dispatch(game.actions.setCurrentPosition(data)))
-          .finally(() => dispatch(game.actions.setLoading(true)))
+          .finally(() => dispatch(game.actions.setLoading(false)))
     }
 }
 
@@ -61,6 +61,6 @@ export const nextStep = (type, direction) => {
             dispatch(game.actions.setCurrentPosition(data))
             dispatch(game.actions.setHistory(data))
         console.log(data)})
-          .finally(() => dispatch(game.actions.setLoading(true)))
+          .finally(() => dispatch(game.actions.setLoading(false)))
     }
 }
