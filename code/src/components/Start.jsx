@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { game } from "reducers/game";
+import { startGame } from "reducers/game";
 
 const Start = () => {
   const [username, setUsername] = useState("");
@@ -8,16 +9,15 @@ const Start = () => {
 
   const setUser = () => {
     dispatch(game.actions.setUser(username));
-    const settings = {
-      method: "POST",
-      headers: {},
-      body: JSON.stringify({
-        username: username,
-      }),
-    };
-    fetch("https://labyrinth-technigo.herokuapp.com/start", settings)
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+    dispatch(startGame());
+    // const settings = {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify({ username: username }),
+    // };
+    // fetch("https://labyrinth-technigo.herokuapp.com/start", settings)
+    //   .then((res) => res.json())
+    //   .then((data) => console.log(data));
   };
 
   return (
