@@ -43,7 +43,6 @@ const Game = () => {
           {actions.map((action, index) => (
             <Actions key={index} action={action} />
           ))}
-          {actions.length === 0 && <GameOver />}
           {/* <ActionsAlt actions={actions} /> */}
         </>
       )}
