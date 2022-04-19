@@ -14,15 +14,20 @@ const quotes = createSlice({
         setQuote: (store, action) => {
             store.quote = action.payload;
         },
-
     }
 });
 
-export const generateQuote = () => {
+export const generateQuote = (tag) => {
     return (dispatch, getState) => {
-        fetch(`http://api.quotable.io/random?author=${getState().quotes.author}`)
-            .then(res => res.json())
-            .then(quote => dispatch(quotes.actions.setQuote(quote)))
+        if (tag) {
+            fetch(`http://api.quotable.io/random?author=${getState().quotes.author}&tags=${tag}`)
+                .then(res => res.json())
+                .then(quote => dispatch(quotes.actions.setQuote(quote)))
+        } else {
+            fetch(`http://api.quotable.io/random?author=${getState().quotes.author}`)
+                .then(res => res.json())
+                .then(quote => dispatch(quotes.actions.setQuote(quote)))
+        }
     }
 }
 
