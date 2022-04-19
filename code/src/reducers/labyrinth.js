@@ -1,14 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const labyrinth = createSlice({
+const labyrinth = createSlice({
   name: 'labyrinth',
   initialState: {
     username: null,
+    currentPosition: [],
+    loading: false,
   },
   reducers: {
     setUserName: (store, action) => {
       store.username = action.payload
     },
+
+    setCurrentPosition: (store, ac)i
   },
 })
 
@@ -25,3 +29,4 @@ export const generateLabyrinth = (username) => {
       .then((data) => dispatch(labyrinth.actions.setUserName(username)))
   }
 }
+export default labyrinth
