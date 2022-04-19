@@ -10,14 +10,6 @@ const Start = () => {
   const setUser = () => {
     dispatch(game.actions.setUser(username));
     dispatch(startGame());
-    // const settings = {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({ username: username }),
-    // };
-    // fetch("https://labyrinth-technigo.herokuapp.com/start", settings)
-    //   .then((res) => res.json())
-    //   .then((data) => console.log(data));
   };
 
   return (

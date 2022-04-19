@@ -13,3 +13,9 @@
   text-decoration: none;
   font-family: "Roboto Mono", monospace;
 }
+
+/* COMMENTED OUT: NEWLINE FOR TYPEWRITER. TYPEWRITER | DOES NOT FOLLOW WHEN SET TO INLINE BLOCK */
+/* .Typewriter__wrapper {
+  display: inline-block;
+  white-space: pre-line;
+} */
