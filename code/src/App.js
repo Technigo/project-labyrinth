@@ -2,7 +2,7 @@ import React from 'react'
 import StartScreen from './components/StartScreen'
 import { Provider } from 'react-redux'
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
-import { labyrinth } from './reducers/labyrinth'
+import labyrinth from './reducers/labyrinth'
 
 const reducer = combineReducers({
   labyrinth: labyrinth.reducer,
