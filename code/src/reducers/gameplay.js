@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const instructions = createSlice({
-  name: "instructions",
+const gameplay = createSlice({
+  name: "gameplay",
   initialState: {},
   reducers: {},
 });
 
-export default instructions;
+export default gameplay;

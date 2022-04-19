@@ -1,9 +1,12 @@
-import React from 'react'
+import Start from "components/Start";
+import Game from "components/Game";
+import React from "react";
 
 export const App = () => {
   return (
-    <div>
-      Find me in src/app.js!
-    </div>
-  )
-}
+    <main>
+      <Start />
+      <Game />
+    </main>
+  );
+};

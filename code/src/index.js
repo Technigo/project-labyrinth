@@ -5,10 +5,10 @@ import { App } from "./App";
 import { Provider } from "react-redux";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
-import instructions from "./reducers/instructions";
+import gameplay from "./reducers/gameplay";
 
 const reducer = combineReducers({
-  instructions: instructions.reducer,
+  gameplay: gameplay.reducer,
 });
 
 const store = configureStore({ reducer });
