@@ -2,15 +2,14 @@ import React from "react"
 import { useSelector } from "react-redux"
 
 import Start from "./Start"
-//import Maze from "./Maze"
+import Maze from "./Maze"
 
 const Game = () => {
-  //const question = useSelector((store) => store.games.game)
-  // const quote = useSelector(store => store.quotes.quote) Så är ser Maksys ut.
-  //   console.log(question)
+  const currentPosition = useSelector(
+    (store) => store.gamereducer.currentPosition
+  )
 
-  //return <div>{question ? <Maze /> : <Start />}</div>
-  return <Start />
+  return <>{currentPosition ? <Maze /> : <Start />}</>
 }
 
 export default Game

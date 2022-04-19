@@ -1,24 +1,34 @@
 import React from "react"
-import { useSelector } from "react-redux"
-import { generateQuestion } from "reducers/gamereducer"
+import { useSelector, useDispatch } from "react-redux"
+import { nextStep } from "../reducers/gamereducer"
 
 const Maze = () => {
-  const question = useSelector(store.questions.question)
+  const { description, coordinates, actions } = useSelector(
+    (store) => store.gamereducer.currentPosition
+  )
+  const dispatch = useDispatch()
 
-  const onQuestionRegenerate = () => {
-    dispatch(generateQuestion(tag))
+  const handleButtonClick = (type, direction) => {
+    dispatch(nextStep(type, direction))
   }
 
-  //Vad som ska vara här istaället för question ser vi i vår API ÄVEN TAG ska ändras, på rad 8, 9, och 17, 18.
-  return (
-    <div>
-      <h3> This is instructions: {question.content} </h3>
-      {questions.tags.map((tag) => (
-        <button key={tag} onClick={() => onQuestionRegenerate(tag)}>
-          {tag}
-        </button>
-      ))}
+  const NextAction = ({ description, type, direction }) => (
+    <div className='next-action'>
+      <p>{description}</p>
+      <button onClick={() => handleButtonClick(type, direction)}>
+        {type} {direction.toLowerCase()}
+      </button>
     </div>
+  )
+
+  return (
+    <section>
+      <h1>{description}</h1>
+      <p>{coordinates}</p>
+      {actions.length === 0 && <h3>Yes! you find your way out!</h3>}
+      {actions.length > 0 &&
+        actions.map((item) => <NextAction key={item.direction} {...item} />)}
+    </section>
   )
 }
 
