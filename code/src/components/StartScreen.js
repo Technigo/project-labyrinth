@@ -1,20 +1,24 @@
 import React, { useState} from 'react'
-
+import { useDispatch } from 'react-redux'
+import game from '../reducers/game'
 
 const StartScreen = () => {
-    
-    const handleSubmit = (event) => {
-        event.preventDefault()
-    }
+    const dispatch = useDispatch()
 
     const [inputValue, setInputValue] = useState('')
+
+
+    const onUserSet = () => {
+        dispatch(game.actions.startGame(inputValue))
+    }
     
     return (
 
-        <section>
-        <h1>Want to enter the labyrinth?</h1>
+    <section>
+        
+        <h1>Let's play a game!</h1>
 
-        <form onSubmit={handleSubmit}>
+        <form>
         <label>
             Add your username:
             <input 
@@ -22,7 +26,9 @@ const StartScreen = () => {
             value={inputValue}
             onChange={event => setInputValue(event.target.value)} />
         </label>
-        <button type="submit">Let's play</button>
+        <button onClick={onUserSet} 
+        type="submit">
+           I'm ready</button>
         </form>
         </section>
 
