@@ -1,9 +1,9 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const labyrinth = createSlice({
   name: 'labyrinth',
   initialState: {
-    username: null,
+    username: null
     // currentPosition: [],
     // loading: false,
   },
