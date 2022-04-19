@@ -4,8 +4,8 @@ export const labyrinth = createSlice({
   name: 'labyrinth',
   initialState: {
     username: '',
-    description: null,
-    currentStep: null,
+    description: {},
+    currentStep: {},
   },
   reducers: {
     setUsername: (store, action) => {
