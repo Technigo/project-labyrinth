@@ -12,17 +12,29 @@ const ButtonController = styled.div`
 	grid-template-columns: repeat(3,1fr);
 	grid-template-rows: repeat(3,1fr);
 
-	background: white;
-	width: 60px;
-	height: 60px;
+	background: #FDB100;
+	border: solid 2px #000;
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	place-items: center;
 
 
 `
 
 const Btn = styled.button`
 
-		background: none;
+		background: #F10DB3 ;
 		border: none;
+		grid-area: ${props => props.position};
+		width: 80%;
+		height: 80%;
+		border: solid 2px #000;
+
+		&:disabled {
+			background: #C573AF;
+		}
+
 
 
 `
@@ -73,7 +85,6 @@ const Btn = styled.button`
 
 const Labyrinth = () => {
 	const [select, setSelect] = useState([])
-	const [nav, setNav] = useState('')
 	const dispatch = useDispatch()
 	const items = useSelector((store) => store.game.items)
 
@@ -94,15 +105,30 @@ const Labyrinth = () => {
 
 	const changeDirectionToIcon = (way) => {
 		if (way === 'North') {
+
 			return '⬆️'
 		} else if (way === 'South') {
+
 			return '⬇️'
 		} else if (way === 'East') {
 			return '➡️'
 		} else if (way === 'West'){
+			
 			return '⬅️'
 		}
 	}
+
+	const arrowStyle = (way) => {
+		if (way === 'North') {
+			return ('1/2')
+		} else if (way === 'South') {
+			return ('3/2')
+		} else if (way === 'East') {
+			return ('2/3')
+		} else if (way === 'West'){
+			return ('2/1')
+	}
+}
 	
 
 
@@ -111,7 +137,7 @@ const Labyrinth = () => {
 
 		const newOne = btnNavigator.filter(item => !arr.includes(item))
 		
-		return newOne.map(item => <Btn disabled>{changeDirectionToIcon(item)}</Btn>)
+		return newOne.map(item => <Btn position={arrowStyle(item)} disabled>{changeDirectionToIcon(item)}</Btn>)
 	}
 
 	console.log(dir)
@@ -156,12 +182,12 @@ const Labyrinth = () => {
 				)
 			})} 
 
-			<ButtonController>
+			<ButtonController >
 
 				{items.actions.map((item) => {
 					return (
 						<>
-							<Btn onClick={() => onNavigate(item.type, item.direction)}>{changeDirectionToIcon(item.direction)}</Btn>
+							<Btn position={arrowStyle(item.direction)} onClick={() => onNavigate(item.type, item.direction)}>{changeDirectionToIcon(item.direction)}</Btn>
 						</>
 					)
 				})}
