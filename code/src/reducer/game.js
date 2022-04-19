@@ -6,15 +6,20 @@ const game = createSlice({
 	initialState: {
 		items: null,
 		username: '',
-		
 	},
 	reducers: {
 		setName: (store, action) => {
 			store.username = action.payload
 		},
+
 		setItem: (store, action) => {
 			store.items = action.payload
 			console.log(store.items)
+		},
+
+		restartGame: (store) => {
+			store.items = null
+			store.username = ''
 		},
 	},
 })
