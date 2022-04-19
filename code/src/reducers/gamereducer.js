@@ -1,19 +1,21 @@
-import { createSlice } from "@reduxjs/toolkit"
-import { API_ACTION_URL } from "utils/urls"
+import { createSlice, current } from "@reduxjs/toolkit"
+//START ELLER ACTION?
+import { API_START_URL, API_ACTION_URL } from "utils/urls"
+import { ui } from "./ui"
 
 export const gamereducer = createSlice({
   name: "gamereducer",
   initialState: {
-    ui: null,
-    gamereducer: null,
+    player: null,
+    currentPosition: null,
     //loading: false,
   },
   reducers: {
-    setUi: (store, action) => {
-      store.ui = action.payload
+    setPlayer: (store, action) => {
+      store.player = action.payload
     },
-    setGamereducer: (store, action) => {
-      store.gamereducer = action.payload
+    setCurrentPosition: (store, action) => {
+      store.currentPosition = action.payload
     },
   },
 })
@@ -21,10 +23,10 @@ export const gamereducer = createSlice({
 // START ELLER ACTION?
 export const generateQuestion = () => {
   return (dispatch, getState) => {
-    fetch(API_ACTION_URL)
+    fetch(API_START_URL)
       .then((res) => res.json())
-      .then((gamereducer) =>
-        dispatch(gamereducer.actions.setGamereducer(gamereducer))
+      .then((currentPosition) =>
+        dispatch(currentPosition.actions.setCurrentPosition(currentPosition))
       )
   }
 }

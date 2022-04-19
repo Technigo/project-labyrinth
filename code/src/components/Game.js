@@ -1,14 +1,16 @@
 import React from "react"
-import Start from "./Start"
 import { useSelector } from "react-redux"
-import Maze from "./Maze"
+
+import Start from "./Start"
+//import Maze from "./Maze"
 
 const Game = () => {
-  const question = useSelector((store) => store.game.question)
+  //const question = useSelector((store) => store.games.game)
+  // const quote = useSelector(store => store.quotes.quote) Så är ser Maksys ut.
   //   console.log(question)
 
-  return
-  ;<div>{question ? <Maze /> : <Start />}</div>
+  //return <div>{question ? <Maze /> : <Start />}</div>
+  return <Start />
 }
 
 export default Game
