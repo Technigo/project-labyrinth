@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import game, { generateStep } from 'reducers/game';
+import game, { generateGame } from 'reducers/game';
 
 const StartScreen = () => {
   const [inputValue, setInputValue] = useState('');
@@ -10,7 +10,7 @@ const StartScreen = () => {
 
   const startGame = () => {
     dispatch(game.actions.setPlayer(inputValue));
-    dispatch(generateStep());
+    dispatch(generateGame());
   }
   
   return (

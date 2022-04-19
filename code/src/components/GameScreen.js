@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { generateStep } from 'reducers/game';
+import { generateGame } from 'reducers/game';
 
 const Gamescreen = () => {
   const step = useSelector(store => store.game.currentStep)
@@ -8,7 +8,7 @@ const Gamescreen = () => {
   const dispatch = useDispatch();
 
   const onNextStep = (action) => {
-    dispatch(generateStep(action));
+    dispatch(generateGame(action));
   }
   
   return (
