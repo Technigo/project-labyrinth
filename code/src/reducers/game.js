@@ -22,7 +22,7 @@ const game = createSlice({
       }
       store.currentStep = action.payload;
     },
-    setPreviousStep: (store, action) => {
+    setPreviousStep: (store) => {
      if (store.history.length) {
        store.currentStep = store.history[store.history.length -1];
        const changedHistory = store.history.slice(0, store.history.length -1);

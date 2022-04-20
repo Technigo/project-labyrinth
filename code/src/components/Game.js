@@ -8,7 +8,7 @@ const Game = () => {
   const step = useSelector (store => store.game.currentStep);
 
   return (
-    <main>
+    <main className='main-container'>
       {step
         ? <GameScreen />
         : <StartScreen />
