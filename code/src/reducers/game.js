@@ -3,34 +3,67 @@ import { createSlice } from "@reduxjs/toolkit"
 const game = createSlice({
     name: "game",
     initialState: {
-      userName: 0,
-      gameState:
-        {},
-      gameStarted: false,
-      isLoading: false,
+      username: null,
+      gameObject: {
+        coordinates: '',
+        description: '',
+        actions: [],
+      },
+      reducers: {
+        setGameObject: (state, action) => {
+          state.gameObject = action.payload
+        },
+        setUserName: (state, action) => {
+          state.username = action.payload
+        }
+      }
+      //isLoading: false,
     },
 })
 
-export const startGame = (userName) => {
+export const fetchGame = () => {
 
-    return (dispatch) => {
-      dispatch(game.actions.setLoading(true))
-      fetch('https://labyrinth-technigo.herokuapp.com/start', {
-        method: 'POST',
-        headers: { 'content-type': 'application/JSON' },
-        body: JSON.stringify({
-          username: userName
-        })
-      })
+    return (dispatch, getState) => {
 
-        .then(response => response.json())
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({username: getState().game.username})
+      }
+      
+      fetch('https://labyrinth-technigo.herokuapp.com/start', options) 
+        .then(res => res.json())
         .then(data => {
+          dispatch(game.actions.setGameObject(data))
           console.log(data)
-          
-          dispatch(game.actions.setStartPosition(data))
-          dispatch(game.actions.setLoading(false))
         })
-    }
-  }
+      
+    }}
+
+    export const fetchGameSteps = ({ direction }) => {
+    return (dispatch, getState) => {
   
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: getState().game.username,
+          type: 'move',
+          direction: direction,
+        })
+      };
+  
+      fetch('https://labyrinth-technigo.herokuapp.com/action', options)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data)
+          dispatch(game.actions.setGameObject(data));
+        });
+    };
+  };
+
   export default game
