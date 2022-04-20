@@ -6,7 +6,10 @@ import game from '../reducers/game'
 import { fetchGame } from 'reducers/game'
 
 import {
-    GameArea
+    GameArea,
+    Heading,
+    Container,
+    Input
 } from 'styles'
 
 const StartScreen = () => {
@@ -44,13 +47,15 @@ const StartScreen = () => {
 
         <GameArea >
         
-        <h1>Let's play a game!</h1>
+        <Heading>Let's play a game!</Heading>
    
-        <form>
+        <Container>
         <label>
+            <p>
             Add your username:
+            </p>
 
-            <input 
+            <Input 
             type="text"
             value={nameInput}
             placeholder='Enter name here'
@@ -66,7 +71,7 @@ const StartScreen = () => {
            I'm ready
         </button>
         
-        </form>
+        </Container>
      
         </GameArea >
 

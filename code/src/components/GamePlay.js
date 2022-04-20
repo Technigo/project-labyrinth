@@ -5,7 +5,8 @@ import { fetchGameSteps } from '../reducers/game'
 import { useNavigate } from 'react-router-dom'
 
 import {
-    GameArea
+    GameArea,
+    Container
 } from 'styles'
 
 
@@ -23,6 +24,7 @@ const GamePlay = () => {
     return (
 
 <GameArea >
+    <Container>
             <div>
                 <h3>{gameObject.description}</h3>
             </div>
@@ -70,6 +72,7 @@ const GamePlay = () => {
                 </div>
             )}
              </div>
+             </Container>
              </GameArea>  
   
     
