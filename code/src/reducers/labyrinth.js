@@ -27,14 +27,12 @@ const labyrinth = createSlice({
     restartGame: () => {
       return initialState
     }
-
   }
 })
 
 export const startGame = () => {
   return (dispatch, getState) => {
     dispatch(ui.actions.setLoading(true))
-
     fetch('https://labyrinth-technigo.herokuapp.com/start', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -52,7 +50,6 @@ export const startGame = () => {
 export const continueGame = (direction) => {
   return (dispatch, getState) => {
     dispatch(ui.actions.setLoading(true))
-
     fetch('https://labyrinth-technigo.herokuapp.com/action', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

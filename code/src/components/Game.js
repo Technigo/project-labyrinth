@@ -7,7 +7,6 @@ import GameScreen from './GameScreen'
 import Loader from './Loader'
 
 export const Game = () => {
-
   const username = useSelector(store => store.labyrinth.username)
   const isLoading = useSelector((store) => store.ui.isLoading)
 
@@ -29,15 +28,15 @@ export default Game
 
 const MainContainer = styled.main`
   display: flex;
-  width: 350px;
+  width: 90%;
+  max-width: 700px;
   min-height: 500px;
   flex-direction: column;
-  margin: 0 auto;
-  margin-top: 20px;
+  margin: 20px auto;
   border-radius: 5px;
   background-color: #fff;
-
-  @media (min-width: 600px) {
-    width: 500px;
-  }
+  box-shadow: 
+    0px 2px 1px -1px rgb(0 0 0 / 20%), 
+    0px 1px 1px 0px rgb(0 0 0 / 14%), 
+    0px 1px 3px 0px rgb(0 0 0 / 12%);
 `

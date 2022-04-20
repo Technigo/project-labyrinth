@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import Lottie from "react-lottie"
+
 import animationData from "../lotties/loader-animation"
 
 const Loader = () => {
@@ -17,9 +18,12 @@ const Loader = () => {
 
   return (
     isLoading && (
-      <div>
-        <Lottie options={defaultOptions} height={400} width={400} />
-      </div>
+      <>
+        <Lottie
+          options={defaultOptions}
+          height={400}
+          width={400} />
+      </>
     )
   )
 }

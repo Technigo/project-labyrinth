@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components/macro'
-import { Button } from 'styles/GlobalStyling'
 
+import { Button } from 'styles/globalStyling'
+import { bg_start } from 'styles/backgroundURLs'
 
 import labyrinth, { startGame } from 'reducers/labyrinth'
-import {
-  bg_start
-} from 'styles/BackgroundURLs'
 
 export const StartScreen = () => {
   const dispatch = useDispatch()
@@ -23,7 +21,7 @@ export const StartScreen = () => {
   return (
     <>
       <Form onSubmit={onSetUsername}>
-        <h1>Welcome in Joanna and Nadia's labyrinth</h1>
+        <h1>Welcome to< br />Joanna and Nadia's labyrinth</h1>
         <Input>
           <input
             type="text"
@@ -31,7 +29,7 @@ export const StartScreen = () => {
             onChange={e => setInputUsername(e.target.value)}
             placeholder="Enter your name here"
             required />
-          <Button type="submit">Start</Button>
+          <Button disabled={!inputUsername.length} type="submit">Start</Button>
         </Input>
       </Form>
     </>
@@ -46,7 +44,7 @@ const Form = styled.form`
   background-position: center;
   border-radius: 5px;
   padding: 10px;
-  min-height: 500px;
+  height: 480px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -59,11 +57,11 @@ const Form = styled.form`
 `
 
 const Input = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-& input {
-  padding: 5px;
-}
+  & input {
+    padding: 5px;
+  }
 `

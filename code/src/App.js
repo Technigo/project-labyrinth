@@ -2,10 +2,9 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
-import labyrinth from 'reducers/labyrinth'
+import labyrinth from './reducers/labyrinth'
 import ui from './reducers/ui'
-
-import Game from 'components/Game'
+import Game from './components/Game'
 
 const reducer = combineReducers({
   ui: ui.reducer,
@@ -28,9 +27,9 @@ store.subscribe(() => {
 const App = () => {
   return (
     <Provider store={store}>
-        <Game />
+      <Game />
     </Provider>
-    )
+  )
 }
 
 export default App

@@ -2,16 +2,14 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components/macro'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faCircleArrowDown,
+  faCircleArrowLeft,
+  faCircleArrowRight,
+  faCircleArrowUp
+} from '@fortawesome/free-solid-svg-icons'
 
-import { 
-  faCircleArrowDown, 
-  faCircleArrowLeft, 
-  faCircleArrowRight, 
-  faCircleArrowUp } from '@fortawesome/free-solid-svg-icons'
-
-import { Button } from 'styles/GlobalStyling'
-
-import labyrinth, { continueGame } from 'reducers/labyrinth'
+import { Button } from 'styles/globalStyling'
 import {
   bg0_0,
   bg0_1,
@@ -19,19 +17,18 @@ import {
   bg0_3,
   bg1_0,
   bg1_1,
-  bg1_3,
-  bg_start
-} from 'styles/BackgroundURLs'
+  bg1_3
+} from 'styles/backgroundURLs'
 
+import labyrinth, { continueGame } from 'reducers/labyrinth'
 
 export const GameScreen = () => {
   const dispatch = useDispatch()
 
-  const coordinates = useSelector(store => store.labyrinth.currentStep.coordinates)
-
   const currentStep = useSelector(store => store.labyrinth.currentStep)
   const currentStepActions = useSelector(store => store.labyrinth.currentStep.actions)
   const history = useSelector(store => store.labyrinth.history)
+  const coordinates = useSelector(store => store.labyrinth.currentStep.coordinates)
 
   const arrowToUse = (move) => {
     if (move === 'North') {
@@ -47,30 +44,36 @@ export const GameScreen = () => {
 
   return (
     <>
-      <MainDescription actions={currentStepActions.length} coordinates={coordinates}>
+      <MainDescription
+        actions={currentStepActions.length}
+        coordinates={coordinates}>
         <h3>{currentStep.description}</h3>
         {!currentStepActions.length &&
-        <RestartButton onClick={() => dispatch(labyrinth.actions.restartGame())}>Restart</RestartButton>}
-
+          <RestartButton
+            onClick={() => dispatch(labyrinth.actions.restartGame())}>
+            Restart
+          </RestartButton>}
         {history.length ?
-        <History>
-          {history.map((move, index) => (
-            <FontAwesomeIcon icon={arrowToUse(move)} key={index} />
-          ))}
-        </History>
-        :
-        ''}
+          <History>
+            {history.map((move, index) => (
+              <FontAwesomeIcon icon={arrowToUse(move)} key={index} />
+            ))}
+          </History>
+          :
+          ''}
       </MainDescription>
       {currentStepActions.length ?
-      <ActionsBox>
-        {currentStepActions.map(action => (
-          <Action key={action.direction}>
-            <ActionButton onClick={() => dispatch(continueGame(action.direction))}>Go {action.direction}</ActionButton>
-            <p>To the {action.direction}: {action.description}</p>
-          </Action>
-        ))}
-      </ActionsBox> : ''}
-      
+        <ActionsBox>
+          {currentStepActions.map(action => (
+            <Action key={action.direction}>
+              <ActionButton
+                onClick={() => dispatch(continueGame(action.direction))}>
+                Go {action.direction}
+              </ActionButton>
+              <p>To the {action.direction}: {action.description}</p>
+            </Action>
+          ))}
+        </ActionsBox> : ''}
     </>
   )
 }
@@ -86,22 +89,21 @@ const MainDescription = styled.div`
     props.actions === 0 ? '5px' : '5px 5px 0 0'
   };
   background-size: cover;
+  background-position: center;
     background-image: ${(props) =>
-      props.coordinates === '0,0'
-        ? bg0_0
-        : props.coordinates === '0,1'
-          ? bg0_1
-          : props.coordinates === '0,2'
-            ? bg0_2
-            : props.coordinates === '0,3'
-              ? bg0_3
-              : props.coordinates === '1,0'
-                ? bg1_0
-                : props.coordinates === '1,1'
-                  ? bg1_1
-                  : props.coordinates === '1,3'
-                    ? bg1_3 :
-                    bg_start};
+    props.coordinates === '0,0'
+      ? bg0_0
+      : props.coordinates === '0,1'
+        ? bg0_1
+        : props.coordinates === '0,2'
+          ? bg0_2
+          : props.coordinates === '0,3'
+            ? bg0_3
+            : props.coordinates === '1,0'
+              ? bg1_0
+              : props.coordinates === '1,1'
+                ? bg1_1
+                : bg1_3};
   
   & h3 {
     text-align: center;
@@ -129,8 +131,8 @@ const Action = styled.div`
 `
 
 const ActionButton = styled(Button)`
-height: 50px;
-    margin-right: 10px;
+  height: 50px;
+  margin-right: 10px;
 `
 
 const RestartButton = styled(Button)`
@@ -141,9 +143,14 @@ const History = styled.div`
   display: flex;
   justify-content: left;
   margin: 10px;
+  flex-wrap: wrap;
 
-  svg {
-      margin-right: 3px;
-      color: white;
+  & svg {
+    margin-right: 5px;
+    color: #ccc;
+  }
+
+  & svg:last-child {
+    color: white;
   }
 `
