@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Typewriter from "typewriter-effect";
 import Actions from "./Actions";
-import GameOver from "./GameOver";
+// import GameOver from "./GameOver";
 // import ActionsAlt from "./ActionsAlt";
 
 const Game = () => {

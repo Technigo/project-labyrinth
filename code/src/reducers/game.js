@@ -24,11 +24,9 @@ export const game = createSlice({
       store.loading = action.payload;
     },
     setDirection: (store, action) => {
-      console.log("setDirection", action.payload);
       store.direction = action.payload;
     },
     setType: (store, action) => {
-      console.log("setType", action.payload);
       store.type = action.payload;
     },
   },
