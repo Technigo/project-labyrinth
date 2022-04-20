@@ -1,36 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 
-const game = createSlice({
-name: "game",
-initialState: {
-    userName: 0,
-    gameState: {},
-    gameStarted: false,
-    isLoading: false,
-    },
+export const game = createSlice({
+    name: "game",
+    initialState: {
+        userName: 0,
+        gameState: {},
+        gameStarted: false,
+        isLoading: false,
+        },
 })
 
-export const startGame = (userName) => {
-
-    return (dispatch) => {
-        dispatch(game.actions.setLoading(true))
-        fetch('https://labyrinth-technigo.herokuapp.com/start', {
+export const fetchGame = () => {
+    return (dispatch, getState) => {
+      
+  
+      const options = {
         method: 'POST',
-        headers: {'content-type': 'application/JSON'},
-        body: JSON.stringify({
-            username: userName
-        })
-    })
-
-    .then(response => response.json())
-    .then(data => {
-    
-        dispatch(game.actions.setStartPosition(data))
-        dispatch(game.actions.setLoading(false))
-    })
-
-    }
-}
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username: getState().game.username }),
+      };
+  
+      fetch('https://labyrinth-technigo.herokuapp.com/start', options)
+        .then((res) => res.json())
+        .then((data) => {
+          dispatch(game.actions.setGameObject(data));
+          console.log(data)
+         
+        });
+    };
+  };
 
 export default game
