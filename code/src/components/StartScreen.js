@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components/macro'
 
-import { Button } from 'styles/globalStyling'
-import { bg_start } from 'styles/backgroundURLs'
+import { Button } from 'styles/GlobalStyling'
+import { bg_start } from 'styles/BackgroundURLs'
 
 import labyrinth, { startGame } from 'reducers/labyrinth'
 

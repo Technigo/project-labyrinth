@@ -9,7 +9,7 @@ import {
   faCircleArrowUp
 } from '@fortawesome/free-solid-svg-icons'
 
-import { Button } from 'styles/globalStyling'
+import { Button } from 'styles/GlobalStyling'
 import {
   bg0_0,
   bg0_1,
@@ -18,7 +18,7 @@ import {
   bg1_0,
   bg1_1,
   bg1_3
-} from 'styles/backgroundURLs'
+} from 'styles/BackgroundURLs'
 
 import labyrinth, { continueGame } from 'reducers/labyrinth'
 
