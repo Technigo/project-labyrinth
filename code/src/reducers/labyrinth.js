@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import mouseEventsHaveKeyEvents from 'eslint-plugin-jsx-a11y/lib/rules/mouse-events-have-key-events';
 import { ui } from './ui';
 
 export const labyrinth = createSlice({

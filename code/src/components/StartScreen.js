@@ -9,12 +9,14 @@ const StartScreen = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
+    console.log();
   };
 
   const onNameInput = () => {
     dispatch(labyrinth.actions.setUsername(username));
     dispatch(startGame(username));
   };
+
   return (
     <form onSubmit={onSubmit}>
       <h3>Enter you username: </h3>
