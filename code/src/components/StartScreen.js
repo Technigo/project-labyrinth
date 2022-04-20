@@ -15,7 +15,7 @@ const StartScreen = () => {
       
     return (
         <div>
-      <p>Welcome to the labyrinth! Please print your name</p>
+      <p>Welcome to the labyrinth! Print your name, please</p>
       <input
         type="text"
         value={inputValue}

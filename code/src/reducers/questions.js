@@ -10,7 +10,7 @@ const questions = createSlice({
     },
     reducers: {
       setUsername : (store, action) => {
-          store.username = action.payload
+          store.username = action.payload;
       },
       setGamedata: (store, action) => {
           store.gamedata = action.payload;
@@ -26,9 +26,9 @@ const questions = createSlice({
     }
 })
 
-export const generateGamedata = (username) => {  
+export const generateGamedata = () => {  
 
-    return (dispatch) => {
+    return (dispatch, getState) => {
     
         const options = {
             method: 'POST',
@@ -36,45 +36,43 @@ export const generateGamedata = (username) => {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-             username: 'TechnigoPlay',
-        
+             username: getState().questions.username,
             })
           }
         fetch('https://labyrinth-technigo.herokuapp.com/start', options)
         .then(res => res.json())
         .then(data => dispatch(questions.actions.setGamedata(data)))
     }
-
-
 }
 
-export const playGame = (username, direction) => {  
+export const playGame = (direction) => {  
 
-    return (dispatch) => {
-    
+    return (dispatch, getState) => {
         const options = {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-             username: username,
+             username: getState().questions.username,
              type: 'move',
-             direction: direction
+             direction: "east"
             })
           }
         fetch('https://labyrinth-technigo.herokuapp.com/action', options)
         .then(res => res.json())
         .then(data => 
-            // dispatch(questions.actions.setGamedata(data)),
+            dispatch(questions.actions.setGamedata(data)),
             dispatch(questions.actions.setDirection(direction)))
-            // dispatch(questions.actions.setHistory(data)))
-          
+                     
+        // .then(data => console.log(data,'FUNKAR'))
+                    
+      
     }
 
     
 }
 
-// https://labyrinth-technigo.herokuapp.com/action
+
 
 export default questions
