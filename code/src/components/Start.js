@@ -11,7 +11,7 @@ const Input = styled.input`
   margin: 10px auto;
   padding: 10px;
   border: none;
-  border-radius: none;
+  border-radius: 0;
 `;
 
 const Button = styled.button`
@@ -22,7 +22,7 @@ const Button = styled.button`
   margin: 10px auto;
   padding: 10px;
   border: none;
-  border-radius: none;
+  border-radius: 0;
   transition: ease-in 0.2s;
 
   &:disabled {

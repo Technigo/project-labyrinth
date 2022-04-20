@@ -15,7 +15,6 @@ const Description = styled.p`
 
 const Game = () => {
   const question = useSelector((state) => state.gameplay.question);
-  const directions = question.actions?.map((item) => item.direction);
 
   return (
     <>
@@ -27,7 +26,7 @@ const Game = () => {
           </Description>
         );
       })}
-      {question.actions && <DirectionButtons directions={directions} />}
+      {question.actions && <DirectionButtons />}
     </>
   );
 };

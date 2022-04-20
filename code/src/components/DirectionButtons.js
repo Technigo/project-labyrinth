@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import gameplay, { generateNextQuestion } from "reducers/gameplay";
 
 const Container = styled.div`
@@ -36,8 +36,12 @@ const Button = styled.button`
   }
 `;
 
-const DirectionButtons = ({ directions }) => {
+const DirectionButtons = () => {
+  const directions = useSelector((state) =>
+    state.gameplay.question.actions?.map((item) => item.direction)
+  );
   const dispatch = useDispatch();
+  const direction = ["North", "West", "East", "South"];
 
   const handleOnClick = (direction) => {
     dispatch(generateNextQuestion(direction));
@@ -50,37 +54,37 @@ const DirectionButtons = ({ directions }) => {
       <Container>
         <Button
           type="button"
+          value={direction[0]}
           onClick={(event) => handleOnClick(event.target.value)}
-          value={"North"}
-          disabled={!directions?.includes("North")}
+          disabled={!directions?.includes(direction[0])}
         >
-          North
+          {direction[0]}
         </Button>
         <div>
           <Button
             type="button"
+            value={direction[1]}
             onClick={(event) => handleOnClick(event.target.value)}
-            value={"West"}
-            disabled={!directions?.includes("West")}
+            disabled={!directions?.includes(direction[1])}
           >
-            West
-          </Button>
+            {direction[1]}
+          </Button>{" "}
           <Button
             type="button"
+            value={direction[2]}
             onClick={(event) => handleOnClick(event.target.value)}
-            value={"East"}
-            disabled={!directions?.includes("East")}
+            disabled={!directions?.includes(direction[2])}
           >
-            East
+            {direction[2]}
           </Button>
         </div>
         <Button
           type="button"
+          value={direction[3]}
           onClick={(event) => handleOnClick(event.target.value)}
-          value={"South"}
-          disabled={!directions?.includes("South")}
+          disabled={!directions?.includes(direction[3])}
         >
-          South
+          {direction[3]}
         </Button>
       </Container>
     </>
