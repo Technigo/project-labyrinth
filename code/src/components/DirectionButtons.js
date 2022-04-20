@@ -37,11 +37,17 @@ const Button = styled.button`
 `;
 
 const DirectionButtons = () => {
-  const directions = useSelector((state) =>
+  const availableMoves = useSelector((state) =>
     state.gameplay.question.actions?.map((item) => item.direction)
   );
   const dispatch = useDispatch();
-  const direction = ["North", "West", "East", "South"];
+
+  const direction = {
+    north: "North",
+    west: "West",
+    east: "East",
+    south: "South",
+  };
 
   const handleOnClick = (direction) => {
     dispatch(generateNextQuestion(direction));
@@ -54,37 +60,37 @@ const DirectionButtons = () => {
       <Container>
         <Button
           type="button"
-          value={direction[0]}
+          value={direction.north}
           onClick={(event) => handleOnClick(event.target.value)}
-          disabled={!directions?.includes(direction[0])}
+          disabled={!availableMoves?.includes(direction.north)}
         >
-          {direction[0]}
+          {direction.north}
         </Button>
         <div>
           <Button
             type="button"
-            value={direction[1]}
+            value={direction.west}
             onClick={(event) => handleOnClick(event.target.value)}
-            disabled={!directions?.includes(direction[1])}
+            disabled={!availableMoves?.includes(direction.west)}
           >
-            {direction[1]}
+            {direction.west}
           </Button>{" "}
           <Button
             type="button"
-            value={direction[2]}
+            value={direction.east}
             onClick={(event) => handleOnClick(event.target.value)}
-            disabled={!directions?.includes(direction[2])}
+            disabled={!availableMoves?.includes(direction.east)}
           >
-            {direction[2]}
+            {direction.east}
           </Button>
         </div>
         <Button
           type="button"
-          value={direction[3]}
+          value={direction.south}
           onClick={(event) => handleOnClick(event.target.value)}
-          disabled={!directions?.includes(direction[3])}
+          disabled={!availableMoves?.includes(direction.south)}
         >
-          {direction[3]}
+          {direction.south}
         </Button>
       </Container>
     </>
