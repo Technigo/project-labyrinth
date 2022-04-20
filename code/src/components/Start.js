@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { labyrinth } from "reducers/labyrinth";
+import { labyrinth, startLabyrinth } from "reducers/labyrinth";
 
 const Start = () => {
   const [input, setInput] = useState("");
-  const Dispatch = useDispatch();
+  const dispatch = useDispatch();
   const inputAdd = () => {
-    Dispatch(labyrinth.actions.setUsername(input));
+    dispatch(labyrinth.actions.setUsername(input));
+    dispatch(startLabyrinth(input));
   };
   return (
     <div>
@@ -18,7 +19,13 @@ const Start = () => {
         value={input}
         onChange={(event) => setInput(event.target.value)}
       />
-      <button onClick={inputAdd}>Start game</button>
+      <button
+        onClick={() => {
+          inputAdd();
+        }}
+      >
+        Start game
+      </button>
     </div>
   );
 };

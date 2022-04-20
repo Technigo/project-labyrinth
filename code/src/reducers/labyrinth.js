@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ui } from "./ui";
 
-const START_URL = "https://labyrinth-technigo.herokuapp.com/start";
+const START_URL = "https://wk16-backend.herokuapp.com/start";
 
 const initialState = {
   username: "",
-  coordinates: null,
+  items: { coordinates: "0.0", description: "", actions: [] },
 };
 
 export const labyrinth = createSlice({
@@ -15,11 +15,8 @@ export const labyrinth = createSlice({
     setUsername: (store, action) => {
       store.username = action.payload;
     },
-    setCoordinates: (store, action) => {
-      store.coordinates = action.payload;
-    },
-    setNewLabirynth: () => {
-      return initialState;
+    setItems: (store, action) => {
+      store.setItems = action.payload;
     },
   },
 });
@@ -30,12 +27,12 @@ export const startLabyrinth = () => {
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(),
+      body: JSON.stringify({ username: getState().labyrinth.username }),
     };
     fetch(START_URL, options)
       .then((res) => res.json())
       .then((json) => {
-        dispatch(labyrinth.actions.setCoordinates(json));
+        dispatch(labyrinth.actions.setItems(json));
         dispatch(ui.actions.setLoading(false));
       });
   };
