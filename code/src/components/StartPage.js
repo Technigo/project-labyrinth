@@ -1,9 +1,11 @@
 import React, { useState } from "react"
 import { useDispatch } from "react-redux"
 import { useNavigate } from 'react-router-dom'
+import "nes.css/css/nes.min.css";
 
 import game from "reducers/game"
 import { fetchGame } from 'reducers/game'
+import { NameInput, StartButton } from "./Style"
 
 
 const StartPage = () => {
@@ -36,24 +38,30 @@ const StartPage = () => {
 
     return(
         <div>
-            <form>
-                <input 
-                    type="text"
-                    value={name}
-                    placeholder="Enter username"
-                    onChange={onSetName}
-                    onKeyDown={(event) => {
-                        onEnter(event)
-                    }}
-                />
-            </form>
+            
+            <NameInput 
+                type='text'
+                className="name-input"
+                value={name}
+                placeholder='>Enter name here'
+                onChange={onSetName}
+                onKeyDown={(event) => {
+                    onEnter(event)
 
-            This is the start!
-            <button 
+                    
+                }}
+            />
+                    <div class="nes-field is-inline">
+                    <label for="dark_field">.input.is-dark</label>
+                    <input type="text" id="dark_field" class="nes-input is-dark" placeholder="dark.css" />
+                    </div>
+
+            <StartButton 
+                className="start-btn"
                 disabled={name.length === 0}
                 onClick={() => onStart()}>
                 Start Game!
-            </button>
+            </StartButton>
         </div>
 
      )
