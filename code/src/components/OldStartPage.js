@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
 
-import labyrinth, { generateGame } from '../reducers/labyrinth';
+import labyrinth, { generateQuote } from '../reducers/labyrinth';
 import { useDispatch } from 'react-redux';
 
 import { CardContainer, Title, TitleBar, Content, CoverImage } from './Styles';
 
 const StartPage  = () => {
-    const [player, setPlayer] = useState('');
+    const [inputValue, setInputValue] = useState('');
 
     const dispatch = useDispatch();
 
-    const onPlayerSet = () => {
-        // dispatch(labyrinth.actions.setAuthor(inputValue));
-        // dispatch(generateQuote());
-        dispatch(labyrinth.actions.setPlayer(player));
-        dispatch(generateGame());
+    const onAuthorSet = () => {
+        dispatch(labyrinth.actions.setAuthor(inputValue));
+        dispatch(generateQuote());
     }
 
     return (
@@ -27,11 +25,11 @@ const StartPage  = () => {
             
                 <input
                 type='text'
-                value={player}
-                onChange={event => setPlayer(event.target.value)}
+                value={inputValue}
+                onChange={event => setInputValue(event.target.value)}
                 />
             
-                <button onClick={onPlayerSet}>Let's begin!</button>
+                <button onClick={onAuthorSet}>Let's begin!</button>
             </Content>
         </CardContainer>
     )

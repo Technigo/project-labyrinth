@@ -7,7 +7,7 @@ import GameScreen from "./GameScreen";
 import { Container } from "./Styles";
 
 const Quotes = () => {
-    const quote = useSelector(store => store.labyrinth.quote);
+    const stage = useSelector(store => store.labyrinth.stage);
 
 
     //v3
@@ -19,7 +19,7 @@ const Quotes = () => {
     // }
     return (
         <Container>
-            {quote 
+            {stage 
                 ? <GameScreen/>
                 : <StartPage/> 
             }
