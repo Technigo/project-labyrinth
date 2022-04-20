@@ -8,15 +8,24 @@ const StartScreen = () => {
   const dispatch = useDispatch()
 
   const onNameSelect = () => {
+    const options = {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        username: value
+      })
+    }
     dispatch(labyrinth.actions.setUserName(value))
-    fetch(`https://labyrinth-technigo.herokuapp.com/start?username${value}`)
+    fetch('https://labyrinth-technigo.herokuapp.com/start', options)
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((username) => console.log(username))
   }
 
   return (
     <div>
-      <p>Welcome to the Red Riding Hood-game!</p>
+      <p>Welcome to the labyrinth!</p>
       <input
         type="text"
         value={value}
