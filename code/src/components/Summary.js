@@ -14,12 +14,14 @@ const Button = styled.button`
   border: none;
   border-radius: none;
   transition: ease-in 0.2s;
-	cursor: pointer;
+  cursor: pointer;
 
-	&:hover {
-		color: black;
-		background-color: white;
-	}
+  @media (min-width: 768px) {
+    &:hover {
+      color: white;
+      background-color: tomato;
+    }
+  }
 `;
 
 const Summary = () => {

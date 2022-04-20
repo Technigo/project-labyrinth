@@ -20,12 +20,14 @@ const Button = styled.button`
   background-color: white;
   border: none;
   font-family: inherit;
+  cursor: pointer;
+  transition: 0.2s ease-in;
 
-  &:enabled:hover {
-    color: white;
-    background-color: tomato;
-    cursor: pointer;
-    transition: 0.2s ease-in;
+  @media (min-width: 768px) {
+    &:enabled:hover {
+      color: white;
+      background-color: tomato;
+    }
   }
 
   &:disabled {
