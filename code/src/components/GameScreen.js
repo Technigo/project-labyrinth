@@ -2,6 +2,8 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import game, { generateGame } from 'reducers/game';
 
+import ProgressBar from './ProgressBar';
+
 const GameScreen = () => {
   const step = useSelector(store => store.game.currentStep)
 
@@ -13,10 +15,10 @@ const GameScreen = () => {
   
   return (
     <div>
-      <h3>{step.description}</h3>
+      <h3 className='nes-balloon from-left nes-pointer'>{step.description}</h3>
       {step.actions.map(action => (
-        <div key={action.description}>
-          <h4 key={action.description}>{action.description}</h4>
+        <div className='nes-container is-rounded' key={action.description}>
+          <h4>{action.description}</h4>
           <button 
             onClick={() => onNextStep(action)}
             >
@@ -24,6 +26,7 @@ const GameScreen = () => {
           </button>
         </div>
       ))}
+      <ProgressBar />
       {step.actions.length === 0 && <button onClick={() => dispatch(game.actions.restart())}>restart</button>}
     </div>
   )

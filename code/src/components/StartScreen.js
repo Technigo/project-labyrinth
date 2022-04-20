@@ -8,20 +8,27 @@ const StartScreen = () => {
 
   const dispatch = useDispatch();
 
-  const startGame = () => {
+  const startGame = (event) => {
+    event.preventDefault();
     dispatch(game.actions.setPlayer(inputValue));
     dispatch(generateGame());
-  }
-  
+  };
+
   return (
     <div>
-      <p>Welcome. Type your name:</p>
-      <input 
-        type="text"
-        value={inputValue}
-        onChange={event => setInputValue(event.target.value)}
-      />
-      <button onClick={startGame}>Start the game</button>
+      <div className='nes-container is-rounded'>
+        <p>Welcome. Type your name:</p>
+      </div>
+      <form className='nes-field is-inline' onSubmit={startGame}>
+        <input
+          type='text'
+          id='inline_field'
+          value={inputValue}
+          className='nes-input is-success'
+          onChange={event => setInputValue(event.target.value)}
+        />
+        <button type='submit' className='nes-btn is-success'>Start the game</button>
+      </form>
     </div>
   )
 };
