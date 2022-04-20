@@ -1,5 +1,13 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import styled from 'styled-components/macro'
+
+const Loader = styled.p`
+  font-size: 50px;
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+`
 
 //store.ui för att nå den slicen
 //store.ui.isLoading då det är initialState som då är antingen falsk till att börja med
@@ -8,7 +16,7 @@ import { useSelector } from 'react-redux'
 const Loading = () => {
     const isLoading = useSelector((store) => store.ui.isLoading)
     
-    return isLoading && <p>Un momento por favor</p>
+    return isLoading && <Loader>Game is loading...</Loader>
 }
 
 export default Loading

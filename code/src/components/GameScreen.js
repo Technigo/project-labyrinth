@@ -1,7 +1,29 @@
 import React from "react";
+import GamePicture from '../assets/GameScreenPicture.jpg';
 import { useSelector, useDispatch } from "react-redux";
+import styled from 'styled-components/macro'
 
 import game, { continueGame } from "../reducers/game";
+
+const GameContainer = styled.div`
+ display: flex:
+ flex-direction: column;
+ height: 100vh;
+`
+const GameBoardPicture = styled.main `
+background-image: url(${GamePicture});
+background-size: cover;
+`
+const GameBoardInfo = styled.div`
+ background-color: #FFF;
+ padding: 30px;
+ margin: 20px;
+ `
+
+const GoBackButton = styled.button` 
+  font-size: 16px;
+  padding: 8px;
+`
 
 const GameScreen = ({username}) => {
   const currentStep= useSelector((store) => store.game.currentStep);
@@ -15,11 +37,13 @@ const GameScreen = ({username}) => {
   };
 
   return (
-    <div>
-        <button disabled={!history.length} onClick={onGameRevert}>
+
+    <GameBoardPicture>
+    <GameContainer>
+        <GoBackButton disabled={!history.length} onClick={onGameRevert}>
         Go back
-      </button>
-      
+      </GoBackButton>
+      <GameBoardInfo>
         <h2>Hello {username}</h2>
       <h3>{currentStep.description}</h3>
       {userActions.map((action) => (
@@ -32,7 +56,9 @@ const GameScreen = ({username}) => {
 
           </div>
       ))}
-    </div>
+      </GameBoardInfo>
+    </GameContainer>
+    </GameBoardPicture>
   )
   
 };
