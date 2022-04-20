@@ -5,12 +5,12 @@ import StartScreen from './StartScreen'
 import GameScreen from './GameScreen'
 
 const Game = () => {
-    const description = useSelector(store => store.game.username)
+    const username = useSelector(store => store.game.username)
 
 return (
     <div>
-        {description
-            ? <GameScreen/>
+        {username
+            ? <GameScreen />
             : <StartScreen/>
         }
         </div>

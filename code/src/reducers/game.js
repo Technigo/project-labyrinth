@@ -1,49 +1,31 @@
 import { createSlice } from '@reduxjs/toolkit'
+import ui from './ui'
 
 const game = createSlice({
     name: 'game', 
     initialState: {
+        actions: '',
         username: null,
-        // type: null,
-        // direction: null
+        // type: '',
+        // direction: '',
         // description: null
     },
     reducers: {
         setPlayer: (store, action) => {
-            // store.player = action.payload
             store.username = action.payload
         },
         // setDescription: (store, action) => {
         //     store.description = action.payload
         // }
-        setAction: (store, action) => {
-            // store.type = action.payload
-            store.direction = action.payload
+        setActions: (store, action) => {
+            store.actions = action.payload
         }
     }
 })  
 
 export const generatePlayerName = () => {
     return (dispatch, getState) => {
-        const options =  {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({   
-                username: getState().game.username
-            })
-        }
-
-        fetch('https://labyrinth-technigo.herokuapp.com/start', options)
-            .then((res) => res.json())
-            // .then(player => dispatch(game.actions.setPlayer(player)))
-            .then(username => dispatch(game.actions.setPlayer(username)))
-    }
-}
-
-export const generateAction = ( { type, direction } ) => {
-    return (dispatch, getState) => {
+        dispatch(ui.actions.setLoading(true))
         const options =  {
             method: 'POST',
             headers: {
@@ -51,14 +33,33 @@ export const generateAction = ( { type, direction } ) => {
             },
             body: JSON.stringify({   
                 username: getState().game.username,
-                type: type,
-                direction: direction
             })
         }
-
-        fetch('https://labyrinth-technigo.herokuapp.com/action', options)
+        fetch('https://labyrinth-technigo.herokuapp.com/start', options)
             .then((res) => res.json())
-            .then((direction) => dispatch(game.actions.setAction(direction)))
+            .then((data) => dispatch(game.actions.setActions(data)))
+            .finally(dispatch(ui.actions.setLoading(false)))
+    }
+}
+
+
+export const generateAction = (type, direction) => {
+    return (dispatch, getState) => {
+        dispatch(ui.actions.setLoading(true))
+        fetch('https://labyrinth-technigo.herokuapp.com/action', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({   
+                username: getState().game.username,
+                type,
+                direction,
+            }),
+        })
+            .then((res) => res.json())
+            .then((data) => dispatch(game.actions.setActions(data)))
+            .finally(dispatch(ui.actions.setLoading(false)))
     }
 }
 
