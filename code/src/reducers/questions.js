@@ -13,18 +13,25 @@ export const questions = createSlice({
   },
 });
 
-// export const generateQuestion = () => {
-//   const options = {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify({
-//       username,
-//     }),
-//   };
+export const generateQuestion = () => {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      username: 'TestPlayer',
+    }),
+  };
 
-//   return (dispatch, getState) => {
-//     fetch(``);
-//   };
-// };
+  return (dispatch, getState) => {
+    fetch(
+      `https://labyrinth-technigo.herokuapp.com/start?username=${
+        getState().questions.username
+      }`,
+      options
+    )
+      .then((res) => res.json())
+      .then((question) => console.log(question));
+  };
+};

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { questions } from 'reducers/questions';
+import { questions, generateQuestion } from 'reducers/questions';
 
 export const StartScreen = () => {
   const [inputValue, setInputValue] = useState('');
@@ -8,6 +8,8 @@ export const StartScreen = () => {
 
   const onUserSet = () => {
     console.log(inputValue);
+    dispatch(questions.actions.setUsername(inputValue));
+    dispatch(generateQuestion());
   };
 
   return (
