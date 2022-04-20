@@ -18,7 +18,7 @@ const StartScreen = () => {
     <section className='start-container'>
       <i class="snes-logo" />
       <div className='nes-container is-rounded'>
-        <p>Welcome. Type your name:</p>
+        <h1>Welcome to the Maze</h1>
       </div>
       <form className='nes-field is-inline' onSubmit={startGame}>
         <input
@@ -27,6 +27,7 @@ const StartScreen = () => {
           value={inputValue}
           className='nes-input is-success'
           onChange={event => setInputValue(event.target.value)}
+          placeholder="Type your name"
           required
         />
         <button type='submit' className='nes-btn is-success'>Start the game</button>

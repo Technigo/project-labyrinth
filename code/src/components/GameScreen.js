@@ -38,7 +38,16 @@ const GameScreen = () => {
               className='action-button'
               onClick={() => onNextStep(action)}
               >
-              {action.type}&nbsp;{action.direction}
+              {'Move ' + action.direction + (
+                action.direction === 'North'
+                ? '⬆'
+                : action.direction === 'South'
+                ? '⬇'
+                : action.direction === 'West'
+                ? '⬅'
+                : action.direction === 'East'
+                ? '⮕'
+                : '')}
             </button>
           </div>
         </div>

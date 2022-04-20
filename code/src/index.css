@@ -42,6 +42,7 @@ code {
 
 .action-container {
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .action-button {
@@ -56,5 +57,11 @@ code {
 @media (min-width: 667px) {
   .start-container, .game-container {
     width: 650px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .start-container, .game-container {
+    width: 900px;
   }
 }
