@@ -21,10 +21,7 @@ const GameScreen = ({ username }) => {
           {gameActions.map((action) => (
             <div key={action.description}>
               <p>{action.description}</p>
-              <button
-                type='submit'
-                onClick={() => dispatch(continueGame(action.direction))}
-              >
+              <button onClick={() => dispatch(continueGame(action.direction))}>
                 {action.direction}
               </button>
             </div>

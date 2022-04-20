@@ -48,23 +48,22 @@ export const startGame = (username) => {
 
 const NEXT_API = 'https://labyrinth-technigo.herokuapp.com/action';
 
-export const continueGame = (username, direction) => {
-  return (dispatch) => {
+export const continueGame = (type, direction) => {
+  return (dispatch, getState) => {
     dispatch(ui.actions.setLoading(true));
     fetch(NEXT_API, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        username: username,
-        type: 'move',
-        direction: direction,
+        username: getState().labyrinth.username,
+        type,
+        direction,
       }),
     })
       .then((res) => res.json())
       .then((json) => {
         dispatch(labyrinth.actions.setCurrentStep(json));
         dispatch(ui.actions.setLoading(false));
-        console.log(json);
       });
   };
 };
