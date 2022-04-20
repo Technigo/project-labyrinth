@@ -4,8 +4,10 @@ import { useSelector } from "react-redux";
 import StartPage from './StartPage';
 import GameScreen from "./GameScreen";
 
+import { Container } from "./Styles";
+
 const Quotes = () => {
-    const quote = useSelector(store => store.quotes.quote);
+    const quote = useSelector(store => store.labyrinth.quote);
 
 
     //v3
@@ -16,12 +18,12 @@ const Quotes = () => {
     //     return <StartPage/>
     // }
     return (
-        <div>
+        <Container>
             {quote 
                 ? <GameScreen/>
                 : <StartPage/> 
             }
-        </div>
+        </Container>
         
     )
 
