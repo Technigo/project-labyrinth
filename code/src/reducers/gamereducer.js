@@ -1,38 +1,48 @@
 import { createSlice } from "@reduxjs/toolkit"
-//START ELLER ACTION?
 // import { API_START_URL, API_ACTION_URL } from "utils/urls"
 
 export const gamereducer = createSlice({
   name: "gamereducer",
   initialState: {
-    username: null,
     currentPosition: null,
-    // history: [],
+    username: null,
+    history: [],
     loading: false,
   },
+
   reducers: {
+    setCurrentPosition: (store, action) => {
+      if (store.currentPosition !== null) {
+        store.history.push(store.currentPosition)
+      }
+      store.currentPosition = action.payload
+    },
+
+    setHistory: (store, action) => {
+      if (store.history.length !== 0) {
+        store.currentPosition = store.history[store.history.length - 1]
+      }
+    },
+
     setUsername: (store, action) => {
       store.username = action.payload
     },
-    setCurrentPosition: (store, action) => {
-      store.currentPosition = action.payload
+
+    setLoading: (store, action) => {
+      store.loading = action.payload
     },
-    // gör en setHistory här om vi ska lägga till den funktionen
-  },
-  setLoading: (store, action) => {
-    store.loading = action.payload
   },
 })
 
 export const startGame = () => {
   return (dispatch, getState) => {
     dispatch(gamereducer.actions.setLoading(true))
-    fetch("https://labyrinth-technigo.herokuapp.com/start", {
+    fetch(`https://labyrinth-technigo.herokuapp.com/start`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify({ username: getState().game.username }),
+      body: JSON.stringify({ username: getState().gamereducer.username }),
     })
       .then((res) => res.json())
       .then((data) => dispatch(gamereducer.actions.setCurrentPosition(data)))
@@ -42,8 +52,8 @@ export const startGame = () => {
 
 export const nextStep = (type, direction) => {
   return (dispatch, getState) => {
-    // dispatch(gamereducer.actions.setLoading(true))
-    fetch("https://labyrinth-technigo.herokuapp.com/action", {
+    dispatch(gamereducer.actions.setLoading(true))
+    fetch(`https://labyrinth-technigo.herokuapp.com/action`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -55,10 +65,7 @@ export const nextStep = (type, direction) => {
       }),
     })
       .then((res) => res.json())
-      .then((data) => {
-        dispatch(gamereducer.actions.setCurrentPosition(data))
-        // dispatch(game.actions.setHistory(data))
-      })
-    // .finally(() => dispatch(gamereducer.actions.setLoading(false)))
+      .then((data) => dispatch(gamereducer.actions.setCurrentPosition(data)))
+      .finally(() => dispatch(gamereducer.actions.setLoading(false)))
   }
 }
