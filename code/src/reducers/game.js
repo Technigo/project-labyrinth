@@ -19,6 +19,7 @@ const game = createSlice({
 })  
 
 export const generatePlayerName = () => {
+    return (dispatch, getState) => {
 const options =  {
     method: 'POST',
     headers: {
@@ -26,11 +27,11 @@ const options =  {
     },
     body: JSON.stringify({
     
-        username: 'technigoplayer91'
+        username: getState().game.player
     })
 }
 
-return (dispatch) => {
+
 fetch('https://labyrinth-technigo.herokuapp.com/start', options)
 .then((res) => res.json())
         .then(player => dispatch(game.actions.setPlayer(player)))
