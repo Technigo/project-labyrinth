@@ -21,7 +21,6 @@ const GamePlay = () => {
 
 <section>
             <div>
-                <p>User: {username} </p>
                 <h3>{gameObject.description}</h3>
             </div>
 
