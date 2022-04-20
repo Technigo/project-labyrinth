@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { labyrinth, startLabyrinth } from "reducers/labyrinth";
+import { labyrinth, startLabyrinth } from "../reducers/labyrinth";
 
 const Start = () => {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
   const inputAdd = () => {
     dispatch(labyrinth.actions.setUsername(input));
-    dispatch(startLabyrinth(input));
+    dispatch(startLabyrinth());
   };
   return (
     <div>
