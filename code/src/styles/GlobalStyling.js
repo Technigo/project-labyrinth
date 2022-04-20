@@ -10,4 +10,5 @@ export const Button = styled.button`
   border-color: transparent;
   border-radius: 5px;
   align-self: center;
+  font-size: 1rem;
 `

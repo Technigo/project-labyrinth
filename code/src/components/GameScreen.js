@@ -50,7 +50,7 @@ export const GameScreen = () => {
       <MainDescription actions={currentStepActions.length} coordinates={coordinates}>
         <h3>{currentStep.description}</h3>
         {!currentStepActions.length &&
-        <Button onClick={() => dispatch(labyrinth.actions.restartGame())}>Restart</Button>}
+        <RestartButton onClick={() => dispatch(labyrinth.actions.restartGame())}>Restart</RestartButton>}
 
         {history.length ?
         <History>
@@ -131,6 +131,10 @@ const Action = styled.div`
 const ActionButton = styled(Button)`
 height: 50px;
     margin-right: 10px;
+`
+
+const RestartButton = styled(Button)`
+  min-width: 80px;
 `
 
 const History = styled.div`

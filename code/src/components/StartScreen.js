@@ -29,7 +29,8 @@ export const StartScreen = () => {
             type="text"
             value={inputUsername}
             onChange={e => setInputUsername(e.target.value)}
-            placeholder="Enter your name here" />
+            placeholder="Enter your name here"
+            required />
           <Button type="submit">Start</Button>
         </Input>
       </Form>
