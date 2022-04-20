@@ -1,20 +1,71 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const game = createSlice({
-    name: 'game',
-    initialState: {
-        username: null,
-        loading: false
+  name: 'game',
+  initialState: {
+    username: null,
+    currentPosition: null,
+    loading: false,
+    gameState: false,
+  },
+  reducers: {
+    setUsername: (store, action) => {
+      store.username = action.payload
     },
-    reducers: {
-        setUsername: (store, action) => {
-            store.username = action.payload
-        },
-        setLoading: (store, action) => {
-            store.loading = action.payload
-        }
+    setCurrentPosition: (store, action) => {
+      store.currentPosition = action.payload
+    },
+    setNextPosition: (store, action) => {
+      store.gameState = action.payload;
+    },
+    setLoading: (store, action) => {
+      store.loading = action.payload
     }
-
+  }
 })
+
+export const startGame = () => {
+  return (dispatch, getState) => {
+    dispatch(game.actions.setLoading(true))
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username: getState().game.username })
+    }
+    fetch(`https://labyrinth-technigo.herokuapp.com/start`, options)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        dispatch(game.actions.setCurrentPosition(data))
+      })
+      .finally(() => dispatch(game.actions.setLoading(false)))
+  }
+}
+
+export const getNextPosition = (action, userName) => {
+
+  return (dispatch) => {
+    dispatch(game.actions.setLoading(true))
+    fetch(`https://labyrinth-technigo.herokuapp.com/action`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/JSON' },
+      body: JSON.stringify({
+        username: userName,
+        type: "move",
+        direction: action
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        dispatch(game.actions.setNextPosition(data))
+        dispatch(game.actions.setLoading(false))
+        dispatch(game.actions.setCurrentPosition(data))
+      })
+  }
+}
 
 export default game

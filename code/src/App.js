@@ -1,8 +1,10 @@
 import React from 'react'
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
-import LoaderContainer from './components/LoaderContainer'
+import LoadingPage from 'components/LoadingPage'
+import Start from './components/Start'
+import Game from './components/Game'
 
 import game from './reducers/game'
 
@@ -12,10 +14,16 @@ const reducer = combineReducers({
 
 const store = configureStore({ reducer })
 
-export const App = () => {
+const App = () => {
   return (
     <Provider store={store}>
-      <LoaderContainer />
+      <LoadingPage />
+      <Start />
+      <Game />
     </Provider>
   )
 }
+
+export default App
+
+
