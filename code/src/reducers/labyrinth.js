@@ -7,7 +7,7 @@ const NEXT_URL = "https://labyrinth-technigo.herokuapp.com/action";
 const initialState = {
   username: "",
   gameStatus: null,
-  items: { coordinates: "0.0", description: "", actions: [] },
+  items: { coordinates: "0.0", description: "", actions: {} },
 };
 
 export const labyrinth = createSlice({
