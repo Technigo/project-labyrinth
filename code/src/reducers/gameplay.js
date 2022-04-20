@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   username: null,
   question: {},
+  moves: [],
 };
 
 const gameplay = createSlice({
@@ -14,6 +15,9 @@ const gameplay = createSlice({
     },
     setGameQuestion: (state, action) => {
       state.question = action.payload;
+    },
+    setMove: (state, action) => {
+      state.moves = [...state.moves, action.payload];
     },
     restart: () => {
       return initialState;

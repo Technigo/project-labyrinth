@@ -1,10 +1,15 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { generateNextQuestion } from "reducers/gameplay";
+import gameplay, { generateNextQuestion } from "reducers/gameplay";
 
 const Game = () => {
   const question = useSelector((state) => state.gameplay.question);
   const dispatch = useDispatch();
+
+  const handleOnClick = (direction) => {
+    dispatch(generateNextQuestion(direction));
+    dispatch(gameplay.actions.setMove(direction));
+  };
 
   return (
     <>
@@ -13,7 +18,7 @@ const Game = () => {
         return (
           <div key={index}>
             <p>{item.description}</p>
-            <button type="button" onClick={() => dispatch(generateNextQuestion(item.direction))}>
+            <button type="button" onClick={() => handleOnClick(item.direction)}>
               Go {item.direction}
             </button>
           </div>
