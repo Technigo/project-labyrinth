@@ -14,24 +14,24 @@ export const game = createSlice({
     },
     reducers: {
       setGameObject: (state, action) => {
-        // if(state.gameObject !== null) {
-        //   state.history.push(state.gameObject)
-        // }
+        if(state.gameObject) {
+          state.history.push(state.gameObject)
+        }
         state.gameObject = action.payload;
       },
 
-      setPreviousGameObject: (state, action) => {
-        // if (state.history.length !== 0) {
-        //   state.game = state.history[state.history.length -1]
+      // setPreviousGameObject: (state, action) => {
+      //   if (state.history.length !== 0) {
+      //     state.game = state.history[state.history.length -1]
 
-        //   const editedHistory = state.history.slice(0, state.history.length -1)
-        //   state.history = editedHistory
-        // }
+      //     const editedHistory = state.history.slice(0, state.history.length -1)
+      //     state.history = editedHistory
+      //   }
 
         // if (state.gameObject) {
         //   state.history = [...state.history, action.payload]
         // }
-      },
+      // },
 
       setUserName: (state, action) => {
         state.username = action.payload;
