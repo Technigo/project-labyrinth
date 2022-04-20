@@ -5,7 +5,8 @@ import { START_URL, CONTINUE_URL } from 'utils/urls';
 
 const initialState = {
   player: null,
-  currentStep: null
+  currentStep: null,
+  history: []
 };
 
 const game = createSlice({
@@ -16,7 +17,17 @@ const game = createSlice({
       store.player = action.payload;
     },
     setCurrentStep: (store, action) => {
-      store.currentStep = { ...action.payload };
+      if (store.currentStep) {
+        store.history.push(store.currentStep);
+      }
+      store.currentStep = action.payload;
+    },
+    setPreviousStep: (store, action) => {
+     if (store.history.length) {
+       store.currentStep = store.history[store.history.length -1];
+       const changedHistory = store.history.slice(0, store.history.length -1);
+       store.history = changedHistory;
+     }
     },
     restart: () => {
       return initialState;
