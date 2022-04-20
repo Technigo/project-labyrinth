@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import games from '../reducers/games';
+import games, { generateGame } from '../reducers/games';
 
 const StartScreen = () => {
     const [inputValue, setInputValue] = useState(''); //Property + handler to update property
@@ -10,13 +10,7 @@ const StartScreen = () => {
 
     const onUserSet = () => {
         dispatch(games.actions.setUsername(inputValue));
-        fetch('https://labyrinth-technigo.herokuapp.com/start', {
-            method: "POST",
-            headers: {'Content-Type': 'application/json'}, 
-            body: JSON.stringify(inputValue)
-        })
-            .then(res => res.json())
-            .then(game => dispatch(games.actions.setGame(game)));
+        dispatch(generateGame());
     }
 
   return (
