@@ -5,9 +5,12 @@ import StartScreen from 'components/StartScreen';
 import GameScreen from 'components/StartScreen';
 import Game from 'components/Game';
 import { labyrinth } from './reducers/labyrinth';
+import { ui } from './reducers/ui';
+import Loading from 'components/Loading';
 
 const reducer = combineReducers({
   labyrinth: labyrinth.reducer,
+  ui: ui.reducer,
 });
 
 const store = configureStore({ reducer });
@@ -15,6 +18,7 @@ const store = configureStore({ reducer });
 export const App = () => {
   return (
     <Provider store={store}>
+      <Loading />
       <Game />
     </Provider>
   );
