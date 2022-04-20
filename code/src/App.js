@@ -6,9 +6,11 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import Game from 'components/Game'
 
 import game from 'reducers/game';
+import ui from 'reducers/ui';
 
 const reducer = combineReducers({
   game: game.reducer,
+  ui: ui.reducer
 });
 
 const store = configureStore({ reducer });

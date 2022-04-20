@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+import ui from "./ui";
+
 const game = createSlice( {
     name: 'game',
     initialState: {
@@ -12,16 +14,18 @@ const game = createSlice( {
             store.username = action.payload
         },
         setHistory: (store, action) => {
-            store.description = action.payload
+            store.history.push(action.payload)
         },
         setCurrentStep: (store, action) => {
             store.currentStep = action.payload
         }
-    },
+           },
 })
 
 export const generateGame = () => {
     return (dispatch, getState) => {
+        dispatch(ui.actions.setLoading(true))
+
       fetch(`https://labyrinth-technigo.herokuapp.com/start`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -29,32 +33,32 @@ export const generateGame = () => {
       })
         .then((res) => res.json())
         .then((json) => {
-          dispatch(game.actions.setCurrentStep(json));
+          dispatch(game.actions.setCurrentStep(json))
+          dispatch(ui.actions.setLoading(false))
         });
     };
   };
 
-  export const continueGame = (direction) => {
+  export const continueGame = (type, direction) => {
       return (dispatch, getState) => {
+          dispatch(ui.actions.setLoading(true))
+
         fetch(`https://labyrinth-technigo.herokuapp.com/action`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ 
                 username: `${getState().game.username}`,
-                type: 'move',
-                direction: direction
+                type,
+                direction
             }),
           })
             .then((res) => res.json())
             .then((json) => {
               dispatch(game.actions.setCurrentStep(json))
-              dispatch(game.actions.setHistory);
+              dispatch(game.actions.setHistory)
+              dispatch(ui.actions.setLoading(false))
             });
       }
-        
-      
-    
-
   }
 
   

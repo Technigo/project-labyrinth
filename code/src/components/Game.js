@@ -3,16 +3,20 @@ import { useSelector } from 'react-redux';
 
 import StartScreen from './StartScreen';
 import GameScreen from "./GameScreen";
+import Loading from "./Loading";
 
 
 const Game = () => {
-    const gameBoard = useSelector((store) => store.game.gameBoard)
+    const username = useSelector((store) => store.game.username)
+    const isLoading = useSelector((store) => store.ui.isLoading)
     
-
+    if (isLoading === true) {
+        return <Loading/>
+    }
     return (
     <div>
-        {gameBoard
-        ? <GameScreen /> 
+        {username
+        ? <GameScreen username={username} /> 
         : <StartScreen />}
     </div>
     )

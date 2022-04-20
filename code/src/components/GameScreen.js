@@ -3,34 +3,38 @@ import { useSelector, useDispatch } from "react-redux";
 
 import game, { continueGame } from "../reducers/game";
 
-const GameScreen = () => {
+const GameScreen = ({username}) => {
   const currentStep= useSelector((store) => store.game.currentStep);
   const history = useSelector((store) => store.game.history);
   const userActions = useSelector ((store) => store.game.currentStep.actions)
-
+  
   const dispatch = useDispatch();
-
-  const onGameRegenerate = (GameTag) => {
-    dispatch(continueGame(GameTag));
-  };
-
+  
   const onGameRevert = () => {
-    dispatch(game.actions.setPreviousGame());
+    dispatch(game.actions.setHistory());
   };
 
   return (
     <div>
-      <button disabled={!history.length} onClick={onGameRevert}>
+        <button disabled={!history.length} onClick={onGameRevert}>
         Go back
       </button>
-      <h3> Test! {currentStep.description}</h3>
+      
+        <h2>Hello {username}</h2>
+      <h3>{currentStep.description}</h3>
       {userActions.map((action) => (
-        <button key={action.description} onClick={() => onGameRegenerate(description)}>
-          {description}
-        </button>
+          <div key={action.direction}>
+              <p>{action.description}</p>
+              <button onClick={() =>
+                dispatch(continueGame(action.type, action.direction)) }>
+                  Go to {action.direction}
+              </button>
+
+          </div>
       ))}
     </div>
-  );
+  )
+  
 };
 
 export default GameScreen;
