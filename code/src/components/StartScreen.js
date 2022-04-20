@@ -5,7 +5,9 @@ import { useNavigate } from 'react-router-dom'
 import game from '../reducers/game'
 import { fetchGame } from 'reducers/game'
 
-
+import {
+    GameArea
+} from 'styles'
 
 const StartScreen = () => {
 
@@ -40,7 +42,7 @@ const StartScreen = () => {
     
     return (
 
-    <section>
+        <GameArea >
         
         <h1>Let's play a game!</h1>
    
@@ -66,7 +68,7 @@ const StartScreen = () => {
         
         </form>
      
-        </section>
+        </GameArea >
 
     )
 
