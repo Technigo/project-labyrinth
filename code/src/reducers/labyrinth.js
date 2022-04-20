@@ -3,35 +3,38 @@ import { createSlice } from '@reduxjs/toolkit';
 const labyrinth = createSlice({
   name: 'labyrinth',
   initialState: {
-    username: null
-    // currentPosition: [],
-    // loading: false,
+    username: null,
+    currentPosition: {}
   },
-  reducers: {
-    setUserName: (state, action) => {
-      state.username = action.payload
-    },
 
-    setCurrentPosition: (state, action) => {
-      state.currentPosition = action.payload
+  reducers: {
+    setUserName: (store, action) => {
+      store.username = action.payload
     },
-    setLoading: (state, action) => {
-      state.loading = action.payload
+    setCurrentPosition: (store, action) => {
+      store.currentPosition = action.payload
     },
-  },
+  }
 })
 
-// export const generateLabyrinth = (username) => {
-//   return (dispatch, getState) => {
-//     fetch('https://labyrinth-technigo.herokuapp.com/start', {
-//       method: 'POST',
-//       headers: {
-//         'Content type': 'application/json',
-//       },
-//       body: JSON.stringify({ username }),
-//     })
-//       .then((res) => res.json())
-//       .then((data) => dispatch(labyrinth.actions.setUserName(username)))
-//   }
-// }
+// THUNK 
+export const generateLabyrinth = () => {
+
+  const options = {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      username: inputValue
+    })
+  }
+
+  return (dispatch, getState) => {
+    fetch(`https://labyrinth-technigo.herokuapp.com/start=${getState().labyrinth.username}`, options)
+      .then(res => res.json())
+      .then(position => dispatch(labyrinth.actions.setCurrentPosition(position)))
+  }
+}
+
 export default labyrinth
