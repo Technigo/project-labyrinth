@@ -1,10 +1,8 @@
 import React from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { nextStep } from "../reducers/gamereducer"
+import { gamereducer, nextStep } from "../reducers/gamereducer"
 
 const Maze = () => {
-  const Store = useSelector((store) => store)
-  console.log(Store)
   const { description, coordinates, actions } = useSelector(
     (store) => store.gamereducer.currentPosition
   )
@@ -18,19 +16,31 @@ const Maze = () => {
     <div className='next-action'>
       <p>{description}</p>
       <button onClick={() => handleButtonClick(type, direction)}>
-        {type} {direction.toLowerCase()}
+        {type} {direction}
       </button>
     </div>
   )
 
+  const history = useSelector((store) => store.gamereducer.history)
+
+  const goBack = () => {
+    dispatch(gamereducer.actions.setHistory())
+  }
+
   return (
-    <section>
-      <h1>{description}</h1>
-      <p>{coordinates}</p>
-      {actions.length === 0 && <h3>Yes! you found your way out!</h3>}
-      {actions.length > 0 &&
-        actions.map((item) => <NextAction key={item.direction} {...item} />)}
-    </section>
+    <>
+      <button disabled={!history.length} onClick={goBack}>
+        Go back
+      </button>
+
+      <section>
+        <h1>{description}</h1>
+        <p>{coordinates}</p>
+        {actions.length === 0 && <h3>Yes! you found your way out!</h3>}
+        {actions.length > 0 &&
+          actions.map((item) => <NextAction key={item.direction} {...item} />)}
+      </section>
+    </>
   )
 }
 
