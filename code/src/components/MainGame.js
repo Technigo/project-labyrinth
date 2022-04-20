@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const MainGame = () => {
     const gameObject = useSelector((store) => store.game.gameObject)
     const username = useSelector((store) => store.game.username)
+    const history = useSelector((store) => store.game.history)
     const navigate = useNavigate()
 
     const dispatch = useDispatch()
@@ -35,6 +36,7 @@ const MainGame = () => {
                                 dispatch(fetchGameSteps({ direction: action.direction }))
                             }}
                         >
+
                             <span>
                                 Go {''}
                                 {action.direction +
@@ -56,7 +58,7 @@ const MainGame = () => {
                 </div>
             )}
        
-            {!gameObject.actions.length && (
+            {gameObject.coordinates === "1,3" && (
                 <div>
                     <h3>You won!</h3>
                     <button onClick={onRestartClick}>
@@ -65,6 +67,7 @@ const MainGame = () => {
                 </div>
             )}
              </div>
+             
         </section>
     )
 }
