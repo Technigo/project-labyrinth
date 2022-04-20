@@ -5,7 +5,7 @@ import StartScreen from './StartScreen'
 import GameScreen from './GameScreen'
 
 const Game = () => {
-    const description = useSelector(store => store.game.player)
+    const description = useSelector(store => store.game.username)
 
 return (
     <div>

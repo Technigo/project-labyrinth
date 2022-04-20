@@ -19,12 +19,11 @@ const StartScreen = () => {
             type="text"
             value={inputValue}
             onChange={event => setInputValue(event.target.value)}
-        />
+            />
 
-        <button onClick={onPlayerSet}>Start game!</button>
+            <button onClick={onPlayerSet}>Start game!</button>
         </div>
     )
-
 }
 
 export default StartScreen
