@@ -3,22 +3,25 @@ import { useSelector, useDispatch } from "react-redux"
 import { MiniMap } from "./MiniMap"
 import { nextStep } from "reducers/game"
 import styled from "styled-components/macro"
+import { Game } from "./Game"
 
 import arrow from "../assets/compass.svg"
 
 const Section = styled.section`
 position: relative;
 width: 80%;
+height: 100%;
 max-width: 400px;
 display: flex;
 flex-direction: column;
-justify-content: center;
+justify-content: space-evenly;
 align-items: center;
-justify-items: center;
 padding: 20px;
+margin: auto;
 `
 const Title = styled.h1`
 align-text: center;
+
 `
 const NorthButton = styled.button`
 position: absolute;
@@ -28,12 +31,12 @@ width: 50px;
 background: transparent;
 border: none;
 color: white;
-top: 0;
+top: -10%;
 left: 50%;
 `
 const WestButton = styled.button`
 position: absolute;
-left: 0;
+left: -15%;
 top: 50%;
 transform: rotate(-90deg);
 display: flex;
@@ -45,7 +48,7 @@ color: white;
 `
 const SouthButton = styled.button`
 position: absolute;
-bottom: 0;
+bottom: -10%;
 left: 50%;
 transform: rotate(180deg);
 display: flex;
@@ -57,7 +60,7 @@ color: white;
 `
 const EastButton = styled.button`
 position: absolute;
-right: 0;
+right: -15%;
 top: 50%;
 transform: rotate(90deg);
 display: flex;
@@ -80,6 +83,10 @@ export const Labyrinth = () => {
         dispatch(nextStep(type, direction))
     }
 
+    const Restart = () => {
+        window.location.reload()
+    }
+
     const ActionCard = ({description, type, direction}) => (
         console.log({direction}),
         <div>
@@ -93,14 +100,16 @@ export const Labyrinth = () => {
 
     return (
         <>
-        <MiniMap coordinates={coordinates}/>
+        
         <Section>
             <Title>{description}</Title>
 
-            {actions.length === 0 && <h3>Yay you made it out!</h3>}
+            {actions.length === 0 && <div><button onClick={() => Restart()}>Play again</button> </div>}
 
             {actions.length > 0 && actions.map(item => <ActionCard key={item.direction} {...item} />)}
+            
         </Section>
+        <MiniMap coordinates={coordinates}/>
         </>
     )
 }
