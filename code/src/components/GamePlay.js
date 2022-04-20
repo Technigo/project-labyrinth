@@ -2,8 +2,11 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchGameSteps } from '../reducers/game'
 
-
 import { useNavigate } from 'react-router-dom'
+
+import {
+    GameArea
+} from 'styles'
 
 
 const GamePlay = () => {
@@ -19,9 +22,8 @@ const GamePlay = () => {
 
     return (
 
-<section>
+<GameArea >
             <div>
-                <p>User: {username} </p>
                 <h3>{gameObject.description}</h3>
             </div>
 
@@ -68,7 +70,9 @@ const GamePlay = () => {
                 </div>
             )}
              </div>
-        </section>
+             </GameArea>  
+  
+    
     )
 }
 
