@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import game from "reducers/game";
+import game, { generateGame } from "reducers/game";
+
+import GameScreen from "./GameScreen";
 
 const StartScreen = () => {
   const [inputValue, setInputValue] = useState("");
+  const [step, setStep]  = useState(0);
 
   const dispatch = useDispatch();
 
   const onUsernameSelect = () => {
     dispatch(game.actions.setUsername(inputValue));
-    fetch(
-      `https://labyrinth-technigo.herokuapp.com/start?username${inputValue}`
-    )
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  };
-
+    dispatch(generateGame())
+    setStep(state => state +1)
+  }
+ if (step === 0) {
   return (
     <div>
       <p>Welcome to the labyrinth!</p>
@@ -25,8 +25,15 @@ const StartScreen = () => {
         value={inputValue}
         onChange={(event) => setInputValue(event.target.value)}
       />
-      <button onClick={onUsernameSelect}>Start game!</button>
+      <button onClick={onUsernameSelect} >Start game!</button>
     </div>
   );
+ } else if (step === 1) {
+   return (
+    <GameScreen />
+   )
+ }
+
 };
+
 export default StartScreen;
