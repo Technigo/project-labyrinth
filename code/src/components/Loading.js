@@ -8,7 +8,6 @@ const Loading = () => {
   return (
     isLoading && (
       <div>
-        <p>Loading..</p>/
         <Animation />
       </div>
     )

@@ -1,7 +1,28 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { labyrinth, continueGame } from '../reducers/labyrinth';
+import styled from 'styled-components';
 import Loading from 'components/Loading';
+
+const GameWrapper = styled.section`
+  display: flex;
+  background-color: rgb(214, 210, 197, 0.3);
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  top: 20%;
+  @media (min-width: 1025px) {
+    width: 30vw;
+    top: 35%;
+    left: 32%;
+    font-size: 30px;
+  }
+`;
 
 const GameScreen = ({ username }) => {
   const dispatch = useDispatch();
@@ -14,7 +35,7 @@ const GameScreen = ({ username }) => {
 
   return (
     isLoading === false && (
-      <main>
+      <GameWrapper>
         <div>
           <p>Hello {username}</p>
           <div>{currentStep.description}</div>
@@ -31,7 +52,7 @@ const GameScreen = ({ username }) => {
             </div>
           ))}
         </div>
-      </main>
+      </GameWrapper>
     )
   );
 };
