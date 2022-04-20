@@ -38,7 +38,6 @@ export const startGame = () => {
     fetch(`https://labyrinth-technigo.herokuapp.com/start`, options)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         dispatch(game.actions.setCurrentPosition(data))
       })
       .finally(() => dispatch(game.actions.setLoading(false)))
@@ -60,7 +59,6 @@ export const getNextPosition = (action, userName) => {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data)
         dispatch(game.actions.setNextPosition(data))
         dispatch(game.actions.setLoading(false))
         dispatch(game.actions.setCurrentPosition(data))
