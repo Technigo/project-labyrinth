@@ -20,19 +20,6 @@ export const game = createSlice({
         state.gameObject = action.payload;
       },
 
-      // setPreviousGameObject: (state, action) => {
-      //   if (state.history.length !== 0) {
-      //     state.game = state.history[state.history.length -1]
-
-      //     const editedHistory = state.history.slice(0, state.history.length -1)
-      //     state.history = editedHistory
-      //   }
-
-        // if (state.gameObject) {
-        //   state.history = [...state.history, action.payload]
-        // }
-      // },
-
       setUserName: (state, action) => {
         state.username = action.payload;
       },
