@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { generateGame } from 'reducers/game';
+import game, { generateGame } from 'reducers/game';
 
-const Gamescreen = () => {
+const GameScreen = () => {
   const step = useSelector(store => store.game.currentStep)
 
   const dispatch = useDispatch();
@@ -24,8 +24,9 @@ const Gamescreen = () => {
           </button>
         </div>
       ))}
+      {step.actions.length === 0 && <button onClick={() => dispatch(game.actions.restart())}>restart</button>}
     </div>
   )
 };
 
-export default Gamescreen;
+export default GameScreen;

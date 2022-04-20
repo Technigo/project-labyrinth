@@ -1,17 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import ui from 'reducers/ui';
+import { START_URL, CONTINUE_URL } from 'utils/urls';
+
+const initialState = {
+  player: null,
+  currentStep: null
+};
+
 const game = createSlice({
   name: 'game',
-  initialState: {
-    player: null,
-    currentStep: null
-  },
+  initialState,
   reducers: {
     setPlayer: (store, action) => {
       store.player = action.payload;
     },
     setCurrentStep: (store, action) => {
-      store.currentStep = { ...action.payload};
+      store.currentStep = { ...action.payload };
+    },
+    restart: () => {
+      return initialState;
     }
   }
 });
@@ -28,11 +36,16 @@ export const generateGame = (action) => {
           username: getState().game.player,
           type: action.type,
           direction: action.direction
-      })
-    }
-      fetch('https://labyrinth-technigo.herokuapp.com/action', options)
-        .then (res => res.json())
-        .then(step => dispatch(game.actions.setCurrentStep(step)));
+        })
+      };
+
+      dispatch(ui.actions.setLoading(true));
+      fetch(CONTINUE_URL, options)
+        .then((res) => res.json())
+        .then((step) => {
+          dispatch(game.actions.setCurrentStep(step));
+          dispatch(ui.actions.setLoading(false));
+        })
     }
   } else {
     return (dispatch, getState) => {
@@ -44,12 +57,17 @@ export const generateGame = (action) => {
         body: JSON.stringify({
           username: getState().game.player,
         })
-      }
-      fetch('https://labyrinth-technigo.herokuapp.com/start', options)
-        .then (res => res.json())
-        .then(step => dispatch(game.actions.setCurrentStep(step)));
-      }
+      };
+
+      dispatch(ui.actions.setLoading(true));
+      fetch(START_URL, options)
+        .then(res => res.json())
+        .then(step => {
+          dispatch(game.actions.setCurrentStep(step));
+          dispatch(ui.actions.setLoading(false));
+        })
     }
   }
+}
 
 export default game;
