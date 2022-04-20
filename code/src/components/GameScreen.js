@@ -109,7 +109,7 @@ const MainDescription = styled.div`
     text-align: center;
     padding: 10px;
     margin: 10px;
-    background-color: rgba(250, 250, 250, 0.5);
+    background-color: #fafafa80;
     border-radius: 5px;
   }
 `
