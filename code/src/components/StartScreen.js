@@ -51,7 +51,7 @@ const Form = styled.form`
   align-items: center;
 
   & h1 {
-    color: white;
+    color: #fff;
     text-align: center;
   }
 `

@@ -151,6 +151,6 @@ const History = styled.div`
   }
 
   & svg:last-child {
-    color: white;
+    color: #fff;
   }
 `
