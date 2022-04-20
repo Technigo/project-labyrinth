@@ -54,14 +54,33 @@ code {
   margin-bottom: 10px;
 }
 
+.loader {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
 @media (min-width: 667px) {
   .start-container, .game-container {
     width: 650px;
   }
+
+  .loader {
+    position: absolute;
+    top: 50px;
+    left: 350px;
+  }
+  
 }
 
 @media (min-width: 1024px) {
   .start-container, .game-container {
     width: 900px;
+  }
+
+  .loader {
+    position: absolute;
+    top: 50px;
+    left: 500px;
   }
 }

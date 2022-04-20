@@ -7,9 +7,9 @@ const LoadingIndicator = () => {
   const isLoading = useSelector((state) => state.ui.isLoading);
 
   return (
-    <>
+    <div className='loader'>
       {isLoading && <Grid ariaLabel="loading-indicator" />}
-    </>
+    </div>
   )
 }
 
