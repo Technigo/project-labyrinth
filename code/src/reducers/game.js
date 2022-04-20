@@ -38,9 +38,7 @@ export const fetchGame = () => {
       fetch('https://labyrinth-technigo.herokuapp.com/start', options)
         .then((res) => res.json())
         .then((data) => {
-          dispatch(game.actions.setGameObject(data));
-          console.log(data)
-         
+          dispatch(game.actions.setGameObject(data));         
         });
     };
   };

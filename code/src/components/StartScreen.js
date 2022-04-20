@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
@@ -17,7 +17,7 @@ const StartScreen = () => {
 
 
     const onNameSubmit = (nameInput) => {
-        dispatch(game.actions.setNameInput(nameInput))
+        dispatch(game.actions.setUserName(nameInput))
         navigate('/GamePlay')
         setNameInput('')
     }
