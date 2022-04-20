@@ -6,6 +6,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
 import game from 'reducers/game'
 import StartScreen from 'components/StartScreen'
+import GamePlay from 'components/GamePlay'
 
 const reducer = combineReducers({
   game: game.reducer
@@ -20,6 +21,7 @@ export const App = () => {
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<StartScreen />} />
+      <Route path="/Gameplay" element={<GamePlay />} />
     </Routes>
     </BrowserRouter>
     </Provider>

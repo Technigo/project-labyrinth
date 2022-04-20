@@ -18,7 +18,7 @@ const StartScreen = () => {
 
     const onNameSubmit = (nameInput) => {
         dispatch(game.actions.setNameInput(nameInput))
-        navigate('/')
+        navigate('/GamePlay')
         setNameInput('')
     }
 
@@ -51,17 +51,20 @@ const StartScreen = () => {
             <input 
             type="text"
             value={nameInput}
+            placeholder='Enter name here'
             onChange={onSetNameInput}
             onKeyDown={(event) => {onEnter(event)
             }}/>
 
         </label>
-        <button onClick={onStart} 
-        type="submit">
-           I'm ready</button>
+        <button 
+        onClick={() => onStart()}
+        disabled={nameInput.length === 0}
+        >
+           I'm ready
+        </button>
+        
         </form>
- 
-
      
         </section>
 

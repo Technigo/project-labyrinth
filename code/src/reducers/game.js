@@ -4,12 +4,24 @@ import { createSlice } from "@reduxjs/toolkit"
 export const game = createSlice({
     name: "game",
     initialState: {
-        userName: 0,
-        gameState: {},
-        gameStarted: false,
-        isLoading: false,
+        userName: '',
+        gameObject: {
+            coordinates: '',
+            description: '',
+            actions: [],
+            },
         },
+        reducers: {
+            setGameObject: (state, action) => {
+                state.gameObject = action.payload
+            },
+            setUserName: (state, action) => {
+                state.username = action.payload
+        },
+    },
 })
+
+
 
 export const fetchGame = () => {
     return (dispatch, getState) => {
@@ -32,5 +44,32 @@ export const fetchGame = () => {
         });
     };
   };
+
+
+export const fetchGameSteps = ({ direction }) => {
+    return (dispatch, getState) => {
+
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            username: getState().game.username,
+            type: 'move',
+            direction: direction,
+        })
+    }
+
+        fetch('https://labyrinth-technigo.herokuapp.com/action', options)
+        .then((res) => res.json())
+        .then((data) => {
+            dispatch(game.actions.setGameObject(data))
+        })
+    }
+
+}
+
+
 
 export default game
