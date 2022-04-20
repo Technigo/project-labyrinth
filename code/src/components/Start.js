@@ -1,6 +1,34 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import gameplay, { generateFirstQuestion } from "reducers/gameplay";
+import styled from "styled-components";
+
+const Input = styled.input`
+  color: black;
+  background-color: white;
+  font-size: 16px;
+  font-family: inherit;
+  margin: 10px auto;
+  padding: 10px;
+  border: none;
+  border-radius: none;
+`;
+
+const Button = styled.button`
+  color: white;
+  background-color: grey;
+  font-size: 16px;
+  font-family: inherit;
+  margin: 10px auto;
+  padding: 10px;
+  border: none;
+  border-radius: none;
+  transition: ease-in 0.2s;
+
+  &:disabled {
+    opacity: 0.5;
+  }
+`;
 
 const Start = () => {
   const [inputValue, setInputValue] = useState("");
@@ -18,17 +46,18 @@ const Start = () => {
       <h1>Welcome to our labyrinth</h1>
       <label htmlFor="name">Enter your name to start the game</label>
       <form onSubmit={submitHandler}>
-        <input
+        <Input
           id="name"
           type="text"
           value={inputValue}
           required
+          autofocus
           onChange={(event) => setInputValue(event.target.value)}
           placeholder="Player name..."
         />
-        <button type="submit" disabled={inputValue.length === 0}>
-          Enter labyrinth
-        </button>
+        <Button type="submit" disabled={inputValue.length === 0}>
+          Enter
+        </Button>
       </form>
     </>
   );
