@@ -11,7 +11,7 @@ import {
 
 const GamePlay = () => {
     const gameObject = useSelector((store) => store.game.gameObject)
-    const username = useSelector((store) => store.game.username)
+ 
     const navigate = useNavigate()
 
     const dispatch = useDispatch()
