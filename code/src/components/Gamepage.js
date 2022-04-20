@@ -44,9 +44,7 @@ const Gamepage = () => {
               <div>This is the end of the game</div>
             ) : (
               actions.length > 0 &&
-              actions.map((item) => (
-                <GameCard key={item.coordinates} {...item} />
-              ))
+              actions.map((item) => <GameCard key={item.direction} {...item} />)
             )}
           </div>
         )}
