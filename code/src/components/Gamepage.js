@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 //import { nextStep } from "reducers/labyrinth";
 
 const Gamepage = () => {
+  const { act}
   // const dispatch = useDispatch();
 
   const gamedescription = useSelector(
@@ -23,7 +24,7 @@ const Gamepage = () => {
           <div>
             <h1>{action.description}</h1>
             <button>
-              {action.type} {action.description}
+              {action.type} {action.direction}
             </button>
           </div>
         );
