@@ -88,10 +88,8 @@ const Labyrinth = () => {
 	const dispatch = useDispatch()
 	const items = useSelector((store) => store.game.items)
 
-	let arr = [];
-	const dir = items.actions.map(item => arr.push(item.direction))
 
-	console.log(arr)
+
 	const onNavigate = (type, direction) => {
 		setSelect((prev) => [...prev, direction])
 		dispatch(navigateGame(type, direction))
@@ -101,7 +99,8 @@ const Labyrinth = () => {
 		dispatch(game.actions.restartGame())
 	}
 
-	const btnNavigator = ['North', 'East', 'South', 'West'];
+
+
 
 	const changeDirectionToIcon = (way) => {
 		if (way === 'North') {
@@ -132,15 +131,17 @@ const Labyrinth = () => {
 	
 
 
+	const btnNavigator = ['North', 'East', 'South', 'West'];
+
+	const filterDirection = items.actions.map(item => item.direction);
 
 	const filterDisableBtn = () => {
 
-		const newOne = btnNavigator.filter(item => !arr.includes(item))
+		const newOne = btnNavigator.filter(item => !filterDirection.includes(item))
 		
 		return newOne.map(item => <Btn position={arrowStyle(item)} disabled>{changeDirectionToIcon(item)}</Btn>)
 	}
 
-	console.log(dir)
 
 	const changeBG = () => {
 		switch (items.coordinates) {
