@@ -4,11 +4,15 @@ export const questions = createSlice({
   name: 'questions',
   initialState: {
     username: null,
+    gameQuestion: '',
   },
 
   reducers: {
     setUsername: (store, action) => {
       store.username = action.payload;
+    },
+    setGameQuestion: (store, action) => {
+      store.gameQuestion = action.payload;
     },
   },
 });
@@ -32,6 +36,8 @@ export const generateQuestion = () => {
       options
     )
       .then((res) => res.json())
-      .then((question) => console.log(question));
+      .then((question) =>
+        dispatch(questions.actions.setGameQuestion(question))
+      );
   };
 };
