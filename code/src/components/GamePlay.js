@@ -1,82 +1,75 @@
-import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { fetchGameSteps } from '../reducers/game'
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchGameSteps, reset } from "../reducers/game";
 
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
-import {
-    GameArea,
-    Container
-} from 'styles'
-
+import { GameArea, Container } from "styles";
 
 const GamePlay = () => {
-    const gameObject = useSelector((store) => store.game.gameObject)
- 
-    const navigate = useNavigate()
+  const gameObject = useSelector((store) => store.game.gameObject);
 
-    const dispatch = useDispatch()
+  const navigate = useNavigate();
 
-    const onRestartClick = () => {
-        navigate('/')
-    }
+  const dispatch = useDispatch();
 
-    return (
+  const onRestartClick = () => {
+    dispatch(reset());
+    navigate("/");
+  };
 
-<GameArea >
-    <Container>
+  return (
+    <GameArea>
+      <Container>
+        <div>
+          <h3>{gameObject.description}</h3>
+        </div>
+
+        <div>
+          {gameObject.actions.length !== 0 ? (
             <div>
-                <h3>{gameObject.description}</h3>
-            </div>
+              {gameObject.actions.map((action) => {
+                return (
+                  <div key={action.direction}>
+                    <p>{action.description}</p>
 
-            <div>
-            {gameObject.actions.length > 0 && (
-                <div>
-                 {gameObject.actions.map((action) => {
-                    return(
-                        <div key={action.direction}>
-                        <p>{action.description}</p>
-
-                        <button
-                            onClick={() => {
-                                dispatch(fetchGameSteps({ direction: action.direction }))
-                            }}
-                        >
-                            <span>
-                                Go {''}
-                                {action.direction +
-                                (action.direction === 'North'
-                                    ? ' ⬆'
-                                    : action.direction === 'South'
-                                    ? ' ⬇'
-                                    : action.direction === 'West'
-                                    ? ' ⬅'
-                                    : action.direction === 'East'
-                                    ? ' ➡'
-                                    : '')}
-                            </span>
-                        </button>
-                    </div>
-                    )
-                    
-                    })}
-                </div>
-            )}
-       
-            {!gameObject.actions.length && (
-                <div>
-                    <h3>You won!</h3>
-                    <button onClick={onRestartClick}>
-                        Restart{' '}
+                    <button
+                      onClick={() => {
+                        dispatch(
+                          fetchGameSteps({ direction: action.direction })
+                        );
+                      }}
+                    >
+                      <span>
+                        Go {""}
+                        {action.direction +
+                          (action.direction === "North"
+                            ? " ⬆"
+                            : action.direction === "South"
+                            ? " ⬇"
+                            : action.direction === "West"
+                            ? " ⬅"
+                            : action.direction === "East"
+                            ? " ➡"
+                            : "")}
+                      </span>
                     </button>
-                </div>
-            )}
-             </div>
-             </Container>
-             </GameArea>  
-  
-    
-    )
-}
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            gameObject.coordinates && (
+              <div>
+                <h3>You won!</h3>
+                <button onClick={onRestartClick}>Restart </button>
+              </div>
+            )
+          )}
+        </div>
+      </Container>
+    </GameArea>
+  );
+};
 
-export default GamePlay
+export default GamePlay;

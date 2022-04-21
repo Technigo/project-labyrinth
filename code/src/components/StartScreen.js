@@ -1,83 +1,64 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-import game from '../reducers/game'
-import { fetchGame } from 'reducers/game'
+import game from "../reducers/game";
+import { fetchGame } from "reducers/game";
 
-import {
-    GameArea,
-    Heading,
-    Container,
-    Input
-} from 'styles'
+import { GameArea, Heading, Container, Input } from "styles";
 
 const StartScreen = () => {
+  const [nameInput, setNameInput] = useState("");
 
-    const [nameInput, setNameInput] = useState('')
+  const dispatch = useDispatch();
+  let navigate = useNavigate();
 
-    const dispatch = useDispatch()
-    let navigate = useNavigate()
+  const onNameSubmit = (nameInput) => {
+    dispatch(game.actions.setUserName(nameInput));
+    navigate("/GamePlay");
+    setNameInput("");
+  };
 
+  const onSetNameInput = (event) => {
+    setNameInput(event.target.value);
+  };
 
-
-    const onNameSubmit = (nameInput) => {
-        dispatch(game.actions.setUserName(nameInput))
-        navigate('/GamePlay')
-        setNameInput('')
+  const onEnter = (event) => {
+    if (event.key === "Enter") {
+      onNameSubmit(nameInput);
+      dispatch(fetchGame(nameInput));
     }
+  };
 
-    const onSetNameInput = (event) => {
-        setNameInput(event.target.value)
-    }
+  const onStart = () => {
+    onNameSubmit(nameInput);
+    dispatch(fetchGame(nameInput));
+  };
 
-    const onEnter = (event) => {
-        if (event.key === 'Enter') {
-            onNameSubmit(nameInput)
-            dispatch(fetchGame(nameInput))
-        }
-    }
+  return (
+    <GameArea>
+      <Heading>Let's play a game!</Heading>
 
-    const onStart = () => {
-        onNameSubmit(nameInput)
-        dispatch(fetchGame(nameInput))
-    }
-    
-    return (
-
-        <GameArea >
-        
-        <Heading>Let's play a game!</Heading>
-   
-        <Container>
+      <Container>
         <label>
-            <p>
-            Add your username:
-            </p>
+          <p>Add your username:</p>
 
-            <Input 
+          <Input
             type="text"
             value={nameInput}
-            placeholder='Enter name here'
+            placeholder="Enter name here"
             onChange={onSetNameInput}
-            onKeyDown={(event) => {onEnter(event)
-            }}/>
-
+            onKeyDown={(event) => {
+              onEnter(event);
+            }}
+          />
         </label>
-        <button 
-        onClick={() => onStart()}
-        disabled={nameInput.length === 0}
-        >
-           I'm ready
+        <button onClick={() => onStart()} disabled={!nameInput.length}>
+          I'm ready
         </button>
-        
-        </Container>
-     
-        </GameArea >
+      </Container>
+    </GameArea>
+  );
+};
 
-    )
-
-}
-
-
-export default StartScreen
+export default StartScreen;
