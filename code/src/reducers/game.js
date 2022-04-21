@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { setLoading } from "./ui";
 
 const initialState = {
   userName: "",
@@ -32,11 +33,12 @@ export const fetchGame = () => {
       },
       body: JSON.stringify({ username: getState().game.username }),
     };
-
+    dispatch(setLoading(true));
     fetch("https://labyrinth-technigo.herokuapp.com/start", options)
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setGameObject(data));
+        dispatch(setLoading(false));
       });
   };
 };
@@ -55,12 +57,12 @@ export const fetchGameSteps = ({ direction }) => {
       }),
     };
 
+    dispatch(setLoading(true));
     fetch("https://labyrinth-technigo.herokuapp.com/action", options)
       .then((res) => res.json())
       .then((data) => {
-        console.log("data", data);
-        console.log("data.actions", data.actions);
         dispatch(game.actions.setGameObject(data));
+        dispatch(setLoading(false));
       });
   };
 };
