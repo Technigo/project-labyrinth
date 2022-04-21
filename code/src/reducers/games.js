@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit"
 
 const games = createSlice({
     name: 'games',
@@ -18,10 +18,10 @@ const games = createSlice({
 
 export const generateGame = () => { //Thunk. A function that immediately returns another function.
     return (dispatch, getState) => {
-        fetch('https://labyrinth-technigo.herokuapp.com/action', {
-            method: "POST",
+        fetch('https://labyrinth-technigo.herokuapp.com/start', {
+            method: 'POST',
             headers: {'Content-Type': 'application/json'}, 
-            body: JSON.stringify()
+            body: JSON.stringify({username: getState().game.username})
         })
             .then(res => res.json())
             .then(game => dispatch(games.actions.setGame(game)));
