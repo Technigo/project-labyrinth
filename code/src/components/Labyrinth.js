@@ -133,16 +133,16 @@ const Labyrinth = () => {
   const items = useSelector((store) => store.game.items);
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "39") {
+    if (e.key === "ArrowRight") {
       dispatch(navigateGame("move", "East"));
       setPrevStep("East");
-    } else if (e.key === "37") {
+    } else if (e.key === "ArrowLeft") {
       dispatch(navigateGame("move", "West"));
       setPrevStep("West");
-    } else if (e.key === "40") {
+    } else if (e.key === "ArrowDown") {
       dispatch(navigateGame("move", "South"));
       setPrevStep("South");
-    } else {
+    } else if (e.key === "ArrowUp") {
       dispatch(navigateGame("move", "North"));
       setPrevStep("North");
     }
