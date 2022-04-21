@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components/macro'
+import BG1 from './img/bg1.png'
 
 import game, { fetchGame } from '../reducer/game'
 
@@ -13,13 +14,21 @@ const ConsoleContent = styled.section`
 `
 const GameText = styled.p`
 	font-size: 16px;
+	color: #fff;
 `
 const UsernameInput = styled.input`
 	height: 25px;
+	font-family: inherit;
 `
 const UsernameInputContainer = styled.div`
 	display: flex;
+	flex-direction: column;
+	padding: 0 1em;
+	border-radius: 6px;
 	justify-content: center;
+	background: url(${BG1});
+	background-size: cover;
+	height: 100%;
 `
 
 const Game = () => {
@@ -41,8 +50,8 @@ const Game = () => {
 
 	return (
 		<ConsoleContent>
-			<GameText> Welcome to the a-maze-ing 80's! Try to found your way out of the labyrinth!</GameText>
 			<UsernameInputContainer>
+				<GameText> Welcome to the a-maze-ing 80's! Try to found your way out of the labyrinth!</GameText>
 				<UsernameInput type='text' value={userName} onChange={onInputUserName} />
 				<button onClick={onChangeUserName}>Start</button>
 			</UsernameInputContainer>
