@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import gameplay, { generateNextQuestion } from "reducers/gameplay";
+import loading from "reducers/loading";
 
 const Container = styled.div`
   display: grid;
@@ -50,6 +51,7 @@ const DirectionButtons = () => {
   };
 
   const handleOnClick = (direction) => {
+    dispatch(loading.actions.setLoading(true));
     dispatch(generateNextQuestion(direction));
     dispatch(gameplay.actions.setMove(direction));
   };

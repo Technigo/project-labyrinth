@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import gameplay, { generateFirstQuestion } from "reducers/gameplay";
+import loading from "reducers/loading";
 import styled from "styled-components";
 
 const Input = styled.input`
@@ -36,6 +37,7 @@ const Start = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    dispatch(loading.actions.setLoading(true));
     dispatch(gameplay.actions.setUsername(inputValue));
     dispatch(generateFirstQuestion());
     setInputValue("");
