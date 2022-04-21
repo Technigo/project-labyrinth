@@ -17,13 +17,14 @@ code {
   align-items: center;
 }
 
-.start-container, .game-container {
-  position: relative;
+.start-container, 
+.game-container {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  padding: 60px;
+  padding: 25px;
+  width: 100%;
 }
 
 .start-container {
@@ -32,17 +33,38 @@ code {
 }
 
 .back-button {
-  position: absolute;
-  top: 15px;
-}
+  margin-bottom: 15px;
+} 
 
 .step-container {
   margin-bottom: 20px;
 }
 
+.nes-container {
+  padding: 0 !important;
+}
+
 .action-container {
   margin-bottom: 20px;
   width: 100%;
+}
+
+.description-container {
+  display: flex;
+}
+
+.game-container > div:nth-child(3) .description-container {
+  flex-direction: row-reverse;
+}
+
+.description-wrapper {
+  padding: 1rem;
+}
+
+.action-image {
+  object-fit: cover;
+  height: 200px;
+  width: auto;
 }
 
 .action-button {
@@ -55,32 +77,20 @@ code {
 }
 
 .loader {
-  position: absolute;
-  top: 50px;
-  left: 50px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@media (min-width: 667px) {
+/* @media (min-width: 667px) {
   .start-container, .game-container {
     width: 650px;
   }
-
-  .loader {
-    position: absolute;
-    top: 50px;
-    left: 350px;
-  }
-  
-}
+} */
 
 @media (min-width: 1024px) {
   .start-container, .game-container {
-    width: 900px;
-  }
-
-  .loader {
-    position: absolute;
-    top: 50px;
-    left: 500px;
+    width: 80%;
   }
 }

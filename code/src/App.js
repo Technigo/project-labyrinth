@@ -6,7 +6,6 @@ import ui from 'reducers/ui';
 import game from './reducers/game';
 
 import Game from 'components/Game';
-import LoadingIndicator from 'components/LoadingIndicator';
 
 import "nes.css/css/nes.min.css";
 
@@ -20,8 +19,7 @@ const reducer = combineReducers({
 export const App = () => {
   return (
     <Provider store={store}>
-      <LoadingIndicator />
       <Game />
     </Provider>
-  )
-}
+  );
+};

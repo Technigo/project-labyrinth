@@ -16,7 +16,7 @@ const StartScreen = () => {
 
   return (
     <section className='start-container'>
-      <i class="snes-logo" />
+      <i className="snes-logo" />
       <div className='nes-container is-rounded'>
         <h1>Welcome to the Maze</h1>
       </div>

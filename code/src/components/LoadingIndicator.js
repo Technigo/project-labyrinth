@@ -10,7 +10,7 @@ const LoadingIndicator = () => {
     <div className='loader'>
       {isLoading && <Grid ariaLabel="loading-indicator" />}
     </div>
-  )
-}
+  );
+};
 
-export default LoadingIndicator
+export default LoadingIndicator;
