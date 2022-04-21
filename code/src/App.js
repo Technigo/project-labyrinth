@@ -15,7 +15,6 @@ const store = configureStore({
   reducer,
 });
 
-
 // STYLED COMPONENTS
 
 const CardWrapper = styled.article`
@@ -35,17 +34,11 @@ align-items: center;
 width: 90vw;
 min-height: 60vh;
 border: 4px solid black;
-
-
-
-
 /* box-shadow: 5px 5px 0 0 black; */
 `
 
-
 export const App = () => {
   return (
-    <>
       <Provider store={store}>
       <CardWrapper>
       <Card>
@@ -53,6 +46,5 @@ export const App = () => {
        </Card>
        </CardWrapper>
       </Provider>
-    </>
   );
 };

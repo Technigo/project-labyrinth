@@ -98,50 +98,43 @@ cursor: pointer;
 
 const StartScreen = () => {
   const [inputValue, setInputValue] = useState("");
-  const [step, setStep]  = useState(0);
   const isLoading = useSelector((store) => store.game.isLoading)
-  // const lastPage = useSelector((store)=> store.game.currentStep.actions?.length);
+  const hasUsername = useSelector((store) => store.game.username)
   const dispatch = useDispatch();
 
   const onUsernameSelect = (e) => {
     e.preventDefault()
     dispatch(game.actions.setUsername(inputValue));
+    setInputValue("")
     dispatch(generateGame())
-    setStep(state => state +1)
   }
 
- if (isLoading) {
-   return <Loader />
- } 
- 
- if (step === 0) {
-  return (
-    <div>
-      <Title>Welcome to the labyrinth!</Title>
-      <SubTitle>Don't maze it up</SubTitle>
-      <StartText>Welcome to the Technigo maze. Your decisions will take you places you never thought you'd read of. Are you ready?</StartText>
-      <InputWrapper>
-      <NameInput
-        type="text"
-        placeholder="Enter name.."
-        value={inputValue}
-        onChange={(event) => setInputValue(event.target.value)}
-      />
-      <StartBtn onClick={onUsernameSelect}>Enter Maze</StartBtn>
-      <Icon src="./icons/hero.png" alt="hero" />
-      </InputWrapper>
-    </div>
-  );
- } else if (step === 1) {
-   return (
-    <GameScreen />
-   )
- }
+  if (isLoading) {
+    return <Loader />
+  }
 
-//  if (lastPage === 0) {
-//    return <LastPage/>
-//  }
+  if (!hasUsername) {
+    return (
+      <section>
+        <Title>Welcome to the labyrinth!</Title>
+        <SubTitle>Don't maze it up</SubTitle>
+        <StartText>Welcome to the Technigo maze. Your decisions will take you places you never thought you'd read of. Are you ready?</StartText>
+        <InputWrapper>
+          <NameInput
+            type="text"
+            placeholder="Enter name.."
+            value={inputValue}
+            onChange={(event) => setInputValue(event.target.value)}
+          />
+          <StartBtn onClick={onUsernameSelect}>Enter Maze</StartBtn>
+          <Icon src="./icons/hero.png" alt="hero" />
+        </InputWrapper>
+      </section>
+    )
+  } else {
+    return (<GameScreen />)
+  }
 
-};
+}
 
 export default StartScreen;

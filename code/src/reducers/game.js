@@ -5,7 +5,6 @@ const game = createSlice({
     initialState: {
         username: null,
         currentStep: {},
-        history: [],
         isLoading: false
     },
     reducers: {
@@ -13,13 +12,14 @@ const game = createSlice({
             store.username = action.payload
         },
         setCurrentStep: (store, action) => {
-            store.currentStep = { ...action.payload }
-        },
-        setHistory: (store, action) => {
-            store.history.push(action.payload)
+            store.currentStep = action.payload
         },
         setLoading: (store, action) => {
             store.isLoading = action.payload
+        },
+        restart: (store) => {
+            store.username = null 
+            store.currentStep = {}
         }
     }
 })
@@ -33,7 +33,7 @@ export const generateGame = () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                username: `${getState().game.username}`,
+                username: getState().game.username
             })
         }
 
@@ -57,7 +57,7 @@ export const continueGame = (direction) => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                username: `${getState().game.username}`,
+                username: getState().game.username,
                 type: "move",
                 direction: direction
             })
@@ -67,7 +67,6 @@ export const continueGame = (direction) => {
             .then(res => res.json())
             .then(data => {
                 dispatch(game.actions.setCurrentStep(data))
-                dispatch(game.actions.setHistory(direction))
                 dispatch(game.actions.setLoading(false))
             }
             )

@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 
-import { continueGame } from "reducers/game";
+import game, { continueGame } from "reducers/game";
 
 const GameCard = styled.div`
 display: flex;
@@ -29,43 +29,26 @@ cursor: pointer;
 `
 
 const GameScreen = () => {
-  const gameStep = useSelector((store)=> store.game.currentStep);
+  const gameStep = useSelector((store) => store.game.currentStep);
   const dispatch = useDispatch()
-  return(
-    <div>
-      <GameText>{gameStep.description}</GameText>
-      {console.log(gameStep.actions)}
-      
 
-     { gameStep.actions?.map((step) => {
-        return(
-          <GameCard>
-        <GameText>{step.description}</GameText>
-        <StepBtn onClick={()=>dispatch(continueGame(step.direction))}> Go {step.direction}</StepBtn>
-        </GameCard>
-        )
-      })
+  return (
+    <section>
+      {gameStep.actions.length === 0 ? <GameCard>
+        <GameText>{gameStep.description}</GameText>
+        <StepBtn onClick={() => dispatch(game.actions.restart())}>RESTART</StepBtn>
+      </GameCard>
+        :
+        gameStep.actions?.map((step, index) => {
+          return (
+            <GameCard key={index}>
+              <GameText>{step.description}</GameText>
+              <StepBtn onClick={() => dispatch(continueGame(step.direction))}> Go {step.direction}</StepBtn>
+            </GameCard>
+          )
+        })
       }
-
-
-      {/* { gameStep.actions?.length === 0 ? gameStep.actions?.map((step) => {
-        return(
-          <GameCard>
-        <GameText>{step.description}</GameText>
-        <StepBtn> Restart </StepBtn>
-        </GameCard>
-        )
-      }) : 
-      gameStep.actions?.map((step) => {
-        return(
-          <GameCard>
-        <GameText>{step.description}</GameText>
-        <StepBtn onClick={()=>dispatch(continueGame(step.direction))}> Go {step.direction}</StepBtn>
-        </GameCard>
-        )
-      })
-     }  */}
-    </div>
+    </section>
   )
 }
 export default GameScreen;
