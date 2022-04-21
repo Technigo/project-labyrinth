@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ui } from "./ui";
 
-const START_URL = "https://wk16-backend.herokuapp.com/start";
+const START_URL = "https://labyrinth-technigo.herokuapp.com/start";
 const NEXT_URL = "https://labyrinth-technigo.herokuapp.com/action";
 
 const initialState = {
