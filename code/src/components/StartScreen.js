@@ -20,18 +20,20 @@ const StartScreen = () => {
       <div className='nes-container is-rounded'>
         <h1>Welcome to the Maze</h1>
       </div>
-      <form className='nes-field is-inline' onSubmit={startGame}>
-        <input
-          type='text'
-          id='inline_field'
-          value={inputValue}
-          className='nes-input is-success'
-          onChange={event => setInputValue(event.target.value)}
-          placeholder="Type your name"
-          required
-        />
-        <button type='submit' className='nes-btn is-success'>Start the game</button>
-      </form>
+      <label> Enter your name:
+        <form className='nes-field is-inline' onSubmit={startGame}>
+          <input
+            type='text'
+            id='inline_field'
+            value={inputValue}
+            className='nes-input is-success'
+            onChange={event => setInputValue(event.target.value)}
+            placeholder="Type here"
+            required
+          />
+          <button type='submit' className='nes-btn is-success'>Start the game</button>
+        </form>
+      </label>
     </section>
   )
 };

@@ -51,10 +51,11 @@ code {
 
 .description-container {
   display: flex;
+  flex-direction: column;
 }
 
 .game-container > div:nth-child(3) .description-container {
-  flex-direction: row-reverse;
+  flex-direction: column-reverse;
 }
 
 .description-wrapper {
@@ -83,14 +84,24 @@ code {
   justify-content: center;
 }
 
-/* @media (min-width: 667px) {
+@media (min-width: 667px) {
   .start-container, .game-container {
-    width: 650px;
+    width: 60%
   }
-} */
+}
 
 @media (min-width: 1024px) {
   .start-container, .game-container {
     width: 80%;
+  }
+
+  .description-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .game-container > div:nth-child(3) .description-container {
+    flex-direction: row-reverse;
+    align-items: end;
   }
 }
