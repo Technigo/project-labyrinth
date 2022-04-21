@@ -5,7 +5,7 @@ import "nes.css/css/nes.min.css";
 
 import game from "reducers/game"
 import { fetchGame } from 'reducers/game'
-import { NameInput, StartButton } from "./Style"
+import { NameInput, StartButton, StartGame } from "./Style"
 
 
 const StartPage = () => {
@@ -37,32 +37,33 @@ const StartPage = () => {
     }
 
     return(
-        <div>
+        <StartGame>
+
             
+            <label for="name_field">Your name</label>
+                    
             <NameInput 
                 type='text'
-                className="name-input"
+                className="nes-input"
+                id="name_field"
+                tabIndex='0'
                 value={name}
                 placeholder='>Enter name here'
                 onChange={onSetName}
                 onKeyDown={(event) => {
-                    onEnter(event)
-
-                    
-                }}
+                onEnter(event)               
+               }}
             />
-                    <div class="nes-field is-inline">
-                    <label for="dark_field">.input.is-dark</label>
-                    <input type="text" id="dark_field" class="nes-input is-dark" placeholder="dark.css" />
-                    </div>
-
+                   
             <StartButton 
-                className="start-btn"
+                type="button"
+                className="nes-btn is-success"
+                tabIndex='0'
                 disabled={name.length === 0}
                 onClick={() => onStart()}>
                 Start Game!
             </StartButton>
-        </div>
+        </StartGame>
 
      )
 

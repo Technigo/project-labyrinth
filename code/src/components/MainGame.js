@@ -3,6 +3,7 @@ import { useSelector, useDispatch} from "react-redux";
 import { fetchGameSteps } from '../reducers/game';
 
 import { useNavigate } from 'react-router-dom';
+import { MainGameStyle, InfoSection, DirectionSection, WinSection, DirectionButton } from "./Style"
 
 const MainGame = () => {
     const gameObject = useSelector((store) => store.game.gameObject)
@@ -15,22 +16,31 @@ const MainGame = () => {
         navigate('/')
     }
 
-    return (
-        <section>
-            <div>
-                <p>User: {username} </p>
-                <h3>{gameObject.description}</h3>
-            </div>
+ 
 
-            <div>
+    return (
+        
+        <MainGameStyle>
+            
+            <div class="nes-container with-title is-centered">
+            <p className="title" tabIndex='0'>User: {username} </p>
+            <p tabIndex='0'>{gameObject.description}</p>
+            </div>
+            
+            <DirectionSection className="nes-container with-title is-centered">
             {gameObject.actions.length > 0 && (
                 <div>
                  {gameObject.actions.map((action) => {
                     return(
-                        <div key={action.direction}>
-                        <p>{action.description}</p>
 
-                        <button
+                        
+                        <div key={action.direction}>
+                        <p tabIndex='0'>{action.description}</p>
+                      
+                        <DirectionButton
+                            type="button" 
+                            className="nes-btn is-primary"
+                            tabIndex='0'
                             onClick={() => {
                                 dispatch(fetchGameSteps({ direction: action.direction }))
                             }}
@@ -49,7 +59,7 @@ const MainGame = () => {
                                     ? ' ➡'
                                     : '')}
                             </span>
-                        </button>
+                        </DirectionButton>
                     </div>
                     )
                     
@@ -58,16 +68,20 @@ const MainGame = () => {
             )}
        
             {gameObject.coordinates === "1,3" && (
-                <div>
+                <WinSection>
                     <h3>You won!</h3>
-                    <button onClick={onRestartClick}>
+                    <button 
+                        type="button" 
+                        class="nes-btn is-success"
+                        tabIndex='0'
+                        onClick={onRestartClick}>
                         Restart{' '}
                     </button>
-                </div>
+                </WinSection>
             )}
-             </div>
+             </DirectionSection>
              
-        </section>
+        </MainGameStyle>
     )
 }
 

@@ -3,11 +3,13 @@ body {
   font-family: 'Press Start 2P', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url(./asstes/gameboy.png);
+  /* background-image: url(./asstes/gameboy.png);  */
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  height: 80vh;
+  height: 100vh;
+
+
 }
 
 code {
@@ -15,7 +17,7 @@ code {
     monospace;
 }
 
-.nes-field is-inline {
-  background-color:#212529; 
-  padding: 1rem;
+.title {
+  color: #108DE0;
 }
+
