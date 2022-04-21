@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ui } from "./ui";
 
 const START_URL = "https://labyrinth-technigo.herokuapp.com/start";
 const NEXT_URL = "https://labyrinth-technigo.herokuapp.com/action";
@@ -7,13 +6,16 @@ const NEXT_URL = "https://labyrinth-technigo.herokuapp.com/action";
 const initialState = {
   username: "",
   gameStatus: null,
-  items: { coordinates: "0.0", description: "", actions: {} },
+  loading: false,
 };
 
 export const labyrinth = createSlice({
   name: "labyrinth",
   initialState,
   reducers: {
+    setLoading: (store, action) => {
+      store.loading = action.payload;
+    },
     setUsername: (store, action) => {
       store.username = action.payload;
     },
@@ -28,23 +30,22 @@ export const labyrinth = createSlice({
 
 export const startLabyrinth = () => {
   return (dispatch, getState) => {
-    dispatch(ui.actions.setLoading(true));
-    const options = {
+    dispatch(labyrinth.actions.setLoading(true));
+    fetch(START_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username: getState().labyrinth.username }),
-    };
-    fetch(START_URL, options)
+    })
       .then((res) => res.json())
       .then((json) => {
         dispatch(labyrinth.actions.setGameStatus(json));
-        dispatch(ui.actions.setLoading(false));
+        dispatch(labyrinth.actions.setLoading(false));
       });
   };
 };
 export const nextStep = (type, direction) => {
   return (dispatch, getState) => {
-    dispatch(ui.actions.setLoading(true));
+    dispatch(labyrinth.actions.setLoading(true));
     fetch(NEXT_URL, {
       method: "POST",
       headers: {
@@ -59,7 +60,7 @@ export const nextStep = (type, direction) => {
       .then((res) => res.json())
       .then((json) => {
         dispatch(labyrinth.actions.setGameStatus(json));
-      })
-      .finally(() => dispatch(ui.actions.setLoading(false)));
+        dispatch(labyrinth.actions.setLoading(false));
+      });
   };
 };

@@ -20,6 +20,7 @@ const Start = () => {
         onChange={(event) => setInput(event.target.value)}
       />
       <button
+        disabled={!input}
         onClick={() => {
           inputAdd();
         }}

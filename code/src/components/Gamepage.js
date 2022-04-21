@@ -1,11 +1,14 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { loading, Loading } from "./Loading";
+import LoadingIndicator from "./LoadingIndicator";
+
 import { nextStep } from "reducers/labyrinth";
+
+import End from "./End";
 
 const Gamepage = () => {
   const dispatch = useDispatch();
-
+  const isLoading = useSelector((store) => store.labyrinth.loading);
   const description = useSelector(
     (store) => store.labyrinth.gameStatus.description
   );
@@ -31,8 +34,8 @@ const Gamepage = () => {
   return (
     <>
       <div>
-        {loading && <Loading />}
-        {!loading && (
+        {isLoading && <LoadingIndicator />}
+        {!isLoading && (
           <div>
             {actions.length !== 0 && (
               <>
@@ -41,7 +44,9 @@ const Gamepage = () => {
               </>
             )}
             {actions.length === 0 ? (
-              <div>This is the end of the game</div>
+              <div>
+                <End />
+              </div>
             ) : (
               actions.length > 0 &&
               actions.map((item) => <GameCard key={item.direction} {...item} />)
@@ -49,18 +54,6 @@ const Gamepage = () => {
           </div>
         )}
       </div>
-      {/* <h1>{gamedescription}</h1>
-      <h2>you are at coordinates {gamecoordinates}</h2>
-      {actions.map((action) => {
-        return (
-          <div>
-            <h1>{action.description}</h1>
-            <button>
-              {action.type} {action.direction}
-            </button>
-          </div>
-        );
-      })} */}
     </>
   );
 };
