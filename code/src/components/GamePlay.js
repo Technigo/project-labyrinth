@@ -68,9 +68,9 @@ const GamePlay = () => {
                           : action.direction === "South"
                           ? " ⬇"
                           : action.direction === "West"
-                          ? " ➡"
-                          : action.direction === "East"
                           ? " ⬅"
+                          : action.direction === "East"
+                          ? " ➡"
                           : "")}
                     </span>
                   </StyledButton>
