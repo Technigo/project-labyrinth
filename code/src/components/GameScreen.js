@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { generateAction } from '../reducers/game'
+import EndScreen from './EndScreen'
 
 const GameScreen = () => {
     const startDescription = useSelector(store => store.game.actions.description)
@@ -13,9 +14,16 @@ const GameScreen = () => {
         dispatch(generateAction(type, direction))
     }
 
+    if (actions?.length === 0) {
+        return (
+            <EndScreen />
+        )
+      }
+
+
     return (
     <div>
-        <h3>This is description : {startDescription}</h3>
+        <h3>{startDescription}</h3>
         {actions?.map(action => (
             <div>
                 <p>{action.description}</p>
