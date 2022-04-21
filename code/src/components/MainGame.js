@@ -3,7 +3,7 @@ import { useSelector, useDispatch} from "react-redux";
 import { fetchGameSteps } from '../reducers/game';
 
 import { useNavigate } from 'react-router-dom';
-import { MainGameStyle, InfoSection, DirectionSection, WinSection, DirectionButton } from "./Style"
+import { MainGameStyle, DirectionSection, WinSection, DirectionButton } from "./Style"
 
 const MainGame = () => {
     const gameObject = useSelector((store) => store.game.gameObject)
