@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import DirectionButtons from "components/DirectionButtons.js";
 import styled from "styled-components";
+import { Loading } from "components/SpinnerContainer";
 
 const Header = styled.h2`
   font-size: 19px;
@@ -15,6 +16,11 @@ const Description = styled.p`
 
 const Game = () => {
   const question = useSelector((state) => state.gameplay.question);
+  const isLoading = useSelector((state) => state.loading.isLoading);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <>

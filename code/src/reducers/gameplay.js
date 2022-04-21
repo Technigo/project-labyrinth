@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import loading from "./loading";
 
 const initialState = {
   username: null,
@@ -35,7 +36,10 @@ export const generateFirstQuestion = () => {
       body: JSON.stringify({ username: getState().gameplay.username }),
     })
       .then((response) => response.json())
-      .then((data) => dispatch(gameplay.actions.setGameQuestion(data)));
+      .then((data) => {
+        dispatch(gameplay.actions.setGameQuestion(data));
+        dispatch(loading.actions.setLoading(false));
+      });
   };
 };
 
@@ -51,6 +55,9 @@ export const generateNextQuestion = (direction) => {
       }),
     })
       .then((response) => response.json())
-      .then((data) => dispatch(gameplay.actions.setGameQuestion(data)));
+      .then((data) => {
+        dispatch(gameplay.actions.setGameQuestion(data));
+        dispatch(loading.actions.setLoading(false));
+      });
   };
 };

@@ -22,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
     max-height: 90vh;
     overflow: hidden;
     display: flex;
+    justify-content: center;
     align-items: center;
   }
 
