@@ -8,6 +8,7 @@ const initialState = {
     description: "",
     actions: [],
   },
+  history: [],
 };
 
 export const game = createSlice({
@@ -15,10 +16,17 @@ export const game = createSlice({
   initialState,
   reducers: {
     setGameObject: (state, action) => {
+      state.gameObject.description && state.history.push(state.gameObject);
       state.gameObject = action.payload;
     },
     setUserName: (state, action) => {
       state.username = action.payload;
+    },
+    setPreviousGameObject: (state) => {
+      if (state.history.length) {
+        state.gameObject = state.history[state.history.length - 1];
+        state.history.splice(state.history.length - 1, 1);
+      }
     },
     reset: () => initialState,
   },
@@ -69,4 +77,4 @@ export const fetchGameSteps = ({ direction }) => {
 
 export default game;
 
-export const { reset } = game.actions;
+export const { setPreviousGameObject, reset } = game.actions;

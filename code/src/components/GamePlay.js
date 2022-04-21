@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchGameSteps, reset } from "../reducers/game";
+import { fetchGameSteps, setPreviousGameObject, reset } from "../reducers/game";
 
 import { useNavigate } from "react-router-dom";
 
@@ -11,20 +11,34 @@ import {
   Container,
   Wrapper,
   StyledMsg,
+  StyledAlert,
 } from "styles";
 import Loading from "./Loading";
 
 const GamePlay = () => {
+  const [onAlert, setAlert] = useState(false);
   const gameObject = useSelector((store) => store.game.gameObject);
+  const history = useSelector((store) => store.game.history);
   const isLoading = useSelector((store) => store.ui.isLoading);
 
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    history.length && setAlert(false);
+  }, [history]);
   const onRestartClick = () => {
     dispatch(reset());
     navigate("/");
+  };
+
+  const onGoBack = () => {
+    if (history.length === 0) {
+      setAlert(true);
+      return;
+    }
+    dispatch(setPreviousGameObject());
   };
 
   return (
@@ -66,8 +80,13 @@ const GamePlay = () => {
               ))}
               <Wrapper>
                 <StyledButtonB onClick={onRestartClick}>RESTART</StyledButtonB>
-                <StyledButtonB>GO BACK</StyledButtonB>
+                <StyledButtonB onClick={onGoBack}>GO BACK</StyledButtonB>
               </Wrapper>
+              <StyledAlert
+                style={{ visibility: onAlert ? "visible" : "hidden" }}
+              >
+                Cannot go back
+              </StyledAlert>
             </>
           ) : (
             gameObject.coordinates && (
