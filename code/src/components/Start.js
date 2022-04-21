@@ -1,34 +1,37 @@
-import React from "react"
-import { useDispatch } from "react-redux"
-import { useState } from "react"
-import { startGame, gamereducer } from "reducers/gamereducer"
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { startGame, gamereducer } from 'reducers/gamereducer';
 
 const Start = () => {
-  const [inputValue, setInputValue] = useState("")
-  const dispatch = useDispatch()
+	const [inputValue, setInputValue] = useState('');
+	const dispatch = useDispatch();
 
-  const onUsernameSet = () => {
-    dispatch(gamereducer.actions.setUsername(inputValue))
-    dispatch(startGame())
-  }
+	const onUsernameSet = () => {
+		dispatch(gamereducer.actions.setUsername(inputValue));
+		dispatch(startGame());
+	};
 
-  return (
-    <div>
-      <p>Welcome to the Maze game</p>
-      &nbsp;
-      <label>
-        Add your username:
-        <input
-          type='text'
-          placeholder='Type your name'
-          value={inputValue}
-          onChange={(event) => setInputValue(event.target.value)}
-        />
-      </label>
-      &nbsp;
-      <button onClick={onUsernameSet}>Start the game</button>
-    </div>
-  )
-}
+	return (
+		<div className='main-container'>
+			<div className='start-container'>
+				<h1>Welcome to the Maze</h1>
+				<p>Do you dare to enter? </p>
+				&nbsp;
+				<input
+					className='start-input'
+					type='text'
+					placeholder='Type your username'
+					value={inputValue}
+					onChange={(event) => setInputValue(event.target.value)}
+				/>
+				&nbsp;
+				<button className='start-button' onClick={onUsernameSet}>
+					START
+				</button>
+			</div>
+		</div>
+	);
+};
 
-export default Start
+export default Start;
