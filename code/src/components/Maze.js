@@ -30,17 +30,24 @@ const Maze = () => {
 
 	return (
 		<>
-			<button disabled={!history.length} onClick={goBack}>
-				Go back
-			</button>
+			<div className='clue-wrapper'>
+				<button
+					className='back-button'
+					disabled={!history.length}
+					onClick={goBack}>
+					Go back
+				</button>
 
-			<section>
-				<h1>{description}</h1>
-				{/* <p>{coordinates}</p> */}
-				{actions.length === 0 && <h3>Yes! you found your way out!</h3>}
-				{actions.length > 0 &&
-					actions.map((item) => <NextAction key={item.direction} {...item} />)}
-			</section>
+				<section className='clue'>
+					<h2>{description}</h2>
+					{/* <p>{coordinates}</p> */}
+					{actions.length === 0 && <h3>Yes! you found your way out!</h3>}
+					{actions.length > 0 &&
+						actions.map((item) => (
+							<NextAction key={item.direction} {...item} />
+						))}
+				</section>
+			</div>
 		</>
 	);
 };

@@ -3,6 +3,12 @@ body {
 	font-family: 'Fanwood Text', serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+.main-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	background-image: url(assets/start.jpg);
 	height: 100vh;
 	background-size: cover;
@@ -10,13 +16,6 @@ body {
 	background-position-y: 1%;
 	background-position-x: 50%;
 	position: relative;
-}
-
-.main-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-top: 2rem;
 }
 
 .start-container {
@@ -63,19 +62,103 @@ p {
 	background-color: #95a95a;
 	font-family: 'Ingrid Darling';
 	font-size: 22px;
-  font-weight: bold;
+	font-weight: bold;
+}
+
+button {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 15px 38px;
+	border-radius: 16px;
+	border: 1px solid transparent;
+	color: #ffffff;
+	background-color: #1dc9a0;
+	font-size: 16px;
+	letter-spacing: 1px;
+	transition: all 0.15s linear;
+}
+
+button:hover {
+	background-color: rgba(29, 201, 160, 0.08);
+	border-color: #1dc9a0;
+	color: #1dc9a0;
+	transform: translateY(-5px) scale(1.05);
+}
+
+button:active {
+	background-color: transparent;
+	border-color: #1dc9a0;
+	color: #1dc9a0;
+	transform: translateY(5px) scale(0.95);
+}
+
+button:disabled {
+	background-color: rgba(255, 255, 255, 0.16);
+	color: #8e8e93;
+	border-color: #8e8e93;
+}
+
+.back-button {
+	border-radius: 5px;
+	padding: 5px 2px;
+	color: #292b1d;
+	border: solid #292b1d 2px;
+	background-color: #95a95a;
+	font-family: 'Fanwood Text', serif;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+h2 {
+	font-family: 'Fanwood Text', serif;
+	color: #292b1d;
+	font-size: 22px;
+	margin: 0;
+}
+
+.clue-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-image: url(assets/maze4.jpg);
+	height: 100vh;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position-y: 1%;
+	background-position-x: 50%;
+	position: relative;
+}
+
+.clue {
+	margin-top: 2rem;
+	width: 250px;
+	background-color: #d8bf978a;
+	border-radius: 25px;
+	display: flex;
+	flex-direction: column;
+	padding: 11px;
+	width: 85%;
+	color: darkgreen;
+	align-items: center;
 }
 
 /*THIS IS THE MEDIA QUERY FOR DESKTOP SIZE*/
 @media screen and (min-width: 1200px) {
-	.container {
+	.main-container {
 		width: 1000px;
+	}
+
+	.start-container {
+		padding: 0;
 	}
 }
 
 /*THIS IS THE MEDIA QUERY FOR TABLET SIZE*/
 @media screen and (min-width: 768px) {
-	.container {
+	.main-container {
 		width: 700px;
 	}
 }
