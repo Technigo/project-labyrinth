@@ -53,7 +53,6 @@ const game = createSlice ({
             });
         }
     };
-            
 
     export const continueGame = (type, direction) => {
         return (dispatch, getState) => {
@@ -78,27 +77,4 @@ const game = createSlice ({
         }
     };
 
-
-
-
 export default game;
-
-
-
-
-// export const generateDirection = () => {
-//     return (dispatch, getState) => {
-//         const options = {
-//             method: 'POST',
-//             headers: {'Content-Type': 'application/json'},
-//             body: JSON.stringify({
-//                 username: getState().directions.username
-//             }),
-//         };
-//         fetch('https://labyrinth-technigo.herokuapp.com/start', options)
-//         .then((res) => res.json())
-//         .then(
-//                 (data) => dispatch(directions.actions.setDirection(data))
-//             );
-//     };
-// };

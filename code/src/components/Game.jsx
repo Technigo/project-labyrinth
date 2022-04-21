@@ -7,16 +7,9 @@ import GameScreen from './GameScreen';
 
 const Game = () => {
     const username = useSelector(store => store.game.username);
-    // const isLoading = useSelector(store => store.game.isLoading);
-
-    // if (isLoading) {
-    //     return <Loader/>
-    // }
 
     return (
-        // isLoading === false &&
         <div>
-            {/* <Loader /> */}
             {username
                 ? <GameScreen username={username} />
                 : <StartScreen />

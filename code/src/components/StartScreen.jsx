@@ -37,37 +37,3 @@ const StartContainer = styled.div`
 `;
 
 export default StartScreen;
-
-// dispatch(directions.actions.setUsername(inputValue));
-// dispatch(generateDirection);
-
-//More accessible semantics?
-{/* <form>
-<label onSubmit={onFormSubmit}>
-    <input
-        type='text'
-        value={inputValue}
-        onChange={event => setInputValue(event.target.value)}
-    />
-</label>
-<button
-    type='submit'
-    onClick={onUsernamSet}
-    >
-        Start the game!
-</button>
-</form> */}
-
-  // const onFormSubmit = (event) => {
-    //     event.preventDefault();
-    // }
-
-
-
-
-
-
-
-
-
-

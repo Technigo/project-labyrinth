@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
 import { continueGame } from 'reducers/game';
-import Loader from 'components/Loader';
+
 
 const GameScreen = () => {
     const dispatch = useDispatch();
@@ -55,5 +55,3 @@ const StyleMainDescription = styled.h2 `
 const StyleDescription = styled.h4 `
     font-weight: 100;
 `;
-
-
