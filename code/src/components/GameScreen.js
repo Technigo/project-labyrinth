@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import labyrinth, { continueGame } from "reducers/labyrinth";
+import labyrinth, { generateGame } from "reducers/labyrinth";
 
 import { CardContainer, Content, SecondaryText } from "./Styles";
 
@@ -9,7 +9,11 @@ const GameScreen = () => {
 
     const dispatch = useDispatch();
 
+    const onActionSet = (action) => {
 
+        // dispatch(labyrinth.actions.setPlayer(player));
+        dispatch(generateGame(action));
+    }
     // const onQuoteRegenerate = (quoteTag) => {
     //     dispatch(generateGame(quoteTag))
     // };
@@ -26,7 +30,7 @@ const GameScreen = () => {
                 {stage.actions.map(action => (
                     <div key={action.description} >
                         <p>{action.description}</p>
-                        <button onClick={() => continueGame(action.type, action.direction)}>{action.direction}</button>
+                        <button onClick={() => onActionSet(action)}>{action.direction}</button>
                     </div>
                 ))}
             </Content>

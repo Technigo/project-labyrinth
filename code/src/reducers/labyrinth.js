@@ -6,8 +6,8 @@ const labyrinth = createSlice({
         player: null,
         // author: null,
         stage: null,
-        type: null,
-        direction: null,
+        // type: null,
+        // direction: null,
         history: [],
     },
     reducers: {
@@ -18,15 +18,13 @@ const labyrinth = createSlice({
             store.player = action.payload;
         },
         setStage: (store, action) => {
-            // console.log(action.payload)
+            // console.log('setting stage')
             // if (store.quote) {
             //     store.history.push(store.stage)
             // }
             // console.log(store.stage);
             store.stage = action.payload;
-            console.log(store.type);
-            console.log(store.direction);
-            // console.log(store.stage)
+
         },
         // setQuote: (store, action) => {
         //     if (store.quote) {
@@ -43,48 +41,62 @@ const labyrinth = createSlice({
     }
 });
 
-export const generateGame = () => {
-    return (dispatch, getState) => {
-        const options = {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                username: getState().labyrinth.player,
-            }),
-        }; 
-        fetch(`https://labyrinth-technigo.herokuapp.com/start`, options)
-            .then(res => res.json())
-            .then(stage => dispatch(labyrinth.actions.setStage(stage)))
-            // .then(stage => console.log(stage))
-    }
+export const generateGame = (action = null) => {
+    // console.log(type, direction)
+    
+        if (!action) {
+            return (dispatch, getState) => {
+                console.log("start")
+                const options = {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        username: getState().labyrinth.player,
+                    }),
+                }; 
+                fetch(`https://labyrinth-technigo.herokuapp.com/start`, options)
+                    .then(res => res.json())
+                    .then(stage => dispatch(labyrinth.actions.setStage(stage)))
+            }
+                // .then(stage => console.log(stage))
+        }
+        
+        console.log("action")
+        console.log("action.type, action.direction", action.type, action.direction)
+        return (dispatch, getState) => {
+            // {console.log(getState.labyrinth.player)}
+            const options = {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    username: getState().labyrinth.player,
+                    type: action.type,
+                    direction: action.direction,
+                }),
+            }; 
+            fetch(`https://labyrinth-technigo.herokuapp.com/action`, options)
+                .then(res => res.json())
+                .then(stage => dispatch(labyrinth.actions.setStage(stage)))
+        }
 }
 
-export const continueGame = (type, direction) => {
-    console.log("type and direction", type, direction)
-    return (dispatch, getState) => {
-        getState().labyrinth.type = type;
-        getState().labyrinth.direction = direction;
-        
-        const options = {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                username: getState().labyrinth.player,
-                type: getState().labyrinth.type,
-                direction: getState().labyrinth.direction
-            }),
-        }; 
-        try {
-            fetch(`https://labyrinth-technigo.herokuapp.com/action`, options)
-            .then(res => res.json())
-            .then(stage => console.log(stage))
-            // .finally(console.log("stage after action fetch", getState().labyrinth.stage))
-            // .then(stage => console.log(stage))
-        } catch (error) {
-            console.log("error", error)
-        }
-    }
-}
+// export const continueGame = (type, direction) => {
+//     return (dispatch, getState) => {
+//         const options = {
+//             method: "POST",
+//             headers: { "Content-Type": "application/json" },
+//             body: JSON.stringify({
+//                 username: getState().labyrinth.player,
+//                 type: type,
+//                 direction: direction,
+//             }),
+//         };
+//         fetch(`https://labyrinth-technigo.herokuapp.com/action`, options)
+//             .then(res => res.json())
+//             // .then(stage => dispatch(labyrinth.actions.setStage(stage)))
+//             .then(stage => console.log(stage, "stage is consoled from continueGame"))
+//     }
+// };
 
 // export const generateQuote = (tag) => {
 //     return (dispatch, getState) => {
