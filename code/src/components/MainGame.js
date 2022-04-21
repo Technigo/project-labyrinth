@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch} from "react-redux";
 import { fetchGameSteps } from '../reducers/game';
+import Loading from './Loading';
 
 import { useNavigate } from 'react-router-dom';
 import { MainGameStyle, DirectionSection, WinSection, DirectionButton } from "./Style"
@@ -8,6 +9,7 @@ import { MainGameStyle, DirectionSection, WinSection, DirectionButton } from "./
 const MainGame = () => {
     const gameObject = useSelector((store) => store.game.gameObject)
     const username = useSelector((store) => store.game.username)
+    const loading = useSelector((state) => state.game.loading)
     const navigate = useNavigate()
 
     const dispatch = useDispatch()
@@ -16,11 +18,18 @@ const MainGame = () => {
         navigate('/')
     }
 
- 
 
     return (
+       
         
+        
+       
+
+         
         <MainGameStyle>
+            {loading && <Loading />}   
+            
+            {/* Something in this area is disturbing the loading to show, instead it shows empty squares */}
             
             <div class="nes-container with-title is-centered">
             <p className="title" tabIndex='0'>User: {username} </p>
@@ -33,7 +42,6 @@ const MainGame = () => {
                  {gameObject.actions.map((action) => {
                     return(
 
-                        
                         <div key={action.direction}>
                         <p tabIndex='0'>{action.description}</p>
                       
@@ -66,6 +74,7 @@ const MainGame = () => {
                     })}
                 </div>
             )}
+            
        
             {gameObject.coordinates === "1,3" && (
                 <WinSection>
@@ -80,8 +89,9 @@ const MainGame = () => {
                 </WinSection>
             )}
              </DirectionSection>
-             
+            
         </MainGameStyle>
+    
     )
 }
 

@@ -53,7 +53,6 @@ export const game = createSlice({
   export const fetchGameSteps = ({ direction }) => {
     return (dispatch, getState) => {
       
-  
       const options = {
         method: 'POST',
         headers: {
