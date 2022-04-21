@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import Typewriter from "typewriter-effect";
 import Actions from "./Actions";
 import GameOver from "./GameOver";
-// import ActionsAlt from "./ActionsAlt";
 import { Header } from "styledelements/styled";
 import styled from "styled-components";
 
@@ -13,7 +12,6 @@ const Game = () => {
   );
   const actions = useSelector((store) => store.game.position.actions);
   const isLoading = useSelector((store) => store.game.loading);
-  // const position = useSelector((store) => store.game.position.coordinates);
 
   return (
     <GameWrapper>
@@ -71,7 +69,6 @@ const Game = () => {
               <GameOver />
             </EndGameTextWrapper>
           )}
-          {/* <ActionsAlt actions={actions} /> */}
         </>
       )}
     </GameWrapper>

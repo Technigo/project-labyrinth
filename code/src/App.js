@@ -25,4 +25,8 @@ export const App = () => {
 const Page = styled.div`
   width: 325px;
   margin: 0 auto;
+
+  @media (min-width: 768px) {
+    width: 500px;
+  }
 `;

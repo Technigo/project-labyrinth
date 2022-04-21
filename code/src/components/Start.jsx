@@ -64,6 +64,10 @@ const TextInput = styled.input`
   font-weight: 600;
   font-size: 16px;
   text-align: center;
+
+  @media (min-width: 768px) {
+    width: 55%;
+  }
 `;
 
 const StartButton = styled.button`

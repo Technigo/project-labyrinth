@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { game } from "reducers/game";
 import { playerAction } from "reducers/game";
 import styled from "styled-components";
@@ -7,6 +7,7 @@ import { keyframes } from "styled-components";
 
 const Actions = ({ action }) => {
   const dispatch = useDispatch();
+  const coordinates = useSelector((store) => store.game.position.coordinates);
 
   const playerChoice = () => {
     dispatch(game.actions.setType(action.type));
@@ -16,7 +17,7 @@ const Actions = ({ action }) => {
 
   return (
     <>
-      <Button key={action.direction} onClick={playerChoice}>
+      <Button key={coordinates} onClick={playerChoice}>
         {action.type} {action.direction}
       </Button>
     </>
