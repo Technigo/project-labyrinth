@@ -77,7 +77,7 @@ export const Input = styled.input`
   }
 
   &:-webkit-input-placeholder {
-    color: rgb(42, 41, 41);
+    color: #777;
     text-align: center;
   }
 
