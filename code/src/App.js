@@ -1,13 +1,21 @@
 import React from "react";
+import { Provider } from "react-redux";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
-fetch(`https://labyrinth-technigo.herokuapp.com/start`, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ username: "technigoplayar" }),
-})
-  .then((res) => res.json())
-  .then((res) => console.log(res));
+import game from "./reducers/game";
+
+import Game from "./components/Game";
+
+const reducer = combineReducers({
+  game: game.reducer,
+});
+
+const store = configureStore({ reducer });
 
 export const App = () => {
-  return <div>Find me in src/app.js!</div>;
+  return (
+    <Provider store={store}>
+      <Game />
+    </Provider>
+  );
 };
