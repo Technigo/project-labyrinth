@@ -22,12 +22,13 @@ const GameScreen = () => {
 
 
     return (
-    <div>
+        <div class="nes-container with-title is-centered">
+        <p class="title">The Maze</p>
         <h3>{startDescription}</h3>
         {actions?.map(action => (
             <div>
                 <p>{action.description}</p>
-                <button 
+                <button type="button" class="nes-btn is-success"
                     key={action.description} 
                     onClick={() => onActionRegenerate(action.type, action.direction)}
                     //  onClick={() => dispatch(generateAction(action.type, action.direction))}

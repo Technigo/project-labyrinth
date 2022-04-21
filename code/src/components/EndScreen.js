@@ -14,10 +14,16 @@ const EndScreen = () => {
     }
 
 return (
-    <div>
+    <div class="nes-container is-dark with-title">
+    <p class="title">Congratulations!</p>
+    
     <h3>{endDescription}</h3>
-    <button onClick={restartButton}>Restart</button>
+    <button type="button" class="nes-btn is-warning"
+     onClick={restartButton}>Restart</button>
    
+            <i class="nes-bulbasaur"></i>
+            <i class="nes-charmander"></i>
+            <i class="nes-squirtle"></i>
 
     {/* <button onClick={() => dispatch(game.actions.restart())}>Restart</button> */}
     </div>

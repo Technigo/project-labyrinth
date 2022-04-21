@@ -14,14 +14,20 @@ const StartScreen = () => {
     }
 
     return (
-        <div>HiPlayer!
+        <div class="nes-container is-dark with-title">
+        <p class="title">Welcome to our labyrinth game</p>
+            <div class="nes-field">
+            <label for="name_field">Hi Player! Your name</label>
             <input
-            type="text"
-            value={inputValue}
-            onChange={event => setInputValue(event.target.value)}
+                type="text"
+                id="name_field"
+                class="nes-input"
+                value={inputValue}
+                onChange={event => setInputValue(event.target.value)}
             />
-
-            <button onClick={onPlayerSet}>Start game!</button>
+            </div>
+            <button type="button" class="nes-btn is-primary"
+            onClick={onPlayerSet}>Start game!</button>
         </div>
     )
 }
