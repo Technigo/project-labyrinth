@@ -28,21 +28,12 @@ export const Title = styled.h1`
 `
 
 export const SecondaryText = styled.p`
-    margin-top: 1em;
+    margin: 1em 0;
     font-size: 1rem;
     color: hsl(0, 0%, 25%);
     border: 5px solid #d4d4d4;
     padding: 10px;
 `
-
-// export const Thumbnail = styled.div`
-//     width: 70px;
-//     height: 70px;
-//     border-radius: 50%;
-//     background-image: url(${(props) => props.url});
-//     background-size: cover;
-//     margin-right: 10px;
-// `
 
 export const TitleBar = styled.div`
     display: flex;
@@ -72,5 +63,37 @@ export const Button = styled.button `
     margin: 1em auto;
 ` 
 export const Gif = styled.iframe`
-  margin: 10px;
+    margin: 0;
+    border: none;
 `;
+
+export const GifWrapper = styled.div`
+    border: none;
+    display: grid;
+    justify-content: center;
+    // padding: 1rem 0;
+`
+export const OverlayWrapper = styled.div`
+    position: relative;
+    width: max-content;
+    height: max-content;
+    position: relative;
+`
+export const Overlay = styled.button`
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: hsla(0,0%,0%,1);
+    opacity: 0;
+    border: none;
+    padding: 0
+`
+
+export const Action = styled.div`
+    margin: 1rem 0;
+    display: grid;
+    justify-items: center;
+`
