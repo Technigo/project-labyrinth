@@ -58,6 +58,8 @@ export const generateAction = (type, direction) => {
             .then((res) => res.json())
             .then((data) => dispatch(game.actions.setActions(data)))
             .finally(dispatch(ui.actions.setLoading(false)))
+            // dispatch(ui.actions.setLoading(false))
+
     }
 }
 
