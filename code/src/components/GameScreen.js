@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import DirectionButton from 'components/DirectionButton'
+import DirectionButton from 'components/DirectionButton';
+import Restart from './Restart';
+import styled from 'styled-components';
 
 const GameScreen = () => {
     const question = useSelector((store) => store.labyrinth.question);
@@ -10,12 +12,13 @@ const GameScreen = () => {
         <h2>{question.description}</h2>
         {question.actions?.map((item, index) => {
         return (
-          <h2 key={index}>
+          <p key={index}>
             You look to the {item.direction}. {item.description}
-          </h2>
+          </p>
         );
     })}    
-    {question.actions && <DirectionButton />}
+        {question.actions && <DirectionButton />}
+ 
         </>
     )
 }

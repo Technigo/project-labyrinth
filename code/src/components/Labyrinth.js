@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 
 import StartScreen from './StartScreen'
 import GameScreen from './GameScreen'
+import Restart from './Restart'
 
 const Labyrinth = () => {
     const labyrinth = useSelector(store => store.labyrinth.username)

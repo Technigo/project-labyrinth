@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch} from "react-redux";
 import labyrinth, { generateQuestion } from "reducers/labyrinth";
+import styled from 'styled-components'
 
 const DirectionButton = () => {
     const directionAlternatives = useSelector((store) =>
@@ -57,7 +58,7 @@ const DirectionButton = () => {
             >
             {direction.south}
             </button>
-
+            <Restart />
         </>
     )
 }
