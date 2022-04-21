@@ -1,13 +1,17 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project was built by Sofia and Savannah, it is a game that allows users to navigate a maze, in the form of a 
+text-based adventure, provided by a backend.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The goal for this game was to fetch a list of actions from the backend and present them to the user as interactable 
+items. We focused on creating our reducers and thunks to wrap our API calls. We thought about how to handle the delay
+for the request to come back from the server by adding a loading state. 
+
+We also display images based on the main description of the current room and use Redux to store a history of what the 
+player has done. We focused on building and designing our game with responsiveness and accessibility in mind.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://sofia-savannah-maze.netlify.app/
