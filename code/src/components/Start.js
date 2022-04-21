@@ -6,14 +6,6 @@ import 'nes.css/css/nes.min.css'
 import game from '../reducers/game'
 import { startGame } from '../reducers/game'
 
-const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  input {
-      margin-bottom: 10px;
-  }
-`
 const StyledStartPage = styled.div`
   font-size: 10px;
   padding: 10px;
@@ -29,6 +21,13 @@ const StyledStartPage = styled.div`
   }
 `
 
+const StyledForm = styled.form`
+  margin-top: 10px;
+`
+
+const StyledSubmit = styled.button`
+margin-left: 10px;
+`
 
 const Start = () => {
     const [inputValue, setInputValue] = useState('')
@@ -47,21 +46,19 @@ const Start = () => {
         <>
             {!currentPosition &&
                 <StyledStartPage>
+                    <h1>Welcome to the labyrinth!</h1>
                     <StyledForm onSubmit={onUserNameSet}>
-                        <h1>Welcome to the labyrinth!</h1>
-                        <p>What's your name?</p>
-                        <input type="text"
+                        <input
+                            type="text"
                             value={inputValue}
-                            onChange={(event) => setInputValue(event.target.value)}
+                            onChange={(e) => setInputValue(e.target.value)}
+                            placeholder="Type your name here..."
                             required
                         />
-                        <button type="submit">Submit</button>
+                        <StyledSubmit type="submit">Submit</StyledSubmit>
                     </StyledForm>
                 </StyledStartPage>}
-
         </>
-
-
     )
 }
 
