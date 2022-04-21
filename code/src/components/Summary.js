@@ -42,7 +42,7 @@ const Summary = () => {
   return (
     <>
       <Header>{finalDescription}</Header>
-      <h3>Your path:</h3>
+      <h3>Your path took {moves.length} {moves.length === 1 ? "move:" : "moves:"}</h3>
       {moves.map((move, index) => (
         <Move key={index}>{move}</Move>
       ))}
