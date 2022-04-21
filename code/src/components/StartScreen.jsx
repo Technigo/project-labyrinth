@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import styled from 'styled-components';
 
 import game from '../reducers/game';
 import { startGame } from '../reducers/game';
@@ -15,7 +16,7 @@ const StartScreen = () => {
     }
     
     return (
-        <div>
+        <StartContainer>
             <p>Welcome to Labyrinth Game! Please type your gamertag</p>
             <input
                 type='text'
@@ -23,9 +24,17 @@ const StartScreen = () => {
                 onChange={event => setInputValue(event.target.value)}
                 />
             <button onClick={onUsernameInput}>Start the game!</button>
-        </div>
+        </StartContainer>
     );
 };
+
+const StartContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-weight: light;
+`;
 
 export default StartScreen;
 

@@ -8,7 +8,7 @@ const game = createSlice ({
         position: {},
         type: '',
         direction: '',
-        isLoading: false
+        isLoading: false,
     },
     reducers: {
         setUsername: (store, action) => {
@@ -35,6 +35,7 @@ const game = createSlice ({
 
     export const startGame = () => {
         return (dispatch, getState) => { 
+            dispatch(game.actions.setLoading(true))
             const options = {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
@@ -47,6 +48,7 @@ const game = createSlice ({
             .then((data) => {
                 dispatch(game.actions.setPosition(data))
                 dispatch(game.actions.setGame(true))
+                dispatch(game.actions.setLoading(false))
                 console.log(data)
             });
         }
@@ -55,6 +57,7 @@ const game = createSlice ({
 
     export const continueGame = (type, direction) => {
         return (dispatch, getState) => {
+            dispatch(game.actions.setLoading(true))
             const options = {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
