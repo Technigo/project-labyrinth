@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import ui from "./ui";
 
 const game = createSlice({
     name: "game",
@@ -15,7 +16,7 @@ const game = createSlice({
 
         setPosition: (store, action) => {
             if (store.position) {
-                store.position.push(store.position)
+                store.history.push(store.position)
             }
             store.position = action.payload
         },
@@ -33,6 +34,7 @@ const game = createSlice({
 
 export const fetchData = () => {
     return (dispatch, getState) => {
+        dispatch(ui.actions.setLoading(true))
         fetch('https://labyrinth-technigo.herokuapp.com/start', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -43,7 +45,7 @@ export const fetchData = () => {
             .then(res => res.json())
             .then((data) => {
                 dispatch(game.actions.setPosition(data))
-                console.log(data)
+                dispatch(ui.actions.setLoading(false))
             })
     }
 }
@@ -51,6 +53,7 @@ export const fetchData = () => {
 
 export const fetchMoreData = ({move = "move", direction}) => {
     return (dispatch, getState) => {
+        dispatch(ui.actions.setLoading(true))
         fetch('https://labyrinth-technigo.herokuapp.com/action', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -61,7 +64,10 @@ export const fetchMoreData = ({move = "move", direction}) => {
                         })
                     })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                dispatch(game.actions.setPosition(data))
+                dispatch(ui.actions.setLoading(false))
+            })
     }
 }
 
