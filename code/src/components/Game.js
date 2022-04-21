@@ -3,23 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getNextPosition } from '../reducers/game'
 import styled from 'styled-components/macro'
 
-// const NextStepSection = styled.section`
-//     background-color: black;
-//     color: lime;
-//     font-size: 10px;
-//     border: 1px solid grey;
-//     padding: 10px;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     height: 100vh;
-// `
+import game from '../reducers/game'
 
-/* const NextStepChild = styled.div`
-
-height: 50%;
-`
- */
 
 const Container = styled.div`
   font-size: 10px;
@@ -30,6 +15,7 @@ const Container = styled.div`
   padding-top: 20%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   text-align: center;
   @media (min-width: 768px) {
     font-size: 15px;
@@ -42,6 +28,10 @@ const HeadingOne = styled.h1`
 
 const HeadingTwo = styled.h2`
   padding:30px;
+`
+
+const RestartButton = styled.button`
+  margin-top: 20px;
 `
 
 const Game = () => {
@@ -58,9 +48,14 @@ const Game = () => {
 
     return (
         <>
-            {currentPosition && !isLoading &&(
+            {currentPosition && !isLoading && (
                 <Container>
                     <HeadingOne>{currentPosition.description}</HeadingOne>
+
+                    {currentPosition.actions.length === 0 && (
+                        <RestartButton onClick={() => dispatch(game.actions.restartGame())}>Restart</RestartButton>
+                    )}
+
                     {currentPosition.actions.map((action, index) => {
                         return (
                             <div key={index}>

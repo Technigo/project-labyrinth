@@ -38,6 +38,7 @@ const Start = () => {
         event.preventDefault()
         dispatch(game.actions.setUsername(inputValue))
         dispatch(startGame())
+        setInputValue("")
     }
 
     const currentPosition = useSelector((state) => state.game.currentPosition)
@@ -63,3 +64,4 @@ const Start = () => {
 }
 
 export default Start
+

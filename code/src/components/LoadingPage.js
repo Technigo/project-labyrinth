@@ -32,7 +32,7 @@ const LoadingPage = () => {
       {isLoading &&
         <LoaderContainer>
           <h1>Loading...</h1>
-          <Lottie options={defaultOptions} height={200} width={200} />
+          <Lottie options={defaultOptions} height={100} width={100} />
         </LoaderContainer>
       }
     </>
@@ -40,4 +40,5 @@ const LoadingPage = () => {
 }
 
 export default LoadingPage
+
 

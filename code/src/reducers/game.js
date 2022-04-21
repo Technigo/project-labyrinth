@@ -1,13 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const initialState = {
+  username: null,
+  currentPosition: null,
+  loading: false,
+  gameState: false,
+}
+
 const game = createSlice({
   name: 'game',
-  initialState: {
-    username: null,
-    currentPosition: null,
-    loading: false,
-    gameState: false,
-  },
+  initialState: initialState,
   reducers: {
     setUsername: (store, action) => {
       store.username = action.payload
@@ -20,6 +22,9 @@ const game = createSlice({
     },
     setLoading: (store, action) => {
       store.loading = action.payload
+    },
+    restartGame: () => {
+      return initialState
     }
   }
 })
