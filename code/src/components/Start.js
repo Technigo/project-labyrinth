@@ -1,7 +1,7 @@
 import React from "react"
 import { useDispatch } from "react-redux"
 import { useState } from "react"
-import { gamereducer } from "reducers/gamereducer"
+import { startGame, gamereducer } from "reducers/gamereducer"
 
 const Start = () => {
   const [inputValue, setInputValue] = useState("")
