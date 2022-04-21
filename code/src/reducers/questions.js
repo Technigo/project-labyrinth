@@ -42,10 +42,11 @@ export const generateGamedata = () => {
         fetch('https://labyrinth-technigo.herokuapp.com/start', options)
         .then(res => res.json())
         .then(data => dispatch(questions.actions.setGamedata(data)))
+          
     }
 }
 
-export const playGame = (direction) => {  
+export const playGame = (type, direction) => {  
 
     return (dispatch, getState) => {
         const options = {
@@ -55,17 +56,18 @@ export const playGame = (direction) => {
             },
             body: JSON.stringify({
              username: getState().questions.username,
-             type: 'move',
-             direction: "east"
+             type,
+             direction,
             })
           }
         fetch('https://labyrinth-technigo.herokuapp.com/action', options)
         .then(res => res.json())
         .then(data => 
-            dispatch(questions.actions.setGamedata(data)),
-            dispatch(questions.actions.setDirection(direction)))
+            dispatch(questions.actions.setGamedata(data)))
+            // dispatch(questions.actions.setDirection()))
                      
-        // .then(data => console.log(data,'FUNKAR'))
+        // .then(data => console.log(data,'FUNKAR')))
+        // body: direction funkar bara vid hårdkodat, hur uppdater. uppdateringen sker väl i initialstate?
                     
       
     }
