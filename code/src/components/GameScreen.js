@@ -1,18 +1,17 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { playGame } from 'reducers/questions'
-// import questions, { generateGamedata, playGame } from 'reducers/questions'
+
+import questions, { playGame } from 'reducers/questions'
 
 const GameScreen = () => {
     const gamedata = useSelector(store => store.questions.gamedata)
-
-    const username = useSelector(store => store.questions.username)
-    // const direction = useSelector(store => store.questions.direction)
+    
     const dispatch = useDispatch()
     
     const onNextStep = (type, direction) => {
       dispatch(playGame(type, direction))
     }
+
 
     const ActionCard = ({ description, type, direction }) => (
       <div className='action-card'>
@@ -25,22 +24,18 @@ const GameScreen = () => {
 
     return (
       <div>
-          <h1>Welcome {username}</h1>
-          <h3>Now the adventure begins</h3>
+          {/* <h1>Welcome {username}</h1> INTE NÖDVÄNDIG? Annars ngt if-statement
+          <h3>Now the adventure begins</h3> */}
           <h3>{gamedata.description}</h3>
-
-          {gamedata.actions.map((item) => <ActionCard key={item.direction} {...item} />)}
-
-         {/* {gamedata.actions.map((act) => (
-            <div key={gamedata.coordinates}>
-            <h3>{act.description}</h3>
+          {gamedata.actions.length === 0 && (
             <button 
-            value={act.direction}
-               onClick={() => onNextStep()}>
-               {act.direction}
-            </button>
-            </div>
-          ))} */}
+            type="button"
+            onClick={() => dispatch(questions.actions.resetGame())}>
+            RESTART GAME 
+          </button>)}
+          {gamedata.actions.length > 0 && 
+          gamedata.actions.map((item) => <ActionCard key={item.direction} {...item} />)
+        }
       </div>
     )
 }

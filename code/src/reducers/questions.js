@@ -1,11 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const restart = { username: '' }  //FÖR ATT NOLLSTÄLLA
+
 const questions = createSlice({
     name: 'questions',
     initialState: {
         username: '',
         gamedata: null,
-        history: [],
+        // history: [], //ANVÄNDS EJ
         direction: ''
     },
     reducers: {
@@ -15,14 +17,18 @@ const questions = createSlice({
       setGamedata: (store, action) => {
           store.gamedata = action.payload;
       },
-      setHistory: (store, action) => {
-        if (store.gamedata) {
-          store.history = [...store.history, action.payload]
-        }
+      resetGame: () => {
+          return restart;
       },
-      setDirection: (store, action) => {
-        store.direction = action.payload
-      }
+          
+      // setHistory: (store, action) => {  //ANVÄNDS EJ
+      //   if (store.gamedata) {
+      //     store.history = [...store.history, action.payload]
+      //   }
+      // },
+      // setDirection: (store, action) => {
+      //   store.direction = action.payload
+      // }
     }
 })
 
@@ -64,15 +70,7 @@ export const playGame = (type, direction) => {
         .then(res => res.json())
         .then(data => 
             dispatch(questions.actions.setGamedata(data)))
-            // dispatch(questions.actions.setDirection()))
-                     
-        // .then(data => console.log(data,'FUNKAR')))
-        // body: direction funkar bara vid hårdkodat, hur uppdater. uppdateringen sker väl i initialstate?
-                    
-      
     }
-
-    
 }
 
 
