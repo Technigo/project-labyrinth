@@ -4,6 +4,16 @@ import gameplay from "reducers/gameplay";
 
 import styled from "styled-components";
 
+const Header = styled.h2`
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+`;
+
+const Move = styled.p`
+  margin: 0;
+`;
+
 const Button = styled.button`
   color: white;
   background-color: grey;
@@ -31,10 +41,10 @@ const Summary = () => {
 
   return (
     <>
-      <h2>{finalDescription}</h2>
+      <Header>{finalDescription}</Header>
       <h3>Your path:</h3>
       {moves.map((move, index) => (
-        <span key={index}>{move}</span>
+        <Move key={index}>{move}</Move>
       ))}
       <Button type="button" onClick={() => dispatch(gameplay.actions.restart())}>
         Restart

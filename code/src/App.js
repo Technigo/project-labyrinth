@@ -9,15 +9,18 @@ import { useSelector } from "react-redux";
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
+    padding: 18px;
     color: white;
     background-color: black;
+    box-sizing: border-box;
     font-family: Inconsolata, monospace;;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: 0 auto;
-    display: block;
-    justify-content: center;
     width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
   }
 
   @media (min-width: 768px) {
@@ -27,10 +30,11 @@ const GlobalStyle = createGlobalStyle`
   }
 
   main {
-    box-sizing: border-box;
-    padding: 0 20px;
     display: grid;
     align-content: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     height: 100vh;
   }
 `;

@@ -13,9 +13,9 @@ const Container = styled.div`
 
 const Button = styled.button`
   justify-self: center;
-  width: 85px;
-  padding: 8px;
-  margin: 3px;
+  min-width: 75px;
+  padding: 7px;
+  margin: 4px 0;
   color: black;
   background-color: white;
   border: none;
