@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchGameSteps, setPreviousGameObject, reset } from "../reducers/game";
 
@@ -9,15 +9,16 @@ import {
   StyledButton,
   StyledButtonB,
   Container,
+  ContainerWrapper,
   Wrapper,
   StyledMsg,
-  StyledAlert,
 } from "styles";
 import Loading from "./Loading";
 import Congrats from "./Congrats";
+import Grid from "./Grid";
+import Footer from "./Footer";
 
 const GamePlay = () => {
-  const [onAlert, setAlert] = useState(false);
   const gameObject = useSelector((store) => store.game.gameObject);
   const history = useSelector((store) => store.game.history);
   const isLoading = useSelector((store) => store.ui.isLoading);
@@ -26,17 +27,13 @@ const GamePlay = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    history.length && setAlert(false);
-  }, [history]);
   const onRestartClick = () => {
     dispatch(reset());
     navigate("/");
   };
 
   const onGoBack = () => {
-    if (history.length === 0) {
-      setAlert(true);
+    if (!history.length) {
       return;
     }
     dispatch(setPreviousGameObject());
@@ -47,7 +44,7 @@ const GamePlay = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <>
+        <ContainerWrapper>
           <Container>
             <h3>{gameObject.description}</h3>
             <StyledMsg>- where to go next?</StyledMsg>
@@ -81,13 +78,11 @@ const GamePlay = () => {
               ))}
               <Wrapper>
                 <StyledButtonB onClick={onRestartClick}>RESTART</StyledButtonB>
-                <StyledButtonB onClick={onGoBack}>GO BACK</StyledButtonB>
+                <StyledButtonB unclickable={!history.length} onClick={onGoBack}>
+                  GO BACK
+                </StyledButtonB>
               </Wrapper>
-              <StyledAlert
-                style={{ visibility: onAlert ? "visible" : "hidden" }}
-              >
-                Cannot go back
-              </StyledAlert>
+              <Grid />
             </>
           ) : (
             gameObject.coordinates && (
@@ -100,8 +95,9 @@ const GamePlay = () => {
               </>
             )
           )}
-        </>
+        </ContainerWrapper>
       )}
+      <Footer />
     </GameArea>
   );
 };

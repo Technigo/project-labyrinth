@@ -11,8 +11,9 @@ import {
   Container,
   Input,
   StyledButton,
-  StyledAlert,
+  FlexCenter,
 } from "styles";
+import Footer from "./Footer";
 
 const StartScreen = () => {
   const [nameInput, setNameInput] = useState("");
@@ -49,27 +50,29 @@ const StartScreen = () => {
 
   return (
     <GameArea>
-      <Heading>Let's play a game!</Heading>
+      <FlexCenter>
+        <Heading>Let's play a game!</Heading>
 
-      <Container>
-        <label>
-          <p>Add your username:</p>
+        <Container>
+          <label>
+            <p>Add your username:</p>
 
-          <Input
-            type="text"
-            value={nameInput}
-            placeholder="Enter name here"
-            onChange={onSetNameInput}
-            onKeyDown={(event) => {
-              onEnter(event);
-            }}
-          />
-        </label>
-        <StyledButton onClick={() => onStart()}>I'm ready</StyledButton>
-      </Container>
-      <StyledAlert style={{ visibility: onAlert ? "visible" : "hidden" }}>
-        Please enter username
-      </StyledAlert>
+            <Input
+              type="text"
+              value={nameInput}
+              placeholder="Enter name here"
+              onChange={onSetNameInput}
+              onKeyDown={(event) => {
+                onEnter(event);
+              }}
+            />
+          </label>
+          <StyledButton unclickable={!nameInput} onClick={() => onStart()}>
+            I'm ready
+          </StyledButton>
+        </Container>
+      </FlexCenter>
+      <Footer />
     </GameArea>
   );
 };
