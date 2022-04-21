@@ -15,12 +15,18 @@ const StyledForm = styled.form`
   }
 `
 const StyledStartPage = styled.div`
-
-font-size: 10px;
-padding: 10px;
-background-color: black;
-color: lime;
-height: 100vh;
+  font-size: 10px;
+  padding: 10px;
+  background-color: black;
+  color: lime;
+  height: 100vh;
+  padding-top: 20%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  @media (min-width:768px) {
+    font-size: 15px;
+  }
 `
 
 
