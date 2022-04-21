@@ -9,9 +9,9 @@ const GameScreen = () => {
     console.log(actions)
     const dispatch = useDispatch()
 
-    // const onActionRegenerate = (type, direction) => {
-    //     dispatch(generateAction(type, direction))
-    // }
+    const onActionRegenerate = (type, direction) => {
+        dispatch(generateAction(type, direction))
+    }
 
     return (
     <div>
@@ -21,8 +21,8 @@ const GameScreen = () => {
                 <p>{action.description}</p>
                 <button 
                     key={action.description} 
-                    // onClick={() => onActionRegenerate(action.type, action.direction)}
-                     onClick={() => dispatch(generateAction(action.type, action.direction))}
+                    onClick={() => onActionRegenerate(action.type, action.direction)}
+                    //  onClick={() => dispatch(generateAction(action.type, action.direction))}
                 >
                     {action.direction}
                 </button>

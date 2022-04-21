@@ -6,8 +6,6 @@ const game = createSlice({
     initialState: {
         actions: '',
         username: null,
-        // type: '',
-        // direction: '',
         // description: null
     },
     reducers: {
