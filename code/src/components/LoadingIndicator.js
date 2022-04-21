@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-
 import { Grid } from 'react-loader-spinner'
 
 const LoadingIndicator = () => {
@@ -8,7 +7,7 @@ const LoadingIndicator = () => {
 
   return (
     <div className='loader'>
-      {isLoading && <Grid ariaLabel="loading-indicator" />}
+      {isLoading && <Grid ariaLabel='loading-indicator' />}
     </div>
   );
 };

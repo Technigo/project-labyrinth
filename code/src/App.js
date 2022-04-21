@@ -2,10 +2,10 @@ import React from 'react'
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
+import Game from 'components/Game';
+
 import ui from 'reducers/ui';
 import game from './reducers/game';
-
-import Game from 'components/Game';
 
 import "nes.css/css/nes.min.css";
 

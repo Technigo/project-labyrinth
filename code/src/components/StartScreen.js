@@ -27,10 +27,9 @@ const StartScreen = () => {
             id='inline_field'
             value={inputValue}
             className='nes-input is-success'
-            onChange={event => setInputValue(event.target.value)}
+            onChange={(event) => setInputValue(event.target.value)}
             placeholder="Type here"
-            required
-          />
+            required />
           <button type='submit' className='nes-btn is-success'>Start</button>
         </form>
       </label>

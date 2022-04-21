@@ -24,8 +24,8 @@ const game = createSlice({
     },
     setPreviousStep: (store) => {
      if (store.history.length) {
-       store.currentStep = store.history[store.history.length -1];
-       const changedHistory = store.history.slice(0, store.history.length -1);
+       store.currentStep = store.history[store.history.length - 1];
+       const changedHistory = store.history.slice(0, store.history.length - 1);
        store.history = changedHistory;
      }
     },
@@ -41,7 +41,7 @@ export const generateGame = (action) => {
       const options = {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           username: getState().game.player,
@@ -63,22 +63,22 @@ export const generateGame = (action) => {
       const options = {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          username: getState().game.player,
+          username: getState().game.player
         })
       };
 
       dispatch(ui.actions.setLoading(true));
       fetch(START_URL, options)
-        .then(res => res.json())
-        .then(step => {
+        .then((res) => res.json())
+        .then((step) => {
           dispatch(game.actions.setCurrentStep(step));
           dispatch(ui.actions.setLoading(false));
         })
     }
   }
-}
+};
 
 export default game;
