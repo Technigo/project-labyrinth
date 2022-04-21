@@ -6,7 +6,6 @@ import styled from 'styled-components'
 import game from "reducers/game";
 
 import StartScreen from "components/StartScreen";
-import GameScreen from "components/GameScreen";
 
 const reducer = combineReducers({
   game: game.reducer,
@@ -34,7 +33,7 @@ flex-direction: column;
 /* justify-content: center; */
 align-items: center;
 width: 90vw;
-height: 60vh;
+min-height: 60vh;
 border: 4px solid black;
 
 
