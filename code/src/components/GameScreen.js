@@ -10,13 +10,8 @@ const GameScreen = () => {
     const dispatch = useDispatch();
 
     const onActionSet = (action) => {
-
-        // dispatch(labyrinth.actions.setPlayer(player));
         dispatch(generateGame(action));
     }
-    // const onQuoteRegenerate = (quoteTag) => {
-    //     dispatch(generateGame(quoteTag))
-    // };
 
     const onQuoteRevert = () => {
         dispatch(labyrinth.actions.setPreviousStage());

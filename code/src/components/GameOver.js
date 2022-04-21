@@ -56,4 +56,4 @@ const GameOver = () => {
 //   );
 // };
 
-// export default GameOver;
+export default GameOver;

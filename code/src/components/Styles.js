@@ -63,7 +63,6 @@ export const Button = styled.button `
     justify-content: center;
     margin: 1em auto;
 ` 
-<<<<<<< HEAD
 export const Gif = styled.iframe`
     margin: 0;
     border: none;
@@ -99,7 +98,6 @@ export const Action = styled.div`
     display: grid;
     justify-items: center;
 `
-=======
 
 export const EndGame = styled.div`
     margin: 10px auto;
@@ -108,4 +106,3 @@ export const EndGame = styled.div`
     flex-direction: column;
     justify-content: center;
 `;
->>>>>>> c172b7d59c688b03effc76aa063365a58ae77e1c

@@ -9,15 +9,6 @@ import { Container } from "./Styles";
 const Quotes = () => {
     const stage = useSelector(store => store.labyrinth.stage);
 
-
-    //v3
-    // const renderScreen = () => {
-    //     if (quote) {
-    //         return <GameScreen/>
-    //     }
-    //     return <StartPage/>
-    // }
-    console.log(stage)
     return (
         <Container>
             {stage 
@@ -26,12 +17,8 @@ const Quotes = () => {
                     : <GameOver />
                 : <StartPage/> 
             }
-        </Container>
-        
+        </Container>   
     )
-
-    // v3
-    // return renderScreen();
 }
 
 export default Quotes;

@@ -35,7 +35,6 @@ const labyrinth = createSlice({
 export const generateGame = (action = null) => {
     if (!action) {
         return (dispatch, getState) => {
-            console.log("start")
             const options = {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
