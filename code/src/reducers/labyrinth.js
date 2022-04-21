@@ -40,7 +40,6 @@ export const startGame = () => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
         dispatch(labyrinth.actions.setCurrentStep(data))
         dispatch(ui.actions.setLoading(false))
       })
@@ -61,7 +60,6 @@ export const continueGame = (direction) => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
         dispatch(labyrinth.actions.setCurrentStep(data))
         dispatch(labyrinth.actions.setHistory(direction))
         dispatch(ui.actions.setLoading(false))
