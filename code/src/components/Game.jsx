@@ -4,18 +4,18 @@ import { useSelector } from 'react-redux';
 import StartScreen from './StartScreen';
 import GameScreen from './GameScreen';
 
-const Directions = () => {
-    const direction = useSelector(store => store.directions.direction);
-    console.log(direction)
+const Game = () => {
+    const username = useSelector(store => store.game.username);
+
 
     return (
         <div>
-            {direction
-                ? <GameScreen />
+            {username
+                ? <GameScreen username={username} />
                 : <StartScreen />
             }
 
-            {/* if (direction) {
+            {/* if (username) {
                     return <GameScreen />
                 } 
                 return <StartScreen />
@@ -24,4 +24,4 @@ const Directions = () => {
     );
 };
 
-export default Directions;
+export default Game;

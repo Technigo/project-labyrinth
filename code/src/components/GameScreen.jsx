@@ -1,24 +1,31 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { generateDirection } from 'reducers/directions';
+import { continueGame } from 'reducers/game';
 
 const GameScreen = () => {
-    const direction = useSelector(store => store.directions.direction);
 
+
+    const actions = useSelector((store) => store.game.setPosition.actions);
+    const setPosition = useSelector((store) => store.game.setPosition.description)
+    
+    
     const dispatch = useDispatch();
 
-    const onDirectionRegenerate = (directionTag) => {
-        dispatch(generateDirection(directionTag));
-    };
+
+    const onContinueGame = (type, direction) => {
+        dispatch(continueGame(type, direction))
+    }
 
     return (
         <div>
-            <h3>Hej {direction.actions}</h3> 
-            {direction.tags.map((tag) => (
+            {actions.map(XX => (
+                <>
+                <h4>{setPosition}</h4>
                 <button 
-                    key={tag}
-                    onClick={() => onDirectionRegenerate(tag)}
-                >{tag}</button>
+                    key={XX.description}
+                    onClick={onContinueGame}
+                    ></button>
+                </>
             ))}
         </div>
     )

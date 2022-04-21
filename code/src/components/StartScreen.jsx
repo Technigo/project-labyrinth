@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import directions , { generateDirection } from '../reducers/directions';
+import game from '../reducers/game';
+import { startGame } from '../reducers/game';
 
 const StartScreen = () => {
     const [inputValue, setInputValue] = useState('');
 
     const dispatch = useDispatch();
 
-    const onUsernameSet = () => {
-        dispatch(directions.actions.setUsername(inputValue));
-        dispatch(generateDirection);
-    };
-
+    const onUsernameInput = () => {
+        dispatch(game.actions.setUsername(inputValue));
+        dispatch(startGame());
+    }
+    
     return (
         <div>
             <p>Welcome to Labyrinth Game! Please type your gamertag</p>
@@ -20,14 +21,16 @@ const StartScreen = () => {
                 type='text'
                 value={inputValue}
                 onChange={event => setInputValue(event.target.value)}
-            />
-            <button onClick={onUsernameSet}>Start the game!</button>
+                />
+            <button onClick={onUsernameInput}>Start the game!</button>
         </div>
     );
 };
 
 export default StartScreen;
 
+// dispatch(directions.actions.setUsername(inputValue));
+// dispatch(generateDirection);
 
 //More accessible semantics?
 {/* <form>
@@ -49,3 +52,13 @@ export default StartScreen;
   // const onFormSubmit = (event) => {
     //     event.preventDefault();
     // }
+
+
+
+
+
+
+
+
+
+
