@@ -1,13 +1,17 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
+This week we learned:
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+- How to work with APIs together with Redux
+- How to use thunks
+- How to send JSON in the body of a request
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We decided to work on the functionality first and get all of the components and reducer actions and thunks in place. We used POSTMAN for solving some of the issues we had with the API call, and used some console logging of the store to setup our initial store state.
+
+After we played through the game without any styling, we decided to go with a retro color scheme that fit the gameplay. We also found a typewriter effect on NPM that made the game feel a little more dynamic.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://project-labyrinth-week15.netlify.app/
