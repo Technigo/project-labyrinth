@@ -19,9 +19,9 @@ const labyrinth = createSlice({
         },
         setStage: (store, action) => {
             // console.log('setting stage')
-            // if (store.quote) {
-            //     store.history.push(store.stage)
-            // }
+             if (store.stage) {
+                 store.history.push(store.stage)
+            }
             // console.log(store.stage);
             store.stage = action.payload;
 
@@ -32,12 +32,12 @@ const labyrinth = createSlice({
         //     }
         //     store.quote = action.payload;
         // },
-        // setPreviousStage: (store, action) => {
-        //     if (store.history.length !== 0) {
-        //         store.stage = store.history[store.history.length - 1]
-        //         store.history.splice(-1, 1)
-        //     }
-        // }
+         setPreviousStage: (store, action) => {
+             if (store.history.length !== 0) {
+                 store.stage = store.history[store.history.length - 1]
+                store.history.splice(-1, 1)
+             }
+         }
     }
 });
 

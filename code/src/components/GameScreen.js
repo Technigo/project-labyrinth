@@ -19,7 +19,7 @@ const GameScreen = () => {
     // };
 
     const onQuoteRevert = () => {
-        dispatch(labyrinth.actions.setPreviousQuote());
+        dispatch(labyrinth.actions.setPreviousStage());
     }
 
     return (
