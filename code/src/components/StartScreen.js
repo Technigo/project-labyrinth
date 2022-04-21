@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import background from '../assets/StartScreenPicture.jpg';
+import background from '../assets/StartScreenImage.jpg';
 import { useDispatch } from "react-redux";
 import styled from 'styled-components/macro'
 
@@ -17,8 +17,14 @@ const FormContainer = styled.form`
  align-items: center;
 `
 const StartPageInfo = styled.div`
- background-color: #FFF;
- padding: 30px;
+background-color: rgba(0, 0, 0, 0.7);
+width: 50%;
+height: 40%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding-bottom: 30px;
 `
 const GameTitle = styled.h3`
   font-size: 20px;
@@ -26,12 +32,24 @@ const GameTitle = styled.h3`
 `
 const Subtitle = styled.p` 
   font-size: 16px;
+  margin-top: 5px;
 `
 const SubmitButton = styled.button`
-  margin-left: 15px;
   padding: 8px;
   font-size: 16px;
+  font-family: 'Inconsolata', monospace, 'Open Sans', sans-serif;
+  background-color: #99D17B;
 `
+
+const InputText = styled.input`
+font-family: 'Inconsolata', monospace, 'Open Sans', sans-serif;
+font-size: 16px;
+padding: 5px; 
+width: 200px;
+margin-bottom:20px;
+text-align: center;
+`
+
 const StartScreen = () => {
     const [username, setUserName] = useState('')
 
@@ -49,10 +67,10 @@ const StartScreen = () => {
     return(
      <BackgroundPicture>
         <FormContainer onSubmit={preventDefault}>
-            <StartPageInfo>
+          <StartPageInfo>
             <GameTitle>Welcome to the labyrinth!</GameTitle>
             <Subtitle>Write your username to start the game</Subtitle>
-            <input
+            <InputText
             type='text'
             placeholder='Username here..'
             value={username}
@@ -61,7 +79,7 @@ const StartScreen = () => {
              />
              <SubmitButton type="submit" onClick={onUserSet}> Let's play!
              </SubmitButton>
-             </StartPageInfo>
+          </StartPageInfo>
         </FormContainer>
       </BackgroundPicture>
     )

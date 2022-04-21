@@ -1,5 +1,5 @@
 import React from "react";
-import GamePicture from '../assets/GameScreenPicture.jpg';
+import GamePicture from '../assets/GameBoardImage.jpg';
 import { useSelector, useDispatch } from "react-redux";
 import styled from 'styled-components/macro'
 
@@ -12,17 +12,52 @@ const GameContainer = styled.div`
 `
 const GameBoardPicture = styled.main `
 background-image: url(${GamePicture});
-background-size: cover;
+background-position: bottom;
+background-repeat: repeat;
+}
 `
 const GameBoardInfo = styled.div`
- background-color: #FFF;
- padding: 30px;
- margin: 20px;
+background-color: rgba(0, 0, 0, 0.5);
+ padding: 0 10px 10px 10px;
+ display:flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+ margin-left: 50px;
+ margin-right: 50px;
+ width: 600px;
+ height: 200px;
+ `
+ const GameDescription = styled.h3`
+ background-color: rgba(0, 0, 0, 0.5);
+ padding: 10px 10px 0 10px;
+ margin-bottom: 0;
+ margin-right: 50px;
+ margin-left: 50px;
+ text-align: center;
+ width: 600px;
  `
 
 const GoBackButton = styled.button` 
   font-size: 16px;
   padding: 8px;
+  font-family: 'Inconsolata', monospace, 'Open Sans', sans-serif;
+`
+const DirectionButton = styled.button `
+font-family: 'Inconsolata', monospace, 'Open Sans', sans-serif;
+font-size: 16px;
+padding: 8px;
+`
+
+const WrapContainer = styled.div `
+display: flex;
+flex-direction: column;
+align-items: center;
+`
+
+const TextDescription = styled.p` 
+ text-align: center;
+
 `
 
 const GameScreen = ({username}) => {
@@ -43,18 +78,17 @@ const GameScreen = ({username}) => {
         <GoBackButton disabled={!history.length} onClick={onGameRevert}>
         Go back
       </GoBackButton>
+      <GameDescription>{currentStep.description}</GameDescription>
       <GameBoardInfo>
-        <h2>Hello {username}</h2>
-      <h3>{currentStep.description}</h3>
       {userActions.map((action) => (
-          <div key={action.direction}>
-              <p>{action.description}</p>
-              <button onClick={() =>
+          <WrapContainer key={action.direction}>
+              <TextDescription>{action.description}</TextDescription>
+              <DirectionButton onClick={() =>
                 dispatch(continueGame(action.type, action.direction)) }>
                   Go to {action.direction}
-              </button>
+              </DirectionButton>
 
-          </div>
+          </WrapContainer>
       ))}
       </GameBoardInfo>
     </GameContainer>
