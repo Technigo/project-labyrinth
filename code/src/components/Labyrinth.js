@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import game, { navigateGame } from '../reducer/game'
 import styled from 'styled-components/macro'
+import Polygon from './img/Polygon.svg'
+import { keyframes } from 'styled-components'
 
 const Background = styled.div`
 	background: ${(props) => props.background};
@@ -14,10 +16,13 @@ const ButtonController = styled.div`
 
 	background: #FDB100;
 	border: solid 2px #000;
-	width: 120px;
-	height: 120px;
+	padding: 20px;
 	border-radius: 50%;
 	place-items: center;
+	position: absolute;
+	bottom: 0;
+	left: auto;
+	margin-bottom: 40px;
 
 
 `
@@ -25,20 +30,61 @@ const ButtonController = styled.div`
 const Btn = styled.button`
 
 		background: #F10DB3 ;
-		border: none;
 		grid-area: ${props => props.position};
-		width: 80%;
-		height: 80%;
+		width: 30px;
+		height: 30px;
+		padding: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		border: solid 2px #000;
+		border-bottom: ${props => props.border === 'North' ? ' solid 2px #F10DB3' : ''} ;
+		border-top: ${props => props.border === 'South' ? ' solid 2px #F10DB3' : ''} ; 
+		border-left: ${props => props.border === 'East' ? ' solid 2px #F10DB3' : ''} ; 
+		border-right: ${props => props.border === 'West' ? ' solid 2px #F10DB3' : ''} ; 
+		animation: ${(props) => props.animation} 1s ease-in-out infinite;
 
-		&:disabled {
+		/* &:disabled {
 			background: #C573AF;
-		}
-
+		} */
 
 
 `
 
+const MiddeBtn = styled(Btn) `
+		grid-area: 2/2;
+		width: 100%;
+		height: 100%;
+		position: relative;
+		border: solid 2px #F10DB3;
+
+		&::after {
+			content: '';
+			width: 30px;
+			height: 30px;
+			background: #000;
+			border-radius: 50%;
+			position: absolute;
+		}
+
+`
+
+const Modal = styled.div`
+		background: #fff;
+		display: ${props => props.text !== '' ? 'inline-block' : 'none'};
+		position: absolute;
+		text-align: center;
+		border-radius: 10px;
+		padding: 20px;
+		width: 300px;
+		height: 100px;
+		left: 50%;
+		top: 10%;
+		transform: translate(-50%,0%);
+		z-index: 5;
+		transform: all 0.4s ease;
+
+`
 /*const Wrapper = styled.div`
 	display: flex;
 	flex-direction: row;
@@ -85,14 +131,23 @@ const Btn = styled.button`
 
 const Labyrinth = () => {
 	const [select, setSelect] = useState([])
+	const [prevStep, setPrevStep] = useState('')
 	const dispatch = useDispatch()
 	const items = useSelector((store) => store.game.items)
 
 
 
 	const onNavigate = (type, direction) => {
+
+		//STORE HISTORY, SELECTED STEPS
 		setSelect((prev) => [...prev, direction])
+		// STORE LAST STEP
+		setPrevStep(direction);
+		/////////////////////////////////////
 		dispatch(navigateGame(type, direction))
+
+		setTimeout(() => setPrevStep(''), 1500)
+
 	}
 
 	const onRestartClick = () => {
@@ -105,15 +160,15 @@ const Labyrinth = () => {
 	const changeDirectionToIcon = (way) => {
 		if (way === 'North') {
 
-			return '⬆️'
+			return <img src={Polygon} alt='arrow up' />
 		} else if (way === 'South') {
 
-			return '⬇️'
+			return <img className='rotate-down' src={Polygon} alt='arrow down' />
 		} else if (way === 'East') {
-			return '➡️'
+			return <img className='rotate-right' src={Polygon} alt='arrow right' />
 		} else if (way === 'West'){
 			
-			return '⬅️'
+			return <img className='rotate-left' src={Polygon} alt='arrow up' />
 		}
 	}
 
@@ -139,9 +194,19 @@ const Labyrinth = () => {
 
 		const newOne = btnNavigator.filter(item => !filterDirection.includes(item))
 		
-		return newOne.map(item => <Btn position={arrowStyle(item)} disabled>{changeDirectionToIcon(item)}</Btn>)
+		return newOne.map(item => <Btn border={item}  position={arrowStyle(item)} disabled>{changeDirectionToIcon(item)}</Btn>)
 	}
 
+	const activeBtnAnimation = () => {
+		return keyframes`
+			50% {
+				transform: scale(1.05);
+				background-color: #F6C8EA;
+				z-index: 3;
+			}
+			
+		`
+	}
 
 	const changeBG = () => {
 		switch (items.coordinates) {
@@ -173,7 +238,10 @@ const Labyrinth = () => {
 
 	return (
 		<Background background={changeBG()}>
-			<p>You choose {select}</p>
+
+			{/* <p>You choose {select}</p> */}
+
+			<Modal text={prevStep} >You chose {prevStep}</Modal>
 			{items.actions.map((item) => {
 				return (
 					<div>
@@ -188,12 +256,18 @@ const Labyrinth = () => {
 				{items.actions.map((item) => {
 					return (
 						<>
-							<Btn position={arrowStyle(item.direction)} onClick={() => onNavigate(item.type, item.direction)}>{changeDirectionToIcon(item.direction)}</Btn>
+							<Btn  
+							border={item.direction} 
+							position={arrowStyle(item.direction)} 
+							onClick={() => onNavigate(item.type, item.direction)}
+							animation = {activeBtnAnimation()}>
+								{changeDirectionToIcon(item.direction)}
+							</Btn>
 						</>
 					)
 				})}
 				{filterDisableBtn()}
-
+				<MiddeBtn></MiddeBtn>
 			</ButtonController>
 
 			<button type='button' onClick={onRestartClick}>

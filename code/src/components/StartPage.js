@@ -17,6 +17,7 @@ const ConsoleContainer = styled.section`
 	height: 95vh;
 	padding: 1.75em 1em 0 1em;
 	border: 2px solid #000;
+	position: relative;
 `
 const ConsoleFrame = styled.div`
 	background: #f10db3;

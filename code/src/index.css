@@ -1,5 +1,6 @@
+
 body {
-	margin: 0;
+	margin: 0;color: ;
 	font-family: 'Press Start 2P', cursive;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -8,3 +9,16 @@ body {
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.rotate-down {
+	transform: rotate(180deg);
+}
+
+.rotate-left {
+	transform: rotate(-90deg);
+}
+
+.rotate-right {
+	transform: rotate(90deg);
+}
+
