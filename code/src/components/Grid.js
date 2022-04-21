@@ -6,7 +6,6 @@ const Grid = () => {
   const coordinates = useSelector((state) => state.game.gameObject.coordinates);
   const history = useSelector((state) => state.game.history);
   const coordHist = history.map((item) => item.coordinates);
-  console.log("coordHist.includes", coordHist.includes("0,0"));
   const x = Number(coordinates.split(",")[0]);
   const y = Number(coordinates.split(",")[1]);
 
