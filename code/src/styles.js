@@ -18,6 +18,7 @@ export const GameArea = styled.main`
   align-items: center;
   justify-content: center;
   overflow-y: scroll;
+  position: relative;
 `;
 
 export const Container = styled.div`
@@ -131,4 +132,12 @@ export const StyledMsg = styled.p`
   font-style: italic;
   margin: 0;
   margin-bottom: 12px;
+`;
+
+export const StyeldCongrats = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 `;

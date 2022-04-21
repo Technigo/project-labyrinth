@@ -14,6 +14,7 @@ import {
   StyledAlert,
 } from "styles";
 import Loading from "./Loading";
+import Congrats from "./Congrats";
 
 const GamePlay = () => {
   const [onAlert, setAlert] = useState(false);
@@ -90,10 +91,13 @@ const GamePlay = () => {
             </>
           ) : (
             gameObject.coordinates && (
-              <Container>
-                <h3>You won!</h3>
-                <StyledButton onClick={onRestartClick}>Restart </StyledButton>
-              </Container>
+              <>
+                <Congrats />
+                <Container>
+                  <h3>You won!</h3>
+                  <StyledButton onClick={onRestartClick}>Restart </StyledButton>
+                </Container>
+              </>
             )
           )}
         </>
