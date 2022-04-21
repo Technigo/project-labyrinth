@@ -1,103 +1,17 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import game, { navigateGame } from '../reducer/game'
-import styled from 'styled-components/macro'
+import { navigateGame } from '../reducer/game'
+import { keyframes } from 'styled-components'
 import Polygon from './img/Polygon.svg'
 import BG2 from './img/bg2.png'
-import BG3 from './img/bg1.png'
-import BG4 from './img/bg1.png'
-import BG5 from './img/bg1.png'
-import BG6 from './img/bg1.png'
-import BG7 from './img/bg1.png'
-import BG8 from './img/bg1.png'
-import { keyframes } from 'styled-components'
+import BG3 from './img/bg3.png'
+import BG4 from './img/bg4.png'
+import BG5 from './img/bg5.png'
+import BG6 from './img/bg6.png'
+import BG7 from './img/bg7.png'
+import BG8 from './img/bg8.png'
 
-const Background = styled.div`
-	background: url(${(props) => props.background});
-	background-size: cover;
-	height: 95%;
-	width: 95%;
-	display: flex;
-	border-radius: 6px;
-	flex-direction: column;
-	justify-content: center;
-`
-
-const GameText = styled.p`
-	font-size: 16px;
-	color: #fff;
-	padding: 0 1em;
-`
-
-const ButtonController = styled.div`
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: repeat(3, 1fr);
-
-	background: #fdb100;
-	border: solid 2px #000;
-	padding: 20px;
-	border-radius: 50%;
-	place-items: center;
-	position: absolute;
-	bottom: 0;
-	left: auto;
-	margin-bottom: 40px;
-`
-
-const Btn = styled.button`
-	background: #f10db3;
-	grid-area: ${(props) => props.position};
-	width: 30px;
-	height: 30px;
-	padding: 30px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border: solid 2px #000;
-	border-bottom: ${(props) => (props.border === 'North' ? ' solid 2px #F10DB3' : '')};
-	border-top: ${(props) => (props.border === 'South' ? ' solid 2px #F10DB3' : '')};
-	border-left: ${(props) => (props.border === 'East' ? ' solid 2px #F10DB3' : '')};
-	border-right: ${(props) => (props.border === 'West' ? ' solid 2px #F10DB3' : '')};
-	animation: ${(props) => props.animation} 1s ease-in-out infinite;
-
-	/* &:disabled {
-			background: #C573AF;
-		} */
-`
-
-const MiddeBtn = styled(Btn)`
-	grid-area: 2/2;
-	width: 100%;
-	height: 100%;
-	position: relative;
-	border: solid 2px #f10db3;
-
-	&::after {
-		content: '';
-		width: 30px;
-		height: 30px;
-		background: #000;
-		border-radius: 50%;
-		position: absolute;
-	}
-`
-
-const Modal = styled.div`
-	background: #fff;
-	display: ${(props) => (props.text !== '' ? 'inline-block' : 'none')};
-	position: absolute;
-	text-align: center;
-	border-radius: 10px;
-	padding: 20px;
-	width: 300px;
-	height: 100px;
-	left: 50%;
-	top: 10%;
-	transform: translate(-50%, 0%);
-	z-index: 5;
-	transform: all 0.4s ease;
-`
+import { Background, GameText, ButtonController, Btn, MiddeBtn, Modal } from './Styling'
 
 const Labyrinth = () => {
 	const [select, setSelect] = useState([])
@@ -132,10 +46,6 @@ const Labyrinth = () => {
 		dispatch(navigateGame(type, direction))
 
 		setTimeout(() => setPrevStep(''), 1500)
-	}
-
-	const onRestartClick = () => {
-		dispatch(game.actions.restartGame())
 	}
 
 	const changeDirectionToIcon = (way) => {
@@ -222,8 +132,8 @@ const Labyrinth = () => {
 			<Modal text={prevStep}>You chose {prevStep}</Modal>
 			{items.actions.map((item) => {
 				return (
-					<div>
-						<GameText>{item.description}</GameText>
+					<div key={item.coordinates}>
+						<GameText>{item.actions ? item.description : 'You won!'}</GameText>
 					</div>
 				)
 			})}
@@ -246,10 +156,6 @@ const Labyrinth = () => {
 				{filterDisableBtn()}
 				<MiddeBtn></MiddeBtn>
 			</ButtonController>
-
-			<button type='button' onClick={onRestartClick}>
-				{!items.actions.length ? 'play again' : 'restart game'}
-			</button>
 		</Background>
 	)
 }

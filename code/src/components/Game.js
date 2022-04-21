@@ -1,35 +1,18 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import styled from 'styled-components/macro'
-import BG1 from './img/bg1.png'
-
+import {
+	ConsoleContent,
+	StartButton,
+	StartButtonImg,
+	GameTextHeader,
+	Span,
+	LabelName,
+	UsernameInput,
+	UsernameInputContainer,
+} from './Styling'
 import game, { fetchGame } from '../reducer/game'
 
-const ConsoleContent = styled.section`
-	background: #fff;
-	height: 472px;
-	width: 93%;
-	border-radius: 10px;
-	border: 2px solid;
-`
-const GameText = styled.p`
-	font-size: 16px;
-	color: #fff;
-`
-const UsernameInput = styled.input`
-	height: 25px;
-	font-family: inherit;
-`
-const UsernameInputContainer = styled.div`
-	display: flex;
-	flex-direction: column;
-	padding: 0 1em;
-	border-radius: 6px;
-	justify-content: center;
-	background: url(${BG1});
-	background-size: cover;
-	height: 100%;
-`
+import StartBtn from './img/startbtn.png'
 
 const Game = () => {
 	const [userName, setUserName] = useState('')
@@ -51,16 +34,20 @@ const Game = () => {
 	return (
 		<ConsoleContent>
 			<UsernameInputContainer>
-				<GameText>Welcome to the a-maze-ing 80's! Try to found your way out of the labyrinth!</GameText>
+				<GameTextHeader>
+					Welcome to the <Span>- a-maze-ing - </Span> 80's! Try to found your way out of the labyrinth!
+				</GameTextHeader>
+				<LabelName>Please, enter your name and press start</LabelName>
 				<UsernameInput
 					type='text'
 					value={userName}
+					placeholder='Name of player..'
 					onChange={onInputUserName}
 					onKeyDown={(e) => e.key === 'Enter' && onChangeUserName()}
 				/>
-				<button onClick={onChangeUserName} disabled={userName.length === 0}>
-					Start
-				</button>
+				<StartButton onClick={onChangeUserName} disabled={userName.length === 0}>
+					<StartButtonImg src={StartBtn} alt='start game'></StartButtonImg>
+				</StartButton>
 			</UsernameInputContainer>
 		</ConsoleContent>
 	)

@@ -1,9 +1,16 @@
-
 body {
-	margin: 0;color: ;
-	font-family: 'Press Start 2P', cursive;
+	margin: 0;
+	color: ;
+	/* font-family: 'Press Start 2P', cursive; */
+	font-family: 'Alef';
+	letter-spacing: 1px;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	background-image: url('./components/img/background.png');
+	background-size: cover;
 }
 
 code {
@@ -21,4 +28,3 @@ code {
 .rotate-right {
 	transform: rotate(90deg);
 }
-

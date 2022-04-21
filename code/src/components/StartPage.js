@@ -3,47 +3,39 @@ import { useDispatch, useSelector } from 'react-redux'
 import game from '../reducer/game'
 import Game from './Game'
 import Labyrinth from './Labyrinth'
-import styled from 'styled-components/macro'
-
-const MainWrapper = styled.main`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-`
-
-const ConsoleContainer = styled.section`
-	max-width: 450px;
-	background: #905efc;
-	height: 95vh;
-	padding: 1.75em 1em 0 1em;
-	border: 2px solid #000;
-	position: relative;
-`
-const ConsoleFrame = styled.div`
-	background: #f10db3;
-	height: 500px;
-	border: solid 2px #000;
-	border-radius: 10px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-`
-
-const BottomStyling = styled.div`
-	position: absolute;
-	bottom: 0;
-	height: 5vh;
-	background: #f10db3;
-`
+import ReturnBtn from './img/returnbtn.svg'
+import {
+	MainWrapper,
+	ConsoleContainer,
+	ConsoleFrame,
+	BottomStyling,
+	GoBackBtnDiv,
+	GoBackBtn,
+	LabelDiv,
+	Logo,
+} from './Styling'
 
 const StartPage = () => {
 	const items = useSelector((store) => store.game.items)
+	const dispatch = useDispatch()
+
+	const onRestartClick = () => {
+		dispatch(game.actions.restartGame())
+	}
 	return (
 		<MainWrapper>
 			<ConsoleContainer>
 				<ConsoleFrame>{items ? <Labyrinth /> : <Game />}</ConsoleFrame>
+				<LabelDiv>
+					<GoBackBtnDiv>
+						<GoBackBtn type='button' onClick={onRestartClick}>
+							<img src={ReturnBtn} alt='click to restart'></img>
+						</GoBackBtn>
+					</GoBackBtnDiv>
+					<Logo>play girl</Logo>
+				</LabelDiv>
+				<BottomStyling />
 			</ConsoleContainer>
-			<BottomStyling />
 		</MainWrapper>
 	)
 }
