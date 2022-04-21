@@ -9,4 +9,4 @@ We used React, Redux, pair programming, API, Thunk, styled components
 
 ## View it live
 
-
+https://lively-blini-53be40.netlify.app
