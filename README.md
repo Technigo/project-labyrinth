@@ -1,13 +1,13 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
+The purpose of project was to practice async actions through a text adventure game, including:
+- How to work with APIs together with Redux
+- How to use thunks
+- How to structure the redux store to suit the data
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The game presents the user with directional options to get out of a maze. Actions are retrieved from the backend and presented to the user as interactable items.
 
-## The problem
+The app was built by Arianna Allahyar and Sara Boström Bundock. 
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
-
-## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+# View it live
+https://salabyrinth.netlify.app/
