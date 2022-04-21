@@ -4,7 +4,7 @@ const games = createSlice({
     name: 'games',
     initialState: {
         username: null,
-        game: null,
+        game: [],
     },
     reducers: {
         setUsername: (store, action) => {
@@ -28,17 +28,23 @@ export const generateGame = () => { //Thunk. A function that immediately returns
     }
 }
 
-//Created new thunk with hardcoded type and direction acc to instructions, 
-//for upcoming steps we should probably not hardcode it
-export const generateAction = () => {
+const directionArray = [
+    'East',
+    'South',
+    'West',
+    'North'
+  ]
+
+export const generateAction = (index) => {
     return (dispatch, getState) => {
+        console.log(index)
         fetch('https://labyrinth-technigo.herokuapp.com/action', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'}, 
             body: JSON.stringify({
                 username: getState().game.username,
                 type: 'move',
-                direction: 'East'
+                direction: `${directionArray[index]}`
             })
         })
             .then(res => res.json())

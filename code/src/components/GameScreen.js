@@ -1,24 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { generateAction } from '../reducers/games';
 
-const GameScreen= () => {
+const GameScreen = () => {
     const dispatch = useDispatch();
+    let [direction, setDirection] = useState('');
 
-    //state.game.game.description fungerar inte, hur kommer vi åt den?
-    //Idéen var att displaya description i UI på rad 20
-    //const description = useSelector(state => state.game.game)
-    //console.log(description)
+    const directionArray = [
+      'East',
+      'South',
+      'West',
+      'North'
+    ]
 
-    const onChooseDirection = () => {
-      dispatch(generateAction());
+    const description = useSelector(state => state.game.game.description)
+    const actions = useSelector(state => state.game.game.actions)
+    //1. Want to display the description of each ACTION property, but fails the page on initial render due to game array empty initially
+    //const actionDescription = useSelector(state => state.game.game.actions.description)
+    console.log(description)
+    console.log(actions)
+
+    if (actions) {
+      console.log('actions exist now')
+      //2. Thus thought to render only if actions equals to true (exists). But cannot conditionally render useselector 
+      //const actionDescription = useSelector(state => state.game.game.actions.description)
+      //cannot put useselector inside here to be called conditionally (rules of hooks) - breaks the code
+      //console.log(actionDescription)
+      //3. Another solution could be to map over the actions array once it exists:
+      actions.map(content => {
+        return (
+          console.log(content.direction),
+          console.log(content.description)
+        )
+      })
+      //4. How do we display this in the UI though?
+    } else {
+      console.log('actions do not exist yet')
+    }
+
+    const onChooseDirection = (index) => {
+      setDirection(directionArray[index])
+      dispatch(generateAction(index));
     }
 
   return (
       <div>
-          <p>Display description here</p>
-            <button onClick={onChooseDirection}>Go east</button>
+          <p>{description}</p>
+          <p>{direction}</p>
+            <button onClick={() => onChooseDirection(0)}>Go east</button>
+            <button onClick={() => onChooseDirection(1)}>Go south</button>
+            <button onClick={() => onChooseDirection(2)}>Go west</button>
+            <button onClick={() => onChooseDirection(3)}>Go north</button>
     </div>  
   )
 };
