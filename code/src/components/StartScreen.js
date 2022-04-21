@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { labyrinth, startGame } from '../reducers/labyrinth';
+import { BtnNavigate } from './GameScreen';
+import { devices } from './GameScreen';
 
 const StartWrapper = styled.section`
   display: flex;
@@ -15,13 +17,32 @@ const StartWrapper = styled.section`
   text-align: center;
   position: absolute;
   top: 20%;
-  @media (min-width: 768px) {
-    top: 30%;
-    left: 22%;
+  @media ${devices.tablet} {
+    font-size: 25px;
+    width: 100vw;
   }
-  @media (min-width: 1025px) {
-    top: 40%;
-    left: 35%;
+  @media ${devices.desktop} {
+    font-size: 25px;
+    width: 60vw;
+    left: 20%;
+  }
+`;
+
+const NameInput = styled.input`
+  display: inline-block;
+  margin: 15px;
+  width: 200px;
+  height: 30px;
+  @media ${devices.tablet} {
+    display: block;
+    width: 300px;
+    height: 40px;
+    margin: auto;
+    font-size: 25px;
+  }
+  @media ${devices.desktop} {
+    width: 400px;
+    height: 45px;
   }
 `;
 
@@ -43,14 +64,14 @@ const StartScreen = () => {
     <StartWrapper>
       <form onSubmit={onSubmit}>
         <h3>Are you ready to enter the labyrinth? Let us know your name. </h3>
-        <input
+        <NameInput
           type='text'
           value={username}
           onChange={(event) => setUsername(event.target.value)}
         />
-        <button type='submit' onClick={onNameInput}>
-          SUBMIT
-        </button>
+        <BtnNavigate type='submit' onClick={onNameInput}>
+          Start Game
+        </BtnNavigate>
       </form>
     </StartWrapper>
   );

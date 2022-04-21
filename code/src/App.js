@@ -7,6 +7,7 @@ import Game from 'components/Game';
 import { labyrinth } from './reducers/labyrinth';
 import { ui } from './reducers/ui';
 import Loading from 'components/Loading';
+import styled from 'styled-components';
 
 const reducer = combineReducers({
   labyrinth: labyrinth.reducer,
