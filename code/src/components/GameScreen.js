@@ -13,7 +13,7 @@ const GameScreen = () => {
     <div>
     
       <p>this is the current step :{gameStep.description}</p>
-      <p>Coordinates :{gameStep.coordinates}</p>
+      <p>Coordinates: {gameStep.coordinates}</p>
 
       {gameStep.actions.map((step) => {
         return(
