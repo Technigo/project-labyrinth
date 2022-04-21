@@ -35,7 +35,7 @@ const labyrinth = createSlice({
          setPreviousStage: (store, action) => {
              if (store.history.length !== 0) {
                  store.stage = store.history[store.history.length - 1]
-                store.history.splice(-1, 1)
+                 store.history.splice(-1, 1)
              }
          }
     }

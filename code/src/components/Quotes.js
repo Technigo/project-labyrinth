@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-
+import GameOver from "./GameOver";
 import StartPage from './StartPage';
 import GameScreen from "./GameScreen";
 
@@ -17,10 +17,13 @@ const Quotes = () => {
     //     }
     //     return <StartPage/>
     // }
+    console.log(stage)
     return (
         <Container>
             {stage 
-                ? <GameScreen/>
+                ? stage.actions.length !== 0
+                    ? <GameScreen/>
+                    : <GameOver />
                 : <StartPage/> 
             }
         </Container>
