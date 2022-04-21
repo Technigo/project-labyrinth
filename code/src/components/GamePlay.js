@@ -5,6 +5,7 @@ import { fetchGameSteps, reset } from "../reducers/game";
 import { useNavigate } from "react-router-dom";
 
 import { GameArea, Container } from "styles";
+import Loading from "./Loading";
 
 const GamePlay = () => {
   const gameObject = useSelector((store) => store.game.gameObject);
@@ -22,7 +23,7 @@ const GamePlay = () => {
   return (
     <GameArea>
       {isLoading ? (
-        <div>Loading</div>
+        <Loading />
       ) : (
         <Container>
           <div>
