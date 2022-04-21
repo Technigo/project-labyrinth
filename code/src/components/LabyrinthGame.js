@@ -1,14 +1,18 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 
 import StartScreen from './StartScreen'
 import GameScreen from './GameScreen'
 
 const LabyrinthGame = () => {
+  const username = useSelector(state => state.game.username)
+
   return (
-    //conditional rendering här? om username === null, startscreen, else gamescreen?
     <>
-    <StartScreen />
-    <GameScreen />
+    {username
+      ? <GameScreen /> 
+      : <StartScreen />
+    }
     </>
   )
 }

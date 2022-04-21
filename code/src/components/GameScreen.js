@@ -51,8 +51,8 @@ const GameScreen = () => {
             <button onClick={() => onChooseDirection(0)}>Go east</button>
             <button onClick={() => onChooseDirection(1)}>Go south</button>
             <button onClick={() => onChooseDirection(2)}>Go west</button>
-            <button onClick={() => onChooseDirection(3)}>Go north</button>
-    </div>  
+            <button onClick={() => onChooseDirection(3)}>Go north</button>          
+      </div>  
   )
 };
 
