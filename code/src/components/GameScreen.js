@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import labyrinth, { generateGame } from "reducers/labyrinth";
-
 import { CardContainer, Content, SecondaryText } from "./Styles";
+
 
 const GameScreen = () => {
     const stage = useSelector(store => store.labyrinth.stage);
@@ -25,12 +25,12 @@ const GameScreen = () => {
     return (
         <CardContainer>
             <Content>
-                <button disabled={useSelector(store => !store.labyrinth.history.length)} onClick={onQuoteRevert}>go back</button>
-                <SecondaryText>Description: {stage.description}</SecondaryText>
+                <button type="button" class="nes-btn is-primary" disabled={useSelector(store => !store.labyrinth.history.length)} onClick={onQuoteRevert}>go back</button>
+                <SecondaryText class="nes-balloon from-left nes-pointer">Description: {stage.description}</SecondaryText>
                 {stage.actions.map(action => (
                     <div key={action.description} >
                         <p>{action.description}</p>
-                        <button onClick={() => onActionSet(action)}>{action.direction}</button>
+                        <button type="button" class="nes-btn is-success" onClick={() => onActionSet(action)}>{action.direction}</button>
                     </div>
                 ))}
             </Content>

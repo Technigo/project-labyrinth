@@ -17,18 +17,22 @@ export const CardContainer = styled.div`
     margin: 0 auto;
     margin-bottom: 20px;
     max-width: 500px;
+    font-family: 'Press Start 2P', cursive;
+    opacity: 0.6;
 `
 
 export const Title = styled.h1`
-    margin: 0;
-    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
     color: hsl(0, 0%, 20%);
 `
 
 export const SecondaryText = styled.p`
-    margin: 0;
-    font-size: 1.1rem;
+    margin-top: 1em;
+    font-size: 1rem;
     color: hsl(0, 0%, 25%);
+    border: 5px solid #d4d4d4;
+    padding: 10px;
 `
 
 // export const Thumbnail = styled.div`
@@ -42,7 +46,7 @@ export const SecondaryText = styled.p`
 
 export const TitleBar = styled.div`
     display: flex;
-    align-items: center;
+    align-items: center; 
 `
 export const CoverImage = styled.img`
     display: flex;
@@ -53,9 +57,20 @@ export const CoverImage = styled.img`
 
 export const Content = styled.div`
     padding: 20px;
+    display: flex;
+    flex-direction: column;
 `
 
 export const ChildrenContent = styled.div`
     background-color: rgb(238, 237, 237);
     padding: 2rem;
 `
+
+export const Button = styled.button `
+    /* width: 15rem;
+    height: 2rem; */
+    margin: 1em auto;
+` 
+export const Gif = styled.iframe`
+  margin: 10px;
+`;

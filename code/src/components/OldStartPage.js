@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-
 import labyrinth, { generateQuote } from '../reducers/labyrinth';
 import { useDispatch } from 'react-redux';
-
 import { CardContainer, Title, TitleBar, Content, CoverImage } from './Styles';
+import "antd/dist/antd.css";
+import { Button } from "antd";
 
 const StartPage  = () => {
     const [inputValue, setInputValue] = useState('');
@@ -29,7 +29,7 @@ const StartPage  = () => {
                 onChange={event => setInputValue(event.target.value)}
                 />
             
-                <button onClick={onAuthorSet}>Let's begin!</button>
+                <Button type="danger" onClick={onAuthorSet}>Let's begin!</Button>
             </Content>
         </CardContainer>
     )

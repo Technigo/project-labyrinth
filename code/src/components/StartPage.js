@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-
 import labyrinth, { generateGame } from '../reducers/labyrinth';
 import { useDispatch } from 'react-redux';
+import { CardContainer, Title, TitleBar, Content } from './Styles';
+import "antd/dist/antd.css";
+import { Button } from './Styles';
 
-import { CardContainer, Title, TitleBar, Content, CoverImage } from './Styles';
 
 const StartPage  = () => {
     const [player, setPlayer] = useState('');
@@ -19,19 +20,21 @@ const StartPage  = () => {
 
     return (
         <CardContainer>
-            <CoverImage src={'https://images.unsplash.com/photo-1606298855672-3efb63017be8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'}/>
             <Content>
                 <TitleBar>
                     <Title>Welcome to Labyrinth! Please enter your name: </Title>
                 </TitleBar>
-            
+           
                 <input
+                required
                 type='text'
                 value={player}
+                placeholder="Type your name"
+                className="nes-input"
                 onChange={event => setPlayer(event.target.value)}
                 />
-            
-                <button onClick={onPlayerSet}>Let's begin!</button>
+                
+                <Button type="button" className="nes-btn is-primary" onClick={onPlayerSet}>Let's begin!</Button>
             </Content>
         </CardContainer>
     )
