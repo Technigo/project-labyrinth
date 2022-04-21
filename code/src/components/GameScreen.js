@@ -44,14 +44,19 @@ const GameScreen = () => {
       dispatch(generateAction(index));
     }
 
+    let eastBtn = <button onClick={() => onChooseDirection(0)}>Go east</button>
+    let southBtn = <button onClick={() => onChooseDirection(1)}>Go south</button>
+    let westBtn = <button onClick={() => onChooseDirection(2)}>Go west</button>
+    let northBtn = <button onClick={() => onChooseDirection(3)}>Go north</button>   
+
   return (
       <div>
           <p>{description}</p>
           <p>{direction}</p>
-            <button onClick={() => onChooseDirection(0)}>Go east</button>
-            <button onClick={() => onChooseDirection(1)}>Go south</button>
-            <button onClick={() => onChooseDirection(2)}>Go west</button>
-            <button onClick={() => onChooseDirection(3)}>Go north</button>          
+          {eastBtn}
+          {southBtn}
+          {westBtn}
+          {northBtn}
       </div>  
   )
 };

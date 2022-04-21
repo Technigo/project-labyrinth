@@ -22,7 +22,11 @@ const StartScreen = () => {
           placeholder="Type in username"
           onChange={e => setInputValue(e.target.value)}
           />
-            <button onClick={onUserSet}>Start Game</button>
+          {inputValue !== '' 
+            ? <button onClick={onUserSet}>Start Game</button>
+            : <button disabled onClick={onUserSet}>Start Game</button>
+          }
+          
     </div>  
   )
 };
