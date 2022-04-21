@@ -14,12 +14,6 @@ const Game = () => {
                 ? <GameScreen username={username} />
                 : <StartScreen />
             }
-
-            {/* if (username) {
-                    return <GameScreen />
-                } 
-                return <StartScreen />
-            */}
         </div>
     );
 };

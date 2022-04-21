@@ -8,6 +8,7 @@ const game = createSlice ({
         position: {},
         type: '',
         direction: '',
+        loader: false
     },
     reducers: {
         setUsername: (store, action) => {
@@ -18,12 +19,16 @@ const game = createSlice ({
         },
         setPosition: (store, action) => {
             store.position = action.payload;
+            console.log(store.position)
         },
         setType: (store, action) => {
             store.type = action.payload;
         },
         setDirection: (store, action) => {
             store.direction = action.payload;
+        },
+        setLoader: (store, action) => {
+            store.loader = action.payload;
         }
     },
 });
@@ -48,15 +53,15 @@ const game = createSlice ({
     };
             
 
-    export const continueGame = () => {
+    export const continueGame = (type, direction) => {
         return (dispatch, getState) => {
             const options = {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
                     username: getState().game.username,
-                    type: getState().game.type,
-                    direction: getState().game.direction,
+                    type: type,
+                    direction: direction,
                 }),
             }
             fetch('https://labyrinth-technigo.herokuapp.com/action', options)

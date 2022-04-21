@@ -5,9 +5,11 @@ import { continueGame } from 'reducers/game';
 const GameScreen = () => {
 
 
-    const actions = useSelector((store) => store.game.setPosition.actions);
-    const setPosition = useSelector((store) => store.game.setPosition.description)
-    
+    const actions = useSelector(store => store.game.position.actions);
+    const setDescription = useSelector(store => store.game.position.description)
+    console.log(setDescription)
+    console.log(actions)
+ 
     
     const dispatch = useDispatch();
 
@@ -18,13 +20,14 @@ const GameScreen = () => {
 
     return (
         <div>
-            {actions.map(XX => (
+            {setDescription && <h2>{setDescription}</h2>}
+            {actions && actions.map((action) => (
                 <>
-                <h4>{setPosition}</h4>
+                <h4>{action.description}</h4>
                 <button 
-                    key={XX.description}
-                    onClick={onContinueGame}
-                    ></button>
+                    key={action.description}
+                    onClick={() => onContinueGame(action.type, action.direction)}
+                    >{action.direction}</button>
                 </>
             ))}
         </div>
