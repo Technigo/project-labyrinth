@@ -5,10 +5,18 @@ import { useNavigate } from "react-router-dom";
 import game from "../reducers/game";
 import { fetchGame } from "reducers/game";
 
-import { GameArea, Heading, Container, Input } from "styles";
+import {
+  GameArea,
+  Heading,
+  Container,
+  Input,
+  StyledButton,
+  StyledAlert,
+} from "styles";
 
 const StartScreen = () => {
   const [nameInput, setNameInput] = useState("");
+  const [onAlert, setAlert] = useState(false);
 
   const dispatch = useDispatch();
   let navigate = useNavigate();
@@ -31,6 +39,10 @@ const StartScreen = () => {
   };
 
   const onStart = () => {
+    if (!nameInput) {
+      setAlert(true);
+      return;
+    }
     onNameSubmit(nameInput);
     dispatch(fetchGame(nameInput));
   };
@@ -53,10 +65,11 @@ const StartScreen = () => {
             }}
           />
         </label>
-        <button onClick={() => onStart()} disabled={!nameInput.length}>
-          I'm ready
-        </button>
+        <StyledButton onClick={() => onStart()}>I'm ready</StyledButton>
       </Container>
+      <StyledAlert style={{ visibility: onAlert ? "visible" : "hidden" }}>
+        Please enter username
+      </StyledAlert>
     </GameArea>
   );
 };

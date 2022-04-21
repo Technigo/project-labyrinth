@@ -4,7 +4,14 @@ import { fetchGameSteps, reset } from "../reducers/game";
 
 import { useNavigate } from "react-router-dom";
 
-import { GameArea, Container } from "styles";
+import {
+  GameArea,
+  StyledButton,
+  StyledButtonB,
+  Container,
+  Wrapper,
+  StyledMsg,
+} from "styles";
 import Loading from "./Loading";
 
 const GamePlay = () => {
@@ -25,54 +32,52 @@ const GamePlay = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <Container>
-          <div>
+        <>
+          <Container>
             <h3>{gameObject.description}</h3>
-          </div>
+            <StyledMsg>- where to go next?</StyledMsg>
+          </Container>
 
-          <div>
-            {gameObject.actions.length !== 0 ? (
-              <div>
-                {gameObject.actions.map((action) => {
-                  return (
-                    <div key={action.direction}>
-                      <p>{action.description}</p>
-
-                      <button
-                        onClick={() => {
-                          dispatch(
-                            fetchGameSteps({ direction: action.direction })
-                          );
-                        }}
-                      >
-                        <span>
-                          Go {""}
-                          {action.direction +
-                            (action.direction === "North"
-                              ? " ⬆"
-                              : action.direction === "South"
-                              ? " ⬇"
-                              : action.direction === "West"
-                              ? " ⬅"
-                              : action.direction === "East"
-                              ? " ➡"
-                              : "")}
-                        </span>
-                      </button>
-                    </div>
-                  );
-                })}
-              </div>
-            ) : (
-              gameObject.coordinates && (
-                <div>
-                  <h3>You won!</h3>
-                  <button onClick={onRestartClick}>Restart </button>
-                </div>
-              )
-            )}
-          </div>
-        </Container>
+          {gameObject.actions.length !== 0 ? (
+            <>
+              {gameObject.actions.map((action) => (
+                <Container key={action.direction}>
+                  <h5>{action.description}</h5>
+                  <StyledButton
+                    onClick={() => {
+                      dispatch(fetchGameSteps({ direction: action.direction }));
+                    }}
+                  >
+                    <span>
+                      Go {""}
+                      {action.direction +
+                        (action.direction === "North"
+                          ? " ⬆"
+                          : action.direction === "South"
+                          ? " ⬇"
+                          : action.direction === "West"
+                          ? " ⬅"
+                          : action.direction === "East"
+                          ? " ➡"
+                          : "")}
+                    </span>
+                  </StyledButton>
+                </Container>
+              ))}
+              <Wrapper>
+                <StyledButtonB onClick={onRestartClick}>RESTART</StyledButtonB>
+                <StyledButtonB>GO BACK</StyledButtonB>
+              </Wrapper>
+            </>
+          ) : (
+            gameObject.coordinates && (
+              <Container>
+                <h3>You won!</h3>
+                <StyledButton onClick={onRestartClick}>Restart </StyledButton>
+              </Container>
+            )
+          )}
+        </>
       )}
     </GameArea>
   );
