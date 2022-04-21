@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 import labyrinth, { generateLabyrinth } from 'reducers/labyrinth'
 
@@ -10,7 +10,6 @@ const StartScreen = () => {
   const dispatch = useDispatch()
 
   const onNameSelect = () => {
-    
     dispatch(labyrinth.actions.setUserName(inputValue))
     dispatch(generateLabyrinth())
   }

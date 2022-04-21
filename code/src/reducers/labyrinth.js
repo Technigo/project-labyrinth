@@ -1,15 +1,18 @@
-import { createSlice } from '@reduxjs/toolkit';
-
+import { createSlice } from '@reduxjs/toolkit'
 
 const labyrinth = createSlice({
   name: 'labyrinth',
   initialState: {
     username: null,
     question: {},
-    steps: []
+    steps: [],
+    loading: false,
   },
 
   reducers: {
+    setLoading: (store, action) => {
+      store.loading = action.payload
+    },
     setUserName: (store, action) => {
       store.username = action.payload
     },
@@ -18,38 +21,44 @@ const labyrinth = createSlice({
     },
     setStep: (store, action) => {
       store.steps = [...store.steps, action.payload]
-    }
-  }
+    },
+  },
 })
-
 export default labyrinth
 
 // THUNK 1
 export const generateLabyrinth = () => {
   return (dispatch, getState) => {
+    dispatch(labyrinth.actions.setLoading(true))
     fetch('https://labyrinth-technigo.herokuapp.com/start', {
       method: 'POST',
-      headers: {"Content-Type": "application/json"},
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-      username: getState().labyrinth.username }),
-   })
-  
-      .then((res) => res.json())
-      .then((data) => dispatch(labyrinth.actions.setQuestion(data)))
-  }
-}
-
-// THUNK 2
-export const generateQuestion = (direction) => {
-  return (dispatch, getState) => {
-    fetch('https://labyrinth-technigo.herokuapp.com/action', {
-      method: 'POST',
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({
-        username: getState().labyrinth.username, type: 'move', direction: direction,
+        username: getState().labyrinth.username,
       }),
     })
       .then((res) => res.json())
-      .then((data) => dispatch(labyrinth.actions.setQuestion(data)))
+      .then((data) => {
+        dispatch(labyrinth.actions.setQuestion(data))
+        dispatch(loader.actions.setLoading(false))
+      })
+  }
+}
+// THUNK 2
+export const generateQuestion = (direction) => {
+  return (dispatch, getState) => {
+    dispatch(labyrinth.actions.setLoading(true))
+    fetch('https://labyrinth-technigo.herokuapp.com/action', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: getState().labyrinth.username,
+        type: 'move',
+        direction: direction,
+      }),
+    }).then((data) => {
+      dispatch(labyrinth.actions.setQuestion(data))
+      dispatch(loader.actions.setLoading(false))
+    })
   }
 }
