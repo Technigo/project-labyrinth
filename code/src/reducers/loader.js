@@ -11,3 +11,4 @@ const loader = createSlice({
     },
   },
 })
+export default loader

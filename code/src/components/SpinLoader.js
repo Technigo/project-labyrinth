@@ -1,10 +1,9 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const SpinLoader = () => {
-  return (
-    <div>
-      <h2>Loading...</h2>
-    </div>
-  )
+  const isLoading = useSelector((store) => store.loader.isLoading)
+  return <>{isLoading}</>
 }
+
 export default SpinLoader

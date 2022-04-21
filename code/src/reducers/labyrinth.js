@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import loader from './loader'
 
 const labyrinth = createSlice({
   name: 'labyrinth',
@@ -6,13 +7,9 @@ const labyrinth = createSlice({
     username: null,
     question: {},
     steps: [],
-    loading: false,
   },
 
   reducers: {
-    setLoading: (store, action) => {
-      store.loading = action.payload
-    },
     setUserName: (store, action) => {
       store.username = action.payload
     },
@@ -29,7 +26,7 @@ export default labyrinth
 // THUNK 1
 export const generateLabyrinth = () => {
   return (dispatch, getState) => {
-    dispatch(labyrinth.actions.setLoading(true))
+    dispatch(loader.actions.setLoading(true))
     fetch('https://labyrinth-technigo.herokuapp.com/start', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -47,7 +44,7 @@ export const generateLabyrinth = () => {
 // THUNK 2
 export const generateQuestion = (direction) => {
   return (dispatch, getState) => {
-    dispatch(labyrinth.actions.setLoading(true))
+    dispatch(loader.actions.setLoading(true))
     fetch('https://labyrinth-technigo.herokuapp.com/action', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
