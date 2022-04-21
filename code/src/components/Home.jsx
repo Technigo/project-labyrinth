@@ -4,8 +4,6 @@ import Game from "./Game";
 import { useSelector } from "react-redux";
 
 const Home = () => {
-  console.log(useSelector((store) => store));
-
   const gameStarted = useSelector((store) => store.game.started);
 
   return (

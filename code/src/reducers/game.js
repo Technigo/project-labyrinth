@@ -39,7 +39,6 @@ export const startGame = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username: getState().game.username }),
     };
-    // if () {
     fetch("https://labyrinth-technigo.herokuapp.com/start", settings)
       .then((res) => res.json())
       .then(
@@ -47,12 +46,12 @@ export const startGame = () => {
         dispatch(game.actions.gameStarted(true)),
         dispatch(game.actions.isLoading(false))
       );
-    // }
   };
 };
 
 export const playerAction = () => {
   return (dispatch, getState) => {
+    dispatch(game.actions.isLoading(false));
     const settings = {
       method: "POST",
       headers: { "Content-Type": "application/json" },

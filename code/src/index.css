@@ -19,3 +19,8 @@
   display: inline-block;
   white-space: pre-line;
 } */
+
+body {
+  background-color: black;
+  color: #04fc0e;
+}

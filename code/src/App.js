@@ -2,6 +2,7 @@ import React from "react";
 import { Provider } from "react-redux";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import Home from "components/Home";
+import styled from "styled-components";
 
 import { game } from "./reducers/game";
 
@@ -14,7 +15,14 @@ const store = configureStore({ reducer });
 export const App = () => {
   return (
     <Provider store={store}>
-      <Home />
+      <Page>
+        <Home />
+      </Page>
     </Provider>
   );
 };
+
+const Page = styled.div`
+  width: 325px;
+  margin: 0 auto;
+`;
