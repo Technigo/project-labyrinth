@@ -31,7 +31,7 @@ const StartScreen = () => {
             placeholder="Type here"
             required
           />
-          <button type='submit' className='nes-btn is-success'>Start the game</button>
+          <button type='submit' className='nes-btn is-success'>Start</button>
         </form>
       </label>
     </section>

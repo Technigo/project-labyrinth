@@ -23,13 +23,13 @@ const GameScreen = () => {
     const moveString = `Move ${action.direction}`
     
     if (action.direction === 'North') {
-      return moveString + ' ⬆'
+      return moveString + '↑'
     } else if (action.direction === 'South') {
-      return moveString + ' ⬇'
+      return moveString + '↓'
     } else if (action.direction === 'West') {
-      return moveString + ' ⬅'
+      return moveString + '←'
     } else {
-      return moveString + ' ⮕'
+      return moveString + '→'
     }
   }
 
