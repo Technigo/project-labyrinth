@@ -2,12 +2,13 @@ import React from "react"
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 import styled from "styled-components"
-import "nes.css/css/nes.min.css";
+// import "nes.css/css/nes.min.css";
 
 import { fetchMoreData } from "../reducers/game"
 import arrow from "./Assets/pixel-arrow.svg"
-import blueBackground from './Assets/blue-background.png'
-import brownBackground from './Assets/brown-background.png'
+// import blueBackground from './Assets/blue-background.png'
+// import brownBackground from './Assets/brown-background.png'
+import { firstBackground } from "utils/utils"
 
 
 const MainDescription = styled.h1`
@@ -39,11 +40,24 @@ const DirectionImage = styled.img`
 const BackgroundImage = styled.div`
     width: 100vw;
     min-height: 100vh;
-    background: url("${blueBackground}") !important; 
+    background: ${props => props.background};
     background-repeat: no-repeat;
     background-size: cover;
-
 `
+
+// const changeBackground = () => {
+
+// }
+// : props.direction === "1,0"
+//         ? blueBackground
+//         : props.direction === "1,1"
+//         ? blueBackground
+//         : props.direction === "0,1"
+//         ? blueBackground
+//         : props.direction === "0,2"
+//         ? blueBackground
+
+
 
 const DirectionButton = styled.button`
     appearance: none;   
@@ -127,7 +141,7 @@ const GamePage = () => {
                 </TextContainer>
             {/* <p>{position.coordinates}</p> */}
                 {position.actions.map(item => (
-                    <DirectionDetails>
+                    <DirectionDetails key={item.description}>
                         <ArrowContainer
                         direction={item.direction}
                         padding={item.direction}
