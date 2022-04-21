@@ -29,5 +29,31 @@ const GameOver = () => {
 		</CardContainer>
 	)
 }
+// import labyrinth from "reducers/labyrinth";
+// import { CardContainer, Title } from "./Styles";
+// import { useSelector, useDispatch } from "react-redux";
+// import { EndGame } from "./Styles";
+// import { Button } from "./Styles";
 
-export default GameOver;
+// const GameOver = () => {
+//   const stage = useSelector((store) => store.labyrinth.stage);
+//   const dispatch = useDispatch();
+
+//   const onRestart = () => {
+//     dispatch(labyrinth.actions.setRestartGame());
+//   };
+
+//   return (
+//     <CardContainer>
+//       <EndGame>
+//         <Title>
+//           <p>{stage.description}</p>
+//         </Title>
+//         <iframe src="https://embed.lottiefiles.com/animation/53040" title="game over"></iframe>
+//       </EndGame>
+//       <Button onClick={onRestart}>Restart the game</Button>
+//     </CardContainer>
+//   );
+// };
+
+// export default GameOver;
