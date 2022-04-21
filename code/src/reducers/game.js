@@ -8,7 +8,7 @@ const game = createSlice ({
         position: {},
         type: '',
         direction: '',
-        loader: false
+        isLoading: false
     },
     reducers: {
         setUsername: (store, action) => {
@@ -27,9 +27,9 @@ const game = createSlice ({
         setDirection: (store, action) => {
             store.direction = action.payload;
         },
-        setLoader: (store, action) => {
-            store.loader = action.payload;
-        }
+        setLoading: (store, action) => {
+            store.isLoading = action.payload;
+        },
     },
 });
 
@@ -69,6 +69,7 @@ const game = createSlice ({
             .then((data) => {
                 dispatch(game.actions.setPosition(data))
                 dispatch(game.actions.setGame(true))
+                dispatch(game.actions.setLoading(false))
                 console.log(data)
             })    
         }
