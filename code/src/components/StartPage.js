@@ -2,6 +2,29 @@ import React, {useState} from "react"
 import { useDispatch } from "react-redux"
 
 import game, {fetchData} from "reducers/game"
+import styled from 'styled-components'
+
+const Start = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-around;
+`
+const Input = styled.input`
+border: 4px solid;
+height: 2em;
+width: 500px;
+margin-bottom: 2em;
+font-size: 2em;
+`
+
+const SendBtn = styled.button`
+font-size: 2em;
+border: 4px solid;
+height: 2em;
+width: 500px;
+
+`
 
 const StartPage = () => {
     const [nameInput, setNameInput] = useState("")
@@ -23,13 +46,15 @@ const StartPage = () => {
     //     .then(data => console.log(data))
 
     return (
-        <div>
+        <Start>
             <h1>Welcome, give us your name!</h1>
-            <input type="text"
+        
+            <Input type="text" id="name_field" class="nes-input"
             value={nameInput}
             onChange={event => setNameInput(event.target.value)} />
-            <button onClick={SetName}>Send</button>
-        </div>
+            
+            <SendBtn onClick={SetName}>Send</SendBtn>
+        </Start>
     )
 }
 

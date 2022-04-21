@@ -2,7 +2,7 @@ import React from "react"
 import { useSelector } from "react-redux"
 import styled from "styled-components"
 import Lottie from "react-lottie"
-import animationData from "../lotties/rotating-pixel-heart.json"
+import animationData from "../lotties/purple-pixel-heart.json"
 
 import ui from "../reducers/ui"
 
@@ -16,10 +16,6 @@ const LoaderContainer = styled.section`
     bottom: 0;
     left: 0;
 `
-
-// const LoaderComponent = styled.div`
-    
-// `
 
 const Loader = () => {
     const isLoading = useSelector((store) => store.ui.isLoading)
