@@ -1,42 +1,34 @@
 /* eslint-disable */
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import steps from 'reducers/steps'
-import styled from 'styled-components/macro'
 
-import { fetchStart } from 'reducers/steps'
+import steps, { fetchStart } from 'reducers/steps'
 
 const StartingPage = () => {
+  const [inputValue, setInputValue] = useState('')
+
   const dispatch = useDispatch()
 
-  const handleNameInput = (event) => {
-    dispatch(steps.actions.setUsername(event.target.value))
-  }
-
-  const start = (event) => {
-    event.preventDefault()
+  const onUserSet = () => {
+    console.log(inputValue)
+    dispatch(steps.actions.setUsername(inputValue))
     dispatch(fetchStart())
   }
 
   return (
     <>
       <h2>Hi Explorer!</h2>
-      <form onSubmit={start}>
-        <input
-          type="text"
-          name="user"
-          placeholder="Explorer type you name.."
-          onChange={handleNameInput}
-          required
-        />
+      <input
+        type="text"
+        value={inputValue}
+        placeholder="Explorer type you name.."
+        onChange={(event) => setInputValue(event.target.value)}
+        required
+      />
 
-        <Button type="submit">ENTER</Button>
-      </form>
+      <button onClick={onUserSet}>ENTER</button>
     </>
   )
 }
 
-const Button = styled.button`
-  background-color: blue;
-`
 export default StartingPage
