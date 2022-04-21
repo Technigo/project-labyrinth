@@ -7,6 +7,12 @@ export const GameScreen = () => {
   const gameQuestion = useSelector((store) => store.questions.gameQuestion);
   console.log(gameQuestion, 'hej');
 
+  const dispatch = useDispatch();
+
+  const onQuestionGenerate = (direction) => {
+    dispatch(generateQuestion(direction));
+  };
+
   return (
     <div>
       <h2>{username}</h2>
@@ -14,7 +20,7 @@ export const GameScreen = () => {
       {gameQuestion.actions.map((option) => (
         <div key={option.description}>
           <p>{option.description}</p>
-          <button>
+          <button onClick={() => onQuestionGenerate(option.direction)}>
             {option.type}&nbsp;
             {option.direction}
           </button>

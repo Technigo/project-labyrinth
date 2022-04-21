@@ -17,27 +17,43 @@ export const questions = createSlice({
   },
 });
 
-export const generateQuestion = () => {
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      username: 'TestPlayer',
-    }),
-  };
-
+export const generateQuestion = (direction) => {
   return (dispatch, getState) => {
-    fetch(
-      `https://labyrinth-technigo.herokuapp.com/start?username=${
-        getState().questions.username
-      }`,
-      options
-    )
-      .then((res) => res.json())
-      .then((question) =>
-        dispatch(questions.actions.setGameQuestion(question))
-      );
+    if (direction) {
+      fetch(`https://labyrinth-technigo.herokuapp.com/action`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: getState().questions.username,
+          type: 'move',
+          direction: direction,
+        }),
+      })
+        .then((res) => res.json())
+        .then((question) =>
+          dispatch(questions.actions.setGameQuestion(question))
+        );
+    } else {
+      fetch(
+        `https://labyrinth-technigo.herokuapp.com/start?username=${
+          getState().questions.username
+        }`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            username: getState().questions.username,
+          }),
+        }
+      )
+        .then((res) => res.json())
+        .then((question) =>
+          dispatch(questions.actions.setGameQuestion(question))
+        );
+    }
   };
 };
