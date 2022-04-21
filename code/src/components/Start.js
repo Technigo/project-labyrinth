@@ -1,12 +1,12 @@
 import React from "react"
 import { useDispatch } from "react-redux"
 import { useState } from "react"
-import { gamereducer, nextStep, startGame } from "reducers/gamereducer"
+import { gamereducer } from "reducers/gamereducer"
 
 const Start = () => {
   const [inputValue, setInputValue] = useState("")
   const dispatch = useDispatch()
-  console.log(inputValue)
+
   const onUsernameSet = () => {
     dispatch(gamereducer.actions.setUsername(inputValue))
     dispatch(startGame())
