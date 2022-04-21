@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { ui } from './ui';
 
 export const questions = createSlice({
   name: 'questions',
@@ -20,6 +21,7 @@ export const questions = createSlice({
 export const generateQuestion = (direction) => {
   return (dispatch, getState) => {
     if (direction) {
+      dispatch(ui.actions.setLoading(true));
       fetch(`https://labyrinth-technigo.herokuapp.com/action`, {
         method: 'POST',
         headers: {
@@ -32,10 +34,12 @@ export const generateQuestion = (direction) => {
         }),
       })
         .then((res) => res.json())
-        .then((question) =>
-          dispatch(questions.actions.setGameQuestion(question))
+        .then(
+          (question) => dispatch(questions.actions.setGameQuestion(question)),
+          dispatch(ui.actions.setLoading(false))
         );
     } else {
+      dispatch(ui.actions.setLoading(true));
       fetch(
         `https://labyrinth-technigo.herokuapp.com/start?username=${
           getState().questions.username
@@ -51,8 +55,9 @@ export const generateQuestion = (direction) => {
         }
       )
         .then((res) => res.json())
-        .then((question) =>
-          dispatch(questions.actions.setGameQuestion(question))
+        .then(
+          (question) => dispatch(questions.actions.setGameQuestion(question)),
+          dispatch(ui.actions.setLoading(false))
         );
     }
   };

@@ -14,7 +14,7 @@ export const StartScreen = () => {
 
   return (
     <div>
-      <p>Welcome, please enter your username</p>
+      <p className="nes-text is-success">Welcome, please enter your username</p>
       <input
         type="text"
         value={inputValue}
