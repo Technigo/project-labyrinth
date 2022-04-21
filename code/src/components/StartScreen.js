@@ -1,7 +1,17 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import styled from 'styled-components'
 
 import game, { generatePlayerName } from '../reducers/game'
+
+const Container = styled.div`
+    display: flex;
+	align-items: center;
+	flex-direction: column;
+    margin-top: 3rem;
+`
+
+
 
 const StartScreen = () => {
     const [inputValue, setInputValue] = useState('')
@@ -14,6 +24,7 @@ const StartScreen = () => {
     }
 
     return (
+        <Container>
         <div class="nes-container is-dark with-title">
         <p class="title">Welcome to our labyrinth game</p>
             <div class="nes-field">
@@ -29,6 +40,7 @@ const StartScreen = () => {
             <button type="button" class="nes-btn is-primary"
             onClick={onPlayerSet}>Start game!</button>
         </div>
+        </Container>
     )
 }
 

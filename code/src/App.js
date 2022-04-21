@@ -18,8 +18,8 @@ export const store = configureStore({ reducer })
 export const App = () => {
   return (
   <Provider store={store}>
-      <Game/>
       <Loading/>
+      <Game/>
   </Provider>
   )
 }
