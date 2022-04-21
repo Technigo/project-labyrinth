@@ -22,7 +22,7 @@ const StartScreen = () => {
         value={inputValue}
         required
         onChange={(event) => setInputValue(event.target.value)}
-        placeHolder="Player name..."
+        placeholder="Player name..."
       />
       <button onClick={onNameSelect}>Start the game!</button>
     </div>

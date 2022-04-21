@@ -5,7 +5,8 @@ const labyrinth = createSlice({
   name: 'labyrinth',
   initialState: {
     username: null,
-    question: {}
+    question: {},
+    steps: []
   },
 
   reducers: {
@@ -15,6 +16,9 @@ const labyrinth = createSlice({
     setQuestion: (store, action) => {
       store.question = action.payload
     },
+    setStep: (store, action) => {
+      store.steps = [...store.steps, action.payload]
+    }
   }
 })
 
@@ -36,7 +40,7 @@ export const generateLabyrinth = () => {
 }
 
 // THUNK 2
-export const generateQuestion = () => {
+export const generateQuestion = (direction) => {
   return (dispatch, getState) => {
     fetch('https://labyrinth-technigo.herokuapp.com/action', {
       method: 'POST',

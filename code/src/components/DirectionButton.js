@@ -17,7 +17,7 @@ const DirectionButton = () => {
 
     const onClick = (direction) => {
         dispatch(generateQuestion(direction));
-        dispatch(labyrinth.actions.setMove(direction));
+        dispatch(labyrinth.actions.setStep(direction));
     };
 
     return (
