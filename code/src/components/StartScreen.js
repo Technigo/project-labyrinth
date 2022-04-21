@@ -17,7 +17,6 @@ import Footer from "./Footer";
 
 const StartScreen = () => {
   const [nameInput, setNameInput] = useState("");
-  const [onAlert, setAlert] = useState(false);
 
   const dispatch = useDispatch();
   let navigate = useNavigate();
@@ -40,10 +39,6 @@ const StartScreen = () => {
   };
 
   const onStart = () => {
-    if (!nameInput) {
-      setAlert(true);
-      return;
-    }
     onNameSubmit(nameInput);
     dispatch(fetchGame(nameInput));
   };

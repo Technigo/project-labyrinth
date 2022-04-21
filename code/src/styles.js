@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 import styled from "styled-components";
 
 export const devices = {
@@ -7,7 +8,7 @@ export const devices = {
 };
 
 export const GameArea = styled.main`
-  background-image: url("https://images.pexels.com/photos/1731660/pexels-photo-1731660.jpeg?cs=srgb&dl=pexels-boris-ulzibat-1731660.jpg&fm=jpg");
+  background-image: url("./images/background.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -110,7 +111,7 @@ export const StyledButtonB = styled.button`
   padding: 8px 18px;
   margin: 3px;
   border-radius: 5px;
-  border: 1px solid #7d553d;
+  border: 1px solid ${(props) => (props.unclickable ? "#777" : "#7d553d")};
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
