@@ -19,6 +19,7 @@ export const CardContainer = styled.div`
     max-width: 500px;
     font-family: 'Press Start 2P', cursive;
     opacity: 0.6;
+    padding: 10px;
 `
 
 export const Title = styled.h1`
@@ -67,10 +68,15 @@ export const ChildrenContent = styled.div`
 `
 
 export const Button = styled.button `
-    /* width: 15rem;
-    height: 2rem; */
+    display: flex;
+    justify-content: center;
     margin: 1em auto;
 ` 
-export const Gif = styled.iframe`
-  margin: 10px;
+
+export const EndGame = styled.div`
+    margin: 10px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 `;

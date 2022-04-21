@@ -22,7 +22,11 @@ const labyrinth = createSlice({
                 store.quote = store.history[store.history.length - 1]
                 store.history.splice(-1, 1)
             }
-        }
+        },
+        setRestartGame: store => {
+            store.username = null;
+            
+          },
     }
 });
 
