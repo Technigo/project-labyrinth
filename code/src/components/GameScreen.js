@@ -1,6 +1,31 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { playGame } from "reducers/game";
+import styled from "styled-components";
+
+const GameContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  padding: 10px;
+
+  h3 {
+    margin: 10px;
+    font-size: 16px;
+  }
+
+  h4 {
+    margin: 10px;
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+`;
 
 const GameScreen = () => {
   const gameData = useSelector((store) => store.game.gameData);
@@ -23,14 +48,14 @@ const GameScreen = () => {
   );
 
   return (
-    <div>
+    <GameContainer>
       {/* <h1> Welcome {username}</h1> */}
       <h3>Now the adventure begins</h3>
-      <h3>{gameData.description}</h3>
+      <h4>{gameData.description}</h4>
       {gameData.actions.map((item) => (
         <ActionCard key={item.direction} {...item} />
       ))}
-    </div>
+    </GameContainer>
   );
 };
 
