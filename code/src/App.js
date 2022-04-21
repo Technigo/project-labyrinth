@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
-    padding: 18px;
+    padding: 16px;
     color: white;
     background-color: black;
     box-sizing: border-box;
@@ -18,9 +18,11 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     margin: 0 auto;
     width: 100%;
-    height: 100vh;
-    max-height: 100vh;
+    min-height: 90vh;
+    max-height: 90vh;
     overflow: hidden;
+    display: flex;
+    align-items: center;
   }
 
   @media (min-width: 768px) {
@@ -30,12 +32,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   main {
-    display: grid;
-    align-content: center;
+    display: block;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    height: 100vh;
   }
 `;
 
