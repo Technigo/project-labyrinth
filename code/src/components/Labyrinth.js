@@ -162,30 +162,6 @@ const Labyrinth = () => {
 		}
 	}
 
-	const changeDirectionToIcon = (way) => {
-		if (way === 'North') {
-			return <img src={Polygon} alt='arrow up' />
-		} else if (way === 'South') {
-			return <img className='rotate-down' src={Polygon} alt='arrow down' />
-		} else if (way === 'East') {
-			return <img className='rotate-right' src={Polygon} alt='arrow right' />
-		} else if (way === 'West') {
-			return <img className='rotate-left' src={Polygon} alt='arrow up' />
-		}
-	}
-
-	const arrowStyle = (way) => {
-		if (way === 'North') {
-			return '1/2'
-		} else if (way === 'South') {
-			return '3/2'
-		} else if (way === 'East') {
-			return '2/3'
-		} else if (way === 'West') {
-			return '2/1'
-		}
-	}
-
 	const btnNavigator = ['North', 'East', 'South', 'West']
 
 	const filterDirection = items.actions.map((item) => item.direction)

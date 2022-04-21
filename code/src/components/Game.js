@@ -50,8 +50,8 @@ const Game = () => {
 
 	return (
 		<ConsoleContent>
-			<GameText>Welcome to the a-maze-ing 80's! Try to found your way out of the labyrinth!</GameText>
 			<UsernameInputContainer>
+				<GameText>Welcome to the a-maze-ing 80's! Try to found your way out of the labyrinth!</GameText>
 				<UsernameInput
 					type='text'
 					value={userName}
