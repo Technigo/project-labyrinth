@@ -1,47 +1,38 @@
 import React from 'react';
-import { useDispatch } from 'react-redux'
-import { fetchGame } from 'reducers/game'
+import { useSelector } from "react-redux";
+
+import PlayerChoice from './PlayerChoice';
+import EndScreen from './EndScreen';
 
 const GameScreen = () => {
+    const welcomeDescription = useSelector(store => store.game.currentLocation);
+    const playerLocation = useSelector(store => store.game.currentLocation);
+    const actions = useSelector(store => store.game.currentLocation.actions);
+    const isLoading = useSelector((store) => store.ui.isLoading);
+
+
     return (
-        <button type="button" onClick=() => dispatch (fetchGame())}>
-        Welcome to the Maze!
-        </button>
+        <section>
+
+            <p key={welcomeDescription.description}>{welcomeDescription.description}</p>
+
+            {
+                playerLocation.actions.map
+                    (action => (
+                        <p key={action.description}>{action.description}</p>
+                    ))}
+
+            <div>
+                {
+                    actions.map
+                        (action => (
+                            <PlayerChoice key={action} action={action} />
+                        ))}
+            </div>
+
+            {actions.length === 0 && <EndScreen />}
+        </section>
     )
-}
+};
 
-export default GameScreen
-// import { useSelector, useDispatch } from 'react-redux';
-
-// import game, { generateMaze } from 'reducers/game';
-// import Loading from './LoadingPage';
-
-// const GameScreen = () => {
-//     const maze = useSelector((store) => store.game.gameStatus);
-//     const history = useSelector((store) => store.game.maze);
-
-//     const dispatch = useDispatch()
-
-//     const onMazeRegenerate = (mazeTag) => {
-//         dispatch(generateMaze(mazeTag));
-//     };
-    
-//     const onMazeRevert = () => {
-//         dispatch(game.actions.setPreviousMaze());
-//     };
-
-//     return (
-//         <div>
-//             <button disable={!history.length} onClick={onMazeRevert}>Go back</button>
-//             <h3>This is a Maze : {maze.content}</h3>
-//             {maze.tags.map((tag) => (
-//                 <button key={tag}
-//                 onClick={() => onMazeRegenerate(tag)}>
-//                     {tag}
-//                     </button>
-//             ))}
-//         </div>
-//     );
-// };
-
-// export default GameScreen;
+export default GameScreen; 

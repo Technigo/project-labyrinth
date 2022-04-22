@@ -1,14 +1,27 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import Lottie from 'react-lottie';
+import animationData from 'lotties/gameover';
+
 
 const LoadingPage = () => {
-    const isLoading = useSelector((state) => state.ui.isLoading)
-
-    return (
-        <>
-         {isLoading && <div>Loading...</div>}
-        </>
-    );
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }
+  };
+  return (
+    <div>
+      <Lottie
+        options={defaultOptions}
+        height={400}
+        width={400}
+      />
+    </div>
+  );
 };
 
-export default LoadingPage;
+export default LoadingPage; 

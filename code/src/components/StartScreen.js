@@ -1,30 +1,31 @@
 import React, { useState }  from 'react';
 import { useDispatch } from 'react-redux';
 
-import game, { generateMaze} from 'reducers/game';
+import { game, generateMaze } from 'reducers/game';
 
 
 const StartScreen = () => {
-    const [inputValue, setInputValue] = useState('');
-
+    const [playername, setPlayername] = useState('');
     const dispatch = useDispatch();
 
-    const onAuthorSet = () => {
-        dispatch(game.actions.setAuthor(inputValue));
+    const onPlayerSet = () => {
+        dispatch(game.actions.setUsername(playername));
         dispatch(generateMaze());
     };
 
      return (
         <div>
-            <p>Welcome to our Labyrinth game! What's your name?</p>
+            <h1>Adventure</h1>
+            <h2>Grab your back-pack and your brave soul!</h2>
+            <p>But first give us your name so we know whose mother to write if you... eh get lost.</p>
             <input 
             type="text"
-            value={inputValue}
-            onChange={(event) => setInputValue(event.target.value)}
+            value={playername}
+            onChange={(event) => setPlayername(event.target.value)}
             />
-            <button onClick={onAuthorSet}>Start the game!</button>
+            <button onClick={onPlayerSet}>Start the game!</button>
         </div>
     )
 };
 
-export default StartScreen;
+export default StartScreen; 
