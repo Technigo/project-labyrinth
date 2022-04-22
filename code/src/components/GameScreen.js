@@ -8,7 +8,6 @@ const GameScreen = () => {
     const welcomeDescription = useSelector(store => store.game.currentLocation);
     const playerLocation = useSelector(store => store.game.currentLocation);
     const actions = useSelector(store => store.game.currentLocation.actions);
-    const isLoading = useSelector((store) => store.ui.isLoading);
 
 
     return (
