@@ -10,7 +10,7 @@ code {
     monospace;
 }
 
-/* width */
+/* Width */
 ::-webkit-scrollbar {
   width: 5px;
 }

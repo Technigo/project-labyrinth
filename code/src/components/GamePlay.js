@@ -101,7 +101,7 @@ const GamePlay = () => {
       )}
       <Footer />
     </GameArea>
-  );
-};
+  )
+}
 
 export default GamePlay

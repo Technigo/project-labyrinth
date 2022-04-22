@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { setLoading } from "./ui";
+import { createSlice } from "@reduxjs/toolkit"
+import { setLoading } from "./ui"
 
 const initialState = {
   userName: "",
@@ -9,23 +9,23 @@ const initialState = {
     actions: [],
   },
   history: [],
-};
+}
 
 export const game = createSlice({
   name: "game",
   initialState,
   reducers: {
     setGameObject: (state, action) => {
-      state.gameObject.description && state.history.push(state.gameObject);
-      state.gameObject = action.payload;
+      state.gameObject.description && state.history.push(state.gameObject)
+      state.gameObject = action.payload
     },
     setUserName: (state, action) => {
-      state.username = action.payload;
+      state.username = action.payload
     },
     setPreviousGameObject: (state) => {
       if (state.history.length) {
-        state.gameObject = state.history[state.history.length - 1];
-        state.history.splice(state.history.length - 1, 1);
+        state.gameObject = state.history[state.history.length - 1]
+        state.history.splice(state.history.length - 1, 1)
       }
     },
     reset: () => initialState,
@@ -45,8 +45,8 @@ export const fetchGame = () => {
     fetch("https://labyrinth-technigo.herokuapp.com/start", options)
       .then((res) => res.json())
       .then((data) => {
-        dispatch(game.actions.setGameObject(data));
-        dispatch(setLoading(false));
+        dispatch(game.actions.setGameObject(data))
+        dispatch(setLoading(false))
       });
   };
 };
@@ -69,12 +69,12 @@ export const fetchGameSteps = ({ direction }) => {
     fetch("https://labyrinth-technigo.herokuapp.com/action", options)
       .then((res) => res.json())
       .then((data) => {
-        dispatch(game.actions.setGameObject(data));
-        dispatch(setLoading(false));
-      });
-  };
-};
+        dispatch(game.actions.setGameObject(data))
+        dispatch(setLoading(false))
+      })
+  }
+}
 
-export default game;
+export default game
 
-export const { setPreviousGameObject, reset } = game.actions;
+export const { setPreviousGameObject, reset } = game.actions

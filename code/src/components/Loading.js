@@ -1,6 +1,6 @@
-import React from "react";
-import Lottie from "react-lottie";
-import animationData from "../lotties/labyrinth";
+import React from "react"
+import Lottie from "react-lottie"
+import animationData from "../lotties/labyrinth"
 
 const defaultOptions = {
   loop: true,
@@ -9,8 +9,8 @@ const defaultOptions = {
   renderSettings: {
     preserveAspectRation: "xMidYMid slice",
   },
-};
+}
 
-const Loading = () => <Lottie options={defaultOptions} />;
+const Loading = () => <Lottie options={defaultOptions} />
 
-export default Loading;
+export default Loading

@@ -54,13 +54,13 @@ export const Container = styled.div`
     font-size: 20px;
     font-weight: 500;
   }
-`;
+`
 
 export const Heading = styled.h1`
   font-size: 40px;
   text-align: center;
   font-family: "Cormorant", serif;
-`;
+`
 
 export const Input = styled.input`
   border: none;
@@ -85,7 +85,7 @@ export const Input = styled.input`
     outline: none;
     background: transparent;
   }
-`;
+`
 
 export const StyledButton = styled.button`
   padding: 8px 18px;
@@ -103,7 +103,7 @@ export const StyledButton = styled.button`
     background-color: #7d553d;
     color: #fff;
   }
-`;
+`
 
 export const StyledButtonB = styled.button`
   z-index: 100;
@@ -122,28 +122,28 @@ export const StyledButtonB = styled.button`
     background-color: rgba(255, 255, 255, 0.6);
     color: #7d553d;
   }
-`;
+`
 
 export const Wrapper = styled.div`
   width: 80%;
   display: flex;
   justify-content: space-evenly;
-`;
+`
 
 export const StyledMsg = styled.p`
   font-weight: 300;
   font-style: italic;
   margin: 0;
   margin-bottom: 12px;
-`;
+`
 
-export const StyeldCongrats = styled.div`
+export const StyledCongrats = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-`;
+`
 
 export const StyledGrid = styled.ul`
   list-style-type: none;
@@ -151,14 +151,14 @@ export const StyledGrid = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   background-color: rgba(255, 255, 255, 0.6);
-`;
+`
 
 export const StyledGridItem = styled.li`
   width: 60px;
   height: 60px;
   border: 1px solid #7d553d;
   background-color: ${({ color }) => color};
-`;
+`
 
 export const FlexCenter = styled.div`
   width: 100%;
@@ -169,7 +169,7 @@ export const FlexCenter = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`;
+`
 
 export const StyledFooter = styled.footer`
   position: fixed;
@@ -182,4 +182,4 @@ export const StyledFooter = styled.footer`
   p {
     margin: 10px;
   }
-`;
+`

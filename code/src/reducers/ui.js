@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit"
 
 const ui = createSlice({
   name: "ui",
@@ -7,10 +7,10 @@ const ui = createSlice({
   },
   reducers: {
     setLoading: (state, action) => {
-      state.isLoading = action.payload;
+      state.isLoading = action.payload
     },
   },
 });
 
-export const { setLoading } = ui.actions;
+export const { setLoading } = ui.actions
 export default ui;

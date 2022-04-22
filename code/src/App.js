@@ -1,19 +1,19 @@
-import React from "react";
-import { Provider } from "react-redux";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import React from "react"
+import { Provider } from "react-redux"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { combineReducers, configureStore } from "@reduxjs/toolkit"
 
-import game from "reducers/game";
-import ui from "reducers/ui";
-import StartScreen from "components/StartScreen";
-import GamePlay from "components/GamePlay";
+import game from "reducers/game"
+import ui from "reducers/ui"
+import StartScreen from "components/StartScreen"
+import GamePlay from "components/GamePlay"
 
 const reducer = combineReducers({
   game: game.reducer,
   ui: ui.reducer,
-});
+})
 
-const store = configureStore({ reducer });
+const store = configureStore({ reducer })
 
 export const App = () => {
   return (
@@ -25,5 +25,5 @@ export const App = () => {
         </Routes>
       </BrowserRouter>
     </Provider>
-  );
-};
+  )
+}

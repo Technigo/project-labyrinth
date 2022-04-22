@@ -1,13 +1,13 @@
-import React from "react";
-import { StyledGrid, StyledGridItem } from "styles";
-import { useSelector } from "react-redux";
+import React from "react"
+import { StyledGrid, StyledGridItem } from "styles"
+import { useSelector } from "react-redux"
 
 const Grid = () => {
-  const coordinates = useSelector((state) => state.game.gameObject.coordinates);
-  const history = useSelector((state) => state.game.history);
-  const coordHist = history.map((item) => item.coordinates);
-  const x = Number(coordinates.split(",")[0]);
-  const y = Number(coordinates.split(",")[1]);
+  const coordinates = useSelector((state) => state.game.gameObject.coordinates)
+  const history = useSelector((state) => state.game.history)
+  const coordHist = history.map((item) => item.coordinates)
+  const x = Number(coordinates.split(",")[0])
+  const y = Number(coordinates.split(",")[1])
 
   return (
     <StyledGrid>
@@ -195,7 +195,7 @@ const Grid = () => {
         }
       />
     </StyledGrid>
-  );
-};
+  )
+}
 
-export default Grid;
+export default Grid

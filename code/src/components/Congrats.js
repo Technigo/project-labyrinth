@@ -1,7 +1,7 @@
-import React from "react";
-import Lottie from "react-lottie";
-import animationData from "../lotties/congrats";
-import { StyeldCongrats } from "styles";
+import React from "react"
+import Lottie from "react-lottie"
+import animationData from "../lotties/congrats"
+import { StyledCongrats } from "styles"
 
 const defaultOptions = {
   loop: true,
@@ -10,12 +10,12 @@ const defaultOptions = {
   renderSettings: {
     preserveAspectRation: "xMidYMid slice",
   },
-};
+}
 
 const Congrats = () => (
-  <StyeldCongrats>
+  <StyledCongrats>
     <Lottie options={defaultOptions} />
-  </StyeldCongrats>
-);
+  </StyledCongrats>
+)
 
-export default Congrats;
+export default Congrats
