@@ -2,29 +2,37 @@ import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
+
 const StyledLoadingScreen = styled.div`
-.loading {
-    background-color: #9f003e;
-    position: absolute;
-    z-index: 1
-}
+  display: flex; 
+  justify-content: center;
+  background-color: #9f003e;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  width: 150px;
+  height: 150px;
+
+  h1 {
+    text-align: center;
+    color: #fff;
+  }
+`
+const LoadingContainer = styled.div`
+  display: flex;
+  align-items: center; 
+  min-height: 100vh;
+  justify-content: center;
 `
 
-const LoadingImage = styled.img`
-  width: 80px;
-  height: 80px;
-//   border-radius: 50%;
-`;
-
 export const LoadingScreen = () => {
-    const isLoading = useSelector((store) => store.loading.isLoading)
 
-    return isLoading &&
-        <StyledLoadingScreen>
-                <div className="loading">
-                    <h1>LOADING</h1> 
-                    <LoadingImage src="./assets/hourglass.png" />
-                </div>
-        </StyledLoadingScreen>
-    
+  const isLoading = useSelector((store) => store.loading.isLoading)
+
+  return isLoading &&
+    <LoadingContainer>
+      <StyledLoadingScreen>
+        <h1>LOADING</h1> 
+      </StyledLoadingScreen>
+    </LoadingContainer>
 }

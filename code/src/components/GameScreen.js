@@ -1,13 +1,10 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components';
-
-// import loading from 'reducers/loading';
 import questions, { playGame } from 'reducers/questions';
-import { LoadingScreen } from './LoadingScreen';
 
+export const StyledGameScreen = styled.div`
 
-const StyledGameScreen = styled.div`
 .game-screen {
   margin: 10px;
   display: flex;
@@ -38,11 +35,10 @@ button {
 `
 
 const GameScreen = () => {
-    
+
     const gamedata = useSelector(store => store.questions.gamedata)
-   
     const dispatch = useDispatch()
-    
+
     const onNextStep = (type, direction) => {
       dispatch(playGame(type, direction))
     }
@@ -59,7 +55,7 @@ const GameScreen = () => {
     return (
     
       <StyledGameScreen>
-      <div className='game-screen'>
+        <div className='game-screen'>
           <p className='description'>{gamedata.description}</p> 
           {gamedata.actions.length === 0 && (
             <button 
@@ -68,11 +64,13 @@ const GameScreen = () => {
             RESTART GAME 
           </button>)}
           {gamedata.actions.length > 0 && 
-          gamedata.actions.map((item) => <ActionCard key={item.direction} {...item} />)
-      }
-      </div>
+           gamedata.actions.map((item) => <ActionCard key={item.direction} {...item} />)
+          }
+        </div>
       </StyledGameScreen> 
     )
 }
 
 export default GameScreen
+
+

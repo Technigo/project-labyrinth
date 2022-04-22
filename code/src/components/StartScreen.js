@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
-// import loading from '../reducers/loading';
 import questions, { generateGamedata } from '../reducers/questions';
 
-const StyledStartScreen = styled.div`
+export const StyledStartScreen = styled.div`
+
 .start-screen {
   display: flex;
   flex-direction: column;
@@ -28,38 +28,35 @@ input {
 }
 `
 
-
 const StartScreen = () => {
-  const [inputValue, setInputValue] = useState('')
 
+  const [inputValue, setInputValue] = useState('')
   const dispatch = useDispatch()
 
   const onUsernameSet = (event) => {
     event.preventDefault();
-    // dispatch(loading.actions.setLoading(true))
     dispatch(questions.actions.setUsername(inputValue))
     dispatch(generateGamedata())
   }
       
   return (
     <StyledStartScreen>
-    <div className='start-screen'>
-      <h1>The Cavern Quest</h1>
-      <p>Enter your name<br/>and let the journey begin</p>
-      <input
-        type="text"
-        value={inputValue}
-        onChange={event => setInputValue(event.target.value)}
-        placeholder="username"
-      />
-      <button 
-      onClick={onUsernameSet}
-      //DISABLED FÖR ATT KNAPPEN INTE SKA GÅ ATT KLICKA OM MAN INTE SKRIVIT IN NAMNET
-      disabled={inputValue === ''}>  
+      <div className='start-screen'>
+        <h1>The Cavern Quest</h1>
+        <p>Enter your name<br/>and let the journey begin</p>
+        <input
+          type="text"
+          value={inputValue}
+          onChange={event => setInputValue(event.target.value)}
+          placeholder="username"
+        />
+        <button 
+        onClick={onUsernameSet}
+        disabled={inputValue === ''}>  
         Start the game</button>
       </div>
-      </StyledStartScreen>
-    )
+    </StyledStartScreen>
+  )
 }
 
 export default StartScreen
