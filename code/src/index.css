@@ -20,17 +20,46 @@ code {
   margin: auto;
   align-items: center;
   align-self: center;
-  font-size: 12px;
+  font-size: 10px;
   padding: 40px;
 }
 
-.img-container {
+.start-img-container {
   align-items: center;
+  margin-bottom: 40px;
 }
 
-.pointer {
+.start-img {
+  width: 60vw;
+  height: auto;
+  min-width: 350px;
+  max-width: 50vw;
   object-fit: cover;
-  width: 80px;
+}
+
+input {
+  text-align: center;
+  max-width: 600px;
+}
+
+.button-container {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.img-container {
+  align-items: center;
+  position: relative;
+}
+
+.text-container {
+  margin-bottom: 40px;
+}
+.cavern {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  position: inherit;
+  border-radius: 20px;
 }
 
 .loading-img-container {
@@ -40,4 +69,20 @@ code {
 .loading-img {
   width: 150px;
   height: auto;
+}
+
+.position-wrapper {
+  display: flex;
+  margin-top: 20px;
+}
+
+.position-img-container {
+  height: 25px;
+  width: auto;
+  padding-right: 10px;
+}
+
+.position-img {
+  height: 25px;
+  width: auto;
 }

@@ -47,16 +47,25 @@ const Gamepage = () => {
                   {description}
                 </h2>
               </div>
-              <h3 className="nes-badge">
-                <span className="is-warning">
-                  Your position is {coordinates}
-                </span>
-              </h3>
+              <div className="position-wrapper">
+                <div className="position-img-container">
+                  <img
+                    className="position-img"
+                    src="https://i.ibb.co/Qb29WGk/Untitled-design-30.png"
+                    alt="map pin"
+                  />
+                </div>
+                <h3 className="nes-text is-error">
+                  <span className="is-warning">
+                    YOUR COORDINATES: {coordinates}
+                  </span>
+                </h3>
+              </div>
               <div className="img-container">
                 <img
-                  className="pointer"
-                  src="https://i.ibb.co/12cvWMb/Untitled-design-1.gif"
-                  alt="hand pointing down"
+                  className="cavern"
+                  src="https://i.ibb.co/W3D338W/cavern.png"
+                  alt="cavern"
                 />
               </div>
             </>
