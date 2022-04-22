@@ -22,13 +22,22 @@ const GameContainer = styled.div`
     font-size: 16px;
   }
 
-  h4 {
-    margin: 10px;
-    font-size: 16px;
+  p {
+    font-size: 12px;
   }
 
-  p {
-    font-size: 16px;
+  button {
+    font-size: 10px;
+  }
+
+  @media (min-width: 667px) {
+    p {
+      font-size: 16px;
+    }
+
+    button {
+      font-size: 14px;
+    }
   }
 `;
 
@@ -55,8 +64,8 @@ const GameScreen = () => {
   return (
     <GameContainer>
       <TextContainer>
-        <h3>Now the adventure begins</h3>
-        <h4>{gameData.description}</h4>
+        {/* <h3>Now the adventure begins</h3> */}
+        <p>{gameData.description}</p>
         {gameData.actions.map((item) => (
           <ActionCard key={item.direction} {...item} />
         ))}
