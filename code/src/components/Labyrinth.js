@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { navigateGame } from '../reducer/game'
 import { keyframes } from 'styled-components'
-import Polygon from './img/Polygon.svg'
 import BG2 from './img/bg2.png'
 import BG3 from './img/bg3.png'
 import BG4 from './img/bg4.png'
@@ -10,13 +9,29 @@ import BG5 from './img/bg5.png'
 import BG6 from './img/bg6.png'
 import BG7 from './img/bg7.png'
 import BG8 from './img/bg8.png'
+import arrow from './img/arrow.svg'
+import navigator from './img/navigator.svg'
+import music from'./img/music.mp3'
 
-import { Background, GameText, ButtonController, Btn, MiddeBtn, Modal } from './Styling'
+
+import { Background, GameText, ButtonController, Btn, MiddeBtn, Modal, HistoryArrowContainer } from './Styling'
 import Loadingspinner from './Loadingspinner'
+import styled from 'styled-components/macro'
+
+const HistoryArrow = styled.img`
+	transform: rotate(${props => props.rotate});
+`
+
+const Navigator = styled.img`
+	transform: scale(0.2);
+	position: absolute;
+
+`
 
 const Labyrinth = () => {
 	const [select, setSelect] = useState([])
 	const [prevStep, setPrevStep] = useState('')
+	const [playMusic, setPlayMusic] = useState(false);
 	const dispatch = useDispatch()
 	const items = useSelector((store) => store.game.items)
 
@@ -49,15 +64,28 @@ const Labyrinth = () => {
 		setTimeout(() => setPrevStep(''), 1500)
 	}
 
+	// const changeDirectionToIcon = (way) => {
+	// 	if (way === 'North') {
+	// 		return <img src={Polygon} alt='arrow up' />
+	// 	} else if (way === 'South') {
+	// 		return <img className='rotate-down' src={Polygon} alt='arrow down' />
+	// 	} else if (way === 'East') {
+	// 		return <img className='rotate-right' src={Polygon} alt='arrow right' />
+	// 	} else if (way === 'West') {
+	// 		return <img className='rotate-left' src={Polygon} alt='arrow up' />
+	// 	}
+	// }
+
+
 	const changeDirectionToIcon = (way) => {
 		if (way === 'North') {
-			return <img src={Polygon} alt='arrow up' />
+			return <p>N</p>
 		} else if (way === 'South') {
-			return <img className='rotate-down' src={Polygon} alt='arrow down' />
+			return <p>S</p>
 		} else if (way === 'East') {
-			return <img className='rotate-right' src={Polygon} alt='arrow right' />
+			return <p>E</p>
 		} else if (way === 'West') {
-			return <img className='rotate-left' src={Polygon} alt='arrow up' />
+			return <p>W</p>
 		}
 	}
 
@@ -98,38 +126,58 @@ const Labyrinth = () => {
 		`
 	}
 
+	// BACKGROUND MUSIC
+	const audioElement = new Audio(music);
+
+	const controlMusic = () => {
+		    audioElement.play()
+		    setPlayMusic(false);	
+	}
+
+	//			<button onClick={() => audioElement.play()} onDoubleClick={() => audioElement.pause()}>Play</button>
+
+
+	console.log(playMusic)
+	
+
+	// CHANGE BACKGROUND DEPENDING ON THE ROOM 
 	const changeBG = () => {
 		switch (items.coordinates) {
 			case '0,0':
-				return BG2
-				break
+				return BG2		
 			case '1,0':
 				return BG3
-				break
 			case '1,1':
 				return BG4
-				break
 			case '0,1':
 				return BG5
-				break
 			case '0,2':
 				return BG6
-				break
 			case '0,3':
 				return BG7
-				break
 			case '1,3':
 				return BG8
-				break
 			default:
 				return 'red'
 		}
 	}
 
+	const historyArrow = (way) => {
+		switch(way) {
+			case 'South':
+				return '180deg'
+			case 'West':
+				return '-90deg'
+			case 'East':
+				return '90deg'
+			default:
+				return '0deg'
+		}
+	}
 	return (
 		<Background background={changeBG()}>
-			{/* <p>You choose {select}</p> */}
-
+			<button onClick={() => controlMusic()}>Play</button>
+			<HistoryArrowContainer >{select.map(item => <HistoryArrow rotate={historyArrow(item)} src={arrow} alt='arrows to show history'/>)}</HistoryArrowContainer>
 			<Modal text={prevStep}>
 				You chose {prevStep} <Loadingspinner />
 			</Modal>
@@ -140,7 +188,7 @@ const Labyrinth = () => {
 					</div>
 				)
 			})}
-
+			<Navigator src={navigator} />
 			<ButtonController>
 				{items.actions.map((item) => {
 					return (
@@ -165,33 +213,3 @@ const Labyrinth = () => {
 
 export default Labyrinth
 
-/*	<p>You choose {select}</p>
-			{items.actions.map((item) => {
-				return (
-					<div>
-						<p>{item.description}</p>
-						<button onClick={() => onNavigate(item.type, item.direction)}>{item.direction}</button>
-					</div>
-				)
-			})}
-			<button type='button' onClick={onRestartClick}>
-				{items.coordinates === '1,3' ? 'play again' : 'restart game'}
-			</button> */
-/*<Wrapper>
-				<div>
-					<Square background={items.coordinates === '1,0' ? 'pink' : 'black'}></Square>
-					<Square background={items.coordinates === '1,1' ? 'pink' : 'black'}></Square>
-					<Square background={items.coordinates === '0,1' ? 'pink' : 'black'}></Square>
-				</div>
-				<div>
-					<Square background={items.coordinates === '0,2' ? 'pink' : 'black'}></Square>
-					<Square background={items.coordinates === '0,3' ? 'pink' : 'black'}></Square>
-					<Square background={items.coordinates === '1,3' ? 'pink' : 'black'}></Square>
-				</div>
-				<div>
-					<Square></Square>
-					<Square></Square>
-					<Square></Square>
-				</div>
-			</Wrapper>
-	<Box position={nav}></Box>*/

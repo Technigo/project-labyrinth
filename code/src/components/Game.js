@@ -11,7 +11,6 @@ import {
 	UsernameInputContainer,
 } from './Styling'
 import game, { fetchGame } from '../reducer/game'
-import ui from '../reducer/ui'
 import StartBtn from './img/startbtn.png'
 import Loadingspinner from './Loadingspinner'
 

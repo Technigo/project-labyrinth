@@ -17,6 +17,10 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+button {
+	cursor: pointer;
+}
+
 .rotate-down {
 	transform: rotate(180deg);
 }
@@ -28,3 +32,4 @@ code {
 .rotate-right {
 	transform: rotate(90deg);
 }
+

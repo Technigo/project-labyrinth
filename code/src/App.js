@@ -7,7 +7,6 @@ import thunk from 'redux-thunk'
 import game from 'reducer/game'
 import ui from 'reducer/ui'
 import StartPage from 'components/StartPage'
-import Loadingspinner from 'components/Loadingspinner'
 
 const reducer = combineReducers({
 	game: game.reducer,

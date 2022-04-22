@@ -160,6 +160,7 @@ export const UsernameInputContainer = styled.div`
 export const Background = styled.div`
 	background: url(${(props) => props.background});
 	// background-size: cover;
+	position: relative;
 	height: 95%;
 	width: 95%;
 	display: flex;
@@ -179,7 +180,7 @@ export const ButtonController = styled.div`
 	border-radius: 50%;
 	place-items: center;
 	position: absolute;
-	bottom: 7vh;
+	top: 60vh;
 	left: 1vw;
 	cursor: pointer;
 `
@@ -244,4 +245,16 @@ export const Modal = styled.div`
 	transform: translate(-50%, 0%);
 	z-index: 5;
 	transform: all 0.4s ease;
+`
+
+export const HistoryArrowContainer = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2px;
+	width: 110px;
+	position: absolute;
+	margin: 10px;
+	bottom: 0;
+
+
 `
