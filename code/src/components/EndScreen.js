@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { ChildContainer } from './Styles'
 // import { useDispatch } from 'react-redux'
 // import game from '../reducers/game'
 
@@ -13,21 +14,23 @@ const EndScreen = () => {
         window.location.reload()
     }
 
-return (
-    <div class="nes-container is-dark with-title">
-    <p class="title">Congratulations!</p>
-    
-    <h3>{endDescription}</h3>
-    <button type="button" class="nes-btn is-warning"
-     onClick={restartButton}>Restart</button>
-   
-            <i class="nes-bulbasaur"></i>
-            <i class="nes-charmander"></i>
-            <i class="nes-squirtle"></i>
+    return (
+        <ChildContainer>
+        <div class="nes-container is-dark with-title">
+            <p class="title">Congratulations!</p>
+            
+            <h3>{endDescription}</h3>
+            <button type="button" class="nes-btn is-warning"
+            onClick={restartButton}>Restart</button>
+        
+                    <i class="nes-bulbasaur"></i>
+                    <i class="nes-charmander"></i>
+                    <i class="nes-squirtle"></i>
 
-    {/* <button onClick={() => dispatch(game.actions.restart())}>Restart</button> */}
-    </div>
-)    
+            {/* <button onClick={() => dispatch(game.actions.restart())}>Restart</button> */}
+        </div>
+        </ChildContainer>
+    )    
 }
 
 

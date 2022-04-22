@@ -12,21 +12,20 @@ const Game = () => {
     const isLoading = useSelector((store) => store.ui.isLoading)
 
 
-return (
-    <Container>
-         {isLoading && <Loading/>}
-        {!isLoading && (
+    return (
+        <Container>
+            {isLoading && <Loading/>}
+            {!isLoading && (
             <>
-        {username 
-            ? <GameScreen />
-            : <StartScreen/>
-        }
-        </>
-        )
-        
-        }
+                {username 
+                    ? <GameScreen />
+                    : <StartScreen/>
+                }
+            </>
+            )
+            }
         </Container>
-) 
+    ) 
 }
 
 export default Game

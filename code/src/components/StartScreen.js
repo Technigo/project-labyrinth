@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-// import { ChildContainer } from './Styles'
+import { ChildContainer } from './Styles'
 
 
 import game, { generatePlayerName } from '../reducers/game'
@@ -17,7 +17,7 @@ const StartScreen = () => {
     }
 
     return (
-        // <Childcontainer>
+     <ChildContainer>
         <div class="nes-container is-dark with-title">
         <p class="title">Welcome to our labyrinth game</p>
             <div class="nes-field">
@@ -33,7 +33,7 @@ const StartScreen = () => {
             <button type="button" class="nes-btn is-primary"
             onClick={onPlayerSet}>Start game!</button>
         </div>
-        // </ChildContainer>
+    </ChildContainer>
     )
 }
 

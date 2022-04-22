@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { generateAction } from '../reducers/game'
 import EndScreen from './EndScreen'
-import { ChildContainer } from './Styles'
+import { ChildContainer, MazeCardText } from './Styles'
 
 const GameScreen = () => {
     const startDescription = useSelector(store => store.game.actions.description)
@@ -19,16 +19,16 @@ const GameScreen = () => {
         return (
             <EndScreen />
         )
-      }
+    }
 
 
     return (
-        <ChildContainer>
-        <div class="nes-container is-dark with-title">
+      <ChildContainer>
+       <div class="nes-container is-dark with-title">
         <p class="title">The Maze</p>
         <p>{startDescription}</p>
         {actions?.map(action => (
-            <div>
+            <MazeCardText>
                 <p>{action.description}</p>
                 <button type="button" class="nes-btn is-success"
                     key={action.description} 
@@ -37,10 +37,10 @@ const GameScreen = () => {
                 >
                     {action.direction}
                 </button>
-            </div>
+            </MazeCardText>
         ))}
-    </div>
-    </ChildContainer>
+      </div>
+     </ChildContainer>
     )
 }
 export default GameScreen
