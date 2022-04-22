@@ -52,6 +52,7 @@ export const game = createSlice({
 
   export const fetchGameSteps = ({ direction }) => {
     return (dispatch, getState) => {
+      dispatch(ui.actions.setLoading(true))
       
       const options = {
         method: 'POST',
@@ -65,7 +66,6 @@ export const game = createSlice({
         })
       };
       
-      dispatch(ui.actions.setLoading(true))
       fetch('https://labyrinth-technigo.herokuapp.com/action', options)
         .then((res) => res.json())
         .then((data) => {

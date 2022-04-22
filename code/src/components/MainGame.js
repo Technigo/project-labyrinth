@@ -19,32 +19,30 @@ const MainGame = () => {
     }
 
 
-    return (
-       
-        
-        
-       
+    return (         
+        <div>
+            {loading && <Loading />}
+            {!loading && (
 
-         
-        <MainGameStyle>
-            {loading && <Loading />}   
-            
+            <MainGameStyle>
+                        
+                        
             {/* Something in this area is disturbing the loading to show, instead it shows empty squares */}
-            
+
             <div class="nes-container with-title is-centered">
             <p className="title" tabIndex='0'>User: {username} </p>
             <p tabIndex='0'>{gameObject.description}</p>
             </div>
-            
+
             <DirectionSection className="nes-container with-title is-centered">
             {gameObject.actions.length > 0 && (
                 <div>
-                 {gameObject.actions.map((action) => {
+                {gameObject.actions.map((action) => {
                     return(
 
                         <div key={action.direction}>
                         <p tabIndex='0'>{action.description}</p>
-                      
+                    
                         <DirectionButton
                             type="button" 
                             className="nes-btn is-primary"
@@ -74,8 +72,8 @@ const MainGame = () => {
                     })}
                 </div>
             )}
-            
-       
+
+
             {gameObject.coordinates === "1,3" && (
                 <WinSection>
                     <h3>You won!</h3>
@@ -88,10 +86,14 @@ const MainGame = () => {
                     </button>
                 </WinSection>
             )}
-             </DirectionSection>
-            
-        </MainGameStyle>
-    
+            </DirectionSection>
+
+            </MainGameStyle>
+
+
+            )}
+       {/* {loading && <Loading />} */}
+        </div>
     )
 }
 

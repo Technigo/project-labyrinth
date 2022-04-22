@@ -24,11 +24,12 @@ export const App = () => {
   return (
     <Provider store={store}>
       <Container>
+        <Loading />
         <BrowserRouter>
         <Routes>
           <Route path="/" element={<StartPage />}/>
           <Route path="/MainGame" element={<MainGame />}/>
-          <Route path="/Loading" element={<Loading />} />
+          {/* <Route path="/Loading" element={<Loading />} /> */}
           <Route path="/404" element={<NotFound />}/>
           <Route path="*" element={<Navigate to="/404" replace />}/>
         </Routes>
