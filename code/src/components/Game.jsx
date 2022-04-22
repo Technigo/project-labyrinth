@@ -25,10 +25,10 @@ const ContainerContainer = styled.div`
   align-items: center;
   width: 90%;
   @media (min-width: 800px){
-    width: 80%;
+    width: 60%;
   }
   @media (min-width: 1020px){
-    width: 70%;
+    width: 50%;
   }
 `;
 
