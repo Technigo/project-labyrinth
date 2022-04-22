@@ -90,7 +90,7 @@ cursor: pointer;
 &:hover {
   background-color: #0091E0;
   box-shadow: none;
-  color: white;
+  color: gray;
   animation: animate 1.7s linear infinite;
 }
 
