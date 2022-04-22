@@ -28,14 +28,14 @@ const StartPage = () => {
 		<MainWrapper>
 			<ConsoleContainer>
 				<ConsoleFrame>{items ? <Labyrinth /> : <Game />}</ConsoleFrame>
-				<LabelDiv>
-					<GoBackBtnDiv>
-						<GoBackBtn type='button' onClick={onRestartClick}>
-							<GoBackBtnImg src={ReturnBtn} alt='click to restart'></GoBackBtnImg>
-						</GoBackBtn>
-					</GoBackBtnDiv>
-					<Logo src={Logotype}></Logo>
-				</LabelDiv>
+				{/* <LabelDiv> */}
+				{/* <GoBackBtnDiv> */}
+				<GoBackBtn type='button' onClick={onRestartClick}>
+					<GoBackBtnImg src={ReturnBtn} alt='click to restart'></GoBackBtnImg>
+				</GoBackBtn>
+				{/* </GoBackBtnDiv> */}
+				<Logo src={Logotype}></Logo>
+				{/* </LabelDiv> */}
 				<BottomStyling />
 			</ConsoleContainer>
 		</MainWrapper>

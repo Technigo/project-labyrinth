@@ -12,4 +12,4 @@ A Kanban board and Slack was used for communication. We coded the foundation of 
 
 ## View it live
 
-Link to project: XXXXXXXXX
+Link to project: https://game-girl.netlify.app/

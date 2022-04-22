@@ -74,7 +74,7 @@ export const LabelName = styled.label`
 `
 export const Span = styled.span`
 	display: block;
-	font-size: 28px;
+	font-size: 24px;
 `
 
 export const GoBackBtnDiv = styled.div`
@@ -85,7 +85,9 @@ export const GoBackBtn = styled.button`
 	border-radius: 50%;
 	background: transparent;
 	border: transparent;
-	margin-top: 12px;
+	position: absolute;
+	top: 416px;
+	right: 2vw;
 
 	&:hover {
 		transform: scale(1.2);
@@ -109,6 +111,9 @@ export const LabelDiv = styled.div`
 
 export const Logo = styled.img`
 	width: 120px;
+	position: absolute;
+	bottom: 6vh;
+	right: 2vw;
 `
 
 export const ConsoleContent = styled.section`
