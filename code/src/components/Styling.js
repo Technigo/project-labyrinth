@@ -72,7 +72,6 @@ export const Span = styled.span`
 
 export const GoBackBtnDiv = styled.div`
 	align-self: center;
-	margin-left: 250px;
 `
 
 export const GoBackBtn = styled.button`
@@ -180,6 +179,7 @@ export const ButtonController = styled.div`
 	position: absolute;
 	bottom: 7vh;
 	left: 1vw;
+	cursor: pointer;
 `
 
 export const Btn = styled.button`

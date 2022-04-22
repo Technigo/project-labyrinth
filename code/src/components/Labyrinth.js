@@ -133,7 +133,7 @@ const Labyrinth = () => {
 			{items.actions.map((item) => {
 				return (
 					<div key={item.coordinates}>
-						<GameText>{item.actions ? item.description : 'You won!'}</GameText>
+						<GameText>{item.description}</GameText>
 					</div>
 				)
 			})}
