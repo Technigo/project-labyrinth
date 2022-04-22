@@ -52,13 +52,13 @@ const MainGame = () => {
                                 Go {''}
                                 {action.direction +
                                 (action.direction === 'North'
-                                    ? ' ⬆'
+                                    ? ' '
                                     : action.direction === 'South'
-                                    ? ' ⬇'
+                                    ? ''
                                     : action.direction === 'West'
-                                    ? ' ⬅'
+                                    ? ''
                                     : action.direction === 'East'
-                                    ? ' ➡'
+                                    ? ''
                                     : '')}
                             </span>
                         </DirectionButton>

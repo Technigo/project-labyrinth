@@ -14,12 +14,6 @@ export const Container = styled.div`
 `
 export const LoadingWrapper = styled.div`
   text-align: center;
-//   margin: 0;
- 
-
-  @media ${devices.desktop} {
-    // margin-top: 100px;
-}
 `
 export const Mario = styled.div`
 position: absolute;
@@ -44,13 +38,13 @@ export const NameInput = styled.input`
     font-family: 'Press Start 2P', cursive;
     padding: 20px;
     margin-bottom: 10px;
-    max-width: 375px;
+    width: 300px;
 `
 
 export const StartButton = styled.button`
     font-family: 'Press Start 2P', cursive; 
     padding: 20px;
-    max-width: 375px;
+    width: 300px;
 `
 export const StartGame = styled.div`
     display: flex;
@@ -70,13 +64,13 @@ export const MainGameStyle = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-
-    @media ${devices.desktop} {
-        margin-top: 100px;
-     }
     
      @media ${devices.tablet} {
         margin-top: 50px;
+     }
+
+     @media ${devices.desktop} {
+        margin-top: 100px;
      }
 `
 
@@ -85,10 +79,11 @@ export const InfoSection = styled.section`
     padding: 5px;
     margin-top: 10px;
 
-    @media ${devices.desktop} {
+     @media ${devices.tablet} {
         font-size: 18px;
      }
-     @media ${devices.tablet} {
+
+     @media ${devices.desktop} {
         font-size: 18px;
      }
 `
