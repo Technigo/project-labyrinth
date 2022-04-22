@@ -1,10 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 
 body {
   margin: 0;
-  font-family: 'VT323', monospace;
+  font-family: 'Press Start 2P', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(assets/background-image2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 code {

@@ -17,23 +17,34 @@ const StartScreen = () => {
     
     return (
         <StartContainer>
-            <p>Welcome to Labyrinth Game! Please type your gamertag</p>
-            <input
-                type='text'
-                value={inputValue}
-                onChange={event => setInputValue(event.target.value)}
-                />
-            <button onClick={onUsernameInput}>Start the game!</button>
+            <Title>Welcome to Labyrinth Game!</Title>
+            <form className='nes-field is-inline'>
+                <input
+                    className='nes-input is-success'
+                    id="inline_field"
+                    type='text'
+                    value={inputValue}
+                    onChange={event => setInputValue(event.target.value)}
+                    placeholder='type your gamertag..'
+                    />
+            </form>
+            <StartButton onClick={onUsernameInput} className='nes-btn is-success'>START</StartButton>
         </StartContainer>
     );
 };
 
+const Title = styled.h1 `
+    font-weight: 300;
+`
 const StartContainer = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    font-weight: light;
 `;
+
+const StartButton = styled.button`
+    margin: 1rem;
+`
 
 export default StartScreen;

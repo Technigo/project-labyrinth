@@ -10,7 +10,6 @@ const GameScreen = () => {
 
     const actions = useSelector(store => store.game.position.actions);
     const setDescription = useSelector(store => store.game.position.description)
-    const isLoading = useSelector(store => store.game.isLoading);
     
     console.log(setDescription)
     console.log(actions)
@@ -20,22 +19,20 @@ const GameScreen = () => {
     }
 
     return (
-        isLoading === false && (
-            <GameContainer>
-                {setDescription && <StyleMainDescription>{setDescription}</StyleMainDescription>}
-                {actions && actions.map((action) => (
-                    <>
-                        <StyleDescription>{action.description}</StyleDescription>
-                        <button 
-                            key={action.description}
-                            onClick={() => onContinueGame(action.type, action.direction)}
-                        >
-                            {action.direction}
-                        </button>
-                    </>
-                ))}
-            </GameContainer>
-        )
+        <GameContainer>
+            {setDescription && <StyleMainDescription>{setDescription}</StyleMainDescription>}
+            {actions && actions.map((action) => (
+                <>
+                    <StyleDescription>{action.description}</StyleDescription>
+                    <button 
+                        key={action.description}
+                        onClick={() => onContinueGame(action.type, action.direction)}
+                    >
+                        {action.direction}
+                    </button>
+                </>
+            ))}
+        </GameContainer>
     );
 };
 
