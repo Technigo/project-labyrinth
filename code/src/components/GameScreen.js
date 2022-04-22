@@ -12,61 +12,49 @@ const devices = {
 }
 
 const GameBoardPicture = styled.main`
-background-image: url(${GamePicture});
-background-position: bottom;
-background-repeat: repeat;
-display: flex;
-justify-content: center;
-height: 100vh;
+  background-image: url(${GamePicture});
+  background-position: bottom;
+  background-repeat: repeat;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
 `
 
 const GameContainer = styled.div`
- display: flex:
- flex-direction: column;
- justify-content: center;
- align-items: center;
- margin-top: 40%;
-
- @media ${devices.tablet}{
-  margin: 40% 10% 0 10% ;
- }
-
- @media ${devices.desktop}{
-  margin: 10% 10% 0 10% ;
- }
+  display: flex:
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 13% 10% 0 10% ;
 `
 const GameDescription = styled.h3`
- background-color: rgba(0, 0, 0, 0.5);
- padding: 20px 10px 10px 10px;
- text-align: center;
- margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px 10px 10px 10px;
+  text-align: center;
+  margin-bottom: 0;
 
- @media ${devices.tablet}{
+  @media ${devices.tablet}{
   margin: 0px auto 0px;
-   max-width: 608px;
- }
+  max-width: 608px;
+  }
 
- @media ${devices.desktop}{
+  @media ${devices.desktop}{
   padding: 40px 50px 0px 30px;
- }
+  }
  `
 const GameBoardInfo = styled.div`
-background-color: rgba(0, 0, 0, 0.5);
- padding: 0 10px 10px 10px;
- font-weight: 500;
- display:flex;
- flex-direction: column;
- justify-content: center;
- align-items: center;
- min-height: 220px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0 10px 10px 10px;
+  font-weight: 500;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 220px;
 
- @media ${devices.tablet}{
-  flex-direction: row;
- }
- @media ${devices.desktop}{
- 
- }
-
+  @media ${devices.tablet}{
+    flex-direction: row;
+  }
  `
 
 const RestartButton = styled.button` 
@@ -79,40 +67,40 @@ const RestartButton = styled.button`
   }
 `
 const DirectionButton = styled.button`
-font-family: 'Inconsolata', monospace, 'Open Sans', sans-serif;
-font-size: 12px;
-padding: 6px;
-background-color: #C4B7CB;
+  font-family: 'Inconsolata', monospace, 'Open Sans', sans-serif;
+  font-size: 12px;
+  padding: 6px;
+  background-color: #C4B7CB;
 
-@media ${devices.tablet}{
-  font-size: 16px;
-  padding: 8px;
+  @media ${devices.tablet}{
+    font-size: 16px;
+    padding: 8px;
  }
 
-@media ${devices.desktop} {
-  cursor: pointer;
-  
+  @media ${devices.desktop} {
+    cursor: pointer;
+  }
 `
 
 const WrapContainer = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `
 
 const TextDescription = styled.p` 
- text-align: center;
+  text-align: center;
 
- @media ${devices.tablet}{
-  width: 200px;
-  padding: 37px;
- }
+  @media ${devices.tablet}{
+    width: 200px;
+    padding: 37px;
+  }
 
- @media ${devices.desktop}{
-  width: 290;
-  padding: 15px;
- }
+  @media ${devices.desktop}{
+    width: 290;
+    padding: 15px;
+  }
 `
 
 const GameScreen = ({ username }) => {
@@ -148,7 +136,6 @@ const GameScreen = ({ username }) => {
       </GameBoardPicture>
     )
   )
-
 };
 
 export default GameScreen;

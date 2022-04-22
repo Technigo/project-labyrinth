@@ -12,8 +12,8 @@ const devices = {
 }
 
 const BackgroundPicture = styled.main `
-background-image: url(${background});
-background-size: cover;
+  background-image: url(${background});
+  background-size: cover;
 `
 const FormContainer = styled.form`
  height: 100vh;
@@ -23,18 +23,14 @@ const FormContainer = styled.form`
  align-items: center;
 `
 const StartPageInfo = styled.div`
-background-color: rgba(0, 0, 0, 0.7);
-min-height: 220px;
-max-width: 585px;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 0 15px 30px 15px;
-
-@media ${devices.tablet}{
-  
- }
+  background-color: rgba(0, 0, 0, 0.7);
+  min-height: 220px;
+  max-width: 585px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15px 30px 15px;
 `
 const GameTitle = styled.h3`
   font-size: 20px;
@@ -55,12 +51,12 @@ const SubmitButton = styled.button`
 `
 
 const InputText = styled.input`
-font-family: 'Inconsolata', monospace, 'Open Sans', sans-serif;
-font-size: 16px;
-padding: 5px; 
-width: 200px;
-margin-bottom:20px;
-text-align: center;
+  font-family: 'Inconsolata', monospace, 'Open Sans', sans-serif;
+  font-size: 16px;
+  padding: 5px; 
+  width: 200px;
+  margin-bottom:20px;
+  text-align: center;
 `
 
 const StartScreen = () => {
@@ -88,7 +84,6 @@ const StartScreen = () => {
             placeholder='Username here..'
             value={username}
             onChange={(event) => setUserName(event.target.value)}
-
              />
              <SubmitButton type="submit" onClick={onUserSet}> Let's play!
              </SubmitButton>

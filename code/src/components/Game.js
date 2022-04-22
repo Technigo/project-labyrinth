@@ -6,15 +6,15 @@ import GameScreen from "./GameScreen";
 
 const Game = () => {
     const username = useSelector((store) => store.game.username)
-    
+
     return (
-    <div>
-        {username
-        ? <GameScreen username={username} /> 
-        : <StartScreen />}
-    </div>
+        <div>
+            {username
+                ? <GameScreen username={username} />
+                : <StartScreen />}
+        </div>
     )
-    
+
 }
 
 export default Game
