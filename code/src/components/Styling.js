@@ -94,8 +94,8 @@ export const GoBackBtn = styled.button`
 	}
 `
 export const GoBackBtnImg = styled.img`
-	width: 100px;
 	padding-bottom: 1em;
+	z-index: 2;
 `
 
 export const Logo = styled.img`
