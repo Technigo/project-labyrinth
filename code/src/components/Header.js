@@ -6,6 +6,7 @@ display: flex;
 padding-top: 1rem;
 text-align: center;
 justify-content: center;
+align-items:center;
 `
 
 const Title = styled.h1`
