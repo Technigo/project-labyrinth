@@ -4,8 +4,9 @@ This is a pair programming project made by Ida Halling and Isabell Wastfelt. We 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We started out by making a flowchart on all of the steps while looking on out endpoints in Postman. And then we created the reducers and did our first fetch. We made some components and got the game to appear from our fetch.
+We wantet an urban explorer theme. We used styled components, and used props for the different background images.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://urbanexplorer-labyrinth.netlify.app/
