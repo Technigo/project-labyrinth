@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { generateAction } from '../reducers/game'
 import EndScreen from './EndScreen'
-import { Container } from './StartScreen'
+import { ChildContainer } from './Styles'
 
 const GameScreen = () => {
     const startDescription = useSelector(store => store.game.actions.description)
@@ -23,7 +23,7 @@ const GameScreen = () => {
 
 
     return (
-        <Container>
+        <ChildContainer>
         <div class="nes-container is-dark with-title">
         <p class="title">The Maze</p>
         <p>{startDescription}</p>
@@ -40,7 +40,7 @@ const GameScreen = () => {
             </div>
         ))}
     </div>
-    </Container>
+    </ChildContainer>
     )
 }
 export default GameScreen
