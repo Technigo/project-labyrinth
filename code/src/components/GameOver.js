@@ -3,7 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 
 import labyrinth from "reducers/labyrinth";
 
-import { CardContainer, Button, EndGame, EndTitle } from "./Styles";
+import { 
+	CardContainer,
+	Button,
+	EndGame,
+	EndTitle
+} from "./Styles";
 
 const GameOver = () => {
 	const stage = useSelector((store) => store.labyrinth.stage);

@@ -6,6 +6,7 @@ const labyrinth = createSlice({
         player: null,
         stage: null,
         history: [],
+        loading: false,
     },
     reducers: {
         setPlayer: (store, action) => {
@@ -28,13 +29,18 @@ const labyrinth = createSlice({
             store.stage = null;
             store.player = null;
             store.history = [];
-        }
+        },
+        toggleLoading: (store, action) => {
+            console.log("toggle loading to", action.payload)
+            store.loading = action.payload
+        },
     }
 });
 
 export const generateGame = (action = null) => {
     if (!action) {
         return (dispatch, getState) => {
+            dispatch(labyrinth.actions.toggleLoading(true))
             const options = {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -44,11 +50,15 @@ export const generateGame = (action = null) => {
             }; 
             fetch(`https://labyrinth-technigo.herokuapp.com/start`, options)
                 .then(res => res.json())
-                .then(stage => dispatch(labyrinth.actions.setStage(stage)))
+                .then(stage => {
+                    dispatch(labyrinth.actions.setStage(stage))
+                    dispatch(labyrinth.actions.toggleLoading(false))
+                })
         }
     }
 
     return (dispatch, getState) => {
+        dispatch(labyrinth.actions.toggleLoading(true))
         const options = {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -60,7 +70,10 @@ export const generateGame = (action = null) => {
         }; 
         fetch(`https://labyrinth-technigo.herokuapp.com/action`, options)
             .then(res => res.json())
-            .then(stage => dispatch(labyrinth.actions.setStage(stage)))
+            .then(stage => {
+                dispatch(labyrinth.actions.setStage(stage))
+                dispatch(labyrinth.actions.toggleLoading(false))
+            })
     }
 }
 

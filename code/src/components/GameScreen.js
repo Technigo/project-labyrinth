@@ -1,7 +1,12 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import labyrinth, { generateGame } from "reducers/labyrinth";
-import { CardContainer, Content, SecondaryText, Action } from "./Styles";
+import { 
+    CardContainer,
+    Content,
+    SecondaryText, 
+    Action 
+} from "./Styles";
 
 
 const GameScreen = () => {
