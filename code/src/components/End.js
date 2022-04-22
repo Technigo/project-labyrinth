@@ -19,7 +19,7 @@ const End = () => {
     );
   };
   return (
-    <div>
+    <div className="main">
       <h1>{gamedescription}</h1>
       <h3>Your current position {gamecoordinates}</h3>
       <button onClick={() => onRestart()}>Restart game</button>

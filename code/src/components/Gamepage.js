@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import LoadingIndicator from "./LoadingIndicator";
+import styled from "styled-components";
 
 import { nextStep } from "reducers/labyrinth";
 
@@ -22,39 +23,45 @@ const Gamepage = () => {
   };
 
   const GameCard = ({ description, type, direction }) => (
-    <>
-      <p>{description}</p>
+    <div className="main-2">
+      <h2 className="nes-balloon from-left nes-pointer">{description}</h2>
       <>
-        <button onClick={() => handleClick(type, direction)}>
+        <button className="" onClick={() => handleClick(type, direction)}>
           {type} {direction}
         </button>
       </>
-    </>
+    </div>
   );
   return (
-    <>
-      <div>
-        {isLoading && <LoadingIndicator />}
-        {!isLoading && (
-          <div>
-            {actions.length !== 0 && (
-              <>
-                <h1>{description}</h1>
-                <p>Your position is {coordinates}</p>
-              </>
-            )}
-            {actions.length === 0 ? (
-              <div>
-                <End />
+    <div className="main">
+      {isLoading && <LoadingIndicator />}
+      {!isLoading && (
+        <div className="content">
+          {actions.length !== 0 && (
+            <>
+              <div className="bordered">
+                <h2 className="nes-container is-rounded is-dark">
+                  {description}
+                </h2>
               </div>
-            ) : (
-              actions.length > 0 &&
-              actions.map((item) => <GameCard key={item.direction} {...item} />)
-            )}
-          </div>
-        )}
-      </div>
-    </>
+              <h3 className="nes-badge">
+                <span className="is-warning">
+                  Your position is {coordinates}
+                </span>
+              </h3>
+            </>
+          )}
+          {actions.length === 0 ? (
+            <div>
+              <End />
+            </div>
+          ) : (
+            actions.length > 0 &&
+            actions.map((item) => <GameCard key={item.direction} {...item} />)
+          )}
+        </div>
+      )}
+    </div>
   );
 };
 

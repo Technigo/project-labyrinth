@@ -1,10 +1,18 @@
 import React from "react";
+import styled from "styled-components";
+
+const Main = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+`;
 
 const LoadingIndicator = () => {
   return (
-    <div>
+    <Main>
       <h1>Loading...</h1>
-    </div>
+    </Main>
   );
 };
 

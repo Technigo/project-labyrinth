@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import styled from "styled-components";
 
 import { labyrinth, startLabyrinth } from "../reducers/labyrinth";
 
@@ -11,15 +12,18 @@ const Start = () => {
     dispatch(startLabyrinth());
   };
   return (
-    <div>
-      <h1>Welcome to the game</h1>
+    <div className="main">
+      <h1 className="start-title">Welcome to the game</h1>
       <input
+        className="nes-field"
         type="text"
         required
         value={input}
         onChange={(event) => setInput(event.target.value)}
       />
+
       <button
+        className="nes-btn is-warning"
         disabled={!input}
         onClick={() => {
           inputAdd();
