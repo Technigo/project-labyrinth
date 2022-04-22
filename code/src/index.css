@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-
 body {
-  margin: 0;
-  font-family: 'Press Start 2P', cursive;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-image: url(assets/background-image2.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+	margin: 0;
+	font-family: 'Press Start 2P', monospace;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-image: url(assets/background-image2.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	background-attachment: fixed;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
 }
-
