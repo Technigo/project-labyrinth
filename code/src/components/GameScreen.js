@@ -6,22 +6,50 @@ import styled from 'styled-components/macro'
 import game, { continueGame } from "../reducers/game";
 
 const devices = {
-  mobile: '(min-wdith: 375px)',
+  mobile: '(min-width: 375px)',
   tablet: '(min-width: 768px)',
   desktop: '(min-width: 1024px)'
 }
 
-const GameContainer = styled.div`
- display: flex:
- flex-direction: column;
- height: 100vh;
-`
 const GameBoardPicture = styled.main`
 background-image: url(${GamePicture});
 background-position: bottom;
 background-repeat: repeat;
-}
+display: flex;
+justify-content: center;
+height: 100vh;
 `
+
+const GameContainer = styled.div`
+ display: flex:
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ margin-top: 40%;
+
+ @media ${devices.tablet}{
+  margin: 40% 10% 0 10% ;
+ }
+
+ @media ${devices.desktop}{
+  margin: 10% 10% 0 10% ;
+ }
+`
+const GameDescription = styled.h3`
+ background-color: rgba(0, 0, 0, 0.5);
+ padding: 20px 10px 10px 10px;
+ text-align: center;
+ margin-bottom: 0;
+
+ @media ${devices.tablet}{
+  margin: 0px auto 0px;
+   max-width: 608px;
+ }
+
+ @media ${devices.desktop}{
+  padding: 40px 50px 0px 30px;
+ }
+ `
 const GameBoardInfo = styled.div`
 background-color: rgba(0, 0, 0, 0.5);
  padding: 0 10px 10px 10px;
@@ -30,41 +58,25 @@ background-color: rgba(0, 0, 0, 0.5);
  flex-direction: column;
  justify-content: center;
  align-items: center;
- margin: 0px auto 5px;
  min-height: 220px;
- max-width: 585px;
- 
 
  @media ${devices.tablet}{
   flex-direction: row;
-  margin: 0px auto 0px;
-  min-height: 150px;
-  padding: 0 50px 40px 30px;
  }
- 
- `
-const GameDescription = styled.h3`
- background-color: rgba(0, 0, 0, 0.5);
- padding: 20px 10px 10px 10px;
- text-align: center;
- margin: 200px auto 0;
- max-width: 585px;
-
- @media ${devices.tablet}{
-  margin: 200px auto 0px;
-  padding: 40px 50px 0px 30px;
- }
-
  @media ${devices.desktop}{
-  margin: 60px auto 0px;
-  padding: 40px 50px 0px 30px;
+ 
  }
+
  `
 
 const RestartButton = styled.button` 
   font-size: 16px;
   padding: 8px;
   font-family: 'Inconsolata', monospace, 'Open Sans', sans-serif;
+
+  @media ${devices.desktop}{
+    cursor: pointer;
+  }
 `
 const DirectionButton = styled.button`
 font-family: 'Inconsolata', monospace, 'Open Sans', sans-serif;
@@ -86,6 +98,7 @@ const WrapContainer = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
+justify-content: center;
 `
 
 const TextDescription = styled.p` 
@@ -104,39 +117,36 @@ const TextDescription = styled.p`
 
 const GameScreen = ({ username }) => {
   const currentStep = useSelector((store) => store.game.currentStep);
-  const history = useSelector((store) => store.game.history);
   const userActions = useSelector((store) => store.game.currentStep.actions)
 
   const dispatch = useDispatch();
 
-  const onGameRevert = () => {
-    dispatch(game.actions.setHistory());
-  };
+  const isLoading = useSelector((store) => store.ui.isLoading);
 
   return (
-
-    <GameBoardPicture>
-      <GameContainer>
-        {!userActions.length && 
-        <RestartButton onClick={() => dispatch(game.actions.restart())}>
-        Restart!
-      </RestartButton>}
-        
-        <GameDescription>{currentStep.description}</GameDescription>
-        <GameBoardInfo>
-          {userActions.map((action) => (
-            <WrapContainer key={action.direction}>
-              <TextDescription>{action.description}</TextDescription>
-              <DirectionButton onClick={() =>
-                dispatch(continueGame(action.type, action.direction))}>
-                Go to {action.direction}
-              </DirectionButton>
-
-            </WrapContainer>
-          ))}
-        </GameBoardInfo>
-      </GameContainer>
-    </GameBoardPicture>
+    isLoading === false && (
+      <GameBoardPicture>
+        <GameContainer>
+          <GameDescription>{currentStep.description}</GameDescription>
+          <GameBoardInfo>
+            {userActions.map((action) => (
+              <WrapContainer key={action.direction}>
+                <TextDescription>{action.description}</TextDescription>
+                <DirectionButton onClick={() =>
+                  dispatch(continueGame(action.type, action.direction))}>
+                  Go to {action.direction}
+                </DirectionButton>
+              </WrapContainer>
+            ))}
+            {!userActions.length && (
+              <RestartButton onClick={() => dispatch(game.actions.restart())}>
+                Restart!
+              </RestartButton>
+            )}
+          </GameBoardInfo>
+        </GameContainer>
+      </GameBoardPicture>
+    )
   )
 
 };

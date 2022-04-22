@@ -2,6 +2,7 @@ import React from 'react'
 import Lottie from 'react-lottie'
 import animationData from '../lotties/loader.json'
 
+
 const LoaderAnimation = () => {
     const defaultOptions = {
         loop:true,
@@ -10,17 +11,12 @@ const LoaderAnimation = () => {
         renderSettings: {
             preserveAspectRatio: "xMidYMid slice"
         }
-
     }
-    return (
-        <div>
-            <Lottie
+    return <Lottie
             options={defaultOptions}
             height={400}
             width={400}        
-            />
-        </div>
-    )
+            /> 
 }
 
 

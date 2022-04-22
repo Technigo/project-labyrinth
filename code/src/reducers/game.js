@@ -5,8 +5,6 @@ import ui from "./ui";
 const initialState = {
   username: null,
     currentStep: {},
-    history: []
-
 }
 
 const game = createSlice( {
@@ -16,16 +14,13 @@ const game = createSlice( {
         setUsername: (store, action) => {
             store.username = action.payload
         },
-        setHistory: (store, action) => {
-            store.history.push(action.payload)
-        },
         setCurrentStep: (store, action) => {
             store.currentStep = action.payload
         }, 
         restart: () => {
           return initialState;
         }
-           },
+           }
 })
 
 export const generateGame = () => {
@@ -61,7 +56,6 @@ export const generateGame = () => {
             .then((res) => res.json())
             .then((json) => {
               dispatch(game.actions.setCurrentStep(json))
-              dispatch(game.actions.setHistory)
               dispatch(ui.actions.setLoading(false))
             });
       }

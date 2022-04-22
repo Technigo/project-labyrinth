@@ -14,9 +14,18 @@ import LoaderAnimation from './animation'
 //men när api (fetchen) hämtas kommer det ta 1 sek cirkus och då finns det inget att mappa
 
 const Loading = () => {
-    const isLoading = useSelector((store) => store.ui.isLoading)
+    const isLoading = useSelector((store) => store.ui.isLoading);
     
-    return isLoading && <LoaderAnimation/>
+    return (
+
+      isLoading && (
+        <div>
+        <LoaderAnimation/>
+       </div>
+
+      )
+    )
+    
 }
 
 export default Loading
