@@ -36,8 +36,8 @@ export const generateLabyrinth = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        dispatch(labyrinth.actions.setQuestion(data))
-        dispatch(loader.actions.setLoading(false))
+        setTimeout(() => dispatch(labyrinth.actions.setQuestion(data)), 2000)
+        setTimeout(() => dispatch(loader.actions.setLoading(false)), 2000)
       })
   }
 }
