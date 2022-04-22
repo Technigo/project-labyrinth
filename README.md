@@ -10,5 +10,6 @@ At first we stuggled with moving from the first API call to the next, but we got
 
 
 ## View it live
+Made by Lisa Bergström and Emma Berg
 
 https://thelabyrinthh.netlify.app/
