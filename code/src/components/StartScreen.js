@@ -11,8 +11,6 @@ const Container = styled.div`
     margin-top: 3rem;
 `
 
-
-
 const StartScreen = () => {
     const [inputValue, setInputValue] = useState('')
 
