@@ -1,32 +1,32 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import styled from 'styled-components';
-// import Mario from "../assets/Mario.png";
+import Mario from "../assets/Mario.png";
 
 import { game, fetchStartGame } from "../reducers/game";
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   height: 100vh;
   width: 100vw;
+  margin: 7rem 0 3rem 0;
 `;
 
 const WelcomeContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 1rem 2rem;
   color: #f7f7f7;
-  background-color: #e52521;
+  background-color: #e52521dd;
 `;
-
 
 const WelcomeText = styled.h1`
   font-size: 1rem;
   letter-spacing: 2px;
-  
   @media (min-width: 800px){
     font-size: 1.5rem;
   }
@@ -73,10 +73,10 @@ const Button = styled.button`
   }
 `;
 
-// const MarioImg = styled.img`
-//   width: 8rem;
-//   padding: 0.5rem;
-// `;
+const MarioImg = styled.img`
+  width: 10rem;
+  padding: 0.5rem;
+`;
 
 export const StartPage = () => {
   const dispatch = useDispatch();
@@ -103,7 +103,7 @@ export const StartPage = () => {
           <Button  type="submit">START GAME</Button>
         </LabelContainer>
       </FormContainer>
-      {/* <MarioImg src={Mario} alt="It's a me Mario"/> */}
+      <MarioImg src={Mario} alt="It's a me Mario"/>
     </Container>
     </>
   );

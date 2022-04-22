@@ -5,8 +5,9 @@ import styled from 'styled-components';
 const EndContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  margin: 5rem 0;
 `;
 
 const Text = styled.p`
@@ -19,7 +20,7 @@ const Text = styled.p`
     font-size: 1.5rem;
   }
   @media (min-width: 1020px){
-    font-size: 1.75rem;
+    font-size: 1rem;
   }
 `;
 
@@ -33,7 +34,7 @@ const Button = styled.button`
 `;
 
 export const EndPage = () => {
-  // const history = useSelector((store) => store.game.history);
+
   const username = useSelector((store) => store.game.username);
 
   return (
@@ -43,18 +44,11 @@ export const EndPage = () => {
       <Button onClick={() => window.location.reload()}>
         PLAY AGAIN
       </Button>     
-      {/* <Text>This was your journey:</Text> */}
-      {/* <Text>{history.map((item) => item.description)}</Text>  */}
+
     </EndContainer>
   );
 };
 
-{/* <span className="star-emoji" role="img" aria-label="star-emoji">
-🌟🌟🌟
-</span>
-<span className="star-emoji" role="img" aria-label="star-emoji">
-        🌟🌟🌟
-      </span>
-      <span className="star-emoji" role="img" aria-label="star-emoji">
-      🌟🌟🌟
-    </span> */}
+      {/* <Text>This was your journey:</Text> */}
+      {/* <Text>{history.map((item) => item.description)}</Text>  */}
+  // const history = useSelector((store) => store.game.history);

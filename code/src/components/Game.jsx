@@ -14,6 +14,8 @@ const GameContainer = styled.div`
   align-items: center;
   height: 100vh;
   width: 100vw;
+  margin: 5rem 0;
+ 
 `;
 
 const ContainerContainer = styled.div`
@@ -33,10 +35,10 @@ border-radius: 0.3rem;
 background-color: #fbd000;
 text-align: left; 
 @media (min-width: 800px){
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 @media (min-width: 1020px){
-  font-size: 1.75rem;
+  font-size: 1.5rem;
 }
 `;
 
@@ -47,7 +49,7 @@ border: solid 3px #43b047;
 letter-spacing: 2px;
 padding: 0.5rem 1rem;
 @media (min-width: 800px){
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 @media (min-width: 1020px){
   font-size: 1.75rem;

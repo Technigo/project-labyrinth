@@ -9,3 +9,4 @@ export const MainPage = () => {
 
   return <> {currentPosition ? <Game /> : <StartPage />} </>;
 };
+
