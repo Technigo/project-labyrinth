@@ -15,32 +15,34 @@ font-size: 30px;
 text-transform: uppercase;
 text-align: center;
 margin-bottom: 0;
-/* animation: animate 1.7s linear infinite;
 
-
-  @keyframes animate {
-   0%{
-     opacity: 0;
-   }
-   50%{
-     opacity: 1;
-   }
-   100%{
-     opacity: 0;
-   } */
+@media (min-width : 768px) {
+  font-size: 36px;
+}
 `
 
 const SubTitle = styled.h3`
+font-size: 22px;
 text-align: center;
 margin-top: 10px;
 color: #00BC06;
+
+@media (min-width : 768px) {
+  font-size: 28px;
+}
 `
 
 const StartText = styled.p`
-margin: 20px;
+  font-size: 18px;
+  margin: 20px;
+
+ @media (min-width : 768px) {
+   font-size: 24px;
+   margin: 20px 70px;  
+ }
 `
 
-const InputWrapper = styled.div`
+const InputWrapper = styled.form`
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -57,11 +59,20 @@ text-align: center;
 margin-bottom: 20px;
 text-transform: capitalize;
 
+@media (min-width: 768px) {
+  width: 40vw;
+}
 `
 
 const Icon = styled.img`
 margin-top: 20px;
-width: 60px;
+width: 80px;
+
+@media (min-width: 768px) {
+  width: 140px;
+  margin-top: 50px;
+  padding-bottom: 20px;
+}
 `
 
 const StartBtn = styled.button`
@@ -70,7 +81,7 @@ border: 4px solid #0091E0;
 background: white;
 width: 80%;
 height: 50px;
-box-shadow: inset -6px -4px gray;
+box-shadow: inset -6px -4px #1583BF;
 text-transform: uppercase;
 font-size: 30px;
 box-shadow: 10px;
@@ -93,6 +104,10 @@ cursor: pointer;
    100%{
      opacity: 0;
    }
+}
+
+@media (min-width: 768px) {
+  width: 40vw;
 }
 `
 
@@ -120,13 +135,16 @@ const StartScreen = () => {
         <SubTitle>Don't maze it up</SubTitle>
         <StartText>Welcome to the Technigo maze. Your decisions will take you places you never thought you'd read of. Are you ready?</StartText>
         <InputWrapper>
+        <label htmlFor="usernameInput"></label>
           <NameInput
             type="text"
             placeholder="Enter name.."
             value={inputValue}
+            required
             onChange={(event) => setInputValue(event.target.value)}
+            name="usernameInput"
           />
-          <StartBtn onClick={onUsernameSelect}>Enter Maze</StartBtn>
+          <StartBtn type="submit" onClick={onUsernameSelect}>Enter Maze</StartBtn>
           <Icon src="./icons/hero.png" alt="hero" />
         </InputWrapper>
       </section>

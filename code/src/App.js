@@ -1,6 +1,7 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { GlobalStyles } from "components/Global"
 import styled from 'styled-components'
 
 import game from "reducers/game";
@@ -29,17 +30,22 @@ font-family: 'VT323', monospace;
 background-color: #e5e5e5;
 display: flex;
 flex-direction: column;
-/* justify-content: center; */
 align-items: center;
 width: 90vw;
-min-height: 60vh;
+min-height: 50vh;
 border: 4px solid black;
-/* box-shadow: 5px 5px 0 0 black; */
+padding-bottom: 25px;
+
+
+@media (min-width: 768px) {
+  width: 68vw;
+}
 `
 
 export const App = () => {
   return (
       <Provider store={store}>
+    <GlobalStyles />
       <CardWrapper>
       <Card>
        < StartScreen />
