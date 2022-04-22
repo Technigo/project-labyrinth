@@ -10,7 +10,7 @@ export const MainWrapper = styled.main`
 export const ConsoleContainer = styled.section`
 	max-width: 450px;
 	background: #9fb4ff;
-	min-height: 90vh;
+	min-height: 100vh;
 	border: 4px solid #000;
 	position: relative;
 	border-radius: 10px;
@@ -62,7 +62,7 @@ export const StartButtonImg = styled.img`
 	width: 40vw;
 	max-width: 200px;
 	position: absolute;
-	bottom: 0;
+	top: 120px;
 	left: 0;
 `
 
@@ -100,8 +100,8 @@ export const LabelDiv = styled.div`
 	align-items: flex-end;
 	justify-content: flex-end;
   position: absolute;
-  top: 400px;
-  right: 1vw;
+  top: 415px;
+  right: 2vw;
 }
 `
 
@@ -160,6 +160,7 @@ export const UsernameInputContainer = styled.div`
 	background: url(${BG1});
 	background-size: cover;
 	height: 100%;
+	position: relative;
 `
 
 export const Background = styled.div`

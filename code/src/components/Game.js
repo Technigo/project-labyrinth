@@ -9,6 +9,7 @@ import {
 	LabelName,
 	UsernameInput,
 	UsernameInputContainer,
+	Modal,
 } from './Styling'
 import game, { fetchGame } from '../reducer/game'
 import StartBtn from './img/startbtn.png'
@@ -34,7 +35,11 @@ const Game = () => {
 	return (
 		<ConsoleContent>
 			<UsernameInputContainer>
-				{isLoading && <Loadingspinner />}
+				{isLoading && (
+					<Modal>
+						<Loadingspinner />
+					</Modal>
+				)}
 				<GameTextHeader>
 					Welcome to this <Span>- a-maze-ing - </Span> game! Try to found your way out of the labyrinth!
 				</GameTextHeader>
