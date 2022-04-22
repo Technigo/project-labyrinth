@@ -177,7 +177,7 @@ const Labyrinth = () => {
 	return (
 		<Background background={changeBG()}>
 			<button onClick={() => controlMusic()}>Play</button>
-			<HistoryArrowContainer >{select.map(item => <HistoryArrow rotate={historyArrow(item)} src={arrow} alt='arrows to show history'/>)}</HistoryArrowContainer>
+			<HistoryArrowContainer >{select.map(item => <HistoryArrow key={Math.random()*1000} rotate={historyArrow(item)} src={arrow} alt='arrows to show history'/>)}</HistoryArrowContainer>
 			<Modal text={prevStep}>
 				You chose {prevStep} <Loadingspinner />
 			</Modal>
