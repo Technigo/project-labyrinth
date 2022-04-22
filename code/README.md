@@ -1,13 +1,12 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The Cavern Quest game is a Classic in a text-based adventure, which allows the user to navigate a maze, in the form of a text-based adventure, provided by a backend.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The game is built in Redux, by using Thunks.
+We started off by exploring this weeks lectures code, and then used the React skills we learned so far to built this interactive game. If we had more time we wold work more on the styling and made an animation of the loading screen.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://the-cavern-quest.netlify.app/
