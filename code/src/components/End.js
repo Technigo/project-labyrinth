@@ -20,6 +20,13 @@ const End = () => {
   };
   return (
     <div className="main">
+      <div className="image-container">
+        <img
+          className="trophy"
+          src="https://i.ibb.co/znrWh1S/Untitled-design-24.png"
+          alt="throphy"
+        />
+      </div>
       <h1>{gamedescription}</h1>
       <h3>Your current position {gamecoordinates}</h3>
       <button onClick={() => onRestart()}>Restart game</button>

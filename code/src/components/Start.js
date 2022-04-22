@@ -13,6 +13,13 @@ const Start = () => {
   };
   return (
     <div className="main">
+      <div className="start-image-wrap">
+        <img
+          className="start-image"
+          src="https://i.ibb.co/G5zV6Zk/Untitled-design-28.png"
+          alt="picture of example characters"
+        />
+      </div>
       <h1 className="start-title">Welcome to the game</h1>
       <input
         className="nes-input"
