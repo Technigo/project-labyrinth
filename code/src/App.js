@@ -3,11 +3,12 @@ import { Provider } from "react-redux";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 import game from "./reducers/game";
-
+import { ui } from "./reducers/ui";
 import Game from "./components/Game";
 
 const reducer = combineReducers({
   game: game.reducer,
+  ui: ui.reducer,
 });
 
 const store = configureStore({ reducer });

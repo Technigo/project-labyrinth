@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { playGame } from "reducers/game";
+import game, { playGame } from "reducers/game";
 import styled from "styled-components";
 import { TextContainer } from "./StartScreen";
 
-const GameContainer = styled.div`
+export const GameContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,8 +43,6 @@ const GameContainer = styled.div`
 
 const GameScreen = () => {
   const gameData = useSelector((store) => store.game.gameData);
-  //   const history = useSelector((store) => store.game.history);
-  //   const username = useSelector((store) => store.game.username);
 
   const dispatch = useDispatch();
 
@@ -55,7 +53,10 @@ const GameScreen = () => {
   const ActionCard = ({ description, type, direction }) => (
     <div className="action-card">
       <p>{description}</p>
-      <button onClick={() => onNextStep(type, direction)}>
+      <button
+        onClick={() => onNextStep(type, direction)}
+        className="nes-btn is-warning"
+      >
         Head {direction.toLowerCase()}
       </button>
     </div>
@@ -64,11 +65,20 @@ const GameScreen = () => {
   return (
     <GameContainer>
       <TextContainer>
-        {/* <h3>Now the adventure begins</h3> */}
         <p>{gameData.description}</p>
-        {gameData.actions.map((item) => (
-          <ActionCard key={item.direction} {...item} />
-        ))}
+        {gameData.actions.length === 0 && (
+          <button
+            type="button"
+            onClick={() => dispatch(game.actions.resetGame())}
+            className="nes-btn is-success"
+          >
+            RESTART GAME
+          </button>
+        )}
+        {gameData.actions.length > 0 &&
+          gameData.actions.map((item) => (
+            <ActionCard key={item.direction} {...item} />
+          ))}
       </TextContainer>
     </GameContainer>
   );

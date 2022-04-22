@@ -1,12 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { ui } from "./ui";
+
+const restart = { username: "" };
 
 const game = createSlice({
   name: "game",
   initialState: {
     username: "",
     gameData: null,
-    history: [],
-    direction: "",
   },
   reducers: {
     setUsername: (store, action) => {
@@ -16,50 +17,15 @@ const game = createSlice({
     setGameData: (store, action) => {
       store.gameData = action.payload;
     },
-
-    // setPreviousDescription: (store, action) => {
-    //   if (store.history.length) {
-    //     store.description = store.history[store.history.length - 1];
-
-    //     // V1 immutable
-    //     // const editedHistory = store.history.slice(0, store.history.length - 1);
-    //     // store.history = editedHistory;
-
-    //     // v2 mutable
-    //     store.history.splice(store.history.length - 1, 1);
-    //   }
-    // },
-    setHistory: (store, action) => {
-      if (store.gameData) {
-        store.history = [...store.history, action.payload];
-      }
-    },
-    setDirection: (store, action) => {
-      store.direction = action.payload;
+    resetGame: () => {
+      return restart;
     },
   },
 });
 
-// export const generateQuote = (tag) => {
-//   return (dispatch, getState) => {
-//     if (tag) {
-//       fetch(
-//         `https://api.quotable.io/random?author=${
-//           getState().quotes.author
-//         }&tags=${tag}`
-//       )
-//         .then((res) => res.json())
-//         .then((quote) => dispatch(quotes.actions.setQuote(quote)));
-//     } else {
-//       fetch(`https://api.quotable.io/random?author=${getState().quotes.author}`)
-//         .then((res) => res.json())
-//         .then((quote) => dispatch(quotes.actions.setQuote(quote)));
-//     }
-//   };
-// };
-
 export const generateGameData = () => {
   return (dispatch, getState) => {
+    dispatch(ui.actions.setLoading(true));
     const options = {
       method: "POST",
       headers: {
@@ -71,12 +37,16 @@ export const generateGameData = () => {
     };
     fetch(`https://labyrinth-technigo.herokuapp.com/start`, options)
       .then((res) => res.json())
-      .then((data) => dispatch(game.actions.setGameData(data)));
+      .then((data) => {
+        dispatch(game.actions.setGameData(data));
+      })
+      .finally(() => dispatch(ui.actions.setLoading(false)));
   };
 };
 
 export const playGame = (type, direction) => {
   return (dispatch, getState) => {
+    dispatch(ui.actions.setLoading(true));
     const options = {
       method: "POST",
       headers: {
@@ -90,7 +60,10 @@ export const playGame = (type, direction) => {
     };
     fetch("https://labyrinth-technigo.herokuapp.com/action", options)
       .then((res) => res.json())
-      .then((data) => dispatch(game.actions.setGameData(data)));
+      .then((data) => {
+        dispatch(game.actions.setGameData(data));
+        dispatch(ui.actions.setLoading(false));
+      });
   };
 };
 

@@ -28,6 +28,7 @@ export const TextContainer = styled.div`
 
 const StartButton = styled.button`
   margin-top: 10px;
+  font-size: 10px;
 `;
 
 const StartScreen = () => {
@@ -56,6 +57,7 @@ const StartScreen = () => {
           />
         </div>
         <StartButton
+          className="nes-btn is-primary"
           type="submit"
           onClick={onUsernameSet}
           disabled={inputValue.length === 0}
