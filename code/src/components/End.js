@@ -20,9 +20,18 @@ const End = () => {
   };
   return (
     <div className="main">
-      <h1>{gamedescription}</h1>
-      <h3>Your current position {gamecoordinates}</h3>
-      <button onClick={() => onRestart()}>Restart game</button>
+      <div className="image-container">
+        <img
+          className="trophy"
+          src="https://i.ibb.co/znrWh1S/Untitled-design-24.png"
+          alt="throphy"
+        />
+      </div>
+      <h3>{gamedescription}</h3>
+      {/* <h3>Your current position {gamecoordinates}</h3> */}
+      <button className="nes-btn is-warning" onClick={() => onRestart()}>
+        Restart game
+      </button>
     </div>
   );
 };

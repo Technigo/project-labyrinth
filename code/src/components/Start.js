@@ -13,24 +13,36 @@ const Start = () => {
   };
   return (
     <div className="main">
-      <h1 className="start-title">Welcome to the game</h1>
+      <div className="start-img-container">
+        <img
+          className="start-img"
+          src="https://i.ibb.co/G5zV6Zk/Untitled-design-28.png"
+          alt="picture of example characters"
+        />
+      </div>
+      <div className="text-container">
+        <h1 className="start-title">Welcome to the game, traveler!</h1>
+      </div>
       <input
         className="nes-input"
+        id="input"
         type="text"
         required
         value={input}
         onChange={(event) => setInput(event.target.value)}
+        placeholder="enter your name and step into the labyrinth"
       />
-
-      <button
-        className="nes-btn is-warning"
-        disabled={!input}
-        onClick={() => {
-          inputAdd();
-        }}
-      >
-        Start game
-      </button>
+      <div className="button-container">
+        <button
+          className="nes-btn is-warning"
+          disabled={!input}
+          onClick={() => {
+            inputAdd();
+          }}
+        >
+          Start game
+        </button>
+      </div>
     </div>
   );
 };

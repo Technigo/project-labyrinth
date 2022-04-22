@@ -20,19 +20,53 @@ code {
   margin: auto;
   align-items: center;
   align-self: center;
-  font-size: 12px;
+  font-size: 10px;
   padding: 40px;
 }
 
+.start-img-container {
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.start-img {
+  width: 60vw;
+  height: auto;
+  min-width: 350px;
+  max-width: 50vw;
+  object-fit: cover;
+}
+
+input {
+  text-align: center;
+  max-width: 600px;
+}
+
+.button-container {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
 .img-container {
   align-items: center;
+  position: relative;
 }
 
-.pointer {
+.text-container {
+  margin-bottom: 40px;
+}
+.cavern {
   object-fit: cover;
-  width: 80px;
+  width: 100%;
+  height: auto;
+  position: inherit;
+  border-radius: 20px;
+  margin-bottom: 10px;
 }
 
+.loading-container {
+  max-width: 400px;
+  margin-top: 35vh;
+}
 .loading-img-container {
   align-items: center;
 }
@@ -40,4 +74,14 @@ code {
 .loading-img {
   width: 150px;
   height: auto;
+}
+
+.position-wrapper {
+  display: flex;
+  margin: 20px 0 5px 20px;
+  align-items: center;
+}
+
+.direction-wrapper {
+  margin-bottom: 15px;
 }

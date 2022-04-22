@@ -24,15 +24,16 @@ const Gamepage = () => {
 
   const GameCard = ({ description, type, direction }) => (
     <div className="main-2">
-      <h2 className="nes-balloon from-left nes-pointer">{description}</h2>
-      <>
+      <h3 className="nes-balloon from-left nes-pointer">{description}</h3>
+      <div className="direction-wrapper">
         <button
+          id="direction"
           className="nes-btn is-primary"
           onClick={() => handleClick(type, direction)}
         >
           {type} {direction}
         </button>
-      </>
+      </div>
     </div>
   );
   return (
@@ -43,20 +44,22 @@ const Gamepage = () => {
           {actions.length !== 0 && (
             <>
               <div className="bordered">
-                <h2 className="nes-container is-rounded is-dark">
+                <h3 className="nes-container is-rounded is-dark">
                   {description}
-                </h2>
+                </h3>
               </div>
-              <h3 className="nes-badge">
-                <span className="is-warning">
-                  Your position is {coordinates}
-                </span>
-              </h3>
+              <div className="position-wrapper">
+                <h3 className="position-text">Coordinates:</h3>
+
+                <h3 className="nes-badge">
+                  <span className="is-success">{coordinates}</span>
+                </h3>
+              </div>
               <div className="img-container">
                 <img
-                  className="pointer"
-                  src="https://i.ibb.co/12cvWMb/Untitled-design-1.gif"
-                  alt="hand pointing down"
+                  className="cavern"
+                  src="https://i.ibb.co/W3D338W/cavern.png"
+                  alt="cavern"
                 />
               </div>
             </>
