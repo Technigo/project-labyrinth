@@ -21,7 +21,7 @@ const WelcomeContainer = styled.div`
   align-items: center;
   padding: 1rem 2rem;
   color: #f7f7f7;
-  background-color: #e52521dd;
+  background-color: #e52521;
 `;
 
 const WelcomeText = styled.h1`
@@ -64,7 +64,6 @@ const Button = styled.button`
   padding: 0.5rem;
   color: #f7f7f7;
   background-color: #049cd8;
-  border: none;
   @media (min-width: 800px){
     font-size: 0.75rem;
   }

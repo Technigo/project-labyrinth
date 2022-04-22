@@ -17,10 +17,10 @@ const Text = styled.p`
   padding: 0.5rem 1rem;
   border: solid 3px #43b047;
   @media (min-width: 800px){
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   @media (min-width: 1020px){
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
 `;
 

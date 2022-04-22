@@ -14,7 +14,7 @@ const GameContainer = styled.div`
   align-items: center;
   height: 100vh;
   width: 100vw;
-  margin: 5rem 0;
+  margin: 0.5rem 0 2rem 0;
  
 `;
 
@@ -24,6 +24,12 @@ const ContainerContainer = styled.div`
   justify-content: start;
   align-items: center;
   width: 90%;
+  @media (min-width: 800px){
+    width: 80%;
+  }
+  @media (min-width: 1020px){
+    width: 70%;
+  }
 `;
 
 
@@ -35,24 +41,24 @@ border-radius: 0.3rem;
 background-color: #fbd000;
 text-align: left; 
 @media (min-width: 800px){
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 @media (min-width: 1020px){
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 `;
 
 const GameText = styled.p`
-font-size: 0.75rem;
-background-color: #f7f7f7;
-border: solid 3px #43b047;
+font-size: 0.65rem;
+background-color: #e52521;
+color: #f7f7f7;
 letter-spacing: 2px;
 padding: 0.5rem 1rem;
 @media (min-width: 800px){
-  font-size: 1.25rem;
+  font-size: 0.75rem;
 }
 @media (min-width: 1020px){
-  font-size: 1.75rem;
+  font-size: 1rem;
 }
 `;
 
@@ -66,16 +72,16 @@ const CardContainer = styled.div`
 `; 
 
 const Description = styled.p`
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   background-color: #f7f7f7;
   letter-spacing: 2px;
   border: solid 3px #43b047;
   padding: 0.5rem 1rem;
   @media (min-width: 800px){
-    font-size: 1.5rem;
+    font-size: 0.75rem;
   }
   @media (min-width: 1020px){
-    font-size: 1.75rem;
+    font-size: 1rem;
   }
 `;
 
