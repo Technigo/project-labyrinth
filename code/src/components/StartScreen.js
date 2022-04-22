@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-// import styled from 'styled-components';
+import styled from 'styled-components'
 
 import labyrinth, { generateLabyrinth } from 'reducers/labyrinth'
 
@@ -17,14 +17,16 @@ const StartScreen = () => {
   return (
     <div>
       <p>Welcome to the labyrinth!</p>
-      <input
-        type="text"
-        value={inputValue}
-        required
-        onChange={(event) => setInputValue(event.target.value)}
-        placeholder="Player name..."
-      />
-      <button onClick={onNameSelect}>Start the game!</button>
+      <form>
+        <input
+          type="text"
+          value={inputValue}
+          required
+          onChange={(event) => setInputValue(event.target.value)}
+          placeholder="Player name..."
+        />
+        <button onClick={onNameSelect}>Start the game!</button>
+      </form>
     </div>
   )
 }

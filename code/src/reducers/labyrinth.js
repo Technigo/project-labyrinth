@@ -36,7 +36,7 @@ export const generateLabyrinth = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setTimeout(() => dispatch(labyrinth.actions.setQuestion(data)), 2000)
+        setTimeout(() => dispatch(labyrinth.actions.setQuestion(data)))
         setTimeout(() => dispatch(loader.actions.setLoading(false)), 2000)
       })
   }
@@ -53,9 +53,11 @@ export const generateQuestion = (direction) => {
         type: 'move',
         direction: direction,
       }),
-    }).then((data) => {
-      dispatch(labyrinth.actions.setQuestion(data))
-      dispatch(loader.actions.setLoading(false))
     })
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(labyrinth.actions.setQuestion(data))
+        dispatch(loader.actions.setLoading(false))
+      })
   }
 }
