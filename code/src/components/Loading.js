@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 const Loading = () => {
 
-    const loading = useSelector((state) => state.game.loading)
+    const loading = useSelector((state) => state.ui.loading)
     return(
         <>
         {loading && (

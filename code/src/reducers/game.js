@@ -44,7 +44,7 @@ export const game = createSlice({
         .then((data) => {
           dispatch(game.actions.setGameObject(data));
           console.log(data)
-          setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000)
+          setTimeout(() => dispatch(ui.actions.setLoading(false)), 1000)
         });
          
     };
@@ -71,7 +71,7 @@ export const game = createSlice({
         .then((data) => {
           console.log(data)
           dispatch(game.actions.setGameObject(data));
-          setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000) 
+          setTimeout(() => dispatch(ui.actions.setLoading(false)), 1000) 
         });
     };
   };

@@ -1,7 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch} from "react-redux";
 import { fetchGameSteps } from '../reducers/game';
-import Loading from './Loading';
 
 import { useNavigate } from 'react-router-dom';
 import { MainGameStyle, DirectionSection, WinSection, DirectionButton } from "./Style"
@@ -9,7 +8,7 @@ import { MainGameStyle, DirectionSection, WinSection, DirectionButton } from "./
 const MainGame = () => {
     const gameObject = useSelector((store) => store.game.gameObject)
     const username = useSelector((store) => store.game.username)
-    const loading = useSelector((state) => state.game.loading)
+    const loading = useSelector((state) => state.ui.loading)
     const navigate = useNavigate()
 
     const dispatch = useDispatch()
@@ -21,7 +20,7 @@ const MainGame = () => {
 
     return (         
         <div>
-            {loading && <Loading />}
+           
             {!loading && (
 
             <MainGameStyle>
@@ -92,7 +91,6 @@ const MainGame = () => {
 
 
             )}
-       {/* {loading && <Loading />} */}
         </div>
     )
 }

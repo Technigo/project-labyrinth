@@ -10,11 +10,13 @@ import StartPage from './components/StartPage'
 import MainGame from './components/MainGame'
 import Loading from './components/Loading'
 import NotFound from 'components/NotFound';
+import { ui } from 'reducers/ui';
 
 import {Container} from './components/Style'
 
 const reducer = combineReducers({
-  game: game.reducer
+  game: game.reducer,
+  ui: ui.reducer
 })
 
 const store = configureStore({ reducer })
