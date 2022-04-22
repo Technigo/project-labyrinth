@@ -9,7 +9,7 @@ body {
 background-position-y: 60%;
   height:100%;
   background-attachment: fixed;
-  color: white;
+  color: #000; 
 }
 
 code {

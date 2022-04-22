@@ -6,10 +6,15 @@ import styled from 'styled-components';
 const LoadingWrapper = styled.div`
   @media (min-width: 768px) {
     position: absolute;
-    top: 20%;
+    top: 15%;
     left: 25%;
   }
   @media (min-width: 1025px) {
+    position: absolute;
+    top: 10%;
+    left: 35%;
+  }
+  @media (min-width: 1400px) {
     position: absolute;
     top: 25%;
     left: 40%;

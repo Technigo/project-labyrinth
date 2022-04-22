@@ -6,7 +6,7 @@ export const labyrinth = createSlice({
   initialState: {
     username: '',
     currentStep: {},
-    history: [],
+    moves: [],
   },
   reducers: {
     setUsername: (store, action) => {
@@ -20,8 +20,8 @@ export const labyrinth = createSlice({
       store.currentStep = action.payload;
     },
 
-    setHistory: (store, action) => {
-      store.history.push(action.payload);
+    setMoves: (store, action) => {
+      store.moves = [...store.moves, action.payload];
     },
   },
 });
@@ -40,7 +40,6 @@ export const startGame = (username) => {
       .then((json) => {
         dispatch(labyrinth.actions.setCurrentStep(json));
         dispatch(ui.actions.setLoading(false));
-        console.log(json);
       });
   };
 };
@@ -63,6 +62,7 @@ export const continueGame = (type, direction) => {
       .then((json) => {
         dispatch(labyrinth.actions.setCurrentStep(json));
         dispatch(ui.actions.setLoading(false));
+        dispatch(labyrinth.actions.setMoves(direction));
       });
   };
 };

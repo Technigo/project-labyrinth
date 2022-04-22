@@ -1,19 +1,18 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { labyrinth, continueGame } from '../reducers/labyrinth';
+import { continueGame } from '../reducers/labyrinth';
 import styled from 'styled-components';
-import Loading from 'components/Loading';
 import EndOfGame from 'components/EndOfGame';
 
 export const devices = {
   mobile: '(min-width: 375px)',
   tablet: '(min-width: 768px)',
-  desktop: '(min-width: 1025px)',
+  desktop: '(min-width: 1200px)',
 };
 
 const GameWrapper = styled.section`
   display: flex;
-  background-color: rgb(214, 210, 197, 0.3);
+  background-color: rgb(214, 210, 197, 0.5);
   flex-direction: column;
   margin: 10px;
   padding: 10px;
@@ -22,14 +21,19 @@ const GameWrapper = styled.section`
   align-items: center;
   text-align: center;
   position: absolute;
-  top: 20%;
+  top: 17%;
   @media ${devices.tablet} {
-    font-size: 25px;
+    font-size: 20px;
+    width: 98%;
+    margin: auto;
   }
+
   @media ${devices.desktop} {
     width: 60vw;
     font-size: 25px;
     left: 20%;
+    top: 20%;
+    right: 20%;
   }
 `;
 
@@ -122,13 +126,12 @@ export const BtnNavigate = styled.button`
   }
 `;
 
-const GameScreen = ({ username }) => {
+const GameScreen = () => {
   const dispatch = useDispatch();
   const currentStep = useSelector((store) => store.labyrinth.currentStep);
   const gameActions = useSelector(
     (store) => store.labyrinth.currentStep.actions
   );
-  const history = useSelector((store) => store.labyrinth.history);
   const isLoading = useSelector((store) => store.ui.isLoading);
 
   return (

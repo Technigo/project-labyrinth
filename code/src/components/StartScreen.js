@@ -7,7 +7,7 @@ import { devices } from './GameScreen';
 
 const StartWrapper = styled.section`
   display: flex;
-  background-color: rgb(214, 210, 197, 0.3);
+  background-color: rgb(214, 210, 197, 0.5);
   flex-direction: column;
   margin: 10px;
   padding: 10px;
@@ -18,13 +18,17 @@ const StartWrapper = styled.section`
   position: absolute;
   top: 20%;
   @media ${devices.tablet} {
-    font-size: 25px;
+    top: 15%;
+    font-size: 20px;
     width: 100vw;
+    width: 98%;
+    margin: auto;
   }
   @media ${devices.desktop} {
     font-size: 25px;
     width: 60vw;
     left: 20%;
+    top: 30%;
   }
 `;
 
