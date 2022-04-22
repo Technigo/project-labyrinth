@@ -11,27 +11,31 @@ import BG7 from './img/bg7.png'
 import BG8 from './img/bg8.png'
 import arrow from './img/arrow.svg'
 import navigator from './img/navigator.svg'
-import music from'./img/music.mp3'
 
-
-import { Background, GameText, ButtonController, Btn, MiddeBtn, Modal, HistoryArrowContainer } from './Styling'
+import {
+	Background,
+	GameText,
+	ButtonController,
+	Btn,
+	MiddeBtn,
+	Modal,
+	HistoryArrowContainer,
+} from './Styling'
 import Loadingspinner from './Loadingspinner'
 import styled from 'styled-components/macro'
 
 const HistoryArrow = styled.img`
-	transform: rotate(${props => props.rotate});
+	transform: rotate(${(props) => props.rotate});
 `
 
 const Navigator = styled.img`
 	transform: scale(0.2);
 	position: absolute;
-
 `
 
 const Labyrinth = () => {
 	const [select, setSelect] = useState([])
 	const [prevStep, setPrevStep] = useState('')
-	const [playMusic, setPlayMusic] = useState(false);
 	const dispatch = useDispatch()
 	const items = useSelector((store) => store.game.items)
 
@@ -75,7 +79,6 @@ const Labyrinth = () => {
 	// 		return <img className='rotate-left' src={Polygon} alt='arrow up' />
 	// 	}
 	// }
-
 
 	const changeDirectionToIcon = (way) => {
 		if (way === 'North') {
@@ -126,25 +129,11 @@ const Labyrinth = () => {
 		`
 	}
 
-	// BACKGROUND MUSIC
-	const audioElement = new Audio(music);
-
-	const controlMusic = () => {
-		    audioElement.play()
-		    setPlayMusic(false);	
-	}
-
-	//			<button onClick={() => audioElement.play()} onDoubleClick={() => audioElement.pause()}>Play</button>
-
-
-	console.log(playMusic)
-	
-
-	// CHANGE BACKGROUND DEPENDING ON THE ROOM 
+	// CHANGE BACKGROUND DEPENDING ON THE ROOM
 	const changeBG = () => {
 		switch (items.coordinates) {
 			case '0,0':
-				return BG2		
+				return BG2
 			case '1,0':
 				return BG3
 			case '1,1':
@@ -163,7 +152,7 @@ const Labyrinth = () => {
 	}
 
 	const historyArrow = (way) => {
-		switch(way) {
+		switch (way) {
 			case 'South':
 				return '180deg'
 			case 'West':
@@ -176,8 +165,16 @@ const Labyrinth = () => {
 	}
 	return (
 		<Background background={changeBG()}>
-			<button onClick={() => controlMusic()}>Play</button>
-			<HistoryArrowContainer >{select.map(item => <HistoryArrow key={Math.random()*1000} rotate={historyArrow(item)} src={arrow} alt='arrows to show history'/>)}</HistoryArrowContainer>
+			<HistoryArrowContainer>
+				{select.map((item) => (
+					<HistoryArrow
+						key={Math.random() * 1000}
+						rotate={historyArrow(item)}
+						src={arrow}
+						alt='arrows to show history'
+					/>
+				))}
+			</HistoryArrowContainer>
 			<Modal text={prevStep}>
 				You chose {prevStep} <Loadingspinner />
 			</Modal>
@@ -212,4 +209,3 @@ const Labyrinth = () => {
 }
 
 export default Labyrinth
-

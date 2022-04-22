@@ -162,7 +162,7 @@ export const UsernameInputContainer = styled.div`
 
 export const Background = styled.div`
 	background: url(${(props) => props.background});
-	// background-size: cover;
+	background-size: cover;
 	position: relative;
 	height: 95%;
 	width: 95%;
@@ -270,4 +270,14 @@ export const HistoryArrowContainer = styled.div`
 	position: absolute;
 	margin: 10px;
 	bottom: 0;
+`
+export const PlayBtn = styled.button`
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background: #fea9e0;
+	border: 2px solid #000;
+	position: absolute;
+	bottom: 175px;
+	right: 30px;
 `
