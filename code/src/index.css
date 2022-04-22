@@ -221,6 +221,10 @@ button:disabled {
 		font-size: 32px;
 	}
 
+	.clue h3 {
+		font-size: 40px;
+	}
+
 	.back-button {
 		font-size: 16px;
 		position: absolute;
