@@ -13,17 +13,17 @@ export const Container = styled.div`
     margin: 15px; 
 `
 export const LoadingWrapper = styled.div`
-  text-align: center;
+    text-align: center;
 `
 export const Mario = styled.div`
-position: absolute;
-align-self: center;
-bottom: 0;
+    position: absolute;
+    align-self: center;
+    bottom: 0;
 `
 
 export const Wrapper = styled.div`
-  width: 375px;
-  margin: 0 auto;
+    width: 375px;
+    margin: 0 auto;
 
   @media ${devices.tablet} {
       width: 768px;
@@ -127,4 +127,8 @@ export const DirectionButton = styled.div`
     @media ${devices.desktop} {
         margin: 15px;
      }
+`
+
+export const Notfound = styled.div`
+     text-align: center;
 `

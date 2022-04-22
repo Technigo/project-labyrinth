@@ -1,10 +1,12 @@
 import React from "react";
+import { Notfound } from "./Style"
+
 
 const NotFound = () => {
     return(
-        <div>
+        <Notfound>
             This page does not exist...
-        </div>
+        </Notfound>
     )
 }
 export default NotFound
