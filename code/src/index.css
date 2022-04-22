@@ -1,8 +1,6 @@
 body {
 	margin: 0;
-	color: ;
-	/* font-family: 'Press Start 2P', cursive; */
-	font-family: 'Alef';
+	font-family: 'Alef', sans-serif;
 	letter-spacing: 1px;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -32,4 +30,3 @@ button {
 .rotate-right {
 	transform: rotate(90deg);
 }
-

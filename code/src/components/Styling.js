@@ -21,7 +21,7 @@ export const ConsoleContainer = styled.section`
 export const ConsoleFrame = styled.div`
 	background: #fea9e0;
 	margin: 1.75em 1em 0 1em;
-	height: 450px;
+	height: 350px;
 	border: solid 4px #000;
 	border-radius: 10px;
 	display: flex;
@@ -106,7 +106,7 @@ export const Logo = styled.img`
 
 export const ConsoleContent = styled.section`
 	background: #fff;
-	height: 380px;
+	height: 320px;
 	width: 90%;
 	border-radius: 10px;
 	border: 2px solid;
@@ -123,7 +123,7 @@ export const GameText = styled.p`
 `
 
 export const GameTextHeader = styled.p`
-	font-size: 22px;
+	font-size: 18px;
 	text-transform: uppercase;
 	color: #fff;
 	padding: 0 0.25em 1em;
@@ -255,6 +255,4 @@ export const HistoryArrowContainer = styled.div`
 	position: absolute;
 	margin: 10px;
 	bottom: 0;
-
-
 `

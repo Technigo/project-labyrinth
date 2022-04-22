@@ -36,7 +36,7 @@ const Game = () => {
 			<UsernameInputContainer>
 				{isLoading && <Loadingspinner />}
 				<GameTextHeader>
-					Welcome to the <Span>- a-maze-ing - </Span> 80's! Try to found your way out of the labyrinth!
+					Welcome to this <Span>- a-maze-ing - </Span> game! Try to found your way out of the labyrinth!
 				</GameTextHeader>
 				<LabelName>Please, enter your name and press start</LabelName>
 				<UsernameInput
