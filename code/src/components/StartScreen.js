@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
+// import loading from '../reducers/loading';
 import questions, { generateGamedata } from '../reducers/questions';
 
 const StyledStartScreen = styled.div`
@@ -32,7 +33,9 @@ const StartScreen = () => {
 
   const dispatch = useDispatch()
 
-  const onUsernameSet = () => {
+  const onUsernameSet = (event) => {
+    event.preventDefault();
+    // dispatch(loading.actions.setLoading(true))
     dispatch(questions.actions.setUsername(inputValue))
     dispatch(generateGamedata())
   }

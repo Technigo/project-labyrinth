@@ -2,7 +2,9 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components';
 
-import questions, { playGame } from 'reducers/questions'
+// import loading from 'reducers/loading';
+import questions, { playGame } from 'reducers/questions';
+// import { LoadingScreen } from './LoadingScreen';
 
 
 const StyledGameScreen = styled.div`
@@ -21,14 +23,14 @@ button {
 `
 
 const GameScreen = () => {
+    // const isLoading = useSelector(store => store.loading.isLoading)
     const gamedata = useSelector(store => store.questions.gamedata)
-    
+   
     const dispatch = useDispatch()
     
     const onNextStep = (type, direction) => {
       dispatch(playGame(type, direction))
     }
-
 
     const ActionCard = ({ description, type, direction }) => (
       <div className='action-card'>
@@ -42,8 +44,6 @@ const GameScreen = () => {
     return (
       <StyledGameScreen>
       <div className='game-screen'>
-          {/* <h1>Welcome {username}</h1> INTE NÖDVÄNDIG? Annars ngt if-statement
-          <h3>Now the adventure begins</h3> */}
           <p>{gamedata.description}</p> 
           {gamedata.actions.length === 0 && (
             <button 
@@ -53,9 +53,9 @@ const GameScreen = () => {
           </button>)}
           {gamedata.actions.length > 0 && 
           gamedata.actions.map((item) => <ActionCard key={item.direction} {...item} />)
-        }
+      }
       </div>
-      </StyledGameScreen>
+      </StyledGameScreen> 
     )
 }
 

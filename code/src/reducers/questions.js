@@ -8,7 +8,8 @@ const questions = createSlice({
         username: '',
         gamedata: null,
         // history: [], //ANVÄNDS EJ
-        direction: ''
+        direction: '',
+        // isLoading: false
     },
     reducers: {
       setUsername : (store, action) => {
@@ -20,6 +21,9 @@ const questions = createSlice({
       resetGame: () => {
           return restart;
       },
+    //   setLoading : (store, action) => {
+    //     store.isLoading = action.payload;
+    // },
           
       // setHistory: (store, action) => {  //ANVÄNDS EJ
       //   if (store.gamedata) {
