@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { playGame } from "reducers/game";
 import styled from "styled-components";
+import { TextContainer } from "./StartScreen";
 
 const GameContainer = styled.div`
   display: flex;
@@ -11,6 +12,10 @@ const GameContainer = styled.div`
   text-align: center;
   min-height: 100vh;
   padding: 10px;
+  background-image: url(../images/image.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   h3 {
     margin: 10px;
@@ -49,12 +54,13 @@ const GameScreen = () => {
 
   return (
     <GameContainer>
-      {/* <h1> Welcome {username}</h1> */}
-      <h3>Now the adventure begins</h3>
-      <h4>{gameData.description}</h4>
-      {gameData.actions.map((item) => (
-        <ActionCard key={item.direction} {...item} />
-      ))}
+      <TextContainer>
+        <h3>Now the adventure begins</h3>
+        <h4>{gameData.description}</h4>
+        {gameData.actions.map((item) => (
+          <ActionCard key={item.direction} {...item} />
+        ))}
+      </TextContainer>
     </GameContainer>
   );
 };
