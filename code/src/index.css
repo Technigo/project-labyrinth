@@ -43,8 +43,13 @@ code {
 .loading-container {
   position: absolute;
   z-index: 1;
-  left: 0px;
   top: 0px;
+  margin: 20px 0 20px;
+  left: 30%;
+  font-size: 30px;
+  padding: 5px;
+
+  background-color: red;
 }
 
 /* tablet */

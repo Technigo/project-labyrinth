@@ -1,13 +1,11 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The project brief was to build a maze which allows a user to navigate through a text-based adventure, provided by an API, using thunks and redux to build the communication with the backend.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We approached this weeks project by methodically moving forward and exploring this weeks lectures code, but also from previous weeks. When having issues, we always discussed them together and tried to come to a solution either by trial and error or googling.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://frolicking-wisp-a94dcf.netlify.app
