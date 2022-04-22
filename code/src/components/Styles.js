@@ -16,7 +16,7 @@ export const Container = styled.div`
 `
  export const ChildContainer = styled.div`
  margin: 0 20px;
- font-size: 10px;
+ font-size: 0.6rem;
 
  @media ${devices.tablet} {
     width: 40%;
