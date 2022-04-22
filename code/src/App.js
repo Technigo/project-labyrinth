@@ -12,7 +12,7 @@ import Loading from './components/Loading'
 import NotFound from 'components/NotFound';
 import { ui } from 'reducers/ui';
 
-import {Container} from './components/Style'
+import {Container, Wrapper} from './components/Style'
 
 const reducer = combineReducers({
   game: game.reducer,
@@ -26,7 +26,7 @@ export const App = () => {
   return (
     <Provider store={store}>
       <Container>
-        <Loading />
+        <Wrapper>
         <BrowserRouter>
         <Routes>
           <Route path="/" element={<StartPage />}/>
@@ -35,7 +35,10 @@ export const App = () => {
           <Route path="/404" element={<NotFound />}/>
           <Route path="*" element={<Navigate to="/404" replace />}/>
         </Routes>
+        <Loading />
         </BrowserRouter>
+        
+        </Wrapper>
       </Container>
     </Provider>
   )

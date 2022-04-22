@@ -3,13 +3,11 @@ body {
   font-family: 'Press Start 2P', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url(./asstes/back1.png); 
+  background-image: url(./asstes/mario.png); 
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
-
-
 }
 
 code {
@@ -18,8 +16,7 @@ code {
 }
 
 .title {
-  color: #108DE0;
-  background: none; 
-  border: 4px solid #108DE0;
+  color: black;
+  border: 4px solid black;
 }
 

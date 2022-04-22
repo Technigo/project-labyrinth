@@ -5,7 +5,7 @@ import "nes.css/css/nes.min.css";
 
 import game from "reducers/game"
 import { fetchGame } from 'reducers/game'
-import { NameInput, StartButton, StartGame } from "./Style"
+import { Wrapper, NameInput, StartButton, StartGame } from "./Style"
 
 
 const StartPage = () => {
@@ -48,7 +48,7 @@ const StartPage = () => {
                 id="name_field"
                 tabIndex='0'
                 value={name}
-                placeholder='>Enter name here'
+                placeholder='>Enter name'
                 onChange={onSetName}
                 onKeyDown={(event) => {
                 onEnter(event)               

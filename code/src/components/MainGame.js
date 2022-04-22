@@ -3,7 +3,7 @@ import { useSelector, useDispatch} from "react-redux";
 import { fetchGameSteps } from '../reducers/game';
 
 import { useNavigate } from 'react-router-dom';
-import { MainGameStyle, DirectionSection, WinSection, DirectionButton } from "./Style"
+import { MainGameStyle, DirectionSection, WinSection, DirectionButton, InfoSection } from "./Style"
 
 const MainGame = () => {
     const gameObject = useSelector((store) => store.game.gameObject)
@@ -24,14 +24,11 @@ const MainGame = () => {
             {!loading && (
 
             <MainGameStyle>
-                        
-                        
-            {/* Something in this area is disturbing the loading to show, instead it shows empty squares */}
 
-            <div class="nes-container with-title is-centered">
+            <InfoSection className="nes-container with-title is-centered">
             <p className="title" tabIndex='0'>User: {username} </p>
             <p tabIndex='0'>{gameObject.description}</p>
-            </div>
+            </InfoSection>
 
             <DirectionSection className="nes-container with-title is-centered">
             {gameObject.actions.length > 0 && (
@@ -44,7 +41,7 @@ const MainGame = () => {
                     
                         <DirectionButton
                             type="button" 
-                            className="nes-btn is-primary"
+                            className="nes-btn is-warning"
                             tabIndex='0'
                             onClick={() => {
                                 dispatch(fetchGameSteps({ direction: action.direction }))
