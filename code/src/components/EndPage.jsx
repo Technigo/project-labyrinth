@@ -48,7 +48,3 @@ export const EndPage = () => {
     </EndContainer>
   );
 };
-
-      {/* <Text>This was your journey:</Text> */}
-      {/* <Text>{history.map((item) => item.description)}</Text>  */}
-  // const history = useSelector((store) => store.game.history);
