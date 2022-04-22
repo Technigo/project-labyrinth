@@ -6,9 +6,37 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Press Start 2P', cursive;
+  background-color: #59514c;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.wrapper {
+  width: 80%;
+  margin: auto;
+  margin-top: 120px;
+  border: 4px dashed black;
+  padding: 40px;
+  background-color: antiquewhite;
+  font-size: 14px;
+}
+
+.button-container {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.options-section {
+  margin-top: 40px;
+}
+.loading-container {
+  position: absolute;
+  z-index: 2;
+  left: 0px;
+  top: 0px;
 }

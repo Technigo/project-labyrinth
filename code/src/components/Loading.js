@@ -6,5 +6,5 @@ export const Loading = () => {
 
   //setTimeout(() => isLoading(), 1000)
 
-  return isLoading && <div>!! Loading !!</div>;
+  return isLoading && <div className="loading-container">!! Loading !!</div>;
 };

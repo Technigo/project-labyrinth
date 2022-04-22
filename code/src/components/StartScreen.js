@@ -13,16 +13,24 @@ export const StartScreen = () => {
   };
 
   return (
-    <div>
-      <p className="nes-text is-success">Welcome, please enter your username</p>
+    <div className="nes-field">
+      <p className="nes-text">Welcome, please enter your username</p>
       <input
         type="text"
+        id="name_field"
+        className="nes-input is-dark"
         value={inputValue}
         onChange={(event) => setInputValue(event.target.value)}
       />
-      <button onClick={onUserSet} type="submit">
-        Start!
-      </button>
+      <div className="button-container">
+        <button
+          className="nes-btn is-primary"
+          onClick={onUserSet}
+          type="submit"
+          disabled={inputValue === ''}>
+          Start!
+        </button>
+      </div>
     </div>
   );
 };
