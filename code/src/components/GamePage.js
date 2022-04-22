@@ -7,7 +7,7 @@ import styled from "styled-components"
 import game, { fetchMoreData } from "../reducers/game"
 import AudioPlayer from "./AudioPlayer"
 
-import arrow from "./Assets/pixel-arrow.svg"
+import arrow from "./Assets/pixel-arrow-padding.svg"
 import blueBackground from './Assets/blue-background.png'
 import brownBackground from './Assets/brown-background.png'
 import forestBackground from './Assets/forest-background.png'
@@ -63,7 +63,7 @@ const GameTextWrapper = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
     background-color: black;
     color: white;
@@ -72,23 +72,27 @@ const GameTextWrapper = styled.section`
 
 const MainTextBox = styled.div`
     position: relative;
-    top: 0;
+    top: -4rem;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     margin:0;
-
     width: 120%;
     box-shadow: 10px 0 rgb(255, 106, 255), 0 10px rgb(255, 106, 255),
         -10px 0 rgb(255, 106, 255), 0 -10px rgb(255, 106, 255);
-    transform:  scale(0.6);   
+    
+        transform:  scale(0.6);   
 
     @media screen and (min-width: 668px) {
-        width: 100%;
+        width: 130%;
+        top: -3rem;
+
     }
 
     @media screen and (min-width: 1024px) {
         width: 100%;
+        top: -1rem;
+
     }
 
 `
@@ -101,9 +105,11 @@ const MainDescription = styled.h1`
   color: rgb(255, 106, 255);
   line-height: 1.5em;
   text-align: center;
+  padding: 1.2em;
+
 
   @media screen and (min-width: 668px) {
-        padding: 1em 5em;
+        padding: 1em 3em;
 
     }    
 
@@ -114,19 +120,6 @@ const MainDescription = styled.h1`
 
 `
 
-const ChoosingMove = styled.p`
-    padding: 0.5rem 2rem;
-    margin: 0;
-    font-size: 0.8rem;
-
-    @media screen and (min-width: 668px) {
-        width: 90%;
-    }    
-
-    @media screen and (min-width: 1024px) {
-        width: 70%;
-    }
-`
 
 const RestartButton = styled.button`
     appearance: none;
@@ -157,8 +150,8 @@ const PixelDecorationOutline = styled.div`
 position: absolute;
   top: -20px;
   left: -20px;
-  width: calc(100% + 20px);
-  height: calc(100% + 20px);
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
   border: 10px solid purple;
 `
 
@@ -209,11 +202,27 @@ const PixelDecorationRightBottom = styled.div`
 
 `
 
+const ChoosingMove = styled.p`
+    padding: 0.5rem 2rem;
+    margin: 0;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 55rem;
 
+    @media screen and (min-width: 668px) {
+        width: 90%;
+    }    
 
+    @media screen and (min-width: 1024px) {
+        width: 70%;
+    }
+`
 
 const DirectionDescription = styled.p`
-   font-size: 0.6rem;
+   font-size: 0.8rem;
+    padding: 0 3rem;
+   line-height: 1.3rem;
+   flex: 1;
 `
 
 const StyledContainer = styled.div`
@@ -228,9 +237,11 @@ const StyledContainer = styled.div`
         : "column"
     };
     padding: 1rem 2rem;
+    position: absolute;
+    top: 60rem;
 
     @media screen and (min-width: 668px) {
-        width: 70%;
+        width: 80%;
     }
 
     @media screen and (min-width: 1024px) {
@@ -279,11 +290,12 @@ const DirectionButton = styled.button`
     display: flex;
     flex-direction: column;
     width: 100;
+    margin: 1rem;
 `
 
 const DirectionImage = styled.img`
-    width: 15px;
-    height: 15px;
+    width: 50px;
+    height: auto;
     transform: ${props => 
         props.direction === "North"
             ? `rotate(0deg)`
@@ -342,19 +354,23 @@ const GamePage = () => {
             <AudioPlayer />
 
             <MainTextBox>
-            <PixelDecorationOutline></PixelDecorationOutline>
-            <MainDescription>{position.description}</MainDescription>
-            <PixelDecorationLeftTop></PixelDecorationLeftTop>
-            <PixelDecorationRightTop></PixelDecorationRightTop>
-            <PixelDecorationLeftBottom></PixelDecorationLeftBottom>
-            <PixelDecorationRightBottom></PixelDecorationRightBottom>
+                <PixelDecorationOutline></PixelDecorationOutline>
+
+                <MainDescription>{position.description}</MainDescription>
+
+                <PixelDecorationLeftTop></PixelDecorationLeftTop>
+                <PixelDecorationRightTop></PixelDecorationRightTop>
+                <PixelDecorationLeftBottom></PixelDecorationLeftBottom>
+                <PixelDecorationRightBottom></PixelDecorationRightBottom>
             </MainTextBox>
+    
+                <StyledContainer coordinates={position.coordinates}>
 
                 {position.coordinates !== "1,3" && <ChoosingMove>Choose your direction:</ChoosingMove>}
 
                 {position.coordinates === "1,3" && <RestartButton onClick={() => restartGame()}>Restart</RestartButton>}
+            
                 
-                <StyledContainer coordinates={position.coordinates}>
                     {position.actions.map(item => (
                         <DirectionDetails
                             key={item.description}
