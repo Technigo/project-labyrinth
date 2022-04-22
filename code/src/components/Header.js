@@ -27,7 +27,7 @@ font-family: 'Monoton', cursive;
 export const Header = () => {
     return(
         <HeaderStyle>
-            <Title>LABYRINTH</Title><img src="https://img.icons8.com/external-others-pike-picture/50/000000/external-maze-greece-others-pike-picture.png"/><Title>GAME</Title>
+            <Title>LABYRINTH</Title><img src="https://img.icons8.com/external-others-pike-picture/50/000000/external-maze-greece-others-pike-picture.png" alt="labyrinth logo"/><Title>GAME</Title>
         </HeaderStyle>
     )
 }
