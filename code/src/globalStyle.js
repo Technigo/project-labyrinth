@@ -6,7 +6,7 @@ body {
     background-image: url(${assets});
     height: 100vh;
     background-size: cover;
-    font-family: 'Handlee';
+    font-family: 'Montserrat';
 }`
 
 export default GlobalStyle;

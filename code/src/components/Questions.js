@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import StartScreen from './StartScreen';
 import GameScreen from './GameScreen'
+import { LoadingScreen } from './LoadingScreen';
 
 const StyledQuestions = styled.section`
 section {
@@ -11,7 +12,7 @@ section {
   align-items: center;
   flex-direction: column;
   background-color: rgb(255, 241, 206, 0.7);
-  width: 50%;
+  width: 30%;
   min-width: 300px;
   margin: 10% auto;
   padding: 20px;
@@ -31,6 +32,7 @@ button {
 h1 {
   font-size: 40px;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 `
@@ -38,9 +40,14 @@ h1 {
 
 const Questions = () => {
   const question = useSelector(store => store.questions.gamedata)
+  const isLoading = useSelector(store => store.loading.isLoading)
   console.log(question)
 
     return (
+      <>
+      {/* {isLoading ? (
+        <LoadingScreen />
+      ) : ( */}
       <StyledQuestions>
         <section>
           <div>
@@ -48,9 +55,12 @@ const Questions = () => {
                 ? <GameScreen />
                 : <StartScreen />
             }
+            {isLoading && <LoadingScreen />}
           </div>
         </section>
       </StyledQuestions>
+      {/* )} */}
+      </>
     )
 }
 

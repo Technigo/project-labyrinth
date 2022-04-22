@@ -4,26 +4,41 @@ import styled from 'styled-components';
 
 // import loading from 'reducers/loading';
 import questions, { playGame } from 'reducers/questions';
-// import { LoadingScreen } from './LoadingScreen';
+import { LoadingScreen } from './LoadingScreen';
 
 
 const StyledGameScreen = styled.div`
 .game-screen {
   margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.action-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.description {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 20px 0 10px;
 }
 
 p {
-  font-size: 24px;
+  font-size: 14px;
   margin: 20px 0 10px;
 }
 
 button {
-  margin: 0 0 20px 0;
+  margin: 0 0 10px 0;
 }
 `
 
 const GameScreen = () => {
-    // const isLoading = useSelector(store => store.loading.isLoading)
+    
     const gamedata = useSelector(store => store.questions.gamedata)
    
     const dispatch = useDispatch()
@@ -42,9 +57,10 @@ const GameScreen = () => {
     )
 
     return (
+    
       <StyledGameScreen>
       <div className='game-screen'>
-          <p>{gamedata.description}</p> 
+          <p className='description'>{gamedata.description}</p> 
           {gamedata.actions.length === 0 && (
             <button 
             type="button"

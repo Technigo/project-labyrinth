@@ -17,7 +17,8 @@ button {
 }
 
 p {
-  font-size: 20px;
+  font-size: 16px;
+  text-align: center;
 }
 
 input {
@@ -44,7 +45,7 @@ const StartScreen = () => {
     <StyledStartScreen>
     <div className='start-screen'>
       <h1>The Cavern Quest</h1>
-      <p>Enter your name and let the journey begin</p>
+      <p>Enter your name<br/>and let the journey begin</p>
       <input
         type="text"
         value={inputValue}
