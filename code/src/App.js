@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 import game from './reducers/game';
 import Game from './components/Game';
-import Footer from './components/Footer';
 
 import 'nes.css/css/nes.min.css';
 
@@ -21,7 +20,6 @@ export const App = () => {
 			<Container>
 				<Game />
 			</Container>
-			<Footer />
 		</Provider>
 	);
 };
@@ -31,5 +29,6 @@ const Container = styled.div`
 	max-width: 700px;
 	width: 90%;
 	margin: 4rem auto;
-	padding: 1rem 2rem;
+	padding: 1rem;
+	min-height: 100%;
 `;

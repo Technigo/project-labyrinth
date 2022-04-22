@@ -40,19 +40,20 @@ const GameScreen = () => {
 	);
 };
 
-export default GameScreen;
-
 const GameContainer = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
 `;
 
 const StyleMainDescription = styled.h2`
-	font-weight: 200;
+font-weight: 200;
 `;
 
 const StyleDescription = styled.h4`
-	font-weight: 100;
+font-weight: 100;
+margin-top: 2rem;
 `;
+
+export default GameScreen;

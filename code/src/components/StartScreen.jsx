@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import game from '../reducers/game';
 import { startGame } from '../reducers/game';
+import Footer from 'components/Footer';
 
 const StartScreen = () => {
 	const [inputValue, setInputValue] = useState('');
@@ -16,22 +17,25 @@ const StartScreen = () => {
 	};
 
 	return (
-		<StartContainer>
-			<Title>Welcome to Game of Labyrinth's!</Title>
-			<form className='nes-field is-inline'>
-				<input
-					className='nes-input is-success'
-					id='inline_field'
-					type='text'
-					value={inputValue}
-					onChange={(event) => setInputValue(event.target.value)}
-					placeholder='type your gamertag..'
-				/>
-			</form>
-			<StartButton onClick={onUsernameInput} className='nes-btn is-success'>
-				START
-			</StartButton>
-		</StartContainer>
+		<>
+			<StartContainer>
+				<Title>Welcome to Game of Labyrinth's!</Title>
+				<form className='nes-field is-inline'>
+					<input
+						className='nes-input is-success'
+						id='inline_field'
+						type='text'
+						value={inputValue}
+						onChange={(event) => setInputValue(event.target.value)}
+						placeholder='type your gamertag..'
+					/>
+				</form>
+				<StartButton onClick={onUsernameInput} className='nes-btn is-success'>
+					START
+				</StartButton>
+			</StartContainer>
+			<Footer />
+		</>
 	);
 };
 
