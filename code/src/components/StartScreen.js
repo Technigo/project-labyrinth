@@ -5,6 +5,12 @@ import styled from 'styled-components/macro'
 
 import game, { generateGame } from "../reducers/game";
 
+const devices = {
+  mobile: '(min-width: 375px)',
+  tablet: '(min-width: 768px)',
+  desktop: '(min-width: 1024px)'
+}
+
 const BackgroundPicture = styled.main `
 background-image: url(${background});
 background-size: cover;
@@ -18,13 +24,17 @@ const FormContainer = styled.form`
 `
 const StartPageInfo = styled.div`
 background-color: rgba(0, 0, 0, 0.7);
-width: 50%;
-height: 40%;
+min-height: 220px;
+max-width: 585px;
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-padding-bottom: 30px;
+padding: 0 15px 30px 15px;
+
+@media ${devices.tablet}{
+  
+ }
 `
 const GameTitle = styled.h3`
   font-size: 20px;
@@ -38,7 +48,10 @@ const SubmitButton = styled.button`
   padding: 8px;
   font-size: 16px;
   font-family: 'Inconsolata', monospace, 'Open Sans', sans-serif;
-  background-color: #99D17B;
+  background-color: #E86A92;
+
+  @media ${devices.desktop} {
+    cursor: pointer;
 `
 
 const InputText = styled.input`
