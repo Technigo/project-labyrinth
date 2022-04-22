@@ -1,13 +1,19 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
+This project is week 15 project of Technigo's Boot camp. 
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The goal for this was to to use the API specified to build a frontend that gives the user control over what to do next. We practised to use thunks and redux to build the communication with the backend.  
+
+The minimun requirement of the project: 
+- Your page should be responsive.
+- Use redux to store the current state of the game
+- Focus on making the UX of your app good. Handle the response delay.
+- Use thunks to wrap your API calls.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://labyrinth-game-anki-kristiina.netlify.app/
+
