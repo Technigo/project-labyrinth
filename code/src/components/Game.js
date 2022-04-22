@@ -5,7 +5,6 @@ import Loading from './Loading'
 import StartScreen from './StartScreen'
 import GameScreen from './GameScreen'
 import { Container } from './Styles.js'
-import styled from 'styled-components'
 
 const Game = () => {
     const username = useSelector(store => store.game.username)
