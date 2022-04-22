@@ -6,7 +6,7 @@ import ui from './reducers/ui'
 import game from './reducers/game'
 // import StartScreen from './components/StartScreen'
 import Game from './components/Game'
-import Loading from './components/Loading'
+// import Loading from './components/Loading'
 
 const reducer = combineReducers({
   ui: ui.reducer,
@@ -18,7 +18,6 @@ export const store = configureStore({ reducer })
 export const App = () => {
   return (
   <Provider store={store}>
-      <Loading/>
       <Game/>
   </Provider>
   )

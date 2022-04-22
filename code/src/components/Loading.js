@@ -7,7 +7,8 @@ const Loader = useSelector((store) => store.ui.isLoading)
 return (
     <>
         {Loader && <div> Loading ...</div>}
-        
+        <progress class="nes-progress is-success" value="50" max="100"> </progress>
+       
     </>
 )
     
@@ -15,3 +16,4 @@ return (
 }
 
 export default Loading
+
