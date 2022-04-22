@@ -1,8 +1,6 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This is a pair programming project made by Ida Halling and Isabell Wastfelt. We have built a Labyrinth Game UI that retrieves a list of actions from the backend, and present them as selectable directions for the player.
 
 ## The problem
 

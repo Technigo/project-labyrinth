@@ -40,6 +40,7 @@ export default StartingPage
 const Welcome = styled.div`
   h1 {
     font-size: 70px;
+    text-shadow: 1px 1px black;
   }
 `
 const NameInput = styled.input`

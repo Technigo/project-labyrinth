@@ -86,7 +86,7 @@ const GameContainer = styled.div`
   align-content: center;
   align-items: center;
   height: calc(100vh - 70px);
-  background: rgb(255, 255, 255, 0.2);
+  // background: rgb(255, 255, 255, 0.2);
 
   @media (min-width: 599px) {
     width: 80%;

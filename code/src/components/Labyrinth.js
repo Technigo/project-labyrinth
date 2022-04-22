@@ -1,10 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import steps, { fetchSteps } from '../reducers/steps'
+import { fetchSteps } from '../reducers/steps'
 import styled from 'styled-components'
-
-import StartingPage from './StartingPage'
-import styledComponents from 'styled-components'
 
 export const Labyrinth = () => {
   const { description, actions } = useSelector(
@@ -13,17 +10,11 @@ export const Labyrinth = () => {
 
   const dispatch = useDispatch()
 
-  // if (isLoading === true) {
-  //   return <div>isLoading</div>
-  // }
-
   return (
     <>
       <Description>
         <h1>{description}</h1>
       </Description>
-
-      {actions.length === 0 && <h2>Yay, you made it out!</h2>}
 
       {actions.length > 0 &&
         actions.map((action) => (
@@ -46,8 +37,10 @@ export const Labyrinth = () => {
 
 const Description = styled.div`
   h1 {
-    font-size: 25px;
+    font-size: 30px;
     text-shadow: 1px 1px black;
+    margin: 20px 20px;
+    padding: 10px;
   }
 `
 
