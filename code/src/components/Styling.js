@@ -10,7 +10,7 @@ export const MainWrapper = styled.main`
 export const ConsoleContainer = styled.section`
 	max-width: 450px;
 	background: #9fb4ff;
-	min-height: 100vh;
+	min-height: 90vh;
 	border: 4px solid #000;
 	position: relative;
 	border-radius: 10px;
@@ -59,7 +59,11 @@ export const StartButton = styled.button`
 `
 
 export const StartButtonImg = styled.img`
-	width: 200px;
+	width: 40vw;
+	max-width: 200px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
 `
 
 export const LabelName = styled.label`
@@ -87,6 +91,7 @@ export const GoBackBtn = styled.button`
 `
 export const GoBackBtnImg = styled.img`
 	width: 100px;
+	padding-bottom: 1em;
 `
 
 export const LabelDiv = styled.div`
@@ -95,8 +100,8 @@ export const LabelDiv = styled.div`
 	align-items: flex-end;
 	justify-content: flex-end;
   position: absolute;
-  bottom: 8vh;
-  right: 3vw;
+  top: 400px;
+  right: 1vw;
 }
 `
 
@@ -180,7 +185,7 @@ export const ButtonController = styled.div`
 	border-radius: 50%;
 	place-items: center;
 	position: absolute;
-	top: 60vh;
+	top: 375px;
 	left: 1vw;
 	cursor: pointer;
 `
@@ -188,9 +193,9 @@ export const ButtonController = styled.div`
 export const Btn = styled.button`
 	background: #ffffff;
 	grid-area: ${(props) => props.position};
-	width: 30px;
-	height: 30px;
-	padding: 30px;
+	width: 10px;
+	height: 10px;
+	padding: 20px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -212,6 +217,12 @@ export const Btn = styled.button`
 	/* &:disabled {
 			background: #C573AF;
 		} */
+
+	@media (min-width: 667px) {
+		width: 25px;
+		height: 25px;
+		padding: 30px;
+	}
 `
 
 export const MiddeBtn = styled(Btn)`
@@ -223,11 +234,18 @@ export const MiddeBtn = styled(Btn)`
 
 	&::after {
 		content: '';
-		width: 45px;
-		height: 45px;
+		width: 35px;
+		height: 35px;
 		background: #000;
 		border-radius: 50%;
 		position: absolute;
+	}
+
+	@media (min-width: 667px) {
+		&:after {
+			width: 45px;
+			height: 45px;
+		}
 	}
 `
 
