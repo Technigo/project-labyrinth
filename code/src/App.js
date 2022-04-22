@@ -14,19 +14,19 @@ const reducer = combineReducers({
 })
 
 //________Handle Local storage________
-const localStorageKey = 'gameReduxState'
+/*const localStorageKey = 'gameReduxState'
 const persistedStateJSON = localStorage.getItem(localStorageKey)
 
 
 if (persistedStateJSON) {
 	persistedState = JSON.parse(persistedStateJSON)
-}
+}*/
 
 const store = createStore(reducer, applyMiddleware(thunk))
 
-store.subscribe(() => {
+/*store.subscribe(() => {
 	localStorage.setItem(localStorageKey, JSON.stringify(store.getState()))
-})
+})*/
 
 export const App = () => {
 	return (
