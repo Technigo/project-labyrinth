@@ -32,7 +32,7 @@ export const ConsoleFrame = styled.div`
 `
 
 export const BottomStyling = styled.div`
-	height: 5vh;
+	height: 30px;
 	background: #fea9e0;
 	width: 100%;
 	border-bottom-right-radius: 6px;
@@ -65,7 +65,7 @@ export const StartButtonImg = styled.img`
 	max-width: 200px;
 	position: absolute;
 	top: 100px;
-	left: 0;
+	left: -20px;
 `
 
 export const LabelName = styled.label`
@@ -74,12 +74,16 @@ export const LabelName = styled.label`
 `
 export const Span = styled.span`
 	display: block;
-	font-size: 24px;
+	font-size: 20px;
+
+	@media (min-width: 667px) {
+		font-size: 28px;
+	}
 `
 
-export const GoBackBtnDiv = styled.div`
-	align-self: center;
-`
+// export const GoBackBtnDiv = styled.div`
+// 	align-self: center;
+// `
 
 export const GoBackBtn = styled.button`
 	border-radius: 50%;
@@ -98,22 +102,22 @@ export const GoBackBtnImg = styled.img`
 	padding-bottom: 1em;
 `
 
-export const LabelDiv = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
-	justify-content: flex-end;
-  position: absolute;
-  top: 415px;
-  right: 2vw;
-}
-`
+// export const LabelDiv = styled.div`
+// 	display: flex;
+// 	flex-direction: column;
+// 	align-items: flex-end;
+// 	justify-content: flex-end;
+//   position: absolute;
+//   top: 415px;
+//   right: 2vw;
+// }
+// `
 
 export const Logo = styled.img`
 	width: 120px;
 	position: absolute;
-	bottom: 6vh;
-	right: 2vw;
+	bottom: 40px;
+	right: 10px;
 `
 
 export const ConsoleContent = styled.section`
@@ -135,8 +139,7 @@ export const GameText = styled.p`
 `
 
 export const GameTextHeader = styled.p`
-	font-size: 18px;
-	text-transform: uppercase;
+	font-size: 16px;
 	color: #fff;
 	padding: 0 0.25em 1em;
 	text-align: center;
@@ -153,6 +156,7 @@ export const UsernameInput = styled.input`
 	border: 2px solid #202020;
 	text-align: center;
 	font-size: 16px;
+	padding-bottom: 0.25em;
 
 	@media (min-width: 667px) {
 		font-size: 20px;
@@ -278,7 +282,6 @@ export const HistoryArrowContainer = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	gap: 2px;
-	width: 110px;
 	position: absolute;
 	margin: 10px;
 	bottom: 0;
