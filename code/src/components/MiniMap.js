@@ -8,14 +8,14 @@ import endCave from "../assets/endcave.svg"
 
 const Section = styled.section`
 position: relative;
-width: 30vw;
-height: 30vh;
+width:150px;
+height: 150px;
 justify-self: flex-end;
-margin: 50px auto 0 auto;
+margin: auto;
 `
 
 const Map = styled.div`
-bottom: 0;
+bottom: 1rem;
 left: 50%;
 border: solid 1px white;
 width: 100%;
@@ -87,6 +87,8 @@ width: 50px;
 `
 const Player = styled.p`
 text-align: center;
+margin:0;
+padding:0;
 `
 
  export const MiniMap = (coordinates) => {
