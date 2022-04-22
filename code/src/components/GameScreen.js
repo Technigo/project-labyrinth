@@ -1,7 +1,24 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import styled from 'styled-components';
 
 import questions, { playGame } from 'reducers/questions'
+
+
+const StyledGameScreen = styled.div`
+.game-screen {
+  margin: 10px;
+}
+
+p {
+  font-size: 24px;
+  margin: 20px 0 10px;
+}
+
+button {
+  margin: 0 0 20px 0;
+}
+`
 
 const GameScreen = () => {
     const gamedata = useSelector(store => store.questions.gamedata)
@@ -23,10 +40,11 @@ const GameScreen = () => {
     )
 
     return (
-      <div>
+      <StyledGameScreen>
+      <div className='game-screen'>
           {/* <h1>Welcome {username}</h1> INTE NÖDVÄNDIG? Annars ngt if-statement
           <h3>Now the adventure begins</h3> */}
-          <h3>{gamedata.description}</h3>
+          <p>{gamedata.description}</p> 
           {gamedata.actions.length === 0 && (
             <button 
             type="button"
@@ -37,6 +55,7 @@ const GameScreen = () => {
           gamedata.actions.map((item) => <ActionCard key={item.direction} {...item} />)
         }
       </div>
+      </StyledGameScreen>
     )
 }
 

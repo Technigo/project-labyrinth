@@ -10,11 +10,12 @@ section {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: rgb(255, 255, 255, 0.6);
+  background-color: rgb(255, 241, 206, 0.7);
   width: 50%;
   min-width: 300px;
-  margin: 20% auto;
+  margin: 10% auto;
   padding: 20px;
+  box-shadow: inset 1px 1px 17px 13px #323228bf;
 }
 
 button {
@@ -22,18 +23,16 @@ button {
   color: white;
   border: none;
   border-radius: 12px;
-  padding: 20px;
+  padding: 18px;
   cursor: pointer;
   text-transform: uppercase;
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 40px;
+  margin-bottom: 10px;
 }
 
-h3 {
-  font-size: 20px;
-}
 `
 
 
