@@ -5,14 +5,14 @@ import StartScreen from './StartScreen'
 import GameScreen from './GameScreen'
 
 const LabyrinthGame = () => {
-  const username = useSelector(state => state.game.username)
+
+  const startGame = useSelector((state) => state.game.username);
 
   return (
+    //conditional rendering här? om username === null, startscreen, else gamescreen?
     <>
-    {username
-      ? <GameScreen /> 
-      : <StartScreen />
-    }
+    {!startGame && <StartScreen />}
+    {startGame && <GameScreen />}
     </>
   )
 }
