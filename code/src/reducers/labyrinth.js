@@ -56,8 +56,8 @@ export const generateQuestion = (direction) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        dispatch(labyrinth.actions.setQuestion(data))
-        dispatch(loader.actions.setLoading(false))
+        setTimeout(() => dispatch(labyrinth.actions.setQuestion(data)))
+        setTimeout(() => dispatch(loader.actions.setLoading(false)), 2000)
       })
   }
 }
