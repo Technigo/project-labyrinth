@@ -30,10 +30,10 @@ import React from "react";
 // 	)
 // }
 import labyrinth from "reducers/labyrinth";
-import { CardContainer, Title } from "./Styles";
+import { CardContainer, Button, EndGame, EndTitle } from "./Styles";
 import { useSelector, useDispatch } from "react-redux";
-import { EndGame } from "./Styles";
-import { Button } from "./Styles";
+// import { EndGame, EndTitle } from "./Styles";
+// import { Button } from "./Styles";
 
 const GameOver = () => {
 	const stage = useSelector((store) => store.labyrinth.stage);
@@ -46,9 +46,9 @@ const GameOver = () => {
 	return (
 		<CardContainer>
 		<EndGame>
-			<Title>
-			<p>{stage.description}</p>
-			</Title>
+			<EndTitle>
+				<p>{stage.description}</p>
+			</EndTitle>
 			<iframe src="https://embed.lottiefiles.com/animation/53040" title="game over"></iframe>
 		</EndGame>
 		<Button onClick={onRestart}>Restart the game</Button>

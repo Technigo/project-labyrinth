@@ -24,6 +24,12 @@ export const CardContainer = styled.div`
 
 export const Title = styled.h1`
     margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: hsl(0, 0%, 20%);
+`
+
+export const EndTitle = styled.h1`
+    margin-bottom: 1rem;
     font-size: 1rem;
     color: hsl(0, 0%, 20%);
 `
@@ -34,10 +40,12 @@ export const SecondaryText = styled.p`
     color: hsl(0, 0%, 25%);
     border: 5px solid #d4d4d4;
     padding: 10px;
+    width: 100%;
 `
 
 export const TitleBar = styled.div`
     display: flex;
+    flex-direction: column;
     align-items: center; 
 `
 export const CoverImage = styled.img`
