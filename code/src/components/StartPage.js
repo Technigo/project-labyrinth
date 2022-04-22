@@ -5,7 +5,7 @@ import "nes.css/css/nes.min.css";
 
 import game from "reducers/game"
 import { fetchGame } from 'reducers/game'
-import { Wrapper, NameInput, StartButton, StartGame } from "./Style"
+import { NameInput, StartButton, StartGame } from "./Style"
 
 
 const StartPage = () => {
