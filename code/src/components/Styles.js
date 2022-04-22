@@ -19,10 +19,10 @@ export const Container = styled.div`
  font-size: 10px;
 
  @media ${devices.tablet} {
-    width: 50%;
+    width: 40%;
   }
   @media ${devices.desktop} {
-    width: 50%;
+    width: 40%;
   }
 
  `

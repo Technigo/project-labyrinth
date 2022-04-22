@@ -19,7 +19,7 @@ const EndScreen = () => {
         <div class="nes-container is-dark with-title">
             <p class="title">Congratulations!</p>
             
-            <h3>{endDescription}</h3>
+            <p>{endDescription}</p>
             <button type="button" class="nes-btn is-warning"
             onClick={restartButton}>Restart</button>
         
