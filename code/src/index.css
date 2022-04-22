@@ -29,14 +29,14 @@ body {
 	align-items: center;
 }
 
-body h1 {
+.start-container h1 {
 	font-family: 'Ingrid Darling';
 	color: #292b1d;
 	font-size: 50px;
 	margin: 0;
 }
 
-p {
+.start-container p {
 	font-family: 'Fanwood Text', serif;
 	color: #292b1d;
 	font-size: 18px;
@@ -131,12 +131,16 @@ button:disabled {
 	left: 15px;
 }
 
-h2 {
+.clue h2 {
 	font-family: 'Fanwood Text', serif;
 	color: #292b1d;
-	font-size: 18px;
+	font-size: 22px;
 	text-align: center;
 	margin: 0;
+}
+
+.clue p {
+	font-size: 18px;
 }
 
 .clue-wrapper {
@@ -154,7 +158,6 @@ h2 {
 }
 
 .clue {
-	font-size: 22px;
 	margin-top: 2rem;
 	background-color: #d8bf978a;
 	border-radius: 25px;
@@ -172,20 +175,57 @@ h2 {
 	align-items: center;
 }
 
-/*THIS IS THE MEDIA QUERY FOR DESKTOP SIZE*/
-@media screen and (min-width: 1200px) {
-	.main-container {
-		width: 1000px;
+/*THIS IS THE MEDIA QUERY FOR TABLET SIZE*/
+@media screen and (min-width: 768px) {
+	.start-container {
+		width: 40%;
 	}
 
-	.start-container {
-		padding: 0;
+	.start-container p {
+		font-size: 22px;
+	}
+
+	.clue {
+		width: 75%;
+	}
+
+	.clue h2 {
+		font-size: 22px;
+	}
+
+	.clue p {
+		font-size: 20px;
 	}
 }
 
-/*THIS IS THE MEDIA QUERY FOR TABLET SIZE*/
-@media screen and (min-width: 768px) {
-	.main-container {
-		width: 700px;
+/*THIS IS THE MEDIA QUERY FOR DESKTOP SIZE*/
+@media screen and (min-width: 1200px) {
+	.start-container {
+		width: 30%;
+	}
+
+	.start-container p {
+		font-size: 32px;
+	}
+
+	.start-container h1 {
+		font-size: 60px;
+	}
+
+	.clue p {
+		font-size: 28px;
+		text-align: center;
+	}
+
+	.clue h2 {
+		font-size: 32px;
+	}
+
+	.back-button {
+		font-size: 16px;
+		position: absolute;
+		top: 25px;
+		left: 25px;
+		margin: 0;
 	}
 }

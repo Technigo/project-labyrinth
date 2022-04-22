@@ -12,7 +12,8 @@ const Game = () => {
 
   return (
     <>
-      {currentPosition ? <Maze /> : <Start />}
+    
+      {currentPosition ? <Maze /> : <Start /> } 
       <LoadingIndicator />
     </>
   )

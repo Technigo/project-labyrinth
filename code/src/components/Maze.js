@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { gamereducer, nextStep } from '../reducers/gamereducer';
 
 const Maze = () => {
-	//ADD coordinates BETWEEN description and actions if needed
 	const { description, actions } = useSelector(
 		(store) => store.gamereducer.currentPosition
 	);
@@ -40,7 +39,6 @@ const Maze = () => {
 
 				<section className='clue'>
 					<h2>{description}</h2>
-					{/* <p>{coordinates}</p> */}
 					{actions.length === 0 && <h3>Yes! you found your way out!</h3>}
 					{actions.length > 0 &&
 						actions.map((item) => (
