@@ -38,9 +38,11 @@ export const generateMaze = () => {
         };
         fetch("https://labyrinth-technigo.herokuapp.com/start", settings)
             .then((res) => res.json())
-            .then((json) => dispatch(game.actions.setCurrentLocation(json)),
-                dispatch(ui.actions.setLoading(false))
-            );
+            .then((json) => {
+                setTimeout(() => dispatch(game.actions.setCurrentLocation(json)))
+                setTimeout(() => dispatch(ui.actions.setLoading(false)), 1000)
+            })
+
     };
 };
 
@@ -59,9 +61,9 @@ export const nextAction = () => {
         };
         fetch("https://labyrinth-technigo.herokuapp.com/action", settings)
             .then((res) => res.json())
-            .then(
-                (json) => dispatch(game.actions.setCurrentLocation(json)),
-                dispatch(ui.actions.setLoading(false))
-            );
+            .then((json) => {
+                setTimeout(() => dispatch(game.actions.setCurrentLocation(json)))
+                setTimeout(() => dispatch(ui.actions.setLoading(false)), 1000)
+            });
     };
 }; 

@@ -5,6 +5,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import ui from './reducers/ui';
 import { game } from './reducers/game';
 import Maze from 'components/Maze';
+import LoadingPage from 'components/LoadingPage';
 
 
 
