@@ -16,7 +16,7 @@ const reducer = combineReducers({
 //________Handle Local storage________
 const localStorageKey = 'gameReduxState'
 const persistedStateJSON = localStorage.getItem(localStorageKey)
-let persistedState = {}
+
 
 if (persistedStateJSON) {
 	persistedState = JSON.parse(persistedStateJSON)
