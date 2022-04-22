@@ -1,13 +1,14 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This weeks project was to use API calls using thunks in Redux to create a maze game. 
 
 ## The problem
+We started the week by making a plan how the code should be structured. 
+We used thunks to wrap our API calls and we also implemented Lottie for an animation loader to show the user when waiting for the fetch. 
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+At first we stuggled with moving from the first API call to the next, but we got some help from our team and managed to solve it. At the end we had some problems with the structure of our styled components, so if we would have more time we would try to make more global styling and reusable components to avoid DRY. 
+
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://thelabyrinthh.netlify.app/
