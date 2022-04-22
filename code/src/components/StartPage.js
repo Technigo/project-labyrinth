@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import game from '../reducer/game'
 import Game from './Game'
 import Labyrinth from './Labyrinth'
-import ReturnBtn from './img/returnbtn.png'
+import ReturnBtn from './img/returnbtn.svg'
 import Logotype from './img/logo.png'
 import {
 	MainWrapper,

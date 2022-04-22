@@ -11,7 +11,7 @@ export const ConsoleContainer = styled.section`
 	width: 90%;
 	max-width: 450px;
 	background: #9fb4ff;
-	min-height: 100vh;
+	min-height: 700px;
 	border: 4px solid #000;
 	position: relative;
 	border-radius: 10px;
