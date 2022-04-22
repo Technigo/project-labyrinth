@@ -12,23 +12,15 @@ const GameScreen = () => {
 
     return (
         <section>
-
             <p key={welcomeDescription.description}>{welcomeDescription.description}</p>
-
-            {
-                playerLocation.actions.map
-                    (action => (
-                        <p key={action.description}>{action.description}</p>
-                    ))}
-
+            {playerLocation.actions.map(action => (
+                <p key={action.description}>{action.description}</p>
+            ))}
             <div>
-                {
-                    actions.map
-                        (action => (
-                            <PlayerChoice key={action} action={action} />
-                        ))}
+                {actions.map(action => (
+                    <PlayerChoice key={action} action={action} />
+                ))}
             </div>
-
             {actions.length === 0 && <EndScreen />}
         </section>
     )
