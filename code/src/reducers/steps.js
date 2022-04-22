@@ -16,9 +16,6 @@ const steps = createSlice({
     },
     setCurrentStep: (store, action) => {
       store.currentStep = action.payload
-    },
-    setLoading: (store, action) => {
-      store.loading = action.payload
     }
   }
 })
@@ -26,6 +23,7 @@ const steps = createSlice({
 export const fetchStart = () => {
   return (dispatch, getState) => {
     const state = getState()
+    dispatch(ui.actions.setLoading(true))
     const username = {
       username: state.steps.username
     }
@@ -34,7 +32,7 @@ export const fetchStart = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(username)
     }
-    dispatch(steps.actions.setLoading(true))
+
     fetch(
       `https://labyrinth-technigo.herokuapp.com/start?username=${
         getState().steps.username
@@ -45,12 +43,13 @@ export const fetchStart = () => {
       .then((json) => {
         dispatch(steps.actions.setCurrentStep(json))
       })
-      .finally(() => dispatch(steps.actions.setLoading(false)))
+      .finally(() => dispatch(ui.actions.setLoading(false)))
   }
 }
 
 export const fetchSteps = (direction) => {
   return (dispatch, getState) => {
+    dispatch(ui.actions.setLoading(true))
     const state = getState()
 
     const infoToAPI = {

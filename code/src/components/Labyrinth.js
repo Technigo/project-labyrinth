@@ -10,18 +10,18 @@ export const Labyrinth = () => {
   const { description, actions } = useSelector(
     (store) => store.steps.currentStep
   )
-  const isLoading = useSelector((store) => store.steps.loading)
+
   const dispatch = useDispatch()
 
-  if (isLoading === true) {
-    return <div>isLoading</div>
-  }
+  // if (isLoading === true) {
+  //   return <div>isLoading</div>
+  // }
 
   return (
     <>
-      <div>
-        <h1>Explorer: {description}</h1>
-      </div>
+      <Description>
+        <h1>{description}</h1>
+      </Description>
 
       {actions.length === 0 && <h2>Yay, you made it out!</h2>}
 
@@ -35,26 +35,53 @@ export const Labyrinth = () => {
               </YouLookToThe>
               {action.description}
             </DescriptionText>
-            <button onClick={() => dispatch(fetchSteps(action.direction))}>
+            <InputButton onClick={() => dispatch(fetchSteps(action.direction))}>
               {action.direction}
-            </button>
+            </InputButton>
           </ButtonContainer>
         ))}
     </>
   )
 }
 
-const DescriptionText = styled.div``
-
-const YouLookToThe = styled.div``
-
-const DirectionSpan = styled.div``
-
-const InputButton = styled.div`
-  background-color: blueviolet;
+const Description = styled.div`
+  h1 {
+    font-size: 25px;
+    text-shadow: 1px 1px black;
+  }
 `
-const ButtonContainer = styled.button``
 
-const UserActions = styled.div`
-  background-color: green;
+const DescriptionText = styled.div`
+  margin: 20px 20px;
+  padding: 10px;
+  background: black;
+`
+
+const YouLookToThe = styled.div`
+  display: block;
+`
+
+const DirectionSpan = styled.div`
+  font-size: 20px;
+`
+
+const InputButton = styled.button`
+  padding: 10px 20px;
+  padding: 8px 18px;
+  background: black;
+  color: white;
+  border-radius: 2px;
+  border: 1px solid black !important;
+  cursor: pointer;
+  font-family: Bayon;
+  letter-spacing: 2px;
+  font-size: 18px;
+`
+const ButtonContainer = styled.div`
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
 `

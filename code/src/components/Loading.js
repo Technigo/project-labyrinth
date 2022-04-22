@@ -1,37 +1,42 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+import { Icon } from 'components/LoaderSpin'
 
-const SpinnerContainer = styled.div`
-  @keyframes rotation {
-    0% {
-      -webkit-transform: rotate(0deg);
-    }
-    25% {
-      -webkit-transform: rotate(10deg);
-    }
-    50% {
-      -webkit-transform: rotate(0deg);
-    }
-    75% {
-      -webkit-transform: rotate(-10deg);
-    }
-    100% {
-      -webkit-transform: rotate(0deg);
-    }
-  }
+const LoaderContainer = styled.div`
+  position: absolute;
+  z-index: 1;
 `
 
-const LoadingSpinner = styled.img`
-  width: 80px;
-  height: 80px;
+const spin = keyframes`
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
+`
+
+const LoadingSpinner = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    -45deg,
+    rgb(255, 255, 255, 0) 49%,
+    rgb(90, 90, 90) 51%
+  );
   border-radius: 50%;
-  animation: rotation 1s linear infinite;
+  /* border: solid black; */
+  width: 350px;
+  height: 350px;
+  animation: ${spin} 2s linear infinite;
 `
 
-export const Loading = () => {
+const Load = `url(${Icon})`
+
+const Loading = () => {
   return (
-    <SpinnerContainer>
-      {loading && <LoadingSpinner src="./assets/flashlight.png" />}
-    </SpinnerContainer>
+    <LoaderContainer>
+      <LoadingSpinner />
+      {/* <Load /> */}
+    </LoaderContainer>
   )
 }
+
+export default Loading
