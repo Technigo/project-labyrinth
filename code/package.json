@@ -14,7 +14,9 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-redux": "^8.0.0",
-    "react-scripts": "^3.3.0"
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "^3.3.0",
+    "styled-components": "^5.3.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,5 +36,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-lottie": "^1.2.3"
   }
 }
