@@ -6,8 +6,8 @@ export const Container = styled.section`
 	align-items: center;
 `
 export const LoadingSpinnerContainer = styled.div`
-	--square: 26px;
-	--offset: 30px;
+	--square: 13px;
+	--offset: 15px;
 
 	--duration: 2.4s;
 	--delay: 0.2s;

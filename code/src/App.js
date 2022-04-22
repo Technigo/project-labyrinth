@@ -32,7 +32,6 @@ store.subscribe(() => {
 export const App = () => {
 	return (
 		<Provider store={store}>
-			<Loadingspinner />
 			<StartPage />
 		</Provider>
 	)

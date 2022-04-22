@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import game from '../reducer/game'
 import Game from './Game'
 import Labyrinth from './Labyrinth'
-import ReturnBtn from './img/returnbtn.svg'
+import ReturnBtn from './img/returnbtn.png'
 import Logotype from './img/logo.png'
 import {
 	MainWrapper,
 	ConsoleContainer,
 	ConsoleFrame,
 	BottomStyling,
+	GoBackBtnImg,
 	GoBackBtnDiv,
 	GoBackBtn,
 	LabelDiv,
@@ -30,10 +31,10 @@ const StartPage = () => {
 				<LabelDiv>
 					<GoBackBtnDiv>
 						<GoBackBtn type='button' onClick={onRestartClick}>
-							<img src={ReturnBtn} alt='click to restart'></img>
+							<GoBackBtnImg src={ReturnBtn} alt='click to restart'></GoBackBtnImg>
 						</GoBackBtn>
 					</GoBackBtnDiv>
-					<img src={Logotype}></img>
+					<Logo src={Logotype}></Logo>
 				</LabelDiv>
 				<BottomStyling />
 			</ConsoleContainer>

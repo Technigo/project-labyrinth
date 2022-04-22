@@ -54,7 +54,7 @@ export const StartButton = styled.button`
 	cursor: pointer;
 
 	&:hover {
-		transform: scale(1.2);
+		transform: scale(1.1);
 	}
 `
 
@@ -85,6 +85,9 @@ export const GoBackBtn = styled.button`
 		transform: scale(1.2);
 	}
 `
+export const GoBackBtnImg = styled.img`
+	width: 100px;
+`
 
 export const LabelDiv = styled.div`
 	display: flex;
@@ -98,7 +101,7 @@ export const LabelDiv = styled.div`
 `
 
 export const Logo = styled.img`
-	width: 50px;
+	width: 120px;
 `
 
 export const ConsoleContent = styled.section`
@@ -191,10 +194,10 @@ export const Btn = styled.button`
 	align-items: center;
 	justify-content: center;
 	border: solid 2px #000;
-	border-bottom: ${(props) => (props.border === 'North' ? ' solid 2px #F10DB3' : '')};
-	border-top: ${(props) => (props.border === 'South' ? ' solid 2px #F10DB3' : '')};
-	border-left: ${(props) => (props.border === 'East' ? ' solid 2px #F10DB3' : '')};
-	border-right: ${(props) => (props.border === 'West' ? ' solid 2px #F10DB3' : '')};
+	border-bottom: ${(props) => (props.border === 'North' ? ' solid 2px #FFF' : '')};
+	border-top: ${(props) => (props.border === 'South' ? ' solid 2px #FFF' : '')};
+	border-left: ${(props) => (props.border === 'East' ? ' solid 2px #FFF' : '')};
+	border-right: ${(props) => (props.border === 'West' ? ' solid 2px #FFF' : '')};
 	border-top-left-radius: ${(props) => (props.border === 'North' ? ' 5px ' : '')};
 	border-top-right-radius: ${(props) => (props.border === 'North' ? ' 5px ' : '')};
 	border-bottom-right-radius: ${(props) => (props.border === 'East' ? ' 5px ' : '')};
@@ -215,7 +218,7 @@ export const MiddeBtn = styled(Btn)`
 	width: 100%;
 	height: 100%;
 	position: relative;
-	border: solid 2px #f10db3;
+	border: solid 2px #fff;
 
 	&::after {
 		content: '';

@@ -12,6 +12,7 @@ import BG7 from './img/bg7.png'
 import BG8 from './img/bg8.png'
 
 import { Background, GameText, ButtonController, Btn, MiddeBtn, Modal } from './Styling'
+import Loadingspinner from './Loadingspinner'
 
 const Labyrinth = () => {
 	const [select, setSelect] = useState([])
@@ -129,7 +130,9 @@ const Labyrinth = () => {
 		<Background background={changeBG()}>
 			{/* <p>You choose {select}</p> */}
 
-			<Modal text={prevStep}>You chose {prevStep}</Modal>
+			<Modal text={prevStep}>
+				You chose {prevStep} <Loadingspinner />
+			</Modal>
 			{items.actions.map((item) => {
 				return (
 					<div key={item.coordinates}>

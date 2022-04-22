@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import {
 	ConsoleContent,
 	StartButton,
@@ -11,14 +11,15 @@ import {
 	UsernameInputContainer,
 } from './Styling'
 import game, { fetchGame } from '../reducer/game'
-
+import ui from '../reducer/ui'
 import StartBtn from './img/startbtn.png'
+import Loadingspinner from './Loadingspinner'
 
 const Game = () => {
+	const isLoading = useSelector((store) => store.ui.isLoading)
 	const [userName, setUserName] = useState('')
 
 	const dispatch = useDispatch()
-	console.log('username', userName)
 
 	const onInputUserName = (event) => {
 		event.preventDefault()
@@ -34,6 +35,7 @@ const Game = () => {
 	return (
 		<ConsoleContent>
 			<UsernameInputContainer>
+				{isLoading && <Loadingspinner />}
 				<GameTextHeader>
 					Welcome to the <Span>- a-maze-ing - </Span> 80's! Try to found your way out of the labyrinth!
 				</GameTextHeader>
