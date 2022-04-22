@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Lottie from "react-lottie"
 import animationData from "../lotties/purple-pixel-heart.json"
 
+
 const LoaderContainer = styled.section`
     display: flex;
     align-items: center;
@@ -13,6 +14,9 @@ const LoaderContainer = styled.section`
     right: 0;
     bottom: 0;
     left: 0;
+    background-color: black;
+    z-index: 1500;
+    
 `
 
 const Loader = () => {

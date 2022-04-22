@@ -1,13 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import ui from "./ui";
 
+
+const initialState = {
+    username: null,
+    position: null,
+    history: [],
+}
+
 const game = createSlice({
     name: "game",
-    initialState: {
-        username: null,
-        position: null,
-        history: [],
-    },
+    initialState: initialState,
     reducers: {
 
         setUsername: (store, action) => {
@@ -27,6 +30,10 @@ const game = createSlice({
             }
 
             store.history.splice(store.history.length -1, 1)
+        },
+
+        restartGame: () => {
+            return initialState
         }
     }
 })
