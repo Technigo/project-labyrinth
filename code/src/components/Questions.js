@@ -11,13 +11,10 @@ export const Questions = () => {
 
   return (
     <>
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <div className="wrapper">
-          {gameQuestion ? <GameScreen /> : <StartScreen />}
-        </div>
-      )}
+      <div className="wrapper">
+        {isLoading && <Loading />}
+        {gameQuestion ? <GameScreen /> : <StartScreen />}
+      </div>
     </>
   );
 };

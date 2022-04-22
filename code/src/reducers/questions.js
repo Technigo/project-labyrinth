@@ -1,6 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ui } from './ui';
 
+const initialState = {
+  username: null,
+  question: {},
+  moves: [],
+};
+
 export const questions = createSlice({
   name: 'questions',
   initialState: {
@@ -15,12 +21,15 @@ export const questions = createSlice({
     setGameQuestion: (store, action) => {
       store.gameQuestion = action.payload;
     },
+    restart: () => {
+      return initialState;
+    },
   },
 });
 
 export const generateQuestion = (direction) => {
-  return (dispatch, getState) => {
-    if (direction) {
+  if (direction) {
+    return (dispatch, getState) => {
       dispatch(ui.actions.setLoading(true));
       fetch(`https://labyrinth-technigo.herokuapp.com/action`, {
         method: 'POST',
@@ -36,9 +45,11 @@ export const generateQuestion = (direction) => {
         .then((res) => res.json())
         .then(
           (question) => dispatch(questions.actions.setGameQuestion(question)),
-          dispatch(ui.actions.setLoading(false))
+          setTimeout(() => dispatch(ui.actions.setLoading(false)), 1000)
         );
-    } else {
+    };
+  } else {
+    return (dispatch, getState) => {
       dispatch(ui.actions.setLoading(true));
       fetch(
         `https://labyrinth-technigo.herokuapp.com/start?username=${
@@ -57,8 +68,8 @@ export const generateQuestion = (direction) => {
         .then((res) => res.json())
         .then(
           (question) => dispatch(questions.actions.setGameQuestion(question)),
-          dispatch(ui.actions.setLoading(false))
+          setTimeout(() => dispatch(ui.actions.setLoading(false)), 1000)
         );
-    }
-  };
+    };
+  }
 };

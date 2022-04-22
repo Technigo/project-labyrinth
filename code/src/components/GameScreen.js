@@ -1,13 +1,17 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { generateQuestion } from 'reducers/questions';
+import { questions, generateQuestion } from 'reducers/questions';
 
 export const GameScreen = () => {
   const username = useSelector((store) => store.questions.username);
   const gameQuestion = useSelector((store) => store.questions.gameQuestion);
-  console.log(gameQuestion, 'hej');
+  console.log(gameQuestion.actions.length, 'hej');
 
   const dispatch = useDispatch();
+
+  const restart = () => {
+    dispatch(questions.actions.restart());
+  };
 
   const onQuestionGenerate = (direction) => {
     dispatch(generateQuestion(direction));
@@ -17,7 +21,11 @@ export const GameScreen = () => {
     <div>
       <div>
         <i className="nes-octocat animate"></i>
-        <h2>Let´s play {username}!</h2>
+        {gameQuestion.actions.length > 0 ? (
+          <h2>Let´s go {username}!</h2>
+        ) : (
+          <h2>Well done {username}!</h2>
+        )}
         <div className="nes-balloon from-left">
           <h3>{gameQuestion.description}</h3>
         </div>
@@ -36,6 +44,13 @@ export const GameScreen = () => {
             </div>
           ))}
         </section>
+        {gameQuestion.actions.length === 0 && (
+          <div className="button-container">
+            <button className="nes-btn is-primary" onClick={() => restart()}>
+              Restart
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
