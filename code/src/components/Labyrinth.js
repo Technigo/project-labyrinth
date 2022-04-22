@@ -6,7 +6,7 @@ import GameScreen from "./GameScreen";
 
 import { Container } from "./Styles";
 
-const Quotes = () => {
+const Labyrinth = () => {
     const stage = useSelector(store => store.labyrinth.stage);
 
     return (
@@ -21,4 +21,4 @@ const Quotes = () => {
     )
 }
 
-export default Quotes;
+export default Labyrinth;

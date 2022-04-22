@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import labyrinth, { generateGame } from '../reducers/labyrinth';
 import { useDispatch } from 'react-redux';
-import { CardContainer, Title, TitleBar, Content, SecondaryText} from './Styles';
 import "antd/dist/antd.css";
-import { Button } from './Styles';
 
+import labyrinth, { generateGame } from '../reducers/labyrinth';
+
+import { CardContainer, Title, TitleBar, Content, SecondaryText, Button} from './Styles';
 
 const StartPage  = () => {
     const [player, setPlayer] = useState('');
@@ -30,7 +30,6 @@ const StartPage  = () => {
                     {notValidated && <SecondaryText>Please enter your name</SecondaryText>}
                 </TitleBar>
                 <input
-                    required
                     type='text'
                     value={player}
                     placeholder="Type your name"
