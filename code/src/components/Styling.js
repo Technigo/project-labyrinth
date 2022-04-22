@@ -81,10 +81,6 @@ export const Span = styled.span`
 	}
 `
 
-// export const GoBackBtnDiv = styled.div`
-// 	align-self: center;
-// `
-
 export const GoBackBtn = styled.button`
 	border-radius: 50%;
 	background: transparent;
@@ -101,17 +97,6 @@ export const GoBackBtnImg = styled.img`
 	width: 100px;
 	padding-bottom: 1em;
 `
-
-// export const LabelDiv = styled.div`
-// 	display: flex;
-// 	flex-direction: column;
-// 	align-items: flex-end;
-// 	justify-content: flex-end;
-//   position: absolute;
-//   top: 415px;
-//   right: 2vw;
-// }
-// `
 
 export const Logo = styled.img`
 	width: 120px;
