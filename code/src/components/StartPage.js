@@ -4,6 +4,7 @@ import game from '../reducer/game'
 import Game from './Game'
 import Labyrinth from './Labyrinth'
 import ReturnBtn from './img/returnbtn.svg'
+import Logotype from './img/logo.png'
 import {
 	MainWrapper,
 	ConsoleContainer,
@@ -32,7 +33,7 @@ const StartPage = () => {
 							<img src={ReturnBtn} alt='click to restart'></img>
 						</GoBackBtn>
 					</GoBackBtnDiv>
-					<Logo>play girl</Logo>
+					<img src={Logotype}></img>
 				</LabelDiv>
 				<BottomStyling />
 			</ConsoleContainer>

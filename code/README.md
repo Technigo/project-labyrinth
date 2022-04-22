@@ -1,13 +1,15 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
+A maze game built in React and Redux using Redux Thunks and Styled Components.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The project is built by Mimmi Fordal Uddin, Suki Nhung Phan and Emma Högberg.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We started to get a common understaning of the project requirements and what to build. We used Figma to brainstorm the functionalities and do a prototype for our design.
+
+A Kanban board and Slack was used for communication. We coded the foundation of the game together and later we splitted up tasks and worked in branches. During the way we meet up regularly and developed our ideas and took decision for the project direction.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Link to project: XXXXXXXXX

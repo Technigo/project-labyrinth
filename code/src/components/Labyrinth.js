@@ -90,7 +90,7 @@ const Labyrinth = () => {
 		return keyframes`
 			50% {
 				transform: scale(1.05);
-				background-color: #F6C8EA;
+				background-color: #A7E8CE;
 				z-index: 3;
 			}
 			

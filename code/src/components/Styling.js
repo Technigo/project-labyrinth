@@ -9,7 +9,7 @@ export const MainWrapper = styled.main`
 
 export const ConsoleContainer = styled.section`
 	max-width: 450px;
-	background: #905efc;
+	background: #9fb4ff;
 	min-height: 100vh;
 	border: 4px solid #000;
 	position: relative;
@@ -19,7 +19,7 @@ export const ConsoleContainer = styled.section`
 	justify-content: space-between;
 `
 export const ConsoleFrame = styled.div`
-	background: #f10db3;
+	background: #fea9e0;
 	margin: 1.75em 1em 0 1em;
 	height: 450px;
 	border: solid 4px #000;
@@ -31,11 +31,12 @@ export const ConsoleFrame = styled.div`
 
 export const BottomStyling = styled.div`
 	height: 5vh;
-	background: #f10db3;
+	background: #fea9e0;
 	width: 100%;
 	border-bottom-right-radius: 6px;
 	border-bottom-left-radius: 6px;
 	align-self: center;
+	border-top: 3px solid #000;
 
 	@media (min-width: 667px) {
 		width: 450px;
@@ -96,15 +97,8 @@ export const LabelDiv = styled.div`
 }
 `
 
-export const Logo = styled.h1`
-	border: 2px solid #111111;
-	font-family: inherit;
-	text-transform: uppercase;
-	padding: 5px;
-	letter-spacing: 1px;
-	-webkit-box-shadow: 5px 4px 2px 0px;
-	box-shadow: 5px 4px 2px 0px;
-	font-size: 20px;
+export const Logo = styled.img`
+	width: 50px;
 `
 
 export const ConsoleContent = styled.section`
@@ -143,6 +137,11 @@ export const UsernameInput = styled.input`
 	margin-top: 0.5em;
 	border: 2px solid #202020;
 	text-align: center;
+	font-size: 18px;
+
+	@media (min-width: 667px) {
+		font-size: 20px;
+	}
 `
 export const UsernameInputContainer = styled.div`
 	display: flex;
@@ -171,7 +170,7 @@ export const ButtonController = styled.div`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(3, 1fr);
-	background: #fdb100;
+	background: #fff08e;
 	border: solid 2px #000;
 	padding: 15px;
 	border-radius: 50%;
@@ -183,7 +182,7 @@ export const ButtonController = styled.div`
 `
 
 export const Btn = styled.button`
-	background: #f10db3;
+	background: #ffffff;
 	grid-area: ${(props) => props.position};
 	width: 30px;
 	height: 30px;
