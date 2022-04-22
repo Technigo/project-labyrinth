@@ -15,7 +15,7 @@ const Start = () => {
     <div className="main">
       <h1 className="start-title">Welcome to the game</h1>
       <input
-        className="nes-field"
+        className="nes-input"
         type="text"
         required
         value={input}

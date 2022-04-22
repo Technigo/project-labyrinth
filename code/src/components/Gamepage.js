@@ -26,7 +26,10 @@ const Gamepage = () => {
     <div className="main-2">
       <h2 className="nes-balloon from-left nes-pointer">{description}</h2>
       <>
-        <button className="" onClick={() => handleClick(type, direction)}>
+        <button
+          className="nes-btn is-primary"
+          onClick={() => handleClick(type, direction)}
+        >
           {type} {direction}
         </button>
       </>
@@ -49,6 +52,13 @@ const Gamepage = () => {
                   Your position is {coordinates}
                 </span>
               </h3>
+              <div className="img-container">
+                <img
+                  className="pointer"
+                  src="https://i.ibb.co/12cvWMb/Untitled-design-1.gif"
+                  alt="hand pointing down"
+                />
+              </div>
             </>
           )}
           {actions.length === 0 ? (
