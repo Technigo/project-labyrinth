@@ -20,6 +20,7 @@ font-size: 1rem;
 background-color: rgba(0,0,0, 0.5);
 padding: 10px;
 border-radius:10px;
+text-align:center;
 
 @media (min-width: 768px) {
     font-size: 1.5rem;
@@ -32,6 +33,7 @@ border-radius:10px;
 
 const Label = styled.label`
   font-weight: 900;
+
 `
 const PlayButton = styled.button`
   background-color: #fff;

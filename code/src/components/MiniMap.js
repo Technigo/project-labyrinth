@@ -86,9 +86,14 @@ right: 0;
 width: 50px;
 `
 const Player = styled.p`
+color:red;
+font-weight:900;
 text-align: center;
-margin:0;
-padding:0;
+margin:50px auto 10px auto;  
+padding:5px;
+width:fit-content;
+background-color: rgba(0, 0, 0, 0.5);
+border-radius: 10px;
 `
 
  export const MiniMap = (coordinates) => {
@@ -97,7 +102,7 @@ padding:0;
 
      return(
          <>
-         <Player>Player: {username}</Player>
+         <Player>Player: {username} 📍</Player>
          <Section>  
          <Map>
             <StartCave src={startCave}/>
