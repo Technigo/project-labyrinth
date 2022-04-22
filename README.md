@@ -1,13 +1,18 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
+In this group project, we fetch data from API and store it in our Redux store while practicing working in a dev team.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Users should be able to:
+
+- view the optimal layout for the site depending on their device's screen size.
+- see the hover effect when hovering over each button
+- enjoy the game! 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The biggest problem that we had was the restart button.
+We explored options to create unique id for usernames but dropped that as the end as we see that there're benefits of not being able to reuse a username (for instance, testing purposes).
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://golden-kleicha-016cb0.netlify.app/
