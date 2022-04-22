@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { MiniMap } from "./MiniMap"
 import { nextStep } from "reducers/game"
 import styled from "styled-components/macro"
-import { Game } from "./Game"
+
 
 import arrow from "../assets/redArrow.svg"
 
@@ -137,13 +137,11 @@ export const Labyrinth = () => {
     }
 
     const ActionCard = ({description, type, direction}) => (
-        console.log({direction}),
         <div>
             {direction === "North" && <NorthButton onClick={() => handleButtonClick(type, direction)}><Arrow src={arrow}/></NorthButton>}
             {direction === "West" && <WestButton onClick={() => handleButtonClick(type, direction)}><Arrow src={arrow}/></WestButton>}
             {direction === "South" && <SouthButton onClick={() => handleButtonClick(type, direction)}><Arrow src={arrow}/></SouthButton>}
             {direction === "East" && <EastButton onClick={() => handleButtonClick(type, direction)}><Arrow src={arrow}/></EastButton>} 
-            {/* <p>{description}</p> */}
         </div>
     )
 

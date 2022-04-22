@@ -1,7 +1,7 @@
 import React from "react"
 import { useSelector } from "react-redux"
 import styled from "styled-components/macro"
-import { game } from "reducers/game"
+
 
 import startCave from "../assets/startcave.svg"
 import endCave from "../assets/endcave.svg"
@@ -106,13 +106,13 @@ border-radius: 10px;
          <Section>  
          <Map>
             <StartCave src={startCave}/>
-            {coordinates.coordinates === '0,0' && <Pin1>📍</Pin1>}
-            {coordinates.coordinates === '1,0' && <Pin2>📍</Pin2>}
-            {coordinates.coordinates === '1,1' && <Pin3>📍</Pin3>}
-            {coordinates.coordinates === '0,1' && <Pin4>📍</Pin4>}
-            {coordinates.coordinates === '0,2' && <Pin5>📍</Pin5>}
-            {coordinates.coordinates === '0,3' && <Pin6>📍</Pin6>}
-            {coordinates.coordinates === '1,3' && <Pin7>📍</Pin7>}
+            {coordinates.coordinates === '0,0' && <Pin1><span role="img" aria-label="pin">📍</span></Pin1>}
+            {coordinates.coordinates === '1,0' && <Pin2><span role="img" aria-label="pin">📍</span></Pin2>}
+            {coordinates.coordinates === '1,1' && <Pin3><span role="img" aria-label="pin">📍</span></Pin3>}
+            {coordinates.coordinates === '0,1' && <Pin4><span role="img" aria-label="pin">📍</span></Pin4>}
+            {coordinates.coordinates === '0,2' && <Pin5><span role="img" aria-label="pin">📍</span></Pin5>}
+            {coordinates.coordinates === '0,3' && <Pin6><span role="img" aria-label="pin">📍</span></Pin6>}
+            {coordinates.coordinates === '1,3' && <Pin7><span role="img" aria-label="pin">📍</span></Pin7>}
             <EndCave src={endCave}/>
          </Map>
          </Section>

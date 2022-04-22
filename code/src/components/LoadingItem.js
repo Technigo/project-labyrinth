@@ -1,6 +1,5 @@
 import React from "react"
 import { useSelector } from "react-redux"
-import { game } from "reducers/game"
 import styled, { keyframes }from "styled-components"
 
 const Loading = styled.div`

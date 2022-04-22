@@ -60,7 +60,7 @@ export const nextStep = (type, direction) => {
           .then(data => {
             dispatch(game.actions.setCurrentPosition(data))
             dispatch(game.actions.setHistory(data))
-        console.log(data)})
+        })
           .finally(() => dispatch(game.actions.setLoading(false)))
     }
 }
