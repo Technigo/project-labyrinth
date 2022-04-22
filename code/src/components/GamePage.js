@@ -6,9 +6,12 @@ import styled from "styled-components"
 
 import { fetchMoreData } from "../reducers/game"
 import arrow from "./Assets/pixel-arrow.svg"
-// import blueBackground from './Assets/blue-background.png'
-// import brownBackground from './Assets/brown-background.png'
-import { firstBackground } from "utils/utils"
+
+import blueBackground from './Assets/blue-background.png'
+import brownBackground from './Assets/brown-background.png'
+import forestBackground from './Assets/forest-background.png'
+import pinkBackground from './Assets/pink-background.png'
+import windowBackground from './Assets/window-background.png'
 
 
 const MainDescription = styled.h1`
@@ -40,24 +43,11 @@ const DirectionImage = styled.img`
 const BackgroundImage = styled.div`
     width: 100vw;
     min-height: 100vh;
-    background: ${props => props.background};
+    background: url(${props => props.background});
     background-repeat: no-repeat;
     background-size: cover;
 `
-
-// const changeBackground = () => {
-
-// }
-// : props.direction === "1,0"
-//         ? blueBackground
-//         : props.direction === "1,1"
-//         ? blueBackground
-//         : props.direction === "0,1"
-//         ? blueBackground
-//         : props.direction === "0,2"
-//         ? blueBackground
-
-
+    
 
 const DirectionButton = styled.button`
     appearance: none;   
@@ -131,9 +121,39 @@ const GamePage = () => {
     console.log(position)
     const dispatch = useDispatch()
 
+    const ChangeBackground = () => {
+        switch (position.coordinates) {
+            case '0,0':
+                return blueBackground
+                break
+            case '1,0':
+                return forestBackground
+                break
+            case '1,1':
+                return brownBackground
+                break
+            case '0,1':
+                return windowBackground
+                break
+            case '0,2':
+                return pinkBackground
+                break
+            case '0,3':
+                return blueBackground
+                break    
+            case '1,3':
+                return blueBackground
+                break 
+            default: 
+                return pinkBackground 
+
+        }
+    }
+
+    
 
     return (
-        <BackgroundImage>
+        <BackgroundImage background={ChangeBackground()} >
             <ContentWrapper>
                 <TextContainer>
                     <MainDescription>{position.description}</MainDescription>
