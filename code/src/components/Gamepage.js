@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import LoadingIndicator from "./LoadingIndicator";
-import styled from "styled-components";
 
 import { nextStep } from "reducers/labyrinth";
 

@@ -17,7 +17,7 @@ const Start = () => {
         <img
           className="start-img"
           src="https://i.ibb.co/G5zV6Zk/Untitled-design-28.png"
-          alt="picture of example characters"
+          alt="example characters"
         />
       </div>
       <div className="text-container">

@@ -8,9 +8,7 @@ const End = () => {
   const gamedescription = useSelector(
     (store) => store.labyrinth.gameStatus.description
   );
-  const gamecoordinates = useSelector(
-    (store) => store.labyrinth.gameStatus.coordinates
-  );
+
   const onRestart = () => {
     dispatch(
       labyrinth.actions.restart({
