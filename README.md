@@ -1,13 +1,11 @@
-# Project Labyrinth
+# Project Labyrinth 🏜️
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week Jin and I built a labyrinth game. A project which allows the user to navigate a maze, in the form of a text based adventure, provided by a backend.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We started off by planning the week and split the tasks since we didn't have a lot of time for pair programming due to our different schedules. But it turned out really well! Communication is key!
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://labyrinth-game-emma-jin.netlify.app/
