@@ -4,7 +4,6 @@ const initialState = {
   username: null,
   currentPosition: null,
   loading: false,
-  gameState: false,
 }
 
 const game = createSlice({
@@ -16,9 +15,6 @@ const game = createSlice({
     },
     setCurrentPosition: (store, action) => {
       store.currentPosition = action.payload
-    },
-    setNextPosition: (store, action) => {
-      store.gameState = action.payload;
     },
     setLoading: (store, action) => {
       store.loading = action.payload
@@ -64,7 +60,6 @@ export const getNextPosition = (action, userName) => {
     })
       .then(response => response.json())
       .then(data => {
-        dispatch(game.actions.setNextPosition(data))
         dispatch(game.actions.setLoading(false))
         dispatch(game.actions.setCurrentPosition(data))
       })

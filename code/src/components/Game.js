@@ -1,50 +1,49 @@
-import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { getNextPosition } from '../reducers/game'
-import styled from 'styled-components/macro'
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getNextPosition } from "../reducers/game";
+import styled from "styled-components/macro";
 
-import game from '../reducers/game'
-
+import game from "../reducers/game";
 
 const Container = styled.div`
-  font-size: 10px;
-  padding: 10px;
-  background-color: black;
-  color: lime;
-  height: 100vh;
-  padding-top: 20%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  @media (min-width: 768px) {
-    font-size: 15px;
-  }
-`
+	font-size: 10px;
+	padding: 10px;
+	color: lime;
+    background-color: black;
+	height: 100vh;
+	padding-top: 20%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	@media (min-width: 768px) {
+		font-size: 15px;
+	}
+`;
 
 const HeadingOne = styled.h1`
-  color: lime;
-`
+	color: green;
+    padding-bottom:30px;
+`;
 
-const HeadingTwo = styled.h2`
-  padding:30px;
-`
+const DirectionButton = styled.button`
+	margin: 20px;
+`;
 
 const RestartButton = styled.button`
-  margin-top: 20px;
-`
+	margin-top: 20px;
+`;
 
 const Game = () => {
+    const currentPosition = useSelector((state) => state.game.currentPosition);
+    const userName = useSelector((state) => state.game.username);
+    const isLoading = useSelector((state) => state.game.loading);
 
-    const currentPosition = useSelector((state) => state.game.currentPosition)
-    const userName = useSelector((state) => state.game.username)
-    const isLoading = useSelector((state) => state.game.loading)
-
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     const onAction = (actionDirection) => {
-        dispatch(getNextPosition(actionDirection, userName))
-    }
+        dispatch(getNextPosition(actionDirection, userName));
+    };
 
     return (
         <>
@@ -53,25 +52,25 @@ const Game = () => {
                     <HeadingOne>{currentPosition.description}</HeadingOne>
 
                     {currentPosition.actions.length === 0 && (
-                        <RestartButton onClick={() => dispatch(game.actions.restartGame())}>Restart</RestartButton>
+                        <RestartButton onClick={() => dispatch(game.actions.restartGame())}>
+                            Restart
+                        </RestartButton>
                     )}
 
                     {currentPosition.actions.map((action, index) => {
                         return (
                             <div key={index}>
-                                <HeadingTwo>{action.description}</HeadingTwo>
-                                <button onClick={() => onAction(action.direction)}>
+                                <h2>{action.description}</h2>
+                                <DirectionButton onClick={() => onAction(action.direction)}>
                                     Go {action.direction}
-                                </button>
+                                </DirectionButton>
                             </div>
-                        )
+                        );
                     })}
                 </Container>
             )}
         </>
+    );
+};
 
-    )
-
-}
-
-export default Game
+export default Game;

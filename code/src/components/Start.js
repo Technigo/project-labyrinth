@@ -56,7 +56,7 @@ const Start = () => {
                             placeholder="Type your name here..."
                             required
                         />
-                        <StyledSubmit type="submit">Submit</StyledSubmit>
+                        <StyledSubmit type="submit">Start</StyledSubmit>
                     </StyledForm>
                 </StyledStartPage>}
         </>
