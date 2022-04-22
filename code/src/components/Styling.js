@@ -8,6 +8,7 @@ export const MainWrapper = styled.main`
 `
 
 export const ConsoleContainer = styled.section`
+	width: 90%;
 	max-width: 450px;
 	background: #9fb4ff;
 	min-height: 100vh;
@@ -22,6 +23,7 @@ export const ConsoleFrame = styled.div`
 	background: #fea9e0;
 	margin: 1.75em 1em 0 1em;
 	height: 350px;
+	width: 90%;
 	border: solid 4px #000;
 	border-radius: 10px;
 	display: flex;
@@ -62,7 +64,7 @@ export const StartButtonImg = styled.img`
 	width: 40vw;
 	max-width: 200px;
 	position: absolute;
-	top: 120px;
+	top: 100px;
 	left: 0;
 `
 
@@ -119,7 +121,7 @@ export const ConsoleContent = styled.section`
 export const GameText = styled.p`
 	font-size: 16px;
 	color: #fff;
-	padding: 0 1em 1em;
+	padding: 0 0.5em 0.5em;
 	text-align: center;
 
 	@media (min-width: 667px) {
@@ -140,15 +142,16 @@ export const GameTextHeader = styled.p`
 `
 
 export const UsernameInput = styled.input`
-	height: 35px;
+	height: 20px;
 	font-family: inherit;
 	margin-top: 0.5em;
 	border: 2px solid #202020;
 	text-align: center;
-	font-size: 18px;
+	font-size: 16px;
 
 	@media (min-width: 667px) {
 		font-size: 20px;
+		height: 35px;
 	}
 `
 export const UsernameInputContainer = styled.div`
