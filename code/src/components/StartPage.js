@@ -38,9 +38,7 @@ const StartPage = () => {
 
     return(
         <StartGame>
-
-            
-            <label for="name_field">Your name</label>
+            <label for="name_field">Create a username:</label>
                     
             <NameInput 
                 type='text'
@@ -64,10 +62,7 @@ const StartPage = () => {
                 Start Game!
             </StartButton>
         </StartGame>
-
      )
-
-
 }
 
 export default StartPage

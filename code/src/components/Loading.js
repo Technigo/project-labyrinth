@@ -18,8 +18,7 @@ const Loading = () => {
           </Mario>
           </>
         )}
-        </LoadingWrapper>
-            
+        </LoadingWrapper>            
         )
 }
 

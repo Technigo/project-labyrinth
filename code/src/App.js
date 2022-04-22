@@ -3,7 +3,6 @@ import { Provider } from 'react-redux'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import "nes.css/css/nes.min.css";
-// import { useDispatch } from "react-redux"
 
 import game from './reducers/game'
 import StartPage from './components/StartPage'
@@ -27,17 +26,15 @@ export const App = () => {
     <Provider store={store}>
       <Container>
         <Wrapper>
+        <Loading />
         <BrowserRouter>
         <Routes>
           <Route path="/" element={<StartPage />}/>
           <Route path="/MainGame" element={<MainGame />}/>
-          {/* <Route path="/Loading" element={<Loading />} /> */}
           <Route path="/404" element={<NotFound />}/>
           <Route path="*" element={<Navigate to="/404" replace />}/>
         </Routes>
-        <Loading />
         </BrowserRouter>
-        
         </Wrapper>
       </Container>
     </Provider>
