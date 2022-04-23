@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import StartScreen from './StartScreen'
 import GameScreen from './GameScreen'
+import Loading from './Loading';
 
 const LabyrithgameWrapper = styled.section`
   display: flex;
@@ -29,6 +30,7 @@ const LabyrinthGame = () => {
     <>
     <LabyrithgameWrapper>
     <InputWrapper>
+    {startGame && <Loading />}
     {!startGame && <StartScreen />}
     {startGame && <GameScreen />}
     </InputWrapper>

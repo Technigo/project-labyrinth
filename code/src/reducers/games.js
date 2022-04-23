@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 
+import { loading } from "reducers/loading";
+
 const games = createSlice({
     name: 'games',
     initialState: {
@@ -18,13 +20,15 @@ const games = createSlice({
 
 export const generateGame = () => { //Thunk. A function that immediately returns another function.
     return (dispatch, getState) => {
+        dispatch(loading.actions.setLoading(true))
         fetch('https://labyrinth-technigo.herokuapp.com/start', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'}, 
             body: JSON.stringify({username: getState().game.username})
         })
             .then(res => res.json())
-            .then(game => dispatch(games.actions.setGame(game)));
+            .then(game => dispatch(games.actions.setGame(game)))
+            .finally(dispatch(loading.actions.setLoading(false)));
     }
 }
 
@@ -36,7 +40,8 @@ const directionArray = [
   ]
 
 export const generateAction = (index) => {
-    return (dispatch, getState) => {
+    return (dispatch, getState) => { 
+        dispatch(loading.actions.setLoading(true));   
         console.log(index)
         fetch('https://labyrinth-technigo.herokuapp.com/action', {
             method: 'POST',
@@ -48,7 +53,8 @@ export const generateAction = (index) => {
             })
         })
             .then(res => res.json())
-            .then(game => dispatch(games.actions.setGame(game)));
+            .then(game => dispatch(games.actions.setGame(game)))
+            .finally(dispatch(loading.actions.setLoading(false)));
     }
 }
 
