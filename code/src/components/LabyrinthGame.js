@@ -7,8 +7,8 @@ import StartScreen from './StartScreen'
 import GameScreen from './GameScreen'
 
 const LabyrithgameWrapper = styled.section`
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
   margin: 10px;
   padding: 10px;
   border-radius: 10px;
@@ -16,8 +16,11 @@ flex-direction: column;
   align-items: center;
   text-align: center;
   position: absolute;
+`
+const InputWrapper = styled.section`
 
 `
+
 const LabyrinthGame = () => {
 
   const startGame = useSelector((state) => state.game.username);
@@ -26,8 +29,10 @@ const LabyrinthGame = () => {
     //conditional rendering här? om username === null, startscreen, else gamescreen?
     <>
     <LabyrithgameWrapper>
+    <InputWrapper>
     {!startGame && <StartScreen />}
     {startGame && <GameScreen />}
+    </InputWrapper>
     </LabyrithgameWrapper>
     </>
   )
