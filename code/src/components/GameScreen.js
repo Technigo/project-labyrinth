@@ -38,14 +38,16 @@ const GameScreen = () => {
           actions.map(content => 
               <>
               <p style={{fontWeight: 'bold'}}>Alternative way:</p>
-              <p>{content.direction}</p>
+              <p>{content.direction}</p>              
+              {content.direction === 'East' && eastBtn}
+              {content.direction === 'South' && southBtn}
+              {content.direction === 'West' && westBtn}
+              {content.direction === 'North' && northBtn}
               <p>{content.description}</p>
               </>)
           }          
-          {eastBtn}
-          {southBtn}
-          {westBtn}
-          {northBtn}
+          {/* Explanation for code: Seems like a bug in the api, there is a response with an empty actions array, where west is the only working direction to choose */}
+          <p>{actions && actions.length === 0 ? westBtn : console.log('Refresh the site')}</p>
       </div>  
   )
 };
