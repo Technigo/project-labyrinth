@@ -21,6 +21,8 @@ We could also add a tracking of the players history.
 We also thought about using text-reveal as styling of the text presented to the player to enhance the terminal vibe of our app, making it look like the text is printed out by the terminal.  
 Also a favicon would be nice to add!
 
+Regarding accessability we tested the site in WAWE and it passed with no errors, and we tested the site in Crome, FireFox, Safari and Edge and it worked well.
+With more time we would have added a form type submit on the button to be able to start the game by pressing enter.  
 
 ## View it live
 https://labyrinth-louisa-josefin.netlify.app/
