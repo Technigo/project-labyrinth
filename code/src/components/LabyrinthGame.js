@@ -15,7 +15,7 @@ const LabyrithgameWrapper = styled.section`
   justify-content: center;
   align-items: center;
   text-align: center;
-  position: absolute;
+  height: 75vh;
 `
 const InputWrapper = styled.section`
 
@@ -26,7 +26,6 @@ const LabyrinthGame = () => {
   const startGame = useSelector((state) => state.game.username);
 
   return (
-    //conditional rendering här? om username === null, startscreen, else gamescreen?
     <>
     <LabyrithgameWrapper>
     <InputWrapper>

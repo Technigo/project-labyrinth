@@ -36,7 +36,7 @@ const GameScreen = () => {
           {direction !== '' && <p>You chose to go: {direction}</p>}          
           {actions && 
           actions.map(content => 
-              <>
+              <div key={Math.random()}>
               <p style={{fontWeight: 'bold'}}>Alternative way:</p>
               <p>{content.direction}</p>              
               {content.direction === 'East' && eastBtn}
@@ -44,10 +44,10 @@ const GameScreen = () => {
               {content.direction === 'West' && westBtn}
               {content.direction === 'North' && northBtn}
               <p>{content.description}</p>
-              </>)
+              </div>)
           }          
-          {/* Explanation for code: Seems like a bug in the api, there is a response with an empty actions array, where west is the only working direction to choose */}
-          <p>{actions && actions.length === 0 ? westBtn : console.log('Refresh the site')}</p>
+          {/* Explanation for code: Seems like a bug in the api provided, there is a response with an empty actions array, where west is the only working direction to choose */}
+          <p>{(actions && actions.length === 0) && westBtn}</p>
       </div>  
   )
 };
