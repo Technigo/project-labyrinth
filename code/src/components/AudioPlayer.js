@@ -31,40 +31,29 @@ const SoundButton = styled.button`
     position: absolute;
     top: 2rem;
     right: 2rem;
-border: none;
-background-color: transparent;
+    border: none;
+    background-color: transparent;
 `
 
 const MutedImage = styled.img`
     width: 35px;
     height: 35px;
-    /* background: transparent;
-    filter: invert(100%); */
 ` 
 
 const UnmutedImage = styled.img`
     width: 35px;
     height: 35px;
-    /* background: transparent;
-    filter: invert(100%); */
 `
 
 const AudioPlayer = ({ sound }) => {
     const [playing, toggle] = useAudio(sound)
 
-    // const toggleIcon = () => {
-    //     if (playing) {
-    //         return <mutedImage></mutedImage>
-    //     }
-    //     return <unmutedImage></unmutedImage>
-    // }
-
     return (
         <>
-        <SoundButton onClick={toggle}>{playing ? <MutedImage src={unmutedIcon}></MutedImage> : <UnmutedImage src={mutedIcon}></UnmutedImage>}</SoundButton>
+        <SoundButton onClick={toggle}>{playing ? <MutedImage src={unmutedIcon} alt="muted icon"></MutedImage> : <UnmutedImage src={mutedIcon} alt="unmuted icon"></UnmutedImage>}</SoundButton>
         </>
     )
-    
+
 }
 
 export default AudioPlayer

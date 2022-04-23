@@ -1,9 +1,6 @@
 import React from "react"
 import { useSelector } from "react-redux"
 import styled from "styled-components"
-// import "nes.css/css/nes.min.css";
-
-import game, { fetchMoreData } from "../reducers/game"
 
 import maze from "./Assets/mazesvg.svg"
 
@@ -28,24 +25,18 @@ const Maze = styled.div`
         top: 30px;
         left: 30px;
     }
-
 `
 
 const MazePosition = styled.div`
     width: 20px;
     height: 20px;
     background-color: transparent;
-    /* border-radius: 20px; */
-    /* background-image: url(${props => props.background}); */
-
     box-shadow: ${props => props.background};
-
 `
 
 
 export const MazeGuide = () => {
     const position = useSelector((store) => store.game.position)
-    console.log(position)
 
     const ChangeDot = () => {
         switch (position.coordinates) {
@@ -76,11 +67,7 @@ export const MazeGuide = () => {
     }
 
     return (
-
         <Maze><MazePosition background={ChangeDot()}></MazePosition></Maze>
-
-
     )
 
-
-        }
+}
