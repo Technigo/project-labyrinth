@@ -297,3 +297,11 @@ export const PlayBtn = styled.button`
     transform: scale(1.2);
   }
 `;
+
+export const StyledConfetti = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+`;
