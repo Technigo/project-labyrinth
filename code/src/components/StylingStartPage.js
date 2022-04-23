@@ -30,12 +30,16 @@ export const Logo = styled.img`
 
     @media screen and (min-width: 668px) {
         width: 700px;
+        height: auto;
+
         margin-top: 1rem;
 
     }
 
     @media screen and (min-width: 1024px) {
-        width: 1000px;
+        width: 700px;
+        height: auto;
+
 
     }
 `
