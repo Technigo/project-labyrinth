@@ -1,11 +1,11 @@
 body {
-  background-image:url(./img/background.jpg);
-  background-position: no-repeat fixed;
+  background-image:url(./img/pacman-background.jpg); 
+  /* background-position: no-repeat center fixed;  */
   /* -webkit-background-size: cover;
   -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; */
-  margin: 50px;
+  -o-background-size: cover;*/
+  background-size: cover;
+  margin: 40px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -18,6 +18,7 @@ code {
     monospace;
 }
 
+/* Direction Buttons */
 button:disabled {
   display: none;
 }

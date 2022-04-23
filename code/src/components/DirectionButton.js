@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import labyrinth, { generateQuestion } from 'reducers/labyrinth'
-// import styled from 'styled-components'
+import styled from 'styled-components'
 
 const DirectionButton = () => {
   const directionAlternatives = useSelector((store) =>
@@ -21,43 +21,55 @@ const DirectionButton = () => {
     dispatch(labyrinth.actions.setStep(direction))
   }
 
+  const StyledDirectionButtons = styled.button`
+    width: 100px;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 24px;
+    border-radius: 8px;
+    border: none;
+    background: linen;
+    margin: 8px;
+  `
+
   return (
     <>
-      <button
+      <StyledDirectionButtons
         type="button"
         value={direction.north}
         onClick={(e) => onClick(e.target.value)}
         disabled={!directionAlternatives?.includes(direction.north)}
       >
-        {direction.north}
-      </button>
+        GO {direction.north}
+      </StyledDirectionButtons>
 
-      <button
+      <StyledDirectionButtons
         type="button"
         value={direction.west}
         onClick={(e) => onClick(e.target.value)}
         disabled={!directionAlternatives?.includes(direction.west)}
       >
-        {direction.west}
-      </button>
+        GO {direction.west}
+      </StyledDirectionButtons>
 
-      <button
+      <StyledDirectionButtons
         type="button"
         value={direction.east}
         onClick={(e) => onClick(e.target.value)}
         disabled={!directionAlternatives?.includes(direction.east)}
       >
-        {direction.east}
-      </button>
+        GO {direction.east}
+      </StyledDirectionButtons>
 
-      <button
+      <StyledDirectionButtons
         type="button"
         value={direction.south}
         onClick={(e) => onClick(e.target.value)}
         disabled={!directionAlternatives?.includes(direction.south)}
       >
-        {direction.south}
-      </button>
+        GO {direction.south}
+      </StyledDirectionButtons>
       {/* <Restart /> */}
     </>
   )

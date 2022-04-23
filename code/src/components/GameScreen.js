@@ -2,19 +2,32 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import DirectionButton from 'components/DirectionButton'
 // import Restart from './Restart'
-// import styled from 'styled-components';
+import styled from 'styled-components';
+
+const LabyrinthStatement = styled.h2`
+  font-family: 'Titillium Web', sans-serif;
+  color: linen;
+  text-align: center;
+`
+
+const LabyrinthQuestion = styled.p`
+  font-family: 'Titillium Web', sans-serif;
+  color: pink;
+  text-align: center;
+`
+
 
 const GameScreen = () => {
   const question = useSelector((store) => store.labyrinth.question)
 
   return (
     <div>
-      <h2>{question.description}</h2>
+      <LabyrinthStatement>{question.description}</LabyrinthStatement>
       {question.actions?.map((item, index) => {
         return (
-          <p key={index}>
+          <LabyrinthQuestion key={index}>
             You look to the {item.direction}. {item.description}
-          </p>
+          </LabyrinthQuestion>
         )
       })}
       {question.actions && <DirectionButton />}

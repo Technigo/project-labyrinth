@@ -14,19 +14,25 @@ const StartScreen = () => {
     dispatch(generateLabyrinth())
   }
 
+  const Heading = styled.h1`
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 40px;
+    color: linen;
+    text-align: center;
+    text-decoration: underline;
+    letter-spacing: 1px;
+  `
+  
   return (
     <div>
-      <p>Welcome to the labyrinth!</p>
-      <form>
+      <Heading>Welcome to the labyrinth!</Heading>
         <input
           type="text"
           value={inputValue}
-          required
           onChange={(event) => setInputValue(event.target.value)}
           placeholder="Player name..."
         />
         <button onClick={onNameSelect}>Start the game!</button>
-      </form>
     </div>
   )
 }
