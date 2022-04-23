@@ -6,8 +6,6 @@ import game from 'reducers/game'
 import ui from 'reducers/ui'
 import Game from 'components/Game'
 import Loader from 'components/Loader'
-
-
 import AudioPlayer from "./components/AudioPlayer"
 
   
@@ -26,7 +24,7 @@ export const App = () => {
       <Loader />
       <Game />
       <AudioPlayer />
-
+      
     </Provider>
   )
 }
