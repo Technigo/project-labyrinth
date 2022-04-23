@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { navigateGame } from '../reducer/game'
 import { keyframes } from 'styled-components'
@@ -11,31 +11,27 @@ import BG7 from './img/bg7.png'
 import BG8 from './img/bg8.png'
 import arrow from './img/arrow.svg'
 import navigator from './img/navigator.svg'
+import music from'./img/music.mp3'
 
-import {
-	Background,
-	GameText,
-	ButtonController,
-	Btn,
-	MiddeBtn,
-	Modal,
-	HistoryArrowContainer,
-} from './Styling'
+
+import { Background, GameText, ButtonController, Btn, MiddeBtn, Modal, HistoryArrowContainer } from './Styling'
 import Loadingspinner from './Loadingspinner'
 import styled from 'styled-components/macro'
 
 const HistoryArrow = styled.img`
-	transform: rotate(${(props) => props.rotate});
+	transform: rotate(${props => props.rotate});
 `
 
 const Navigator = styled.img`
 	transform: scale(0.2);
 	position: absolute;
+
 `
 
 const Labyrinth = () => {
 	const [select, setSelect] = useState([])
 	const [prevStep, setPrevStep] = useState('')
+	const [playMusic, setPlayMusic] = useState(false);
 	const dispatch = useDispatch()
 	const items = useSelector((store) => store.game.items)
 
@@ -67,18 +63,6 @@ const Labyrinth = () => {
 
 		setTimeout(() => setPrevStep(''), 1500)
 	}
-
-	// const changeDirectionToIcon = (way) => {
-	// 	if (way === 'North') {
-	// 		return <img src={Polygon} alt='arrow up' />
-	// 	} else if (way === 'South') {
-	// 		return <img className='rotate-down' src={Polygon} alt='arrow down' />
-	// 	} else if (way === 'East') {
-	// 		return <img className='rotate-right' src={Polygon} alt='arrow right' />
-	// 	} else if (way === 'West') {
-	// 		return <img className='rotate-left' src={Polygon} alt='arrow up' />
-	// 	}
-	// }
 
 	const changeDirectionToIcon = (way) => {
 		if (way === 'North') {
@@ -129,11 +113,28 @@ const Labyrinth = () => {
 		`
 	}
 
-	// CHANGE BACKGROUND DEPENDING ON THE ROOM
+	// BACKGROUND MUSIC
+	const audioPlayer = useRef();
+
+	const controlMusic = () => {
+		   
+		    const prevValue = playMusic;
+		    setPlayMusic(!prevValue);	
+			
+			if (!prevValue) {
+				audioPlayer.current.play();
+			} else {
+				audioPlayer.current.pause();
+			}
+		}
+
+
+
+	// CHANGE BACKGROUND DEPENDING ON THE ROOM 
 	const changeBG = () => {
 		switch (items.coordinates) {
 			case '0,0':
-				return BG2
+				return BG2		
 			case '1,0':
 				return BG3
 			case '1,1':
@@ -152,7 +153,7 @@ const Labyrinth = () => {
 	}
 
 	const historyArrow = (way) => {
-		switch (way) {
+		switch(way) {
 			case 'South':
 				return '180deg'
 			case 'West':
@@ -165,16 +166,9 @@ const Labyrinth = () => {
 	}
 	return (
 		<Background background={changeBG()}>
-			<HistoryArrowContainer>
-				{select.map((item) => (
-					<HistoryArrow
-						key={Math.random() * 1000}
-						rotate={historyArrow(item)}
-						src={arrow}
-						alt='arrows to show history'
-					/>
-				))}
-			</HistoryArrowContainer>
+			<button onClick={() => controlMusic()}>Play</button>
+			<audio ref={audioPlayer} src={music}/>
+			<HistoryArrowContainer >{select.map(item => <HistoryArrow rotate={historyArrow(item)} src={arrow} alt='arrows to show history'/>)}</HistoryArrowContainer>
 			<Modal text={prevStep}>
 				You chose {prevStep} <Loadingspinner />
 			</Modal>
@@ -209,3 +203,4 @@ const Labyrinth = () => {
 }
 
 export default Labyrinth
+

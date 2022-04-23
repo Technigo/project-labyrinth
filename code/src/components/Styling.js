@@ -280,4 +280,7 @@ export const PlayBtn = styled.button`
 	position: absolute;
 	bottom: 175px;
 	right: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `
