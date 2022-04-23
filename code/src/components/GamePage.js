@@ -1,7 +1,7 @@
 import React from "react"
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
-import styled from "styled-components"
+import styled from "styled-components/macro"
 // import "nes.css/css/nes.min.css";
 
 import game, { fetchMoreData } from "../reducers/game"
@@ -30,8 +30,10 @@ import img13 from './Assets/IMG_1.3.png'
 const ContentWrapper = styled.section`
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100vw;
     min-height: 100vh;
+    position: relative;
 `
 
 const GameImage = styled.section`
@@ -39,24 +41,22 @@ const GameImage = styled.section`
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 35vh;
+    height: 50vh;
     width: 100%;
 
     @media screen and (min-width: 668px) {
-        height: 35vh;
+        height: 45vh;
         width: 100%;
         background-size: cover;
-        /* background-position-x: 50%; */
-        background-position: center;
+        background-position-y: 80%;
         margin: 0;
     }
     @media screen and (min-width: 1024px) {
         width: 100%;
         background-size: contain;
-        /* background-position-x: 50%; */
-
+        background-position: center;
         height: 50vh;
-
+        margin-top: 1rem;
     }
 `
 
@@ -64,21 +64,23 @@ const GameTextWrapper = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    max-height: 280px;
+    justify-content: center;
+    // justify-content: flex-start;
     text-align: center;
     background-color: black;
     color: white;
+    // position: relative;
     /* margin-top: 1rem; */
 `
 
 const MainTextBox = styled.div`
     position: relative;
-    top: -4rem;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    margin:0;
-    width: 120%;
+    margin: 0;
+    width: 135%;
     box-shadow: 10px 0 rgb(255, 106, 255), 0 10px rgb(255, 106, 255),
         -10px 0 rgb(255, 106, 255), 0 -10px rgb(255, 106, 255);
     
@@ -86,74 +88,41 @@ const MainTextBox = styled.div`
 
     @media screen and (min-width: 668px) {
         width: 130%;
-        top: -3rem;
-
     }
 
     @media screen and (min-width: 1024px) {
-        width: 100%;
-        top: -1rem;
-
+        width: 90%;
     }
-
 `
 
 const MainDescription = styled.h1`
     margin: 0;
-    font-size: 2em;
+    font-size: 1.3rem;
     font-family: "Press Start 2P", cursive;
-  background-color: purple;
-  color: rgb(255, 106, 255);
-  line-height: 1.5em;
-  text-align: center;
-  padding: 1.2em;
-
-
-  @media screen and (min-width: 668px) {
-        padding: 1em 3em;
-
-    }    
-
-    @media screen and (min-width: 1024px) {
-        padding: 1em 5em;
-
-    }
-
-`
-
-
-const RestartButton = styled.button`
-    appearance: none;
-    width: 250px;
-    border: 4px solid;
-    border-color: black;
-    background: white;
-    color: black;
-    font-size: 1rem;
-    padding: 10px;
-    margin-top: 2rem;
-    font-weight: bold;
-    font-family: 'Press Start 2P', cursive;
-
-    &:hover,
-    &:focus {
-        border-color: purple;
-    }
+    background-color: purple;
+    color: #FFD7FD;
+    line-height: 1.5rem;
+    text-align: center;
+    padding: 1.2rem;
 
     @media screen and (min-width: 668px) {
-        margin-top: 1rem;
-        margin-bottom: 2rem;
-    }
+            padding: 1rem 3rem;
+            line-height: 2.4rem;
+            font-size: 1.8rem;
+        }    
+
+        @media screen and (min-width: 1024px) {
+            padding: 1rem 5rem;
+        }
 `
 
-
 const PixelDecorationOutline = styled.div`
-position: absolute;
-  top: -20px;
-  left: -20px;
-  width: calc(100% + 40px);
-  height: calc(100% + 40px);
-  border: 10px solid purple;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    border: 10px solid purple;
 `
 
 const PixelDecorationLeftTop = styled.div`
@@ -204,30 +173,53 @@ const PixelDecorationRightBottom = styled.div`
 `
 
 const ChoosingMove = styled.p`
-    padding: 0.5rem 2rem;
+    padding: 1rem 1rem 0;
     margin: 0;
-    font-size: 1.2rem;
-    position: absolute;
-    top: 55rem;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #DA9EFF;
+    text-transform: uppercase;
 
     @media screen and (min-width: 668px) {
-        width: 90%;
+        padding: 1rem 0;
+        font-size: 1.1rem;
     }    
 
     @media screen and (min-width: 1024px) {
-        width: 70%;
+        font-size: 1.2rem;
     }
 `
 
-const DirectionDescription = styled.p`
-   font-size: 0.8rem;
-    padding: 0 3rem;
-   line-height: 1.3rem;
-   flex: 1;
+const RestartButton = styled.button`
+    appearance: none;
+    width: 250px;
+    border: 4px solid;
+    border-color: black;
+    background: white;
+    color: black;
+    font-size: 1rem;
+    padding: 10px;
+    margin-top: 2rem;
+    font-weight: bold;
+    font-family: 'Press Start 2P', cursive;
+
+    &:hover,
+    &:focus {
+        border-color: purple;
+    }
+
+    @media screen and (min-width: 668px) {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
 `
 
-const StyledContainer = styled.div`
+const StyledContainer = styled.section`
+    color: #DA9EFF;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     flex-direction: ${props =>
         props.coordinates === "1,1"
         ? "column-reverse"
@@ -237,17 +229,19 @@ const StyledContainer = styled.div`
         ? "column-reverse"
         : "column"
     };
-    padding: 1rem 2rem;
-    position: absolute;
-    top: 60rem;
+    padding: 0 1rem;
 
     @media screen and (min-width: 668px) {
-        width: 80%;
+        padding: 0 2rem 0;
     }
 
     @media screen and (min-width: 1024px) {
         width: 70%;
-        padding: 1rem 2rem 2rem;
+        padding: 1rem 4rem 2rem;
+    }
+
+    @media screen and (min-width: 1300px) {
+        width: 50%;
     }
 `
 
@@ -263,7 +257,7 @@ const DirectionDetails = styled.div`
     };
 
     @media screen and (min-width: 668px) {
-        padding: 1rem 0;
+        padding: 1rem;
     }
 `
 
@@ -282,6 +276,7 @@ const ArrowContainer = styled.div`
         ? "column-reverse"
         : "column"
     };
+
 `
 
 const DirectionButton = styled.button`
@@ -290,12 +285,10 @@ const DirectionButton = styled.button`
     border: none;
     display: flex;
     flex-direction: column;
-    width: 100;
-    margin: 1rem;
 `
 
 const DirectionImage = styled.img`
-    width: 50px;
+    width: 25px;
     height: auto;
     transform: ${props => 
         props.direction === "North"
@@ -305,6 +298,20 @@ const DirectionImage = styled.img`
             : props.direction === "West"
             ? `rotate(-90deg)`
             : `rotate(90deg)`
+    };
+
+    @media screen and (min-width: 668px) {
+        width: 40px;
+    }
+`
+
+const DirectionDescription = styled.p`
+    font-size: 0.8rem;
+    padding: 0.5rem 1.5rem;
+    line-height: 1.3rem;
+
+    @media screen and (min-width: 668px) {
+        padding: 0 1.5rem;
     }
 `
 
@@ -350,29 +357,31 @@ const GamePage = () => {
     return (
         <ContentWrapper>
             <GameImage background={ChangeBackground()}></GameImage>
-            <MazeGuide></MazeGuide>
+            <MazeGuide />
 
             <GameTextWrapper>
-            <AudioPlayer />
 
-            <MainTextBox>
-                <PixelDecorationOutline></PixelDecorationOutline>
+                <MainTextBox>
+                    <PixelDecorationOutline></PixelDecorationOutline>
 
-                <MainDescription>{position.description}</MainDescription>
+                    <MainDescription>{position.description}</MainDescription>
 
-                <PixelDecorationLeftTop></PixelDecorationLeftTop>
-                <PixelDecorationRightTop></PixelDecorationRightTop>
-                <PixelDecorationLeftBottom></PixelDecorationLeftBottom>
-                <PixelDecorationRightBottom></PixelDecorationRightBottom>
-            </MainTextBox>
+                    <PixelDecorationLeftTop></PixelDecorationLeftTop>
+                    <PixelDecorationRightTop></PixelDecorationRightTop>
+                    <PixelDecorationLeftBottom></PixelDecorationLeftBottom>
+                    <PixelDecorationRightBottom></PixelDecorationRightBottom>
+
+                </MainTextBox>
+
+            </GameTextWrapper>
     
-                <StyledContainer coordinates={position.coordinates}>
-
                 {position.coordinates !== "1,3" && <ChoosingMove>Choose your direction:</ChoosingMove>}
 
                 {position.coordinates === "1,3" && <RestartButton onClick={() => restartGame()}>Restart</RestartButton>}
             
-                
+
+                <StyledContainer coordinates={position.coordinates}>
+    
                     {position.actions.map(item => (
                         <DirectionDetails
                             key={item.description}
@@ -400,8 +409,6 @@ const GamePage = () => {
                         </DirectionDetails>
                     ))}
                 </StyledContainer>
-
-            </GameTextWrapper>
         </ContentWrapper>
     )
 }

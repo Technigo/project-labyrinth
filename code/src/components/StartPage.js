@@ -5,6 +5,8 @@ import game, {fetchData} from "reducers/game"
 import styled from 'styled-components'
 import logo from './Assets/LOGO2.png'
 import startBackground from './Assets/startpage.jpg'
+import AudioPlayer from "./AudioPlayer"
+
 
 
 
@@ -99,6 +101,7 @@ const StartPage = () => {
 
     return (
         <Start>
+
             <Logo src={logo}></Logo>
             <WelcomeText>Welcome, give us your name!</WelcomeText>
         

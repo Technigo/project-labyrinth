@@ -9,31 +9,33 @@ import maze from "./Assets/mazesvg.svg"
 
 
 const Maze = styled.div`
-position: absolute;
-top: 20px;
-left: 20px;
-width: 160px;
-height: 160px;
-background-image: url(${maze});
-transform: scale(0.5);
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 160px;
+    height: 160px;
+    background-image: url(${maze});
+    transform: scale(0.5);
 
-@media screen and (min-width: 668px) {
-    transform: scale(0.8);
+    @media screen and (min-width: 668px) {
+        top: 20px;
+        left: 20px;
+        transform: scale(0.8);
+        }
 
-    }
     @media screen and (min-width: 1024px) {
         transform: scale(1);
-
+        top: 30px;
+        left: 30px;
     }
 
 `
 
 const MazePosition = styled.div`
-
     width: 20px;
     height: 20px;
     background-color: transparent;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     /* background-image: url(${props => props.background}); */
 
     box-shadow: ${props => props.background};
