@@ -7,7 +7,7 @@ export const Start = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
     width: 100%;
     height: 100vh;
     background-image: url(${startBackground}) ;
@@ -16,7 +16,9 @@ export const Start = styled.main`
     background-position-y: 95%;
 
     @media screen and (min-width: 668px) {
+
         background-position-y: 75%;
+        justify-content: space-around;
 
     }
 `
@@ -42,7 +44,8 @@ export const WelcomeText = styled.h1`
     color: white;
     width: 80%;
     font-size: 1.5rem;
-    margin-top: 0;
+    margin-top: 3rem;
+    line-height: 1.3em;
 
     @media screen and (min-width: 668px) {
         width: 80%;
@@ -54,10 +57,12 @@ export const WelcomeText = styled.h1`
 export const Input = styled.input`
     border: 4px solid;
     border-color: black;
-    width: 300px;
-    margin-bottom: 0;
+    width: 330px;
+    height: 50px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     font-size: 1.3rem;
-    padding: 5px;
+    /* padding: 5px; */
     text-align: center;
     font-family: 'Press Start 2P', cursive;
 
@@ -70,6 +75,8 @@ export const Input = styled.input`
 
     @media screen and (min-width: 668px) {
         width: 500px;
+        height: 70px;
+
         margin-bottom: 1rem;
         font-size: 1.8rem;
     }
@@ -79,7 +86,8 @@ export const SendBtn = styled.button`
     font-size: 1rem;
     border: 4px solid;
     border-color: black;
-    width: 250px;
+    width: 330px;
+    height: 50px;
     padding: 10px;
     margin-bottom: 2rem;
     font-weight: bold;
@@ -92,8 +100,9 @@ export const SendBtn = styled.button`
     }
 
     @media screen and (min-width: 668px) {
-        width: 450px;
+        width: 500px;
+        height: 70px;
         font-size: 1.3rem;
-        margin-bottom: 5rem;
+        margin-bottom: 15rem;
     }
 `
