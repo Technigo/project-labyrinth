@@ -13,7 +13,3 @@ const ui = createSlice({
 })
 
 export default ui
-
-// setLoading: (store, action) => {
-// 	store.isLoading = action.payload
-// },

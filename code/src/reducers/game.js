@@ -6,15 +6,11 @@ const game = createSlice({
     initialState: {
         actions: '',
         username: null,
-        // description: null
     },
     reducers: {
         setPlayer: (store, action) => {
             store.username = action.payload
         },
-        // setDescription: (store, action) => {
-        //     store.description = action.payload
-        // }
         setActions: (store, action) => {
             store.actions = action.payload
         }
@@ -58,8 +54,6 @@ export const generateAction = (type, direction) => {
             .then((res) => res.json())
             .then((data) => dispatch(game.actions.setActions(data)))
             .finally(dispatch(ui.actions.setLoading(false)))
-            // dispatch(ui.actions.setLoading(false))
-
     }
 }
 
