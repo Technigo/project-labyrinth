@@ -1,6 +1,6 @@
 import React from "react"
 import { useSelector } from "react-redux"
-import styled from "styled-components"
+import styled from "styled-components/macro"
 import Lottie from "react-lottie"
 import animationData from "../lotties/purple-pixel-heart.json"
 
@@ -36,9 +36,9 @@ const Loader = () => {
       {isLoading &&
        <LoaderContainer>
             <Lottie
-            options={defaultOptions}
-            width={500}
-            height={500}
+                options={defaultOptions}
+                width={500}
+                height={500}
              />
         </LoaderContainer>}
         </>

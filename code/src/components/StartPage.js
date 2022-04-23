@@ -24,10 +24,10 @@ const StartPage = () => {
 
             <label htmlFor="name-field">
             <Input
-            type="text"
-            id="name-field"
-            value={nameInput}
-            onChange={event => setNameInput(event.target.value)} />
+                type="text"
+                id="name-field"
+                value={nameInput}
+                onChange={event => setNameInput(event.target.value)} />
             </label>
             
             <SendBtn onClick={SetName}>Start the game</SendBtn>

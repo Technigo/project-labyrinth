@@ -16,7 +16,8 @@
     "react-lottie": "^1.2.3",
     "react-redux": "^8.0.0",
     "react-scripts": "^3.3.0",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "use-sound": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

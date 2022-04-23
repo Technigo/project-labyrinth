@@ -59,6 +59,8 @@ export const Input = styled.input`
     font-size: 1.3rem;
     padding: 5px;
     text-align: center;
+    font-family: 'Press Start 2P', cursive;
+
 
     &:hover,
     &:focus {

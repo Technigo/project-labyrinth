@@ -1,8 +1,6 @@
 import React from "react"
 import { useSelector } from "react-redux"
 
-// import game from "../reducers/game"
-
 import StartPage from "components/StartPage"
 import GamePage from "./GamePage"
 
