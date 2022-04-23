@@ -5,16 +5,37 @@ import styled from 'styled-components';
 import { generateAction } from '../reducers/games';
 
 const GameWrapper = styled.div`
+  margin-top: 100px;
   background-color: darkgreen;
   padding: 20px;
-  font-size: 20px;
-`
+  font-size: 12px;
+  width: 50vw;
+  word-wrap: break-word;
+  
+  @media (min-width: 768px) {
+    font-size: 15px;
+  }
 
+  @media (min-width: 1200px) {
+    font-size: 20px;
+  }
+`
+const ActionsDiv = styled.div`
+  border-bottom: 5px dotted white;
+  color: lightgreen;
+`
+const DescriptionDiv = styled.div`
+  border-bottom: 10px dotted white;
+  color: white;
+`
 const DirectionButton = styled.button`
   border: none;
   background-color: lightgreen;
   border-radius: 50px;
   margin-bottom: 20px;
+`
+const EndText = styled.p`
+  color: white;
 `
 
 const GameScreen = () => {
@@ -31,9 +52,6 @@ const GameScreen = () => {
     const description = useSelector(state => state.game.game.description)
     const actions = useSelector(state => state.game.game.actions)
 
-    console.log(description)
-    console.log(actions)
-
     const onChooseDirection = (index) => {
       setDirection(directionArray[index])
       dispatch(generateAction(index));
@@ -46,13 +64,13 @@ const GameScreen = () => {
 
   return (
       <GameWrapper>
-          <div style={{borderBottom: '10px dotted white', color: 'white'}}>
+          <DescriptionDiv>
             <h1>{description}</h1>
             {direction !== '' && <p>You chose to go: {direction}</p>}          
-          </div>
+          </DescriptionDiv>
           {actions && 
           actions.map(content => 
-              <div key={Math.random()} style={{borderBottom: '5px dotted white', color: 'lightgreen'}}>
+              <ActionsDiv key={Math.random()}>
                 <p style={{fontWeight: 'bold'}}>Alternative way:</p>
                 <p>{content.direction}</p>   
                 <p>{content.description}</p>  
@@ -62,9 +80,9 @@ const GameScreen = () => {
                   {content.direction === 'West' && westBtn}
                   {content.direction === 'North' && northBtn}
                 </span>
-              </div>)
+              </ActionsDiv>)
           }          
-          <p>{(actions && actions.length === 0) && <p style={{color: 'white'}}>Congrats you've made it to the end</p>}</p>
+          <p>{(actions && actions.length === 0) && <EndText>Congrats you've made it to the end</EndText>}</p>
       </GameWrapper>  
   )
 };

@@ -17,7 +17,7 @@ const StartScreen = () => {
 
   return (
       <div>
-          <p>The Labyrith game</p>
+          <h1>The Labyrith game</h1>
           <div style={{marginBottom: '10px'}}>
           <input
           type="text"
