@@ -30,7 +30,6 @@ code {
   font-family: 'Titillium Web', sans-serif;
   font-size: 40px;;
   text-align: center;
-  text-decoration: underline;
   letter-spacing: 1px;
 }
 
@@ -64,21 +63,20 @@ input::placeholder {
   text-transform: uppercase;
   font-size: 24px;
   border-radius: 8px;
-  border: none;
-  background: #4700D8;
-  color: white;
+  border: 4px solid #4700D8;
+  background: #E5EFC1;
+  color: #4700D8;
   margin: 8px;
   padding: 8px;
   cursor: grab;
 }
 
 .startButton:disabled {
-  background: white;
-  color: #4700D8; 
+  background: #4700D8;
+  color: white; 
 }
 
-/*GameScreen*/
-
+/* Game Screen */
 .gameContainer {
   display:flex;
   flex-direction: column;
@@ -119,13 +117,13 @@ input::placeholder {
   font-size: 24px;
   border-radius: 8px;
   border: none;
-  background: #bf67c6;
+  background: #F900BF;
   margin: 8px;
   cursor: pointer;
 }
 
 .directionButton:hover {
-  background: #5B7DB1;
+  background: #E5EFC1;
 }
 
 .directionButton:disabled {
@@ -138,12 +136,27 @@ input::placeholder {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top:100px;
+  margin-top: 30px;
 }
 
-/*Media Queries*/
+.restartButton {
+  bottom: 20px;
+  background: #4700D8;
+  color: pink;
+}
 
-/* @media (min-width: 768px) {
+.restartButton:hover {
+  background: #E5EFC1;
+  color: #4700D8;
+}
+
+.endpageImg {
+  width: 400px;
+  border: 10px solid black;
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
   .heading {
     font-size: 80px;
   }
@@ -172,4 +185,8 @@ input::placeholder {
     padding: 5px;
   }
 
-} */
+  .endpageImg {
+    width: auto;
+  }
+
+}

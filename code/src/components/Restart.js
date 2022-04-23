@@ -1,5 +1,5 @@
 import React from 'react'
-// import styled from 'styled-components';
+import endPageImg from '../img/endpage.jpg'
 
 const Restart = () => {
   const restart = () => {
@@ -7,6 +7,7 @@ const Restart = () => {
   }
   return (
     <div className="restartContainer">
+      <img className="endpageImg" src={endPageImg} alt="Fireworks" />
       <button className="restartButton" onClick={restart}>Restart game</button>
     </div>
   )

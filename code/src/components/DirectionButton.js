@@ -1,7 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import labyrinth, { generateQuestion } from 'reducers/labyrinth'
-import styled from 'styled-components'
 
 const DirectionButton = () => {
   const directionAlternatives = useSelector((store) =>
@@ -29,7 +28,7 @@ const DirectionButton = () => {
         onClick={(e) => onClick(e.target.value)}
         disabled={!directionAlternatives?.includes(direction.north)}
       >
-        GO {direction.north}
+        GO {direction.north} ↑
       </button>
 
       <button className="directionButton"
@@ -38,7 +37,7 @@ const DirectionButton = () => {
         onClick={(e) => onClick(e.target.value)}
         disabled={!directionAlternatives?.includes(direction.west)}
       >
-        GO {direction.west}
+        GO {direction.west} ←
       </button>
 
     <button className="directionButton"
@@ -47,7 +46,7 @@ const DirectionButton = () => {
         onClick={(e) => onClick(e.target.value)}
         disabled={!directionAlternatives?.includes(direction.east)}
       >
-        GO {direction.east}
+        GO {direction.east} →
       </button>
 
       <button className="directionButton"
@@ -56,7 +55,7 @@ const DirectionButton = () => {
         onClick={(e) => onClick(e.target.value)}
         disabled={!directionAlternatives?.includes(direction.south)}
       >
-        GO {direction.south}
+        GO {direction.south} ↓
       </button>
       {/* <Restart /> */}
     </>

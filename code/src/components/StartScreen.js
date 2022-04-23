@@ -15,7 +15,7 @@ const StartScreen = () => {
   
   return (
     <div className="startPage">
-      <h1 className="heading">Welcome to the labyrinth!</h1>
+      <h1 className="heading">Do you wanna play a game?</h1>
       <div>
       <form className='inputForm'>
         <input

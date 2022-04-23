@@ -2,9 +2,6 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import DirectionButton from 'components/DirectionButton'
 import Restart from './Restart'
-import styled from 'styled-components';
-
-
 
 const GameScreen = () => {
   const question = useSelector((store) => store.labyrinth.question)
