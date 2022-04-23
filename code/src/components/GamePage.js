@@ -6,6 +6,7 @@ import styled from "styled-components"
 
 import game, { fetchMoreData } from "../reducers/game"
 import AudioPlayer from "./AudioPlayer"
+import { MazeGuide } from "./MazeGuide"
 
 import arrow from "./Assets/pixel-arrow-padding.svg"
 import blueBackground from './Assets/blue-background.png'
@@ -349,6 +350,7 @@ const GamePage = () => {
     return (
         <ContentWrapper>
             <GameImage background={ChangeBackground()}></GameImage>
+            <MazeGuide></MazeGuide>
 
             <GameTextWrapper>
             <AudioPlayer />
