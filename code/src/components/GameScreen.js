@@ -7,6 +7,7 @@ import { generateAction } from '../reducers/games';
 const GameWrapper = styled.div`
   background-color: darkgreen;
   padding: 20px;
+  font-size: 20px;
 `
 
 const DirectionButton = styled.button`
