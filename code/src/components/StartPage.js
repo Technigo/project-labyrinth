@@ -58,8 +58,8 @@ const StartPage = () => {
 				<GoBackBtn type='button' onClick={onRestartClick}>
 					<GoBackBtnImg src={ReturnBtn} alt='click to restart'></GoBackBtnImg>
 				</GoBackBtn>
-				<PlayBtn onClick={controlMusic}><img src={playMusic ? Polygon : pause} /></PlayBtn>
-				<Logo src={Logotype}></Logo>
+				<PlayBtn onClick={controlMusic}><img src={playMusic ? Polygon : pause} alt='audio icon' /></PlayBtn>
+				<Logo src={Logotype} img='logo'></Logo>
 				<BottomStyling />
 			</ConsoleContainer>
 		</MainWrapper>
