@@ -6,9 +6,9 @@ const Restart = () => {
     window.location.reload()
   }
   return (
-    <>
+    <div className="restartContainer">
       <button className="restartButton" onClick={restart}>Restart game</button>
-    </>
+    </div>
   )
 }
 export default Restart

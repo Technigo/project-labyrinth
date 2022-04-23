@@ -17,15 +17,18 @@ background-size: cover;
   height: 100vh;
 }
 
-
-
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 /* Start Screen */
+.startPage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .heading {
   font-family: 'Titillium Web', sans-serif;
   font-size: 40px;
@@ -35,12 +38,23 @@ code {
   letter-spacing: 1px;
 }
 
+.inputForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 input {
+  background-color: rgb(68 83 192);
+  color:linen;
   height: 48px;
   width: 280px;
   border-radius: 8px;
   font-family: 'Titillium Web', sans-serif;
-  /* border: none; */
+  font-size: 20px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  border: none;
 }
 
 .startButton, .restartButton {
@@ -51,14 +65,14 @@ input {
   border-radius: 8px;
   border: none;
   background: #E4AEC5;
-  color: #5B7DB1;
+  color: #37857a;
   margin: 8px;
   padding: 8px;
   cursor: grab;
 }
 
 .startButton:disabled {
-  background: #5B7DB1;
+  background: #37857a;
   color: #E4AEC5;
 }
 
@@ -79,17 +93,21 @@ input {
   flex-direction:row;
 }
 
-.labyrinthQuestion{
+.labyrinthQuestion, .labyrinthStatement{
   font-family: 'Titillium Web', sans-serif;
-  color: pink;
   text-align: center;
+  background-color: black;
+    opacity: 80%;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.labyrinthQuestion{
+  color: pink;
 }
 
 .labyrinthStatement{
-  font-family: 'Titillium Web', sans-serif;
   color: linen;
-  text-align: center;
-  font-size:20px;
 }
 
 .directionButton {
@@ -100,7 +118,7 @@ input {
   font-size: 24px;
   border-radius: 8px;
   border: none;
-  background: linen;
+  background: #bf67c6;
   margin: 8px;
   cursor: pointer;
 }
@@ -111,4 +129,13 @@ input {
 
 .directionButton:disabled {
   display: none;
+}
+
+/*RestartScreen*/
+
+.restartContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top:100px;
 }

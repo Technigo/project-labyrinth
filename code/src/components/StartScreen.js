@@ -14,10 +14,10 @@ const StartScreen = () => {
   }
   
   return (
-    <div>
+    <div className="startPage">
       <h1 className="heading">Welcome to the labyrinth!</h1>
       <div>
-      <form>
+      <form className='inputForm'>
         <input
           type="text"
           value={inputValue}

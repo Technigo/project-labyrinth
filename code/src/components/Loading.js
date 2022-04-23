@@ -10,7 +10,7 @@ export const Loading = () => {
     isLoading && (
       <>
         <div>
-          <Spinner name="pacman" color="#FAFFAF" />
+          <Spinner name="pacman" color="#bf67c6" />
         </div>
       </>
     )
