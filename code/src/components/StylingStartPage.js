@@ -16,7 +16,6 @@ export const Start = styled.main`
     background-position-y: 95%;
 
     @media screen and (min-width: 668px) {
-
         background-position-y: 75%;
         justify-content: space-around;
 
@@ -31,16 +30,12 @@ export const Logo = styled.img`
     @media screen and (min-width: 668px) {
         width: 700px;
         height: auto;
-
         margin-top: 1rem;
-
     }
 
     @media screen and (min-width: 1024px) {
-        width: 700px;
+        width: 800px;
         height: auto;
-
-
     }
 `
 export const WelcomeText = styled.h1`
@@ -107,6 +102,6 @@ export const SendBtn = styled.button`
         width: 500px;
         height: 70px;
         font-size: 1.3rem;
-        margin-bottom: 15rem;
+        margin-bottom: 10rem;
     }
 `
