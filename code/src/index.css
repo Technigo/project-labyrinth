@@ -1,24 +1,114 @@
 body {
-  background-image:url(./img/pacman-background.jpg); 
-  /* background-position: no-repeat center fixed;  */
-  /* -webkit-background-size: cover;
+  background-image:url(./img/packmangame.jpg); 
+  background-position: no-repeat center fixed;  
+  -webkit-background-size: cover;
   -moz-background-size: cover;
-  -o-background-size: cover;*/
-  background-size: cover;
+  -o-background-size: cover;
+
+background-size: cover;
+  background-position: center;
+  /*background: #191919;*/
   margin: 40px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
 }
+
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-/* Direction Buttons */
-button:disabled {
+/* Start Screen */
+.heading {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 40px;
+  color: linen;
+  text-align: center;
+  text-decoration: underline;
+  letter-spacing: 1px;
+}
+
+input {
+  height: 48px;
+  width: 280px;
+  border-radius: 8px;
+  font-family: 'Titillium Web', sans-serif;
+  /* border: none; */
+}
+
+.startButton, .restartButton {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 24px;
+  border-radius: 8px;
+  border: none;
+  background: #E4AEC5;
+  color: #5B7DB1;
+  margin: 8px;
+  padding: 8px;
+  cursor: grab;
+}
+
+.startButton:disabled {
+  background: #5B7DB1;
+  color: #E4AEC5;
+}
+
+/*GameScreen*/
+
+.gameContainer {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin:5px;
+  padding:20px;
+}
+
+.buttonContainer{
+  display:flex;
+
+  padding:20px;
+  flex-direction:row;
+}
+
+.labyrinthQuestion{
+  font-family: 'Titillium Web', sans-serif;
+  color: pink;
+  text-align: center;
+}
+
+.labyrinthStatement{
+  font-family: 'Titillium Web', sans-serif;
+  color: linen;
+  text-align: center;
+  font-size:20px;
+}
+
+.directionButton {
+  width: 100px;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 24px;
+  border-radius: 8px;
+  border: none;
+  background: linen;
+  margin: 8px;
+  cursor: pointer;
+}
+
+.directionButton:hover {
+  background: #5B7DB1;
+}
+
+.directionButton:disabled {
   display: none;
 }

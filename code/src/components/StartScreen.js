@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import styled from 'styled-components'
 
 import labyrinth, { generateLabyrinth } from 'reducers/labyrinth'
 
@@ -13,26 +12,21 @@ const StartScreen = () => {
     dispatch(labyrinth.actions.setUserName(inputValue))
     dispatch(generateLabyrinth())
   }
-
-  const Heading = styled.h1`
-    font-family: 'Titillium Web', sans-serif;
-    font-size: 40px;
-    color: linen;
-    text-align: center;
-    text-decoration: underline;
-    letter-spacing: 1px;
-  `
   
   return (
     <div>
-      <Heading>Welcome to the labyrinth!</Heading>
+      <h1 className="heading">Welcome to the labyrinth!</h1>
+      <div>
+      <form>
         <input
           type="text"
           value={inputValue}
           onChange={(event) => setInputValue(event.target.value)}
-          placeholder="Player name..."
+          placeholder="Enter player name"
         />
-        <button onClick={onNameSelect}>Start the game!</button>
+        <button className="startButton" disabled={inputValue.length === 0} onClick={onNameSelect}>Start the game!</button>
+      </form>
+      </div>
     </div>
   )
 }

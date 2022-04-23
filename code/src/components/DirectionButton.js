@@ -21,55 +21,43 @@ const DirectionButton = () => {
     dispatch(labyrinth.actions.setStep(direction))
   }
 
-  const StyledDirectionButtons = styled.button`
-    width: 100px;
-    font-family: 'Titillium Web', sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 24px;
-    border-radius: 8px;
-    border: none;
-    background: linen;
-    margin: 8px;
-  `
-
   return (
     <>
-      <StyledDirectionButtons
+      <button className="directionButton"
         type="button"
         value={direction.north}
         onClick={(e) => onClick(e.target.value)}
         disabled={!directionAlternatives?.includes(direction.north)}
       >
         GO {direction.north}
-      </StyledDirectionButtons>
+      </button>
 
-      <StyledDirectionButtons
+      <button className="directionButton"
         type="button"
         value={direction.west}
         onClick={(e) => onClick(e.target.value)}
         disabled={!directionAlternatives?.includes(direction.west)}
       >
         GO {direction.west}
-      </StyledDirectionButtons>
+      </button>
 
-      <StyledDirectionButtons
+    <button className="directionButton"
         type="button"
         value={direction.east}
         onClick={(e) => onClick(e.target.value)}
         disabled={!directionAlternatives?.includes(direction.east)}
       >
         GO {direction.east}
-      </StyledDirectionButtons>
+      </button>
 
-      <StyledDirectionButtons
+      <button className="directionButton"
         type="button"
         value={direction.south}
         onClick={(e) => onClick(e.target.value)}
         disabled={!directionAlternatives?.includes(direction.south)}
       >
         GO {direction.south}
-      </StyledDirectionButtons>
+      </button>
       {/* <Restart /> */}
     </>
   )

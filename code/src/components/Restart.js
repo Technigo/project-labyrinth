@@ -7,7 +7,7 @@ const Restart = () => {
   }
   return (
     <>
-      <button onClick={restart}>Restart game</button>
+      <button className="restartButton" onClick={restart}>Restart game</button>
     </>
   )
 }
