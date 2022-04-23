@@ -82,7 +82,6 @@ export const Span = styled.span`
 `
 
 export const GoBackBtn = styled.button`
-	border-radius: 50%;
 	background: transparent;
 	border: transparent;
 	position: absolute;
