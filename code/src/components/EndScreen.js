@@ -13,19 +13,19 @@ const EndScreen = () => {
 
     return (
         <ChildContainer>
-        <div class="nes-container is-dark with-title">
-            <p class="title">Congratulations!</p>
+            <div class="nes-container is-dark with-title">
+                <p class="title">Congratulations!</p>
           
-            <p class="nes-balloon from-left nes-pointer is-dark">
-              {endDescription}
-            </p> 
-        <Pokemons>
-            <i class="nes-bulbasaur"></i>
-            <i class="nes-charmander"></i>
-        </Pokemons>
-            <button type="button" class="nes-btn is-warning"
-            onClick={restartButton}>Restart</button>
-        </div>
+                <p class="nes-balloon from-left nes-pointer is-dark">
+                {endDescription}
+                </p> 
+                <Pokemons>
+                    <i class="nes-bulbasaur"></i>
+                    <i class="nes-charmander"></i>
+                </Pokemons>
+                <button type="button" class="nes-btn is-warning"
+                onClick={restartButton}>Restart</button>
+            </div>
         </ChildContainer>
     )    
 }
