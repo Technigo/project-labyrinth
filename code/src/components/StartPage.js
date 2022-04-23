@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useRef } from "react";
 
 import game from '../reducer/game'
 import Game from './Game'
 import Labyrinth from './Labyrinth'
+import pause from './img/pause.svg'
+import Polygon from './img/Polygon.svg'
 
 import ReturnBtn from './img/returnbtn.svg'
 import Logotype from './img/logo.png'
@@ -20,7 +23,7 @@ import {
 } from './Styling'
 
 const StartPage = () => {
-	const [playMusic, setPlayMusic] = useState(false)
+	const [playMusic, setPlayMusic] = useState(true)
 	const items = useSelector((store) => store.game.items)
 	const dispatch = useDispatch()
 
@@ -29,24 +32,33 @@ const StartPage = () => {
 	}
 
 	// BACKGROUND MUSIC
-	const audioElement = new Audio(Music)
+	const audioPlaye = useRef();
 
 	const controlMusic = () => {
-		audioElement.play()
-		setPlayMusic(false)
-	}
+		   
+		    const prevValue = playMusic;
+		    setPlayMusic(!prevValue);	
+			
+			if (!prevValue) {
+				audioPlaye.current.play();
+			} else {
+				audioPlaye.current.pause();
+			}
+		}
 
-	//			<button onClick={() => audioElement.play()} onDoubleClick={() => audioElement.pause()}>Play</button>
 
-	console.log(playMusic)
+	
+
+
 	return (
 		<MainWrapper>
+			<audio ref={audioPlaye} src={Music} autoPlay/>
 			<ConsoleContainer>
 				<ConsoleFrame>{items ? <Labyrinth /> : <Game />}</ConsoleFrame>
 				<GoBackBtn type='button' onClick={onRestartClick}>
 					<GoBackBtnImg src={ReturnBtn} alt='click to restart'></GoBackBtnImg>
 				</GoBackBtn>
-				<PlayBtn onClick={() => controlMusic()}>▶</PlayBtn>
+				<PlayBtn onClick={controlMusic}><img src={playMusic ? Polygon : pause} /></PlayBtn>
 				<Logo src={Logotype}></Logo>
 				<BottomStyling />
 			</ConsoleContainer>
