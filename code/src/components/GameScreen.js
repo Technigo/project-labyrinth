@@ -1,7 +1,20 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
 
 import { generateAction } from '../reducers/games';
+
+const GameWrapper = styled.div`
+  background-color: darkgreen;
+  padding: 20px;
+`
+
+const DirectionButton = styled.button`
+  border: none;
+  background-color: lightgreen;
+  border-radius: 50px;
+  margin-bottom: 20px;
+`
 
 const GameScreen = () => {
     const dispatch = useDispatch();
@@ -25,30 +38,33 @@ const GameScreen = () => {
       dispatch(generateAction(index));
     }
 
-    let eastBtn = <button onClick={() => onChooseDirection(0)}>Go east</button>
-    let southBtn = <button onClick={() => onChooseDirection(1)}>Go south</button>
-    let westBtn = <button onClick={() => onChooseDirection(2)}>Go west</button>
-    let northBtn = <button onClick={() => onChooseDirection(3)}>Go north</button>   
+    let eastBtn = <DirectionButton onClick={() => onChooseDirection(0)}>Go east</DirectionButton>
+    let southBtn = <DirectionButton onClick={() => onChooseDirection(1)}>Go south</DirectionButton>
+    let westBtn = <DirectionButton onClick={() => onChooseDirection(2)}>Go west</DirectionButton>
+    let northBtn = <DirectionButton onClick={() => onChooseDirection(3)}>Go north</DirectionButton>   
 
   return (
-      <div>
-          <p>{description}</p>
-          {direction !== '' && <p>You chose to go: {direction}</p>}          
+      <GameWrapper>
+          <div style={{borderBottom: '10px dotted white', color: 'white'}}>
+            <h1>{description}</h1>
+            {direction !== '' && <p>You chose to go: {direction}</p>}          
+          </div>
           {actions && 
           actions.map(content => 
-              <div key={Math.random()}>
-              <p style={{fontWeight: 'bold'}}>Alternative way:</p>
-              <p>{content.direction}</p>              
-              {content.direction === 'East' && eastBtn}
-              {content.direction === 'South' && southBtn}
-              {content.direction === 'West' && westBtn}
-              {content.direction === 'North' && northBtn}
-              <p>{content.description}</p>
+              <div key={Math.random()} style={{borderBottom: '5px dotted white', color: 'lightgreen'}}>
+                <p style={{fontWeight: 'bold'}}>Alternative way:</p>
+                <p>{content.direction}</p>   
+                <p>{content.description}</p>  
+                <span>
+                  {content.direction === 'East' && eastBtn}
+                  {content.direction === 'South' && southBtn}
+                  {content.direction === 'West' && westBtn}
+                  {content.direction === 'North' && northBtn}
+                </span>
               </div>)
           }          
-          {/* Explanation for code: Seems like a bug in the api provided, there is a response with an empty actions array, where west is the only working direction to choose */}
-          <p>{(actions && actions.length === 0) && westBtn}</p>
-      </div>  
+          <p>{(actions && actions.length === 0) && <p style={{color: 'white'}}>Congrats you've made it to the end</p>}</p>
+      </GameWrapper>  
   )
 };
 
