@@ -4,11 +4,10 @@ import styled from 'styled-components'
 import { keyframes } from 'styled-components'
 
 
-const LoaderContainer = styled.div`
+const LoadingContainer = styled.div`
   position: absolute;
   z-index: 1;
 `
-
 const spin = keyframes`
 0% {
     box-shadow: 
@@ -343,14 +342,14 @@ position: absolute;
 top: 50%;
 left: 50%;
 margin: -5px;
-  animation: ${spin} 1s linear infinite;
+animation: ${spin} 1s linear infinite;
 `
 
 const Loading = () => {
   return (
-    <LoaderContainer>
+    <LoadingContainer>
       <LoadingSpinner />
-    </LoaderContainer>
+    </LoadingContainer>
   )
 }
 

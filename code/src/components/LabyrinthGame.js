@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import StartScreen from './StartScreen'
 import GameScreen from './GameScreen'
-import Loading from './Loading';
+import Loading from './Loading'
 
 const LabyrithgameWrapper = styled.section`
   display: flex;
@@ -24,18 +24,23 @@ const InputWrapper = styled.section`
 
 const LabyrinthGame = () => {
 
-  const startGame = useSelector((state) => state.game.username);
+  const startGame = useSelector((store) => store.game.username);
+  const isLoading = useSelector((store) => store.game.isLoading);
 
   return (
-    <>
+    <>  
+{isLoading ? <Loading /> : 
     <LabyrithgameWrapper>
     <InputWrapper>
-    {startGame && <Loading />}
-    {!startGame && <StartScreen />}
-    {startGame && <GameScreen />}
+
+{startGame
+  ? <GameScreen />
+  : <StartScreen />}
+  
     </InputWrapper>
-    </LabyrithgameWrapper>
+    </LabyrithgameWrapper>}
     </>
+    
   )
 }
 
