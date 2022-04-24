@@ -28,7 +28,7 @@ export const generateGame = () => { //Thunk. A function that immediately returns
         })
             .then(res => res.json())
             .then(game => dispatch(games.actions.setGame(game)))
-            .finally(dispatch(loading.actions.setLoading(false)));
+            .finally(() => dispatch(loading.actions.setLoading(false)));
     }
 }
 
@@ -54,7 +54,7 @@ export const generateAction = (index) => {
         })
             .then(res => res.json())
             .then(game => dispatch(games.actions.setGame(game)))
-            .finally(dispatch(loading.actions.setLoading(false)));
+            .finally(() => dispatch(loading.actions.setLoading(false)));
     }
 }
 
