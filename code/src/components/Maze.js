@@ -8,17 +8,16 @@ import LoadingPage from './LoadingPage';
 const Maze = () => {
     const isLoading = useSelector((store) => store.ui.isLoading);
     const currentLocation = useSelector(store => store.game.currentLocation);
-    
 
     return (
         <section>
             {isLoading && <LoadingPage />}
             {!isLoading && (
-            <>
-            {currentLocation  
-                    ? <GameScreen />
-                    : <StartScreen />}
-            </>)} 
+                <>
+                    {currentLocation
+                        ? <GameScreen />
+                        : <StartScreen />}
+                </>)}
         </section>
     )
 };

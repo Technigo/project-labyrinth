@@ -13,15 +13,13 @@ const LoadingPage = () => {
     }
   };
   return (
- <div>
-        <Lottie
-          options={defaultOptions}
-          height={400}
-          width={400}
-        />
-        </div>
-      
-
+    <div>
+      <Lottie
+        options={defaultOptions}
+        height={400}
+        width={400}
+      />
+    </div>
   );
 };
 

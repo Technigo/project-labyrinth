@@ -11,10 +11,10 @@ const PlayerChoice = ({ action }) => {
         dispatch(nextAction());
     }
 
-    return(
+    return (
         <>
             <button key={action.type}
-                    onClick={onNextMove}>
+                onClick={onNextMove}>
                 {action.type} {action.direction}
             </button>
         </>

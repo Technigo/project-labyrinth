@@ -9,20 +9,19 @@ const GameScreen = () => {
     const playerLocation = useSelector(store => store.game.currentLocation);
     const actions = useSelector(store => store.game.currentLocation.actions);
 
-
     return (
         <section className="gameScreen">
             <div className="wrapper">
-            <p key={welcomeDescription.description}>{welcomeDescription.description}</p>
-            {playerLocation.actions.map(action => (
-                <p key={action.description}>{action.description}</p>
-            ))}
-            <div>
-                {actions.map(action => (
-                    <PlayerChoice key={action} action={action} />
+                <p key={welcomeDescription.description}>{welcomeDescription.description}</p>
+                {playerLocation.actions.map(action => (
+                    <p key={action.description}>{action.description}</p>
                 ))}
-            </div>
-            {actions.length === 0 && <EndScreen />}
+                <div>
+                    {actions.map(action => (
+                        <PlayerChoice key={action} action={action} />
+                    ))}
+                </div>
+                {actions.length === 0 && <EndScreen />}
             </div>
         </section>
     )
