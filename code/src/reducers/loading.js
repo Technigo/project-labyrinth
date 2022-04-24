@@ -10,4 +10,4 @@ export const loading = createSlice({
       state.isLoading = action.payload
     }
   }
-});
+}); 
