@@ -8,4 +8,4 @@ Describe how you approached to problem, and what tools and techniques you used t
 
 ## View it live
 
-Here you can se the site -----> https://zesty-malabi-5b4b9a.netlify.app/
+Here you can se the site -----> https://project-labyrinth-simon-camilla-jenny.netlify.app/
