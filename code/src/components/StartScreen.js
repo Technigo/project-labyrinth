@@ -1,12 +1,28 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-//import styled from 'styled-components';
+import styled from 'styled-components';
 
 import games, { generateGame } from '../reducers/games';
 
+const StartButton = styled.button`
+  background-color: green;
+  border: none;
+  color: lightgreen;
+  border-radius: 50px;
+  font-size: 20px;
+  margin-top: 20px;
+  padding: 10px;
+`
+const InputField = styled.input`
+  border-color: lightgreen;
+  &:focus {
+    outline: 2px solid green;
+  }
+`
+
 const StartScreen = () => {
-    const [inputValue, setInputValue] = useState(''); //Property + handler to update property
+    const [inputValue, setInputValue] = useState(''); 
 
     const dispatch = useDispatch();
 
@@ -19,7 +35,7 @@ const StartScreen = () => {
       <div>
           <h1>The Labyrith game</h1>
           <div style={{marginBottom: '10px'}}>
-          <input
+          <InputField
           type="text"
           value={inputValue}
           placeholder="Type in username"
@@ -28,8 +44,8 @@ const StartScreen = () => {
           </div>
           <div>
           {inputValue !== '' 
-            ? <button onClick={onUserSet}>Start Game</button>
-            : <button disabled onClick={onUserSet}>Start Game</button>
+            ? <StartButton onClick={onUserSet}>Start Game</StartButton>
+            : <StartButton disabled onClick={onUserSet}>Start Game</StartButton>
           }
           </div>
     </div>  
