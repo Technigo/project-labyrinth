@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { navigateGame } from "../reducer/game";
 import { keyframes } from "styled-components";
+import Confetti from "./Confetti";
+import uniqid from "uniqid";
 import BG2 from "./img/bg2.png";
 import BG3 from "./img/bg3.png";
 import BG4 from "./img/bg4.png";
@@ -153,11 +155,17 @@ const Labyrinth = () => {
         return "0deg";
     }
   };
+  const EndPage = () => {
+    if (items.coordinates === "1,3") {
+      return <Confetti />;
+    } else return <></>;
+  };
   return (
     <Background background={changeBG()}>
       <HistoryArrowContainer>
         {select.map((item) => (
           <HistoryArrow
+            key={uniqid()}
             rotate={historyArrow(item)}
             src={arrow}
             alt='arrows to show history'
@@ -167,9 +175,10 @@ const Labyrinth = () => {
       <Modal text={prevStep}>
         You chose {prevStep} <Loadingspinner />
       </Modal>
+      {EndPage()}
       {items.actions.map((item) => {
         return (
-          <div key={item.coordinates}>
+          <div key={uniqid()}>
             <GameText>{item.description}</GameText>
           </div>
         );
@@ -180,6 +189,7 @@ const Labyrinth = () => {
           return (
             <>
               <Btn
+                key={uniqid()}
                 border={item.direction}
                 position={arrowStyle(item.direction)}
                 onClick={() => onNavigate(item.type, item.direction)}
