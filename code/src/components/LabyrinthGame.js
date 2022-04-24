@@ -25,7 +25,7 @@ const InputWrapper = styled.section`
 const LabyrinthGame = () => {
 
   const startGame = useSelector((store) => store.game.username);
-  const isLoading = useSelector((store) => store.game.isLoading);
+  const isLoading = useSelector((store) => store.loading.isLoading);
 
   return (
     <>  

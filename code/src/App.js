@@ -5,8 +5,10 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import games from './reducers/games'  
 
 import LabyrinthGame from 'components/LabyrinthGame'
+import { loading } from 'reducers/loading'
 
 const reducer = combineReducers({
+  loading: loading.reducer,
   game: games.reducer
 });
 
