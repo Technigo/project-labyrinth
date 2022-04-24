@@ -1,9 +1,6 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-
-// import { Loading } from './components/Loading'
-
 import labyrinth from './reducers/labyrinth'
 import loader from 'reducers/loader'
 
