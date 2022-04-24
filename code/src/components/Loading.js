@@ -5,8 +5,15 @@ import { keyframes } from 'styled-components'
 
 
 const LoadingContainer = styled.div`
-  position: absolute;
-  z-index: 1;
+display: flex;
+flex-direction: column;
+margin: 10px;
+padding: 10px;
+border-radius: 10px;
+justify-content: center;
+align-items: center;
+text-align: center;
+height: 75vh;
 `
 const spin = keyframes`
 0% {
