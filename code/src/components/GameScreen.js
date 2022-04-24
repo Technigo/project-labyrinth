@@ -11,7 +11,8 @@ const GameScreen = () => {
 
 
     return (
-        <section>
+        <section className="gameScreen">
+            <div className="wrapper">
             <p key={welcomeDescription.description}>{welcomeDescription.description}</p>
             {playerLocation.actions.map(action => (
                 <p key={action.description}>{action.description}</p>
@@ -22,6 +23,7 @@ const GameScreen = () => {
                 ))}
             </div>
             {actions.length === 0 && <EndScreen />}
+            </div>
         </section>
     )
 };

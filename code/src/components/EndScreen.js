@@ -7,8 +7,12 @@ const handleRestartButton = () => {
 const EndScreen = () => {
     return (
         <>
-    <p>Congratulations! You made it out the Labyrinth!</p>
-    <button onClick={handleRestartButton}> Restart</button>
+        <section className="endScreen">
+            <div className="wrapper"> 
+            <p>Congratulations! You made it out the Labyrinth!</p>
+            <button onClick={handleRestartButton}> Restart</button>
+            </div>
+        </section>
     </>
     )
 

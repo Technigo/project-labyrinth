@@ -1,8 +1,8 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+    font-family: 'Playfair Display', serif;
+    color: #282113;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +10,211 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+
+  .start-container { 
+  background-image: url("./images/labyrinth_start_map.jpg"); 
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} 
+
+.start-wrapper {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  width: 370px;
+  background-color: rgba(248, 248, 248, 0.8);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+  padding: 2vh 2vh 4vh 2vh;
+} 
+
+.start-wrapper h1 {
+  font-size: 38px;
+  font-weight: 900;
+  font-style: italic;
+  margin: 0;
+  padding-bottom: 1vh;
+}
+
+.start-wrapper h2 {
+font-size: 32px;
+line-height: 36px;
+font-weight: 600;
+margin: 0;
+padding-left: 2vh;
+padding-right: 2vh;
+}
+
+.start-wrapper p {
+font-size: 24px;
+line-height: 32px;
+font-weight: 500;
+padding-left: 2vh;
+padding-right: 2vh;
+}
+
+.text-field {
+  width: 250px;
+  height: 39px;
+  background-color: #ffffff;
+  border: 3px solid #DBD4D4;
+  box-sizing: border-box;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+}
+
+button {
+  min-width: 120px;
+  min-height: 50px;
+  margin-top: 2vh;
+  background-color: #E9B550;
+  border: solid 4px #E8A625;
+  border-radius: 30px;
+  box-shadow: 0 4px 4px 0 #bdbdbc;
+}
+
+button {
+  font-size: 18px;
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: bold;
+  margin: 2vh 1vh 0 1vh;
+}
+
+button:hover {
+  background-color:#f2d08b;
+}
+
+.gameScreen {
+  background-image: url("./images/labyrinth_mountains.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.endScreen {
+  background-image: url("./images/labyrinth_castle.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  width: 370px;
+  background-color: rgba(248, 248, 248, 0.8);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+  padding: 2vh 2vh 4vh 2vh;
+}
+
+.wrapper p {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+
+@media (min-width: 768px) {
+  .start-wrapper {
+    min-width: 650px;
+  }
+
+  .start-wrapper h1 {
+    font-size: 68px;
+  }
+
+  .start-wrapper h2 {
+    font-size: 46px;
+    line-height: 50px;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    padding-left: 10vh;
+    padding-right: 7vh;
+    }
+    
+    .start-wrapper p {
+    font-size: 28px;
+    line-height: 32px;
+    padding-left: 10vh;
+    padding-right: 7vh;
+    }
+    
+    button {
+      min-width: 180px;
+      min-height: 50px;
+    }
+
+    button {
+      font-size: 20px;
+    }
+    
+    .text-field {
+      min-width: 280px;
+      min-height: 40px;
+}
+}
+
+@media (min-width: 1024px) {
+  .start-wrapper {
+    min-width: 650px;
+  }
+
+  .start-wrapper h1 {
+    font-size: 72px;
+  }
+
+  .start-wrapper h2 {
+    font-size: 48px;
+    line-height: 52px;
+    padding-left: 9vh;
+    padding-right: 7vh;
+    }
+    
+    .start-wrapper p {
+    font-size: 28px;
+    line-height: 32px;
+    padding-left: 9vh;
+    padding-right: 7vh;
+    }
+
+    .wrapper p {
+      font-size: 24px;
+      line-height: 30px;
+    }
+    
+    button {
+      min-width: 200px;
+      min-height: 60px;
+    }
+
+    button {
+      font-size: 22px;
+    }
+    
+    .text-field {
+      min-width: 320px;
+      min-height: 40px;
+}
 }
