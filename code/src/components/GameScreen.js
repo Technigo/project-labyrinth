@@ -8,10 +8,10 @@ const GameScreen = () => {
 
   if (question.actions.length === 0) {
     return (
-      <>
+      <div className="gameContainer">
     <h2 className="labyrinthStatement">{question.description}</h2>
     <Restart />
-    </>
+    </div>
     )
   }
 
