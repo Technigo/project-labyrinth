@@ -1,3 +1,4 @@
+// import noWebpackLoaderSyntax from 'eslint-plugin-import';
 import React from 'react';
 import Lottie from 'react-lottie';
 import animationData from '../animations/loading-double';
@@ -12,5 +13,11 @@ export const LoadingIndicator = () => {
 		},
 	};
 
-	return <>{<Lottie options={defaultOptions} height={400} width={400} />}</>;
+	return (
+		<>
+			<div className='loader'>
+				{<Lottie options={defaultOptions} height={400} width={400} />}
+			</div>
+		</>
+	);
 };

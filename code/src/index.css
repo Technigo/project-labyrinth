@@ -175,6 +175,17 @@ button:disabled {
 	align-items: center;
 }
 
+.loader {
+	background-image: url(assets/bro.jpg);
+	height: 100vh;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position-y: 1%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 /*THIS IS THE MEDIA QUERY FOR TABLET SIZE*/
 @media screen and (min-width: 768px) {
 	.start-container {
