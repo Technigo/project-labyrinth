@@ -15,6 +15,7 @@ code {
 }
 
 .wrapper {
+  position: relative;
   width: 80%;
   margin: auto;
   margin-top: 60px;
@@ -22,7 +23,6 @@ code {
   padding: 40px;
   background-color: antiquewhite;
   font-size: 14px;
-  position: relative;
 }
 
 .nes-text {
@@ -40,16 +40,11 @@ code {
 .options-section {
   margin-top: 40px;
 }
-.loading-container {
+
+.lottie-container {
   position: absolute;
   z-index: 1;
-  top: 0px;
-  margin: 20px 0 20px;
-  left: 30%;
-  font-size: 30px;
-  padding: 5px;
-
-  background-color: red;
+  margin-right: 30px;
 }
 
 /* tablet */
@@ -57,6 +52,10 @@ code {
   .nes-field .nes-input {
     width: 40vw;
     margin: auto;
+  }
+
+  .lottie-container {
+    margin-left: 10%;
   }
 }
 
@@ -69,5 +68,9 @@ code {
   .nes-field .nes-input {
     width: 35vw;
     margin: auto;
+  }
+
+  .lottie-container {
+    margin-left: 10%;
   }
 }

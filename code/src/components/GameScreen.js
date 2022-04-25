@@ -5,7 +5,6 @@ import { questions, generateQuestion } from 'reducers/questions';
 export const GameScreen = () => {
   const username = useSelector((store) => store.questions.username);
   const gameQuestion = useSelector((store) => store.questions.gameQuestion);
-  console.log(gameQuestion.actions.length, 'hej');
 
   const dispatch = useDispatch();
 
