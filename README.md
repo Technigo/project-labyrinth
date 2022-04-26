@@ -1,13 +1,11 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The week's assignement was to build a project which allows the user to navigate a labyrinth(text-based adventure). The focus of this week was to build communication with the backend using Thunks and Redux. The project was done by me and Justine.
+The  week's project was done using NES-style CSS framework
 
 ## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+-understanding the logic behind Thunks and how it interacts with redux store's dispatch and useState methods. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://explore-labyrinth.netlify.app
