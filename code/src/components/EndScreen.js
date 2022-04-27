@@ -5,7 +5,6 @@ import { ChildContainer, Pokemons } from './Styles'
 
 const EndScreen = () => {
     const endDescription = useSelector(store => store.game.actions.description)
-    console.log(endDescription)
 
     const restartButton = () => {
         window.location.reload()
