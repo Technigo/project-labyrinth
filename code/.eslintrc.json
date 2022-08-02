@@ -1,5 +1,5 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "extends": [
     "airbnb"
   ],
@@ -25,6 +25,13 @@
     "react-hooks"
   ],
   "rules": {
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": ["function-declaration", "arrow-function"],
+        "unnamedComponents": "arrow-function"
+      }
+    ],
     "quotes": "off",
     "jsx-a11y/label-has-associated-control": [ 2, {
       "labelComponents": ["label"],
