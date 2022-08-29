@@ -1,10 +1,3 @@
-# Weekly project for Technigo's bootcamp, week 15
-Task: build a labyrinth app
-
-Tech: HTML, CSS, JavaScript, API, React, Styled components
-
-----
-
 # Week 15: Project Labyrinth
 
 This week's project was to build a labyrinth app posting to an API using thunks and displaying the response in an interactive frontend. This was a pair programming project.
