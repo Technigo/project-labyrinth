@@ -1,5 +1,5 @@
 # Weekly project for Technigo's bootcamp, week 15
-Task: build an API with MongoDB database
+Task: build a labytinth app
 
 Tech: HTML, CSS, JavaScript, API, React, Styled components
 
