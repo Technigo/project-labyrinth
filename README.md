@@ -1,5 +1,5 @@
 # Weekly project for Technigo's bootcamp, week 15
-Task: build a labytinth app
+Task: build a labyrinth app
 
 Tech: HTML, CSS, JavaScript, API, React, Styled components
 
