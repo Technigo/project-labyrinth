@@ -1,4 +1,4 @@
-# Project Labyrinth
+# Project Path
 
 Replace this readme with your own information about your project.
 
