@@ -15,13 +15,16 @@ const UserNameInput = () => {
   }
 
   return (
-    <UserNameInputContainer onSubmit={(event) => onFormSubmit(event)}>
-      <label htmlFor="user-input">
-      Provide user name, please:
-        <input id="user-input" type="text" onChange={(event) => setUserNameInputValue(event.target.value)} />
-      </label>
-      <button type="submit">Start game</button>
-    </UserNameInputContainer>)
+    <>
+      <h1>Title</h1>
+      <UserNameInputContainer onSubmit={(event) => onFormSubmit(event)}>
+        <label htmlFor="user-input">
+          Provide user name, please:
+          <input id="user-input" type="text" onChange={(event) => setUserNameInputValue(event.target.value)} />
+        </label>
+        <button type="submit">Start game</button>
+      </UserNameInputContainer>
+    </>)
 }
 
 export default UserNameInput;

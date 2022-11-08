@@ -6,7 +6,7 @@ import UserNameInput from './UserNameInput';
 
 const StartScreen = () => {
   // const quote = useSelector((store) => store.quotes.quote);
-  const description = useSelector((store) => store.game.description); // ändra?
+  const description = useSelector((store) => store.game.description);
 
   return <StartScreenerContainer>{description === '' ? <UserNameInput /> : <Description />}</StartScreenerContainer>;
 }
