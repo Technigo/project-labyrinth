@@ -1,5 +1,6 @@
 /* eslint-disable implicit-arrow-linebreak */
 import { createSlice } from '@reduxjs/toolkit';
+import { ui } from './ui'
 
 const game = createSlice({
   name: 'game',
@@ -28,8 +29,11 @@ const game = createSlice({
 export default game;
 
 export const generateGame = () => {
-  return (dispatch, getState) =>
+  return (dispatch, getState) => {
     // TODO: set isLoading to true here
+    dispatch(ui.actions.setLoading(true))
+
+    // fetch endpoint
     fetch('https://labyrinth.technigo.io/start', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -43,6 +47,8 @@ export const generateGame = () => {
         dispatch(game.actions.setActions(data.actions));
         dispatch(game.actions.setDescription(data.description));
         dispatch(game.actions.setCoordinates(data.coordinates));
+        dispatch(ui.actions.setLoading(false))
       });
+  }
   // TODO: set isLoading back to false
 };

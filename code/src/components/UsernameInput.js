@@ -29,7 +29,7 @@ const UsernameInput = () => {
           value={UsernameInputValue}
         />
       </label>
-      <button type="submit">START</button>
+      <button type="submit"/* onClick={() => dispatch(generateGame())} */>START</button>
     </form>
   );
 };
