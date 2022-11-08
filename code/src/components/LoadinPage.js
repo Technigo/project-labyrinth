@@ -1,5 +1,4 @@
-/* import React from 'react'
-import { ui } from './ui'
+import React from 'react'
 import React from "react";
 import Lottie from "react-lottie";
 import animationData from "./lotties/swords";
@@ -21,4 +20,4 @@ const LoadingPage = () => {
   );
 }
 
-export default LoadingPage; */
+export default LoadingPage;

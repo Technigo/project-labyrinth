@@ -2,7 +2,7 @@
 import Lottie from "react-lottie";
 import animationData from "./lotties/castle";
 
-const GameOver = () => {
+const LastPage = () => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -19,4 +19,4 @@ const GameOver = () => {
   );
 }
 
-export default GameOver; */
+export default LastPage; */
