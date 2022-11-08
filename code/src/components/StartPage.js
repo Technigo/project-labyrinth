@@ -5,7 +5,7 @@ import { game, fetchStart } from 'reducers/game';
 
 const StartPage = () => {
   const [username, setUsername] = useState('')
-  const dispatch = useDispatch
+  const dispatch = useDispatch()
 
   const onFormSubmit = (e) => {
     e.preventDefault();
@@ -14,7 +14,7 @@ const StartPage = () => {
   }
 
   return (
-    <form onSubmit={(e) => onFormSubmit(e)}>
+    <form onSubmit={onFormSubmit}>
       <label>
           Write your name, adventurer!
         <input id="user-input" type="text" onChange={(e) => setUsername(e.target.value)} />

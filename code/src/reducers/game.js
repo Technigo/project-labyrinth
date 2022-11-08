@@ -5,7 +5,11 @@ import { ui } from './ui';
 export const game = createSlice({
   name: 'game',
   initialState: { // InitialState is an object.
-    currentPosition: null,
+    currentPosition: {
+      description: '',
+      coordinates: '',
+      actions: []
+    },
     username: null,
     history: []
   },
@@ -40,7 +44,7 @@ export const fetchStart = () => {
       body: JSON.stringify({ username: getState().game.username })
     })
       .then((res) => res.json())
-      /* .then((json) => console.log(json)) */
+      .then((json) => console.log(json))
       .then((data) => dispatch(game.actions.setCurrentPosition(data)))
       .finally(() => dispatch(ui.actions.setLoading(false)))
   };

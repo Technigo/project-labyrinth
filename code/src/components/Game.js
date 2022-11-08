@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchAction } from 'reducers/game';
 
 const Game = () => {
-  const { description, coordinates /* , actions  */ } = useSelector(
-    (store) => store.game.currenPosition
+  const { description, coordinates, actions } = useSelector(
+    (store) => store.game.currentPosition
   );
 
   const dispatch = useDispatch();
@@ -25,9 +25,11 @@ const Game = () => {
 
   return (
     <><p>Hi!</p>
-      <p>{coordinates}</p>
+      <p>Coordinates: {coordinates}</p>
       <p>{description}</p>
-      <Card />
+      {actions.length > 0
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            && actions.map((item) => <Card key={item.direction} {...item} />)}
     </>
   )
 }
