@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import quotes from 'reducers/quotes'
 import StartScreen from 'components/StartScreen'
+// import AuthorInputSearch from 'components/AuthorInputSearch'
 
 export const App = () => {
     const reducer = combineReducers({
@@ -10,12 +11,10 @@ export const App = () => {
     })
 
     const store = configureStore({ reducer })
-    // const store = configureStore(combineReducers({
-    //   quotes: quotes.reducer
-    // }))
   return (
     <Provider store={store}>
       <StartScreen />
+      {/* <AuthorInputSearch /> */}
     </Provider>
   )
 }
