@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const labyrinth = createSlice({
   name: 'labyrinth',
   initialState: {
-    // UserName: '',
+    userName: ''
     // quote: '',
     // history: []
   },
@@ -37,6 +37,7 @@ export const generateLabyrinth = () => {
     })
       .then((res) => res.json())
       .then((json) => {
+        console.log(json)
         dispatch(labyrinth.actions.setGameState(json))
         // .then((json) => console.log(json))
       })
