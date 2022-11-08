@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { API_START /* API_ACTION */ } from 'utils/urls'
 import { ui } from './ui';
-import { API_START, API_ACTION } from './utils/urls'
 
 export const game = createSlice({
   name: 'game',
@@ -35,10 +35,10 @@ export const fetchStart = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ username: getState().game.username })
-        .then((res) => res.json())
-        .then((res) => res.json(console.log(API_START)))
-        .then((data) => dispatch(game.actions.setCurrentPosition(data)))
-        .finally(() => dispatch(ui.actions.setLoading(false)))
     })
-  }
-}
+      .then((res) => res.json())
+      .then((res) => res.json(console.log(API_START)))
+      .then((data) => dispatch(game.actions.setCurrentPosition(data)))
+      .finally(() => dispatch(ui.actions.setLoading(false)))
+  };
+};
