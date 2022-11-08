@@ -1,76 +1,70 @@
-import { createSlice } from "@reduxjs/toolkit"; 
-import { ui } from "./ui";
+import { createSlice } from '@reduxjs/toolkit';
+import { ui } from './ui';
 
-const initialState = {
-    username: null,
-    position: null,
-    history: [],
+export const game = createSlice({
+  name: 'game',
+  initialState: {
+    username: 'Duckling',
+    location: null,
+    move: ''
+  },
+
+  reducers: {
+    setUserName: (store, action) => {
+      store.username = action.payload;
+    },
+    setLocation: (store, action) => {
+      store.location = action.payload;
+    },
+    setMove: (store, action) => {
+      store.move = action.payload;
+    }
+
+  }
+});
+
+// First thunk
+
+export const generateLabyrinth = () => {
+  return (dispatch, getState) => {
+    dispatch(ui.actions.setLoading(true));
+
+    const options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: getState().game.username
+      })
+    }
+
+    fetch('https://labyrinth.technigo.io/start', options)
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(game.actions.setLocation(data))
+        console.log(data)
+        /* dispatch(ui.actions.setLoading(false)) */
+      })
+  }
 }
 
-const game = createSlice({
-    name: "game",
-    initialState: initialState,
-    reducers: {
-        setUsername: (store, action) => {
-            store.username = action.payload
-        },
+// Second thunk
 
-        setPosition : (store, action) => {
-            if(store.position) {
-                store.history.push(store.position)
-            }
-            store.position = action payload
-        },
-        setPreviousPosition: (store, action) => {
-            if(store.position.length){
-                store.position = store.history[store.history.length -1]
-            }
-
-            store.history.splice(store.history.length -1, 1)
-        },
-
-        restartGame: () => {
-            return initialState
-        }
-    }
-})
-
-export const fetchData = () => {
-    return (dispatch, getState) => {
-        fetch('https://labyrinth.technigo.io/start', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                username: getState().game.username
-            })
-        })
-        .then(res => res.json())
-        .then((data) => {
-            dispatch(game.actions.setPosition(data))
-            dispatch(ui.actions.setLoading(false))
-        })
-    }
+export const generateMoves = ({ type, direction }) => {
+  return (dispatch, getState) => {
+    dispatch(ui.actions.setLoading(true))
+    fetch('https://labyrinth.technigo.io/action', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/jason' },
+      body: JSON.stringify({
+        username: getState().game.username,
+        type,
+        direction
+      })
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(game.actions.setLocation(data))
+        dispatch(ui.actions.setLoading(false))
+      })
+  }
 }
-
-export const fetchMoreData = ({move = "move", direction}) => {
-    return (dispatch, getState) => {
-        dispatch(ui.actions.setLoading(true))
-        fetch('https://labyrinth.technigo.io/action', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        username: getState().game.username,
-                        type: move,
-                        direction: direction,
-                        })
-                    })
-            .then(res => res.json())
-            .then(data => {
-                dispatch(game.actions.setPosition(data))
-                dispatch(ui.actions.setLoading(false))
-            })
-    }
-}
-
-
-export default game
