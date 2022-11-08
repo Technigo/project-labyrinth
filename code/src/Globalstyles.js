@@ -15,6 +15,7 @@ import styled from 'styled-components/macro'
   );
 }
  */
+
 export const GameContainer = styled.section`
   width: 90%;
   max-width: 450px;
@@ -75,4 +76,19 @@ export const TvCircelSmall = styled.div`
   margin: 10% 0 0 10%;
   padding: 5%;
   
+`;
+
+// -----Nina test appwrapper app.js
+
+export const AppWrapper = styled.div`
+  width: 350px;
+  margin: 3em 0 4em 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+
+  @media (min-width: 667px) {
+    width: 500px;
+    }
 `;

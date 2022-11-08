@@ -5,3 +5,5 @@ const Quotes = () => {
 }
 
 export default Quotes;
+
+// -------Syled Components --------

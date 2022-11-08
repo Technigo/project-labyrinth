@@ -24,3 +24,5 @@ const AuthorInputSearch = () => {
 }
 
 export default AuthorInputSearch;
+
+// -------Syled Components --------

@@ -5,19 +5,6 @@ import styled from 'styled-components/macro'
 import Lottie from 'react-lottie';
 import animationData from '../lotties/RetroLoadingBar.json'
 
-const LoaderContainer = styled.section`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: black;
-    z-index: 1500;
-`
-
 const Loading = () => {
   const isLoading = useSelector((store) => store.ui.isLoading)
 
@@ -45,3 +32,18 @@ const Loading = () => {
 }
 
 export default Loading
+
+// -------Syled Components --------
+
+const LoaderContainer = styled.section`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    z-index: 1500;
+    `;
