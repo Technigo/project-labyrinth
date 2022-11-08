@@ -18,6 +18,7 @@ const Wrapper = () => {
             <StartPage />
             <NotFound />
     </Provider>
+    
      
     )
 }
