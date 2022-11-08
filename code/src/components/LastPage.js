@@ -1,10 +1,8 @@
-/* import React from 'react'
-import { ui } from './ui'
-import React from "react";
+/* import React from "react";
 import Lottie from "react-lottie";
-import animationData from "./lotties/swords";
+import animationData from "./lotties/castle";
 
-const LoadingPage = () => {
+const GameOver = () => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -21,4 +19,4 @@ const LoadingPage = () => {
   );
 }
 
-export default LoadingPage; */
+export default GameOver; */
