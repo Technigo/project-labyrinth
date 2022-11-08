@@ -5,7 +5,9 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { game } from './reducers/game';
 import { ui } from './reducers/ui';
 
-import LoadingPage from './LoadingPage';
+/* import LoadingPage from './LoadingPage'; */
+import StartPage from './components/StartPage'
+import Game from './components/Game';
 
 export const App = () => {
   const reducer = combineReducers({
@@ -13,15 +15,14 @@ export const App = () => {
     game: game.reducer
   });
   const store = configureStore({
-    reducer //argument
+    reducer /* argument */
   });
 
   return (
     <Provider store={store}>
-    <LoadingPage />
-      <div>
-      Find me in src/app.js!
-      </div>
+      {/* <LoadingPage /> */}
+      <StartPage />
+      <Game />
     </Provider>
   );
 };

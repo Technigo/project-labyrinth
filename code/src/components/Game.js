@@ -1,15 +1,35 @@
-import React from "react";
-import { useSelector } from "react-redux";
+/* eslint-disable react/button-has-type */
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchAction } from 'reducers/game';
 
-//This code daniel put in his start page, but i think its gonna go here 
 const Game = () => {
-    const something = useSelector((store) => store.something.something)
-    return (
-    <p>{something === '' ? <AuthorInputSearch /> : <Something />}</p>
-    // checking if the quote is equal to an empty '' string. Then Author... otherwide Something. 
-    // (username or currentPosition (or history?))
-    )
+  const { description, coordinates /* , actions  */ } = useSelector(
+    (store) => store.game.currenPosition
+  );
+
+  const dispatch = useDispatch();
+
+  const handleButtonClick = (type, direction) => {
+    dispatch(fetchAction(type, direction));
+  };
+
+  const Card = ({ type, direction }) => (
+    <div>
+      <p>{description}</p>
+      <button onClick={() => handleButtonClick(type, direction)}>
+        {type} {direction.toLowerCase()}
+      </button>
+    </div>
+  );
+
+  return (
+    <><p>Hi!</p>
+      <p>{coordinates}</p>
+      <p>{description}</p>
+      <Card />
+    </>
+  )
 }
 
-
-export default Game
+export default Game;
