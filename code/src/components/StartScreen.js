@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Quotes from './Quotes';
-import AuthorInputSearch from './AuthorInputSearch';
+import GameStart from './GameStart';
 
 const StartScreen = () => {
-  const quote = useSelector((store) => store.quotes.quote);
+  const status = useSelector((store) => store.gamestate.status);
 
-  return <div>{quote === '' ? <AuthorInputSearch /> : <Quotes />}</div>;
+  return <div>{status === '' ? <GameStart /> : <Quotes />}</div>;
 }
 
 export default StartScreen;

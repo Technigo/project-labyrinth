@@ -1,12 +1,12 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import quotes from 'reducers/quotes';
+import gamestate from 'reducers/gamestate';
 import StartScreen from 'components/StartScreen';
 
 export const App = () => {
   const reducer = combineReducers({
-    quotes: quotes.reducer
+    gamestate: gamestate.reducer
   });
   const store = configureStore({ reducer });
   // const store = configureStore(combineReducers({
