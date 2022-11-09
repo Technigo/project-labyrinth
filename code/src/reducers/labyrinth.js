@@ -3,22 +3,19 @@ import { createSlice } from '@reduxjs/toolkit';
 const labyrinth = createSlice({
   name: 'labyrinth',
   initialState: {
-    userName: ''
-    // quote: '',
-    // history: []
+    username: '',
+    location: [],
+    isLoading: false
   },
   reducers: {
-    // setAuthor: (store, action) => {
-    //   store.author = action.payload
-    // },
-    // setQuote: (store, action) => {
-    //   store.quote = action.payload
-    // }
-    setGameState: (store, action) => {
-      store.gameState = action.payload
+    setUsername: (store, action) => {
+      store.username = action.payload
     },
-    setStart: (store, action) => {
-      store.start = action.payload;
+    setLocation: (store, action) => {
+      store.location = action.payload;
+    },
+    setLoading: (store, action) => {
+      store.isLoading = action.payload;
     }
   }
 })
@@ -28,6 +25,7 @@ export default labyrinth;
 export const generateLabyrinth = () => {
   // eslint-disable-next-line no-unused-vars
   return (dispatch, getState) => {
+    dispatch(labyrinth.actions.setLoading(true))
     fetch('https://labyrinth.technigo.io/start', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -36,10 +34,10 @@ export const generateLabyrinth = () => {
       })
     })
       .then((res) => res.json())
-      .then((json) => {
-        console.log(json)
-        dispatch(labyrinth.actions.setGameState(json))
-        // .then((json) => console.log(json))
+      .then((data) => {
+        console.log('generateLabyrinth', data)
+        dispatch(labyrinth.actions.setLocation(data))
       })
+      .finally(dispatch(labyrinth.actions.setLoading(false)))
   }
 }

@@ -1,13 +1,14 @@
-/* import React from 'react';
-import styled from 'styled-components';
-import Lottie from 'react-lottie';
-import animationData from '../lotties/loading-boxes';
+import React from 'react';
+import Lottie from 'lottie-react';
+import styled from 'styled-components/macro'
+
+import loader from '../lotties/loading-boxes.json';
 
 const Loading = () => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData,
+    animationData: loader,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice'
     }
@@ -36,5 +37,3 @@ const StyledHeading = styled.h1`
   line-height: 2em;
 `;
 
-npm i lottie-react
-*/

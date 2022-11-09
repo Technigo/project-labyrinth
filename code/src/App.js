@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import labyrinth from 'reducers/labyrinth';
-import StartGame from 'components/StartGame';
+import StartScreen from 'components/StartScreen';
 
 export const App = () => {
   const reducer = combineReducers({
@@ -15,7 +15,7 @@ export const App = () => {
 
   return (
     <Provider store={store}>
-      <StartGame />
+      <StartScreen />
     </Provider>
   )
 }

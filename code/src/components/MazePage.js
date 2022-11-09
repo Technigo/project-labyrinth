@@ -1,7 +1,9 @@
-// import React from 'react';
+import React from 'react';
 
-// const MazePage = () => {
-//   return <p> MazePage </p>
-// }
+const MazePage = () => {
+  return (
+    <p> MazePage </p>
+  )
+}
 
-// export default MazePage;
+export default MazePage;

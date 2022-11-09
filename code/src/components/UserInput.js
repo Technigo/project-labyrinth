@@ -3,18 +3,17 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import labyrinth from 'reducers/labyrinth'
-// import labyrinth, { generatLabyrinth } from 'reducers/labyrinth'
+import labyrinth, { generateLabyrinth } from 'reducers/labyrinth'
 
-const StartInput = () => {
-  const [startInputValue, setStartInputValue] = useState('')
+const UserInput = () => {
+  const [userInputValue, setUserInputValue] = useState('')
   const dispatch = useDispatch()
   // const author = useSelector((store) => store.quotes.author)
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    dispatch(labyrinth.actions.setStart(startInputValue));
-    // dispatch(generatLabyrinth());
+    dispatch(labyrinth.actions.setUsername(userInputValue));
+    dispatch(generateLabyrinth());
   }
 	 return (
     <div>
@@ -22,11 +21,11 @@ const StartInput = () => {
 	 <form onSubmit={(event) => onFormSubmit(event)}>
         <label htmlFor="input">
 			Write your name here:
-          <input id="input" placeholder="Your Name" value={startInputValue} type="text" onChange={(event) => setStartInputValue(event.target.value)} />
+          <input id="input" placeholder="Your Name" value={userInputValue} type="text" onChange={(event) => setUserInputValue(event.target.value)} />
         </label>
         <button type="submit"> Start </button>
       </form>
     </div>)
 }
 
-export default StartInput;
+export default UserInput;
