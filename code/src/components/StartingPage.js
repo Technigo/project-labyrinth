@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
 
 import { game, generateLabyrinth } from 'reducer/game';
+import { DucklingHeader } from './DucklingHeader';
 
 export const StartingPage = () => {
   const [username, setUsername] = useState('')
@@ -15,6 +16,7 @@ export const StartingPage = () => {
   return (
     <section>
       <div>
+        <DucklingHeader />
         <h1>Hi</h1>
         <h2>welcome</h2>
         <p>who are you?</p>

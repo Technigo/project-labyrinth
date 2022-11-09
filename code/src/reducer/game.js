@@ -5,7 +5,7 @@ export const game = createSlice({
   name: 'game',
   initialState: {
     username: 'Duckling',
-    location: null,
+    location: '',
     move: ''
   },
 
@@ -41,7 +41,7 @@ export const generateLabyrinth = () => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setLocation(data))
-        console.log(data)
+        console.log(`Data: ${data}`)
         /* dispatch(ui.actions.setLoading(false)) */
       })
   }
