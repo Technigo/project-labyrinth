@@ -1,13 +1,10 @@
 import React from "react";
-import { CreateQuestion } from "reducers/games"
+import { GenerateQuestion } from "reducers/games"
 
 const GameBoard = () => {
 //   const description = useSelector(store => store.games.currentPosition.description)
     return (
-        <div>
-    {/* <section>{description}</section> */}
-    <CreateQuestion/>
-        </div>
+    <GenerateQuestion />
     )
     }
 

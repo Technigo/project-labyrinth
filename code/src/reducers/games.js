@@ -1,47 +1,85 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-  username: null,
-}
-
 const games = createSlice({
   name: 'games',
-  initialState,
+  initialState: {
+    username: null,
+    description: null,
+    direction: null,
+    moves: null,
+    history: [],
+    loading: false,
+    coordinates: null
+  },
+
   reducers: {
     setUserName: (store, action) => {
       store.username = action.payload;
     },
-
-    setCurrentPosition: (store, action) => {
-      store.currentPosition = action.payload;
+    setDescription: (store, action) => {
+      store.description = action.payload;
     },
-  },
+    setMoves: (store, action) => {
+      if (store.moves) {
+        store.history = [...store.history, store.moves]
+      }
+      store.moves = action.payload
+    },
+    //setPreviousMove
+    setDirection: (store, action) => {
+      store.direction = action.payload
+    },
+    setLoading: (store, action) => {
+      store.loading = action.payload
+    },
+    setCoordinates: (store, action) => {
+      store.coordinates = action.payload
+    }
+  }
 });
 
 export const createPlayer = () => {
   return (dispatch, getState) => {
-    // dispatch(games.actions.setLoading(true))
-    fetch(`https://labyrinth.technigo.io/start`,{
+    dispatch(games.actions.setLoading(true))
+    fetch('https://labyrinth.technigo.io/start', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ username: getState().games.username }),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username: getState().games.username
+        })
     })
     .then((response) => response.json()) 
-    .then((data) => dispatch(games.actions.setCurrentPosition(data)))
+    .then((game) => {
+      dispatch(games.actions.setDescription(game.description))
+      dispatch(games.actions.setMoves(game.actions))
+      dispatch(games.actions.setCoordinates(game.coordinates))
+    })
+    .finally(() => dispatch(games.actions.setLoading(false)))
   }
 }
 
-export const CreateQuestion = () => {
+export const GenerateQuestion = () => {
   return (dispatch, getState) => {
-    fetch(`https://labyrinth.technigo.io/action`, {
+    dispatch(games.actions.setLoading(true))
+    fetch('https://labyrinth.technigo.io/action', {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
         username: getState().games.username,
+        type: 'move',
+        direction: getState().games.direction
       })
     })
-    .then((response) => response.json()) 
-    .then((data) => dispatch(games.actions.setCurrentPosition(data)))
+    .then(game => {
+    dispatch(games.actions.setDescription(game.description))
+    dispatch(games.actions.setMoves(game.actions))
+    dispatch(games.actions.setCoordinates(game.coordinates))
+  })
+  .finally(() => dispatch(games.actions.setLoading(false)))
 }
 }
 
