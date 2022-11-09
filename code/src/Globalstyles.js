@@ -1,4 +1,3 @@
-/* import "./styles.css"; */
 import styled from 'styled-components/macro'
 
 /* export default function App() {
@@ -15,7 +14,7 @@ import styled from 'styled-components/macro'
   );
 }
  */
-
+// ------Tv-----------
 export const GameContainer = styled.section`
   width: 90%;
   max-width: 450px;
@@ -77,18 +76,125 @@ export const TvCircelSmall = styled.div`
   padding: 5%;
   
 `;
+// ------ App.js -----------
+export const PageWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100vh;
+    /* background-image: url($parantes) ; */
+    /* background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 95%; */
+
+    /* @media screen and (min-width: 668px) {
+        background-position-y: 75%;
+        justify-content: space-around;
+    } */
+`;
+// ------ StartPage---------
+
+export const StartPageWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100vh;
+    /* background-image: url($parantes) ; */
+    /* background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 95%; */
+
+    /* @media screen and (min-width: 668px) {
+        background-position-y: 75%;
+        justify-content: space-around;
+    } */
+`;
+
+export const WelcomeText = styled.h1`
+    text-align: center;
+    color: white;
+    width: 80%;
+    font-family: var(--font-pixel);
+    font-size: 1.5rem;
+    margin-top: 3rem;
+    line-height: 1.3em;
+
+  @media screen and (min-width: 668px) {
+      width: 80%;
+      font-size: 2rem;
+      margin: 2rem 0 3rem;
+  }
+`;
+
+export const NameForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+`;
+
+export const StyledInput = styled.input`
+    border: 4px solid;
+    border-color: black;
+    width: 330px;
+    height: 50px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
+    /* padding: 5px; */
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    &:hover,
+    &:focus {
+        outline: none;
+        border-color: purple;
+    }
+    @media screen and (min-width: 668px) {
+        width: 500px;
+        height: 70px;
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+    }
+`;
+
+export const SendNameBtn = styled.button`
+    font-size: 1rem;
+    border: 4px solid;
+    border-color: black;
+    width: 330px;
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    font-family: var(--font-pixel);
+    color: black;
+    &:hover,
+    &:focus {
+        border-color: var(--clr-accent);
+    }
+    @media screen and (min-width: 668px) {
+        width: 500px;
+        height: 70px;
+        font-size: 1.3rem;
+        margin-bottom: 10rem;
+    }
+`;
 
 // -----Nina test appwrapper app.js
 
 export const AppWrapper = styled.div`
-  width: 350px;
-  margin: 3em 0 4em 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
+    width: 350px;
+    margin: 3em 0 4em 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
 
-  @media (min-width: 667px) {
-    width: 500px;
-    }
+    @media (min-width: 667px) {
+      width: 500px;
+      }
 `;

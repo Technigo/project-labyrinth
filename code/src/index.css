@@ -1,13 +1,31 @@
+:root {
+  /* välja ut färger */
+  --clr-main: #151515;
+	--clr-secondary: #f7f3f3;
+	--clr-accent: #32aacf;
+	--clr-grey: #a3a3a3;
+  --clr-darkgrey: #504f4f;
+
+  /* Fonts */
+  --font-pixel: 'Press Start 2P', cursive;
+  --font-main:'Play', sans-serif;
+  --font-ext: 'Audiowide', cursive;
+}
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Play', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
+} */

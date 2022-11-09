@@ -1,11 +1,13 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+
+// import Loading from 'components/Loading';
+import { labyrinth } from 'reducers/labyrinth';
 import ui from 'reducers/ui';
 
-/* import Loading from 'components/Loading'; */
-import labyrinth from './reducers/labyrinth';
-import StartScreenCA from './components/StartScreenCA';
+import { SelectPage } from 'components/SelectPage';
+import { PageWrapper } from 'Globalstyles';
 
 export const App = () => {
   const reducer = combineReducers({
@@ -17,7 +19,10 @@ export const App = () => {
 
   return (
     <Provider store={store}>
-      <StartScreenCA />
+      <PageWrapper>
+        <SelectPage />
+        {/* <Loading /> */}
+      </PageWrapper>
     </Provider>
   )
 }

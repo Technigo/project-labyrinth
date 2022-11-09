@@ -23,6 +23,20 @@ lagt in en kommentar // ----SC----- på alla kompnenter nedanför själva funkti
 -jag fick inte Postman att funka....
 
 # Onsdag
+Nina kväll:
+
+-fått postman att funka.
+-ska skapa uniqId som i todo tydligen.
+
+-huddle med Viktor 
+
+-StartPage
+-SelectPage
+
+-Skapat componenten GamePage.js, 
+
+
+
 
 --------------------------------------------
 # Frågeställningar:
@@ -33,10 +47,19 @@ lagt in en kommentar // ----SC----- på alla kompnenter nedanför själva funkti
 
 -skall vi stoppa url'n i en separat datafill med namngedd url?
 
+-ska vi ha en avslutnings sida: hurra du vann! och en restart knapp alal quiz/survey?
+
 # Att Göra Lista:
--Lägga in fonter i html samt i body
+Info:
+start design for mobile,
+for tablet and Desktop add:
+@media (min-width: 667px) {
+    blablabla;
+    }
+-------------------------------
+-få loader att fungera =)
 -color scheem
--skapa :root font samt colors
+
 -bakgrundsbild
 -spelkonsol
 -Startsida: 
@@ -44,9 +67,13 @@ lagt in en kommentar // ----SC----- på alla kompnenter nedanför själva funkti
   *onChange event = setUserNameInput
   *Button: onClick {setName} start game
 
--Thunk fetch technigo API (finns uttogglad i Labyrinth.js)
+
 
 # flyttat till "Done" =)
+-Thunk fetch technigo API 
+
+-skapa :root font samt colors
+-Lägga in fonter i html samt i body
 
 -Loader pixled green loader bar
 

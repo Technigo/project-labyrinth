@@ -2,8 +2,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components/macro'
-import Lottie from 'react-lottie';
-import animationData from '../lotties/RetroLoadingBar.json'
+import Lottie from 'lottie-react';
+import animationData from './lotties/RetroLoadingBar.json'
 
 const Loading = () => {
   const isLoading = useSelector((store) => store.ui.isLoading)
