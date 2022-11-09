@@ -1,14 +1,13 @@
-import styled from 'styled-components';
 import React from 'react';
+import styled from 'styled-components'
+
+const StyledHeader = styled.h1`
+ text-align: center;
+`
 
 const Header = () => {
   return (
-    <Wrapper>Header
-    </Wrapper>
+    <StyledHeader>The Maze game</StyledHeader>
   )
 }
 export default Header;
-
-const Wrapper = styled.div`
-margin-top: 20px;`
-
