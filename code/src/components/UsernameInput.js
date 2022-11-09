@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import game, { generateGame } from 'reducers/game';
 
+// Game starts when the user inputs their username
 const UsernameInput = () => {
   const [UsernameInputValue, setUsernameInputValue] = useState('');
 
@@ -11,15 +12,11 @@ const UsernameInput = () => {
     event.preventDefault();
     dispatch(game.actions.setUsername(UsernameInputValue));
     dispatch(generateGame());
+    setUsernameInputValue('');
   };
 
   return (
-    <form
-      onSubmit={(e) => {
-        onFormSubmit(e);
-        setUsernameInputValue('');
-      }}
-    >
+    <form onSubmit={onFormSubmit}>
       <label htmlFor="username-input">
         Enter username
         <input
@@ -29,7 +26,7 @@ const UsernameInput = () => {
           value={UsernameInputValue}
         />
       </label>
-      <button type="submit"/* onClick={() => dispatch(generateGame())} */>START</button>
+      <button type="submit">START</button>
     </form>
   );
 };

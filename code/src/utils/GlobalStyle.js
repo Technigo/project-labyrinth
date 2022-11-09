@@ -1,5 +1,5 @@
-import styled, { createGlobalStyle } from 'styled-components/macro'
-import BackgroundImg from '../assets/background-img.jpg'
+import styled, { createGlobalStyle } from 'styled-components/macro';
+import BackgroundImg from '../assets/background-img.jpg';
 
 export const GlobalStyle = createGlobalStyle`
 html {
@@ -20,10 +20,12 @@ html {
 `;
 
 export const OuterWrapper = styled.div`
-width: 100%;
+  height: 100vh;
+
+  /* padding: 100px 0; */
 `;
 
 export const InnerWrapper = styled.div`
-width: 80%;
-margin: 0 auto;
+  width: 80%;
+  margin: 0 auto;
 `;
