@@ -9,11 +9,12 @@ const UserNameInput = () => {
   const [userNameInputValue, setUserNameInputValue] = useState('');
   const dispatch = useDispatch();
   // const author = useSelector((store) => store.quotes.author);
+
   const onFormSubmit = (event) => {
     event.preventDefault();
-
     dispatch(game.actions.setUser(userNameInputValue)); // klar
     dispatch(generateDescription());
+    userNameInputValue('');
   }
 
   return (
@@ -21,8 +22,16 @@ const UserNameInput = () => {
       <h1>The Maze game</h1>
       <UserNameInputContainer onSubmit={(event) => onFormSubmit(event)}>
         <label htmlFor="user-input">
-          Provide user name, please:
-          <input id="user-input" type="text" onChange={(event) => setUserNameInputValue(event.target.value)} />
+          Enter your name to start the game:
+          <input
+            id="user-input"
+            type="text"
+            value={userNameInputValue}
+            required
+            // eslint-disable-next-line jsx-a11y/no-autofocus
+            autoFocus
+            onChange={(event) => setUserNameInputValue(event.target.value)}
+            placeholder="Name..." />
         </label>
         <StartButton type="submit">Start game</StartButton>
       </UserNameInputContainer>

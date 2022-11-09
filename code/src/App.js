@@ -2,8 +2,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import gameReducer from 'reducers/game';
-// import StartScreen from 'Components/StartScreen';
-import Description from 'Components/Description';
+import StartScreen from 'Components/StartScreen';
+// import Description from 'Components/Description';
 import Wrapper from 'Components/Wrapper';
 
 export const App = () => {
@@ -17,8 +17,8 @@ export const App = () => {
   return (
     <Provider store={store}>
       <Wrapper>
-        <Description />
-        {/* <StartScreen /> */}
+        {/* <Description /> */}
+        <StartScreen />
       </Wrapper>
     </Provider>
   )

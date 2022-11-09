@@ -29,7 +29,7 @@ export const generateDescription = () => {
     fetch('https://labyrinth-technigo.herokuapp.com/start', start) // samma som happy
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        dispatch(game.actions.setDescription(data));
       //  Dosomthing(data); // GET first coordinates and description
       });
   };
@@ -38,4 +38,3 @@ export const generateDescription = () => {
 // fetch(`https://api.quotable.io/random?author=${getState().quotes.author}`) // ändra
 //   .then((response) => response.json())
 //    .then((quote) => console.log(quote));
-
