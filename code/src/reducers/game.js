@@ -17,6 +17,10 @@ export const game = createSlice({
     },
     setLoading: (store, action) => {
       store.isLoading = action.payload
+    },
+    setRestartGame: (state) => {
+      state.username = '';
+      state.stage = [];
     }
   }
 });

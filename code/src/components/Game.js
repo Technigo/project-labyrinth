@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchGameSteps } from 'reducers/game';
+import { game, fetchGameSteps } from 'reducers/game';
 
 const Games = () => {
   const { description, actions } = useSelector((store) => store.game.stage)
@@ -13,18 +13,25 @@ const Games = () => {
     dispatch(fetchGameSteps(type, direction));
   }
 
+  const onGameRestart = () => {
+    dispatch(game.actions.setRestartGame())
+  };
+
   return (
     <div>
-      <div>Player {userName}</div>
-      <div>{description}</div>
-      {actions && actions.map((action) => {
-        return (
-          <div key={action.description}>
-            <p>{action.description}</p>
-            <button type="button" onClick={() => onNextAction(action.type, action.direction)}> Go {action.direction}</button>
-          </div>
-        )
-      })}
+      <div>
+        <div>Player {userName}</div>
+        <div>{description}</div>
+        {actions && actions.map((action) => {
+          return (
+            <div key={action.description}>
+              <p>{action.description}</p>
+              <button type="button" onClick={() => onNextAction(action.type, action.direction)}> Go {action.direction}</button>
+            </div>
+          )
+        })}
+      </div>
+      <button type="button" onClick={onGameRestart}>Play Again</button>
     </div>
   )
 };
