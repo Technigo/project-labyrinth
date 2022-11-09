@@ -6,6 +6,7 @@ import StartScreen from 'components/StartScreen'
 import PlayerInput from 'components/PlayerInput'
 import GameBoard from 'components/GameBoard'
 // import AuthorInputSearch from 'components/AuthorInputSearch'
+import GameScreen from 'components/GameScreen'
 
 export const App = () => {
     const reducer = combineReducers({
@@ -17,6 +18,7 @@ export const App = () => {
     <Provider store={store}>
       <StartScreen />
       <PlayerInput />
+      <GameScreen />
       <GameBoard />
     </Provider>
   )
