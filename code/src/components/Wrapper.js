@@ -1,30 +1,26 @@
 /* eslint-disable linebreak-style */
 import React from 'react';
 import { NotFound } from './NotFound';
-/* import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'; */
 import StartPage from './StartPage';
-import { Provider } from 'react-redux';
-import { game } from '../reducers/store';
-import { combineReducers, configureStore  } from '@reduxjs/toolkit';
+import { useSelector } from 'react-redux';
 import { Loading } from './Loading'
 import Labyrinth from './Labyrinth'
 
-const reducer = combineReducers({
-    game: game.reducer
-})
-const store = configureStore({ reducer })
 
 const Wrapper = () => {
-    
+    const gameData = useSelector((store) => store.game.currentDirection)
+    const isLoading = useSelector((store) => store.ui.isLoading)
     return (
-        <Provider store={store}>
-            <StartPage />
-            <Labyrinth />
-            <NotFound />
+        <div>
+            {isLoading ? (
             <Loading />
-    </Provider>
-    
-     
+             ):
+            <div>
+                {gameData ? <StartPage /> :   <NotFound /> }
+            </div>
+            }
+        <Labyrinth />
+        </div>
     )
 }
 

@@ -11,8 +11,7 @@ const StartPage = () => {
     const test = () => {
         console.log(userName)
         dispatch(game.actions.setUserName(userName))
-        dispatch(fetchTheGame()
-        )
+        dispatch(fetchTheGame())
 
     }
 

@@ -6,7 +6,7 @@ Start by briefly describing the assignment in a sentence or two. Keep it short a
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+1. The biggest problem we had with understanding how to API works in a reducer, and how to use the information from API to continue in a game. After reading react/redux documantation as well as reviewing previous years project we managed to understand it and make it work. 
 
 ## View it live
 
