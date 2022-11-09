@@ -1,7 +1,14 @@
 import React from "react";
+import { CreateQuestion } from "reducers/games"
 
 const GameBoard = () => {
-    return <p>GameBoard</p>
-}
+//   const description = useSelector(store => store.games.currentPosition.description)
+    return (
+        <div>
+    {/* <section>{description}</section> */}
+    <CreateQuestion/>
+        </div>
+    )
+    }
 
 export default GameBoard;

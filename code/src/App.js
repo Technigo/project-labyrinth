@@ -4,6 +4,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import games from 'reducers/games'
 import StartScreen from 'components/StartScreen'
 import PlayerInput from 'components/PlayerInput'
+import GameBoard from 'components/GameBoard'
 // import AuthorInputSearch from 'components/AuthorInputSearch'
 
 export const App = () => {
@@ -16,6 +17,7 @@ export const App = () => {
     <Provider store={store}>
       <StartScreen />
       <PlayerInput />
+      <GameBoard />
     </Provider>
   )
 }

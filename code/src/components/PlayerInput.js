@@ -8,7 +8,7 @@ const PlayerInput = () => {
   const onFormSubmit = (event) => {
     event.preventDefault();
 
-    dispatch(games.actions.setPlayer(playerInputValue));
+    dispatch(games.actions.setUserName(playerInputValue));
     dispatch(createPlayer());
   }
 
