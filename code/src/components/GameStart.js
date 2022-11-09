@@ -10,6 +10,7 @@ const GameStart = () => {
     event.preventDefault();
     dispatch(gamestate.actions.setUsername(usernameInputValue));
     dispatch(generateGame());
+    /* dispatch(gamestate.actions.setLoading(true)); */
   }
 
   return (

@@ -4,7 +4,8 @@ const gamestate = createSlice({
   name: 'gamestate',
   initialState: {
     username: '',
-    status: '',
+    nextQuestion: [],
+    history: [],
     isLoading: false
   },
   reducers: {
@@ -14,25 +15,32 @@ const gamestate = createSlice({
     setLoading: (store, action) => {
       store.isLoading = action.payload;
     },
-    setstatus: (store, action) => {
-      store.status = action.payload;
+    setHistory: (store, action) => {
+      store.history = action.payload;
+    },
+    setNextQuestion: (store, action) => {
+      store.nextQuestion = action.payload;
     }
-
   }
 });
 
 export default gamestate;
 
-export const generateGame = (username) => {
-  return (dispatch) => {
-    fetch('https://labyrinth.technigo.io/start', {
+export const generateGame = () => {
+  return (dispatch, getState) => {
+    const options = {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username })
-    })
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: getState().gamestate.username
+      })
+    }
+    fetch('https://labyrinth.technigo.io/start', options)
       .then((res) => res.json())
       .then((json) => console.log(json))
-      .then((json) => { dispatch(gamestate.actions.status(json)) })
+      .then((json) => { dispatch(gamestate.actions.setNextQuestion(json)) })
   };
 };
 //   return (dispatch, getState) => {
