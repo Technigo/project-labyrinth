@@ -1,22 +1,52 @@
 import React from 'react';
 import styled from 'styled-components'
 import { useSelector } from 'react-redux';
+import Wrapper from './Wrapper';
 import Button from './Button';
-import Header from './Header';
+
+function coordsToBackgroundImage(coords) {
+  if (coords === '0,0') {
+    return './assets/images/image_1.jpg'
+  }
+
+  return './assets/images/fallback.jpg'
+}
+
+const DirectionInput = ({ actions }) => {
+  console.log(actions)
+  return (
+    <ChooseDirectionWrapper>
+
+      {/* <button type="button">North</button>
+      <button type="button">East</button>
+      <button type="button">South</button>
+      <button type="button">West</button> */}
+
+      {actions.map((action) => (
+        <Button key={action.direction} type="button">
+          {action.direction}: {action.description}
+        </Button>
+      ))}
+    </ChooseDirectionWrapper>
+  )
+}
 
 const Description = () => {
   const description = useSelector((state) => state.game.description); // get description
   console.log('description', description)
+
+  const bgImage = coordsToBackgroundImage(description.coordinates)
+  console.log(bgImage)
+
+  console.log(description)
   return (
-    <DescriptionContainer>
-      <Header />
-      <DescriptionText>{description.description}</DescriptionText>
-      <ChooseDirectionWrapper>
-        <Button>North</Button>
-        <Button>East</Button>
-        <Button>South</Button>
-        <Button>West</Button>
-      </ChooseDirectionWrapper>
+    <DescriptionContainer bgImage={bgImage}>
+      <Wrapper>
+
+        <DescriptionText>{description.description}</DescriptionText>
+        <DirectionInput
+          actions={description.actions} />
+      </Wrapper>
     </DescriptionContainer>
   )
 }
@@ -27,9 +57,15 @@ border: solid 2px blue;
 display: flex;
 flex-direction: column;
 justify-content: center;
+/* background-image: url(${(props) => props.bgImage}); */
+background-image: url('/assets/images/image_1.jpg');
+min-height: 100vh;
+background-size: cover;
+background-position: top center;;
 `
 const DescriptionText = styled.div`
 border: solid 2px green;
+color: white;
 `
 const ChooseDirectionWrapper = styled.div`
 border: solid 2px red;
