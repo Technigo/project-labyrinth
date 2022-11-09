@@ -12,29 +12,35 @@ const labyrinth = createSlice({
       store.username = action.payload;
     },
     setChoice: (store, action) => {
-      store.quote = action.payload;
+      store.quest = action.payload;
     }
   }
 });
 
 export default labyrinth;
 
-export const generateFetch = () => {
-  return () => {
+export const generateFetch = ({ url, username }) => {
+  return (dispatch) => {
     const options = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        username: 'username',
+        username,
         type: 'move',
         direction: 'East'
       })
     }
 
-    fetch('https://labyrinth.technigo.io/start', options)
+    fetch(url, options)
       .then((result) => result.json())
-      .then((json) => console.log(json))
+      .then((json) => {
+        console.log('json', json)
+        console.log('json.description', json.description)
+        dispatch(labyrinth.actions.setChoice(json))
+      })
   }
 }
+
+// dispatch(labyrinth.actions.setCurrentPosition(json))

@@ -3,20 +3,32 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 // import labyrinth from 'reducers/labyrinth';
+import styled from 'styled-components/macro';
 import UserInput from './UserInput';
 import Choices from './Choices';
-// import styled from 'styled-components/macro';
-// import {  } from '../styles/mainStyles';
+import { InnerWrapper } from './mainStyles';
 
 const MainComponent = () => {
   const quest = useSelector((store) => store.labyrinth.quest);
-  console.log(quest)
+  console.log('quest', quest)
+
+  const usernameTest = useSelector((store) => store.labyrinth.username);
+  console.log('usernameTest', usernameTest)
 
   return (
-    <div>
-      {quest === '' ? <UserInput /> : <Choices />}
-    </div>
+    <>
+      <InnerWrapper>
+        {quest === '' ? <UserInput /> : <Choices />}
+      </InnerWrapper>
+      <ButtonWrapper>
+        {/* button-img */}
+      </ButtonWrapper>
+    </>
   )
 }
 
 export default MainComponent;
+
+const ButtonWrapper = styled(InnerWrapper)`
+  background-color: lightgrey;
+`

@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import labyrinth from 'reducers/labyrinth';
 import MainComponent from 'components/MainComponent';
+import { OuterWrapper } from './components/mainStyles';
 
 export const App = () => {
   const reducer = combineReducers({
@@ -14,9 +15,9 @@ export const App = () => {
 
   return (
     <Provider store={store}>
-      <div>
+      <OuterWrapper>
         <MainComponent />
-      </div>
+      </OuterWrapper>
     </Provider>
   )
 }
