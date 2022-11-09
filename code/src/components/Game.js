@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { game, fetchGameSteps } from 'reducers/game';
+import { OuterWrapper, InnerWrapper } from './styled-components/StyledWrappers'
 
 const Games = () => {
   const { description, actions } = useSelector((store) => store.game.stage)
@@ -18,8 +19,8 @@ const Games = () => {
   };
 
   return (
-    <div>
-      <div>
+    <OuterWrapper>
+      <InnerWrapper>
         <div>Player {userName}</div>
         <div>{description}</div>
         {actions && actions.map((action) => {
@@ -30,9 +31,9 @@ const Games = () => {
             </div>
           )
         })}
-      </div>
+      </InnerWrapper>
       <button type="button" onClick={onGameRestart}>Play Again</button>
-    </div>
+    </OuterWrapper>
   )
 };
 
