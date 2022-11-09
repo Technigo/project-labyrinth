@@ -3,45 +3,37 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAction } from 'reducers/game';
-import LastPage from './LastPage';
+/* import LastPage from './LastPage'; */
 import { GameCard } from './StyledComponents'
 
 const Game = () => {
-  const { description, coordinates, actions } = useSelector(
-    (store) => store.game.currentPosition
-  );
-
+  const currentPosition = useSelector((store) => {
+    console.log(`currentPosition: ${JSON.stringify(store)}`)
+    return store.game.currentPosition;
+  });
   const dispatch = useDispatch();
 
-  const handleButtonClick = (type, direction) => {
-    dispatch(fetchAction(type, direction));
-    console.log('test')
+  const onAction = (action) => {
+    dispatch(fetchAction(action))
   };
-
-  const Card = ({ type, direction }) => (
-    <div>
-      <p>{description}</p>
-      <button
-        onClick={() => handleButtonClick(type, direction)}>
-        {type}
-        {direction.toLowerCase()}
-      </button>
-    </div>
-  );
 
   return (
     <GameCard title="hello" secondaryTitle="Adventurer">
       <div>
-        <p>Coordinates: {coordinates}</p>
-        <p>{description}</p>
-        {actions.length === 0 && <LastPage />}
-        {actions.length > 0
-            && actions.map((item) => <Card
-              key={item.direction}
-              {...item} />)}
+        <div>Description: {currentPosition.description}</div>
+        {currentPosition.actions.map((action) => (
+          <div key={action.description}>
+            <p>{action.description}</p>
+            <button
+              onClick={() => onAction(action)}>
+              {action.type}
+              {action.direction.toLowerCase()}
+            </button>
+          </div>
+        ))}
       </div>
     </GameCard>
   )
-}
+};
 
 export default Game;

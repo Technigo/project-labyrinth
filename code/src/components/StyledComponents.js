@@ -23,10 +23,10 @@ const TestChild = styled.div`
 color: green;
 `
 export const GameCard = ({ title, secondaryTitle, startButton, children }) => (
-    <CardContainer>
-        {title && <Title>{title}</Title>}
-        {secondaryTitle && <SecondaryTitle>{secondaryTitle}</SecondaryTitle>}
-       {startButton && <StartButton>{startButton}</StartButton>}
-       {children && <TestChild>{children}</TestChild>}
-    </CardContainer>
+  <CardContainer>
+    {title && <Title>{title}</Title>}
+    {secondaryTitle && <SecondaryTitle>{secondaryTitle}</SecondaryTitle>}
+    {startButton && <StartButton>{startButton}</StartButton>}
+    {children && <TestChild>{children}</TestChild>}
+  </CardContainer>
 )
