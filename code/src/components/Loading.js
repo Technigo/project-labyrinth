@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const LoadingScreen = () => {
+export const Loading = () => {
   return (
     <div>
       <p>Loading...</p>

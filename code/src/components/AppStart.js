@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Gameplay } from './Gameplay';
-import { UsernameInput } from './UsernameInput';
+import { Username } from './Username';
 
-export const StartScreen = () => {
+export const AppStart = () => {
   const username = useSelector((store) => store.game.username);
 
-  return <div>{username === '' ? <UsernameInput /> : <Gameplay />}</div>
+  return <div>{username === '' ? <Username /> : <Gameplay />}</div>
 }

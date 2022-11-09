@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { game, startGame } from 'reducers/game';
 
-export const UsernameInput = () => {
+export const Username = () => {
   const [UsernameInputValue, setUsernameInputValue] = useState('');
   const dispatch = useDispatch();
   const onFormSubmit = (event) => {

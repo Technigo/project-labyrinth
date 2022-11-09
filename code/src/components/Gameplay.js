@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { LoadingScreen } from './LoadingScreen';
+import { Loading } from './Loading';
 
 export const Gameplay = () => {
   const progress = useSelector((state) => state.game.progress);
@@ -11,7 +11,7 @@ export const Gameplay = () => {
   return (
     <>
       {isLoading ? (
-        <LoadingScreen />
+        <Loading />
       ) : (
         <div>
           <p>Description: {progress.description}</p>
