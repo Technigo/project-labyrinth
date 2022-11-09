@@ -25,7 +25,7 @@ lagt in en kommentar // ----SC----- på alla kompnenter nedanför själva funkti
 # Onsdag
 Nina kväll:
 
--fått postman att funka.
+-fått API i postman att funka.
 -ska skapa uniqId som i todo tydligen.
 
 -huddle med Viktor 
@@ -34,7 +34,9 @@ Nina kväll:
 -SelectPage
 
 -Skapat componenten GamePage.js, 
--lagt in "borders" i cwrappers/ontainers för att veta vad som är vad.
+-lagt in "borders" i wrappers/containers för att veta vad som är vad.
+
+-skickat bilder i slack ang spelkonsol och tv.
 
 
 
@@ -63,14 +65,16 @@ for tablet and Desktop add:
 
 -bakgrundsbild
 -spelkonsol
+
+
+-accessability etc
+
+# flyttat till "Done" =)
 -Startsida: 
   *form/lable/input type "text" usernamne
   *onChange event = setUserNameInput
   *Button: onClick {setName} start game
 
--accessability etc
-
-# flyttat till "Done" =)
 -Thunk fetch technigo API 
 
 -skapa :root font samt colors
