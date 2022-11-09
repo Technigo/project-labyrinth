@@ -5,6 +5,7 @@ import StartPage from './StartPage';
 import { Provider } from 'react-redux';
 import { game } from '../reducers/store';
 import { combineReducers, configureStore  } from '@reduxjs/toolkit';
+import { Loading } from './Loading'
 
 const reducer = combineReducers({
     game: game.reducer
@@ -17,6 +18,7 @@ const Wrapper = () => {
         <Provider store={store}>
             <StartPage />
             <NotFound />
+            <Loading />
     </Provider>
     
      
