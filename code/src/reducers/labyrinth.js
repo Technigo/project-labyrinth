@@ -1,25 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const quotes = createSlice({
-  name: 'quotes',
+const labyrinth = createSlice({
+  name: 'quests',
   initialState: {
     username: '',
-    quote: '',
+    quest: '',
     history: []
   },
   reducers: {
     setUser: (store, action) => {
       store.username = action.payload;
     },
-    setQuote: (store, action) => {
+    setChoice: (store, action) => {
       store.quote = action.payload;
     }
   }
 });
 
-export default quotes;
+export default labyrinth;
 
-export const generateQuote = () => {
+export const generateFetch = () => {
   return () => {
     const options = {
       method: 'POST',
@@ -27,7 +27,9 @@ export const generateQuote = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        username: 'username'
+        username: 'username',
+        type: 'move',
+        direction: 'East'
       })
     }
 
