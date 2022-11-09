@@ -1,29 +1,32 @@
-// StartPage, addUSerNameinput
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { fetchGame, game } from 'reducers/game'
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { game, fetchGame } from 'reducers/game';
 
 const StartPage = () => {
-  const [name, setUserName] = useState('')
-  const dispatch = useDispatch();
-  // const author = useSelector((store) => store.quotes.author)
+  const dispatch = useDispatch()
+  const [userName, setUserName] = useState('');
 
-  const onFormSubmit = (event) => {
+  const onNameSubmit = (event) => {
     event.preventDefault();
-    dispatch(game.actions.setUserName(name));
+    dispatch(game.actions.setUser(userName));
     dispatch(fetchGame());
-    console.log(name)
   }
 
   return (
-    <form onSubmit={(event) => onFormSubmit(event)}>
-      <p>Labyrinth Game! So So fun!</p>
-      <input
-        type="text"
-        value={name}
-        onChange={(event) => setUserName(event.target.value)} />
-      <button type="submit" onClick={onFormSubmit}>Start the game!</button>
+    <form onSubmit={(event) => onNameSubmit(event)}>
+      <label htmlFor="user-name">Enter your best gametag!
+        <input
+          id="user-name"
+          type="text"
+          onChange={(event) => setUserName(event.target.value)} />
+      </label>
+      <button
+        type="submit"
+        className="start-button">
+        Start the game!!
+      </button>
     </form>
   )
-}
+};
+
 export default StartPage;

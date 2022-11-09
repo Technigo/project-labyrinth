@@ -1,33 +1,35 @@
+/* eslint-disable object-shorthand */
 import { createSlice } from '@reduxjs/toolkit';
 
 export const game = createSlice({
   name: 'game',
   initialState: {
-    userName: '',
-    gameObject: {
-      coordinates: '',
-      description: '',
-      actions: []
-    }
+    username: '',
+    stage: [],
+    isLoading: false
   },
   reducers: {
-    setStage: (state, action) => {
-      state.gameObject = action.payload;
+    setUser: (store, action) => {
+      store.username = action.payload
     },
-    setUserName: (state, action) => {
-      state.userName = action.payload;
+    setStage: (store, action) => {
+      store.stage = action.payload
+    },
+    setLoading: (store, action) => {
+      store.isLoading = action.payload
     }
   }
 });
 
 export const fetchGame = () => {
   return (dispatch, getState) => {
+    dispatch(game.actions.setLoading(true))
     const options = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ username: getState().game.userName })
+      body: JSON.stringify({ username: getState().game.username })
     };
 
     fetch('https://labyrinth.technigo.io/start', options)
@@ -35,13 +37,15 @@ export const fetchGame = () => {
       .then((data) => {
         dispatch(game.actions.setStage(data));
         console.log(data)
-      });
-  };
+      })
+      .finally(dispatch(game.actions.setLoading(false)))
+  }
 };
 
-export const fetchGameSteps = ({ direction }) => {
+export const fetchGameSteps = (type, direction) => {
   return (dispatch, getState) => {
-    const options = {
+    dispatch(game.actions.setLoading(true))
+    const optionsAction = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -53,10 +57,12 @@ export const fetchGameSteps = ({ direction }) => {
       })
     };
 
-    fetch('https://labyrinth.technigo.io/action', options)
+    fetch('https://labyrinth.technigo.io/action', optionsAction)
       .then((res) => res.json())
-      .then((json) => {
-        dispatch(game.actions.setStage(json));
-      });
-  };
+      .then((data) => {
+        dispatch(game.actions.setStage(data));
+      })
+      .finally(dispatch(game.actions.setLoading(false)))
+  }
 };
+

@@ -1,13 +1,18 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import Quotes from './Game'
+import Games from './Game'
 import StartPage from './StartPage'
+import Spinner from './Spinner'
 
 const StartScreen = () => {
-  const games = useSelector((store) => store.game.games);
+  const startTheGame = useSelector((store) => store.game.username);
+  const isLoading = useSelector((store) => store.game.isLoading)
 
   return (
-    <div> {games === '' ? <Quotes /> : <StartPage />}</div>
+    <div>
+      {isLoading ? <Spinner /> : (<div>{startTheGame === '' ? <StartPage /> : <Games />} </div>)}
+    </div>
   )
 }
+
 export default StartScreen;
