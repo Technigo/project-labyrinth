@@ -1,23 +1,18 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
-// Components
-
-// Reducers
-import { labyrinth } from './reducers/labyrinth'
-import { ui } from './reducers/ui'
-
-const reducer = combineReducers({
-  labyrinth: labyrinth.reducer,
-  ui: ui.reducer
-})
-const store = configureStore({ reducer })
+import { Provider } from 'react-redux';
+import { Start } from 'components/Start'
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { labyrinth } from 'reducers/labyrinth';
 
 export const App = () => {
-  return (
+  const reducer = combineReducers({
+    labyrinth: labyrinth.reducer
+  });
+  const store = configureStore({ reducer });
 
+  return (
     <Provider store={store}>
-      Find me in src/app.js!
+      <Start />
     </Provider>
   )
 }
