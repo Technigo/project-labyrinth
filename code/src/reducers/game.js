@@ -7,6 +7,8 @@ const game = createSlice({
   name: 'game',
   initialState: {
     username: '',
+    gameStarted: false,
+    gameOver: false,
     description: '',
     response: {},
     path: []

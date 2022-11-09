@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import game, { startGame } from 'reducers/game';
+// import GameScreen from './GameScreen';
 
 const StartScreen = () => {
   const [usernameInputValue, setUsernameInputValue] = useState('');
@@ -15,19 +16,17 @@ const StartScreen = () => {
   };
 
   return (
-    <>
-      <form onSubmit={(event) => onFormSubmit(event)}>
-        <label>Type in username:</label>
-        <input
-          type="text"
-          placeholder="Enter name..."
-          value={usernameInputValue}
-          onChange={(event) => setUsernameInputValue(event.target.value)}
-          required
-        />
-        <button type="submit"> submit</button>
-      </form>
-    </>
+    <form onSubmit={(event) => onFormSubmit(event)}>
+      <label>Type in username:</label>
+      <input
+        type="text"
+        placeholder="Enter name..."
+        value={usernameInputValue}
+        onChange={(event) => setUsernameInputValue(event.target.value)}
+        required
+      />
+      <button type="submit"> submit</button>
+    </form>
   );
 };
 
