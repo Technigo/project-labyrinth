@@ -3,43 +3,71 @@ import { createSlice } from '@reduxjs/toolkit'
 export const game = createSlice({
   name: 'game',
   initialState: {
-    username: '',
-    quote: '',
-    history: []
+    user: 'null',
+    started: false,
+    position: { actions: [], coordinates: '', description: '' },
+    loading: true,
+    direction: '',
+    type: ''
   },
   reducers: {
-    setAuthor: (store, action) => {
-      store.username = action.payload;
+    setUser: (store, action) => {
+      store.user = action.payload;
     },
-    setGame: (store, action) => {
-      store.game = action.payload;
+    gameStarted: (store, action) => {
+      store.started = action.payload;
     },
-    setUserName: (store, action) => {
-      store.username = action.payload;
+    gamePosition: (store, action) => {
+      store.position = action.payload;
+    },
+    isLoading: (store, action) => {
+      store.loading = action.payload;
+    },
+    setDirection: (store, action) => {
+      store.direction = action.payload;
+    },
+    setType: (store, action) => {
+      store.type = action.payload;
     }
   }
 });
 // save username on server
-export const userName = () => {
-  return (dispatch) => {
+export const startGame = () => {
+  return (dispatch, getState) => {
     fetch('https://labyrinth.technigo.io/start', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ username: 'username' })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: getState().game.user })
     })
       .then((response) => response.json())
     // set username for game
-      .then((json) => {
-        dispatch(game.action.setUserName(json))
-      })
+      .then((data) => console.log(data))
+      .then(
+        (data) => dispatch(game.actions.gamePosition(data)),
+        dispatch(game.actions.gameStarted(true)),
+        dispatch(game.actions.isLoading(false))
+      );
   }
 }
 
-// export const generateQuote = () => {
-//   return (dispatch, getState) => {
-//     fetch(`http://api.quotable.io/random?author=${getState().quotes.author}`)
-//       .then((response) => response.json())
-//       .then((quote) => console.log(quote))
-//   }
+export const playerAction = () => {
+  return (dispatch, getState) => {
+    dispatch(game.actions.isLoading(false));
+    fetch('https://labyrinth.technigo.io/action', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: getState().game.user,
+        type: getState().game.type,
+        direction: getState().game.direction
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data))
+        .then(
+          (data) => dispatch(game.actions.gamePosition(data)),
+          dispatch(game.actions.gameStarted(true)),
+          dispatch(game.actions.isLoading(false))
+        )
+    })
+  };
+};

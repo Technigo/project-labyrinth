@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { game } from 'reducers/quotes';
+import { game, startGame } from 'reducers/quotes';
 
 const StartGame = () => {
   const [userName, setUserName] = useState('')
   const dispatch = useDispatch();
 
-  const handleSubmitName = (event) => {
+  const setUser = (event) => {
     event.preventDefault();
-    dispatch(game.action.setUserName(userName));
-  //   dispatch(userName(username))
+    dispatch(game.actions.setUser(userName));
+    dispatch(startGame());
   }
 
   return (
@@ -19,11 +19,12 @@ const StartGame = () => {
         <input
           id="user-input"
           type="text"
-          onChange={(event) => setUserName(event.target.value)} />
+          onChange={(event) => setUserName(event.target.value)}
+          value={userName} />
       </label>
       <button
         type="submit"
-        onClick={(event) => handleSubmitName(event)}>Start game
+        onClick={setUser}>Start game
       </button>
     </form>
   )

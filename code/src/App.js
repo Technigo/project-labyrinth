@@ -2,6 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { game } from 'reducers/quotes'
+// import StartGame from 'components/StartGame'
 import StartScreen from 'components/StartScreen';
 
 export const App = () => {
