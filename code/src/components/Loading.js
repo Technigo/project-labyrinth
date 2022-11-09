@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import React from 'react';
 import Lottie from 'react-lottie';
 import animationData from '../lotties/loading';

@@ -12,7 +12,7 @@ export const game = createSlice({
     name:'game', // do we need to have the same name ?
     initialState,
     reducers: {
-        addUserName: (store, actions) => {
+        setUserName: (store, actions) => {
             store.username = actions.payload
         },
         setCurrentDirection: (store, actions) => {
@@ -25,12 +25,8 @@ export const game = createSlice({
 })
 export const fetchTheGame = () => {
     
-    return (getState, dispatch) => {
+    return (dispatch) => {
       
-    /*    const store = getState()
-       const username = {
-        username: store.game.username
-       } */
        const option = {
         method: 'POST',
         headers:{ 
@@ -40,20 +36,15 @@ export const fetchTheGame = () => {
             username: 'technigoplayer'}),
        }
        fetch(`https://labyrinth.technigo.io/start`, option)
-       
-       /* {
-        method: 'POST',
-        headers:  {'Content-Type': 'application/json'},
-        body: JSON.stringify(username),
-       } */
        .then((resp) => resp.json())
        .then((json) => { dispatch(game.actions.setCurrentDirection(json))})
-       .then((startGame) => console.log(startGame))
+
+    .then((startGame) => console.log(startGame))
     }
 }
 
 export const contiuneGame = (direction) => {
-    return (dispatch, getState) => {
+    return (dispatch) => {
         dispatch(game.actions.setLoading(true))
 
         const option = {
@@ -66,11 +57,11 @@ export const contiuneGame = (direction) => {
         })
            }
     fetch('https://labyrinth.technigo.io/action', option)
-    .then(res => res.json())
-    .then(json => {
+    .then((res) => res.json())
+    .then((json) => {
         dispatch(game.actions.setCurrentDirection(json))
     })
-    .then((startGame) => console.log(startGame))
+    // .then((startGame) => console.log(startGame))
     }
 }
 

@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import { game } from '../reducers/store';
 import { combineReducers, configureStore  } from '@reduxjs/toolkit';
 import { Loading } from './Loading'
+import Labyrinth from './Labyrinth'
 
 const reducer = combineReducers({
     game: game.reducer
@@ -18,6 +19,7 @@ const Wrapper = () => {
     return (
         <Provider store={store}>
             <StartPage />
+            <Labyrinth />
             <NotFound />
             <Loading />
     </Provider>

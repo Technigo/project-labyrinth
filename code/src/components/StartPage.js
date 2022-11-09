@@ -10,15 +10,15 @@ const StartPage = () => {
 
     const test = () => {
         console.log(userName)
-        dispatch(game.actions.addUserName(userName))
+        dispatch(game.actions.setUserName(userName))
         dispatch(fetchTheGame()
         )
 
     }
-    /* const gameLore = useSelector((store) => store.game.setCurrentDirection) */
+
     return (
         <div>
-            <h1> Welcome to the game</h1>
+            <h1> Welcome to the world of Technigo filled with magic of coding. Tell me your name and start and adventure.</h1>
             <input 
             type="text" 
             className="userName" 
@@ -28,13 +28,6 @@ const StartPage = () => {
             <button 
             type="submit" 
             onClick={test}> Lets go </button>
-        
-  {/*       
-       {gameLore.map((direction) => {
-        return (
-            <p>{direction}</p>
-        )
-       })} */}
        </div>
     )
 
