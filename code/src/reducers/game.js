@@ -11,6 +11,7 @@ export const game = createSlice({
   reducers: {
     setUsername: (store, action) => {
       store.username = action.payload;
+      console.log('setUsername invoked')
     },
     setProgress: (store, action) => {
       store.progress = action.payload;
@@ -18,6 +19,7 @@ export const game = createSlice({
     },
     setLoader: (store, action) => {
       store.isLoading = action.payload;
+      console.log('setLoader invoked')
     }
   }
 });
@@ -34,10 +36,7 @@ export const startGame = () => {
     }
     fetch('https://labyrinth.technigo.io/start', options)
       .then((res) => res.json())
-      .then((data) => console.log(data))
-      .then((data) => {
-        dispatch(game.actions.setProgress(data))
-      })
+      .then((data) => dispatch(game.actions.setProgress(data), console.log(data)))
       .finally(() => dispatch(game.actions.setLoader(false)))
   }
 }

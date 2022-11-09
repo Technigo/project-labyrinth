@@ -6,36 +6,15 @@ import { useSelector } from 'react-redux';
 // import { nextMove } from './reducers/game'
 
 export const Gameplay = () => {
-  const progress = useSelector((store) => store.game.progress);
-  const isLoading = useSelector((store) => store.game.isLoading)
-
-  // const username = useSelector((state) => state.game.username);
-
-  // onButtonClick = () => {
-  //   console.log('onButtonClick invoked')
-  //   dispatch(nextMove())
-  // }
-  //   return (
-  //     <>
-  //       {!isLoading && (
-  //         <div>
-  //           <p>Placeholder</p>
-  //           <p>{progress.description}</p>
-  //         </div>
-  //         <div><p>Another placeholder div</p></div>
-  //       )}
-
-  //     </>
-  //   )
-  // }
+  const progress = useSelector((state) => state.game.progress);
 
   return (
     <div>
-      {!isLoading && (
-        <div>
-          <h1>{progress.description}</h1>
-        </div>
-      )}
+      <p>Coordinates: {progress.coordinates}</p>
+      <p>Description: {progress.description}</p>
+      <p>ActionsArrayDescription: {progress.actions[0].description}</p>
+      <p>ActionsArrayDirection: {progress.actions[0].direction}</p>
+      <p>ActionsArrayType: {progress.actions[0].type}</p>
     </div>
   )
 };
