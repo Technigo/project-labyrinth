@@ -7,7 +7,6 @@ export const OuterWrapper = styled.div`
   flex-direction: column;
   height: 100vh;
   background-color: grey;
-  margin: 20px 0;
 `;
 
 export const InnerWrapper = styled.div`
