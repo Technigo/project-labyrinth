@@ -31,7 +31,7 @@ export default game;
 export const generateGame = () => {
   return (dispatch, getState) => {
     // TODO: set isLoading to true here
-    dispatch(ui.actions.setLoading(true))
+    dispatch(ui.actions.setLoading(true));
 
     // fetch endpoint
     fetch('https://labyrinth.technigo.io/start', {
@@ -47,8 +47,11 @@ export const generateGame = () => {
         dispatch(game.actions.setActions(data.actions));
         dispatch(game.actions.setDescription(data.description));
         dispatch(game.actions.setCoordinates(data.coordinates));
-        dispatch(ui.actions.setLoading(false))
+        dispatch(ui.actions.setLoading(false));
       });
   }
   // TODO: set isLoading back to false
 };
+
+// isLoading not working atm, can't figure out why.
+// Tried to do it as the video in this weeks material
