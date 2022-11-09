@@ -6,7 +6,7 @@ import { fetchAction } from 'reducers/game';
 import LastPage from './LastPage';
 
 const Game = () => {
-  const { description, coordinates, actions } = useSelector(
+  const { coordinates, actions } = useSelector(
     (store) => store.game.currentPosition
   );
 
