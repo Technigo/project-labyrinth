@@ -1,8 +1,8 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+In this project we built a project which allows a user to navigate a maze, in the form of a text-based adventure, provided by a backend.
+we used API specified to build a frontend that gives the user control over what to do next.
+This app much focud on using thunks and redux to build the communication with the backend.
 
 ## The problem
 
