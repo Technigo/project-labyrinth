@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { questions } from 'reducers/questions';
+import { questions, generateQuestions } from 'reducers/questions';
 
 const StartScreen = () => {
   const [inputValueUserName, setInputValueUserName] = useState('');
   const dispatch = useDispatch();
-  console.log(inputValueUserName)
 
-  const onFormSubmit = (e) => {
+  const userNameSubmit = (e) => {
     e.preventDefault();
+    console.log(inputValueUserName);
+
     dispatch(questions.actions.setUserName(inputValueUserName));
+    dispatch(generateQuestions());
   };
 
   return (
     <div className="startScreenContainer">
       <h4>Enjoy the Game</h4>
-      <form onSubmit={(e) => onFormSubmit(e)}>
+      <form onSubmit={(e) => userNameSubmit(e)}>
         <label htmlFor="username-input">
           Enter your Name:
           <input
@@ -34,7 +36,7 @@ const StartScreen = () => {
         <button
           className="StartButton"
           type="submit"
-          onClick={onFormSubmit}
+          onClick={userNameSubmit}
           disabled={inputValueUserName === ''}
         >
           Start!

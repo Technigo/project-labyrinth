@@ -6,7 +6,7 @@ export const questions = createSlice({
     username: '',
     gameQuestion: [],
     isLoading: false,
-    history: []
+    history: [],
   },
 
   reducers: {
@@ -15,40 +15,32 @@ export const questions = createSlice({
     },
     setGameQuestion: (store, action) => {
       store.gameQuestion = action.payload;
-      // console.log('Game Question');
+      console.log('Game Question');
     },
     setLoading: (store, action) => {
       store.isLoading = action.payload;
     },
     setHistory: (store, action) => {
       store.history = action.payload;
-    }
-  }
+    },
+  },
 });
-export const generateQuestions = (direction) => {
-  if (direction) {
-    return (dispatch, getState) => {
-      const options = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          username: getState().questions.username,
-          type: 'move',
-          direction
-        })
-      };
-      fetch('https://labyrinth.technigo.io/start', options)
-        .then((res) => res.json())
-        .then((data) => console.log(data))
-        .then((data) => {
-          dispatch(questions.actions.setGameQuestion(data));
-        });
+export const generateQuestions = () => {
+  return (dispatch, getState) => {
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: getState().questions.username,
+      }),
     };
-  } else {
-    return(dispatch, getState)=>{
-
-    }
-  }
+    fetch('https://labyrinth.technigo.io/start', options)
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .then((data) => {
+        dispatch(questions.actions.setGameQuestion(data));
+      });
+  };
 };
