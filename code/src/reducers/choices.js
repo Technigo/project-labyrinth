@@ -37,15 +37,18 @@ export const choices = createSlice({
 }) // ENDING PARENTESIS
 
 export const Thunk = (currentUser) => {
-  // , { useState }  const [questions, setQuestions] = useState([])
-  // useEffect(() => {
-  fetch('https://labyrinth.technigo.io/start', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username: { currentUser } })
-  })
-    .then((response) => response.json())
-    .then((json) => setQuestions(json))
-  // console.log('json:', json)
-  // }, [])
+  return (dispatch) => {
+    dispatch(choices.actions.setLoading(true))
+    fetch('https://labyrinth.technigo.io/start', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: { currentUser } })
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        // update state/store with the api data
+        dispatch(choices.actions.addDescription(json))
+        dispatch(choices.actions.setLoading(false))
+      })
+  }
 }

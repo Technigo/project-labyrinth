@@ -35,20 +35,15 @@ export const Start = () => {
         </form>
       )}
       {startConfirmed && (
-        <h2>Welcome {userName}</h2>
+        <section>
+          <h2>Welcome {userName}</h2>
+          <button
+            type="button"
+            onClick={() => Thunk(userName)}>
+            Start
+          </button>
+        </section>
       )}
     </section>
   )
-  /* <h2>{questions.description}</h2> */
-  /* {questions.map((q) => {
-        return (
-          <div key={questions.indexOf(q)}>
-            <div className="container">
-              <h1>Type: {q.type}</h1>
-              <h2>Direction: {q.direction}</h2>
-              <h3>Description: {q.description}</h3>
-            </div>
-          </div>
-        )
-      })} */
 }
