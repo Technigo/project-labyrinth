@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 
 const initialState = {
-    username: null,
+    username: "",
     currentDirection: [],
     loading: false
 }
@@ -39,7 +39,7 @@ export const fetchTheGame = () => {
        .then((resp) => resp.json())
        .then((json) => { dispatch(game.actions.setCurrentDirection(json))})
 
-    .then((startGame) => console.log(startGame))
+    .then((startGame) => console.log('startGame', startGame))
     }
 }
 
@@ -53,7 +53,7 @@ export const contiuneGame = (direction) => {
             body: JSON.stringify({
             username: "technigoplayer", /* look at user name setup  */
             type: 'move',
-            direction: direction
+            direction: 'East'
         })
            }
     fetch('https://labyrinth.technigo.io/action', option)
