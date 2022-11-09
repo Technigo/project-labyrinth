@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React from 'react';
 import Lottie from 'react-lottie';
 import { useSelector } from 'react-redux';
@@ -16,10 +17,10 @@ const LoadingPage = () => {
 
   return (
     <>
-      {loading &&
-    <div>
+      {loading
+    && <div>
       <Lottie options={defaultOptions} height={400} width={400} />
-    </div>}
+       </div>}
     </>
   );
 };

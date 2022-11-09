@@ -1,22 +1,22 @@
-/* import React from "react";
-import Lottie from "react-lottie";
-import animationData from "../lotties/castle";
+import React from 'react';
+import Lottie from 'react-lottie';
+import animationData from '../lotties/castle';
 
 const LastPage = () => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData: animationData,
+    animationData,
     rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
+      preserveAspectRatio: 'xMidYMid slice'
     }
   };
 
   return (
     <div>
-      <Lottie options={defaultOptions} height={300} width={300} />
+      <Lottie options={defaultOptions} height={400} width={400} />
     </div>
   );
 }
 
-export default LastPage; */
+export default LastPage;
