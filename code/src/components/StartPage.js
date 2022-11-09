@@ -14,7 +14,7 @@ export const StartPage = () => {
   }
 
   const SetName = () => {
-    dispatch(labyrinth.actions.setUsername(nameInput))
+    dispatch(labyrinth.actions.setUserName(nameInput))
     dispatch(fetchLabyrinthOne())
   }
 
@@ -28,9 +28,8 @@ export const StartPage = () => {
           value={nameInput}
           placeholder="write your name here...."
           onChange={(event) => setNameInput(event.target.value)} />
-        <SendNameBtn type="submit" onClick={SetName}>
+        <SendNameBtn type="submit" onClick={SetName} alt="start game">
         Start the game
-          {/* <AddCheck src={vBtn} alt="start game" />  */}
         </SendNameBtn>
       </NameForm>
     </StartPageWrapper>

@@ -34,6 +34,7 @@ Nina kväll:
 -SelectPage
 
 -Skapat componenten GamePage.js, 
+-lagt in "borders" i cwrappers/ontainers för att veta vad som är vad.
 
 
 
@@ -67,7 +68,7 @@ for tablet and Desktop add:
   *onChange event = setUserNameInput
   *Button: onClick {setName} start game
 
-
+-accessability etc
 
 # flyttat till "Done" =)
 -Thunk fetch technigo API 

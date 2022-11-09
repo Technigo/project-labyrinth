@@ -77,6 +77,7 @@ export const TvCircelSmall = styled.div`
   
 `;
 // ------ App.js -----------
+
 export const PageWrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -88,6 +89,7 @@ export const PageWrapper = styled.div`
     /* background-size: cover;
     background-repeat: no-repeat;
     background-position-y: 95%; */
+    border: 2px solid green;
 
     /* @media screen and (min-width: 668px) {
         background-position-y: 75%;
@@ -107,6 +109,7 @@ export const StartPageWrapper = styled.div`
     /* background-size: cover;
     background-repeat: no-repeat;
     background-position-y: 95%; */
+    border: 3px solid lightblue;
 
     /* @media screen and (min-width: 668px) {
         background-position-y: 75%;
@@ -116,7 +119,7 @@ export const StartPageWrapper = styled.div`
 
 export const WelcomeText = styled.h1`
     text-align: center;
-    color: white;
+    color: var(clr-accent);
     width: 80%;
     font-family: var(--font-pixel);
     font-size: 1.5rem;
@@ -135,6 +138,8 @@ export const NameForm = styled.form`
     flex-direction: column;
     align-items: center;
     position: relative;
+
+    border: 2px solid red;
 `;
 
 export const StyledInput = styled.input`
@@ -144,7 +149,7 @@ export const StyledInput = styled.input`
     height: 50px;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    font-size: 1.3rem;
+    font-size: 0.7rem;
     /* padding: 5px; */
     text-align: center;
     font-family: 'Press Start 2P', cursive;
@@ -157,7 +162,7 @@ export const StyledInput = styled.input`
         width: 500px;
         height: 70px;
         margin-bottom: 1rem;
-        font-size: 1.8rem;
+        font-size: 1rem;
     }
 `;
 
@@ -180,7 +185,7 @@ export const SendNameBtn = styled.button`
         width: 500px;
         height: 70px;
         font-size: 1.3rem;
-        margin-bottom: 10rem;
+        margin-bottom: 8rem;
     }
 `;
 
