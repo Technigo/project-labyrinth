@@ -28,9 +28,10 @@ export const generateDescription = () => {
     };
     fetch('https://labyrinth-technigo.herokuapp.com/start', start) // samma som happy
       .then((res) => res.json())
-      .then(
-        (data) => console.log('data', data)
-      );
+      .then((data) => {
+        console.log(data)
+      //  Dosomthing(data); // GET first coordinates and description
+      });
   };
 };
 
