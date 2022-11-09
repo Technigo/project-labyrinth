@@ -6,8 +6,8 @@ export const game = createSlice({
   initialState: {
     username: 'Bebbeluring',
     location: '',
-    move: ''
-    /* actions: [] */
+    move: [],
+    actions: []
   },
   reducers: {
     setUserName: (store, action) => {
@@ -41,7 +41,7 @@ export const ui = createSlice({
 
 // First thunk
 
-export const generateLabyrinth = () => {
+export const fetchGame = () => {
   return (dispatch, getState) => {
     dispatch(ui.actions.setLoading(true));
 
@@ -58,14 +58,14 @@ export const generateLabyrinth = () => {
       .then((data) => {
         dispatch(game.actions.setLocation(data))
         console.log(`Data: ${data}`)
-        /* dispatch(ui.actions.setLoading(false)) */
+        dispatch(ui.actions.setLoading(false))
       })
   }
 }
 
 // Second thunk
 
-export const generateMoves = ({ type, direction }) => {
+export const navigateGame = ({ type, direction }) => {
   return (dispatch, getState) => {
     dispatch(ui.actions.setLoading(true))
     fetch('https://labyrinth.technigo.io/action', {
