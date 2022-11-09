@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import React from 'react';
 import { NotFound } from './NotFound';
 /* import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'; */
@@ -27,10 +28,3 @@ const Wrapper = () => {
 
 export default Wrapper
 
-{/* <BrowserRouter>
-<Routes>
-    <Route path="/" element={<StartPage/>} />
-    <Route path="/404" element={<NotFound />} />
-    {/* <Route path="*" element={<Navigate to= "/404" />} /> 
-</Routes>
-</BrowserRouter> */}

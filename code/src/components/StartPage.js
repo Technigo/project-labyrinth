@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import React from 'react';
 import { useState } from 'react';
 import { fetchTheGame, game } from 'reducers/store';
