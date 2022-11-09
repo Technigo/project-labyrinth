@@ -1,8 +1,10 @@
-/* import React from 'react'
+import React from 'react';
 import Lottie from 'react-lottie';
-import animationData from './lotties/swords';
+import { useSelector } from 'react-redux';
+import animationData from '../lotties/swords';
 
 const LoadingPage = () => {
+  const loading = useSelector((store) => store.ui.loading)
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -13,10 +15,13 @@ const LoadingPage = () => {
   };
 
   return (
+    <>
+      {loading &&
     <div>
-      <Lottie options={defaultOptions} height={300} width={300} />
-    </div>
+      <Lottie options={defaultOptions} height={400} width={400} />
+    </div>}
+    </>
   );
-}
+};
 
-export default LoadingPage; */
+export default LoadingPage;
