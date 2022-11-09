@@ -3,8 +3,8 @@ import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { loading } from 'reducers/loading';
 import { maingame } from 'reducers/maingame';
-// import { GamePage } from 'components/GamePage';
 import { StartPage } from 'components/StartPage';
+// import { GamePage } from 'components/GamePage';
 
 export const App = () => {
   const reducer = combineReducers({

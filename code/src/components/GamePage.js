@@ -1,20 +1,34 @@
 /* eslint-disable max-len */
 import React from 'react';
-// import { maingame } from 'reducers/maingame';
-import { useSelector } from 'react-redux';
+import { fetchGameStep } from 'reducers/maingame';
+import { useSelector, useDispatch } from 'react-redux';
 
 export const GamePage = () => {
-  const game = useSelector((store) => store.maingame.gameProps)
+  const gameProps = useSelector((store) => store.maingame.gameProps)
+  const username = useSelector((store) => store.maingame.username);
+  const actions = useSelector((store) => store.maingame.gameProps.actions);
+  const dispatch = useDispatch()
 
   return (
-    <p>{game}</p>
+    <section>
+      <p>Greetings, {username}</p>
+      <p>{gameProps.description}</p>
+      {actions.map((action) => {
+        return (
+          <>
+            <p>{action.description}</p>
+            <button type="submit" onClick={() => dispatch(fetchGameStep(action.type, action.direction))}>{action.direction}</button>
+          </>
+        )
+      })}
+
+    </section>
   )
 }
 
-// Should this be on the startpage?
-// Use .map over the different direction alternatives?
-
-/* https://labyrinth.technigo.io/action
+/*
 The button will dispatch the second fetch thunk which will do the coming fetches with the next set
 of instructions to show the user: for this fetch we need to send an object including the username,
-type="move" and the direction the user chose so we send that data as a prop to the reducer */
+type="move" and the direction the user chose so we send that data as a prop to the reducer
+
+*/

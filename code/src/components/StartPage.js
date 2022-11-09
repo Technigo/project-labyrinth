@@ -1,24 +1,28 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchGameStart, maingame } from 'reducers/maingame';
-
-/* const onNameSubmit = (name) => {
-  dispatchEvent(maingame.actions.setUsername(name))
-} */
+import { GamePage } from './GamePage';
 
 export const StartPage = () => {
   const [usernameInput, setUserNameInput] = useState('')
   const dispatch = useDispatch();
+  const globalGameProps = useSelector((store) => store.maingame.gameProps.coordinates);
 
   const onFormSubmit = (event) => {
     event.preventDefault()
     dispatch(maingame.actions.setUsername(usernameInput))
     dispatch(fetchGameStart())
   }
+
+  // Renders the GamePage in the browser if the gameProps is populated with an object with properties.
+  if (globalGameProps) {
+    return <GamePage />
+  }
+
   return (
     <div>
-      <p> Welcome</p>
+      <p> Welcome to the Labyrinth</p>
       <form onSubmit={onFormSubmit}>
           Username:
         <input
@@ -26,8 +30,9 @@ export const StartPage = () => {
         // the backend
           type="text"
           onChange={(event) => setUserNameInput(event.target.value)}
-          id="username-input" />
-        <button type="submit">Start</button>
+          id="username-input"
+          value={usernameInput} />
+        <button onClick={onFormSubmit} type="submit">Start</button>
       </form>
     </div>
   )

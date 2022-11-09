@@ -1,0 +1,18 @@
+
+<div>
+  <p> Hello {username} </p>
+  <p>{gameProps.description}</p>
+
+  {Array.isArray(actions)
+    ? actions.map((action) => {
+      return (
+        <div key={action.id}>
+          <p>{action.description}</p>
+          <button type="button" onClick={() => dispatch(fetchGameStep(action.type, action.direction))/* goToNextStep(actions) */}> {action.direction}</button>
+        </div>
+      )
+    })
+    : null}
+
+</div>
+/*
