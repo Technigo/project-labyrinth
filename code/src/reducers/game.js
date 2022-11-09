@@ -50,7 +50,6 @@ export const fetchStart = () => {
   };
 };
 
-// Not sure this is accurate, i just copied the one above, and have not double checked yet.
 export const fetchAction = (type, direction) => {
   return (dispatch, getState) => {
     dispatch(ui.actions.setLoading(true))
