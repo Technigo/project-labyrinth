@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { game, fetchStart } from 'reducers/game';
 
+import { GameCard } from './StyledComponents'
+
 const StartPage = () => {
   const [username, setUsername] = useState('')
   const dispatch = useDispatch()
@@ -14,16 +16,28 @@ const StartPage = () => {
   }
 
   return (
+    <GameCard 
+      title="Welcome Adventurer!" 
+      secondaryTitle="Pleace enter your name to enter the doungeon" 
+      >
     <form onSubmit={onFormSubmit}>
       <label>
-          Write your name, adventurer!
-        <input id="user-input" type="text" onChange={(e) => setUsername(e.target.value)} />
+        <input 
+        id="user-input" 
+        type="text" 
+        onChange={(e) => setUsername(e.target.value)} 
+        placeholder="Name, here goes young padawan"
+        required=" "
+        autoComplete="off" 
+        />
       </label>
-      <button type="submit">Start</button>
+      <button type="submit">Begin</button> 
     </form>
+    </GameCard>
   )
 }
 
 export default StartPage;
 
-// We need dispatch, events, onClick start-button. input for username
+// might be best to style the button and input here, and form - 
+// it seems complicated to style them the other way

@@ -6,7 +6,8 @@ import StartPage from './StartPage';
 const MainPage = () => {
   const currentPosition = useSelector((store) => store.game.currentPosition);
   return (
-    <> {currentPosition
+    <>
+     {currentPosition
       ? <StartPage />
       : <Game />}
     </>

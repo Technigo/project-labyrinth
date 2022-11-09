@@ -4,9 +4,10 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAction } from 'reducers/game';
 import LastPage from './LastPage';
+import { GameCard } from './StyledComponents'
 
 const Game = () => {
-  const { coordinates, actions } = useSelector(
+  const { description, coordinates, actions } = useSelector(
     (store) => store.game.currentPosition
   );
 
@@ -29,7 +30,7 @@ const Game = () => {
   );
 
   return (
-    <div>
+    <GameCard title="hello" secondaryTitle="Adventurer">
       <div>
         <p>Coordinates: {coordinates}</p>
         <p>{description}</p>
@@ -39,7 +40,7 @@ const Game = () => {
               key={item.direction}
               {...item} />)}
       </div>
-    </div>
+    </GameCard>
   )
 }
 
