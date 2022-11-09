@@ -4,12 +4,14 @@ import Game from './Game';
 import StartPage from './StartPage';
 
 const MainPage = () => {
-  const currentPosition = useSelector((store) => store.game.currentPosition);
+  const currentPosition = useSelector((store) => {
+    return store.game.currentPosition;
+  });
   return (
     <>
-     {currentPosition
-      ? <StartPage />
-      : <Game />}
+      {!currentPosition // If there's no currentPosition, the game hasn't started yet.
+        ? <StartPage />
+        : <Game />}
     </>
   )
 };
