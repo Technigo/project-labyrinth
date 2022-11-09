@@ -18,7 +18,7 @@ const PlayerInput = () => {
       Enter your name:
         <input id="player-input" type="text" onChange={(event) => setPlayerInputValue(event.target.value)} />
       </label>
-      <button type="submit">Start the game</button>
+      <button type="submit">Start the game!!!</button>
     </form>)
 }
 
