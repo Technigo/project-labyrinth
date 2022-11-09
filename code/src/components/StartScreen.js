@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import game, { startGame } from 'reducers/game';
 
-const StartPage = () => {
+const StartScreen = () => {
   const [usernameInputValue, setUsernameInputValue] = useState('');
   const dispatch = useDispatch();
 
@@ -23,6 +23,7 @@ const StartPage = () => {
           placeholder="Enter name..."
           value={usernameInputValue}
           onChange={(event) => setUsernameInputValue(event.target.value)}
+          required
         />
         <button type="submit"> submit</button>
       </form>
@@ -30,4 +31,4 @@ const StartPage = () => {
   );
 };
 
-export default StartPage;
+export default StartScreen;

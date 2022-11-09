@@ -3,8 +3,12 @@ import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import game from 'reducers/game';
 import StartPage from 'components/StartScreen';
+import GameScreen from 'components/GameScreen';
+import { useSelector } from 'react-redux';
 
 export const App = () => {
+  const response = useSelector((state) => state.game.response);
+
   const reducer = combineReducers({
     game: game.reducer
   });
@@ -15,6 +19,7 @@ export const App = () => {
   return (
     <Provider store={store}>
       <StartPage />
+      {response && <GameScreen />}
     </Provider>
   );
 };
