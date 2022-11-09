@@ -5,7 +5,8 @@ const labyrinth = createSlice({
   initialState: {
     username: '',
     coordinates: '',
-    description: ''
+    description: '',
+    actions: []
   },
   reducers: {
     setUsername: (state, action) => {
@@ -16,21 +17,21 @@ const labyrinth = createSlice({
     },
     setDescription: (state, action) => {
       state.description = action.payload
+    },
+    setActionOption: (state, action) => {
+      state.actions.push(action.payload)
     }
   }
 })
 export default labyrinth;
-
 export const generateLabyrinthData = () => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     const options = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        username: 'Technigo'
-      })
+      body: JSON.stringify({ username: getState().labyrinth.username })
     }
 
     fetch('https://labyrinth.technigo.io/start', options)
@@ -39,6 +40,31 @@ export const generateLabyrinthData = () => {
         console.log(data)
         dispatch(labyrinth.actions.setCoordinates(data.coordinates))
         dispatch(labyrinth.actions.setDescription(data.description))
+        dispatch(labyrinth.actions.setActionOption(data.actions[0]))
+      })
+  }
+}
+
+export const generateActionData = (type, direction) => {
+  return (dispatch, getState) => {
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: getState().labyrinth.username,
+        type,
+        direction
+      })
+    }
+    fetch('https://labyrinth.technigo.io/action', options)
+      .then((respons) => respons.json())
+      .then((data) => {
+        console.log(data)
+        dispatch(labyrinth.actions.setCoordinates(data.coordinates))
+        dispatch(labyrinth.actions.setDescription(data.description))
+        dispatch(labyrinth.actions.setActionOption(data.actions[0]))
       })
   }
 }

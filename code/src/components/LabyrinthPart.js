@@ -1,19 +1,25 @@
+/* eslint-disable array-callback-return */
 import React from 'react'
-import labyrinth from 'reducers/labyrinth'
-import { useDispatch, useSelector } from 'react-redux'
+import { generateActionData } from 'reducers/labyrinth'
+import { useSelector, useDispatch } from 'react-redux'
 
 const LabyrinthPart = () => {
   const description = useSelector((store) => store.labyrinth.description)
-  const coordinates = useSelector((store) => store.labyrinth.coordinates)
-
+  const actions = useSelector((store) => store.labyrinth.actions)
   const dispatch = useDispatch()
 
   return (
-    <div>
+    <>
       <p>{description}</p>
-
-      {/* <button>go{}</button> */}
-    </div>
+      {actions.map((action) => {
+        return (
+          <>
+            <p>{action.description}</p>
+            <button type="submit" onClick={() => dispatch(generateActionData(action.type, action.direction))}>{action.direction}</button>
+          </>
+        )
+      })}
+    </>
   )
 }
 export default LabyrinthPart

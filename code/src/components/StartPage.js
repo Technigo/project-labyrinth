@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import labyrinth, { generateLabyrinthData } from 'reducers/labyrinth'
 import { useDispatch } from 'react-redux'
+import LabyrinthPart from './LabyrinthPart'
 
 const StartPage = () => {
   const [usernameInput, setUsernameInput] = useState('')
@@ -9,7 +10,7 @@ const StartPage = () => {
   const onFormSubmit = (event) => {
     event.preventDefault()
     dispatch(labyrinth.actions.setUsername(usernameInput))
-    dispatch(generateLabyrinthData())
+    dispatch(generateLabyrinthData(usernameInput))
   }
   return (
     <div>
@@ -23,6 +24,7 @@ const StartPage = () => {
             id="username-input" />
         </label>
         <button type="submit">Start</button>
+        {onFormSubmit && <LabyrinthPart />}
       </form>
     </div>
   )
