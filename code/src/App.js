@@ -5,7 +5,6 @@ import { ui } from 'reducers/ui';
 import gamestate from 'reducers/gamestate';
 import StartScreen from 'components/StartScreen';
 import LoadingIndicator from 'components/LoadingIndicator';
-/* import { uiLoader } from 'reducers/uiLoader'; */
 
 export const App = () => {
   const reducer = combineReducers({

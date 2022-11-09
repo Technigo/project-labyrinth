@@ -6,6 +6,7 @@ const gamestate = createSlice({
   initialState: {
     username: '',
     nextQuestion: [],
+    all: [],
     history: []
     /*     isLoading: false */
   },

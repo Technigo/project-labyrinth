@@ -15,6 +15,7 @@ const GameStart = () => {
 
   return (
     <form onSubmit={(event) => onFormSubmit(event)}>
+      <h1>Welcome to this labyrinth game</h1>
       <label htmlFor="username-input">
         <input
           required
@@ -23,7 +24,7 @@ const GameStart = () => {
           placeholder="Enter your username"
           onChange={(event) => setUsernameNameInputValue(event.target.value)} />
       </label>
-      <button type="submit">Start playing</button>
+      <button type="submit" required>Confirm</button>
     </form>)
 }
 
