@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchGameStart, maingame } from 'reducers/maingame';
@@ -21,6 +22,8 @@ export const StartPage = () => {
       <form onSubmit={onFormSubmit}>
           Username:
         <input
+        // This button will do our initial fetch to fetch the first game instructions from
+        // the backend
           type="text"
           onChange={(event) => setUserNameInput(event.target.value)}
           id="username-input" />
@@ -29,3 +32,7 @@ export const StartPage = () => {
     </div>
   )
 }
+
+/* The start game button triggers the first fetch thunk to fetch the first set of instructions
+received from the response when doing the first POST request. The current username is sent as a prop
+so we can send that data on our POST request */

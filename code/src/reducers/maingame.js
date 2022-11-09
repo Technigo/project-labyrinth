@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 
 import { createSlice } from '@reduxjs/toolkit';
 // import { loading } from './loading';
@@ -22,6 +23,7 @@ export const maingame = createSlice({
   }
 
 });
+// add gameOver: false in initialState?
 
 export const fetchGameStart = () => {
   return (dispatch) => {
@@ -35,10 +37,18 @@ export const fetchGameStart = () => {
       .then((response) => response.json())
       .then((json) => {
         console.log(json)
+        console.log(options)
+        console.log(fetchGameStart)
         dispatch(maingame.actions.setGameProps(json))
       })
   }
 }
+
+/* https://labyrinth.technigo.io/action
+This POST request needs a JSON body (like the /start request) containing the same username you started the game with.
+In addition, your JSON body will specify what action was done by the player:
+type - the type of action (currently only move)
+direction - the direction to move */
 
 /*
 export const fetchGameStart = () => {
