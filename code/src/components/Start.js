@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 import React, { useState } from 'react';
-import { Thunk, choices } from 'reducers/choices';
+import { fetchChoices, choices } from 'reducers/choices';
 import { useDispatch } from 'react-redux';
 
 export const Start = () => {
@@ -39,7 +39,7 @@ export const Start = () => {
           <h2>Welcome {userName}</h2>
           <button
             type="button"
-            onClick={() => Thunk(userName)}>
+            onClick={() => dispatch(fetchChoices())}>
             Start
           </button>
         </section>
