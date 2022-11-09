@@ -4,7 +4,7 @@ import { game, playerAction } from 'reducers/quotes';
 
 const Actions = ({ action }) => {
   const dispatch = useDispatch()
-  const coordinates = useSelector((store) => store.game.position.coordinates)
+  const coordinates = useSelector((store) => store.game.coordinates)
 
   const chooseDirection = () => {
     dispatch(game.actions.setType(action.type))
