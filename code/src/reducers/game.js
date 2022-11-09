@@ -5,7 +5,8 @@ export const game = createSlice({
   initialState: {
     progress: {},
     username: '',
-    history: []
+    history: [],
+    isLoading: false
   },
   reducers: {
     setUsername: (store, action) => {
@@ -14,12 +15,16 @@ export const game = createSlice({
     setProgress: (store, action) => {
       store.progress = action.payload;
       console.log('setProgress invoked')
+    },
+    setLoader: (store, action) => {
+      store.isLoading = action.payload;
     }
   }
 });
 
 export const startGame = () => {
   return (dispatch, getState) => {
+    dispatch(game.actions.setLoader(true))
     const options = {
       method: 'POST',
       headers: {
@@ -33,6 +38,7 @@ export const startGame = () => {
       .then((data) => {
         dispatch(game.actions.setProgress(data))
       })
+      .finally(() => dispatch(game.actions.setLoader(false)))
   }
 }
 export const nextMove = (action) => {
@@ -49,6 +55,7 @@ export const nextMove = (action) => {
       .then((response) => response.json())
       .then((data) => {
         dispatch(game.actions.setProgress(data))
-      })
+        dispatch(game.actions.setLoader(false))
+      }, 5000)
   }
 }
