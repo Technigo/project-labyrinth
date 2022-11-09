@@ -4,18 +4,16 @@ import labyrinth, { startLabyrinth } from 'reducers/labyrinth';
 
 const UserNameInput = () => {
   const dispatch = useDispatch()
+
   const [userName, setUserName] = useState('');
+  console.log('userName', userName)
+  console.log('setUserName', setUserName)
   // const author = useSelector((store) => store.questions.author);
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-
-    /*  const newPlayer = {
-      username: userName
-    } */
-
     dispatch(labyrinth.actions.setUser(userName));
-    dispatch(startLabyrinth())
+    dispatch(startLabyrinth());
   }
 
   return (

@@ -5,15 +5,17 @@ const labyrinth = createSlice({
   initialState: {
     username: '',
     stage: [],
-    history: [],
-    loading: false
+    isLoading: false
   },
   reducers: {
     setUser: (store, action) => {
       store.username = action.payload
     },
     setStage: (store, action) => {
-      store.stage = action.payload;
+      store.stage = action.payload
+    },
+    setLoading: (store, action) => {
+      store.isLoading = action.payload
     }
   }
 });
@@ -22,6 +24,7 @@ export default labyrinth;
 
 export const startLabyrinth = () => {
   return (dispatch, getState) => {
+    dispatch(labyrinth.actions.setLoading(true))
     const API_URL = 'https://labyrinth.technigo.io/start'
     const options = {
       method: 'POST',
@@ -33,61 +36,36 @@ export const startLabyrinth = () => {
       })
     }
     fetch(API_URL, options)
-      // eventuellt loader from another reducer set to true
-      // --> dispatch(ui.actions.setLoading(true))
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        console.log('startLabyrinth', data)
         dispatch(labyrinth.actions.setStage(data))
-        // eventuellt loader from another reducer set to false
-        // --> dispatch(ui.actions.setLoading(false))
       })
-    /*  fetch(`https://api.quotable.io/random?author=${getState().labyrinth.username}`)
-      .then((response) => response.json())
-      .then((quote) => console.log(quote)) */
+      .finally(dispatch(labyrinth.actions.setLoading(false)))
   }
-}
+};
 
-/* export const getActions = () => {
+export const nextStage = (type, direction) => {
   return (dispatch, getState) => {
-    const API_URL = 'https://labyrinth.technigo.io/action'
-    const options = {
+    dispatch(labyrinth.actions.setLoading(true))
+    const API_URL_ACTION = 'https://labyrinth.technigo.io/action'
+    const optionsAction = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         username: getState().labyrinth.username,
-        type: getState().labyrinth.action,
-        direction:
+        type,
+        direction
       })
     }
-    fetch(API_URL, options)
+    fetch(API_URL_ACTION, optionsAction)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        console.log('nextStage', data)
         dispatch(labyrinth.actions.setStage(data))
       })
+      .finally(dispatch(labyrinth.actions.setLoading(false)))
   }
-} */
-
-/* const handleOnFormSubmit = (event) => {
-  event.preventDefault();
-
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      message: newThought
-    })
-  }
-  setLoading(true)
-  fetch(APIurl, options)
-    .then((res) => res.json())
-    .then((updatedThought) => {
-      setNewThought((previousThoughts) => [updatedThought, ...previousThoughts])
-    })
-    .finally(() => handleCleanUp())
-} */
+};

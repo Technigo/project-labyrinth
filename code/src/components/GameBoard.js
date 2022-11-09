@@ -1,24 +1,31 @@
 import React from 'react';
-// import { generateStage } from './reducers/labyrinth'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { nextStage } from 'reducers/labyrinth';
 
 const GameBoard = () => {
+  const { description, actions } = useSelector((store) => store.labyrinth.stage)
+  console.log('description', description)
+  console.log('actions', actions)
+  const dispatch = useDispatch()
   const userName = useSelector((store) => store.labyrinth.username);
 
-  const generateStage = useSelector((store) => store.labyrinth.stage);
+  const onNextAction = (type, direction) => {
+    dispatch(nextStage(type, direction));
+  }
 
   return (
     <>
-      <div>Hello {userName}!</div>
-      <div>{generateStage.description}</div>
-      {generateStage.actions && generateStage.actions.map((action) => {
+      <div>Player {userName}</div>
+      <div>{description}</div>
+      {actions && actions.map((item) => {
         return (
-          <div key={action.description}>
-            <p>{action.description}</p>
-            <button type="button"/* onClick={() => } */>{action.direction}</button>
+          <div key={item.description}>
+            <p>{item.description}</p>
+            <button type="button" onClick={() => onNextAction(item.type, item.direction)}>Go {item.direction}</button>
           </div>
         )
       })}
+
     </>
   )
 };
