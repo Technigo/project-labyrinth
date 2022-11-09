@@ -3,9 +3,11 @@ import { createSlice } from '@reduxjs/toolkit'
 export const game = createSlice({
   name: 'game',
   initialState: {
-    user: 'null',
+    user: '',
     started: false,
-    position: { actions: [], coordinates: '', description: '' },
+    description: '',
+    // position: { actions: [], coordinates: '', description: '' },
+    position: [],
     loading: true,
     direction: '',
     type: ''
@@ -28,6 +30,9 @@ export const game = createSlice({
     },
     setType: (store, action) => {
       store.type = action.payload;
+    },
+    setDescription: (store, action) => {
+      store.description = action.payload;
     }
   }
 });
@@ -43,7 +48,7 @@ export const startGame = () => {
     // set username for game
       .then((data) => console.log(data))
       .then(
-        (data) => dispatch(game.actions.gamePosition(data)),
+        (data) => dispatch(game.actions.setDescription(data)),
         dispatch(game.actions.gameStarted(true)),
         dispatch(game.actions.isLoading(false))
       );
@@ -65,6 +70,7 @@ export const playerAction = () => {
         .then((data) => console.log(data))
         .then(
           (data) => dispatch(game.actions.gamePosition(data)),
+          dispatch(game.actions.setDescription()),
           dispatch(game.actions.gameStarted(true)),
           dispatch(game.actions.isLoading(false))
         )
