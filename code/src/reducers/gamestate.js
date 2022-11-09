@@ -1,20 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { ui } from './ui'
 
 const gamestate = createSlice({
   name: 'gamestate',
   initialState: {
     username: '',
     nextQuestion: [],
-    history: [],
-    isLoading: false
+    history: []
+    /*     isLoading: false */
   },
   reducers: {
     setUsername: (store, action) => {
       store.username = action.payload;
     },
-    setLoading: (store, action) => {
+    /*     setLoading: (store, action) => {
       store.isLoading = action.payload;
-    },
+    }, */
     setHistory: (store, action) => {
       store.history = action.payload;
     },
@@ -28,6 +29,7 @@ export default gamestate;
 
 export const generateGame = () => {
   return (dispatch, getState) => {
+    dispatch(ui.actions.setLoading(true))
     const options = {
       method: 'POST',
       headers: {
@@ -40,12 +42,9 @@ export const generateGame = () => {
     fetch('https://labyrinth.technigo.io/start', options)
       .then((res) => res.json())
       .then((json) => console.log(json))
-      .then((json) => { dispatch(gamestate.actions.setNextQuestion(json)) })
+      .then((json) => {
+        dispatch(gamestate.actions.setNextQuestion(json))
+        dispatch(ui.actions.setLoading(false))
+      })
   };
 };
-//   return (dispatch, getState) => {
-//     fetch(`https://api.quotable.io/random?author=${getState().gamestate.author}`)
-//       .then((response) => response.json())
-//       .then((quote) => console.log(quote));
-//   }
-// }
