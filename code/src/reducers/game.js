@@ -1,7 +1,6 @@
 /* eslint-disable function-paren-newline */
 /* eslint-disable implicit-arrow-linebreak */
 import { createSlice } from '@reduxjs/toolkit';
-import { v4 as uuidv4 } from 'uuid';
 
 const game = createSlice({
   name: 'game',
@@ -11,26 +10,32 @@ const game = createSlice({
     gameOver: false,
     description: '',
     response: {},
-    path: []
+    direction: ''
   },
   reducers: {
     setUsername: (store, action) => {
       store.username = action.payload;
       console.log('Name', action);
     },
+    setDirection: (store, action) => {
+      store.direction = action.payload;
+    },
     setResponse: (store, action) => {
       store.response = action.payload;
+    },
+    showGame: (state) => {
+      state.gameStarted = true;
     }
   }
 });
 
 export default game;
 
-export const startGame = () => {
+export const startGame = (nextMove) => {
   //  const dispatch = useDispatch();
   return (dispatch, getState) => {
-    const uniqueUsername = uuidv4() + '/' + getState().game.username;
-    console.log(uniqueUsername);
+    // const uniqueUsername = uuidv4() + '/' + getState().game.username;
+    // const direction = getState().direction;
 
     const options = {
       method: 'POST',
@@ -38,11 +43,13 @@ export const startGame = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        username: uniqueUsername
+        username: getState().game.username,
+        type: 'move',
+        direction: getState().game.direction
       })
     };
 
-    fetch('https://labyrinth.technigo.io/start', options)
+    fetch(`https://labyrinth.technigo.io/${nextMove}`, options)
       .then((response) =>
         response
           .json()

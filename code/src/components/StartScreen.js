@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import game, { startGame } from 'reducers/game';
+import { v4 as uuidv4 } from 'uuid';
 // import GameScreen from './GameScreen';
 
 const StartScreen = () => {
@@ -11,8 +12,9 @@ const StartScreen = () => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    dispatch(game.actions.setUsername(usernameInputValue));
-    dispatch(startGame());
+    dispatch(game.actions.setUsername(uuidv4() + '/' + usernameInputValue));
+    dispatch(startGame('start'));
+    dispatch(game.actions.showGame());
   };
 
   return (

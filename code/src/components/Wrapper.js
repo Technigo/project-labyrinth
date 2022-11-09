@@ -5,18 +5,14 @@ import GameScreen from './GameScreen';
 import StartScreen from './StartScreen';
 
 const Wrapper = () => {
-  const gameStart = useSelector((state) => state.game.gameStarted);
+  const gameStarted = useSelector((state) => state.game.gameStarted);
   const gameOver = useSelector((state) => state.game.gameOver);
 
-  return <div>{!gameStart ? <StartScreen /> : <GameScreen />}</div>;
-  /*   if (gameStarted) {
+  if (gameStarted) {
     return <GameScreen />;
-  }
-
-  if (gameOver) {
+  } else if (gameOver) {
     return <EndScreen />;
-  }
-  return <StartScreen />; */
+  } else return <StartScreen />;
 };
 
 export default Wrapper;
