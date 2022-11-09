@@ -4,7 +4,7 @@ import { Gameplay } from './Gameplay';
 import { UsernameInput } from './UsernameInput';
 
 export const StartScreen = () => {
-  const progress = useSelector((store) => store.game.progress);
+  const username = useSelector((store) => store.game.username);
 
-  return <div>{progress === '' ? <UsernameInput /> : <Gameplay />}</div>
+  return <div>{username === '' ? <UsernameInput /> : <Gameplay />}</div>
 }

@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 export const game = createSlice({
   name: 'game',
   initialState: {
+    progress: {},
     username: '',
-    progress: '',
     history: []
   },
   reducers: {
@@ -13,6 +13,7 @@ export const game = createSlice({
     },
     setProgress: (store, action) => {
       store.progress = action.payload;
+      console.log('setProgress invoked')
     }
   }
 });
@@ -29,6 +30,23 @@ export const startGame = () => {
     fetch('https://labyrinth.technigo.io/start', options)
       .then((res) => res.json())
       .then((data) => console.log(data))
+      .then((data) => {
+        dispatch(game.actions.setProgress(data))
+      })
+  }
+}
+export const nextMove = (action) => {
+  return (dispatch, getState) => {
+    fetch('https://labyrinth.technigo.io/action', {
+      method: 'POST',
+      headers: { 'content-type': 'application/JSON' },
+      body: JSON.stringify({
+        username: getState().game.username,
+        type: 'move',
+        direction: action
+      })
+    })
+      .then((response) => response.json())
       .then((data) => {
         dispatch(game.actions.setProgress(data))
       })
