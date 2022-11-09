@@ -4,7 +4,7 @@ import Quotes from './Quotes';
 import AuthorInputSearch from './AuthorInputSearch';
 
 const StartScreen = () => {
-  const quote = useSelector((store) => store.quotes.quote);
+  const quote = useSelector((store) => store.game.quote);
 
   return <div>{quote === '' ? <AuthorInputSearch /> : <Quotes />}</div>
 }

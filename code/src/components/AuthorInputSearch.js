@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import quotes, { generateQuote } from 'reducers/quotes';
+import game, { fetchStartPosition } from 'reducers/game';
 
 const AuthorInputSearch = () => {
   const [authorNameInputValue, setAuthorNameInputValue] = useState('');
   const dispatch = useDispatch();
-  // const author = useSelector((store) => store.quotes.author);
+  // const author = useSelector((store) => store.game.author);
 
   const onFormSubmit = (event) => {
     event.preventDefault();
 
-    dispatch(quotes.actions.setAuthor(authorNameInputValue));
-    dispatch(generateQuote());
+    dispatch(game.actions.setAuthor(authorNameInputValue));
+    dispatch(fetchStartPosition());
   }
 
   return (
-
     <form onSubmit={(event) => onFormSubmit(event)}>
       <label htmlFor="author-input">
       Provide author name, please:
