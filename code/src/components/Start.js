@@ -16,7 +16,11 @@ const Start = () => {
   }
   return (
     <>
-      <p>Kort story</p>
+      <h2>
+        In your search for enlightenment you have come across a peculiar structure.
+        A veil covers an entrance. Speak your name to enter!
+        (write your name and hit enter to enter)
+      </h2>
       <form onSubmit={(event) => onNameSubmit(event)}>
         <label>
           <input type="text" placeholder="what's your name?" onChange={(event) => setUserName(event.target.value)} />

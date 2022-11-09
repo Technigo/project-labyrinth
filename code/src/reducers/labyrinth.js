@@ -7,19 +7,35 @@ const labyrinth = createSlice({
     coordinates: '',
     description: '',
     actions: [],
-    username: null
+    username: null,
+    isLoading: false
   },
   reducers: {
+    setLoading: (store, action) => {
+      store.isLoading = action.payload;
+    },
     setUser: (store, action) => {
-      store.username = action.payload
+      store.username = `${new Date().getTime()}+${action.payload}`
+    },
+    setLocation: (store, action) => {
+      const {
+        description,
+        coordinates,
+        actions
+      } = action.payload;
+      store.coordinates = coordinates;
+      store.description = description;
+      store.actions = actions;
     }
   }
 
 });
-export default labyrinth;
 
 export const startGame = () => {
   return (dispatch, getState) => {
+    // sets isLoading to true while waiting for respons from api.
+    /// When fetch is done isLoading is set to false.
+    dispatch(labyrinth.actions.setLoading(true))
     fetch(
       'https://labyrinth.technigo.io/start',
       {
@@ -31,16 +47,15 @@ export const startGame = () => {
       }
     )
       .then((res) => res.json())
-      .then((location) => console.log(location))
+      // update initial state with data fetched from the api
+      .then((location) => dispatch(labyrinth.actions.setLocation({
+        description: location.description,
+        coordinates: location.coordinates,
+        actions: location.actions
+      })))
       .catch((error) => console.error(error))
-      .finally(console.log('all done'))
+      .finally(dispatch(labyrinth.actions.setLoading(false)))
   }
 };
 
-/* export const generateQuote = () => {
-  return (dispatch, getState) => {
-    fetch(`https://api.quotable.io/random?author=${getState().quotes.author}`)
-      .then((response) => response.json())
-      .then((quote) => console.log(quote));
-  }
-} */
+export default labyrinth;

@@ -6,9 +6,10 @@ import Location from './Location';
 
 const Parent = () => {
   const username = useSelector((store) => store.labyrinth.username)
+  console.log('username', username)
   return (
     <div>
-      {username ? <Start /> : <Location />}
+      {username === null ? <Start /> : <Location />}
     </div>
   )
 }
