@@ -22,7 +22,6 @@ const GameScreen = () => {
 
     return (
         <section>
-            {/* <GenerateQuestion /> */}
             <p>{description}</p>
             <p>{coordinates}</p>
             {moves && moves.map(move => (

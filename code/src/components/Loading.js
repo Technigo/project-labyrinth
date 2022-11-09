@@ -4,7 +4,10 @@ import { useSelector } from "react-redux";
 const Loading = () => {
     const loading = useSelector(state => state.games.loading)
     return (
-        <p>{loading}</p>
+    
+        <div>{loading && 
+        <p>loading</p>
+        }</div>
     )
 }
 

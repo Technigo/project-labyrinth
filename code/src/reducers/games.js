@@ -9,7 +9,7 @@ const games = createSlice({
     moves: null,
     history: [],
     loading: false,
-    coordinates: null
+    coordinates: null,
   },
 
   reducers: {

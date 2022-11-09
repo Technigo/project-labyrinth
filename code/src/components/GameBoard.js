@@ -1,10 +1,25 @@
 import React from "react";
-import { GenerateQuestion } from "reducers/games"
+import PlayerInput from 'components/PlayerInput';
+import GameScreen from "./GameScreen";
+import Loading from "./Loading";
+import { useSelector } from 'react-redux';
 
 const GameBoard = () => {
-//   const description = useSelector(store => store.games.currentPosition.description)
+    const username = useSelector(store => store.games.username)
+    const loading = useSelector(store => store.games.loading)
+
     return (
-    <GenerateQuestion />
+        <>
+{loading  && <Loading />}
+{!loading && (
+    <div>
+    {username  
+    ?  <GameScreen/> 
+    : <PlayerInput/> 
+    }
+    </div>
+)}
+</>
     )
     }
 
