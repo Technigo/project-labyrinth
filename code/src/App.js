@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-//import StartScreen from 'components /StartScreen';
+import StartScreen from 'components /StartScreen';
 import { gameSlice } from 'features/game';
 
 export const App = () => {
@@ -9,5 +9,9 @@ export const App = () => {
 		game: gameSlice.reducer,
 	});
 	const store = configureStore({ reducer });
-	return <Provider store={store}></Provider>;
+	return (
+		<Provider store={store}>
+			<StartScreen />
+		</Provider>
+	);
 };
