@@ -2,7 +2,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import Lottie from 'react-lottie';
-import mazeloader from 'animations/mazeloader'
+import mazeloader from '../animations/mazeloader'
 
 const LoadingIndicator = () => {
   const isLoading = useSelector((state) => state.ui.isLoading)
@@ -10,7 +10,7 @@ const LoadingIndicator = () => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    mazeloader,
+    animationData: mazeloader,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice'
     }

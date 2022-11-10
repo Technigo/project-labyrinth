@@ -8,15 +8,11 @@ const gamestate = createSlice({
     nextQuestion: [],
     all: [],
     history: []
-    /*     isLoading: false */
   },
   reducers: {
     setUsername: (store, action) => {
       store.username = action.payload;
     },
-    /*     setLoading: (store, action) => {
-      store.isLoading = action.payload;
-    }, */
     setHistory: (store, action) => {
       store.history = action.payload;
     },
