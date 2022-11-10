@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const game = createSlice({
   name: 'game',
   initialState: {
-    username: 'Bebbeluring',
+    username: '',
     location: '',
     move: []
     // actions: []
@@ -19,7 +19,8 @@ export const game = createSlice({
       console.log(store.location)
     },
     setMove: (store, action) => {
-      store.move = [...store.move, action.payload];
+      store.move = action.payload
+      console.log(`this should be store.move ${store.move}`)
     }
     // restartGame: (store) => {
     //   store.location = ''
@@ -58,7 +59,6 @@ export const fetchGame = () => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setLocation(data))
-        console.log(`Data: ${data}`)
         dispatch(ui.actions.setLoading(false))
       })
   }
@@ -66,23 +66,22 @@ export const fetchGame = () => {
 
 // Second thunk
 
-export const navigateGame = (direction) => {
+export const navigateGame = () => {
   return (dispatch, getState) => {
     dispatch(ui.actions.setLoading(true))
-
-    const options = {
+    fetch('https://labyrinth.technigo.io/action', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/jason' },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         username: getState().game.username,
         type: 'move',
-        direction
+        direction: 'direction'
       })
-    }
-    fetch('https://labyrinth.technigo.io/action', options)
+    })
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setLocation(data))
+        console.log(data)
         dispatch(ui.actions.setLoading(false))
       })
   }

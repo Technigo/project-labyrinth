@@ -2,27 +2,30 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components/macro'
 import uniqid from 'uniqid'
-import { navigateGame } from '../reducers/game'
+import { navigateGame, game } from '../reducers/game'
+
 // import NavigateButtons from './NavigateButtons'
 // import { DuckContainer } from 'styled-components/GlobalStyles';
 // import { DucklingHeader } from './DucklingHeader';
-// import { game } from 'reducer/game';
 
 export const PlayingGame = () => {
   const data = useSelector((store) => store.game.location);
   console.log(data)
   const actions = useSelector((store) => store.game.move);
-  console.log(actions)
+  // console.log(actions)
+  const userName = useSelector((store) => store.game.userName)
+  console.log(userName)
 
   // const directionAlternatives = useSelector(
   //   (store) => store.game.data.actions.map((item) => item.direction)
   // )
   const dispatch = useDispatch()
 
-  // const onNavigate = (direction, type) => {
-  //   dispatch(navigateGame(direction, type))
-  //   dispatch(game.actions.setMove(direction))
-  // }
+  const onClick = (direction) => {
+    dispatch(navigateGame(userName, direction))
+    dispatch(game.actions.setMove(direction))
+    console.log(direction)
+  }
 
   const direction = {
     north: 'North',
@@ -75,8 +78,9 @@ export const PlayingGame = () => {
               key={uniqid()}
               className="directionButton"
               type="button"
-              value={direction.east}
-              onClick={() => dispatch(navigateGame(data.type, data.direction))}>
+              value="east"
+              onClick={(e) => onClick(e.target.value)}>
+              {/* onClick={() => dispatch(navigateGame(userName, direction))}> */}
               {/* onClick={() => onNavigate(data.type, data.direction)}> */}
               {/* onClick={(e) => onClick(e.target.value)}> */}
               {/* disabled={!directionAlternatives.includes(Direction.east)}> */}

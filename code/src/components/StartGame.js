@@ -7,12 +7,18 @@ import styled from 'styled-components/macro';
 // import { DucklingHeader } from './DucklingHeader';
 
 export const StartGame = () => {
-  const [username, setUsername] = useState('')
+  const [userName, setUserName] = useState('')
   const dispatch = useDispatch();
 
-  const onUsernameInput = () => {
-    dispatch(game.actions.setUserName(username));
-    dispatch(fetchGame());
+  const onInputUserName = (event) => {
+    event.preventDefault()
+    setUserName(event.target.value)
+  }
+
+  const onChangeUserName = () => {
+    dispatch(game.actions.setUserName(userName))
+    setUserName('')
+    dispatch(fetchGame())
   }
 
   return (
@@ -27,11 +33,13 @@ export const StartGame = () => {
         <p>who are you?</p>
         <input
           type="text"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)} />
+          value={userName}
+          onChange={onInputUserName}
+          onKeyDown={(e) => e.key === 'Enter' && onChangeUserName()} />
         <button
           type="submit"
-          onClick={onUsernameInput}>
+          onClick={onChangeUserName}
+          disabled={userName.length === 0}>
             Start
         </button>
       </div>
