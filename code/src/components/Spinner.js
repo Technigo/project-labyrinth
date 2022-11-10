@@ -34,8 +34,13 @@ z-index: 2;
 
 const LottieCage = styled.div`
 margin: 0 auto;
-padding-top: 25%;
+padding-top: 30%;
 width: 300px;
 height: 300px;
-border: 2px solid black;
-`
+@media (min-width: 790px) {
+  padding-top: 25%;   
+  }
+  @media (min-width: 990px) {
+    padding-top: 20%;
+  }
+`;
