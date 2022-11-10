@@ -15,13 +15,14 @@ const PlayerInput = () => {
 
   return (
     <InnerWrapper>
-      <h1>text text </h1>
+      <h1>Welcome to the labyrinth!</h1>
+      <h3>Do you want to play a game?</h3>
     <form onSubmit={(event) => onFormSubmit(event)}>
       <label htmlFor="player-input">
       Enter your name:
         <input id="player-input" type="text" onChange={(event) => setPlayerInputValue(event.target.value)} />
       </label>
-      <button type="submit">Start the game!!!</button>
+      <button type="submit">Start the game!</button>
     </form>
     </InnerWrapper>
     )
@@ -41,27 +42,38 @@ color: white;
 // margin-top: 20%;
 
 form {
-  border: solid orange 2px;
+  /* border: solid orange 2px; */
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
 
+input {
+  width: 250px;
+  height: 30px;
+  margin: 20px 10px 20px 20px;
+  padding: 0.5vh 2vw;
+  border: none;
+  border-radius: 15px;
+  font-size: 1rem;
 }
 
 label{
-  border: solid green 2px;
+/* border: solid green 2px; */
 align-items: center;
 display: flex;
 flex-direction: column;
 justify-content: center;
 padding: 10px;
+font-size: 20px;
 }
 
 button{
 margin: 10px;
 padding: 5px;
 border: solid white 2px;
+border-radius: 15px;
 color: white;
 background: none;
 &:hover{
