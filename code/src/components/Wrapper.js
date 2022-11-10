@@ -4,8 +4,8 @@ import { NotFound } from './NotFound';
 import StartPage from './StartPage';
 import { useSelector } from 'react-redux';
 import { Loading } from './Loading'
-import Labyrinth from './Labyrinth'
-
+import  Labyrinth  from './Labyrinth'
+import { LogIn } from './LogIn';
 
 const Wrapper = () => {
     const gameData = useSelector((store) => store.game.currentDirection)
@@ -14,12 +14,13 @@ const Wrapper = () => {
         <div>
             {isLoading ? (
             <Loading />
-             ):
+             ) 
+             :
             <div>
-                {gameData ? <StartPage /> :   <NotFound /> }
-            </div>
-            }
+                {gameData ? <StartPage /> : <NotFound />}
+            </div>}
         <Labyrinth />
+        <LogIn />
         </div>
     )
 }
