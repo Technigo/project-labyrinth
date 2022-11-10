@@ -2,8 +2,11 @@
 /* eslint-disable no-tabs */
 /* eslint-disable no-mixed-spaces-and-tabs */
 import React, { useState } from 'react';
+import Lottie from 'react-lottie';
 import { useDispatch } from 'react-redux';
 import labyrinth, { generateLabyrinth } from 'reducers/labyrinth'
+
+import maze from '../lotties/maze.json';
 
 const UserInput = () => {
   const [userInputValue, setUserInputValue] = useState('')
@@ -15,17 +18,29 @@ const UserInput = () => {
     dispatch(labyrinth.actions.setUsername(userInputValue));
     dispatch(generateLabyrinth());
   }
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: maze,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
+
 	 return (
     <div>
-      <h1>Welcome to this game</h1>
-	 <form onSubmit={(event) => onFormSubmit(event)}>
+      <Lottie options={defaultOptions} height={200} width={200} />
+      <h1>Welcome to the maze</h1>
+	    <form onSubmit={(event) => onFormSubmit(event)}>
         <label htmlFor="input">
-			Write your name here:
-          <input id="input" placeholder="Your Name" value={userInputValue} type="text" onChange={(event) => setUserInputValue(event.target.value)} />
+			    Enter your name:
+          <input id="input" placeholder="Type here" value={userInputValue} type="text" onChange={(event) => setUserInputValue(event.target.value)} />
         </label>
         <button type="submit"> Start </button>
       </form>
-    </div>)
+    </div>
+  )
 }
 
 export default UserInput;

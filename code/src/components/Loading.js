@@ -1,5 +1,5 @@
 import React from 'react';
-import Lottie from 'lottie-react';
+import Lottie from 'react-lottie';
 import styled from 'styled-components/macro'
 
 import loader from '../lotties/loading-boxes.json';
