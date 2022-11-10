@@ -3,11 +3,11 @@ import { createSlice } from '@reduxjs/toolkit'
 export const spinner = createSlice({
   name: 'spinner',
   initialState: {
-    loading: false
+    isLoading: false
   },
   reducers: {
-    setLoading: (state, action) => {
-      state.loading = action.payload
+    setLoading: (store, action) => {
+      store.isLoading = action.payload
     }
   }
 })
