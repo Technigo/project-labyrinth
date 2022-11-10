@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import Lottie from 'lottie-react'
-import animationData from '../lotties/82633-shapes-loader.json'
+import GeoLoad from '../lotties/9911-geometric-abstract-loader.json'
 
 export const Spinner = () => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData,
+    animationData: GeoLoad,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice'
     }
@@ -17,7 +17,7 @@ export const Spinner = () => {
     <div>
       <LoadingWrap>
         <h1>Loading...</h1>
-        <Lottie options={defaultOptions} height={400} width={400} />
+        <Lottie animationData={GeoLoad} options={defaultOptions} height={100} width={100} />
       </LoadingWrap>
     </div>
   )
