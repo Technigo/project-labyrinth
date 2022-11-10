@@ -6,6 +6,7 @@ import Wrapper from './Wrapper';
 import Button from './Button';
 
 function coordsToBackgroundImage(coords) {
+  // @TODO change to switch
   if (coords === '0,0') {
     return './assets/images/image_1.jpg'
   } else if (coords === '1,0') {
@@ -83,8 +84,8 @@ border: solid 2px blue;
 display: flex;
 flex-direction: column;
 justify-content: center;
-/* background-image: url(${(props) => props.bgImage}); */
-background-image: url('/assets/images/image_3.jpg');
+background-image: url(${(props) => props.bgImage});
+/* background-image: url('/assets/images/image_3.jpg'); */
 min-height: 100vh;
 background-size: cover;
 background-position: top center;
