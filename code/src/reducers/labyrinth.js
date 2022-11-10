@@ -41,3 +41,23 @@ export const generateLabyrinth = () => {
       .finally(dispatch(labyrinth.actions.setLoading(false)))
   }
 }
+
+export const GameNextFetch = (type, direction) => {
+  return (dispatch, getState) => {
+    dispatch(labyrinth.actions.setLoading(true));
+    fetch('https://labyrinth.technigo.io/start', {
+      method: 'POST',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({
+        username: getState().labyrinth.username,
+        type,
+        direction
+      })
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(labyrinth.actions.setLocation(data));
+        dispatch(labyrinth.actions.setLoading(false));
+      });
+  };
+};
