@@ -49,7 +49,7 @@ export const fetchStart = () => {
   };
 };
 
-export const fetchAction = (type, direction) => {
+export const fetchAction = (action) => {
   return (dispatch, getState) => {
     dispatch(ui.actions.setLoading(true))
     fetch(API_ACTION, {
@@ -57,10 +57,13 @@ export const fetchAction = (type, direction) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ username: getState().game.username, type, direction })
+      body: JSON.stringify({ username: getState().game.username,
+        type: action.type,
+        direction: action.direction })
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(`Response action: ${JSON.stringify(data)}`)
         dispatch(game.actions.setCurrentPosition(data));
         dispatch(game.actions.setHistory(data));
       })
