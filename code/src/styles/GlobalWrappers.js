@@ -9,9 +9,17 @@ export const OuterWrapper = styled.section`
 `
 export const InnerWrapper = styled.div`
   display: flex;
-  width: 80%;
+  width: 70%;
   flex-direction: column;
   @media (min-width: 1024px) {
     width: 60%
   }
+`
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 20px;
 `

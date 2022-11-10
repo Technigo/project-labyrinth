@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { InnerWrapper, OuterWrapper } from 'styles/GlobalWrappers';
 import GameBoard from './GameBoard';
 import UserNameInput from './UserNameInput';
-import Loading from './Loading';
+import LoadingAnimation from './LoadingAnimation';
 
 const StartScreen = () => {
   const gameStart = useSelector((store) => store.labyrinth.username);
@@ -12,7 +12,7 @@ const StartScreen = () => {
   return (
     <OuterWrapper>
       <InnerWrapper>
-        {isLoading ? <Loading /> : (<div>{gameStart === '' ? <UserNameInput /> : <GameBoard />} </div>)}
+        {isLoading ? <LoadingAnimation /> : (<div>{gameStart === '' ? <UserNameInput /> : <GameBoard />} </div>)}
       </InnerWrapper>
     </OuterWrapper>
   )

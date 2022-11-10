@@ -5,7 +5,7 @@ const labyrinth = createSlice({
   name: 'labyrinth',
   initialState: {
     username: '',
-    stage: [],
+    stage: '',
     history: []
   },
   reducers: {
