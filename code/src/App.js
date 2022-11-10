@@ -1,15 +1,15 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { ui } from 'reducers/ui';
-import gamestate from 'reducers/gamestate';
 import StartScreen from 'components/StartScreen';
 import LoadingIndicator from 'components/LoadingIndicator';
+import { gameState } from 'reducers/gameState'
+import { ui } from 'reducers/ui';
 
 export const App = () => {
   const reducer = combineReducers({
     ui: ui.reducer,
-    gamestate: gamestate.reducer
+    gameState: gameState.reducer
   });
 
   const store = configureStore({ reducer });
