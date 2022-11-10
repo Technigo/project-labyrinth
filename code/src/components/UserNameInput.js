@@ -8,7 +8,6 @@ const UserNameInput = () => {
   const [userName, setUserName] = useState('');
   console.log('userName', userName)
   console.log('setUserName', setUserName)
-  // const author = useSelector((store) => store.questions.author);
 
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -27,18 +26,3 @@ const UserNameInput = () => {
 };
 
 export default UserNameInput;
-
-/* const handleOnFormSubmit = (event) => {
-  event.preventDefault();
-
-  const newTaskInfo = {
-    id: uniqueID,
-    taskDescription: newTask,
-    isChecked: false,
-    createdAt: moment().format('l')
-  };
-
-  dispatch(addTask(newTaskInfo));
-
-  setNewTask('');
-}; */

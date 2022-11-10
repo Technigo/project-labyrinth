@@ -1,8 +1,10 @@
 import React from 'react'
-import Lottie from 'lottie-react';
-import loader from 'lotties/loader.json'
+import Lottie from 'react-lottie'
+import { useSelector } from 'react-redux';
+import loader from 'lotties/loader'
 
-const Loading = () => {
+const LoadingAnimation = () => {
+  const loading = useSelector((store) => store.ui.isLoading)
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -11,7 +13,16 @@ const Loading = () => {
       preserveAspectRatio: 'xMidYMid slice'
     }
   };
-  return <Lottie options={defaultOptions} />
+  return (
+    <div>
+      {loading && (
+        <div>
+          <p>Loading  </p>
+          <Lottie options={defaultOptions} />
+        </div>
+      )}
+    </div>
+  )
 }
 
-export default Loading;
+export default LoadingAnimation;

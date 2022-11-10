@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
+import ui from './ui';
 
 const labyrinth = createSlice({
   name: 'labyrinth',
   initialState: {
     username: '',
-    stage: [],
-    isLoading: false
+    stage: []
   },
   reducers: {
     setUser: (store, action) => {
@@ -24,7 +24,7 @@ export default labyrinth;
 
 export const startLabyrinth = () => {
   return (dispatch, getState) => {
-    dispatch(labyrinth.actions.setLoading(true))
+    dispatch(ui.actions.setLoading(true))
     const API_URL = 'https://labyrinth.technigo.io/start'
     const options = {
       method: 'POST',
@@ -41,13 +41,13 @@ export const startLabyrinth = () => {
         console.log('startLabyrinth', data)
         dispatch(labyrinth.actions.setStage(data))
       })
-      .finally(dispatch(labyrinth.actions.setLoading(false)))
+      .finally(dispatch(ui.actions.setLoading(false)))
   }
 };
 
 export const nextStage = (type, direction) => {
   return (dispatch, getState) => {
-    dispatch(labyrinth.actions.setLoading(true))
+    dispatch(ui.actions.setLoading(true))
     const API_URL_ACTION = 'https://labyrinth.technigo.io/action'
     const optionsAction = {
       method: 'POST',
@@ -66,6 +66,6 @@ export const nextStage = (type, direction) => {
         console.log('nextStage', data)
         dispatch(labyrinth.actions.setStage(data))
       })
-      .finally(dispatch(labyrinth.actions.setLoading(false)))
+      .finally(dispatch(ui.actions.setLoading(false)))
   }
 };

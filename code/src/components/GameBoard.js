@@ -4,8 +4,8 @@ import { nextStage } from 'reducers/labyrinth';
 
 const GameBoard = () => {
   const { description, actions } = useSelector((store) => store.labyrinth.stage)
-  console.log('description', description)
-  console.log('actions', actions)
+  console.log('description', description) // Radera sedan
+  console.log('actions', actions) // Radera sedan
   const dispatch = useDispatch()
   const userName = useSelector((store) => store.labyrinth.username);
 

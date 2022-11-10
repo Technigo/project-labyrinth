@@ -6,7 +6,7 @@ import Loading from './Loading';
 
 const StartScreen = () => {
   const gameStart = useSelector((store) => store.labyrinth.username);
-  const isLoading = useSelector((store) => store.labyrinth.isLoading)
+  const isLoading = useSelector((store) => store.ui.isLoading)
 
   return (
     <div>
