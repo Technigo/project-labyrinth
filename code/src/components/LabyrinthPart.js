@@ -15,7 +15,7 @@ const LabyrinthPart = () => {
         return (
           <>
             <p>{action.description}</p>
-            <button type="submit" onClick={() => dispatch(generateActionData(action.type, action.direction))}>{action.direction}</button>
+            <button type="button" onClick={() => dispatch(generateActionData(action.type, action.direction))}>{action.direction}</button>
           </>
         )
       })}
