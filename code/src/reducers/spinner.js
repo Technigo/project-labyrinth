@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const spinner = createSlice({
+const spinner = createSlice({
   name: 'spinner',
   initialState: {
     isLoading: false
@@ -11,3 +11,4 @@ export const spinner = createSlice({
     }
   }
 })
+export default spinner;

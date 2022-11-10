@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 
-const Spinner = () => {
+export const Spinner = () => {
   const loading = useSelector((store) => store.game.isLoading)
 
   return (
@@ -11,5 +11,4 @@ const Spinner = () => {
 
   )
 }
-export default Spinner
 
