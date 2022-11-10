@@ -43,7 +43,7 @@ export const fetchGame = () => {
 
 export const fetchGameSteps = (type, direction) => {
   return (dispatch, getState) => {
-    dispatch(ui.actions.setLoading(true));
+    dispatch(ui.actions.setLoading(true))
     const optionsAction = {
       method: 'POST',
       headers: {

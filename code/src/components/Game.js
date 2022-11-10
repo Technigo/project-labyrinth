@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchGameSteps } from 'reducers/gameState';
+import { fetchGameSteps } from 'reducers/gamestate';
 
 const Game = () => {
   const { description, actions } = useSelector((store) => store.gameState.stage)

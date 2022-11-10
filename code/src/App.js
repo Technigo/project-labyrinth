@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import StartScreen from 'components/StartScreen';
 import LoadingIndicator from 'components/LoadingIndicator';
-import { gameState } from 'reducers/gameState'
+import { gameState } from 'reducers/gamestate'
 import { ui } from 'reducers/ui';
 
 export const App = () => {

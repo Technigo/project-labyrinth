@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { gameState, fetchGame } from 'reducers/gameState';
+import { gameState, fetchGame } from 'reducers/gamestate';
 
 const GameStart = () => {
   const dispatch = useDispatch()
