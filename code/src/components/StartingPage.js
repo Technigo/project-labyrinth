@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
 
-import { game, generateLabyrinth } from 'reducer/game';
+import game, { generateLabyrinth } from 'reducer/game';
 import { DuckContainer } from 'styled-components/GlobalStyles';
 import { DucklingHeader } from './DucklingHeader';
 
 export const StartingPage = () => {
-  const [username, setUsername] = useState('')
+  const [inputValue, setInputValue] = useState('')
   const dispatch = useDispatch();
 
-  const onUsernameInput = () => {
-    dispatch(game.actions.setUserName(username));
+  const onUsernameInputValue = () => {
+    dispatch(game.actions.setUserName(inputValue));
     dispatch(generateLabyrinth());
   }
 
@@ -26,11 +26,12 @@ export const StartingPage = () => {
         <p>who are you?</p>
         <input
           type="text"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)} />
+          value={inputValue}
+          placeholder="Type you name.."
+          onChange={(event) => setInputValue(event.target.value)} />
         <button
           type="submit"
-          onClick={onUsernameInput}>
+          onClick={onUsernameInputValue}>
             Start
         </button>
       </div>

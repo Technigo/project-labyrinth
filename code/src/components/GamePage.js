@@ -1,18 +1,14 @@
 import React from 'react';
-import { useSelector/* , useDispatch  */ } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { DuckContainer } from 'styled-components/GlobalStyles';
-import { /* game,  generateMoves */ } from 'reducer/game';
+import { generateMoves } from 'reducer/game';
 import { DucklingHeader } from './DucklingHeader';
-import { UserMoves } from './UserMoves';
 
 export const GamePage = () => {
-  const description = useSelector((store) => store.game.location);
+  const { description, actions } = useSelector((store) => store.game.currentLocation)
+  const dispatch = useDispatch();
 
   const username = useSelector((store) => store.game.username);
-
-  const actions = useSelector((store) => store.game.location.actions);
-
-  console.log(actions);
 
   return (
     <section>
@@ -21,13 +17,22 @@ export const GamePage = () => {
         <p>Hello: {username}</p>
       </DuckContainer>
       <div>
-        <p key={description.description}>
-            DESCRIPTION: {description.description}
+        <p>
+            DESCRIPTION: {description}
         </p>
       </div>
       <div>
-        {actions.map((action) => (
-          <UserMoves key={action} action={action} />
+        {actions.length > 0
+        && actions.map((action) => (
+          <>
+            <div key={action.direction}>
+              <p>{action.description}</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => dispatch(generateMoves(action.direction))}>{action.direction}
+            </button>
+          </>
         ))}
       </div>
     </section>

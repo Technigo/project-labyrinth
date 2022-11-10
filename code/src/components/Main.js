@@ -4,11 +4,11 @@ import { StartingPage } from './StartingPage'
 import { GamePage } from './GamePage'
 
 export const Main = () => {
-  const location = useSelector((store) => store.game.location);
-
+  const { coordinates } = useSelector((store) => store.game.currentLocation);
+  console.log(`currL: ${coordinates}`)
   return (
     <div>
-      {location
+      {coordinates
         ? <GamePage />
         : <StartingPage />}
     </div>

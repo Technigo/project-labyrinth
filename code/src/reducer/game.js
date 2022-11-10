@@ -1,25 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ui } from './ui';
 
-export const game = createSlice({
+const game = createSlice({
   name: 'game',
   initialState: {
     username: null,
-    location: null,
-    direction: []
+    currentLocation: [],
+    loading: false
   },
 
   reducers: {
     setUserName: (store, action) => {
       store.username = action.payload;
     },
-    setLocation: (store, action) => {
-      store.location = action.payload;
-    },
-    setDirection: (store, action) => {
-      store.direction = action.payload;
+    setCurrentLocation: (store, action) => {
+      store.currentLocation = action.payload;
     }
-
   }
 });
 
@@ -28,26 +24,26 @@ export const game = createSlice({
 export const generateLabyrinth = () => {
   return (dispatch, getState) => {
     dispatch(ui.actions.setLoading(true));
+    const username = { username: getState().game.username }
 
     const options = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        username: getState().game.username
-      })
+      body: JSON.stringify(username)
     }
 
     fetch('https://labyrinth.technigo.io/start', options)
       .then((res) => res.json())
       .then((data) => {
-        dispatch(game.actions.setLocation(data))
+        dispatch(game.actions.setCurrentLocation(data))
       })
+      .finally(() => dispatch(ui.actions.setLoading(false)))
   }
 }
 
 // Second thunk
 
-export const generateMoves = () => {
+export const generateMoves = (direction) => {
   return (dispatch, getState) => {
     dispatch(ui.actions.setLoading(true))
 
@@ -57,15 +53,16 @@ export const generateMoves = () => {
       body: JSON.stringify({
         username: getState().game.username,
         type: 'move',
-        direction: getState().game.direction
+        direction
       })
     }
 
     fetch('https://labyrinth.technigo.io/action', options)
       .then((res) => res.json())
       .then((data) => {
-        dispatch(game.actions.setLocation(data))
+        dispatch(game.actions.setCurrentLocation(data))
         dispatch(ui.actions.setLoading(false))
       })
   }
 }
+export default game
