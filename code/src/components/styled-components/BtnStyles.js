@@ -23,9 +23,9 @@ export const DirectionButton = styled.button`
 border: none;
 font-size: 1rem;
 font-weight: 600;
-width: 110px; 
+width: 115px; 
 margin: 10px;
-height: 30px;
+height: 36px;
 color: #103460;
 border-radius: 4px;
 background-color: #E15554;
