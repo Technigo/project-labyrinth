@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 import React from 'react';
-import { NotFound } from './NotFound';
+//import { NotFound } from './NotFound';
 import styled from 'styled-components/macro'
 import StartPage from './StartPage';
 import { useSelector } from 'react-redux';
@@ -18,7 +18,7 @@ import end from '../Images/End.png';
 
 const Wrapper = () => {
     const { coordinates } = useSelector((store) => store.game.currentDirection)
-    const gameData = useSelector((store) => store.game.currentDirection)
+    //const gameData = useSelector((store) => store.game.currentDirection)
     const isLoading = useSelector((store) => store.ui.isLoading)
 
     const setBackgroundImage = () => {
@@ -50,17 +50,16 @@ const Wrapper = () => {
         }
         return img
       }
-      
+
     return (
         <BackgroundContainer style={{ background: setBackgroundImage(coordinates) }}>
             {isLoading ? (
             <Loading />
              ):
             <div>
-                {gameData ? <StartPage /> :   <NotFound /> }
+                {coordinates ? <Labyrinth /> :   <StartPage /> }
             </div>
             }
-        <Labyrinth />
         </BackgroundContainer>
     )
 }
