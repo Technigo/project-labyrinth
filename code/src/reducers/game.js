@@ -6,24 +6,25 @@ export const game = createSlice({
   initialState: {
     username: 'Bebbeluring',
     location: '',
-    move: [],
-    actions: []
+    move: []
+    // actions: []
   },
   reducers: {
     setUserName: (store, action) => {
       store.username = action.payload
+      console.log(store.username)
     },
     setLocation: (store, action) => {
       store.location = action.payload
       console.log(store.location)
     },
     setMove: (store, action) => {
-      store.move = action.payload;
-    },
-    restartGame: (store) => {
-      store.location = ''
-      store.username = ''
+      store.move = [...store.move, action.payload];
     }
+    // restartGame: (store) => {
+    //   store.location = ''
+    //   store.username = ''
+    // }
   }
 });
 
@@ -65,18 +66,20 @@ export const fetchGame = () => {
 
 // Second thunk
 
-export const navigateGame = ({ type, direction }) => {
+export const navigateGame = (direction) => {
   return (dispatch, getState) => {
     dispatch(ui.actions.setLoading(true))
-    fetch('https://labyrinth.technigo.io/action', {
+
+    const options = {
       method: 'POST',
       headers: { 'Content-Type': 'application/jason' },
       body: JSON.stringify({
         username: getState().game.username,
-        type,
+        type: 'move',
         direction
       })
-    })
+    }
+    fetch('https://labyrinth.technigo.io/action', options)
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setLocation(data))

@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components/macro'
 import uniqid from 'uniqid'
-import { game, navigateGame } from '../reducers/game'
+import { navigateGame } from '../reducers/game'
 // import NavigateButtons from './NavigateButtons'
 // import { DuckContainer } from 'styled-components/GlobalStyles';
 // import { DucklingHeader } from './DucklingHeader';
@@ -19,16 +19,16 @@ export const PlayingGame = () => {
   // )
   const dispatch = useDispatch()
 
+  // const onNavigate = (direction, type) => {
+  //   dispatch(navigateGame(direction, type))
+  //   dispatch(game.actions.setMove(direction))
+  // }
+
   const direction = {
     north: 'North',
     west: 'West',
     east: 'East',
     south: 'South'
-  }
-
-  const onClick = () => {
-    dispatch(navigateGame(direction))
-    dispatch(game.actions.setStep(direction))
   }
 
   return (
@@ -52,38 +52,44 @@ export const PlayingGame = () => {
         return (
           <>
             <button
+              key={uniqid()}
               className="directionButton"
               type="button"
-              value={Direction.north}
-              onClick={(e) => onClick(e.target.value)}>
-              {/* disabled={!directionAlternatives.includes(Direction.north)}> */}
+              value={Direction.north}>
+              {/* onClick={(e) => onNavigate(e.target.value)}>
+              disabled={!directionAlternatives.includes(Direction.north)}> */}
         GO {direction.north} ↑
             </button>
 
             <button
+              key={uniqid()}
               className="directionButton"
               type="button"
-              value={Direction.west}
-              onClick={(e) => onClick(e.target.value)}>
-              {/* disabled={!directionAlternatives.includes(Direction.west)}> */}
+              value={Direction.west}>
+              {/* onClick={(e) => onNavigate(e.target.value)}>
+              disabled={!directionAlternatives.includes(Direction.west)}> */}
         GO {direction.west} ←
             </button>
 
             <button
+              key={uniqid()}
               className="directionButton"
               type="button"
-              value={Direction.east}
-              onClick={(e) => onClick(e.target.value)}>
+              value={direction.east}
+              onClick={() => dispatch(navigateGame(data.type, data.direction))}>
+              {/* onClick={() => onNavigate(data.type, data.direction)}> */}
+              {/* onClick={(e) => onClick(e.target.value)}> */}
               {/* disabled={!directionAlternatives.includes(Direction.east)}> */}
         GO {direction.east} →
             </button>
 
             <button
+              key={uniqid()}
               className="directionButton"
               type="button"
-              value={Direction.south}
-              onClick={(e) => onClick(e.target.value)}>
-              {/* disabled={!directionAlternatives.includes(Direction.south)}> */}
+              value={Direction.south}>
+              {/* onClick={(e) => onNavigate(e.target.value)}>
+               disabled={!directionAlternatives.includes(Direction.south)}> */}
         GO {direction.south} ↓
             </button>
           </>
