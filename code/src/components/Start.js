@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable react/jsx-closing-tag-location */
-/* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react-hooks/exhaustive-deps */
+
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import labyrinth, { startGame } from 'reducers/labyrinth'
@@ -21,12 +19,12 @@ const Start = () => {
     dispatch(labyrinth.actions.setUser(userName));
     dispatch(startGame())
   }
-  // if (currentLocation.isLoading) return <Loading />
+  if (currentLocation.isLoading) return <Loading />
   return (
     <LocationWrapper>
       <h2>
-            In your search for enlightenment you have come across a peculiar structure.
-            A veil covers an entrance.
+        In your search for enlightenment you have come across a peculiar structure.
+        A veil covers an entrance.
       </h2>
       <p>
               Speak your name to enter!

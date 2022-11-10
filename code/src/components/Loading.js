@@ -1,6 +1,3 @@
-/* eslint-disable space-in-parens */
-/* eslint-disable padded-blocks */
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/self-closing-comp */
 import React from 'react';
 import styled from 'styled-components';
@@ -8,8 +5,12 @@ import compass from '../assets/images/compass2.svg';
 import { LocationWrapper } from './reusableStyles';
 
 const Loading = () => {
-  return ( <p>bajs</p>)
-
+  return (
+    <LocationWrapper>
+      <LoadingImage src={compass} />
+      <h2>Loading</h2>
+    </LocationWrapper>
+  );
 }
 
 export default Loading;
