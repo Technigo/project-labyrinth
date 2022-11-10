@@ -20,8 +20,8 @@ const StartPage = () => {
 return (
   <Background>
   <GameCard 
-    title="Welcome Adventurer!" 
-    secondaryTitle="Pleace give us your name to enter the doungeon" 
+    title="Welcome Adventurer!"
+    secondaryTitle="Please give us your name to enter the doungeon."
     >
   <form onSubmit={onFormSubmit}>
     <label>
@@ -29,7 +29,7 @@ return (
       id="user-input" 
       type="text" 
       onChange={(e) => setUsername(e.target.value)} 
-      placeholder="Name, here goes young padawan"
+      placeholder="Name, here goes young padawan."
       required=" "
       autoComplete="off" 
       />

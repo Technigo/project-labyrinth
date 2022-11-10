@@ -3,7 +3,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAction } from 'reducers/game';
-/* import LastPage from './LastPage'; */
 import { GameCard } from './StyledComponents'
 import styled from 'styled-components/macro'
 import { Background } from './StartPage';
