@@ -6,10 +6,10 @@ export const game = createSlice({
     user: '',
     started: false,
     description: '',
-    direction: '',
-    type: '',
     coordinates: '',
-    loading: true
+    loading: true,
+    history: [],
+    actions: []
   },
   reducers: {
     setUser: (store, action) => {
@@ -19,13 +19,20 @@ export const game = createSlice({
       store.started = action.payload;
     },
     setDescription: (store, action) => {
+      if (store.quote !== '') {
+        store.history.push(store.description);
+      }
       store.description = action.payload;
     },
-    setDirection: (store, action) => {
-      store.direction = action.payload;
+    // going back in history. delete 1 in history.
+    setPrevious: (store, action) => {
+      const historyArraylength = store.history.length;
+      store.quote = store.history[historyArraylength - 1]
+      store.history.splice(historyArraylength - 1, 1)
+      console.log(action)
     },
-    setType: (store, action) => {
-      store.type = action.payload;
+    setGameActions: (store, action) => {
+      store.actions = action.payload;
     },
     setCoordinates: (store, action) => {
       store.type = action.payload;
@@ -48,35 +55,35 @@ export const startGame = () => {
       .then((data) => {
         dispatch(game.actions.setDescription(data))
         dispatch(game.actions.gameStarted(true))
-        // dispatch(game.actions.setDirection(game.direction))
-        //   dispatch(game.actions.setType(game.type))
-        //   dispatch(game.actions.setCoordinates(game.coordinates))
+        // dispatch(game.actions.setGameActions(game.actions))
+        // dispatch(game.actions.setCoordinates(game.coordinates))
       // })
       // .finally(() => dispatch(game.actions.isLoading(false)))
       })
   }
 }
 
-// export const playerAction = () => {
-//   return (dispatch, getState) => {
-//     dispatch(game.actions.isLoading(true));
-//     fetch('https://labyrinth.technigo.io/action', {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify({
-//         username: getState().game.user,
-//         type: 'move',
-//         direction: getState().game.direction
-//       })
-//         .then((response) => response.json())
-//         .then((data) => console.log(data))
-//         .then(() => {
-//           dispatch(game.actions.setDescription(game.description))
-//           dispatch(game.actions.setDirection(game.direction))
-//           dispatch(game.actions.setType(game.type))
-//           dispatch(game.actions.setCoordinates(game.coordinates))
-//           dispatch(game.actions.isLoading(false))
-//         })
-//     })
-//   };
-// };
+export const playerAction = (action) => {
+  return (dispatch, getState) => {
+    const play = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: getState().game.user,
+        type: 'move',
+        direction: getState().game.direction
+      })
+    };
+    fetch('https://labyrinth.technigo.io/action', play)
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch(game.actions.setDescription(data));
+        dispatch(game.actions.setGameActions(action))
+      //   dispatch(game.actions.setDescription(game.description))
+      //   dispatch(game.actions.setDirection(game.direction))
+      //   dispatch(game.actions.setType(game.type))
+      //   dispatch(game.actions.setCoordinates(game.coordinates))
+      //   dispatch(game.actions.isLoading(false))
+      })
+  }
+}
