@@ -41,7 +41,6 @@ export const fetchGame = () => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setStage(data));
-        setTimeout(() => dispatch(spinner.actions.setLoading(false)), 4000)
       })
       .finally(() => dispatch(spinner.actions.setLoading(false)));
   }
@@ -66,7 +65,6 @@ export const fetchGameSteps = (type, direction) => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setStage(data));
-        setTimeout(() => dispatch(spinner.actions.setLoading(false)), 4000)
       })
       .finally(() => dispatch(spinner.actions.setLoading(false)));
   }
