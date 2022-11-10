@@ -9,7 +9,7 @@ const labyrinth = createSlice({
     description: '',
     actions: [],
     username: null,
-    isLoading: true,
+    isLoading: false,
     chosenDirection: ''
   },
   reducers: {
