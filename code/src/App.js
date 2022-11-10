@@ -5,6 +5,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import labyrinth from 'reducers/labyrinth';
 import Parent from 'components/Parent';
+// import Loading from 'components/Loading';
 
 export const App = () => {
   const reducer = combineReducers({
