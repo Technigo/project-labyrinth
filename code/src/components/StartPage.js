@@ -3,7 +3,7 @@
 import { MainContainer, GameWrapper } from 'Globalstyles';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { generateActions, labyrinth, setUserName, selectInfoPlayer } from 'reducers/labyrinth';
+import { generateActions, setUserName, selectInfoPlayer } from 'reducers/labyrinth';
 import Username from 'components/Username';
 
 export const StartPage = () => {
@@ -26,13 +26,13 @@ export const StartPage = () => {
       .then((json) => console.log(json))
       .then(() => dispatch(generateActions(input)))
   }
-const addUserName = () => {
-  console.log(`Adding ${input}`)
+  const addUserName = () => {
+    console.log(`Adding ${input}`)
 
-  dispatch(setUserName({
-    userName: input
-  }))
-}
+    dispatch(setUserName({
+      userName: input
+    }))
+  }
   return (
     <MainContainer>
       <GameWrapper>
@@ -49,10 +49,10 @@ const addUserName = () => {
           <button type="submit" onClick={addUserName}>Start</button>
         </form>
         {
-        infoPlayer.map((item) => (
-          <Username
-            name={item.userName}/>
-        ))
+          infoPlayer.map((item) => (
+            <Username
+              name={item.userName} />
+          ))
         }
       </GameWrapper>
     </MainContainer>
