@@ -33,7 +33,6 @@ const Game = () => {
             <p>{action.description}</p>
             <ActionButton
               onClick={() => onAction(action)}>
-              {action.type}
               {action.direction.toLowerCase()}
             </ActionButton>
           </div>

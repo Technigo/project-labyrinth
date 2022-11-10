@@ -55,18 +55,7 @@ background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
 `
-const StartBtn = styled.button`
-border-style: outset;
-height: 60px;
-width: 80px;
-margin: 20px;
-padding: 20px;
-display: inline-block;
-background-color: palegreen;
-border-width: 5px;
-box-sizing: border-box;
-border-radius: 5%;
-`
+
 const Input = styled.input`
  margin: 2vh 2vw;
     padding: 1rem;
@@ -87,7 +76,7 @@ const Input = styled.input`
     font-size: 15px;
     width: 25vw;
   }
-`;
+`
 
 const StartBtn = styled.button`
 border-style: outset;
