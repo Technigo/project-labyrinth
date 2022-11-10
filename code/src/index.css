@@ -16,10 +16,6 @@ flex-direction: column;
 justify-content: center;
 /* background-color: grey; */
 background-image: url("https://images.unsplash.com/photo-1580366029401-1c7c4105fb5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80");
-/* background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-background-repeat: no-repeat; */
 background-size: cover;
 background-position: cover;
 object-fit: cover; 
