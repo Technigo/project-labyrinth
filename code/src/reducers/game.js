@@ -7,6 +7,7 @@ const initialState = {
   actions: [],
   coordinates: '',
   description: ''
+  /* history: [], */
 };
 
 const game = createSlice({
@@ -54,3 +55,28 @@ export const generateGame = () => {
       .finally(() => dispatch(ui.actions.setLoading(false)));
   };
 };
+
+export const generateMoves = (direction) => {
+  return (dispatch, getState) => {
+    dispatch(ui.actions.setLoading(true));
+
+    fetch('https://labyrinth.technigo.io/action', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: getState().game.username,
+        type: 'move',
+        direction
+      })
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        dispatch(game.actions.setActions(data.actions));
+        dispatch(game.actions.setDescription(data.description));
+        dispatch(game.actions.setCoordinates(data.coordinates));
+      })
+      .catch((error) => console.error(error))
+      .finally(() => dispatch(ui.actions.setLoading(false)));
+  }
+}

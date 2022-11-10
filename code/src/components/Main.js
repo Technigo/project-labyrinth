@@ -6,7 +6,6 @@ import UsernameInput from 'components/UsernameInput';
 import styled from 'styled-components/macro';
 import { LoadingIndicator } from 'components/LoadingIndicator';
 import { OuterWrapper, InnerWrapper } from '../utils/GlobalStyle';
-
 import GameTitleImg from '../assets/game-title.png';
 
 const Main = () => {
