@@ -1,15 +1,21 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import { useSelector, useDispatch } from 'react-redux';
-import { DirectionBtn } from '../utils/GlobalStyle'
+import { Button } from '../utils/GlobalStyle'
 import PaperScroll from '../assets/paper-scroll.png';
 import CompassImg from '../assets/compass.png'
-import { generateMoves } from '../reducers/game'
+import game, { generateMoves } from '../reducers/game'
 
 const GameBoard = () => {
   const description = useSelector((store) => store.game.description);
   const actions = useSelector((store) => store.game.actions);
   const dispatch = useDispatch();
+
+  const onRestartButton = () => {
+    /* dispatch(game.actions.setUsername('')) */
+    dispatch(game.actions.restartGame())
+    /* window.location.reload() */
+  }
 
   console.log(actions);
 
@@ -21,7 +27,7 @@ const GameBoard = () => {
       <CompassWrapper>
         {actions.length > 0 && actions.map((action) => (
           <>
-            <DirectionBtn
+            <Button
               north
               key={action.direction}
               onClick={() => dispatch(generateMoves(action.direction))}>
@@ -29,31 +35,31 @@ const GameBoard = () => {
                 {action.description}
               </div>
 
-            </DirectionBtn>
-            <DirectionBtn
+            </Button>
+            <Button
               east
               key={action.direction}
               onClick={() => dispatch(generateMoves(action.direction))}>
               <p>{action.description}</p>
-            </DirectionBtn>
-            <DirectionBtn
+            </Button>
+            <Button
               west
               key={action.direction}
               onClick={() => dispatch(generateMoves(action.direction))}>
               <p>{action.description}</p>
-            </DirectionBtn>
-            <DirectionBtn
+            </Button>
+            <Button
               south
               key={action.direction}
               onClick={() => dispatch(generateMoves(action.direction))}>
               <p>{action.description}</p>
-            </DirectionBtn>
+            </Button>
             <Compass />
           </>
         ))}
         {/* Compass image and directional texts goes in here */}
       </CompassWrapper>
-      <button type="button">Restart game</button>
+      <Button restart type="button" onClick={onRestartButton}>Restart game</Button>
     </GameBoardStyle>
   );
 };
@@ -63,10 +69,11 @@ export default GameBoard;
 const GameBoardStyle = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 
-  @media (max-width: 700px) {
+ /*  @media (max-width: 700px) {
     flex-wrap: wrap;
-  }
+  } */
   
   // Flex direction column for mobile?
 `;

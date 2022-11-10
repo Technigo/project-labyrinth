@@ -30,7 +30,7 @@ export const InnerWrapper = styled.div`
   margin: 0 auto;
 `;
 
-export const DirectionBtn = styled.button`
+export const Button = styled.button`
 
 background-color: inherit;
 
@@ -54,4 +54,8 @@ grid-area: 4 / 1 / span 2 / span 2;
 ${(props) => props.south && css`
 grid-area: 7 / 4 / span 2 / span 2;
 `};
+
+/* ${(props) => props.restart && css`
+flex-basis: 100;
+`}; */
 `;
