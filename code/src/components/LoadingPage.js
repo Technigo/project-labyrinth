@@ -14,7 +14,7 @@ const LoadingPage = () => {
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice'
     }
-  }; 
+  };
 
   return (
     <>

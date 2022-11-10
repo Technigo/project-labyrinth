@@ -5,16 +5,12 @@ import { ui } from './ui';
 export const game = createSlice({
   name: 'game',
   initialState: { // InitialState is an object.
-    currentPosition: {
-      description: '',
-      coordinates: '',
-      actions: []
-    },
     username: null,
     history: []
   },
   reducers: { // function with two different parameters by default
     setCurrentPosition: (store, action) => {
+      console.log(`setCurrentPosition ${JSON.stringify(action)}`)
       store.currentPosition = action.payload;
     },
 
@@ -28,7 +24,7 @@ export const game = createSlice({
       }
     }
   }
-})
+});
 
 // eslint-disable-next-line max-len
 /* Dont know where or how yet, but maybe try to reload/ delete history when the game ends.. */
@@ -44,8 +40,10 @@ export const fetchStart = () => {
       body: JSON.stringify({ username: getState().game.username })
     })
       .then((res) => res.json())
-      .then((json) => console.log(json))
-      .then((data) => dispatch(game.actions.setCurrentPosition(data)))
+      .then((data) => {
+        console.log(`Response data: ${JSON.stringify(data)}`)
+        return dispatch(game.actions.setCurrentPosition(data));
+      })
       .finally(() => dispatch(ui.actions.setLoading(false)))
   };
 };

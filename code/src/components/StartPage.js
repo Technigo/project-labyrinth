@@ -7,14 +7,14 @@ import styled from 'styled-components'
 import { GameCard } from './StyledComponents'
 
 const StartPage = () => {
-  const [username, setUsername] = useState('')
-  const dispatch = useDispatch()
+  const [username, setUsername] = useState('');
+  const dispatch = useDispatch();
 
   const onFormSubmit = (e) => {
     e.preventDefault();
     dispatch(game.actions.setUsername(username))
     dispatch(fetchStart());
-  }
+  };
 
   return (
     <GameCard 
@@ -34,6 +34,7 @@ const StartPage = () => {
       </label>
       <StartBtn type="submit">Begin</StartBtn> 
     </form>
+    
     </GameCard>
   )
 }
