@@ -1,3 +1,5 @@
+/* eslint-disable no-tabs */
+/* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable max-len */
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
@@ -16,6 +18,7 @@ const MazePage = () => {
   const goToPreviousStatus = () => {
     dispatch(labyrinth.actions.setPreviousStatus())
   }
+
   return (
     <ChildContainer>
       <>

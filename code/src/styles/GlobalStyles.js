@@ -20,7 +20,7 @@ export const ChildContainer = styled.div`
     margin: 1em;
 
 button { 
-  font-size: 15px;
+  font-size: 10px;
   background: white;
   border: none;
 padding: 9px 5px 5px 10px;

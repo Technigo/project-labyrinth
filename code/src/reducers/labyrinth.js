@@ -53,7 +53,6 @@ export const generateLabyrinth = () => {
         dispatch(labyrinth.actions.setStatus(data))
         dispatch(labyrinth.actions.setLoading(false));
       })
-      // .finally(dispatch(labyrinth.actions.setLoading(false)))
   }
 }
 
@@ -75,6 +74,5 @@ export const GameNextFetch = (type, direction) => {
         dispatch(labyrinth.actions.setStatus(data));
         dispatch(labyrinth.actions.setLoading(false));
       })
-      // .finally(dispatch(labyrinth.actions.setLoading(false)))
   };
 };
