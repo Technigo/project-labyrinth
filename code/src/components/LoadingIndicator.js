@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 const LoadingIndicator = () => {
   const isLoading = useSelector((state) => state.game.isLoading);
 
-  return <>{isLoading && <div> LOADING </div>}</>;
+  return <>{isLoading && <p> LOADING... </p>}</>;
 };
 
 export default LoadingIndicator;

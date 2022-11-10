@@ -2,6 +2,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { gameProgress } from 'reducers/game';
 import game from 'reducers/game';
+import { GameWrapper } from './styled/GameWrapper.styled';
+import LoadingIndicator from './LoadingIndicator';
 
 const GameScreen = () => {
   const dispatch = useDispatch();
@@ -17,19 +19,24 @@ const GameScreen = () => {
   };
 
   return (
-    <>
-      <p>Description: {response.description}</p>
+    <GameWrapper>
+      <div className="nes-container">
+      <LoadingIndicator />
+      <p>{response.description}</p>
       {response.actions?.map((action) => {
         return (
-          <div key={action.description}>
+          <>
+            <p key={ action.description }>{ action.description }</p>
+            <label>
             <button
               type="button"
-              onClick={() => onDirectionClick(action.direction)}
-            >
-              {action.direction}
+              className="nes-btn"
+              name="answer"
+              onClick={ () => onDirectionClick(action.direction) }>
+              { action.direction }
             </button>
-            <p>Action description: {action.description}</p>
-          </div>
+            </label>
+          </>
         );
       })}
       {response.coordinates === '1,3' && (
@@ -37,7 +44,9 @@ const GameScreen = () => {
           Restart Game
         </button>
       )}
-    </>
+      {/*<progress className="nes-progress is-succress" value={response.coordinates} max="20" />*/}
+      </div>
+    </GameWrapper>
   );
 };
 
