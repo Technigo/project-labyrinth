@@ -7,20 +7,25 @@ const GameBoard = () => {
   const description = useSelector((state) => state.game.description)
 
   return (
-    <section>
-      <div>
-        <MainDescriptionWrapper>
-          <h1>Labyrinth</h1>
-          <h2>{description.description}</h2>
-        </MainDescriptionWrapper>
+    <>
+      <StyledHeadingOne><h1>Labyrinth</h1></StyledHeadingOne>
+      <MainDescriptionWrapper>
+        <h2>{description.description} </h2>
         <NextDirection actions={description.actions} />
-      </div>
-    </section>
+      </MainDescriptionWrapper>
+    </>
   )
 }
 export default GameBoard
 
 const MainDescriptionWrapper = styled.div`
-  padding: 10px;
-  border: solid lightgrey 1px;
+  padding: 24px;
+  border: solid lightgrey 2px;
+  background-color: black;
+`
+
+const StyledHeadingOne = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 90%;
 `

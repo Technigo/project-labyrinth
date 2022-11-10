@@ -2,7 +2,6 @@ import React from 'react'
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import game from 'reducers/game';
-// import StartGame from 'components/StartGame'
 import StartScreen from 'components/StartScreen';
 import { InnerWrapper, OuterWrapper } from 'components/styling/MainStyles';
 

@@ -2,7 +2,6 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { nextStep } from 'reducers/game';
 import styled from 'styled-components/macro';
-import { Button } from './styling/MainStyles';
 
 const NextDirection = ({ actions }) => {
   const dispatch = useDispatch()
@@ -15,14 +14,11 @@ const NextDirection = ({ actions }) => {
     <div>
       {actions.map((action) => (
         <DirectionWrapper key={action.direction}>
-          <Button
+          <StyledButton
             type="button"
             onClick={() => goNextOnClick(action.direction)}>
-             Go {action.direction}
-          </Button>
-          <div>
-            <h3>{action.description}</h3>
-          </div>
+            {action.description}
+          </StyledButton>
         </DirectionWrapper>
       ))}
     </div>
@@ -32,6 +28,19 @@ const NextDirection = ({ actions }) => {
 export default NextDirection
 
 const DirectionWrapper = styled.div`
-  margin: 50px;
-  border: solid orange 1px;
+  margin-top: 24px;
+`
+
+const StyledButton = styled.button`
+  background-color: black;
+  color: white;
+  font-weight: 700;
+  border: 2px solid white;
+  padding: 16px 24px;
+  line-height: 24px;
+
+  &:hover {
+    background-color: white;
+    color: black;
+  }
 `

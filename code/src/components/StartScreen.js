@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-// import Game from './Game';
 import GameBoard from './GameBoard';
 import StartGame from './StartGame';
 
