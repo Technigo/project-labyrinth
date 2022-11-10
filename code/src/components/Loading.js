@@ -1,14 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import Lottie from "lottie-react";
+import loadingGreen from "lotties/loadingGreen";
 
-const Loading = () => {
-    const loading = useSelector(state => state.games.loading)
-    return (
-    
-        <div>{loading && 
-        <p>loading</p>
-        }</div>
-    )
-}
+
+const Loading = () =>
+<Lottie animationData={loadingGreen} loop={true} />;
 
 export default Loading
