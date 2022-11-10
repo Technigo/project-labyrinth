@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+/* import { useSelector } from 'react-redux';
 import QuoteDisplay from './QuoteDisplay';
 import Author from './Author';
 
@@ -8,3 +8,4 @@ const StartScreen = () => {
 };
 
 export default StartScreen;
+ */

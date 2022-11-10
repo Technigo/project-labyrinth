@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+/* import { createSlice } from '@reduxjs/toolkit';
 //import { useDispatch } from 'react-redux';
 
 const quoteSlice = createSlice({
@@ -26,4 +26,4 @@ export const generateQuote = () => {
 			.then((res) => res.json())
 			.then((quote) => console.log(quote));
 	};
-};
+}; */
