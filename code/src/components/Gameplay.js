@@ -1,12 +1,18 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { gameProgress } from 'reducers/game'
 import { Loading } from './Loading';
 
 export const Gameplay = () => {
-  const progress = useSelector((state) => state.game.progress);
-  const isLoading = useSelector((state) => state.game.isLoading)
+  const dispatch = useDispatch();
+  const progress = useSelector((store) => store.game.progress);
+  const isLoading = useSelector((store) => store.game.isLoading)
+
+  const onClickAction = (type, direction) => {
+    dispatch(gameProgress(type, direction));
+  };
 
   return (
     <>
@@ -19,7 +25,12 @@ export const Gameplay = () => {
             {progress.actions.map((item) => (
               <>
                 <p>{item.description}</p>
-                <button>{item.direction}</button>
+                <button
+                  type="button"
+                  onClick={
+                    () => onClickAction(item.type, item.direction)
+                  }> Go {item.direction}
+                </button>
               </>
             ))}
           </div>
