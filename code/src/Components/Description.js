@@ -60,6 +60,7 @@ const Description = () => {
   return (
     <DescriptionContainer bgImage={bgImage}>
       <Wrapper>
+        <InGameHeader>The Maze</InGameHeader>
         <DescriptionText>{description.description}</DescriptionText>
         <DirectionInput
           actions={description.actions} />
@@ -68,6 +69,14 @@ const Description = () => {
   );
 }
 export default Description;
+
+const InGameHeader = styled.h1`
+color: white;
+position: absolute;
+top: 20px;
+right: 40px;
+font-size: 1.5em;
+`
 
 const DescriptionContainer = styled.section`
 border: solid 2px blue;
@@ -79,6 +88,7 @@ background-image: url('/assets/images/image_3.jpg');
 min-height: 100vh;
 background-size: cover;
 background-position: top center;
+color: white;
 `
 
 const DescriptionText = styled.div`
