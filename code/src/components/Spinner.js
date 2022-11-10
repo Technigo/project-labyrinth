@@ -16,15 +16,26 @@ export const Spinner = () => {
   return (
     <div>
       <LoadingWrap>
-        <h1>Loading...</h1>
-        <Lottie animationData={GeoLoad} options={defaultOptions} height={100} width={100} />
+        <LottieCage>
+          <Lottie animationData={GeoLoad} options={defaultOptions} height={100} width={100} />
+        </LottieCage>
       </LoadingWrap>
     </div>
   )
 }
 
-const LoadingWrap = styled.div`
-border: 2px solid red; 
-height: 100px;
+// obs, Spinner background found in index.CSS global background
+const LoadingWrap = styled.div`   
+display: flex;
+height: 100%;
+width: 100%;
 z-index: 2;
+`
+
+const LottieCage = styled.div`
+margin: 0 auto;
+padding-top: 25%;
+width: 300px;
+height: 300px;
+border: 2px solid black;
 `
