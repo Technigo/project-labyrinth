@@ -1,31 +1,35 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import gamestate, { generateGame } from 'reducers/gamestate';
+import { gameState, fetchGame } from 'reducers/gameState';
 
 const GameStart = () => {
-  const [usernameInputValue, setUsernameNameInputValue] = useState('');
-  const dispatch = useDispatch();
-  // const author = useSelector((store) => store.gamestate.author);
-  const onFormSubmit = (event) => {
+  const dispatch = useDispatch()
+  const [userName, setUserName] = useState('');
+
+  const onNameSubmit = (event) => {
     event.preventDefault();
-    dispatch(gamestate.actions.setUsername(usernameInputValue));
-    dispatch(generateGame());
-    /* dispatch(gamestate.actions.setLoading(true)); */
+    dispatch(gameState.actions.setUser(userName));
+    dispatch(fetchGame());
   }
 
   return (
-    <form onSubmit={(event) => onFormSubmit(event)}>
-      <h1>Welcome to this labyrinth game</h1>
-      <label htmlFor="username-input">
+    <form onSubmit={(event) => onNameSubmit(event)}>
+      <h1>Welcome to this labyrinth</h1>
+      <label htmlFor="user-name"><h2>Please enter your name</h2>
         <input
-          required
-          id="username-input"
+          id="user-name"
           type="text"
-          placeholder="Enter your username"
-          onChange={(event) => setUsernameNameInputValue(event.target.value)} />
+          placeholder="A name never used before"
+          onChange={(event) => setUserName(event.target.value)}
+          required />
       </label>
-      <button type="submit" required>Confirm</button>
-    </form>)
-}
+      <button
+        type="submit"
+        className="start-button">
+        Start playing
+      </button>
+    </form>
+  )
+};
 
 export default GameStart;
