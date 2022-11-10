@@ -1,16 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { API_START_URL, API_ACTION_URL } from 'utils/urls';
+import ui from './ui';
 
 const game = createSlice({
   name: 'game',
   initialState: {
-    player: '',
+    username: 'Hippoplayer',
     position: '',
     history: []
   },
   reducers: {
-    setPlayer: (store, action) => {
-      store.player = action.payload;
+    setUsername: (store, action) => {
+      store.username = action.payload;
     },
     setPosition: (store, action) => {
       store.position = action.payload;
@@ -18,7 +19,7 @@ const game = createSlice({
   }
 });
 
-export default game;
+// Thunk 1
 
 export const fetchStartPosition = () => {
   return (dispatch, getState) => {
@@ -27,23 +28,31 @@ export const fetchStartPosition = () => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ username: getState().game.player })
+      body: JSON.stringify({ username: getState().game.username })
     })
       .then((response) => response.json())
       .then((data) => dispatch(game.actions.setPosition(data)));
   }
 }
 
+// Thunk 2
+
 export const nextStep = (type, direction) => {
   return (dispatch, getState) => {
+    dispatch(ui.actions.setLoading(true))
     fetch(API_ACTION_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ username: getState().game.player, type, direction })
+      body: JSON.stringify({ username: getState().game.username, type, direction })
     })
       .then((response) => response.json())
-      .then((data) => dispatch(game.actions.setPosition(data)));
+      .then((data) => {
+        dispatch(game.actions.setPosition(data))
+        dispatch(ui.actions.setLoading(false))
+      });
   }
 }
+
+export default game;
