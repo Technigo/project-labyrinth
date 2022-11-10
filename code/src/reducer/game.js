@@ -4,9 +4,9 @@ import { ui } from './ui';
 export const game = createSlice({
   name: 'game',
   initialState: {
-    username: 'Duckling',
-    location: '',
-    move: ''
+    username: null,
+    location: null,
+    direction: []
   },
 
   reducers: {
@@ -16,8 +16,8 @@ export const game = createSlice({
     setLocation: (store, action) => {
       store.location = action.payload;
     },
-    setMove: (store, action) => {
-      store.move = action.payload;
+    setDirection: (store, action) => {
+      store.direction = action.payload;
     }
 
   }
@@ -41,26 +41,27 @@ export const generateLabyrinth = () => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setLocation(data))
-        console.log(`Data: ${data}`)
-        /* dispatch(ui.actions.setLoading(false)) */
       })
   }
 }
 
 // Second thunk
 
-export const generateMoves = ({ type, direction }) => {
+export const generateMoves = () => {
   return (dispatch, getState) => {
     dispatch(ui.actions.setLoading(true))
-    fetch('https://labyrinth.technigo.io/action', {
+
+    const options = {
       method: 'POST',
-      headers: { 'Content-Type': 'application/jason' },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         username: getState().game.username,
-        type,
-        direction
+        type: 'move',
+        direction: getState().game.direction
       })
-    })
+    }
+
+    fetch('https://labyrinth.technigo.io/action', options)
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setLocation(data))
