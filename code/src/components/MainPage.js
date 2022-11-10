@@ -2,21 +2,29 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Game from './Game';
 import StartPage from './StartPage';
-import LoadingPage from './LoadingPage'
+import LoadingPage from './LoadingPage';
+import LastPage from './LastPage';
 
 const MainPage = () => {
-  const loading = useSelector((store) => store.ui.loading)
+  const loading = useSelector((store) => store.ui.loading);
+  
   const currentPosition = useSelector((store) => {
     return store.game.currentPosition;
   });
+
+
   return (
     <>
-      {loading ? <LoadingPage /> : (<div>{!currentPosition ? <StartPage /> : <Game />} </div>)}
-     {/*  {!currentPosition // If there's no currentPosition, the game hasn't started yet.
-        ? <StartPage />
-        : <Game />} */}
+      {loading && <LoadingPage />}
+      {!loading && (
+      <div>{currentPosition
+      ? currentPosition.actions.length !== 0
+      ? <Game />
+      : <LastPage />
+      : <StartPage />}
+      </div>)}
     </>
-  )
+  );
 };
 
 export default MainPage;

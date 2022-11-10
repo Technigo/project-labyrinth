@@ -5,7 +5,8 @@ import Lottie from 'react-lottie';
 import animationData from '../lotties/castle';
 import { Background } from './StartPage';
 import { GameCard } from './StyledComponents';
-import castle from '../assets/castle.jpeg'
+import castle from '../assets/castle.jpeg';
+import styled from 'styled-components/macro'
 
 const LastPage = () => {
   const username = useSelector((store) => store.ui.username);
@@ -24,7 +25,7 @@ const LastPage = () => {
     <GameCard>
     <div>
       <div>
-        <Lottie options={defaultOptions} height={400} width={400} />
+        <Lottie options={defaultOptions} height={300} width={300} />
         <div>{username}</div>
         <button onClick={() => window.location.reload()}>Play Again!</button>
       </div>
