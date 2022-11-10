@@ -44,7 +44,7 @@ const UserNameInput = () => {
               // eslint-disable-next-line jsx-a11y/no-autofocus
               autoFocus
               onChange={(event) => setUserNameInputValue(event.target.value)}
-              placeholder="Name..." />
+              placeholder="User name..." />
           </label>
           <StartButton type="submit">Start game</StartButton>
         </UserNameInputContainer>

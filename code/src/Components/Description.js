@@ -6,14 +6,14 @@ import Button from './Button';
 
 function coordsToBackgroundImage(coords) {
   if (coords === '0,0') {
-    return './assets/images/image_1.jpg'
+    return './assets/images/image_4.jpg'
   }
 
   return './assets/images/fallback.jpg'
 }
 
 const DirectionInput = ({ actions }) => {
-  console.log(actions)
+  console.log('actions', actions)
   return (
     <ChooseDirectionWrapper>
 
@@ -23,10 +23,16 @@ const DirectionInput = ({ actions }) => {
       <button type="button">West</button> */}
 
       {actions.map((action) => (
-        <Button key={action.direction} type="button">
-          {action.direction}: {action.description}
-        </Button>
+        <>
+          <Button key={action.direction} type="button">
+            {action.direction}
+          </Button>
+          <div>
+            {action.description}
+          </div>
+        </>
       ))}
+
     </ChooseDirectionWrapper>
   )
 }
@@ -58,7 +64,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 /* background-image: url(${(props) => props.bgImage}); */
-background-image: url('/assets/images/image_1.jpg');
+background-image: url('/assets/images/image_3.jpg');
 min-height: 100vh;
 background-size: cover;
 background-position: top center;;
@@ -66,6 +72,7 @@ background-position: top center;;
 const DescriptionText = styled.div`
 border: solid 2px green;
 color: white;
+margin-top: 330px;
 `
 const ChooseDirectionWrapper = styled.div`
 border: solid 2px red;
