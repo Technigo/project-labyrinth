@@ -22,20 +22,27 @@ const GameScreen = () => {
         window.location.reload()
     }
 
+    const goToPreviousMove = () => {
+        dispatch(games.actions.setPreviousMove)
+    }
+
     return (
-        <section>
+        <OuterWrapper>
+            <button 
+              onClick={goToPreviousMove}
+                type="button">Go back</button>
         <RestartButton
         type="submit" 
         onClick={onRestartButton}>
             Restart
         </RestartButton>
-        <Wrapper>
-            <p>{description}</p>
+        <InnerWrapper>
+            <h1>{description}</h1>
             <p>{coordinates}</p>
 
             {moves && moves.map(move => (
         <InnerContainer key={move.description}>
-             <p>{move.description}</p>
+             <h2>{move.description}</h2>
           <Button
             type="button"
             value={move.direction} 
@@ -45,26 +52,60 @@ const GameScreen = () => {
         </InnerContainer>
   ))
   }
-        </Wrapper>
+        </InnerWrapper>
          
            
-           </section>
+           </OuterWrapper>
     )
 }
 
 export default GameScreen
 
+const OuterWrapper = styled.section `
+border: solid yellow 2px;
+align-items: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+text-align: center;
+// margin-top: 20%;
+width: 60vh;
+height: auto;
+`
+
+const InnerWrapper = styled.section `
+border: solid brown 2px;
+color: white;
+align-items: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+width: 100%;
+`
+
 const RestartButton = styled.button`
 border: solid red 2px;
-`
-const Wrapper = styled.div`
-border: solid green 2px;
 `
 const Button = styled.button`
 border: solid blue 2px;
 `
-const InnerContainer = styled.button`
+const InnerContainer = styled.div`
 border: solid black 2px;
+width: 100%;
+align-items: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+color: white;
+button{
+    margin: 10px;
+    padding: 5px;
+    border: solid white 2px;
+    color: white;
+    background: none;
+    &:hover{
+      background: white;
+      color: black;
+    }
+}
 `
-
-

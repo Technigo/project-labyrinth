@@ -1,13 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family:"Roboto";
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",  sans-serif;*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+width:auto;
+height: auto;
+align-items: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+/* background-color: grey; */
+background-image: url("https://images.unsplash.com/photo-1580366029401-1c7c4105fb5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80");
+/* background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-repeat: no-repeat; */
+background-size: cover;
+background-position: cover;
+object-fit: cover; 
+height: 100vh;
+width: 100vw; 
+
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  /* font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", */
+  font-family:"Roboto";
+}
+
+
+
+@media (max-width: 668px) {
+  body {
+    background-image: url("https://images.unsplash.com/photo-1532980216874-21f93fa9fd15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2F2ZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60");
+  }  
 }

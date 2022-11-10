@@ -20,20 +20,32 @@ const games = createSlice({
       store.description = action.payload;
     },
     setMoves: (store, action) => {
-      if (store.moves) {
-        store.history = [...store.history, store.moves]
+      if (store.moves!== '') {
+        store.history.push(action.payload)
       }
+      // if (store.moves) {
+      //   store.history = [...store.history, store.moves]
+      // }
       store.moves = action.payload
     },
-    //setPreviousMove
+
     setDirection: (store, action) => {
+  
       store.direction = action.payload
+   
     },
     setLoading: (store, action) => {
       store.loading = action.payload
     },
     setCoordinates: (store, action) => {
       store.coordinates = action.payload
+    },
+
+        //setPreviousMove
+ setPreviousMove: (store, action) => {
+  const historyArraylength = store.history.length
+  store.moves = store.history[historyArraylength-1];
+  store.history.splice(historyArraylength-1,1)
     }
   }
 });
