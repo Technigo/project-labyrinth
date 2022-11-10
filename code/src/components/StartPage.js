@@ -45,7 +45,6 @@ const StartPage = () => {
 export default StartPage;
 
 const StartText = styled.div`
-width: 80%;
 h1 {
   color: #fff;
   font-family: monospace;
