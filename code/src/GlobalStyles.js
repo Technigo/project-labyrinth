@@ -17,14 +17,21 @@ export const OuterWrapper = styled.section`
     justify-content: center;
 `
 
-export const TextWrapper = styled.div`
+export const InnerWrapper = styled.div`
     //outline: 1px solid red;
-    max-width: 50vw;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    flex-direction: column; 
 `
 
-export const BigText = styled.h2`
+export const TextWrapper = styled.div`
+    //outline: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    max-width: 50vw;
+`
+
+export const BigText = styled.p`
     font-family: var(--font-main);
     font-size: 25px;
     text-align: center;
@@ -32,19 +39,28 @@ export const BigText = styled.h2`
     color: var(--color-white);
 `
 
-export const Paragraph = styled.p`
+export const SmallerText = styled.p`
     font-family: var(--font-secondary);
     font-size: 20px;
     text-align: center;
     color: var(--color-white);
 `
 
-export const SmallText = styled.p`
+export const Button = styled.button`
+    background-color: transparent;
+    border: 2px solid var(--color-white);
     font-family: var(--font-secondary);
     font-size: 18px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     color: var(--color-white);
+    padding: 5px 20px;
+    margin: 10px 0 25px;
+    cursor: pointer;
+
+    :hover {
+      transform: scale(1.1);
+    }
 `
 
 export default GlobalStyles;

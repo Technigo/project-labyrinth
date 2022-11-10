@@ -3,7 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { fetchTheGame, game } from 'reducers/store';
 import { useDispatch } from 'react-redux';
-import { OuterWrapper, TextWrapper, BigText } from 'GlobalStyles';
+import { OuterWrapper, InnerWrapper, TextWrapper, BigText, Button } from 'GlobalStyles';
 import styled from 'styled-components/macro'
 import Footer from 'components/Footer'
 
@@ -41,13 +41,6 @@ const StartPage = () => {
     )
 }
 
-export const InnerWrapper = styled.div`
-    //outline: 1px solid red;
-    display: flex;
-    align-items: center;
-    flex-direction: column; 
-`
-
 export const Input = styled.input`
     border: none;
     background-color: transparent;
@@ -57,16 +50,7 @@ export const Input = styled.input`
     text-align: center;
     padding: 10px;
     margin-bottom: 20px;
-`
-
-export const Button = styled.button`
-    background-color: transparent;
-    border: 2px solid var(--color-white);
-    font-family: var(--font-secondary);
-    font-size: 18px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 5px 15px;
     color: var(--color-white);
 `
+
 export default StartPage;

@@ -3,6 +3,7 @@ import React from 'react';
 import Lottie from 'react-lottie';
 import animationData from '../lotties/loading';
 import { useSelector } from 'react-redux';
+import { OuterWrapper } from 'GlobalStyles';
 
 export const Loading = () => {
   const isLoading = useSelector((store) => store.ui.isLoading)
@@ -18,9 +19,9 @@ export const Loading = () => {
   
     return (
       isLoading && (
-      <div>
+      <OuterWrapper>
         <Lottie options={defaultOptions} height={400} width={400} />
-      </div>
+      </OuterWrapper>
       )
     );
   };

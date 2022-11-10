@@ -72,7 +72,6 @@ export const BackgroundContainer = styled.main`
     min-height: 100vh;
     width: 100%;
     margin: 0 auto;
-    padding-top: 10px;
     color: white;
 `
 
