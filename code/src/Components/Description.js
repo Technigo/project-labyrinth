@@ -25,37 +25,28 @@ function coordsToBackgroundImage(coords) {
 }
 
 const DirectionInput = ({ actions }) => {
+  // Get actions from API
   console.log('actions', actions)
   const dispatch = useDispatch();
 
-  const handleOnClick = () => {
+  const handleOnClick = (direction) => {
     dispatch(generateNextDescription(direction));
-    console.log('generateNextDescription(direction)', generateNextDescription(direction))
   }
 
   return (
     <ChooseDirectionWrapper>
-
-      {/* <button type="button">North</button>
-      <button type="button">East</button>
-      <button type="button">South</button>
-      <button type="button">West</button> */}
-
       {actions.map((action) => (
-        <>
+        <div key={action.direction}>
           <Button
-            key={action.direction}
             type="button"
-            onClick={(event) => handleOnClick(event.target.value)}
-            value={action.direction}>
+            onClick={() => handleOnClick(action.direction)}>
             {action.direction}
           </Button>
           <div>
             {action.description}
           </div>
-        </>
+        </div>
       ))}
-
     </ChooseDirectionWrapper>
   )
 }
@@ -65,13 +56,10 @@ const Description = () => {
   console.log('description', description);
 
   const bgImage = coordsToBackgroundImage(description.coordinates);
-  console.log(bgImage);
 
-  console.log(description);
   return (
     <DescriptionContainer bgImage={bgImage}>
       <Wrapper>
-
         <DescriptionText>{description.description}</DescriptionText>
         <DirectionInput
           actions={description.actions} />
