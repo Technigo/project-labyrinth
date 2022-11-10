@@ -10,12 +10,13 @@ export const Start = () => {
 
   const onFormSubmit = (event) => {
     event.preventDefault()
+    dispatch(choices.actions.addUserName(userName))
+    setStartConfirmed(true)
   }
 
   // Function for storing user's text
   const handleChange = (event) => {
     setUserName(event.target.value);
-    dispatch(choices.actions.addUserName(userName))
   };
 
   return (
@@ -28,8 +29,7 @@ export const Start = () => {
             onChange={handleChange}
             placeholder="Your username" />
           <button
-            type="submit"
-            onClick={() => setStartConfirmed(true)}>
+            type="submit">
             Submit
           </button>
         </form>
