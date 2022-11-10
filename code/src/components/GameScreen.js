@@ -1,18 +1,19 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { startGame } from 'reducers/game';
+import { gameProgress } from 'reducers/game';
 import game from 'reducers/game';
 
 const GameScreen = () => {
   const dispatch = useDispatch();
   const response = useSelector((state) => state.game.response);
-  console.log('test', response);
-  const actions = useSelector((state) => state.game.response.actions);
-  console.log('actions', actions);
 
-  const handleDirectionButtonClick = (direction) => {
+  const onDirectionClick = (direction) => {
     dispatch(game.actions.setDirection(direction));
-    dispatch(startGame('action'));
+    dispatch(gameProgress('action'));
+  };
+
+  const onRestartClick = () => {
+    dispatch(game.actions.restart());
   };
 
   return (
@@ -20,19 +21,22 @@ const GameScreen = () => {
       <p>Description: {response.description}</p>
       {response.actions?.map((action) => {
         return (
-          <>
+          <div key={action.description}>
             <button
-              key={action.description}
               type="button"
-              onClick={() => handleDirectionButtonClick(action.direction)}
+              onClick={() => onDirectionClick(action.direction)}
             >
               {action.direction}
             </button>
             <p>Action description: {action.description}</p>
-          </>
+          </div>
         );
       })}
-      {/* <button type="button"> test 2</button> */}
+      {response.coordinates === '1,3' && (
+        <button type="button" onClick={() => onRestartClick()}>
+          Restart Game
+        </button>
+      )}
     </>
   );
 };
