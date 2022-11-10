@@ -1,13 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 // import labyrinth, { generateFetch } from 'reducers/labyrinth';
-// import styled from 'styled-components/macro';
+import styled from 'styled-components/macro';
 // import {  } from '../styles/mainStyles';
 
 const Choices = () => {
   // const dispatch = useDispatch();
 
   const quest = useSelector((store) => store.labyrinth.quest);
+
+  console.log(quest)
 
   // const onChoiceMade = (event) => {
   //   event.preventDefault();
@@ -18,14 +20,19 @@ const Choices = () => {
   return (
     <section>
       <div>
-        {quest.map((test) => {
+        <MainText>{quest.description}</MainText>
+        {quest.actions.map((details) => {
           return (
-            <p>{test.description}</p>
+            // Testar om den blir mindre sur om vi får en "key" att funka,
+            // den blev mkt gladare nu:
+            <MainText key={details.description}>
+              {details.direction}: {details.description}
+            </MainText>
           )
         })}
-        fetch.map
+        {/* fetch.map
           description
-          direction.description
+          direction.description */}
         {/* <button type="button" onClick={onChoiceMade()}>search</button> */}
       </div>
     </section>
@@ -33,3 +40,7 @@ const Choices = () => {
 }
 
 export default Choices;
+
+const MainText = styled.p`
+  color: #43B771;
+`

@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import ui from 'reducers/ui';
 
 const labyrinth = createSlice({
   name: 'quests',
@@ -12,6 +13,9 @@ const labyrinth = createSlice({
       store.username = action.payload;
     },
     setChoice: (store, action) => {
+      if (store.quest !== '') {
+        store.history.push(store.quest);
+      }
       store.quest = action.payload;
     }
   }
@@ -21,6 +25,7 @@ export default labyrinth;
 
 export const generateFetch = ({ url, username }) => {
   return (dispatch) => {
+    dispatch(ui.actions.setLoading(true));
     const options = {
       method: 'POST',
       headers: {
@@ -39,8 +44,8 @@ export const generateFetch = ({ url, username }) => {
         console.log('json', json)
         console.log('json.description', json.description)
         dispatch(labyrinth.actions.setChoice(json))
-      })
+        dispatch(ui.actions.setLoading(false));
+      });
   }
 }
 
-// dispatch(labyrinth.actions.setCurrentPosition(json))

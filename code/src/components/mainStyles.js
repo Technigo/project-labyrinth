@@ -1,5 +1,7 @@
 import styled from 'styled-components/macro';
 
+//  background-color: #ffe8b7;
+
 export const OuterWrapper = styled.div`
   background-color: #F4D288;
   padding: 5% 5%;

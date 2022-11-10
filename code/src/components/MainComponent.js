@@ -2,7 +2,6 @@
 /* eslint-disable import/no-named-as-default */
 import React from 'react';
 import { useSelector } from 'react-redux';
-// import labyrinth from 'reducers/labyrinth';
 import styled from 'styled-components/macro';
 import UserInput from './UserInput';
 import Choices from './Choices';
