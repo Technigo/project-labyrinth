@@ -29,12 +29,14 @@ export const BigText = styled.h2`
     font-size: 25px;
     text-align: center;
     margin-bottom: 20px;
+    color: var(--color-white);
 `
 
 export const Paragraph = styled.p`
     font-family: var(--font-secondary);
     font-size: 20px;
     text-align: center;
+    color: var(--color-white);
 `
 
 export const SmallText = styled.p`
@@ -42,6 +44,7 @@ export const SmallText = styled.p`
     font-size: 18px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    color: var(--color-white);
 `
 
 export default GlobalStyles;

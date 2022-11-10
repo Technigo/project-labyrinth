@@ -51,7 +51,7 @@ export const InnerWrapper = styled.div`
 export const Input = styled.input`
     border: none;
     background-color: transparent;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid var(--color-white);
     font-family: 'Circular Std Book', sans-serif;
     font-size: 18px;
     text-align: center;
@@ -61,11 +61,12 @@ export const Input = styled.input`
 
 export const Button = styled.button`
     background-color: transparent;
-    border: 2px solid black;
+    border: 2px solid var(--color-white);
     font-family: var(--font-secondary);
     font-size: 18px;
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 5px 15px;
+    color: var(--color-white);
 `
 export default StartPage;

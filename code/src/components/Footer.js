@@ -18,7 +18,7 @@ const FooterText = styled.p`
     text-align: left;
     font-size: 12px;
     margin-left: 20px;
-    color: black;
+    color: var(--color-white);
 `
 
 export default Footer;
