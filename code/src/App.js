@@ -1,7 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import LoadingPage from 'components/LoadingPage';
 import MainPage from 'components/MainPage';
 import { game } from 'reducers/game';
 import { ui } from 'reducers/ui';
@@ -17,7 +16,6 @@ const store = configureStore({
 export const App = () => {
   return (
     <Provider store={store}>
-      <LoadingPage />
       <MainPage />
     </Provider>
   );
