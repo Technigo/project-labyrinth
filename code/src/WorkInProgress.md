@@ -42,10 +42,22 @@ Nina kväll:
 --------------------------------------------
 
 # Torsdag
-Viktor dag:
+Viktor morgon-dag-kväll:
 
 -fokus på att få spelet att funka
--gamepage ->
+ -gamepage -> 
+  - och om tid finns få Loading att funka
+
+-fick spelet att funka, vi kan gå vidare med ex NORTH 
+-gjorde knappar som funkar som 
+ - de visas enbart om de går att trycka på i spelet. ex North + East
+
+- fick loading att funka 
+ - force installerade Lottie, då funkade det
+
+-ladde in tv stylingen i gamepage så att allt visas i en tv
+-gjorde en kontroll för att se ungefär hur det skulle vara
+
 
 --------------------------------------------
 
@@ -61,6 +73,8 @@ Viktor dag:
 
 - använda kordinaterna för unique id !!
 
+-Loader annan bakgrunds färg? nu är den vit? annann färg på animationen?
+
 # Att Göra Lista:
 Info:
 start design for mobile,
@@ -69,11 +83,21 @@ for tablet and Desktop add:
     blablabla;
     }
 -------------------------------
--få loader att fungera =)
--color scheem
+Projektet Kod kvar:
+-Unique id byta ut mot kordinater
+- möjligtvis använda kordinaterna för att byta bakgrundsbild 
 
+Styling kod är det som är mest kvar av:
+-color scheem
 -bakgrundsbild
 -spelkonsol
+
+-Fonternas storlek i tv (eller göra tv större?)
+
+-spelkontroll som ser ut som en spelkontroll
+
+-Loader annan bakgrunds färg? nu är den vit, annann färg på animationen?
+ - (om tid finns) som loadas i skärmen enbart när spelet är igång
 
 
 -accessability etc
@@ -85,11 +109,15 @@ for tablet and Desktop add:
   *Button: onClick {setName} start game
 
 -Thunk fetch technigo API 
+-få loader att fungera =)
 
 -skapa :root font samt colors
 -Lägga in fonter i html samt i body
 
 -Loader pixled green loader bar
+
+-fått action att funka och man kan spela spelet
+-fått loading att funka
 
 
 

@@ -6,7 +6,7 @@ import { GameContainer, GameFrame, GameContent, TvCircelContainer, TvCircel, TvC
 import uniqid from 'uniqid';
 /* import Loading from './Loading'; */
 import { fetchLabyrinthTwo } from '../reducers/labyrinth'
-
+/* import Loading from './Loading'; */
 // import thunk 2
 // import globalstyles
 export const GamePage = () => {
@@ -54,6 +54,14 @@ export const GamePage = () => {
 }
 
 // ---- ------Styled Components---------
+
+/* ------ TEST AV VIKTOR: få loading enbart på skärmen ------
+const ClonedLoading = styled(Loading)`
+  z-index: 1000;
+ postions: absolute;
+ height: 320px;
+ width: 90%;
+ `; */
 
 const ControllerSection = styled.div`
   margin: 10%;
