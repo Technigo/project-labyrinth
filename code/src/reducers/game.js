@@ -5,12 +5,13 @@ import { ui } from './ui';
 export const game = createSlice({
   name: 'game',
   initialState: { // InitialState is an object.
+    currentPosition: null,
     username: null,
     history: []
   },
   reducers: { // function with two different parameters by default
     setCurrentPosition: (store, action) => {
-      console.log(`setCurrentPosition ${JSON.stringify(action)}`)
+      /* console.log(`setCurrentPosition ${JSON.stringify(action)}`) */
       store.currentPosition = action.payload;
     },
 

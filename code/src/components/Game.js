@@ -5,6 +5,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchAction } from 'reducers/game';
 /* import LastPage from './LastPage'; */
 import { GameCard } from './StyledComponents'
+import styled from 'styled-components/macro'
+import { Background } from './StartPage';
+import tree from '../assets/tree.jpeg'
 
 const Game = () => {
   const currentPosition = useSelector((store) => {
@@ -18,22 +21,44 @@ const Game = () => {
   };
 
   return (
-    <GameCard title="hello" secondaryTitle="Adventurer">
+    <ClonedBackground>
+    <GameCard 
+      title={currentPosition.description} 
+      descriptionText="Adventurer"> 
+      {/* here we want action.description, but it does not work, maybe we have to make a const? */ }
       <div>
-        <div>Description: {currentPosition.description}</div>
+        
         {currentPosition.actions.map((action) => (
           <div key={action.description}>
             <p>{action.description}</p>
-            <button
+            <ActionButton
               onClick={() => onAction(action)}>
               {action.type}
               {action.direction.toLowerCase()}
-            </button>
+            </ActionButton>
           </div>
         ))}
       </div>
     </GameCard>
+    </ClonedBackground>
   )
 };
 
 export default Game;
+
+const ActionButton = styled.button`
+  border-style: outset;
+height: 60px;
+width: 80px;
+margin: 20px;
+padding: 20px;
+display: inline-block;
+background-color: palegreen;
+border-width: 5px;
+box-sizing: border-box;
+border-radius: 5%;
+`
+const ClonedBackground = styled(Background)`
+background-image: url(${tree});
+
+`
