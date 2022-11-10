@@ -3,16 +3,19 @@ import { createSlice } from '@reduxjs/toolkit';
 const game = createSlice({ // quotes
   name: 'game', // quotes
   initialState: {
-    userInput: '',
+    username: '',
     description: '',
-    history: [] // Osäker på vad vi behöver här
+    steps: [] // Osäker på vad vi behöver här
   },
   reducers: {
     setUser: (store, action) => {
-      store.userInput = action.payload;
+      store.username = action.payload;
     },
     setDescription: (store, action) => {
       store.description = action.payload;
+    },
+    setStep: (store, action) => {
+      store.steps = [...store.moves, action.payload];
     }
   }
 });
@@ -24,17 +27,29 @@ export const generateDescription = () => {
     const start = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username: getState().game.userInput })
+      body: JSON.stringify({ username: getState().game.username })
     };
     fetch('https://labyrinth-technigo.herokuapp.com/start', start) // samma som happy
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setDescription(data));
-      //  Dosomthing(data); // GET first coordinates and description
       });
   };
 };
 
-// fetch(`https://api.quotable.io/random?author=${getState().quotes.author}`) // ändra
-//   .then((response) => response.json())
-//    .then((quote) => console.log(quote));
+export const generateNextDescription = (direction) => {
+  return (dispatch, getState) => {
+    const action = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: getState().game.username,
+        type: 'move',
+        direction })
+    };
+    fetch('https://labyrinth-technigo.herokuapp.com/action', action) // samma som happy
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(game.actions.setDescription(data));
+      });
+  };
+};
