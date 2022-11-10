@@ -33,19 +33,21 @@ const UserNameInput = () => {
     <UserNameInputBackground>
       <Wrapper>
         <Header />
-        <UserNameInputContainer onSubmit={(event) => onFormSubmit(event)}>
-          <label htmlFor="user-input">
-            Enter your name to start the game:
-            <input
-              id="user-input"
-              type="text"
-              value={userNameInputValue}
-              required
-              // eslint-disable-next-line jsx-a11y/no-autofocus
-              autoFocus
-              onChange={(event) => setUserNameInputValue(event.target.value)}
-              placeholder="User name..." />
-          </label>
+        <UserNameInputContainer>
+          <form onSubmit={(event) => onFormSubmit(event)}>
+            <label htmlFor="user-input">
+            Enter your username:<br />
+              <input
+                id="user-input"
+                type="text"
+                value={userNameInputValue}
+                required
+                // eslint-disable-next-line jsx-a11y/no-autofocus
+                autoFocus
+                onChange={(event) => setUserNameInputValue(event.target.value)}
+                placeholder="User name..." />
+            </label>
+          </form>
           <StartButton type="submit">Start game</StartButton>
         </UserNameInputContainer>
       </Wrapper>
@@ -55,11 +57,10 @@ const UserNameInput = () => {
 
 export default UserNameInput;
 
-const UserNameInputContainer = styled.form`
-border: solid 2px blue;
-display: flex;
-flex-direction: column;
+const UserNameInputContainer = styled.div`
+border: solid 2px red;
 justify-content: center;
+text-align: center;
 `
 
 const StartButton = styled.button`
@@ -68,9 +69,8 @@ margin: 1em;
 padding: 0.25em 1em;
 border: 2px solid palevioletred;
 border-radius: 3px;
-// width: 30px;
 `
 
 const UserNameInputBackground = styled.div`
-  background-color: blue;
+  background-image: linear-gradient(#ad91bd , white);
 `

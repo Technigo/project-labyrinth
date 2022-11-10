@@ -78,8 +78,9 @@ justify-content: center;
 background-image: url('/assets/images/image_3.jpg');
 min-height: 100vh;
 background-size: cover;
-background-position: top center;;
+background-position: top center;
 `
+
 const DescriptionText = styled.div`
 border: solid 2px green;
 color: white;
