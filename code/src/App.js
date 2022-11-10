@@ -5,7 +5,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 // import Loading from 'components/Loading';
 import { labyrinth } from 'reducers/labyrinth';
 import ui from 'reducers/ui';
-
+import Loading from 'components/Loading';
 import { SelectPage } from 'components/SelectPage';
 import { PageWrapper } from 'Globalstyles';
 
@@ -20,6 +20,7 @@ export const App = () => {
   return (
     <Provider store={store}>
       <PageWrapper>
+        <Loading />
         <SelectPage />
         {/* <Loading /> */}
       </PageWrapper>

@@ -39,9 +39,16 @@ Nina kväll:
 -skickat bilder i slack ang spelkonsol och tv.
 
 
+--------------------------------------------
 
+# Torsdag
+Viktor dag:
+
+-fokus på att få spelet att funka
+-gamepage ->
 
 --------------------------------------------
+
 # Frågeställningar:
 -vad ska spelet heta, ska projectet döpas?
 -ska vi ha en karta som visar vart man befinner sig i spelet?
@@ -51,6 +58,8 @@ Nina kväll:
 -skall vi stoppa url'n i en separat datafill med namngedd url?
 
 -ska vi ha en avslutnings sida: hurra du vann! och en restart knapp alal quiz/survey?
+
+- använda kordinaterna för unique id !!
 
 # Att Göra Lista:
 Info:
