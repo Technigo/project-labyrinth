@@ -3,6 +3,9 @@ import React from 'react';
 import { useState } from 'react';
 import { fetchTheGame, game } from 'reducers/store';
 import { useDispatch } from 'react-redux';
+import { OuterWrapper, TextWrapper, BigText } from 'GlobalStyles';
+import styled from 'styled-components/macro'
+import Footer from 'components/Footer'
 
 const StartPage = () => {
     const [userName, setUserName] = useState('')
@@ -17,18 +20,52 @@ const StartPage = () => {
 
     return (
         <div>
-            <h1> Welcome to the world of Technigo filled with magic of coding. Tell me your name and start and adventure.</h1>
-            <input 
-            type="text" 
-            className="userName" 
-            placeholder="Please write your character name"
-            onChange={(event) => setUserName(event.target.value)}
-            value={userName} />
-            <button 
-            type="submit" 
-            onClick={test}> Lets go </button>
+            <OuterWrapper>
+                <InnerWrapper>
+                    <TextWrapper>
+                        <BigText>To enter the labyrinth, please enter your name.</BigText>
+                        <Input 
+                        type="text" 
+                        className="userName" 
+                        placeholder="Please write your name"
+                        onChange={(event) => setUserName(event.target.value)}
+                        value={userName} />
+                    </TextWrapper>
+                    <Button 
+                    type="submit" 
+                    onClick={test}> Let’s go </Button>
+                </InnerWrapper>
+            </OuterWrapper>
+            <Footer />
        </div>
     )
-
 }
+
+export const InnerWrapper = styled.div`
+    //outline: 1px solid red;
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+`
+
+export const Input = styled.input`
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid black;
+    font-family: 'Circular Std Book', sans-serif;
+    font-size: 18px;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+`
+
+export const Button = styled.button`
+    background-color: transparent;
+    border: 2px solid black;
+    font-family: var(--font-secondary);
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 15px;
+`
 export default StartPage;
