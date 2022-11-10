@@ -1,0 +1,29 @@
+<svg width="135" height="136" viewBox="0 0 135 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="134.838" height="136" fill="url(#paint0_linear_58_1085)"/>
+<ellipse cx="114.506" cy="113.498" rx="7.50617" ry="7.49754" fill="#641F32"/>
+<rect x="7" y="6" width="4" height="50" fill="black"/>
+<rect x="7" y="10" width="3.99999" height="121" transform="rotate(-90 7 10)" fill="black"/>
+<path d="M31 52H35V80H31V52Z" fill="black"/>
+<path d="M76.5 52H80.5V80H76.5V52Z" fill="black"/>
+<rect x="7" y="76" width="4" height="28" fill="black"/>
+<rect x="52" y="6" width="4" height="50" fill="black"/>
+<rect x="31" y="80" width="4" height="25" transform="rotate(-90 31 80)" fill="black"/>
+<rect x="77" y="56" width="4" height="29" transform="rotate(-90 77 56)" fill="black"/>
+<rect x="31" y="56" width="4" height="25" transform="rotate(-90 31 56)" fill="black"/>
+<rect x="102" y="33" width="4" height="26" transform="rotate(-90 102 33)" fill="black"/>
+<rect x="102" y="7" width="4" height="26" fill="black"/>
+<rect x="125" y="54" width="4" height="74" fill="black"/>
+<rect x="52" y="76" width="4" height="52" fill="black"/>
+<rect x="31" y="33" width="4" height="47" transform="rotate(-90 31 33)" fill="black"/>
+<rect x="7" y="104" width="4" height="99" transform="rotate(-90 7 104)" fill="black"/>
+<rect x="77" y="80" width="4" height="52" transform="rotate(-90 77 80)" fill="black"/>
+<path d="M7 128L7 124L56 124L56 128L7 128Z" fill="black"/>
+<path d="M80 128L80 124L129 124L129 128L80 128Z" fill="black"/>
+<defs>
+<linearGradient id="paint0_linear_58_1085" x1="67.4188" y1="0" x2="67.4188" y2="217.949" gradientUnits="userSpaceOnUse">
+<stop offset="0.260417" stop-color="#B1B1B1" stop-opacity="0.72"/>
+<stop offset="0.9999" stop-color="#FCFCFC" stop-opacity="0.02875"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
