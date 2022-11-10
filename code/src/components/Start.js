@@ -30,6 +30,7 @@ export const Start = () => {
         </button>
       </form>
     </StartContainer>
+
   )
 }
 
