@@ -1,13 +1,16 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The project brief was to build an app that retrieves a list of actions from the backend and presents them to the user as intractable items. We've built a text-based game that allows the user to navigate a maze. The game is built in React and Redux using thunks to build the communication with the backend. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This is a pair-programming project built by Cecilia Frånlund and Annika Gadman. 
+We approached this week's project by setting up the starter code to be able to use React and Redux. We planned the reducers and what actions we thought was needed and built them as well as components and thunks to wrap our API calls.
+
+When the main functionalities were in place we added styling. We've used styled components for this project. We've also used Lottie for our loading effect and for some animation. 
+
+If we had more time we would have worked more on styling, and tried to reach more of the stretch-goals as displaying a history of all the actions a player has taken.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Link to deployed app:
