@@ -4,6 +4,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { ui } from 'reducer/ui'
 import game from 'reducer/game'
 import { Main } from 'components/Main'
+import { GlobalStyles } from 'styled-components/GlobalStyles'
 
 const reducer = combineReducers({
   ui: ui.reducer,
@@ -15,8 +16,11 @@ const store = configureStore({
 
 export const App = () => {
   return (
-    <Provider store={store}>
-      <Main />
-    </Provider>
+    <>
+      <GlobalStyles />
+      <Provider store={store}>
+        <Main />
+      </Provider>
+    </>
   )
 }

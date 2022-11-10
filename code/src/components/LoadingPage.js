@@ -1,9 +1,8 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import animationData from '../lotties/sassy-duck';
-/* import styled from 'styled-components'; */
+import animationData from '../lotties/love-load';
 
-export const DucklingHeader = () => {
+export const LoadingPage = () => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -13,6 +12,6 @@ export const DucklingHeader = () => {
     }
   }
   return (
-    <Lottie options={defaultOptions} width={120} height={120} />
+    <Lottie options={defaultOptions} />
   )
 }

@@ -21,9 +21,9 @@ export const StartingPage = () => {
           <DucklingHeader />
         </DuckContainer>
 
-        <h1>Hi</h1>
-        <h2>welcome</h2>
-        <p>who are you?</p>
+        <h1>The Lost Duck</h1>
+        <h2>Please help me find my way out of this labyrinth</h2>
+        <h3>What&apos;s your name, my saviour?</h3>
         <input
           type="text"
           value={inputValue}
@@ -32,7 +32,7 @@ export const StartingPage = () => {
         <button
           type="submit"
           onClick={onUsernameInputValue}>
-            Start
+            Let&apos;s go
         </button>
       </div>
     </section>
