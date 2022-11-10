@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-closing-tag-location */
 /* eslint-disable array-callback-return */
 import React from 'react'
 import { generateActionData } from 'reducers/labyrinth'
@@ -7,6 +8,7 @@ import styled from 'styled-components/macro'
 const LabyrinthPart = () => {
   const description = useSelector((store) => store.labyrinth.description)
   const actions = useSelector((store) => store.labyrinth.actions)
+
   const dispatch = useDispatch()
 
   return (
@@ -21,6 +23,7 @@ const LabyrinthPart = () => {
         )
       })}
     </GameCard>
+
   )
 }
 export default LabyrinthPart

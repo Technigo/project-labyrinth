@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import loading from './loading'
 
 const labyrinth = createSlice({
   name: 'labyrinth',
@@ -26,6 +27,7 @@ const labyrinth = createSlice({
 export default labyrinth;
 export const generateLabyrinthData = () => {
   return (dispatch, getState) => {
+    dispatch(loading.actions.setLoading(true))
     const options = {
       method: 'POST',
       headers: {
@@ -41,12 +43,14 @@ export const generateLabyrinthData = () => {
         dispatch(labyrinth.actions.setCoordinates(data.coordinates))
         dispatch(labyrinth.actions.setDescription(data.description))
         dispatch(labyrinth.actions.setActionOption(data.actions))
+        dispatch(loading.actions.setLoading(false))
       })
   }
 }
 
 export const generateActionData = (type, direction) => {
   return (dispatch, getState) => {
+    dispatch(loading.actions.setLoading(true))
     const options = {
       method: 'POST',
       headers: {
@@ -65,6 +69,7 @@ export const generateActionData = (type, direction) => {
         dispatch(labyrinth.actions.setCoordinates(data.coordinates))
         dispatch(labyrinth.actions.setDescription(data.description))
         dispatch(labyrinth.actions.setActionOption(data.actions))
+        dispatch(loading.actions.setLoading(false))
       })
   }
 }
