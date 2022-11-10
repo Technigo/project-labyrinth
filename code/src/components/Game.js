@@ -32,7 +32,7 @@ const Games = () => {
           )
         })}
       </InnerWrapper>
-      <button type="button" onClick={onGameRestart}>Play Again</button>
+      <button type="button" onClick={onGameRestart}>Restart</button>
     </OuterWrapper>
   )
 };
