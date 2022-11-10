@@ -4,6 +4,8 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { loading } from 'reducers/loading';
 import { maingame } from 'reducers/maingame';
 import { StartPage } from 'components/StartPage';
+import { OuterWrapper, InnerWrapper } from 'GlobalStyles';
+// import { LoadingPage } from 'components/LoadingPage';
 // import { GamePage } from 'components/GamePage';
 
 export const App = () => {
@@ -15,7 +17,11 @@ export const App = () => {
 
   return (
     <Provider store={store}>
-      <StartPage />
+      <OuterWrapper>
+        <InnerWrapper>
+          <StartPage />
+        </InnerWrapper>
+      </OuterWrapper>
     </Provider>
   )
 }

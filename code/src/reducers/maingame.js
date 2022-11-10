@@ -9,7 +9,8 @@ export const maingame = createSlice({
     gameProps: {
       coordinates: '',
       description: '',
-      actions: []
+      actions: [],
+      history: []
     }
   },
   reducers: {
@@ -19,6 +20,12 @@ export const maingame = createSlice({
     setUsername: (state, action) => {
       state.username = action.payload;
     }
+    /* historyGoBack: (state) => {
+      if (state.history.length > 1) {
+        state.gameProps = state.history[state.history.length - 1];
+        state.history = state.history.slice(0, state.history.length - 1);
+      } */
+
   }
 
 });
@@ -62,6 +69,7 @@ export const fetchGameStep = (type, direction) => {
         dispatch(maingame.actions.setGameProps(json))
         console.log(json)
       })
+      .finally(() => dispatch(loading.actions.setLoading(false)))
   }
 }
 

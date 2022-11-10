@@ -16,3 +16,24 @@
 
 </div>
 /*
+
+
+    <section>
+      <h1>Hello {username} </h1>
+      <div>
+        <p>{gameProps.description}</p>
+      </div>
+      <div>
+        {gameProps.actions.map((action) => (
+          <div key={action.description}>
+            <p>{action.description}</p>
+            <button
+              type="button"
+              onClick={() => handleClick(action.direction)}>
+              Go {action.direction.toLowerCase()}
+            </button>
+          </div>
+	        ))}
+      </div>
+
+    </section>
