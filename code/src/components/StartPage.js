@@ -89,3 +89,15 @@ const Input = styled.input`
   }
 `;
 
+const StartBtn = styled.button`
+border-style: outset;
+  height: 60px;
+  width: 80px;
+  margin: 20px;
+  padding: 20px;
+  display: inline-block;
+  background-color: palegreen;
+  border-width: 5px;
+  box-sizing: border-box;
+  border-radius: 5%;
+`
