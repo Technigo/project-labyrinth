@@ -70,7 +70,6 @@ export const navigateGame = () => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setLocation(data))
-        console.log(data)
         dispatch(ui.actions.setLoading(false))
       })
   }

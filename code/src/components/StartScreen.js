@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components/macro'
+import { NavigateButtons } from './NavigateButtons'
 
-import GameController from 'assets/gamecontroller.png'
 import { StartGame } from './StartGame'
 import { PlayingGame } from './PlayingGame'
 
@@ -18,7 +18,9 @@ export const StartScreen = () => {
             : <StartGame />}
         </div>
       </InnerWrapper>
-      <img className="GameController" src={GameController} alt="img-gamecontroller" width="300px" />
+      <ControllerContainer>
+        <NavigateButtons />
+      </ControllerContainer>
     </OuterWrapper>
   )
 }
@@ -31,6 +33,9 @@ align-items:center;
 
 export const InnerWrapper = styled.div`
 background-color: whitesmoke;
+background-image: url("./img/gameimage.png");
+background-size: cover;
+background-repeat: no-repeat;
 width: 50%;
 border: 10px solid black;
 border-radius: 30px;
@@ -40,3 +45,11 @@ padding: 30px;
 margin-bottom: -40px;
 margin-top: 80px;
 `;
+
+export const ControllerContainer = styled.div`
+position: relative;
+width: 370px;
+Height: 400px;
+background-image: url("./img/gamecontroller.png");
+background-size: contain;
+`
