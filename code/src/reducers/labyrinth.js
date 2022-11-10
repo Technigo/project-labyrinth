@@ -19,7 +19,9 @@ const labyrinth = createSlice({
       state.description = action.payload
     },
     setActionOption: (state, action) => {
-      state.actions.push(action.payload)
+      action.payload.forEach((payload, index) => {
+        state.actions.splice(index, 1, payload)
+      });
     }
   }
 })
@@ -40,7 +42,7 @@ export const generateLabyrinthData = () => {
         console.log(data)
         dispatch(labyrinth.actions.setCoordinates(data.coordinates))
         dispatch(labyrinth.actions.setDescription(data.description))
-        dispatch(labyrinth.actions.setActionOption(data.actions[0]))
+        dispatch(labyrinth.actions.setActionOption(data.actions))
       })
   }
 }
@@ -64,7 +66,7 @@ export const generateActionData = (type, direction) => {
         console.log(data)
         dispatch(labyrinth.actions.setCoordinates(data.coordinates))
         dispatch(labyrinth.actions.setDescription(data.description))
-        dispatch(labyrinth.actions.setActionOption(data.actions[0]))
+        dispatch(labyrinth.actions.setActionOption(data.actions))
       })
   }
 }
