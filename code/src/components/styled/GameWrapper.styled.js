@@ -32,6 +32,14 @@ export const GameWrapper = styled.section`
       padding: 1rem;
       width: fit-content;
     }
+
+    & h6 {
+      background-color: rgba(0, 0, 0, 0.616);
+      font-size: 1rem;
+      padding: 1rem;
+      width: 12rem;
+    }
+
     & progress {
       height: 1.5rem;
     }

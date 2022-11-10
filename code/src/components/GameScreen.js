@@ -33,7 +33,7 @@ const GameScreen = () => {
               className="nes-btn"
               name="answer"
               onClick={ () => onDirectionClick(action.direction) }>
-              { action.direction }
+              Go {action.direction}
             </button>
             </label>
           </>
