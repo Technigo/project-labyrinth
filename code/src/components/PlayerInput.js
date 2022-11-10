@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import games, { createPlayer } from 'reducers/games';
 import styled from 'styled-components'
+import Lottie from "lottie-react";
+import charlotteMaze from "lotties/charlotteMaze";
+
 
 const PlayerInput = () => {
   const [playerInputValue, setPlayerInputValue] = useState('');
@@ -15,12 +18,13 @@ const PlayerInput = () => {
 
   return (
     <InnerWrapper>
+        <Lottie animationData={charlotteMaze} loop={true}/>;
       <h1>Welcome to the labyrinth!</h1>
       <h3>Do you want to play a game?</h3>
     <form onSubmit={(event) => onFormSubmit(event)}>
       <label htmlFor="player-input">
       Enter your name:
-        <input id="player-input" type="text" onChange={(event) => setPlayerInputValue(event.target.value)} />
+        <input id="player-input" required type="text" onChange={(event) => setPlayerInputValue(event.target.value)} />
       </label>
       <button type="submit">Start the game!</button>
     </form>
@@ -31,7 +35,7 @@ const PlayerInput = () => {
 export default PlayerInput;
 
 const InnerWrapper = styled.div`
-border: solid red 2px;
+/* border: solid red 2px; */
 align-items: center;
 display: flex;
 flex-direction: column;
@@ -69,6 +73,11 @@ padding: 10px;
 font-size: 20px;
 }
 
+h3{
+  font-size: 24px;
+  margin-top: 0;
+}
+
 button{
 margin: 10px;
 padding: 5px;
@@ -76,6 +85,8 @@ border: solid white 2px;
 border-radius: 15px;
 color: white;
 background: none;
+padding: 7px;
+font-size: 18px;
 &:hover{
   background: white;
   color: black;
