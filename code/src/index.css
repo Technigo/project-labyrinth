@@ -5,4 +5,9 @@ body {
   font-family: "Press Start 2P", cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(rgba(82, 81, 81, 0.5), rgba(0, 0, 0, 0.5)), url(../src/assets/background-img.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  color: #3fceea;
 }

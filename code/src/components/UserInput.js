@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import labyrinth, { generateLabyrinth } from 'reducers/labyrinth'
 
 import maze from '../lotties/maze.json';
+import { ChildContainer } from '../styles/GlobalStyles'
 
 const UserInput = () => {
   const [userInputValue, setUserInputValue] = useState('')
@@ -29,8 +30,8 @@ const UserInput = () => {
   };
 
 	 return (
-    <div>
-      <Lottie options={defaultOptions} height={200} width={200} />
+    <ChildContainer>
+      <Lottie options={defaultOptions} height={150} width={150} />
       <h1>Welcome to the maze</h1>
 	    <form onSubmit={(event) => onFormSubmit(event)}>
         <label htmlFor="input">
@@ -39,7 +40,7 @@ const UserInput = () => {
         </label>
         <button type="submit"> Start </button>
       </form>
-    </div>
+    </ChildContainer>
   )
 }
 
