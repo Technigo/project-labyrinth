@@ -5,7 +5,7 @@ const steps = []
 
 const initialState = {
   steps,
-  userName: '',
+  userName: [],
   gameOver: false
 }
 
@@ -15,9 +15,7 @@ export const labyrinth = createSlice({
   reducers: {
 
     setUserName: (store, action) => {
-      const { input } = action.payload
-      console.log(action)
-      store.userName = input
+      store.userName.push(action.payload)
     },
 
     setGameState: (store, action) => {
@@ -54,3 +52,7 @@ export const generateActions = (input) => {
       // how to move to next step?
   }
 }
+
+export const { setUserName } = labyrinth.actions
+
+export const selectInfoPlayer = ((store) => store.labyrinth.userName)
