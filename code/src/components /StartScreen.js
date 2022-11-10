@@ -1,11 +1,11 @@
-/* import { useSelector } from 'react-redux';
-import QuoteDisplay from './QuoteDisplay';
-import Author from './Author';
+import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { startGame, setUsername } from 'features/game';
 
 const StartScreen = () => {
-	const quote = useSelector((store) => store.quotes.quote);
-	return <>{quote === '' ? <Author /> : <QuoteDisplay />}</>;
+	const [input, setInput] = useState('');
+	const dispatch = useDispatch();
+	const inputInfo = () => {};
 };
 
 export default StartScreen;
- */

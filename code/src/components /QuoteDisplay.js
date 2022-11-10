@@ -1,5 +1,5 @@
-const QuoteDisplay = () => {
+/* const QuoteDisplay = () => {
 	return <p>Quote Display Component</p>;
 };
 
-export default QuoteDisplay;
+export default QuoteDisplay; */
