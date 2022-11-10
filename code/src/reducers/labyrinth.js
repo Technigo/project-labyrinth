@@ -60,7 +60,7 @@ export const generateLabyrinth = () => {
 export const GameNextFetch = (type, direction) => {
   return (dispatch, getState) => {
     dispatch(labyrinth.actions.setLoading(true));
-    fetch('https://labyrinth.technigo.io/start', {
+    fetch('https://labyrinth.technigo.io/action', {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify({
