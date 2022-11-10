@@ -30,22 +30,25 @@ const games = createSlice({
     },
 
     setDirection: (store, action) => {
-  
       store.direction = action.payload
    
     },
     setLoading: (store, action) => {
       store.loading = action.payload
     },
+
     setCoordinates: (store, action) => {
       store.coordinates = action.payload
     },
 
-        //setPreviousMove
- setPreviousMove: (store, action) => {
-  const historyArraylength = store.history.length
-  store.moves = store.history[historyArraylength-1];
-  store.history.splice(historyArraylength-1,1)
+    setPreviousMove: (store, action) => {
+    // const historyArraylength = store.history.length
+    // store.moves = store.history[historyArraylength-1];
+    // store.history.splice(historyArraylength-1,1)
+    if (store.history.length) {
+      store.moves = store.history[store.history.length - 1]
+      store.history = store.history.slice(0, store.history.length - 1)
+    }
     }
   }
 });
@@ -82,7 +85,7 @@ export const GenerateQuestion = () => {
       },
       body: JSON.stringify({
         username: getState().games.username,
-        type: 'move',
+        type: 'moves',
         direction: getState().games.direction
       })
     })

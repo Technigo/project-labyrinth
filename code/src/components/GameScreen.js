@@ -23,19 +23,17 @@ const GameScreen = () => {
     }
 
     const goToPreviousMove = () => {
-        dispatch(games.actions.setPreviousMove('')) //la till ('') och det ger effekt i redux tool men inget annat
+        dispatch(games.actions.setPreviousMove()) //la till ('') och det ger effekt i redux tool men inget annat
     }
 
     return (
         <OuterWrapper>
           <ButtonsContainer>
           <GoBackButton 
-            onClick={goToPreviousMove}
-            type="button">
+            onClick={goToPreviousMove}>
                 Go back
             </GoBackButton>
             <RestartButton
-            type="submit" 
             onClick={onRestartButton}>
                 Restart
             </RestartButton>
@@ -46,9 +44,9 @@ const GameScreen = () => {
         <InnerContainer key={moves.description}>
              <h2>{moves.description}</h2>
           <Button
-            type="button"
             value={moves.direction} 
-            onClick={(event) => onChooseDirection(event)}>{moves.direction}
+            onClick={(event) => onChooseDirection(event)}>
+                Go {moves.direction}
         </Button>
         </InnerContainer>
         ))}
@@ -181,15 +179,23 @@ h2 {
 }
 
 
-button{
+/* button{
     margin: 10px;
-    padding: 5px;
-    border: solid white 2px;
-    color: white;
-    background: none;
-    &:hover{
-      background: white;
-      color: black;
-    }
+padding: 5px;
+border: solid white 2px;
+border-radius: 15px;
+color: white;
+background: none;
+padding: 7px;
+font-size: 18px;
+&:hover{
+  background: white;
+  color: black;
 }
+
+@media (min-width: 667px) {
+  font-size: 22px;
+  padding: 7px;
+  }
+} */
 `
