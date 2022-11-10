@@ -21,3 +21,7 @@ export const InnerWrapper = styled.div`
   background-color: pink;
   margin-bottom: 20px;
 `;
+
+export const TheEndWrapper = styled.div`
+border: 2px solid red;
+`

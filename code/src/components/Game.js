@@ -1,7 +1,9 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable react/jsx-curly-brace-presence */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { game, fetchGameSteps } from 'reducers/game';
-import { OuterWrapper, InnerWrapper } from './styled-components/StyledWrappers'
+import { OuterWrapper, InnerWrapper, TheEndWrapper } from './styled-components/StyledWrappers'
 
 const Games = () => {
   const { description, actions } = useSelector((store) => store.game.stage)
@@ -27,12 +29,31 @@ const Games = () => {
           return (
             <div key={action.description}>
               <p>{action.description}</p>
-              <button type="button" onClick={() => onNextAction(action.type, action.direction)}> Go {action.direction}</button>
+              <button type="button" onClick={() => onNextAction(action.type, action.direction)}>
+                <span>
+                    Go {''}
+                  {action.direction
+                    + (action.direction === 'North'
+                      ? ' ↑'
+                      : action.direction === 'South'
+                        ? ' ↓'
+                        : action.direction === 'West'
+                          ? ' ←'
+                          : action.direction === 'East'
+                            ? '→'
+                            : '')}
+                </span>
+              </button>
             </div>
           )
         })}
+        {actions?.length === 0 && (
+          <TheEndWrapper>
+            <h2>THE END</h2>
+            <button type="button" onClick={onGameRestart}>Restart</button>
+          </TheEndWrapper>
+        )}
       </InnerWrapper>
-      <button type="button" onClick={onGameRestart}>Restart</button>
     </OuterWrapper>
   )
 };
