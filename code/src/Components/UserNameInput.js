@@ -36,7 +36,7 @@ const UserNameInput = () => {
         <UserNameInputContainer>
           <form onSubmit={(event) => onFormSubmit(event)}>
             <label htmlFor="user-input">
-            Enter your username:<br />
+              <p>Enter your username:</p>
               <input
                 id="user-input"
                 type="text"
@@ -46,9 +46,9 @@ const UserNameInput = () => {
                 autoFocus
                 onChange={(event) => setUserNameInputValue(event.target.value)}
                 placeholder="User name..." />
-            </label>
+            </label><br />
+            <StartButton type="submit">Start game</StartButton>
           </form>
-          <StartButton type="submit">Start game</StartButton>
         </UserNameInputContainer>
       </Wrapper>
     </UserNameInputBackground>
@@ -58,19 +58,19 @@ const UserNameInput = () => {
 export default UserNameInput;
 
 const UserNameInputContainer = styled.div`
-border: solid 2px red;
+border: solid 2px blue;
 justify-content: center;
-text-align: center;
+display: grid;
 `
 
 const StartButton = styled.button`
 font-size: 1em;
 margin: 1em;
 padding: 0.25em 1em;
-border: 2px solid palevioletred;
+/* border: 2px solid palevioletred; */
 border-radius: 3px;
 `
 
 const UserNameInputBackground = styled.div`
-  background-image: linear-gradient(#ad91bd , white);
+  background-image: linear-gradient(#ad91bd, white);
 `
