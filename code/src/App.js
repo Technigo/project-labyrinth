@@ -3,7 +3,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { labyrinth } from 'reducers/labyrinth';
-import { StartPage } from 'components/StartPage';
+import { FirstScreen } from 'components/FirstScreen'
 import { GlobalStyles } from 'Globalstyles';
 
 export const App = () => {
@@ -18,7 +18,7 @@ export const App = () => {
   return (
     <Provider store={store}>
       <GlobalStyles />
-      <StartPage />
+      <FirstScreen />
     </Provider>
   );
 }

@@ -4,17 +4,20 @@
 import { MainContainer, GameWrapper } from 'Globalstyles'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { generateAction } from 'reducers/labyrinth'
+import { continueGame, labyrinth } from 'reducers/labyrinth'
 import { GameOver } from 'components/GameOver'
 
 export const GameScreen = () => {
   const dispatch = useDispatch()
 
-  const whichWay = useSelector((store) => store.labyrinth.steps) // ?
-  const gameOver = useSelector((store) => store.todos.gameOver)
+  const userName = useSelector((store) => store.labyrinth.userName)
+  const gameOver = useSelector((store) => store.labyrinth.gameOver)
 
+  const restartGame = () => {
+    dispatch(labyrinth.actions.restartGame())
+  }
   const goToNextStep = () => {
-    dispatch(generateAction())
+    dispatch(continueGame())
   }
 
   if (gameOver) {
@@ -25,20 +28,20 @@ export const GameScreen = () => {
     return (
       <MainContainer>
         <GameWrapper>
-          {whichWay.map((action) => {
-            return (
-              <label htmlFor="nextBtn">
-                <button
-                  type="button"
-                  id="nextBtn"
-                  key={action}
-                  onClick={goToNextStep} />
-              </label>
-            /* description of fetched actions on each button? */
-            )
-          })}
+          <h2>Player: {userName}</h2>
+          <label htmlFor="nextBtn">
+            <button
+              type="button"
+              id="nextBtn"
+              onClick={goToNextStep}>Directions
+            </button>
+          </label>
+
         </GameWrapper>
+
+        <button type="button" onClick={restartGame}>Restart from beginning?</button>
       </MainContainer>
+
     )
   }
 };

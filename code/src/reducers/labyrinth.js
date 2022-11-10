@@ -1,11 +1,9 @@
 /* eslint-disable linebreak-style */
 import { createSlice } from '@reduxjs/toolkit'
 
-const steps = []
-
 const initialState = {
-  steps,
-  userName: [],
+  currentDirection: [],
+  userName: '',
   gameOver: false
 }
 
@@ -15,7 +13,7 @@ export const labyrinth = createSlice({
   reducers: {
 
     setUserName: (store, action) => {
-      store.userName.push(action.payload)
+      store.userName = (action.payload)
     },
 
     setGameState: (store, action) => {
@@ -23,36 +21,62 @@ export const labyrinth = createSlice({
       // how to do this?
     },
 
-    setNextStep: (store, action) => {
-      // how to do this?
-      const newStep = action.payload
-      const updatedSteps = [...store.steps, newStep]
-      store.steps = updatedSteps
+    setCurrentDirection: (store, action) => {
+      const newAction = action.payload
+      const updatedActions = [...store.steps, newAction]
+      store.actions = updatedActions
+    },
 
-      if (steps.length === 0) {
-        store.gameOver = true
-      }
+    restartGame: (store) => {
+      store.userName = ''
+      store.actions = []
     }
   }
 })
 
-export const generateActions = (input) => {
-  return (/* dispatch, getState */) => {
-    fetch('https://labyrinth.technigo.io/action', {
+export const startTheGame = () => {
+  return (dispatch, getState) => {
+    const options = {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        username: input,
-        type: 'move',
-        direction: 'East'
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({ username: getState().labyrinth.userName })
+    }
+    fetch('https://labyrinth.technigo.io/start', options)
+      .then((resp) => resp.json())
+      .then((data) => console.log('start', data))
+      .then((data) => {
+        dispatch(labyrinth.actions.setCurrentDirection(data))
+      // .finally(() => )
       })
-    })
-      .then((res) => res.json())
-      .then((json) => console.log(json))
-      // how to move to next step?
   }
 }
 
-export const { setUserName } = labyrinth.actions
+export const continueGame = () => {
+  return (dispatch, getState) => {
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(
+        {
+          username: getState().labyrinth.userName,
+          type: 'move',
+          direction: 'East'
+        }
+      )
+    }
+    fetch('https://labyrinth.technigo.io/action', options)
+      .then((res) => res.json())
+      .then((json) => console.log('action', json))
+      .then(() => dispatch())
+  }
 
-export const selectInfoPlayer = ((store) => store.labyrinth.userName)
+  // how to move to next step?
+}
+
+// export const { setUserName } = labyrinth.actions
+
+// export const selectInfoPlayer = ((store) => store.labyrinth.userName)

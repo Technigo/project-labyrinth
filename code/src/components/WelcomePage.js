@@ -2,37 +2,28 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { MainContainer, GameWrapper } from 'Globalstyles';
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { generateActions, setUserName, selectInfoPlayer } from 'reducers/labyrinth';
-import Username from 'components/Username';
+import { useDispatch /* useSelector */ } from 'react-redux';
+import { labyrinth /* setUserName /* selectInfoPlayer */ } from 'reducers/labyrinth';
+// import Username from 'components/Username';
 
-export const StartPage = () => {
+export const WelcomePage = () => {
   const dispatch = useDispatch()
   const [input, setInput] = useState('')
 
-  const infoPlayer = useSelector(selectInfoPlayer)
+  // const infoPlayer = useSelector(selectInfoPlayer)
 
   const startTheGame = (event) => {
     event.preventDefault();
-    setInput('')
-    fetch('https://labyrinth.technigo.io/start', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        username: input
-      })
-    })
-      .then((res) => res.json())
-      .then((json) => console.log(json))
-      .then(() => dispatch(generateActions(input)))
+    dispatch(labyrinth.actions.setUserName(input))
   }
-  const addUserName = () => {
-    console.log(`Adding ${input}`)
+  /* const addUserName = () => {
+    console.log(`Adding ${input}`) */
 
-    dispatch(setUserName({
+  /* dispatch(setUserName({
       userName: input
     }))
-  }
+   } */
+
   return (
     <MainContainer>
       <GameWrapper>
@@ -46,14 +37,14 @@ export const StartPage = () => {
             value={input}
             onChange={(event) => setInput(event.target.value)}
             required />
-          <button type="submit" onClick={addUserName}>Start</button>
+          <button type="submit" onClick={startTheGame}>Start</button>
         </form>
-        {
+        {/* {
           infoPlayer.map((item) => (
             <Username
               name={item.userName} />
           ))
-        }
+        } */}
       </GameWrapper>
     </MainContainer>
   )
