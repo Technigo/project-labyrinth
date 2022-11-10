@@ -32,9 +32,9 @@ export const PlayingGame = () => {
         <GameHeader />
       </GameContainer>
       <p key={data.description}>
-      DESCRIPTION: {data.description}
+        {/* DESCRIPTION: */} {data.description}
       </p>
-      <div key={actions.actions}> Actions:{data.actions.map((location) => {
+      <div key={actions.actions}> {/* ACTIONS: */}{data.actions.map((location) => {
         return (
           <div key={uniqid()}>
             <p>{location.description}</p>
@@ -109,7 +109,7 @@ export const ButtonContainer = styled.div`
   border-radius: 50%;
   place-items: center;
   position: absolute;
-  top: 375px;
+  top: 500px;
   left: 1vw;
   cursor: pointer;
 `;

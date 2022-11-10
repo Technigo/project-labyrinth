@@ -1,5 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import styled from 'styled-components/macro'
+
+import GameController from 'assets/gamecontroller.png'
 import { StartGame } from './StartGame'
 import { PlayingGame } from './PlayingGame'
 
@@ -7,26 +10,34 @@ export const StartScreen = () => {
   const location = useSelector((store) => store.game.location);
 
   return (
-    <div>
-      {location
-        ? <PlayingGame />
-        : <StartGame />}
-    </div>
+    <OuterWrapper>
+      <InnerWrapper>
+        <div>
+          {location
+            ? <PlayingGame />
+            : <StartGame />}
+        </div>
+      </InnerWrapper>
+      <img className="GameController" src={GameController} alt="img-gamecontroller" width="300px" />
+    </OuterWrapper>
   )
 }
 
-/* import React from 'react';
-import { useSelector } from 'react-redux';
-import game from 'reducers/game';
-import Labyrinth from './Labyrinth'
-import Game from './Game';
+export const OuterWrapper = styled.div`
+background-image: url("gamebackground.png");
+display: flex;
+flex-direction: column;
+align-items:center;
+`;
 
-const StartScreen = () => {
-  // const description = useSelector((store) => store.game.location);
-  // console.log(description)
-
-  return <div> <Game /> </div>
-  // return <div> {description ? <Labyrinth /> : <Game />} </div>
-}
-
-export default StartScreen */
+export const InnerWrapper = styled.div`
+background-color: whitesmoke;
+width: 50%;
+border: 10px solid black;
+border-radius: 30px;
+display: flex;
+justify-content: center;
+padding: 30px;
+margin-bottom: -40px;
+margin-top: 80px;
+`;
