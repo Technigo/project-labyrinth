@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-closing-tag-location */
 /* eslint-disable no-tabs */
 /* eslint-disable no-mixed-spaces-and-tabs */
 import React, { useState } from 'react';
+import styled from 'styled-components/macro'
 import Lottie from 'react-lottie';
 import { useDispatch } from 'react-redux';
 import labyrinth, { generateLabyrinth } from 'reducers/labyrinth'
@@ -36,7 +38,7 @@ const UserInput = () => {
 	    <form onSubmit={(event) => onFormSubmit(event)}>
         <label htmlFor="input">
 			    Enter your name:
-          <input id="input" placeholder="Type here" value={userInputValue} type="text" onChange={(event) => setUserInputValue(event.target.value)} />
+          <Input id="input" placeholder="Type here" value={userInputValue} type="text" onChange={(event) => setUserInputValue(event.target.value)} />
         </label>
         <button type="submit"> Start </button>
       </form>
@@ -45,3 +47,17 @@ const UserInput = () => {
 }
 
 export default UserInput;
+
+const Input = styled.input`
+  font-size: 12px;
+  margin: 10px;
+  padding: 9px 5px 5px 40px;
+  background: white;
+	font-weight: 400;
+  border: none;
+  border-radius: 3px;
+  ::placeholder {
+    color: #3fceea;
+		font-family: "Press Start 2P", cursive;
+  }
+`;
