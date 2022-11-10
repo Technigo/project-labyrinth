@@ -5,6 +5,7 @@ const labyrinth = createSlice({
   initialState: {
     username: '',
     status: '',
+    // started: false,
     description: '',
     actions: [],
     isLoading: false
@@ -19,18 +20,16 @@ const labyrinth = createSlice({
       }
       store.status = action.payload;
     },
-    setLoading: (store, action) => {
-      store.isLoading = action.payload;
-    },
     setPreviousStatus: (store, action) => {
       const actionArraylength = store.actions.length;
-      // const array = [1, 2, 3, 4]
-      // indexes are    0  1  2  3
-      // array.splice(1, 2) => start deleting at index 1, delete 2 items
-      // array === [1, 4]
-      store.status = store.actions[actionArraylength - 1];
-      store.actions.splice(actionArraylength - 1, 1);
-      console.log(action);
+      if (actionArraylength > 1) {
+        store.status = store.actions[actionArraylength - 1];
+        store.actions.splice(actionArraylength - 1, 1);
+        console.log(action);
+      }
+    },
+    setLoading: (store, action) => {
+      store.isLoading = action.payload;
     }
   }
 })
@@ -52,8 +51,9 @@ export const generateLabyrinth = () => {
       .then((data) => {
         console.log('generateLabyrinth', data)
         dispatch(labyrinth.actions.setStatus(data))
+        dispatch(labyrinth.actions.setLoading(false));
       })
-      .finally(dispatch(labyrinth.actions.setLoading(false)))
+      // .finally(dispatch(labyrinth.actions.setLoading(false)))
   }
 }
 
@@ -73,8 +73,8 @@ export const GameNextFetch = (type, direction) => {
       .then((data) => {
         console.log('GameNextFetch', data)
         dispatch(labyrinth.actions.setStatus(data));
-        // dispatch(labyrinth.actions.setLoading(false));
+        dispatch(labyrinth.actions.setLoading(false));
       })
-      .finally(dispatch(labyrinth.actions.setLoading(false)))
+      // .finally(dispatch(labyrinth.actions.setLoading(false)))
   };
 };

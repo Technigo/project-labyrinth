@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable max-len */
 import React from 'react';
 import { useSelector } from 'react-redux';
@@ -13,7 +14,13 @@ const StartScreen = () => {
   // if statement /if the quote is equal to an empty screen then show AutherInput otherswise return Quotes
   return (
     <Container>
-      {isLoading ? <Loading /> : (<div>{gameStart === '' ? <UserInput /> : <MazePage />} </div>)}
+      {isLoading && <Loading />}
+      {!isLoading && (
+        <div>
+          {gameStart === '' ? <UserInput /> : <MazePage />}
+        </div>
+      )}
+
     </Container>
   )
 }

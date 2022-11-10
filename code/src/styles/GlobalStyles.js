@@ -18,4 +18,15 @@ export const ChildContainer = styled.div`
     justify-content: center;
     align-items: center;
     margin: 1em;
+
+button { 
+  font-size: 15px;
+  background: white;
+  border: none;
+padding: 9px 5px 5px 10px;
+  border-radius: 3px;
+cursor: pointer;
+color: #3fceea;
+font-family: "Press Start 2P", cursive;
+  }
 `

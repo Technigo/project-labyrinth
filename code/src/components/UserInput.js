@@ -40,7 +40,7 @@ const UserInput = () => {
 			    Enter your name:
           <Input id="input" placeholder="Type here" value={userInputValue} type="text" onChange={(event) => setUserInputValue(event.target.value)} />
         </label>
-        <Button type="submit"> Start </Button>
+        <button type="submit"> Start </button>
       </form>
     </ChildContainer>
   )
@@ -59,16 +59,5 @@ const Input = styled.input`
   ::placeholder {
     color: #3fceea;
 		font-family: "Press Start 2P", cursive;
-  }
-`;
-
-const Button = styled.button`
-  font-size: 15px;
-  background: white;
-  border: none;
-  border-radius: 3px;
-  ::placeholder {
-    color: #3fceea;
-		cursor: pointer;
   }
 `;
