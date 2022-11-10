@@ -23,38 +23,37 @@ const GameScreen = () => {
     }
 
     const goToPreviousMove = () => {
-        dispatch(games.actions.setPreviousMove)
+        dispatch(games.actions.setPreviousMove('')) //la till ('') och det ger effekt i redux tool men inget annat
     }
 
     return (
         <OuterWrapper>
-            <button 
-              onClick={goToPreviousMove}
-                type="button">Go back</button>
-        <RestartButton
-        type="submit" 
-        onClick={onRestartButton}>
-            Restart
-        </RestartButton>
+          <ButtonsContainer>
+          <GoBackButton 
+            onClick={goToPreviousMove}
+            type="button">
+                Go back
+            </GoBackButton>
+            <RestartButton
+            type="submit" 
+            onClick={onRestartButton}>
+                Restart
+            </RestartButton>
+          </ButtonsContainer>
         <InnerWrapper>
             <h1>{description}</h1>
-            <p>{coordinates}</p>
-
-            {moves && moves.map(move => (
-        <InnerContainer key={move.description}>
-             <h2>{move.description}</h2>
+            {moves && moves.map(moves => ( //jag ändrade från move till moves men fick ingen skillnad i resultat
+        <InnerContainer key={moves.description}>
+             <h2>{moves.description}</h2>
           <Button
             type="button"
-            value={move.direction} 
-            onClick={(event) => onChooseDirection(event)}>
-                Move {move.direction}
+            value={moves.direction} 
+            onClick={(event) => onChooseDirection(event)}>{moves.direction}
         </Button>
         </InnerContainer>
-  ))
-  }
+        ))}
         </InnerWrapper>
-         
-           
+        <p>Your coordinates: {coordinates}</p>
            </OuterWrapper>
     )
 }
@@ -62,41 +61,126 @@ const GameScreen = () => {
 export default GameScreen
 
 const OuterWrapper = styled.section `
-border: solid yellow 2px;
+/* border: solid yellow 2px; */
 align-items: center;
 display: flex;
 flex-direction: column;
 justify-content: center;
 text-align: center;
+align-items: center;
 // margin-top: 20%;
-width: 60vh;
+/* width: 90%; */
+margin: 0 20px;
 height: auto;
+
+p {
+    font-size: 18px;
+    color: white;
+}
+
+@media (min-width: 667px) {
+    width: 60vw;
+  }
 `
 
 const InnerWrapper = styled.section `
-border: solid brown 2px;
+/* border: solid brown 2px; */
 color: white;
 align-items: center;
 display: flex;
 flex-direction: column;
 justify-content: center;
 width: 100%;
+
+h1 {
+    font-size: 22px;
+    @media (min-width: 667px) {
+        font-size: 40px;
+  }
+}
+`
+
+const ButtonsContainer = styled.div`
+display: flex;
+flex-direction: row;
 `
 
 const RestartButton = styled.button`
-border: solid red 2px;
+margin: 10px;
+padding: 5px;
+border: solid white 2px;
+border-radius: 15px;
+color: white;
+background: none;
+padding: 7px;
+font-size: 18px;
+&:hover{
+  background: white;
+  color: black;
+}
+
+@media (min-width: 667px) {
+  font-size: 22px;
+  padding: 7px;
+  }
 `
 const Button = styled.button`
-border: solid blue 2px;
+margin: 10px;
+padding: 5px;
+border: solid white 2px;
+border-radius: 15px;
+color: white;
+background: none;
+padding: 7px;
+font-size: 18px;
+&:hover{
+  background: white;
+  color: black;
+}
+
+@media (min-width: 667px) {
+  font-size: 22px;
+  padding: 7px;
+  }
+`
+
+const GoBackButton = styled.button`
+margin: 10px;
+padding: 5px;
+border: solid white 2px;
+border-radius: 15px;
+color: white;
+background: none;
+padding: 7px;
+font-size: 18px;
+&:hover{
+  background: white;
+  color: black;
+}
+
+@media (min-width: 667px) {
+  font-size: 22px;
+  padding: 7px;
+  }
 `
 const InnerContainer = styled.div`
-border: solid black 2px;
+/* border: solid black 2px; */
 width: 100%;
 align-items: center;
 display: flex;
 flex-direction: column;
 justify-content: center;
 color: white;
+
+h2 {
+    font-size: 18px;
+
+    @media (min-width: 667px) {
+      font-size: 22px;
+  }
+}
+
+
 button{
     margin: 10px;
     padding: 5px;

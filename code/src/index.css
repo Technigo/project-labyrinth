@@ -36,3 +36,13 @@ code {
     background-image: url("https://images.unsplash.com/photo-1532980216874-21f93fa9fd15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2F2ZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60");
   }  
 }
+
+.animation {
+  width: 200px;
+}
+
+@media (min-width: 667px) {
+  .animation {
+    width: 300px;
+  }
+  }

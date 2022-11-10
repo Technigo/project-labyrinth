@@ -18,7 +18,7 @@ const PlayerInput = () => {
 
   return (
     <InnerWrapper>
-        <Lottie animationData={charlotteMaze} loop={true}/>;
+        <Lottie className="animation" animationData={charlotteMaze} loop={true}/>
       <h1>Welcome to the labyrinth!</h1>
       <h3>Do you want to play a game?</h3>
     <form onSubmit={(event) => onFormSubmit(event)}>
@@ -61,6 +61,10 @@ input {
   border: none;
   border-radius: 15px;
   font-size: 1rem;
+  @media (min-width: 667px) {
+    width: 350px;
+    height: 40px;
+  }
 }
 
 label{
@@ -73,9 +77,19 @@ padding: 10px;
 font-size: 20px;
 }
 
+h1 {
+  @media (min-width: 667px) {
+    font-size: 38px;
+    text-align: center;
+  }
+}
+
 h3{
   font-size: 24px;
   margin-top: 0;
+  @media (min-width: 667px) {
+    font-size: 28px;
+  }
 }
 
 button{
@@ -91,5 +105,11 @@ font-size: 18px;
   background: white;
   color: black;
 }
+
+@media (min-width: 667px) {
+  font-size: 22px;
+  padding: 7px;
+  }
+
 }
 `
