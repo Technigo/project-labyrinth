@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { game, startGame } from 'reducers/quotes';
+import game, { startGame } from 'reducers/game';
 import { Button } from './styling/MainStyles';
 
 const StartGame = () => {
