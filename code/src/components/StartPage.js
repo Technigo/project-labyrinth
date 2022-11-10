@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import labyrinth, { generateLabyrinthData } from 'reducers/labyrinth'
 import { useDispatch } from 'react-redux'
-import LabyrinthPart from './LabyrinthPart'
+import styled from 'styled-components/macro'
 
 const StartPage = () => {
   const [usernameInput, setUsernameInput] = useState('')
@@ -15,7 +15,7 @@ const StartPage = () => {
   return (
     <div>
       <h1>Welcome to the labyrinth!</h1>
-      <form onSubmit={onFormSubmit}>
+      <FormStyled onSubmit={onFormSubmit}>
         <label htmlFor="username-input">
           Username:
           <input
@@ -24,9 +24,12 @@ const StartPage = () => {
             id="username-input" />
         </label>
         <button type="submit">Start</button>
-        {onFormSubmit && <LabyrinthPart />}
-      </form>
+      </FormStyled>
     </div>
   )
 }
 export default StartPage
+
+const FormStyled = styled.form`
+    display: flex;
+    align-items: flex-end;`
