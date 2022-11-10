@@ -27,7 +27,7 @@ export const GamePage = () => {
 
       <CardContainerGame>
 
-        <Description>{gameProps.description}</Description>
+        <Description>&quot;{gameProps.description}&quot;</Description>
         <Choices>
           <ChooseUser>Choose wisely, {username}...</ChooseUser>
           {actions.map((action) => {
@@ -50,14 +50,14 @@ export const GamePage = () => {
 
 const CardContainerGame = styled(CardContainer)`
 
-    border-radius: 6px;
-    box-shadow: 0px 0px 7px 0px #888888;`
+`
 
 const Choices = styled.div`
   display:flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 80%;
 `
 
 const Description = styled.p`
@@ -66,7 +66,10 @@ font-size: 20px;
 
 const ChooseUser = styled.p`
   font-style: italic;
-  font-size: 20px;
+  font-size: 40px;
+  font-family: 'Caveat', cursive;
+  margin:10px;
+
 `
 
 /*

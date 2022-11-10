@@ -1,11 +1,14 @@
+/* eslint-disable object-shorthand */
 /* eslint-disable max-len */
 import { CardContainer, StyledButton } from 'GlobalStyles';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchGameStart, maingame } from 'reducers/maingame';
 import styled from 'styled-components';
+import Lottie from 'react-lottie';
 import { GamePage } from './GamePage';
 import { LastPage } from './LastPage';
+import animationData from '../Lottie/lottiesparkle'
 
 export const StartPage = () => {
   const [usernameInput, setUserNameInput] = useState('')
@@ -17,6 +20,14 @@ export const StartPage = () => {
     dispatch(maingame.actions.setUsername(usernameInput))
     dispatch(fetchGameStart())
   }
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
 
   // Renders the GamePage in the browser if the gameProps is populated with an object with properties.
   if (globalGameProps === '0,0' || globalGameProps === '1,0' || globalGameProps === '1,1' || globalGameProps === '0,1' || globalGameProps === '0,2' || globalGameProps === '0,3') {
@@ -28,6 +39,7 @@ export const StartPage = () => {
   return (
     <CardContainerStart>
       <WelcomeTitle> Welcome to the Labyrinth!</WelcomeTitle>
+      <Lottie options={defaultOptions} height={400} width={400} />
       <UserNameInput> Choose your username:</UserNameInput>
       <form onSubmit={onFormSubmit}>
         <UserNameInputField
@@ -38,28 +50,37 @@ export const StartPage = () => {
           id="username-input"
           placeholder="Username"
           value={usernameInput} />
-        <StyledButton onClick={onFormSubmit} type="submit">Start</StyledButton>
       </form>
+      <StyledButton onClick={onFormSubmit} type="submit">Start</StyledButton>
+
     </CardContainerStart>
   )
 }
 
 const CardContainerStart = styled(CardContainer)`
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
 `
 
 const UserNameInput = styled.p`
-
+font-size:20px;
 `
 
 const UserNameInputField = styled.input`
-  margin-right:10px;
+  margin-bottom:10px;
+  padding: 10px;
 `
 const WelcomeTitle = styled.h1`
-font-size: 25px;`
+  font-size: 40px;
+  font-family: 'Caveat', cursive;
+
+  @media (min-width: 668px) {
+    font-size: 55px;
+  }
+`
 
 /* The start game button triggers the first fetch thunk to fetch the first set of instructions
 received from the response when doing the first POST request. The current username is sent as a prop

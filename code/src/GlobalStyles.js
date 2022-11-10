@@ -16,26 +16,25 @@ export const OuterWrapper = styled.main`
 `
 
 export const InnerWrapper = styled.section`
+ width: 75%;
 
   @media (min-width: 668px) {
-    width: 60%;
+    width: 65%;
   }
   @media (min-width: 1025px){ 
-    width: 50%;
-    padding-bottom: 15vh;
+    width: 60%;
   }
   @media (min-width: 1600px) {
-    width: 45%;
+    width: 55%;
   }
 `
 
-export const CardContainer = styled.div`
+export const CardContainer = styled.div` 
     margin-top: 40px;
     padding: 20px;
     border-radius: 6px;
     box-shadow: 0px 0px 7px 0px #888888;
-    width: 50%;
-    height: 60vh;
+    height: 80vh;
     font-size: 17px;
     overflow: auto;
     background-color: rgb(255, 255, 255, 0.8);
@@ -44,6 +43,11 @@ export const CardContainer = styled.div`
     align-items: center;
     justify-content: center;
     text-align: center;
+
+    @media (min-width: 668px) {
+    height: 70vh;
+  }
+    
 `
 export const StyledButton = styled.button`
   font-family: 'sriracha';
@@ -52,7 +56,8 @@ export const StyledButton = styled.button`
   text-transform: uppercase;
   text-decoration: none;
   background: #072201;
-  padding: 20px;
+  padding: 15px;
+  margin-bottom: 20px;
   border-radius: 50px;
   display: inline-block;
   border: none;
