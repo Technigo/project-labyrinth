@@ -19,7 +19,10 @@ const StartPage = () => {
   return (
     <OuterWrapper>
       <InnerWrapper>
-        <form onSubmit={(event) => onNameSubmit(event)}>
+        <StartText>
+          <h1>Do you want to play a game?</h1>
+        </StartText>
+        <Form onSubmit={(event) => onNameSubmit(event)}>
           <Label htmlFor="user-name"><GameTag>Enter your best gametag!</GameTag>
             <Input
               id="user-name"
@@ -33,7 +36,7 @@ const StartPage = () => {
             className="start-button">
         Start
           </Button>
-        </form>
+        </Form>
       </InnerWrapper>
     </OuterWrapper>
   )
@@ -41,37 +44,76 @@ const StartPage = () => {
 
 export default StartPage;
 
+const StartText = styled.div`
+width: 80%;
+h1 {
+  color: #fff;
+  font-family: monospace;
+}
+
+@media (min-width: 990px) {
+  h1 {
+    color: #fff;
+    font-family: monospace;
+    overflow: hidden; 
+    border-right: .15em solid #E15554; 
+    white-space: nowrap; 
+    margin: 0 auto;
+    letter-spacing: .15em; 
+    animation: 
+      typing 4s steps(30, end),
+      blink-caret .5s step-end infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #E15554 }
+  }
+}
+`
+
+const Form = styled.form`
+  padding: 20px;
+`
+
 const Label = styled.label`
-display: grid;
-padding: 20px;
+  display: grid;
+  padding: 20px;
 `
 
 const GameTag = styled(User)`
-padding: 10px;
-font-size: 1.5rem;
-font-style: normal;
+  padding: 10px;
+  font-size: 1.5rem;
+  font-style: normal;
 `
 
 const Input = styled.input`
-border: 2px solid blue;
-height: 30px;
-width: 268px;
-margin: 10px;
-border: none;
-font-size: 1.2rem;
-background-color: transparent;
-border-bottom: 2px solid #E15554;
-::placeholder{
-  color: #E15554;
-}
-&:hover{
-::placeholder{
-  color: #A3F7B5;
-}
-}
-&:focus {
+  border: 2px solid blue;
+  height: 30px;
+  width: 268px;
+  margin: 10px;
+  border: none;
+  font-size: 1.2rem;
+  background-color: transparent;
+  border-bottom: 2px solid #E15554;
+  ::placeholder{
+    color: #E15554;
+  }
+  &:hover{
+  ::placeholder{
+    color: #A3F7B5;
+  }
+  }
+  &:focus {
     outline: none;
     color: black;
     color: #A3F7B5;
-}
+  }
 `

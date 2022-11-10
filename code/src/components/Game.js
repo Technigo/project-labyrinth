@@ -3,9 +3,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { game, fetchGameSteps } from 'reducers/game';
+import Lottie from 'lottie-react';
 import { Button, DirectionButton } from './styled-components/BtnStyles';
 import { Description, StepDescription, Title, User, UserInput } from './styled-components/StyledTexts';
 import { OuterWrapper, InnerWrapper, TheEndWrapper, CongratuationWrap } from './styled-components/StyledWrappers'
+import animationData from '../lotties/path.json'
 
 const Games = () => {
   const { description, actions } = useSelector((store) => store.game.stage)
@@ -21,6 +23,15 @@ const Games = () => {
   const onGameRestart = () => {
     dispatch(game.actions.setRestartGame())
   };
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  }
 
   return (
     <OuterWrapper>
@@ -57,6 +68,11 @@ const Games = () => {
               <p>You leveled up, mentally</p>
             </CongratuationWrap>
             <Button type="button" onClick={onGameRestart}>Restart</Button>
+            <Lottie
+              animationData={animationData}
+              options={defaultOptions}
+              height={100}
+              width={100} />
           </TheEndWrapper>
         )}
       </InnerWrapper>
