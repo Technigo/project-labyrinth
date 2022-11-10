@@ -1,10 +1,11 @@
+/* eslint-disable max-len */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/button-has-type */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAction } from 'reducers/game';
-import { GameCard } from './StyledComponents'
 import styled from 'styled-components/macro'
+import { GameCard } from './StyledComponents'
 import { Background } from './StartPage';
 import tree from '../assets/tree.jpeg'
 
@@ -21,23 +22,21 @@ const Game = () => {
 
   return (
     <ClonedBackground>
-    <GameCard 
-      title={currentPosition.description} 
-      descriptionText="Adventurer"> 
-      {/* here we want action.description, but it does not work, maybe we have to make a const? */ }
-      <div>
-        
-        {currentPosition.actions.map((action) => (
-          <div key={action.description}>
-            <p>{action.description}</p>
-            <ActionButton
-              onClick={() => onAction(action)}>
-              {action.direction.toLowerCase()}
-            </ActionButton>
-          </div>
-        ))}
-      </div>
-    </GameCard>
+      <GameCard
+        title={currentPosition.description}
+        descriptionText="Adventurer">
+        <div>
+          {currentPosition.actions.map((action) => (
+            <div key={action.description}>
+              <p>{action.description}</p>
+              <ActionButton
+                onClick={() => onAction(action)}>
+                {action.direction.toLowerCase()}
+              </ActionButton>
+            </div>
+          ))}
+        </div>
+      </GameCard>
     </ClonedBackground>
   )
 };
