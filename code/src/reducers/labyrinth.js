@@ -19,9 +19,7 @@ const labyrinth = createSlice({
       state.description = action.payload
     },
     setActionOption: (state, action) => {
-      action.payload.forEach((payload, index) => {
-        state.actions.splice(index, 1, payload)
-      });
+      state.actions = action.payload
     }
   }
 })
