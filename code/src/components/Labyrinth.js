@@ -1,8 +1,9 @@
 /* eslint-disable linebreak-style */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { contiuneGame, fetchTheGame } from '../reducers/store';
+import { contiuneGame } from '../reducers/store';
 import { OuterWrapper, InnerWrapper, TextWrapper, BigText, SmallerText, Button } from 'GlobalStyles';
+import Footer from 'components/Footer'
 import styled from 'styled-components/macro';
 
 const Labyrinth = () => {
@@ -18,7 +19,7 @@ return (
     <div className="restart">
             {coordinates === "1,3" ?  (
                 null
-                ): <SmallRestart type="button" onClick={onRestartButton}>Restart</SmallRestart>}
+                ): <Restart type="button" onClick={onRestartButton}>Restart</Restart>}
         </div>
     <OuterWrapper>
         <InnerWrapper>
@@ -42,7 +43,7 @@ return (
                 <Button type="button" onClick={onRestartButton}>Play again</Button>
                 ): null}
         </div>
-        
+        <Footer />
        </InnerWrapper>
     </OuterWrapper>
     </>
@@ -55,7 +56,7 @@ const Container = styled.div`
     flex-direction: column; 
 `
 
-const SmallRestart = styled.button`
+const Restart = styled.button`
     background-color: transparent;
     border: transparent;
     font-family: var(--font-secondary);
@@ -64,6 +65,12 @@ const SmallRestart = styled.button`
     letter-spacing: 1px;
     color: var(--color-white);
     margin: 20px;
+    cursor: pointer;
+    position: fixed;
+
+    :hover {
+      transform: scale(1.1);
+    }
 `
 
 export default Labyrinth;

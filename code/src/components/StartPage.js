@@ -34,9 +34,9 @@ const StartPage = () => {
                     <Button 
                     type="submit" 
                     onClick={test}> Let’s go </Button>
+                    <Footer />
                 </InnerWrapper>
             </OuterWrapper>
-            <Footer />
        </div>
     )
 }

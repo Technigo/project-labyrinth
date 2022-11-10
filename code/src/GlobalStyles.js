@@ -29,6 +29,10 @@ export const TextWrapper = styled.div`
     display: flex;
     flex-direction: column;
     max-width: 50vw;
+
+    @media (max-width: 767.98px){
+        max-width: 85vw;
+    }
 `
 
 export const BigText = styled.p`
@@ -37,6 +41,12 @@ export const BigText = styled.p`
     text-align: center;
     margin-bottom: 20px;
     color: var(--color-white);
+
+    @media (max-width: 767.98px){
+        font-size: 20px;
+        line-height: 22px;
+        margin-bottom: 15px;
+    }
 `
 
 export const SmallerText = styled.p`
@@ -44,6 +54,11 @@ export const SmallerText = styled.p`
     font-size: 20px;
     text-align: center;
     color: var(--color-white);
+
+    @media (max-width: 767.98px){
+        font-size: 18px;
+        line-height: 20px;
+    }
 `
 
 export const Button = styled.button`
@@ -55,11 +70,15 @@ export const Button = styled.button`
     letter-spacing: 1px;
     color: var(--color-white);
     padding: 5px 20px;
-    margin: 10px 0 25px;
+    margin: 15px 0 25px;
     cursor: pointer;
 
+    @media (max-width: 767.98px){
+        margin: 13px 0 20px;
+    }
+
     :hover {
-      transform: scale(1.1);
+        transform: scale(1.1);
     }
 `
 
