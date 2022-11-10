@@ -8,7 +8,7 @@ export const game = createSlice({
     username: '',
     location: '',
     step: []
-    // actions: []
+
   },
   reducers: {
     setUserName: (store, action) => {
@@ -76,48 +76,3 @@ export const navigateGame = () => {
   }
 }
 
-/* export const generateQuote = () => {
-// Function with the main purpose to return another function with two functions in it//
-  return (dispatch, getState) => {
-    fetch(`https://api.quotable.io/random?author=${getState().quotes.author}`)
-      .then((response) => response.json())
-      .then((quote) => console.log(quote));
-  // ON TRHURSDAY we will be dispatching things here...//
-  }
-} */
-/* export const fetchGame = () => {
-  return (dispatch, getState) => {
-    dispatch(ui.actions.setLoading(true))
-    fetch('https://labyrinth.technigo.io/start', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ username: getState().game.username })
-    })
-      .then((res) => res.json())
-      .then((data) => dispatch(game.actions.setItem(data)))
-      .finally(() => dispatch(ui.actions.setLoading(false)))
-  }
-}
-
-export const navigateGame = (type, direction) => {
-  return (dispatch, getState) => {
-    dispatch(ui.actions.setLoading(true))
-    fetch('https://labyrinth.technigo.io/action', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        username: getState().game.username,
-        type,
-        direction
-      })
-    })
-      .then((res) => res.json())
-      .then((data) => dispatch(game.actions.setItem(data)))
-      .finally(() => dispatch(ui.actions.setLoading(false)))
-  }
-}
-*/

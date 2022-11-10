@@ -4,15 +4,10 @@ import styled from 'styled-components/macro'
 import uniqid from 'uniqid'
 import { navigateGame, game } from '../reducers/game'
 
-// import NavigateButtons from './NavigateButtons'
-// import { DuckContainer } from 'styled-components/GlobalStyles';
-// import { DucklingHeader } from './DucklingHeader';
-
 export const PlayingGame = () => {
   const data = useSelector((store) => store.game.location);
   const actions = useSelector((store) => store.game.step);
   const userName = useSelector((store) => store.game.userName)
-  console.log(userName)
   const dispatch = useDispatch();
   // const directionAlternatives = useSelector(
   //   (store) => store.game.data.actions.map((item) => item.direction)
@@ -48,16 +43,16 @@ export const PlayingGame = () => {
         );
       })}
       </div>
-      <ButtonController> Buttons:{data.actions.map((Direction) => {
+      <ButtonContainer> Buttons:{data.actions.map(() => {
         return (
           <>
             <button
               key={uniqid()}
               className="directionButton"
               type="button"
-              value={Direction.north}>
-              {/* onClick={(e) => onNavigate(e.target.value)}>
-              disabled={!directionAlternatives.includes(Direction.north)}> */}
+              value="north"
+              onClick={(e) => onClick(e.target.value)}>
+              {/* disabled={!directionAlternatives.includes(Direction.north)}> */}
         GO {direction.north} ↑
             </button>
 
@@ -65,9 +60,9 @@ export const PlayingGame = () => {
               key={uniqid()}
               className="directionButton"
               type="button"
-              value={Direction.west}>
-              {/* onClick={(e) => onNavigate(e.target.value)}>
-              disabled={!directionAlternatives.includes(Direction.west)}> */}
+              value="west"
+              onClick={(e) => onClick(e.target.value)}>
+              {/* disabled={!directionAlternatives.includes(Direction.west)}> */}
         GO {direction.west} ←
             </button>
 
@@ -77,9 +72,6 @@ export const PlayingGame = () => {
               type="button"
               value="east"
               onClick={(e) => onClick(e.target.value)}>
-              {/* onClick={() => dispatch(navigateGame(userName, direction))}> */}
-              {/* onClick={() => onNavigate(data.type, data.direction)}> */}
-              {/* onClick={(e) => onClick(e.target.value)}> */}
               {/* disabled={!directionAlternatives.includes(Direction.east)}> */}
         GO {direction.east} →
             </button>
@@ -88,19 +80,15 @@ export const PlayingGame = () => {
               key={uniqid()}
               className="directionButton"
               type="button"
-              value={Direction.south}>
-              {/* onClick={(e) => onNavigate(e.target.value)}>
-               disabled={!directionAlternatives.includes(Direction.south)}> */}
+              value="south"
+              onClick={(e) => onClick(e.target.value)}>
+              {/*  disabled={!directionAlternatives.includes(Direction.south)}> */}
         GO {direction.south} ↓
             </button>
           </>
         );
       })}
-      {/* <button type="button" onClick={() => onNavigate(data.type, data.direction)}>No</button>
-        <button type="button" onClick={() => onNavigate(data.type, data.direction)}>East</button>
-        <button type="button" onClick={() => onNavigate(data.type, data.direction)}>South</button>
-        <button type="button" onClick={() => onNavigate(data.type, data.direction)}>We</button> */}
-      </ButtonController>
+      </ButtonContainer>
     </>
   )
 }
@@ -111,7 +99,7 @@ export const GameContainer = styled.div`
 export const GameHeader = styled.h1`
 `;
 
-export const ButtonController = styled.div`
+export const ButtonContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
