@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { playerAction, game } from 'reducers/quotes';
+import { Button } from './styling/MainStyles';
 // import Actions from './Actions';
 
 const Game = () => {
@@ -24,15 +25,15 @@ const Game = () => {
     <section>
       <h2>{description.description}</h2>
       <p>{coordinates}</p>
-      <button onClick={() => goToPreviousQuote()} type="button">go back</button>
       {actions && description.actions.map((action) => {
         return (
           <article key={description}>
-            <button value={action.direction} onClick={(event) => onDirectionButtonClick(event)} type="button">{action.type} {action.direction}</button>
+            <Button value={action.direction} onClick={(event) => onDirectionButtonClick(event)} type="button">{action.type} {action.direction}</Button>
             <p>{action.description}</p>
           </article>
         )
       })}
+      <Button onClick={() => goToPreviousQuote()} type="button">go back</Button>
     </section>
   )
 }

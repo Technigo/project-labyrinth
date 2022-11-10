@@ -65,7 +65,6 @@ export const startGame = () => {
 
 export const playerAction = () => {
   return (dispatch, getState) => {
-    dispatch(game.actions.isLoading(true))
     const play = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

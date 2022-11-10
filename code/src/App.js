@@ -4,6 +4,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { game } from 'reducers/quotes'
 // import StartGame from 'components/StartGame'
 import StartScreen from 'components/StartScreen';
+import { InnerWrapper, OuterWrapper } from 'components/styling/MainStyles';
 
 export const App = () => {
   const reducer = combineReducers({
@@ -14,7 +15,11 @@ export const App = () => {
 
   return (
     <Provider store={store}>
-      <StartScreen />
+      <OuterWrapper>
+        <InnerWrapper>
+          <StartScreen />
+        </InnerWrapper>
+      </OuterWrapper>
     </Provider>
   )
 }

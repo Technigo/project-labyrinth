@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { game, startGame } from 'reducers/quotes';
+import { Button } from './styling/MainStyles';
 
 const StartGame = () => {
   const [userName, setUserName] = useState('')
@@ -22,10 +23,11 @@ const StartGame = () => {
           onChange={(event) => setUserName(event.target.value)}
           value={userName} />
       </label>
-      <button
+      <Button
         type="submit"
-        onClick={setUser}>Start game
-      </button>
+        disabled={userName.length === 0}
+        onClick={setUser}> Start game
+      </Button>
     </form>
   )
 }
