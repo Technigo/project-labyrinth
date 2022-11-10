@@ -6,7 +6,7 @@ import { Spinner } from './Spinner'
 
 const StartScreen = () => {
   const startTheGame = useSelector((store) => store.game.username);
-  const isLoading = useSelector((store) => store.game.isLoading)
+  const isLoading = useSelector((store) => store.spinner.isLoading)
 
   return (
     <div>

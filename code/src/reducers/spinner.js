@@ -6,8 +6,8 @@ const spinner = createSlice({
     isLoading: false
   },
   reducers: {
-    setLoading: (store, action) => {
-      store.isLoading = action.payload
+    setLoading: (state, action) => {
+      state.isLoading = action.payload
     }
   }
 })

@@ -1,5 +1,6 @@
 /* eslint-disable object-shorthand */
 import { createSlice } from '@reduxjs/toolkit';
+import spinner from 'reducers/spinner.js'
 
 export const game = createSlice({
   name: 'game',
@@ -27,7 +28,7 @@ export const game = createSlice({
 
 export const fetchGame = () => {
   return (dispatch, getState) => {
-    dispatch(game.actions.setLoading(true))
+    dispatch(spinner.actions.setLoading(true))
     const options = {
       method: 'POST',
       headers: {
@@ -40,15 +41,15 @@ export const fetchGame = () => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setStage(data));
-        console.log(data)
+        setTimeout(() => dispatch(spinner.actions.setLoading(false)), 4000)
       })
-      .finally(dispatch(game.actions.setLoading(false)))
+      .finally(() => dispatch(spinner.actions.setLoading(false)));
   }
 };
 
 export const fetchGameSteps = (type, direction) => {
   return (dispatch, getState) => {
-    dispatch(game.actions.setLoading(true))
+    dispatch(spinner.actions.setLoading(true));
     const optionsAction = {
       method: 'POST',
       headers: {
@@ -65,8 +66,9 @@ export const fetchGameSteps = (type, direction) => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setStage(data));
+        setTimeout(() => dispatch(spinner.actions.setLoading(false)), 4000)
       })
-      .finally(dispatch(game.actions.setLoading(false)))
+      .finally(() => dispatch(spinner.actions.setLoading(false)));
   }
 };
 

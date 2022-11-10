@@ -3,9 +3,11 @@ import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import StartScreen from 'components/StartScreen';
 import { game } from './reducers/game'
+import spinner from './reducers/spinner'
 
 const reducer = combineReducers({
-  game: game.reducer
+  game: game.reducer,
+  spinner: spinner.reducer
 });
 const store = configureStore({ reducer });
 
