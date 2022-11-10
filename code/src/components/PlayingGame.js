@@ -10,20 +10,17 @@ import { navigateGame, game } from '../reducers/game'
 
 export const PlayingGame = () => {
   const data = useSelector((store) => store.game.location);
-  console.log(data)
-  const actions = useSelector((store) => store.game.move);
-  // console.log(actions)
+  const actions = useSelector((store) => store.game.step);
   const userName = useSelector((store) => store.game.userName)
   console.log(userName)
-
+  const dispatch = useDispatch();
   // const directionAlternatives = useSelector(
   //   (store) => store.game.data.actions.map((item) => item.direction)
   // )
-  const dispatch = useDispatch()
 
   const onClick = (direction) => {
+    dispatch(game.actions.setStep(direction))
     dispatch(navigateGame(userName, direction))
-    dispatch(game.actions.setMove(direction))
     console.log(direction)
   }
 

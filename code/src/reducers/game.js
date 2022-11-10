@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import ui from './ui'
 
 // Dont put anything dependant on the api inside here://
 export const game = createSlice({
@@ -6,7 +7,7 @@ export const game = createSlice({
   initialState: {
     username: '',
     location: '',
-    move: []
+    step: []
     // actions: []
   },
   reducers: {
@@ -18,9 +19,9 @@ export const game = createSlice({
       store.location = action.payload
       console.log(store.location)
     },
-    setMove: (store, action) => {
-      store.move = action.payload
-      console.log(`this should be store.move ${store.move}`)
+    setStep: (store, action) => {
+      store.step = action.payload
+      console.log(store.step)
     }
     // restartGame: (store) => {
     //   store.location = ''
@@ -28,18 +29,6 @@ export const game = createSlice({
     // }
   }
 });
-
-export const ui = createSlice({
-  name: 'ui',
-  initialState: {
-    isLoading: false
-  },
-  reducers: {
-    setLoading: (store, action) => {
-      store.isLoading = action.payload
-    }
-  }
-})
 
 // First thunk
 
@@ -75,7 +64,7 @@ export const navigateGame = () => {
       body: JSON.stringify({
         username: getState().game.username,
         type: 'move',
-        direction: 'direction'
+        direction: getState().game.step
       })
     })
       .then((res) => res.json())
