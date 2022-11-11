@@ -23,13 +23,11 @@ const Start = () => {
   return (
     <LocationWrapper>
       <h2>
-        In your search for enlightenment you have come across a peculiar structure.
-        A veil covers an entrance.
+        You have been pondering over a complex concept all day and
+        your search for enlightenment continues as you are sound asleep.
+        You come across a peculiar structure. A veil covers an entrance.
       </h2>
-      <p>
-              Speak your name to enter!
-            (Write your name and hit enter, to enter!)
-      </p>
+      <h3>Speak your name to enter!</h3>
 
       <Form onSubmit={(event) => onNameSubmit(event)}>
         <label>
@@ -48,8 +46,11 @@ const Start = () => {
 export default Start;
 
 const TextInput = styled.input`
-  height: 2rem;
+  height: 2.5rem;
+  width: 12rem;
   text-align: center;
+  font-family: 'Calligraffitti', cursive;
+  font-size: 18px;
 `
 
 const Form = styled.form`
