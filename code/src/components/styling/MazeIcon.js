@@ -1,23 +1,26 @@
 import React from 'react'
+import Lottie from 'lottie-react'
+import maze from 'lotties/maze'
 import styled from 'styled-components'
-import Icon from 'images/maze.png'
 
 const MazeIcon = () => {
   return (
-    <Maze src={Icon} />
+    <MazeWrapper>
+      <Lottie animationData={maze} loop />
+    </MazeWrapper>
   )
 }
+
 export default MazeIcon
 
-const Maze = styled.img`
+const MazeWrapper = styled.div`
     position: absolute;
     top: 30px;
-    left: 30px;
-    width: 40px;
-    height: 40px;
-    transform: rotate(45deg);
-    @media (min-width: 1025px) {
-        top: 45px;
+    left: 10px;
+    width: 80px;
+    @media (min-width: 819px) {
+        top: 55px;
         left: 47px;
+        width: 120px;
       }
 `

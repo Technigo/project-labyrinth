@@ -50,6 +50,10 @@ const StyledButton = styled.button`
     color: orange;
   }
 
+  @media (min-width: 819px) {
+    width: 650px;
+  }
+
   @media (min-width: 1025px) {
     width: 910px;
   }
