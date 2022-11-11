@@ -5,7 +5,7 @@ import { generateNextDescription } from 'reducers/game';
 import Wrapper from './Wrapper';
 import Button from './Button';
 
-function coordsToBackgroundImage(coords) {
+function coordsToBackgroundImageWeb(coords) {
   // @TODO change to switch
   if (coords === '0,0') {
     return './assets/images/img_1.jpg'
@@ -76,7 +76,7 @@ const Description = () => {
   const description = useSelector((state) => state.game.description); // get description
   console.log('description', description);
 
-  const bgImage = coordsToBackgroundImage(description.coordinates);
+  const bgImage = coordsToBackgroundImageWeb(description.coordinates);
 
   return (
     <DescriptionContainer bgImage={bgImage}>
