@@ -42,7 +42,7 @@ const Game = () => {
 export default Game;
 
 const ActionButton = styled.button`
-  border-style: outset;
+border-style: outset;
 height: 60px;
 width: 80px;
 margin: 20px;
@@ -56,16 +56,15 @@ cursor: pointer;
 `
 const ClonedBackground = styled(Background)`
 background-image: url(${tree});
-
 `
 
 const DescriptContainer = styled.div`
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-    align-items: stretch;
-    text-align: center;
-    overflow: scroll;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: stretch;
+  text-align: center;
+  /* overflow: scroll; */
 `
 const DescInnerContainer = styled.div`
   display: flex;

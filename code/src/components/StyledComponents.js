@@ -17,7 +17,8 @@ const CardContainer = styled.div`
   text-align: center;
   width: 300px;
   min-height: 300px;
-  height: auto;
+  /*height: auto; */
+  height: 70%;
   border: 6px double;
   border-radius: 15px;
   padding: 20px;
