@@ -1,6 +1,7 @@
 import React from 'react';
 import game, { gameProgress } from 'reducers/game';
 import { useDispatch } from 'react-redux';
+import { sortArrayByDirection } from '../lib/utils';
 import { DirectionsContainer } from './styled/containers';
 
 const Move = ({ response }) => {
@@ -11,13 +12,17 @@ const Move = ({ response }) => {
     dispatch(gameProgress('action'));
   };
 
+  if (!Array.isArray(response.actions)) {
+    return null;
+  }
+
   return (
     <>
-      {response.actions?.map((action) => {
+      {[...response.actions].sort(sortArrayByDirection).map((action) => {
         return (
-          <DirectionsContainer>
+          <DirectionsContainer key={action.direction}>
             <p>{action.description}</p>
-            <label>
+            <label htmlFor="answer">
               <button
                 type="button"
                 className="nes-btn is-primary"
