@@ -2,27 +2,31 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components/macro'
 import { NavigateButtons } from './NavigateButtons'
-
+import { LoadingPage } from './LoadingPage'
 import { StartGame } from './StartGame'
 import { PlayingGame } from './PlayingGame'
 
 export const StartScreen = () => {
   const location = useSelector((store) => store.game.location);
+  const isLoading = useSelector((store) => store.ui.isLoading);
 
   return (
-    <OuterWrapper>
-      <InnerWrapper>
-        <StartGameContainer>
-          {location
-            ? <PlayingGame />
-            : <StartGame />}
-        </StartGameContainer>
-      </InnerWrapper>
-      <ControllerContainer>
-        <NavigateButtons />
-      </ControllerContainer>
-    </OuterWrapper>
-  )
+    <>
+      {isLoading && <LoadingPage />}
+      <OuterWrapper>
+        <InnerWrapper>
+          <StartGameContainer>
+            {location
+              ? <PlayingGame />
+              : <StartGame />}
+          </StartGameContainer>
+        </InnerWrapper>
+        <ControllerContainer>
+          <NavigateButtons />
+        </ControllerContainer>
+      </OuterWrapper>
+    </ >
+  );
 }
 
 export const OuterWrapper = styled.div`

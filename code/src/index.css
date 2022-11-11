@@ -14,3 +14,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+    .animation {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 200px;
+      z-index: 4;
+    }
+    
+    @media (min-width: 667px) {
+      .animation {
+        width: 300px;
+      }
+      }
+

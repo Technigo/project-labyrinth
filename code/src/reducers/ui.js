@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const ui = createSlice({
+export const ui = createSlice({
   name: 'ui',
   initialState: {
     isLoading: false
@@ -11,5 +11,3 @@ const ui = createSlice({
     }
   }
 })
-
-export default ui;

@@ -1,12 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components/macro'
+import Lottie from 'lottie-react';
 import uniqid from 'uniqid'
+import complete from 'lotties/complete'
 
 export const PlayingGame = () => {
   const data = useSelector((store) => store.game.location);
   const actions = useSelector((store) => store.game.step);
-  console.log(data.actions)
+  const coordinates = useSelector((store) => store.game.coordinates);
+  console.log(data.coordinates)
 
   return (
     <GameContainer>
@@ -22,6 +25,9 @@ export const PlayingGame = () => {
       })}
       <GameQuestion>Where do you want to go?</GameQuestion>
       </GameActions>
+      {coordinates === '1,3' && (
+        <Lottie className="animation" animationData={complete} loop="true" />
+      )}
     </GameContainer>
   )
 };
