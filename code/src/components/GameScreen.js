@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import game from 'reducers/game';
 import LoadingIndicator from './LoadingIndicator';
@@ -16,14 +16,17 @@ const GameScreen = () => {
 
   return (
     <>
+      <div className="profileContainer">
+        <Avatar src="/assets/avatarCrop.png" alt="avatar" />
+      </div>
       <InnerWrapper>
         <BoxContainer>
-          <Avatar src="/assets/avatarCrop.png" alt="avatar" />
           {response.description && (
             <div className="nes-container is-rounded">
               <p>{response.description}</p>
             </div>
           )}
+
           <LoadingIndicator />
 
           <Move response={response} />

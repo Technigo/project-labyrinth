@@ -6,7 +6,7 @@ export const OuterWrapper = styled.div`
   background-size: cover;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 `;
 
@@ -40,7 +40,11 @@ export const CharacterContainer = styled.div`
 
   img {
     max-width: 150px;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
+  }
+  h2 {
+    margin-bottom: 2rem;
+    color: white;
   }
 
   & .stat-container {
