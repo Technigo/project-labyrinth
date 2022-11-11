@@ -5,9 +5,8 @@ import styled from 'styled-components';
 import Header from './Header';
 import Wrapper from './Wrapper';
 
-// @TODO generate random unique username to always make game work?
-
 function makeid(length) {
+  // make username unique by adding random characters at the end
   let result = '';
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   const charactersLength = characters.length;
@@ -24,7 +23,7 @@ const UserNameInput = () => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    dispatch(game.actions.setUser(userNameInputValue + makeid(16))); // klar
+    dispatch(game.actions.setUser(userNameInputValue + makeid(16)));
     dispatch(generateDescription());
     userNameInputValue('');
   }
