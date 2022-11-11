@@ -1,4 +1,6 @@
 import React from 'react';
+import styled from 'styled-components';
+import { Button } from '../styled-components/GlobalStyles';
 
 const onRestartBtn = () => {
   window.location.reload();
@@ -6,11 +8,20 @@ const onRestartBtn = () => {
 
 export const EndingPage = () => {
   return (
-    <div>
-      <button
+    <RestartWrapper>
+      <Button
         type="button"
         onClick={onRestartBtn}>Restart
-      </button>
-    </div>
+      </Button>
+    </RestartWrapper>
   )
 }
+
+const RestartWrapper = styled.div`
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center; 
+  width: 80%;
+  margin: 2em auto;
+`

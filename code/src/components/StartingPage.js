@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
 
 import game, { generateLabyrinth } from 'reducer/game';
-import { DuckContainer } from 'styled-components/GlobalStyles';
+import { DuckContainer, Button } from 'styled-components/GlobalStyles';
+import styled from 'styled-components';
 import { DucklingHeader } from './DucklingHeader';
 
 export const StartingPage = () => {
@@ -16,25 +17,32 @@ export const StartingPage = () => {
 
   return (
     <section>
-      <div>
+      <OpeningWrapper>
         <DuckContainer>
           <DucklingHeader />
         </DuckContainer>
 
         <h1>The Lost Duck</h1>
-        <h2>Please help me find my way out of this labyrinth</h2>
-        <h3>What&apos;s your name, my saviour?</h3>
+        <h3>Please help me find my way out of this labyrinth</h3>
+        <p>What&apos;s your name, my saviour?</p>
         <input
           type="text"
           value={inputValue}
           placeholder="Type you name.."
           onChange={(event) => setInputValue(event.target.value)} />
-        <button
+        <Button
           type="submit"
           onClick={onUsernameInputValue}>
             Let&apos;s go
-        </button>
-      </div>
+        </Button>
+      </OpeningWrapper>
     </section>
   )
 };
+
+const OpeningWrapper = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+margin: 0 auto;
+`

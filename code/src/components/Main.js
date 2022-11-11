@@ -10,10 +10,10 @@ export const Main = () => {
 
   return (
     <div>
+      {isLoading && <LoadingPage />}
       {coordinates
         ? <GamePage coordinates={coordinates} />
         : <StartingPage />}
-      {isLoading && <LoadingPage />}
     </div>
   )
 }

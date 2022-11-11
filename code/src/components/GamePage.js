@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { DuckContainer } from 'styled-components/GlobalStyles';
+import { DuckContainer, Button } from 'styled-components/GlobalStyles';
 import { generateMoves } from 'reducer/game';
 import styled from 'styled-components';
 import { DucklingHeader } from './DucklingHeader';
@@ -25,21 +25,22 @@ export const GamePage = () => {
         </HeaderText>
 
       </DuckContainer>
-      <div>
+      <DescriptionWrapper>
         <p>
           &quot;{description}&quot;
         </p>
-      </div>
+      </DescriptionWrapper>
+      {actions.length > 0 && <Wrapper><p>CHOOSE YOUR NEXT STEP: </p></Wrapper>}
       <div>
         {actions.length > 0
         && actions.map((action) => (
-          <div key={action.direction}>
+          <OptionWrapper key={action.direction}>
             <p>{action.description}</p>
-            <button
+            <Button
               type="button"
               onClick={() => dispatch(generateMoves(action.direction))}>{action.direction}
-            </button>
-          </div>
+            </Button>
+          </OptionWrapper>
         ))}
         {actions.length === 0 && <EndingPage />}
       </div>
@@ -48,6 +49,50 @@ export const GamePage = () => {
 }
 
 const HeaderText = styled.div`
-margin: 0;
-width: 100%;
+  margin: 0;
+  width: 100%;
+`
+const DescriptionWrapper = styled.div`
+  width: 80%;
+  padding: 20px;
+  margin: 2em auto;
+  /* background-color: var(--lightYellow);
+  box-shadow:
+    -5px 0 0 0 var(--orange),
+    5px 0 0 0 var(--orange),
+    0 -5px 0 0 var(--orange),
+    0 5px 0 0 var(--orange); */
+    background-color: var(--orange);
+  box-shadow:
+    -5px 0 0 0 var(--lightYellow),
+    5px 0 0 0 var(--lightYellow),
+    0 -5px 0 0 var(--lightYellow),
+    0 5px 0 0 var(--lightYellow);
+
+    p{
+      font-size: 0.8rem;
+      line-height: 30px;
+      text-align: center;
+    }
+`
+
+const OptionWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--lightYellow);
+  box-shadow:   
+    -5px 0 0 0 var(--orange),
+    5px 0 0 0 var(--orange),
+    0 -5px 0 0 var(--orange),
+    0 5px 0 0 var(--orange);
+
+  width: 80%;
+  padding: 20px;
+  margin: 2em auto;
+`
+
+const Wrapper = styled.div`
+  width: 80%;
+  margin: 2em auto;
 `
