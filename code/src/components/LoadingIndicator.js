@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 export const LoadingIndicator = () => {
   const isLoading = useSelector((state) => state.ui.isLoading)
 
-  return isLoading && <LoadingWrap>LOADING....</LoadingWrap>
+  return isLoading && <LoadingWrap> Loading..</LoadingWrap>
 }
 
 // STYLING FOR ABOVE COMPONENT

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { fetchChoices, choices } from 'reducers/choices';
 import { useDispatch } from 'react-redux';
+import styled from 'styled-components/macro';
 
 export const Start = () => {
   const dispatch = useDispatch()
@@ -19,31 +20,68 @@ export const Start = () => {
     setUserName(event.target.value);
   };
 
+  // Dispaly welcome page with a form for user to create a player name
+  // Once player is created, display the start page with start button
   return (
     <section>
       {!startConfirmed && (
-        <form onSubmit={onFormSubmit}>
-          <input
-            type="text"
-            value={userName}
-            onChange={handleChange}
-            placeholder="Your username" />
-          <button
-            type="submit">
+        <>
+          <Header>
+            <h1>Welcome to the game</h1>
+          </Header>
+          <Form onSubmit={onFormSubmit}>
+            <InputField
+              type="text"
+              value={userName}
+              onChange={handleChange}
+              placeholder="Your username" />
+            <CreatePlayerBtn
+              type="submit">
             Submit
-          </button>
-        </form>
+            </CreatePlayerBtn>
+          </Form>
+        </>
       )}
       {startConfirmed && (
         <section>
-          <h2>Welcome {userName}</h2>
+          <h2>Hello {userName}!</h2>
+          <h4>Press start to get your first instructions</h4>
           <button
             type="button"
             onClick={() => dispatch(fetchChoices())}>
-            Start
+            Start Game
           </button>
         </section>
       )}
     </section>
+
   )
 }
+
+const Header = styled.section`
+  font-size: 24px;
+`
+
+const CreatePlayerBtn = styled.button`
+  display: block;
+  margin: 1rem;
+  padding: 0.5rem;
+  
+`
+
+const Form = styled.form`
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`
+
+const InputField = styled.input`
+width: 90%;
+  padding: 30px 38px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-size: 20px;
+`

@@ -8,18 +8,31 @@ export const Game = () => {
   const list = useSelector((state) => state.choices.items)
   const dispatch = useDispatch()
 
+  // If length of choices for user is more than 0, display direction buttons
   return (
-    <div>
+    <>
       <h1>{description}</h1>
 
       {list.map((choice) => (
-        <button
-          type="button"
-          key={list.indexOf(choice)}
-          onClick={() => dispatch(fetchGame(choice.direction, choice.type))}>
-          {choice.direction}
-        </button>
+        <div key={list.indexOf(choice)}>
+          <p>{choice.description}</p>
+          {console.log('list:', list)}
+          {list && (
+            <button
+              type="button"
+              onClick={() => dispatch(fetchGame(choice.direction, choice.type))}>
+              {choice.direction}
+            </button>
+          )}
+          {!list && (
+            <button
+              type="button"
+              onClick={() => {}}>
+              Play again
+            </button>
+          )}
+        </div>
       ))}
-    </div>
+    </>
   )
 }
