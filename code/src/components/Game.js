@@ -12,8 +12,8 @@ export const Game = () => {
 
   // If length of choices for user is more than 0, display direction buttons
   return (
-    <>
-      <h1>{description}</h1>
+    <GameWrapper>
+      <TextBackground><h2>{description}</h2></TextBackground>
       {endOfGame && (
         <button
           type="button"
@@ -23,28 +23,49 @@ export const Game = () => {
       )}
       {list.map((choice) => (
         <div key={list.indexOf(choice)}>
-          <TextBackground>{choice.description}</TextBackground>
+          <Description><p>{choice.description}</p></Description>
           {console.log('list:', list)}
           {list && (
-            <button
+            <DirectionBtn
               type="button"
               onClick={() => dispatch(fetchGame(choice.direction, choice.type))}>
               {choice.direction}
-            </button>
+            </DirectionBtn>
           )}
-          {/* {!list && (
-            <button
-              type="button"
-              onClick={() => window.location.reload()}>
-              Play again
-            </button>
-          )} */}
         </div>
       ))}
-    </>
+    </GameWrapper>
   )
 }
 
-const TextBackground = styled.div`
-background-color: rgb(255, 255, 255, 0.5);
+const Description = styled.div`
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 10px;
+  margin: 15px;
+  padding: 10px;
+
+  p {
+    font-size: 20px;
+  }
+`
+
+const TextBackground = styled(Description)`
+margin-bottom: 60px;
+`
+
+const GameWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+`
+
+const DirectionBtn = styled.button`
+  margin: 1rem;
+  padding: 0.5rem;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 8px 0;
+  font-size: 16px;
 `

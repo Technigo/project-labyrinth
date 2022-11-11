@@ -64,5 +64,4 @@ const InnerWrapper = styled.section`
   justify-content: justify-items;
   align-items: center;
   flex-direction: column;
-  border: solid white;
 `

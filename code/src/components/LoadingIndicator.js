@@ -12,10 +12,12 @@ export const LoadingIndicator = () => {
 // STYLING FOR ABOVE COMPONENT
 const LoadingWrap = styled.div`
   min-height: 100vh;
+  padding-top: 3rem;
 `
 
 // EXAMPLE ANIMATION:
 const Loader = styled.div`
+  margin-top: 4rem;
   border-radius: 20%;
   border-top: 14px solid rgb(228, 35, 93);
   border-bottom: 14px solid rgb(228, 35, 93);
