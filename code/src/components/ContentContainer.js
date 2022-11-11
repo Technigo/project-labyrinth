@@ -3,7 +3,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import StartPage from './StartPage'
 import LabyrinthPart from './LabyrinthPart'
-import { Outerwrapper } from './GlobalStyles'
+import { Innerwrapper, Outerwrapper } from './GlobalStyles'
 import Loading from './Loading'
 
 const ContentContainer = () => {
@@ -18,8 +18,10 @@ const ContentContainer = () => {
   }
   return (
     <Outerwrapper>
-      {coordinates === '' && <StartPage />}
-      {coordinates !== '' && <LabyrinthPart />}
+      <Innerwrapper coordinates={coordinates}>
+        {coordinates === '' && <StartPage />}
+        {coordinates !== '' && <LabyrinthPart />}
+      </Innerwrapper>
     </Outerwrapper>
   )
 }

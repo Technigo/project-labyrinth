@@ -1,5 +1,8 @@
-import styled from 'styled-components/macro';
-import { createGlobalStyle } from 'styled-components';
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable indent */
+import styled, { createGlobalStyle } from 'styled-components/macro';
+import zeroZero from '../images/0,0.jpg'
+import Start from '../images/start.jpg'
 
 export const GlobalStyles = createGlobalStyle`
 // RESET CSS
@@ -37,13 +40,29 @@ p, h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
   height: 100%;
 }
+
+//regular CSS
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+`
+export const Outerwrapper = styled.div`
+width: 100%;
+background-image: ${(props) =>
+  (props.coordinates === '0,0' ? zeroZero : Start)};
 `
 
-export const Outerwrapper = styled.div`
+export const Innerwrapper = styled.div`
 margin: 0 auto;
 width: 80%;
 height: 100%;
 display: flex;
 align-items: center;
-
+justify-content: center;
 `
