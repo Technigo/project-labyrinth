@@ -35,10 +35,13 @@ const MazePage = () => {
           </h3>
         </div>
         {actions && actions.map((singleType) => (
-          <div key={singleType.description}>
+          <><div key={singleType.description}>
             <p>{singleType.description}</p>
+						      </div>
+          <div>
             <button onClick={() => onTypeButtonClick(singleType.type, singleType.direction)} type="button">{singleType.direction}</button>
           </div>
+          </>
         ))}
       </>
     </ChildContainer>

@@ -28,6 +28,7 @@ const labyrinth = createSlice({
         console.log(action);
       }
     },
+
     setLoading: (store, action) => {
       store.isLoading = action.payload;
     }

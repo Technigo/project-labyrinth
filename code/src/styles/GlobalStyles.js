@@ -27,6 +27,8 @@ padding: 9px 5px 5px 10px;
   border-radius: 3px;
 cursor: pointer;
 color: #3fceea;
+border: 1px solid #3fceea;
+width: fit-content;
 font-family: "Press Start 2P", cursive;
   }
 `
