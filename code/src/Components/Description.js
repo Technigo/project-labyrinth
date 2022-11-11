@@ -8,19 +8,19 @@ import Button from './Button';
 function coordsToBackgroundImage(coords) {
   // @TODO change to switch
   if (coords === '0,0') {
-    return './assets/images/image_1.jpg'
+    return './assets/images/img_1.jpg'
   } else if (coords === '1,0') {
-    return './assets/images/image_2.jpg'
+    return './assets/images/img_2.jpg'
   } else if (coords === '1,1') {
-    return './assets/images/image_3.jpg'
+    return './assets/images/img_3.jpg'
   } else if (coords === '0,1') {
-    return './assets/images/image_4.jpg'
+    return './assets/images/img_4.jpg'
   } else if (coords === '0,2') {
-    return './assets/images/image_5.jpg'
+    return './assets/images/img_5.jpg'
   } else if (coords === '0,3') {
-    return './assets/images/image_6.jpg'
+    return './assets/images/img_6.jpg'
   } else if (coords === '1,3') {
-    return './assets/images/image_7.jpg'
+    return './assets/images/img_7.jpg'
   }
   return './assets/images/fallback.jpg'
 }
