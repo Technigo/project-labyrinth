@@ -1,13 +1,56 @@
+/* eslint-disable max-len */
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
-// import { questions, generateQuestions } from 'reducers/questions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+// import { generateQuestions } from 'reducers/questions';
+import { gameProgress } from 'reducers/questions';
 
 const GameScreen = () => {
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const userName = useSelector((store) => store.questions.username);
+  const { gameQuestion, isLoading } = useSelector((store) => store.questions);
+  if (isLoading) {
+    return 'Loading...';
+  }
+  console.log('description', gameQuestion.description);
+  console.log('actions', gameQuestion.actions.length);
 
+
+  const onClickStartGame = (direction, type) => {
+    console.log('direction on progress', direction);
+    dispatch(gameProgress(direction, type));
+  };
 
   return (
-  <>Starting Game</>
+    <section>
+      <div className="wrapper">
+        {gameQuestion.actions.length > 0 ? (
+          <h2>Let start the Game {userName}! </h2>
+        ) : (
+          <h2>Well Done {userName}</h2>
+        )}
+
+        <div>
+          <h2>{gameQuestion.description}</h2>
+        </div>
+
+        <section className="options-section">
+          {gameQuestion.actions.map((option) => (
+            <div key={option.description}>
+              <p>➜&nbsp;{option.description}</p>
+              <button
+                className="btn-success"
+                onClick={() => onClickStartGame(option.direction, option.type)}
+              >
+                Go Forward
+                {option.type}&nbsp;
+                {option.direction}
+              </button>
+            </div>
+          ))}
+        </section>
+      </div>
+    </section>
   );
 };
 
