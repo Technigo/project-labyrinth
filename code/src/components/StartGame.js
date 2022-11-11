@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-
 import { game, fetchGame } from 'reducers/game';
 import styled from 'styled-components/macro';
-// import { DuckContainer } from 'styled-components/GlobalStyles';
-// import { DucklingHeader } from './DucklingHeader';
 
 export const StartGame = () => {
   const [userName, setUserName] = useState('')

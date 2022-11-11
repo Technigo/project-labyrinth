@@ -10,6 +10,9 @@ export const StartScreen = () => {
   const location = useSelector((store) => store.game.location);
   const isLoading = useSelector((store) => store.ui.isLoading);
 
+  // When isLoading=true the loadingpage appear,
+  // otherwise the startscreen or playing game will show.
+
   return (
     <>
       {isLoading && <LoadingPage />}

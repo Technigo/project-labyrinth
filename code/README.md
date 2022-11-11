@@ -1,13 +1,32 @@
-# Project Labyrinth
+# Project Labyrinth [View Live &#10555;](https://https://labyrinth-linnea-sofia.netlify.app/)
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Create a text based game.
+Build an app that retrieves a list of actions from the backend and presents them to the user as interactable items.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We used redux to store the current state of the game and thunks to wrap the API call and handle the response delay with a loading function
+
+- The page is responsible
+- Handles the response delay with a loading page showing an animation (Lottie).
+
+If I had more time:
+- Disable non optional buttons for each step in the game.
+- Show a history of which steps the player has done, use Redux to store previous steps. And make it possible to go back in the game.
+- Style each step individually based on the text-content.
+- Create a visual represenation (drawing) of the labyrinth which updates for each step the user is taking.
+
+
+## TECH used:
+- HTML
+- CSS
+- Styled Components
+- React
+- JSX
+- Redux
+- Redux Toolkit
+- Thunks
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://https://labyrinth-linnea-sofia.netlify.app/
