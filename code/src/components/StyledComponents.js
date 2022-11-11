@@ -10,11 +10,11 @@ const Card = styled.div`
 `
 const CardContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: space-evenly;
   align-items: center;
+  text-align: center;
   width: 300px;
   min-height: 300px;
   height: auto;
@@ -43,6 +43,12 @@ color: red;
 `
 const TestChild = styled.div`
 inherits: inherit;
+display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+
 `
 const DescriptionText = styled.p`
 color: red;

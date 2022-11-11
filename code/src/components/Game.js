@@ -23,19 +23,17 @@ const Game = () => {
   return (
     <ClonedBackground>
       <GameCard
-        title={currentPosition.description}
-        descriptionText="Adventurer">
-        <div>
+        title={currentPosition.description}>
+        <DescriptContainer>
           {currentPosition.actions.map((action) => (
-            <div key={action.description}>
-              <p>{action.description}</p>
-              <ActionButton
-                onClick={() => onAction(action)}>
-                {action.direction.toLowerCase()}
-              </ActionButton>
-            </div>
+            <DescInnerContainer key={action.description}>
+              <p>{action.description}</p><ActionButton
+              onClick={() => onAction(action)}>
+              {action.direction.toLowerCase()}
+            </ActionButton>
+            </DescInnerContainer>
           ))}
-        </div>
+        </DescriptContainer>
       </GameCard>
     </ClonedBackground>
   )
@@ -50,12 +48,33 @@ width: 80px;
 margin: 20px;
 padding: 20px;
 display: inline-block;
-background-color: palegreen;
+background-color: #A58AAB;
 border-width: 5px;
 box-sizing: border-box;
 border-radius: 5%;
+cursor: pointer;
 `
 const ClonedBackground = styled(Background)`
 background-image: url(${tree});
 
 `
+
+const DescriptContainer = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: stretch;
+    text-align: center;
+    overflow: scroll;
+`
+const DescInnerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+  padding: 10px; 
+  text-align: center;
+`
+

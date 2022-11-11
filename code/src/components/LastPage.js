@@ -20,9 +20,10 @@ const LastPage = () => {
     }
   }; */
 
+// doesent display the last text from the maze, we need a fetch inhere too i think 
   return (
     <LastClonedBackground>
-      <GameCard>
+      <GameCard title="Congratulations {username} you made it!">
         <div>
           <div>
             {/* <Lottie options={defaultOptions} height={300} width={300} /> */}

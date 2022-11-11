@@ -19,7 +19,7 @@ const LoadingPage = () => {
   return (
     <>
       {loading
-    && <div>
+    && <div className="lottiestyle">
       <Lottie options={defaultOptions} height={400} width={400} />
        </div>}
     </>
@@ -27,3 +27,4 @@ const LoadingPage = () => {
 };
 
 export default LoadingPage;
+

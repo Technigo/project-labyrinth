@@ -43,11 +43,6 @@ return (
 
 export default StartPage;
 
-// might be best to style the button and input here, and form - 
-// it seems complicated to style them the other way
-
-// needs an if statement for the start screen when loading 
-
 export const Background = styled.div`
 background-image: url(${mountain});
 background-position: center;
@@ -72,6 +67,10 @@ const Input = styled.input`
   border-radius: 5px;
   color: #000;
 
+  &[type=text]{
+    color: rgb(225, 203, 134);;
+  }
+
   @media (min-width: 768px) {
     font-size: 15px;
     width: 25vw;
@@ -85,8 +84,9 @@ border-style: outset;
   margin: 20px;
   padding: 20px;
   display: inline-block;
-  background-color: palegreen;
+  background-color: #A58AAB;
   border-width: 5px;
   box-sizing: border-box;
   border-radius: 5%;
+  cursor: pointer;
 `
