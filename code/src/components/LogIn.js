@@ -15,17 +15,41 @@ export const LogIn = () => {
     }
 
     const newGame = () => {
-        return (<StartPage />)
+        window.location.reload();
     }
+    // FUNCTION TO USE AS A TRIGGER IN "reactjs-popup"
+
+    // const popUpTrigger = () => {
+    //     console.log('trigger', popUpTrigger)
+    //     return (
+    //         coordinates > '0,0' 
+    //     )
+    // }
     
     return(
-        <>
-        <h2> Welcome back {userName} </h2>
-        <h3>Would you like to start your journey when you left or from the beginning?</h3>
-        <div>
-            <button onChange={continueQuest}>Continue game</button>
-            <button onChange={newGame}>Start new game</button>
-        </div>
-        </>
+          <>
+            <div>
+                <h2>'Welcome back'</h2>
+                <h3>'Would you like to start your journey when you left or from the beginning?'</h3>
+            </div>
+            <div>
+                <button onClick={continueQuest}>Continue game</button>
+                <button onClick={newGame}>Start new game</button>
+            </div>
+       </>
+        
     )
 }
+
+//  ANOTHER APROACH TO MAKE POP UP BY USING REACT LIBRARY "reactjs-popup"
+    // <StyledLogIn>
+    //     <Popup trigger={popUpTrigger}>
+    //     <div>
+    //         <h2>'Welcome back'</h2>
+    //         <h3>'Would you like to start your journey when you left or from the beginning?'</h3>
+    //         <div>
+    //                <button onClick={continueQuest}>Continue game</button><button onClick={newGame}>Start new game</button>
+    //         </div>
+    //     </div>
+    //     </Popup>
+    // </StyledLogIn>
