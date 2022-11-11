@@ -1,39 +1,46 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { labyrinth, startGame } from 'reducers/labyrinth';
-import styled from 'styled-components/macro';
+import { useDispatch, useSelector } from 'react-redux';
+import { startGame, labyrinth } from 'reducers/labyrinth';
+import { Loading } from './Loading';
+import Labyrinth from './Labyrinth';
 
 export const Start = () => {
-  // const User = useSelector((store) => store.labyrinth.username)
   const [usernameInputValue, setUsernameInputValue] = useState('')
+  const loading = useSelector((store) => store.labyrinth.loading)
+  const userEntered = useSelector((store) => store.labyrinth.username)
   const dispatch = useDispatch()
 
   const onFormSubmit = (event) => {
     event.preventDefault()
-
-    dispatch(labyrinth.actions.setUsername(usernameInputValue))
+    dispatch(labyrinth.actions.setUsername(usernameInputValue));
     console.log(usernameInputValue)
-    dispatch(startGame())
+    dispatch(startGame());
+  };
+
+  if (loading) {
+    return <Loading />;
   }
-
-  return (
-    <StartContainer>
-      <form onSubmit={(event) => onFormSubmit(event)}>
-        Welcome, insert name to start game:
-        <input
-          type="text"
-          placeholder="type username"
-          value={usernameInputValue}
-          onChange={(event) => setUsernameInputValue(event.target.value)} />
-        <button
-          type="submit"> Start game
-        </button>
-      </form>
-    </StartContainer>
-
-  )
-}
-
-const StartContainer = styled.div`
-font-size: 20px;
-`
+  if (!userEntered) {
+    return (
+      <div>
+        <div>
+          <h1>Welcome, insert a random string of letters to start game:</h1>
+          <h3>(Something like "ekfoepwv") 🦁 </h3>
+          <input
+            type="text"
+            placeholder="Something unique"
+            value={usernameInputValue}
+            onChange={(event) => setUsernameInputValue(event.target.value)} />
+          <button
+            type="button"
+            onClick={onFormSubmit}>
+            START
+          </button>
+        </div>
+      </div>
+    );
+  } else {
+    return <Labyrinth />
+  }
+};
