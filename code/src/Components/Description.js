@@ -34,18 +34,38 @@ const DirectionInput = ({ actions }) => {
     dispatch(generateNextDescription(direction));
   }
 
+  const allDirections = ['North', 'West', 'East', 'South']
+
+  const availableActions = {}
+  // eslint-disable-next-line array-callback-return
+  actions.map((action) => {
+    availableActions[action.direction] = action
+  })
+
+  console.log('availableActions', availableActions)
+
   return (
     <ChooseDirectionWrapper>
-      {actions.map((action) => (
-        <div key={action.direction}>
-          <Button
-            type="button"
-            onClick={() => handleOnClick(action.direction)}>
-            {action.direction}
-          </Button>
-          <div>
-            {action.description}
-          </div>
+      {allDirections.map((direction) => (
+        // Loop over all actions returned by the API, render a button for each
+        <div key={direction}>
+          {availableActions[direction] ? (
+            <>
+              <Button
+                type="button"
+                onClick={() => handleOnClick(direction)}>
+                {direction}
+              </Button>
+              <div>
+                {availableActions[direction].description}
+              </div>
+            </>
+          ) : (
+            // Return disabled button if not available
+            <Button disabled type="button">
+              {direction}
+            </Button>
+          )}
         </div>
       ))}
     </ChooseDirectionWrapper>
