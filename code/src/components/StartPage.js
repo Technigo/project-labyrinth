@@ -53,12 +53,12 @@ background-position: center;
 
 const Input = styled.input`
  margin: 2vh 2vw;
-    padding: 1rem;
+  padding: 1rem;
   font-size: 13px; 
   width: 30vw;
   background-color: inherit;
   display: inline-block;
-    transition: all 0.3s;
+  transition: all 0.3s;
   font-family: "Raleway", sans-serif;
   border: none;
   box-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #fff1a8, 

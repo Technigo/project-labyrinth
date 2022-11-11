@@ -9,7 +9,7 @@ import { GameCard } from './StyledComponents';
 import castle from '../assets/castle.jpeg';
 
 const LastPage = () => {
-  const username = useSelector((store) => store.ui.username);
+  const username = useSelector((store) => store.game.username);
 
   /* const defaultOptions = {
     loop: true,
@@ -23,11 +23,10 @@ const LastPage = () => {
 // doesent display the last text from the maze, we need a fetch inhere too i think 
   return (
     <LastClonedBackground>
-      <GameCard title="Congratulations {username} you made it!">
+      <GameCard title={`Congratulations ${username} you made it!`}>
         <div>
           <div>
             {/* <Lottie options={defaultOptions} height={300} width={300} /> */}
-            <div>{username}</div>
             <button onClick={() => window.location.reload()}>Play Again!</button>
           </div>
         </div>
