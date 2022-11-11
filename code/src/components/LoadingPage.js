@@ -1,20 +1,20 @@
 import React from 'react';
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react'
 import styled from 'styled-components';
-import animationData from '../lotties/love-load';
+import LoadingHearts from '../lotties/love-load';
 
 export const LoadingPage = () => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData,
+    animationData: LoadingHearts,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice'
     }
   }
   return (
     <LoadingPageWrapper>
-      <Lottie options={defaultOptions} />
+      <Lottie animationData={LoadingHearts} options={defaultOptions} />
     </LoadingPageWrapper>
   )
 }

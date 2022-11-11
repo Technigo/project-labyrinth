@@ -1,18 +1,17 @@
 import React from 'react';
-import Lottie from 'react-lottie';
-import animationData from '../lotties/sassy-duck';
-/* import styled from 'styled-components'; */
+import Lottie from 'lottie-react'
+import Duck from '../lotties/sassy-duck';
 
 export const DucklingHeader = () => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData,
+    animationData: Duck,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice'
     }
   }
   return (
-    <Lottie options={defaultOptions} />
+    <Lottie animationData={Duck} options={defaultOptions} />
   )
 }
