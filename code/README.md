@@ -1,6 +1,12 @@
-# Project Labyrinth
+# Project Developers' Labyrinth
 
 The project brief was to build an app that retrieves a list of actions from the backend and presents them to the user as intractable items. We've built a text-based game that allows the user to navigate a maze. The game is built in React and Redux using thunks to build the communication with the backend. 
+Then the game is designed in a darker - tech-inspired theme. 
+
+## View it live
+Link to deployed app:
+https://developerslabyrinth.netlify.app/
+
 
 ## The problem
 
@@ -10,7 +16,3 @@ We approached this week's project by setting up the starter code to be able to u
 When the main functionalities were in place we added styling. We've used styled components for this project. We've also used Lottie for our loading effect and for some animation. 
 
 If we had more time we would have worked more on styling, and tried to reach more of the stretch-goals as displaying a history of all the actions a player has taken.
-
-## View it live
-
-Link to deployed app:
