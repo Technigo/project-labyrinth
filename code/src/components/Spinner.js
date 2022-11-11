@@ -32,7 +32,7 @@ width: 100%;
 z-index: 2;
 `
 
-const LottieCage = styled.div`
+export const LottieCage = styled.div`
 margin: 0 auto;
 padding-top: 30%;
 width: 300px;

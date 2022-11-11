@@ -1,13 +1,16 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/jsx-curly-brace-presence */
 import React from 'react';
+import styled from 'styled-components'
+
 import { useDispatch, useSelector } from 'react-redux';
 import { game, fetchGameSteps } from 'reducers/game';
 import Lottie from 'lottie-react';
 import { Button, DirectionButton } from './styled-components/BtnStyles';
 import { Description, StepDescription, Title, User, UserInput } from './styled-components/StyledTexts';
 import { OuterWrapper, InnerWrapper, TheEndWrapper, CongratuationWrap } from './styled-components/StyledWrappers'
-import animationData from '../lotties/path.json'
+import animationData from '../lotties/techie.json'
+import { LottieCage } from './Spinner';
 
 const Games = () => {
   const { description, actions } = useSelector((store) => store.game.stage)
@@ -61,19 +64,23 @@ const Games = () => {
           )
         })}
         {actions?.length === 0 && (
-          <TheEndWrapper>
-            <Title>THE END</Title>
-            <CongratuationWrap>
-              <p>Congratulations</p>
-              <p>You leveled up, mentally</p>
-            </CongratuationWrap>
-            <Button type="button" onClick={onGameRestart}>Restart</Button>
-            <Lottie
-              animationData={animationData}
-              options={defaultOptions}
-              height={100}
-              width={100} />
-          </TheEndWrapper>
+          <>
+            <TheEndWrapper>
+              <Title>THE END</Title>
+              <CongratuationWrap>
+                <p>Congratulations</p>
+                <p>You leveled up, mentally</p>
+              </CongratuationWrap>
+              <Button type="button" onClick={onGameRestart}>Restart</Button>
+            </TheEndWrapper>
+            <LottieEndCage>
+              <Lottie
+                animationData={animationData}
+                options={defaultOptions}
+                height={100}
+                width={100} />
+            </LottieEndCage>
+          </>
         )}
       </InnerWrapper>
     </OuterWrapper>
@@ -81,3 +88,15 @@ const Games = () => {
 };
 
 export default Games;
+
+const LottieEndCage = styled(LottieCage)`
+padding-top: 0;
+padding: 40px;
+width: 260px;
+margin: -10px;
+height: 0;
+@media (min-width: 790px) {
+  width: 300px;
+}
+`;
+

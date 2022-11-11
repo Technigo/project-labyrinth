@@ -28,7 +28,12 @@ export const InnerWrapper = styled.div`
   }
   @media (min-width: 990px) {
     max-width: 55%;
-    margin-top: 100px;
+  }
+  @media (min-width: 1290px) {
+    max-width: 40%;  
+  }
+  @media (min-width: 1990px) {
+    max-width: 30%;
   }
 `;
 
