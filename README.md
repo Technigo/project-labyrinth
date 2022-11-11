@@ -1,14 +1,13 @@
 # Project Labyrinth
 
-The project was to create a text based game Labyrinth to practice how APIs work together with Redux. 
+Replace this readme with your own information about your project.
 
+Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
 
 ## The problem
 
-We began with sketching up the project in jamboard and created all tasks we thougt need to be done. THen with a pairprogrammingapproach we started setting up the react boilerplate. It was a challenge to understand how to structure our redux store to suit our data. With React, Redux, Redus toolkit, styled components and Lottie animations we completed the project. 
-
-If we had more time we would create pixel art to style our game more. And it would be interesting to have some kind of map showing the progress of the user. 
+Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
 ## View it live
 
-Due to the fact that Lotte package is way to old we could't deploy it on Netlify. 
+Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
