@@ -52,7 +52,7 @@ h1 {
 
 @media (min-width: 990px) {
   h1 {
-    color: #fff;
+    color:  #E15554;
     font-family: monospace;
     overflow: hidden; 
     border-right: .15em solid #E15554; 

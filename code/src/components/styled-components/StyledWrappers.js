@@ -6,6 +6,7 @@ export const OuterWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   height: 100vh;
+  padding: 10px;
   background-color: #16213E;
 `;
 
@@ -14,12 +15,13 @@ export const InnerWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 75%;
+  width: 85%;
   height: auto;
   padding: 20px;
+  margin-top: 30px;
   text-align: center;
   background-color: #0F3460;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   border-radius: 4px;
   @media (min-width: 790px) {
     max-width: 65%;   
