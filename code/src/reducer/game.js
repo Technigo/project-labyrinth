@@ -37,7 +37,7 @@ export const generateLabyrinth = () => {
       .then((data) => {
         dispatch(game.actions.setCurrentLocation(data))
       })
-      .finally(() => dispatch(ui.actions.setLoading(false)))
+      .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000))
   }
 }
 
@@ -61,8 +61,8 @@ export const generateMoves = (direction) => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setCurrentLocation(data))
-        dispatch(ui.actions.setLoading(false))
       })
+      .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 1500))
   }
 }
 export default game
