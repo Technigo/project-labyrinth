@@ -73,6 +73,8 @@ const Input = styled.input`
   }
 `
 export const StartBtn = styled.button`
+  font-family: 'Amatic SC', cursive;
+  font-size: 18px;
   border-style: outset;
   height: 60px;
   width: 80px;

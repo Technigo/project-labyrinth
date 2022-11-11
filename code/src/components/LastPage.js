@@ -39,5 +39,4 @@ width: 140px;
 text-align: center;
 justify-content: center;
 align-items: center;
-color: black;
 `
