@@ -1,30 +1,25 @@
 import styled, { createGlobalStyle } from 'styled-components/macro';
 
 export const GlobalStyles = createGlobalStyle`
-  html {
+  :root {
     --pink: #fd616b;
     --orange: #ffa46b;
     --lightYellow: #fff6cf;
     --purple: #683449;
     --lightPink: #ffe0d3;
-    font-family: 'Press Start 2P', cursive;
-    color: var(--purple);
   }
 
   body {
     background-color: var(--lightPink);
     max-width: 1024px;
     margin: 0 auto;
+    font-family: 'Press Start 2P', cursive;
+    color: var(--purple);
   }
 
 
   h1 {
     font-size: 1rem;
-
-    @media (min-width: 668px) and (max-width: 1023px){
-
-      font-size: 1.5rem;
-    }
 
     @media (min-width: 1024px){
       font-size: 1.5rem;
@@ -33,29 +28,20 @@ export const GlobalStyles = createGlobalStyle`
 
   h2 {
     font-size: 1rem;
-
-    @media (min-width: 668px) and (max-width: 1023px){
-      font-size: 1rem;
-    }
-
-    @media (min-width: 1024px){
-    }
   }
 
   h3 {
     font-size: 0.6rem;
-
-    @media (min-width: 668px) and (max-width: 1023px){
-      font-size: 1rem;
-    }
+    line-height: 1rem;
 
     @media (min-width: 1024px){
+      font-size: 1rem;
     }
   }
 
   p{
-    
     line-height: 1rem;
+    font-size: 0.5rem;
 
     @media (min-width: 668px) and (max-width: 1023px){
       font-size: 0.8rem;
@@ -72,6 +58,7 @@ export const GlobalStyles = createGlobalStyle`
     border: 4px solid var(--purple);
     line-height: 2rem;
     margin: 10px;
+    text-align: center;
 
     ::placeholder{
       font-family: 'Press Start 2P', cursive;
@@ -106,6 +93,10 @@ export const DuckContainer = styled.div`
     grid-template-columns: 120px auto ;
     margin: 30px auto;
     padding: 0 10% 0 10%;
+
+    p{
+    line-height: 30px;
+    }
   }
   `
 
@@ -116,8 +107,8 @@ export const Button = styled.button`
   font-size: 0.5rem;
   cursor: pointer;
   border: 4px solid var(--purple);
-  background-color: #fd616b;
-  background-image: linear-gradient(62deg, #fd616b 0%, #ffa46b 36%, #fff6cf 82%);
+  background-color: var(--pink);
+  background-image: linear-gradient(62deg, var(--pink) 0%, var(--orange) 36%, var(--lightYellow) 82%);
   padding: 10px 15px;
   margin: 20px;
   box-shadow: 6px 5px 0px 0px rgba(0,0,0,0.65);
@@ -133,10 +124,3 @@ export const Button = styled.button`
   }
   
 `
-
-/*  @media (min-width: 668px) and (max-width: 1023px){
-  }
-
-  @media (min-width: 1024px){
-  }
-  */
