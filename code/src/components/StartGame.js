@@ -22,16 +22,12 @@ export const StartGame = () => {
   }
 
   return (
-    <section>
-      <div>
-        <GameContainer>
-          <GameHeader />
-        </GameContainer>
-
-        <h1>Hi</h1>
-        <h2>welcome</h2>
-        <p>who are you?</p>
-        <input
+    <GameContainer>
+      <h1>Hi</h1>
+      <h2>welcome</h2>
+      <p>who are you?</p>
+      <InputAndStart>
+        <InputField
           type="text"
           value={userName}
           onChange={onInputUserName}
@@ -42,12 +38,24 @@ export const StartGame = () => {
           disabled={userName.length === 0}>
             Start
         </button>
-      </div>
-    </section>
+      </InputAndStart>
+    </GameContainer>
   )
 };
 
 export const GameContainer = styled.div`
+display: flex;
+flex-direction: column;
+`;
+
+export const InputAndStart = styled.div`
+display: flex;
+`;
+
+export const InputField = styled.input`
+outline: 2px dashed #0F887D;
+border: none;
+border-radius: 3px;
 `;
 
 export const GameHeader = styled.h1`

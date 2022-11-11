@@ -9,28 +9,43 @@ export const PlayingGame = () => {
 
   console.log(data.actions)
   return (
-    <>
-      <GameContainer>
-        <GameHeader />
-      </GameContainer>
-      <p key={data.description}>
+    <GameContainer>
+      <GameDescription key={data.description}>
         {/* DESCRIPTION: */} {data.description}
-      </p>
-      <div key={actions.actions}> {/* ACTIONS: */}{data.actions.map((location) => {
+      </GameDescription>
+      <GameActions key={actions.actions}>  {/* ACTIONS: */}{data.actions.map((location) => {
         return (
           <div key={uniqid()}>
             <p>{location.description}</p>
           </div>
         );
       })}
-      <p>Where do you want to go?</p>
-      </div>
-    </>
+      <GameQuestion>Where do you want to go?</GameQuestion>
+      </GameActions>
+    </GameContainer>
   )
-}
+};
 
 export const GameContainer = styled.div`
+background-color: whitesmoke;
+opacity: 0.8;
+font-size: 12px;
+padding: 5px 10px;
+border-radius: 10px;
 `;
 
 export const GameHeader = styled.h1`
+`;
+
+export const GameDescription = styled.p`
+font-style: italic;
+`;
+
+export const GameActions = styled.p`
+font-style: bold;
+`;
+
+export const GameQuestion = styled.p`
+font-weight: bold;
+text-align: center;
 `;
