@@ -6,7 +6,7 @@ export const OuterWrapper = styled.main`
   display: flex;
   align-items:center;
   justify-content: center;
-  background-color: #a1d19b;
+  background-color: #384238;
   height: 100vh;
   background-image: url(${Background});
   background-size: cover;
@@ -16,7 +16,7 @@ export const OuterWrapper = styled.main`
 `
 
 export const InnerWrapper = styled.section`
- width: 75%;
+ width: 85%;
 
   @media (min-width: 668px) {
     width: 75%;
@@ -33,7 +33,7 @@ export const CardContainer = styled.div`
     margin-top: 40px;
     padding: 20px;
     border-radius: 6px;
-    box-shadow: 0px 0px 7px 0px #888888;
+    box-shadow: 0 0 50px #90ac8e;
     height: 80vh;
     font-size: 17px;
     overflow: auto;
@@ -45,7 +45,7 @@ export const CardContainer = styled.div`
     justify-content: flex-start;
 
     @media (min-width: 668px) {
-    height: 61vh;
+    height: 60vh;
   }
     
 `

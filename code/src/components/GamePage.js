@@ -11,12 +11,7 @@ export const GamePage = () => {
   const username = useSelector((store) => store.maingame.username);
   const actions = useSelector((store) => store.maingame.gameProps.actions);
   const isLoading = useSelector((store) => store.loading.isLoading);
-  // const stepHistory = useSelector((state) => state.maingame.history);
   const dispatch = useDispatch()
-  /* const onStepHistoryBack = () => {
-    dispatch(maingame.actions.setGoBack());
-  };
-  */
 
   if (isLoading) {
     return <LoadingPage />
@@ -122,5 +117,4 @@ const StyledButtonGame = styled(StyledButton)`
 The button will dispatch the second fetch thunk which will do the coming fetches with the next set
 of instructions to show the user: for this fetch we need to send an object including the username,
 type="move" and the direction the user chose so we send that data as a prop to the reducer
-
 */

@@ -67,6 +67,11 @@ const UserNameInputField = styled.input`
   margin-bottom:20px;
   padding: 10px;
   font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 0 10px #90ac8e;
+
+  @media (min-width: 668px) {
+    width: 300px;
+  }
 `
 const WelcomeTitle = styled.h1`
   font-size: 40px;

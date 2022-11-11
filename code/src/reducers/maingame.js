@@ -9,8 +9,7 @@ export const maingame = createSlice({
     gameProps: {
       coordinates: '',
       description: '',
-      actions: [],
-      history: []
+      actions: []
     }
   },
   reducers: {
@@ -20,16 +19,9 @@ export const maingame = createSlice({
     setUsername: (state, action) => {
       state.username = action.payload;
     }
-    /* historyGoBack: (state) => {
-      if (state.history.length > 1) {
-        state.gameProps = state.history[state.history.length - 1];
-        state.history = state.history.slice(0, state.history.length - 1);
-      } */
-
   }
 
 });
-// add gameOver: false in initialState?
 
 export const fetchGameStart = () => {
   return (dispatch, getState) => {
@@ -72,9 +64,3 @@ export const fetchGameStep = (type, direction) => {
       .finally(() => dispatch(loading.actions.setLoading(false)))
   }
 }
-
-/*
-This POST request needs a JSON body (like the /start request) containing the same username you started the game with.
-In addition, your JSON body will specify what action was done by the player:
-type - the type of action (currently only move)
-direction - the direction to move */
