@@ -6,7 +6,6 @@ import animationData from '../lotties/swords';
 
 const LoadingPage = () => {
   const loading = useSelector((store) => store.ui.loading)
-  
   const defaultOptions = {
     loop: true,
     autoplay: true,

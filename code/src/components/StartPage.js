@@ -16,43 +16,40 @@ const StartPage = () => {
     dispatch(game.actions.setUsername(username))
     dispatch(fetchStart());
   };
-  
-return (
-  <Background>
-  <GameCard 
-    title="Welcome Adventurer!"
-    secondaryTitle="Please give us your name to enter the doungeon."
-    >
-  <form onSubmit={onFormSubmit}>
-    <label>
-      <Input 
-      id="user-input" 
-      type="text" 
-      onChange={(e) => setUsername(e.target.value)} 
-      placeholder="Name, here goes young padawan."
-      required=" "
-      autoComplete="off" 
-      />
-    </label>
-    <StartBtn type="submit">Begin</StartBtn> 
-  </form>
-  </GameCard>
-  </Background>
-)
+
+  return (
+    <Background>
+      <GameCard
+        title="Welcome Adventurer!"
+        secondaryTitle="Please give us your name to enter the doungeon.">
+        <form onSubmit={onFormSubmit}>
+          <label>
+            <Input
+              id="user-input"
+              type="text"
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Enter Name Here"
+              required=" "
+              autoComplete="off" />
+          </label>
+          <StartBtn type="submit">Begin</StartBtn>
+        </form>
+      </GameCard>
+    </Background>
+  )
 }
 
 export default StartPage;
 
 export const Background = styled.div`
-background-image: url(${mountain});
-background-position: center;
+  background-image: url(${mountain});
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
 `
-
 const Input = styled.input`
- margin: 2vh 2vw;
+  margin: 2vh 2vw;
   padding: 1rem;
   font-size: 13px; 
   width: 30vw;
@@ -62,8 +59,7 @@ const Input = styled.input`
   font-family: "Raleway", sans-serif;
   border: none;
   box-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #fff1a8, 
-0 0 82px #fff1a8, 0 0 92px #fff1a8, 0 0 102px #fff1a8, 0 0 151px #fff1a8;
-  /* 2px 3px 4px #f7f5e1; */
+   0 0 82px #fff1a8, 0 0 92px #fff1a8, 0 0 102px #fff1a8, 0 0 151px #fff1a8;
   border-radius: 5px;
   color: #000;
 
@@ -76,17 +72,19 @@ const Input = styled.input`
     width: 25vw;
   }
 `
-
-const StartBtn = styled.button`
-border-style: outset;
+export const StartBtn = styled.button`
+  border-style: outset;
   height: 60px;
   width: 80px;
   margin: 20px;
   padding: 20px;
   display: inline-block;
-  background-color: #A58AAB;
+  background-color: #384E73;
   border-width: 5px;
+  border-color: #4A6696;
   box-sizing: border-box;
   border-radius: 5%;
   cursor: pointer;
+  box-shadow: 8px 8px 8px #5677B0;
+  color: #f7f5e1;
 `

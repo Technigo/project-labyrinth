@@ -7,22 +7,22 @@ import LastPage from './LastPage';
 
 const MainPage = () => {
   const loading = useSelector((store) => store.ui.loading);
-  
+
   const currentPosition = useSelector((store) => {
     return store.game.currentPosition;
   });
-
 
   return (
     <>
       {loading && <LoadingPage />}
       {!loading && (
-      <div>{currentPosition
-      ? currentPosition.actions.length !== 0
-      ? <Game />
-      : <LastPage />
-      : <StartPage />}
-      </div>)}
+        // eslint-disable-next-line no-nested-ternary
+        <div>{currentPosition
+          ? currentPosition.actions.length !== 0
+            ? <Game />
+            : <LastPage />
+          : <StartPage />}
+        </div>)}
     </>
   );
 };

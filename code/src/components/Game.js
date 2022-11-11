@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/button-has-type */
 import React from 'react';
@@ -6,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchAction } from 'reducers/game';
 import styled from 'styled-components/macro'
 import { GameCard } from './StyledComponents'
-import { Background } from './StartPage';
+import { Background, StartBtn } from './StartPage';
 import tree from '../assets/tree.jpeg'
 
 const Game = () => {
@@ -29,7 +28,7 @@ const Game = () => {
               <p>{action.description}</p>
               <ActionButton
                 onClick={() => onAction(action)}>
-                {action.direction.toLowerCase()}
+                {action.direction.toUpperCase()}
               </ActionButton>
             </DescInnerContainer>
           ))}
@@ -41,30 +40,20 @@ const Game = () => {
 
 export default Game;
 
-const ActionButton = styled.button`
-border-style: outset;
-height: 60px;
-width: 80px;
-margin: 20px;
-padding: 20px;
-display: inline-block;
-background-color: #A58AAB;
-border-width: 5px;
-box-sizing: border-box;
-border-radius: 5%;
-cursor: pointer;
+const ActionButton = styled(StartBtn)`
+  background-color: #344525;
+  border-color: #5C7A42;
+  box-shadow: 8px 10px 12px #688A4A;
 `
 const ClonedBackground = styled(Background)`
 background-image: url(${tree});
 `
-
 const DescriptContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
   align-items: stretch;
   text-align: center;
-  /* overflow: scroll; */
 `
 const DescInnerContainer = styled.div`
   display: flex;
