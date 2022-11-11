@@ -20,7 +20,7 @@ const StartPage = () => {
   return (
     <Background>
       <GameCard
-        title="Welcome Adventurer!"
+        startTitle="Welcome Adventurer!"
         secondaryTitle="Please give us your name to enter the doungeon.">
         <form onSubmit={onFormSubmit}>
           <label>
@@ -28,7 +28,7 @@ const StartPage = () => {
               id="user-input"
               type="text"
               onChange={(e) => setUsername(e.target.value)}
-              placeholder="Enter Name Here"
+              placeholder="Enter Name"
               required=" "
               autoComplete="off" />
           </label>
@@ -50,13 +50,13 @@ export const Background = styled.div`
 `
 const Input = styled.input`
   margin: 2vh 2vw;
-  padding: 1rem;
+  padding: 9px;
   font-size: 13px; 
   width: 30vw;
   background-color: inherit;
   display: inline-block;
   transition: all 0.3s;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Uncial Antiqua', cursive;
   border: none;
   box-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #fff1a8, 
    0 0 82px #fff1a8, 0 0 92px #fff1a8, 0 0 102px #fff1a8, 0 0 151px #fff1a8;
@@ -64,7 +64,13 @@ const Input = styled.input`
   color: #000;
 
   &[type=text]{
-    color: rgb(225, 203, 134);;
+    color: rgb(225, 203, 134);
+    font-family: 'Uncial Antiqua', cursive;
+    font-size: 18px;
+
+    @media (min-width: 768px) {
+      font-size: 20px;
+    }
   }
 
   @media (min-width: 768px) {
@@ -73,18 +79,16 @@ const Input = styled.input`
   }
 `
 export const StartBtn = styled.button`
-  font-family: 'Amatic SC', cursive;
-  font-size: 18px;
+  font-family: 'Uncial Antiqua', cursive;
+  font-size: 15px;
   border-style: outset;
   height: 60px;
   width: 80px;
   margin: 20px;
-  padding: 20px;
   display: inline-block;
   background-color: #384E73;
   border-width: 5px;
-  border-color: #4A6696;
-  box-sizing: border-box;
+  border-color: #4A6696;  
   border-radius: 5%;
   cursor: pointer;
   box-shadow: 8px 8px 8px #5677B0;

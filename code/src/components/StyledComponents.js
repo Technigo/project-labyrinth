@@ -22,7 +22,8 @@ const CardContainer = styled.div`
   border-radius: 15px;
   padding: 20px;
   background: rgba(0, 0, 0, 0.8);
-  color: #f7f5e1;
+  color: #e8dba6;
+  overflow: scroll;
 
   @media (min-width: 768px) {
     flex-direction: column;
@@ -34,24 +35,27 @@ const CardContainer = styled.div`
 const Title = styled.h1`
   margin: 0;
   font-size: 24px;
+  font-family: 'Milonga', cursive;
 `
 const SecondaryTitle = styled.p`
   margin: 0;
-  color: #6b6b6b;
+  color: #f7f5e1;
   font-size: 25px;
+  font-family: 'Darker Grotesque', sans-serif;
+`
+const StartTitle = styled.h1`
+  font-family: 'Uncial Antiqua', cursive;
+  margin: 0;
+  font-size: 30px;
 `
 const TestChild = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
 
 `
 
-export const GameCard = ({ title, secondaryTitle, children }) => (
+export const GameCard = ({ startTitle, title, secondaryTitle, children }) => (
   <Card>
     <CardContainer>
+      {startTitle && <StartTitle>{startTitle}</StartTitle>}
       {title && <Title>{title}</Title>}
       {secondaryTitle && <SecondaryTitle>{secondaryTitle}</SecondaryTitle>}
       {children && <TestChild>{children}</TestChild>}
