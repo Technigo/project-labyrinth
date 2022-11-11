@@ -1,10 +1,8 @@
 /* eslint-disable react/jsx-no-useless-fragment */
-/* eslint-disable object-shorthand */
 import React from 'react';
 import { useSelector } from 'react-redux';
-// import Lottie from 'lottie-react-native';
 import styled from 'styled-components';
-// import animationData from '../Lottie/lottiestars'
+import loading from '../LoadingImage/Spinner.gif'
 
 export const LoadingPage = () => {
   const isLoading = useSelector((store) => store.loading.isLoading)
@@ -14,7 +12,7 @@ export const LoadingPage = () => {
       {isLoading && (
         <LoadingWrapper>
           <div>
-            <p> loading </p>
+            <LoadingImage src={loading} alt="" />
           </div>
         </LoadingWrapper>
       )}
@@ -23,23 +21,13 @@ export const LoadingPage = () => {
 }
 
 const LoadingWrapper = styled.section`
-
+  text-align: center;
 
 `
+const LoadingImage = styled.img`
+  width: 50%;
 
-/*
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice'
-    }
-  };
-
-{isLoading && (
-        <LoadingWrapper>
-          <div>
-            <Lottie options={defaultOptions} />
-          </div>
-        </LoadingWrapper> */
+@media (min-width: 668px) {
+    width: 40%;
+  }
+`

@@ -19,7 +19,7 @@ export const InnerWrapper = styled.section`
  width: 75%;
 
   @media (min-width: 668px) {
-    width: 65%;
+    width: 75%;
   }
   @media (min-width: 1025px){ 
     width: 60%;
@@ -41,11 +41,11 @@ export const CardContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
+    justify-content: flex-start;
 
     @media (min-width: 668px) {
-    height: 70vh;
+    height: 61vh;
   }
     
 `

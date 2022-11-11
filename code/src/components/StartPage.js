@@ -7,6 +7,7 @@ import { fetchGameStart, maingame } from 'reducers/maingame';
 import styled from 'styled-components';
 import { GamePage } from './GamePage';
 import { LastPage } from './LastPage';
+import mazePicture from '../images/simple-maze.png'
 
 export const StartPage = () => {
   const [usernameInput, setUserNameInput] = useState('')
@@ -29,6 +30,9 @@ export const StartPage = () => {
   return (
     <CardContainerStart>
       <WelcomeTitle> Welcome to the Labyrinth!</WelcomeTitle>
+
+      <MazePic src={mazePicture} alt="maze" />
+
       <UserNameInput> Choose your username:</UserNameInput>
       <form onSubmit={onFormSubmit}>
         <UserNameInputField
@@ -56,19 +60,30 @@ const CardContainerStart = styled(CardContainer)`
 
 const UserNameInput = styled.p`
 font-size:20px;
+font-family: 'Montserrat', sans-serif;
 `
 
 const UserNameInputField = styled.input`
-  margin-bottom:10px;
+  margin-bottom:20px;
   padding: 10px;
+  font-family: 'Montserrat', sans-serif;
 `
 const WelcomeTitle = styled.h1`
   font-size: 40px;
   font-family: 'Caveat', cursive;
+  margin-bottom: 20px;
 
   @media (min-width: 668px) {
     font-size: 55px;
   }
+`
+
+const MazePic = styled.img`
+width: 15%;
+
+@media (max-width: 1027px) {
+  width: 25%;
+}
 `
 
 /* The start game button triggers the first fetch thunk to fetch the first set of instructions
