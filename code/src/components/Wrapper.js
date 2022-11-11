@@ -6,7 +6,6 @@ import StartPage from './StartPage';
 import { useSelector } from 'react-redux';
 import { Loading } from './Loading';
 import Labyrinth from './Labyrinth';
-
 import start from '../Images/Start.png';
 import zeroPointZero from '../Images/0.0.png';
 import zeroPointOne from '../Images/0.1.png';
@@ -18,7 +17,6 @@ import end from '../Images/End.png';
 
 const Wrapper = () => {
     const { coordinates } = useSelector((store) => store.game.currentDirection)
-    //const gameData = useSelector((store) => store.game.currentDirection)
     const isLoading = useSelector((store) => store.ui.isLoading)
 
     const setBackgroundImage = () => {

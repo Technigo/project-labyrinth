@@ -11,7 +11,7 @@ const StartPage = () => {
     const [userName, setUserName] = useState('')
     const dispatch = useDispatch();
 
-    const test = () => {
+    const onAction = () => {
         console.log(userName)
         dispatch(game.actions.setUserName(userName))
         dispatch(fetchTheGame())
@@ -19,7 +19,7 @@ const StartPage = () => {
     }
 
     return (
-        <div>
+        
             <OuterWrapper>
                 <InnerWrapper>
                     <TextWrapper>
@@ -33,11 +33,11 @@ const StartPage = () => {
                     </TextWrapper>
                     <Button 
                     type="submit" 
-                    onClick={test}> Let’s go </Button>
+                    onClick={onAction}> Let’s go </Button>
                     <Footer />
                 </InnerWrapper>
             </OuterWrapper>
-       </div>
+       
     )
 }
 

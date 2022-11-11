@@ -10,12 +10,12 @@ const initialState = {
 }
 
 export const game = createSlice({
-    name:'game', // do we need to have the same name ?
+    name:'game', 
     initialState,
     reducers: {
         setUserName: (store, actions) => {
             store.username = actions.payload
-            // connect username to unique ID
+            // Next step is to connect username to unique ID
         },
         setCurrentDirection: (store, actions) => {
             store.currentDirection = actions.payload
@@ -68,4 +68,4 @@ export const contiuneGame = (type, direction) => {
 }
 
 
-// fetch link https://labyrinth.technigo.io/start
+
