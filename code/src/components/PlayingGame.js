@@ -6,8 +6,8 @@ import uniqid from 'uniqid'
 export const PlayingGame = () => {
   const data = useSelector((store) => store.game.location);
   const actions = useSelector((store) => store.game.step);
-
   console.log(data.actions)
+
   return (
     <GameContainer>
       <GameDescription key={data.description}>
