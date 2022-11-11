@@ -21,7 +21,7 @@ font-size:8px;
 font-weight:bold;
 padding:12px 4px;
 text-decoration:none;
-}
+
 :hover {
 background:linear-gradient(to bottom, #8b7bb4 5%, #e2dae8 100%);
 background-color:#8b7bb4;
