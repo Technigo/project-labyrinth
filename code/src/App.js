@@ -3,7 +3,10 @@ import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import game from 'reducers/game';
 import Wrapper from 'components/Wrapper';
+
 import { GameWrapper } from './components/styled/GameWrapper.styled';
+import 'nes.css/css/nes.min.css';
+
 
 export const App = () => {
   const reducer = combineReducers({
