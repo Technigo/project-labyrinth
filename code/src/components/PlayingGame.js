@@ -8,23 +8,27 @@ import complete from 'lotties/complete'
 export const PlayingGame = () => {
   const data = useSelector((store) => store.game.location);
   const actions = useSelector((store) => store.game.step);
-  // const coordinates = useSelector((store) => store.game.coordinates);
-  console.log(data.coordinates)
 
   return (
     <GameContainer>
+      {/* This makes the description of current location in the game show */}
       <GameDescription key={data.description}>
-        {/* DESCRIPTION: */} {data.description}
+        {data.description}
       </GameDescription>
-      <GameActions key={actions.actions}>  {/* ACTIONS: */}{data.actions.map((location) => {
-        return (
-          <div key={uniqid()}>
-            <p>{location.description}</p>
-          </div>
-        );
-      })}
-      {data.actions.length > 0 && <GameQuestion>Where do you want to go?</GameQuestion>}
+      {/* This makes the text with available actions in the game show */}
+      <GameActions key={actions.actions}>
+        {data.actions.map((location) => {
+          return (
+            <div key={uniqid()}>
+              <p>{location.description}</p>
+            </div>
+          );
+        })}
+        {/* This makes the question dissappear when you reach the goal */}
+        {data.actions.length > 0 && <GameQuestion>Where do you want to go?</GameQuestion>}
       </GameActions>
+      {/* This line makes the winner-animation and winner-text show only in the last page,
+       when you reach the goal. */}
       {data.actions.length === 0 && <><Lottie loop className="animation" animationData={complete} /><WinText>YOU WIN!</WinText></>}
     </GameContainer>
   )

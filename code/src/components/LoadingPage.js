@@ -1,10 +1,9 @@
-// FROM CODE SANDBOX:
-
 import React from 'react';
 import Lottie from 'lottie-react';
 import styled from 'styled-components'
 import LoadingDots from 'lotties/loading';
 
+// Loading component rendered when isLoading=true
 export const LoadingPage = () => {
   const defaultOptions = {
     loop: true,
@@ -15,6 +14,7 @@ export const LoadingPage = () => {
     }
   };
 
+  // Lottie-animation from json-file showing three jumping dots when loading
   return (
     <LoadingOuterWrapper>
       <LoadingPageWrapper>

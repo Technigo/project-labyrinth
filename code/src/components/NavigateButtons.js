@@ -4,20 +4,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { navigateGame, game } from '../reducers/game'
 
 export const NavigateButtons = () => {
-  // const data = useSelector((store) => store.game.location);
-  // const actions = useSelector((store) => store.game.step);
   const userName = useSelector((store) => store.game.userName)
   const dispatch = useDispatch();
-
-  // const directionAlternatives = useSelector(
-  //   (store) => store.game.data.actions.map((item) => item.direction)
-  // )
 
   const onClick = (direction) => {
     dispatch(game.actions.setStep(direction))
     dispatch(navigateGame(userName, direction))
-    console.log(direction)
   }
+
+  // Navigation buttons styled to look like they are a part of the game controller.
+  // Used grid to put the buttons in the right place.
 
   return (
     <ButtonContainer>
@@ -26,7 +22,6 @@ export const NavigateButtons = () => {
         type="button"
         value="North"
         onClick={(e) => onClick(e.target.value)}>
-        {/* disabled={!data.actions.includes('North')} */}
   ↑ N
       </BtnN>
 
@@ -35,7 +30,6 @@ export const NavigateButtons = () => {
         type="button"
         value="West"
         onClick={(e) => onClick(e.target.value)}>
-        {/* disabled={!directionAlternatives.includes('West')}> */}
   W ←
       </BtnW>
 
@@ -44,7 +38,6 @@ export const NavigateButtons = () => {
         type="button"
         value="East"
         onClick={(e) => onClick(e.target.value)}>
-        {/* disabled={!directionAlternatives.includes('East')}> */}
   E →
       </BtnE>
 
@@ -53,7 +46,6 @@ export const NavigateButtons = () => {
         type="button"
         value="South"
         onClick={(e) => onClick(e.target.value)}>
-        {/* disabled={!directionAlternatives.includes('South')}> */}
   S ↓
       </BtnS>
       <Middle />

@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ui } from './ui'
 
-// Dont put anything dependant on the api inside here://
 export const game = createSlice({
   name: 'game',
   initialState: {
@@ -28,14 +27,10 @@ export const game = createSlice({
     setCoordinates: (store, action) => {
       store.coordinates = action.payload
     }
-    // restartGame: (store) => {
-    //   store.location = ''
-    //   store.username = ''
-    // }
   }
 });
 
-// First thunk
+// First thunk, to start the game
 
 export const fetchGame = () => {
   return (dispatch, getState) => {
@@ -59,7 +54,7 @@ export const fetchGame = () => {
   }
 }
 
-// Second thunk
+// Second thunk, to proceed in the game
 
 export const navigateGame = () => {
   return (dispatch, getState) => {
