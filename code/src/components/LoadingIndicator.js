@@ -13,14 +13,17 @@ export const LoadingIndicator = () => {
 const LoadingWrap = styled.div`
   min-height: 100vh;
   padding-top: 3rem;
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  font-size: 20px;
 `
 
 // EXAMPLE ANIMATION:
 const Loader = styled.div`
-  margin-top: 4rem;
+  margin-top: 5rem;
   border-radius: 20%;
-  border-top: 14px solid rgb(228, 35, 93);
-  border-bottom: 14px solid rgb(228, 35, 93);
+  border-top: 14px ridge lightgray;
+  border-bottom: 14px ridge lightgray;
   width: 100px;
   height: 150px;
   -webkit-animation: spin 2s infinite;

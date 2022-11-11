@@ -15,11 +15,11 @@ export const Game = () => {
     <GameWrapper>
       <TextBackground><h2>{description}</h2></TextBackground>
       {endOfGame && (
-        <button
+        <ReloadBtn
           type="button"
           onClick={() => window.location.reload()}>
         Play again
-        </button>
+        </ReloadBtn>
       )}
       {list.map((choice) => (
         <div key={list.indexOf(choice)}>
@@ -46,11 +46,16 @@ const Description = styled.div`
 
   p {
     font-size: 20px;
+    font-family: 'Roboto', sans-serif;
   }
 `
 
 const TextBackground = styled(Description)`
 margin-bottom: 60px;
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+}
 `
 
 const GameWrapper = styled.section`
@@ -58,6 +63,7 @@ const GameWrapper = styled.section`
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  align-items: center;
 `
 
 const DirectionBtn = styled.button`
@@ -68,4 +74,18 @@ const DirectionBtn = styled.button`
   padding: 10px;
   margin: 8px 0;
   font-size: 16px;
+  font-family: 'Orbitron', sans-serif;
+`
+
+const ReloadBtn = styled.button`
+display: block;
+width: 50%;
+  margin: 1rem;
+  padding: 0.5rem;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px 18px;
+  margin: 8px 0;
+  font-size: 16px;
+  font-family: 'Orbitron', sans-serif;
 `
