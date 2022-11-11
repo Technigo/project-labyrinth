@@ -65,6 +65,29 @@ function coordsToMap(coords) {
   return './assets/images/fallback.jpg'
 }
 
+const DirectionButton = ({ direction, isAvailable, handleOnClick }) => {
+  if (isAvailable) {
+    return (
+      <NavButton
+        type="button"
+        title={`Go ${direction}`}
+        onClick={() => handleOnClick(direction)}>
+        {direction.charAt(0)}
+      </NavButton>
+    )
+  }
+
+  return (
+  // Return disabled button if not available
+    <NavButton
+      disabled
+      type="button"
+      title="This move is not possible here">
+      {direction.charAt(0)}
+    </NavButton>
+  )
+}
+
 const DirectionInput = ({ actions }) => {
   // Get actions from API
   console.log('actions', actions)
@@ -74,39 +97,39 @@ const DirectionInput = ({ actions }) => {
     dispatch(generateNextDescription(direction));
   }
 
-  const allDirections = ['North', 'West', 'East', 'South']
-
-  const availableActions = {}
+  const availableMoves = {}
   // eslint-disable-next-line array-callback-return
   actions.map((action) => {
-    availableActions[action.direction] = action
+    availableMoves[action.direction] = action
   })
 
-  console.log('availableActions', availableActions)
+  console.log('availableMoves', availableMoves)
 
   return (
     <ChooseDirectionWrapper>
-      {allDirections.map((direction) => (
-        // Loop over all actions returned by the API, render a button for each
-        <div key={direction}>
-          {availableActions[direction] ? (
-            <NavButton
-              type="button"
-              title={`Go ${direction}`}
-              onClick={() => handleOnClick(direction)}>
-              {direction.charAt(0)}
-            </NavButton>
-          ) : (
-            // Return disabled button if not available
-            <NavButton
-              disabled
-              type="button"
-              title="This move is not possible here">
-              {direction.charAt(0)}
-            </NavButton>
-          )}
+      <p style={{ fontWeight: 'bold' }}>Choose direction</p>
+
+      <div style={{ display: 'grid' }}>
+        <div />
+        <div>
+          <DirectionButton direction="North" isAvailable={availableMoves.North} handleOnClick={handleOnClick} />
         </div>
-      ))}
+        <div />
+
+        <div>
+          <DirectionButton direction="West" isAvailable={availableMoves.West} handleOnClick={handleOnClick} />
+        </div>
+        <div />
+        <div>
+          <DirectionButton direction="East" isAvailable={availableMoves.East} handleOnClick={handleOnClick} />
+        </div>
+
+        <div />
+        <div>
+          <DirectionButton direction="South" isAvailable={availableMoves.South} handleOnClick={handleOnClick} />
+        </div>
+        <div />
+      </div>
     </ChooseDirectionWrapper>
   )
 }
