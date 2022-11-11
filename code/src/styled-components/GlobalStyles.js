@@ -13,6 +13,8 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     background-color: var(--lightPink);
+    max-width: 1024px;
+    margin: 0 auto;
   }
 
 
