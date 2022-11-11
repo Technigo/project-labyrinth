@@ -11,20 +11,39 @@ export const GlobalStyles = createGlobalStyle`
    }
 
    body {
-      background: #f1f1f1;
+      background: url('https://images.unsplash.com/photo-1464809142576-df63ca4ed7f0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80');
+      background-size: auto;
+
+      @media (min-width: 1280px) {
+        background: url('https://images.unsplash.com/photo-1464809064666-ef22abde2569?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
+        background-size: cover;
+    }
+  }
+
+  main {
+    position: relative;
   }
 
 `
 
-export const MainContainer = styled.section`
-    position: relative;
-    margin: 5rem;
-`
-
 export const GameWrapper = styled.div`
-    padding: 50px;
+    margin: 20vw;
+    padding: 20px;
     display: flex;
     flex-direction: column;
+    background: #2a53575c;
+    text-align: center;
     align-items: center;
+
+
+    h1 {
+        font-size: 1.2rem;
+        color: #fff;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
 
 `

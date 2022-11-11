@@ -5,12 +5,12 @@ import { v4 as uuidv4 } from 'uuid';
 const initialState = {
   currentDirection: null,
   userName: '',
-  description: null,
-  direction: null,
-  moves: null,
+  description: '',
+  direction: '',
+  moves: '',
   history: [],
   loading: false,
-  coordinates: []
+  coordinates: ''
 }
 
 export const labyrinth = createSlice({
@@ -51,7 +51,7 @@ export const labyrinth = createSlice({
       console.log(action)
       if (store.history.length) {
         store.direction = store.history[store.history.length - 1]
-        store.history = store.history.slice(0, store.history.length - 1)
+        store.history = store.history.pull(store.history.length - 1)
       }
     },
 

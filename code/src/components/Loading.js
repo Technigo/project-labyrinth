@@ -1,11 +1,16 @@
 /* eslint-disable linebreak-style */
 import React from 'react'
-import { MainContainer } from 'Globalstyles';
+import { GameWrapper } from 'Globalstyles';
+import { Pulsar } from '@uiball/loaders'
 
 export const Loading = () => {
   return (
-    <MainContainer>
-      <h1> loading</h1>
-    </MainContainer>
+    <GameWrapper>
+      <Pulsar
+        size={100}
+        speed={1.75}
+        color="white" />
+    </GameWrapper>
   )
 };
+

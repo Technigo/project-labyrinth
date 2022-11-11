@@ -5,6 +5,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { labyrinth } from 'reducers/labyrinth';
 import { FirstScreen } from 'components/FirstScreen'
 import { GlobalStyles } from 'Globalstyles';
+import { Loading } from 'components/Loading'
 
 export const App = () => {
   const reducer = combineReducers({
@@ -19,6 +20,7 @@ export const App = () => {
     <Provider store={store}>
       <GlobalStyles />
       <FirstScreen />
+      <Loading />
     </Provider>
   );
 }
