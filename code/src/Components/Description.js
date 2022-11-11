@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux';
 import { generateNextDescription } from 'reducers/game';
-import Wrapper from './Wrapper';
 import Button from './Button';
 
 function coordsToBackgroundImage(coords) {
@@ -79,19 +78,19 @@ const Description = () => {
   const bgImage = coordsToBackgroundImage(description.coordinates);
 
   return (
-    <DescriptionContainer bgImage={bgImage}>
-      <Wrapper>
-        <MapWrapper>The Maze</MapWrapper>
+    <GameWrapper bgImage={bgImage}>
+      <Map>The Maze</Map>
+      <DescriptionWrapper>
         <DescriptionText>{description.description}</DescriptionText>
         <DirectionInput
           actions={description.actions} />
-      </Wrapper>
-    </DescriptionContainer>
+      </DescriptionWrapper>
+    </GameWrapper>
   );
 }
 export default Description;
 
-const MapWrapper = styled.div`
+const Map = styled.div`
 color: white;
 position: absolute;
 top: 40px;
@@ -99,24 +98,33 @@ right: 40px;
 font-size: 1.5em;
 `
 
-const DescriptionContainer = styled.section`
+const DescriptionWrapper = styled.div`
+border: solid 2px hotpink;
+margin-top: 300px;
+
+@media (min-width: 667px) and (max-width: 1024px) {
+      width: 60%;
+    }
+    @media (min-width: 1025px) {
+      width: 40%;
+    }
+`
+
+const GameWrapper = styled.section`
 border: solid 2px blue;
 display: flex;
-flex-direction: column;
-justify-content: center;
 background-image: url(${(props) => props.bgImage});
 /* background-image: url('/assets/images/image_3.jpg'); */
 min-height: 100vh;
 background-size: cover;
-background-position: top center;
 color: white;
 `
 
 const DescriptionText = styled.div`
 border: solid 2px green;
 color: white;
-margin-top: 330px;
 `
+
 const ChooseDirectionWrapper = styled.div`
 border: solid 2px red;
 display: grid;
