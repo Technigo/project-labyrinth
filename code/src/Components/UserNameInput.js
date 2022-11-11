@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import game, { generateDescription } from 'reducers/game';
 import styled from 'styled-components/macro'
-import Button from './Button';
+import { StartButton } from './Buttons';
 import Header from './Header';
 import Wrapper from './Wrapper';
 
@@ -44,10 +44,9 @@ const UserNameInput = () => {
                 required
                 // eslint-disable-next-line jsx-a11y/no-autofocus
                 autoFocus
-                onChange={(event) => setUserNameInputValue(event.target.value)}
-                placeholder="User name..." />
+                onChange={(event) => setUserNameInputValue(event.target.value)} />
             </label><br />
-            <Button type="submit">Start game</Button>
+            <StartButton type="submit">Start game</StartButton>
           </form>
         </UserNameInputContainer>
       </Wrapper>

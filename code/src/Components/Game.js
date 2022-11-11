@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux';
 import { generateNextDescription } from 'reducers/game';
 // import Wrapper from './Wrapper';
-import Button from './Button';
+import { NavButton } from './Buttons';
 
 function coordsToBackgroundImageWeb(coords) {
   // @TODO change to switch
@@ -90,14 +90,14 @@ const DirectionInput = ({ actions }) => {
         // Loop over all actions returned by the API, render a button for each
         <div key={direction}>
           {availableActions[direction] ? (
-            <Button
+            <NavButton
               type="button"
               onClick={() => handleOnClick(direction)}>
-              {direction}
-            </Button>
+              {direction.charAt(0)}
+            </NavButton>
           ) : (
             // Return disabled button if not available
-            <Button disabled type="button">{direction}</Button>
+            <NavButton disabled type="button">{direction.charAt(0)}</NavButton>
           )}
         </div>
       ))}
