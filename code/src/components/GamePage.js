@@ -51,17 +51,19 @@ export const GamePage = () => {
 const HeaderText = styled.div`
   margin: 0;
   width: 100%;
+
+  p{
+    font-size: 0.6rem;
+
+    @media (min-width: 668px){
+      font-size: 1rem;
+  }
+  }
 `
 const DescriptionWrapper = styled.div`
   width: 80%;
   padding: 20px;
   margin: 2em auto;
-  /* background-color: var(--lightYellow);
-  box-shadow:
-    -5px 0 0 0 var(--orange),
-    5px 0 0 0 var(--orange),
-    0 -5px 0 0 var(--orange),
-    0 5px 0 0 var(--orange); */
     background-color: var(--orange);
   box-shadow:
     -5px 0 0 0 var(--lightYellow),
@@ -70,8 +72,6 @@ const DescriptionWrapper = styled.div`
     0 5px 0 0 var(--lightYellow);
 
     p{
-      font-size: 0.8rem;
-      line-height: 30px;
       text-align: center;
     }
 `
@@ -88,8 +88,12 @@ const OptionWrapper = styled.div`
     0 5px 0 0 var(--orange);
 
   width: 80%;
-  padding: 20px;
+  padding: 5px 20px;
   margin: 2em auto;
+
+  @media (min-width: 668px){
+    padding: 20px;
+  }
 `
 
 const Wrapper = styled.div`

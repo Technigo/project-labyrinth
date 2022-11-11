@@ -13,6 +13,6 @@ export const DucklingHeader = () => {
     }
   }
   return (
-    <Lottie options={defaultOptions} width={120} height={120} />
+    <Lottie options={defaultOptions} />
   )
 }
