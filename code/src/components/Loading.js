@@ -1,5 +1,3 @@
-// const loading and something moving around maybe
-
 import React from 'react'
 import { useSelector } from 'react-redux'
 

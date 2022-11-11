@@ -1,41 +1,62 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { ui } from './ui';
 
 export const labyrinth = createSlice({
   name: 'labyrinth',
   initialState: {
     username: '',
-    coordinates: '',
-    description: ''
+    currentStep: '',
+    type: '',
+    direction: ''
   },
   reducers: {
     setUsername: (store, action) => {
       store.username = action.payload
     },
-
-    setGameStep: (store, action) => {
-      if (store.description !== '') {
-        store.description.push(store.description);
-      }
-      store.description = action.payload;
+    setCurrentStep: (store, action) => {
+      store.currentStep = action.payload
+    },
+    setType: (store, action) => {
+      store.type = action.payload
+    },
+    setDirection: (store, action) => {
+      store.direction = action.payload
     }
-
-    //   setPreviousGameStep: (store, action) =>
   }
-});
+})
 
 export const startGame = () => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    dispatch(ui.actions.setLoading(true))
     fetch('https://labyrinth.technigo.io/start', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        username: 'username',
-        type: 'type',
-        direction: 'direction'
+        username: getState().labyrinth.username
       })
     })
       .then((res) => res.json())
       .then((json) => console.log(json))
-      .then((username) => dispatch(username.action.setUsername(username)))
+      .then((json) => dispatch(labyrinth.actions.setCurrentStep(json)))
+      .finally(() => dispatch(ui.actions.setLoading(false)))
+  }
+}
+
+export const continueGame = () => {
+  return (dispatch, getState) => {
+    dispatch(ui.actions.setLoading(true))
+    fetch('https://labyrinth.technigo.io/action', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: getState().labyrinth.username,
+        type: getState().labyrinth.type,
+        direction: 'East'
+      })
+    })
+      .then((res) => res.json())
+      .then((json) => console.log(json))
+      .then((json) => dispatch(labyrinth.actions.setCurrentStep(json)))
+      .finally(() => dispatch(ui.actions.setLoading(false)))
   }
 }
