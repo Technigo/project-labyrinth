@@ -7,14 +7,18 @@ import styled from 'styled-components'
 const GameScreen = () => {
     const description = useSelector(store => store.games.description)
     const moves = useSelector(store => store.games.moves)
-    // const history = useSelector(store => store.games.history)
+    const history = useSelector(store => store.games.history)
     const coordinates = useSelector(store => store.games.coordinates)
 
     const dispatch = useDispatch()
 
-    const onChooseDirection = (event) => {
-        dispatch(games.actions.setDirection(event.target.value))
-        dispatch(GenerateQuestion())
+    // const onChooseDirection = (event) => {
+    //     dispatch(games.actions.setDirection(event.target.value))
+    //     dispatch(GenerateQuestion())
+    // }
+
+    const onChooseDirection = (type, direction) => {
+      dispatch(GenerateQuestion(type, direction));
     }
 
     const onRestartButton = () => {
@@ -29,10 +33,13 @@ const GameScreen = () => {
     return (
         <OuterWrapper>
           <ButtonsContainer>
+            {history.length ?
           <GoBackButton 
             onClick={goToPreviousMove}>
                 Go back
             </GoBackButton>
+            : <></>
+          }
             <RestartButton
             onClick={onRestartButton}>
                 Restart
@@ -40,18 +47,27 @@ const GameScreen = () => {
           </ButtonsContainer>
         <InnerWrapper>
             <h1>{description}</h1>
-            {moves && moves.map(moves => ( //jag ändrade från move till moves men fick ingen skillnad i resultat
-        <InnerContainer key={moves.description}>
-             <h2>{moves.description}</h2>
-          <Button
-            value={moves.direction} 
-            onClick={(event) => onChooseDirection(event)}>
-                Go {moves.direction}
-        </Button>
-        </InnerContainer>
-        ))}
+            {moves && moves.map((move) => { //jag ändrade från move till moves men fick ingen skillnad i resultat
+            return(
+              <InnerContainer key={move.description}>
+              <h2>{move.description}</h2>
+           <Button
+           type='button'
+             value={move.direction} 
+             // onClick={(event) => onChooseDirection(event)}>
+             onClick={() => onChooseDirection(moves.type, moves.direction)}>
+                 Go {move.direction}
+         </Button>
+         </InnerContainer>
+            )
+      })}
         </InnerWrapper>
         <p>Your coordinates: {coordinates}</p>
+        
+          {coordinates === '1,3' && (
+            <p>Game done!</p>
+          )}
+  
            </OuterWrapper>
     )
 }

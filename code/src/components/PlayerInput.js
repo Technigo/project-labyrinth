@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import games, { createPlayer } from 'reducers/games';
 import styled from 'styled-components'
 import Lottie from "lottie-react";
-import charlotteMaze from "lotties/charlotteMaze";
+import maze from "lotties/maze";
 
 
 const PlayerInput = () => {
@@ -18,7 +18,7 @@ const PlayerInput = () => {
 
   return (
     <InnerWrapper>
-        <Lottie className="animation" animationData={charlotteMaze} loop={true}/>
+        <Lottie className="animation" animationData={maze} loop={true}/>
       <h1>Welcome to the labyrinth!</h1>
       <h3>Do you want to play a game?</h3>
     <form onSubmit={(event) => onFormSubmit(event)}>
@@ -40,7 +40,8 @@ align-items: center;
 display: flex;
 flex-direction: column;
 justify-content: center;
-width: 50vh;
+width: 30vh;
+text-align: center;
 height: 50vh;
 color: white;
 // margin-top: 20%;

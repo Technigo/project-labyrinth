@@ -1,9 +1,9 @@
 import React from "react";
 import Lottie from "lottie-react";
-import loadingGreen from "lotties/loadingGreen";
+import loading from "lotties/loading";
 
 
 const Loading = () =>
-<Lottie animationData={loadingGreen} loop={true} />;
+<Lottie animationData={loading} loop={true} />;
 
 export default Loading

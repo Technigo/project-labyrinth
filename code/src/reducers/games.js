@@ -20,12 +20,12 @@ const games = createSlice({
       store.description = action.payload;
     },
     setMoves: (store, action) => {
-      if (store.moves!== '') {
-        store.history.push(action.payload)
+        // if (store.moves!== '') {
+        //   store.history.push(action.payload)
+        // }
+      if (store.moves) {
+        store.history = [...store.history, store.moves]
       }
-      // if (store.moves) {
-      //   store.history = [...store.history, store.moves]
-      // }
       store.moves = action.payload
     },
 
@@ -85,10 +85,11 @@ export const GenerateQuestion = () => {
       },
       body: JSON.stringify({
         username: getState().games.username,
-        type: 'moves',
+        type: 'move',
         direction: getState().games.direction
       })
     })
+    // .then((response) => response.json()) //när denna läggs till laddas bara sidan om
     .then(game => {
     dispatch(games.actions.setDescription(game.description))
     dispatch(games.actions.setMoves(game.actions))
