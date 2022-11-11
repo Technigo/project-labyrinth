@@ -81,7 +81,7 @@ const Description = () => {
   return (
     <DescriptionContainer bgImage={bgImage}>
       <Wrapper>
-        <InGameHeader>The Maze</InGameHeader>
+        <MapWrapper>The Maze</MapWrapper>
         <DescriptionText>{description.description}</DescriptionText>
         <DirectionInput
           actions={description.actions} />
@@ -91,10 +91,10 @@ const Description = () => {
 }
 export default Description;
 
-const InGameHeader = styled.h1`
+const MapWrapper = styled.div`
 color: white;
 position: absolute;
-top: 20px;
+top: 40px;
 right: 40px;
 font-size: 1.5em;
 `
