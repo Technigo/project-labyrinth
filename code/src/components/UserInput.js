@@ -4,11 +4,8 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 import React, { useState } from 'react';
 import styled from 'styled-components/macro'
-// import Lottie from 'react-lottie';
 import { useDispatch } from 'react-redux';
 import labyrinth, { generateLabyrinth } from 'reducers/labyrinth'
-
-// import maze from '../lotties/maze.json';
 import { ChildContainer } from '../styles/GlobalStyles'
 
 const UserInput = () => {
@@ -22,18 +19,16 @@ const UserInput = () => {
     dispatch(generateLabyrinth());
   }
 
-  // const defaultOptions = {
-  //   loop: true,
-  //   autoplay: true,
-  //   animationData: maze,
-  //   rendererSettings: {
-  //     preserveAspectRatio: 'xMidYMid slice'
-  //   }
-  // };
-
 	 return (
     <ChildContainer>
-      {/* <Lottie options={defaultOptions} height={150} width={150} /> */}
+      <lottie-player
+        src="https://assets5.lottiefiles.com/packages/lf20_92fyiqta.json"
+        background="transparent"
+        speed="1"
+        style={{ width: '250px',
+          height: '250px' }}
+        loop
+        autoplay />
       <h1>Welcome to the maze</h1>
 	    <form onSubmit={(event) => onFormSubmit(event)}>
         <label htmlFor="input">

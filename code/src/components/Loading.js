@@ -1,23 +1,39 @@
 import React from 'react'
+import styled from 'styled-components/macro'
 import { useSelector } from 'react-redux'
+import { ChildContainer } from '../styles/GlobalStyles'
 
 const Loading = () => {
   const isLoading = useSelector((store) => store.labyrinth.isLoading)
   return (
-    <div><h1>We will get there shortly...</h1>
+    <ChildContainer>
+      <StyledHeading>We will get there shortly...</StyledHeading>
       {isLoading
       && <lottie-player
         src="https://assets5.lottiefiles.com/private_files/lf30_esg1l8r1.json"
         background="transparent"
         speed="1"
-        style={{ width: '300px',
-          height: '300px' }}
+        style={{ width: '400px',
+          height: '400px' }}
         loop
         autoplay />}
-    </div>
+    </ChildContainer>
   )
 }
 export default Loading;
+
+// const StyledDiv = styled.div`
+//   box-sizing: border-box;
+//   margin: auto;
+//   width: 100%;
+//   padding: 6em;
+//   text-align: center;
+// `;
+
+const StyledHeading = styled.h1`
+  color: #3fceea;
+  line-height: 2em;
+`;
 
 /*
 import React from 'react';
