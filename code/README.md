@@ -1,4 +1,4 @@
-# Project Labyrinth [View Live &#10555;](https://https://labyrinth-linnea-sofia.netlify.app/)
+# Project Labyrinth [View Live &#10555;](https://labyrinth-linnea-sofia.netlify.app/)
 
 Create a text based game.
 Build an app that retrieves a list of actions from the backend and presents them to the user as interactable items.
@@ -29,4 +29,4 @@ If I had more time:
 
 ## View it live
 
-https://https://labyrinth-linnea-sofia.netlify.app/
+https://labyrinth-linnea-sofia.netlify.app/
