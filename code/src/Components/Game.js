@@ -89,7 +89,6 @@ const DirectionInput = ({ actions }) => {
       {allDirections.map((direction) => (
         // Loop over all actions returned by the API, render a button for each
         <div key={direction}>
-          console.log({direction})
           {availableActions[direction] ? (
             <Button
               type="button"

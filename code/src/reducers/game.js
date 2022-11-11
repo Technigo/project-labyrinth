@@ -30,7 +30,7 @@ export const generateDescription = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: getState().game.username })
     };
-    fetch('https://labyrinth-technigo.herokuapp.com/start', start) // samma som happy
+    fetch('https://labyrinth-technigo.herokuapp.com/start', start)
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setDescription(data))
@@ -48,7 +48,7 @@ export const generateNextDescription = (direction) => {
         type: 'move',
         direction })
     };
-    fetch('https://labyrinth-technigo.herokuapp.com/action', action) // samma som happy
+    fetch('https://labyrinth-technigo.herokuapp.com/action', action)
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setDescription(data))

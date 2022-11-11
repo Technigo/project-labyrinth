@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import game, { generateDescription } from 'reducers/game';
 import styled from 'styled-components/macro'
+import Button from './Button';
 import Header from './Header';
 import Wrapper from './Wrapper';
 
@@ -46,7 +47,7 @@ const UserNameInput = () => {
                 onChange={(event) => setUserNameInputValue(event.target.value)}
                 placeholder="User name..." />
             </label><br />
-            <StartButton type="submit">Start game</StartButton>
+            <Button type="submit">Start game</Button>
           </form>
         </UserNameInputContainer>
       </Wrapper>
@@ -57,18 +58,16 @@ const UserNameInput = () => {
 export default UserNameInput;
 
 const UserNameInputContainer = styled.div`
-border: solid 2px blue;
 justify-content: center;
 display: grid;
 `
 
-const StartButton = styled.button`
-font-size: 1em;
-margin: 1em;
-padding: 0.25em 1em;
-/* border: 2px solid palevioletred; */
-border-radius: 3px;
-`
+// const StartButton = styled.button`
+// font-size: 1em;
+// margin: 1em;
+// padding: 0.25em 1em;
+// border-radius: 3px;
+// `
 
 const UserNameInputBackground = styled.div`
   background-image: linear-gradient(#ad91bd, white);
