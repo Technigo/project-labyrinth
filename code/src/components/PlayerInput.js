@@ -35,23 +35,20 @@ const PlayerInput = () => {
 export default PlayerInput;
 
 const InnerWrapper = styled.div`
-// border: solid red 2px;
 align-items: center;
 display: flex;
 flex-direction: column;
 justify-content: center;
-width: 30vh;
+width: 50vh;
 text-align: center;
 height: 50vh;
 color: white;
-// margin-top: 20%;
 
 @media (min-width: 667px) {
   width: 60vh;
 }
 
 form {
-  /* border: solid orange 2px; */
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -73,7 +70,6 @@ input {
 }
 
 label{
-/* border: solid green 2px; */
 align-items: center;
 display: flex;
 flex-direction: column;
@@ -105,7 +101,7 @@ border-radius: 15px;
 color: white;
 background: none;
 padding: 7px;
-font-size: 18px;
+font-size: 16px;
 &:hover{
   background: white;
   color: black;

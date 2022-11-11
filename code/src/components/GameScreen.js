@@ -19,10 +19,6 @@ const GameScreen = () => {
         dispatch(GenerateQuestion())
     }
 
-    // const onChooseDirection = (type, direction) => {
-    //   dispatch(GenerateQuestion(type, direction));
-    // }
-
     const onRestartButton = () => {
         dispatch(games.actions.setUserName(''))
         window.location.reload()
@@ -50,13 +46,12 @@ const GameScreen = () => {
         <InnerWrapper>
             <h1>{description}</h1>
             {/* <p>Your coordinates: {coordinates}</p> */}
-            {moves && moves.map(move => ( //jag ändrade från move till moves men fick ingen skillnad i resultat
+            {moves && moves.map(move => (
           <InnerContainer key={move.description}>
               <h2>{move.description}</h2>
            <Button
              value={move.direction} 
              onClick={(event) => onChooseDirection(event)}>
-             {/* onClick={() => onChooseDirection(moves.type, moves.direction)}> */}
                  Go {move.direction}
          </Button>
          </InnerContainer>
@@ -74,48 +69,45 @@ const GameScreen = () => {
 export default GameScreen
 
 const OuterWrapper = styled.section `
-/* border: solid yellow 2px; */
 align-items: center;
 display: flex;
 flex-direction: column;
 justify-content: center;
 text-align: center;
 align-items: center;
-// margin-top: 20%;
-/* width: 90%; */
-margin: 0 20px;
-height: auto;
+position: relative;
+width: 90vw;
+height: 90vh;
 
 p {
     font-size: 18px;
     color: white;
 }
 
-@media (min-width: 667px) {
-    width: 60vw;
-  }
 `
 
 const InnerWrapper = styled.section `
-/* border: solid brown 2px; */
 color: white;
 align-items: center;
 display: flex;
 flex-direction: column;
 justify-content: center;
-width: 100%;
-
 h1 {
     font-size: 20px;
     @media (min-width: 667px) {
         font-size: 22px;
+        width: 55vw;
   }
 }
 `
 
 const ButtonsContainer = styled.div`
+width: 100%;
+top: 0;
 display: flex;
 flex-direction: row;
+justify-content: space-between;
+position: absolute;
 `
 
 const RestartButton = styled.button`
@@ -123,20 +115,22 @@ margin: 10px;
 padding: 5px;
 border: solid white 2px;
 border-radius: 15px;
-color: white;
-background: none;
+color: black;
+background: white;
 padding: 7px;
-font-size: 18px;
+font-size: 16px;
 &:hover{
-  background: white;
+  background: grey;
   color: black;
+  border: grey;
 }
 
 @media (min-width: 667px) {
-  font-size: 22px;
+  font-size: 20px;
   padding: 7px;
   }
 `
+
 const Button = styled.button`
 margin: 10px;
 padding: 5px;
@@ -145,14 +139,14 @@ border-radius: 15px;
 color: white;
 background: none;
 padding: 7px;
-font-size: 18px;
+font-size: 16px;
 &:hover{
   background: white;
   color: black;
 }
 
 @media (min-width: 667px) {
-  font-size: 22px;
+  font-size: 20px;
   padding: 7px;
   }
 `
@@ -162,23 +156,24 @@ margin: 10px;
 padding: 5px;
 border: solid white 2px;
 border-radius: 15px;
-color: white;
-background: none;
+color: black;
+background: white;
 padding: 7px;
-font-size: 18px;
+font-size: 16px;
 &:hover{
-  background: white;
+  background: grey;
   color: black;
+  border: grey;
 }
 
 @media (min-width: 667px) {
-  font-size: 22px;
+  font-size: 20px;
   padding: 7px;
   }
 `
 const InnerContainer = styled.div`
-/* border: solid black 2px; */
 width: 100%;
+padding: 10px;
 align-items: center;
 display: flex;
 flex-direction: column;
@@ -187,30 +182,8 @@ color: white;
 
 h2 {
     font-size: 16px;
-
     @media (min-width: 667px) {
       font-size: 18px;
   }
 }
-
-
-/* button{
-    margin: 10px;
-padding: 5px;
-border: solid white 2px;
-border-radius: 15px;
-color: white;
-background: none;
-padding: 7px;
-font-size: 18px;
-&:hover{
-  background: white;
-  color: black;
-}
-
-@media (min-width: 667px) {
-  font-size: 22px;
-  padding: 7px;
-  }
-} */
 `

@@ -39,9 +39,6 @@ const games = createSlice({
     },
 
     setPreviousMove: (store, action) => {
-    // const historyArraylength = store.history.length
-    // store.moves = store.history[historyArraylength-1];
-    // store.history.splice(historyArraylength-1,1)
     if (store.history.length) {
       store.moves = store.history[store.history.length - 1]
       store.history = store.history.slice(0, store.history.length - 1)
@@ -85,11 +82,10 @@ export const GenerateQuestion = () => {
       body: JSON.stringify({
         username: getState().games.username,
         type: 'move',
-        // direction
         direction: getState().games.direction
       })
     })
-    .then((response) => response.json()) //när denna läggs till laddas bara sidan om
+    .then((response) => response.json())
     .then(game => {
       dispatch(games.actions.setDescription(game.description))
       dispatch(games.actions.setMoves(game.actions))
