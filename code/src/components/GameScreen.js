@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { generateQuestions } from 'reducers/questions';
+// import { questions } from 'reducers/questions';
 import { gameProgress } from 'reducers/questions';
 
 const GameScreen = () => {
@@ -15,6 +15,15 @@ const GameScreen = () => {
   console.log('description', gameQuestion.description);
   console.log('actions', gameQuestion.actions.length);
 
+  // const restartGame = () => {
+  //   dispatch(questions.actions.restart());
+  // };
+
+  // const onClickStartGame = (e) => {
+  //   e.preventDefault();
+  //   dispatch(questions.actions.userName);
+  //   dispatch(generateQuestions);
+  // };
 
   const onClickStartGame = (direction, type) => {
     console.log('direction on progress', direction);
@@ -22,6 +31,7 @@ const GameScreen = () => {
   };
 
   return (
+    // <section onSubmit={(e) => onClickStartGame(e)}>
     <section>
       <div className="wrapper">
         {gameQuestion.actions.length > 0 ? (
@@ -49,6 +59,17 @@ const GameScreen = () => {
             </div>
           ))}
         </section>
+        {/* Restart Game */}
+        
+          {/* <div className="button-container">
+            <button
+              className="nes-btn is-primary"
+              onClick={() => restartGame()}
+            >
+              Restart
+            </button>
+          </div> */}
+        
       </div>
     </section>
   );
