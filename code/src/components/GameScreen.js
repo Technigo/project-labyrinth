@@ -1,7 +1,9 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import games, {GenerateQuestion} from '../reducers/games'
+import games, { GenerateQuestion } from '../reducers/games'
 import styled from 'styled-components'
+import Lottie from "lottie-react";
+import complete from "lotties/complete";
 
 
 const GameScreen = () => {
@@ -12,14 +14,14 @@ const GameScreen = () => {
 
     const dispatch = useDispatch()
 
-    // const onChooseDirection = (event) => {
-    //     dispatch(games.actions.setDirection(event.target.value))
-    //     dispatch(GenerateQuestion())
-    // }
-
-    const onChooseDirection = (type, direction) => {
-      dispatch(GenerateQuestion(type, direction));
+    const onChooseDirection = (event) => {
+        dispatch(games.actions.setDirection(event.target.value))
+        dispatch(GenerateQuestion())
     }
+
+    // const onChooseDirection = (type, direction) => {
+    //   dispatch(GenerateQuestion(type, direction));
+    // }
 
     const onRestartButton = () => {
         dispatch(games.actions.setUserName(''))
@@ -27,7 +29,7 @@ const GameScreen = () => {
     }
 
     const goToPreviousMove = () => {
-        dispatch(games.actions.setPreviousMove()) //la till ('') och det ger effekt i redux tool men inget annat
+        dispatch(games.actions.setPreviousMove())
     }
 
     return (
@@ -47,27 +49,24 @@ const GameScreen = () => {
           </ButtonsContainer>
         <InnerWrapper>
             <h1>{description}</h1>
-            {moves && moves.map((move) => { //jag ändrade från move till moves men fick ingen skillnad i resultat
-            return(
-              <InnerContainer key={move.description}>
+            {/* <p>Your coordinates: {coordinates}</p> */}
+            {moves && moves.map(move => ( //jag ändrade från move till moves men fick ingen skillnad i resultat
+          <InnerContainer key={move.description}>
               <h2>{move.description}</h2>
            <Button
-           type='button'
              value={move.direction} 
-             // onClick={(event) => onChooseDirection(event)}>
-             onClick={() => onChooseDirection(moves.type, moves.direction)}>
+             onClick={(event) => onChooseDirection(event)}>
+             {/* onClick={() => onChooseDirection(moves.type, moves.direction)}> */}
                  Go {move.direction}
          </Button>
          </InnerContainer>
-            )
-      })}
-        </InnerWrapper>
-        <p>Your coordinates: {coordinates}</p>
-        
+            ))}       
           {coordinates === '1,3' && (
-            <p>Game done!</p>
+            <>
+            <Lottie className="animation" animationData={complete} loop={true}/>
+            </>
           )}
-  
+        </InnerWrapper>
            </OuterWrapper>
     )
 }
@@ -107,9 +106,9 @@ justify-content: center;
 width: 100%;
 
 h1 {
-    font-size: 22px;
+    font-size: 20px;
     @media (min-width: 667px) {
-        font-size: 40px;
+        font-size: 22px;
   }
 }
 `
@@ -187,10 +186,10 @@ justify-content: center;
 color: white;
 
 h2 {
-    font-size: 18px;
+    font-size: 16px;
 
     @media (min-width: 667px) {
-      font-size: 22px;
+      font-size: 18px;
   }
 }
 

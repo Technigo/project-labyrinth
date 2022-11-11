@@ -35,7 +35,7 @@ const PlayerInput = () => {
 export default PlayerInput;
 
 const InnerWrapper = styled.div`
-/* border: solid red 2px; */
+// border: solid red 2px;
 align-items: center;
 display: flex;
 flex-direction: column;
@@ -45,6 +45,10 @@ text-align: center;
 height: 50vh;
 color: white;
 // margin-top: 20%;
+
+@media (min-width: 667px) {
+  width: 60vh;
+}
 
 form {
   /* border: solid orange 2px; */

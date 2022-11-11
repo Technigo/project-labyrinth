@@ -20,9 +20,6 @@ const games = createSlice({
       store.description = action.payload;
     },
     setMoves: (store, action) => {
-        // if (store.moves!== '') {
-        //   store.history.push(action.payload)
-        // }
       if (store.moves) {
         store.history = [...store.history, store.moves]
       }
@@ -53,7 +50,7 @@ const games = createSlice({
   }
 });
 
-export const createPlayer = () => {
+export const createPlayer = (direction) => {
   return (dispatch, getState) => {
     dispatch(games.actions.setLoading(true))
     fetch('https://labyrinth.technigo.io/start', {
@@ -62,7 +59,9 @@ export const createPlayer = () => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          username: getState().games.username
+          username: getState().games.username,
+          type: 'move',
+          direction
         })
     })
     .then((response) => response.json()) 
@@ -86,14 +85,15 @@ export const GenerateQuestion = () => {
       body: JSON.stringify({
         username: getState().games.username,
         type: 'move',
+        // direction
         direction: getState().games.direction
       })
     })
-    // .then((response) => response.json()) //när denna läggs till laddas bara sidan om
+    .then((response) => response.json()) //när denna läggs till laddas bara sidan om
     .then(game => {
-    dispatch(games.actions.setDescription(game.description))
-    dispatch(games.actions.setMoves(game.actions))
-    dispatch(games.actions.setCoordinates(game.coordinates))
+      dispatch(games.actions.setDescription(game.description))
+      dispatch(games.actions.setMoves(game.actions))
+      dispatch(games.actions.setCoordinates(game.coordinates))
   })
   .finally(() => dispatch(games.actions.setLoading(false)))
 }
