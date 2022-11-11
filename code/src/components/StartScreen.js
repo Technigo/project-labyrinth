@@ -31,10 +31,10 @@ const StartScreen = () => {
         backgroundImage: 'url(/assets/maze.png)'
       }}
     >
-      <h1>MAZE</h1>
-
+      <TextAnimation>
+        <h1> Welcome to the MAZE</h1>
+      </TextAnimation>
       <InnerWrapper>
-        <TextAnimation> Welcome to the MAZE</TextAnimation>
         <BoxContainer>
           <CharacterContainer>
             <img src="/assets/avatar.png" alt="avatar" />

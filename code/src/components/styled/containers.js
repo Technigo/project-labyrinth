@@ -1,13 +1,13 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const OuterWrapper = styled.div`
   /* background-color: #464646; */
   min-height: 100vh;
-
-  /* display: flex;
+  background-size: cover;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: center; */
 `;
 
 export const InnerWrapper = styled.div`
@@ -44,7 +44,12 @@ export const CharacterContainer = styled.div`
 
   img {
     max-width: 150px;
-    margin-bottom: 20px;
+    margin-bottom: 5rem;
+  }
+
+  h3 {
+    margin-bottom: 5rem;
+    color: white;
   }
 
   & .stat-container {
@@ -55,6 +60,13 @@ export const CharacterContainer = styled.div`
 
     p {
       margin-bottom: 0.5rem;
+      color: white;
     }
+  }
+
+  button {
+    background-color: #92cc40;
+    padding: 1.2rem;
+    margin-top: 1rem;
   }
 `;
