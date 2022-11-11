@@ -11,7 +11,6 @@ import tree from '../assets/tree.jpeg'
 
 const Game = () => {
   const currentPosition = useSelector((store) => {
-    console.log(`currentPosition: ${JSON.stringify(store)}`)
     return store.game.currentPosition;
   });
   const dispatch = useDispatch();
@@ -27,10 +26,11 @@ const Game = () => {
         <DescriptContainer>
           {currentPosition.actions.map((action) => (
             <DescInnerContainer key={action.description}>
-              <p>{action.description}</p><ActionButton
-              onClick={() => onAction(action)}>
-              {action.direction.toLowerCase()}
-            </ActionButton>
+              <p>{action.description}</p>
+              <ActionButton
+                onClick={() => onAction(action)}>
+                {action.direction.toLowerCase()}
+              </ActionButton>
             </DescInnerContainer>
           ))}
         </DescriptContainer>
