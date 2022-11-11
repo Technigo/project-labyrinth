@@ -1,0 +1,15 @@
+.lottie {
+    display: flex;
+    align-items: center;
+    background-color: #bbb7ac;
+    width: 500px;
+    height: 100vh;
+  }
+  
+  .lottie-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #bbb7ac;
+    width: 100%;
+  }

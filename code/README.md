@@ -1,21 +1,12 @@
 # Project Labyrinth
 
-This is a pair project made by Lisa Johansson  & Maria Wellander. The aim was to build an app that retrieves a list of actions from the backend and presents them to the user as interactable items.
+This is a pair project made by Lisa Johansson  & Maria Wellander. The aim was to build a text-based adventure game app that retrieves a list of actions from the backend and presents them to the user as interactable items.
 
 ## The problem
-(The text after the dashes are just some skribble, for us to get ideas about what to finally write. :)
-
-Describe how you approached to problem, and what tools and techniques you used to solve it.
-- Pair programming
-
-How did you plan?
-- Via Google Jamboard, Canban board
-
-What technologies did you use?
-- JavaScript, Redux, Redux Vanilla, Redux Toolkit, CSS, HTML.
-
-If you had more time, what would be next?
-- Style each room/state based on the description.
+We approached the problem through making a Google Jamboard and a Kanban board. It was a great way to get a hold of the assignement and to understand what to do.
+Firstly, the plan was to start with coding the starter code. Secondly, to code all functionalities. Finally, to add the styling/UX/responsiveness.
+We used JavaScript, Redux, Redux Toolkit, thunks, CSS, HTML, Postman. We also used Lottie for the loading animation.
+If we had more time we would have wanted to style each room/state based on the description.
 
 ## View it live
 

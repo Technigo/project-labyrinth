@@ -1,0 +1,26 @@
+.endscreen {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+  .end-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #b14207af;
+    width: 75%;
+    padding: 8%;
+    max-width: 800px;
+  }
+  
+  @media (min-width: 1024px) {
+    .end-button {
+      max-width: 400px;
+      font-size: 18px;
+    }
+  }

@@ -1,0 +1,128 @@
+.gameboard {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    row-gap: 20px;
+    position: absolute;
+  }
+  
+  .top-description h1 {
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  .top-description,
+  .action-container {
+    justify-content: center;
+    align-items: center;
+    background-color: #bbb7ac;
+    width: 75%;
+    padding: 8%;
+    max-width: 800px;
+  }
+  
+  .top-description {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+    max-width: 800px;
+  }
+  
+  .top-description h1 {
+    font-size: 20px;
+    padding-bottom: 0;
+  }
+  
+  .top-description p {
+    font-size: 12px;
+    font-style: italic;
+    padding-top: 0;
+    margin: 0;
+  }
+  
+  .action-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 20px;
+    height: 138px;
+  }
+  
+  .action-container button {
+    border: 2px solid #b14207af;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  .action-container button:hover {
+    background-color: #b14207af;
+    color: #ffff;
+  }
+  
+  .button-wrapper {
+    display: flex;
+    column-gap: 40px;
+  }
+  
+  .button-wrapper button {
+    background-color: #b14207af;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    width: 100px;
+    color: #000;
+  }
+  
+  .button-wrapper button:hover {
+    color: #ffff;
+  }
+  
+  @media (min-width: 768px) {
+    .top-description,
+    .action-container {
+      width: 70%;
+      padding: 5%;
+    }
+  
+    .top-description {
+      margin-top: 10vh;
+    }
+  
+    .top-description p {
+      font-size: 16px;
+    }
+  
+    .top-description h1 {
+      font-size: 25px;
+    }
+  
+    .button-wrapper button {
+      font-size: 16px;
+      width: 150px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 25px;
+    }
+  
+    .top-description,
+    .action-container {
+      padding: 40px;
+    }
+  
+    .action-container p {
+      font-size: 18px;
+    }
+  
+    .button-wrapper button {
+      font-size: 18px;
+    }
+  }
