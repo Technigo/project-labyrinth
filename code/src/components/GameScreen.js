@@ -2,58 +2,66 @@
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, { useEffect } from 'react'
+import React from 'react'
 import { MainContainer, GameWrapper } from 'Globalstyles'
 import { useDispatch, useSelector } from 'react-redux'
-import { continueGame, labyrinth, startTheGame } from 'reducers/labyrinth'
+import { labyrinth, continueGame } from 'reducers/labyrinth'
+import { Loading } from './Loading'
 // import { GameOver } from 'components/GameOver'
 
 export const GameScreen = () => {
   const dispatch = useDispatch()
-  const { description, actions, coordinates } = useSelector((store) => store.labyrinth.currentDirection)
-  const userName = useSelector((store) => store.labyrinth.userName)
-  // const gameOver = actions.length === 0
+  const description = useSelector((store) => store.labyrinth.description)
+  // const coordinates = useSelector((store) => store.labyrinth.coordinates)
+  const moves = useSelector((store) => store.labyrinth.moves)
+  /*   const direction = useSelector((store) => store.labyrinth.direction) */
+  const loading = useSelector((store) => store.labyrinth.loading)
+  const coordinates = useSelector((store) => store.labyrinth.coordinates)
+  const history = useSelector((store) => store.labyrinth.history)
 
-  useEffect(() => {
-    startTheGame();
-  }, []);
-
+  const goBack = () => {
+    dispatch(labyrinth.actions.setPreviousMove)
+  }
   const restartGame = () => {
     dispatch(labyrinth.actions.restartGame())
   }
-  const goToNextStep = () => {
+  const goToNextStep = (event) => {
+    dispatch(labyrinth.actions.setDirection(event.target.value))
     dispatch(continueGame())
   }
 
-  /* if (gameOver) {
+  if (loading) {
     return (
-      <GameOver />
+      <Loading />
     )
   } else {
- */
-  return (
-    <MainContainer>
-      <GameWrapper>
-        <h2>Player: {userName}</h2>
-        <p>{description}{coordinates}</p>
-        {actions.map((action) => {
-          return (
+    return (
+      <MainContainer>
+        <GameWrapper>
+          <div>
+            {console.log('history', history)}
+            <p>{coordinates}</p>
+            <p>{description}</p>
+            {moves && moves.map((action) => {
+              return (
 
-            <label key={action.direction} htmlFor="nextBtn">
-              <button
-                key={action.direction}
-                type="button"
-                id="nextBtn"
-                onClick={goToNextStep}>{action.description}
-              </button>
-            </label>
-          )
-        })}
+                <label key={action.direction} htmlFor="nextBtn">
+                  <button
+                    key={action.direction}
+                    type="button"
+                    id="nextBtn"
+                    value={action.direction}
+                    onClick={(event) => goToNextStep(event)}>{action.direction}
+                  </button>
+                </label>
+              )
+            })}
+          </div>
+          <button type="button" onClick={goBack}>Go back</button>
+        </GameWrapper>
+        <button type="button" onClick={restartGame}>Restart from beginning?</button>
+      </MainContainer>
 
-      </GameWrapper>
-
-      <button type="button" onClick={restartGame}>Restart from beginning?</button>
-    </MainContainer>
-
-  )
+    )
+  }
 };

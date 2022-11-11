@@ -1,9 +1,16 @@
 /* eslint-disable linebreak-style */
 import { createSlice } from '@reduxjs/toolkit'
+import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
-  currentDirection: [],
-  userName: ''
+  currentDirection: null,
+  userName: '',
+  description: null,
+  direction: null,
+  moves: null,
+  history: [],
+  loading: false,
+  coordinates: []
 }
 
 export const labyrinth = createSlice({
@@ -12,16 +19,40 @@ export const labyrinth = createSlice({
   reducers: {
 
     setUserName: (store, action) => {
-      store.userName = (action.payload)
+      const { input } = action.payload
+      const userId = uuidv4(input);
+      store.userName = userId
     },
 
-    setGameState: (store, action) => {
-      store.gameState = action.payload
-      // how to do this?
+    setDescription: (store, action) => {
+      store.description = action.payload;
     },
 
-    setCurrentDirection: (store, action) => {
-      store.labyrinth.currentDirection.push(action.payload)
+    setMoves: (store, action) => {
+      store.moves = action.payload
+    },
+
+    setDirection: (store, action) => {
+      if (store.direction) {
+        store.history = [...store.history, store.direction]
+      }
+      store.direction = action.payload
+    },
+
+    setLoading: (store, action) => {
+      store.loading = action.payload
+    },
+
+    setCoordinates: (store, action) => {
+      store.coordinates = action.payload
+    },
+
+    setPreviousMove: (store, action) => {
+      console.log(action)
+      if (store.history.length) {
+        store.direction = store.history[store.history.length - 1]
+        store.history = store.history.slice(0, store.history.length - 1)
+      }
     },
 
     restartGame: (store) => {
@@ -31,6 +62,7 @@ export const labyrinth = createSlice({
 })
 export const startTheGame = () => {
   return (dispatch, getState) => {
+    dispatch(labyrinth.actions.setLoading(true))
     const options = {
       method: 'POST',
       headers: {
@@ -41,15 +73,19 @@ export const startTheGame = () => {
 
     fetch('https://labyrinth.technigo.io/start', options)
       .then((res) => res.json())
-      .then((data) => console.log('start', data))
-      .finally((json) => {
-        dispatch(labyrinth.actions.setCurrentDirection(json))
+      .then((json) => {
+        dispatch(labyrinth.actions.setDescription(json.description));
+        dispatch(labyrinth.actions.setMoves(json.actions));
+        dispatch(labyrinth.actions.setCoordinates(json.coordinates))
+        dispatch(labyrinth.actions.setDirection(json.actions.direction))
       })
+      .finally(() => dispatch(labyrinth.actions.setLoading(false)))
   };
 }
 
-export const continueGame = (direction) => {
+export const continueGame = () => {
   return (dispatch, getState) => {
+    dispatch(labyrinth.actions.setLoading(true))
     const options = {
       method: 'POST',
       headers: {
@@ -57,18 +93,17 @@ export const continueGame = (direction) => {
       },
       body: JSON.stringify({ username: getState().labyrinth.userName,
         type: 'move',
-        direction })
+        direction: getState().labyrinth.direction })
     };
 
     fetch('https://labyrinth.technigo.io/action', options)
       .then((res) => res.json())
-      .then((json) => console.log('continute', json))
-      .finally((json) => {
-        dispatch(labyrinth.actions.setCurrentDirection(json))
+      .then((json) => {
+        dispatch(labyrinth.actions.setDescription(json.description));
+        dispatch(labyrinth.actions.setMoves(json.actions));
+        dispatch(labyrinth.actions.setCoordinates(json.coordinates))
+        dispatch(labyrinth.actions.setDirection(json.actions.direction))
       })
+      .finally(() => dispatch(labyrinth.actions.setLoading(false)))
   };
 }
-
-// export const { setUserName } = labyrinth.actions
-
-// export const selectInfoPlayer = ((store) => store.labyrinth.userName)
