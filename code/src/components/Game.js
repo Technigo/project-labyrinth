@@ -46,7 +46,7 @@ const ActionButton = styled(StartBtn)`
   box-shadow: 8px 10px 12px #688A4A;
 `
 const ClonedBackground = styled(Background)`
-background-image: url(${tree});
+  background-image: url(${tree});
 `
 const DescriptContainer = styled.div`
   display: flex;

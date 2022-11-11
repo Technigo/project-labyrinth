@@ -1,13 +1,15 @@
-# Project Labyrinth
+# Project Labyrinth - Zelda Game 🗡️
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project was about building an app fetching from an API using react-redux and thunks to wrap the API calls. The game is started by sending the given username by POST method as JSON and continued by sending and fetching more data to update the current's position. We started working with pair-programming and then we created differents branches for each new features.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We started by deciding the theme and what components we would need, then started building the reducers and fetching-data. We continued by building the Game and StartPage component to display the fetch. We had some problems with the second fetch and spent some time trying to figure out how to send the coordinates. If we had more time we would have continued to explore the usage of reusable components.
+
+Technologies: APIs, Postman, React, Redux, Styled Components, Thunks.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://zeldagame-sarah-antonella.netlify.app/
+
+Created by Sarah Kneedler & Antonella Cardozo.

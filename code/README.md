@@ -11,3 +11,6 @@ Technologies: APIs, Postman, React, Redux, Styled Components, Thunks.
 ## View it live
 
 https://zeldagame-sarah-antonella.netlify.app/
+
+
+Created by Sarah Kneedler & Antonella Cardozo.
