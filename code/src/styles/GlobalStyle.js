@@ -29,7 +29,7 @@ export const GlobalStyle = createGlobalStyle`
     background-color: transparent;
     border: 1px solid #00cf00;
     color: #00cf00;
-    width: fit-content;
+    width: 100%;
     font-family: 'VT323', monospace;
     font-size: 16px;
     padding: 5px;

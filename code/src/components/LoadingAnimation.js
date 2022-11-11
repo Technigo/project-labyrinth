@@ -1,5 +1,5 @@
 import React from 'react'
-
+import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 
 const LoadingAnimation = () => {
@@ -8,17 +8,21 @@ const LoadingAnimation = () => {
   return (
     <div>
       {loading && (
-        <div>
+        <LoaderWrapper>
           <lottie-player
             src="https://lottie.host/f8188afe-51f9-405c-9358-8453e9692f47/xmYE4JlRkJ.json"
             background="transparent"
             speed="1"
             loop
             autoplay />
-        </div>
+        </LoaderWrapper>
       )}
     </div>
   )
 }
 
 export default LoadingAnimation;
+
+const LoaderWrapper = styled.div`
+  height: 100vh;
+`

@@ -10,10 +10,17 @@ export const OuterWrapper = styled.section`
 export const InnerWrapper = styled.div`
   display: flex;
   width: 70%;
+  max-width: 500px;
   flex-direction: column;
+
+  @media (min-width: 668px) {
+
+  }
+
   @media (min-width: 1024px) {
     width: 60%
   }
+
 `
 
 export const Container = styled.div`

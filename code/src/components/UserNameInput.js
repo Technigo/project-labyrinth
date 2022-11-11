@@ -20,7 +20,7 @@ const UserNameInput = () => {
       <Label htmlFor="author-input">PROVIDE YOUR NAME, PLEASE...
         <input id="author-input" type="text" onChange={(event) => setUserName(event.target.value)} />
       </Label>
-      <button type="submit">START THE MAZE!</button>
+      <button hidden={!userName} type="submit">START THE MAZE!</button>
     </Form>
   )
 };
@@ -42,15 +42,17 @@ const Form = styled.form`
     background-color: transparent;
     border: none;
     border-bottom: 2px dashed #00cf00;
+    padding: 5px;
     box-shadow: none;
     color: white;
     outline: none;
+    font-family: 'VT323', monospace;
+    text-transform: uppercase;
   }
-  input[type = text]:focus {
+ /*  input[type = text]:focus {
     background-color: transparent;
-    /* border-bottom: 2px solid #00cf00; */
     box-shadow: none;
-  }  
+  }   */
 `
 const Label = styled.label`
   display: flex;
