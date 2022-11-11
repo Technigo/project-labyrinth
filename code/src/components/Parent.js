@@ -8,30 +8,16 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Start from './Start';
 import Location from './Location';
+import Loading from './Loading';
 
 const Parent = () => {
   const username = useSelector((store) => store.labyrinth.username)
-  // const currentLocation = useSelector((store) => store.labyrinth)
-  console.log('username', username)
-  // console.log('loading?', currentLocation.isLoading)
-  /*   let pageContent;
-
-  if (currentLocation.isLoading) {
-    pageContent = <Loading />
-    return pageContent
-  } else if (username === null) {
-    pageContent = <Start />
-    return pageContent
-  } else {
-    pageContent = <Location />
-    return pageContent
-  } */
+  const currentLocation = useSelector((store) => store.labyrinth)
 
   return (
     <OuterWrapper>
       <InnerWrapper>
-        {username === null ? <Start /> : <Location />}
-        {/* {pageContent} */}
+        {currentLocation.isLoading ? <Loading /> : username === null ? <Start /> : <Location />}
       </InnerWrapper>
     </OuterWrapper>
   )

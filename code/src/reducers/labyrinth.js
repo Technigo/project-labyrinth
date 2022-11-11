@@ -37,6 +37,8 @@ const labyrinth = createSlice({
   }
 });
 
+export default labyrinth;
+
 export const startGame = () => {
   return (dispatch, getState) => {
     // sets isLoading to true while waiting for respons from api.
@@ -54,13 +56,14 @@ export const startGame = () => {
     )
       .then((res) => res.json())
       // update initial state with data fetched from the api
-      .then((location) => dispatch(labyrinth.actions.setLocation({
-        description: location.description,
-        coordinates: location.coordinates,
-        actions: location.actions
-      })))
-      .catch((error) => console.error(error))
-      .finally(dispatch(labyrinth.actions.setLoading(false)))
+      .then((location) => setTimeout(() => {
+        dispatch(labyrinth.actions.setLocation({
+          description: location.description,
+          coordinates: location.coordinates,
+          actions: location.actions
+        }))
+        dispatch(labyrinth.actions.setLoading(false))
+      }, 1))
   }
 };
 
@@ -85,14 +88,13 @@ export const moveOn = () => {
     )
       .then((res) => res.json())
       // update initial state with data fetched from the api
-      .then((location) => dispatch(labyrinth.actions.setLocation({
-        description: location.description,
-        coordinates: location.coordinates,
-        actions: location.actions
-      })))
-      .catch((error) => console.error(error))
-      .finally(dispatch(labyrinth.actions.setLoading(false)))
+      .then((location) => setTimeout(() => {
+        dispatch(labyrinth.actions.setLocation({
+          description: location.description,
+          coordinates: location.coordinates,
+          actions: location.actions
+        }))
+        dispatch(labyrinth.actions.setLoading(false))
+      }, 1))
   }
 }
-
-export default labyrinth;

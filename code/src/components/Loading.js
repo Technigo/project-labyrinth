@@ -32,5 +32,4 @@ width: 100px;
         transform:rotate(360deg);
     }
 }
-
 `
