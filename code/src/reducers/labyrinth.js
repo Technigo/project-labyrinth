@@ -3,8 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   currentDirection: [],
-  userName: '',
-  gameOver: false
+  userName: ''
 }
 
 export const labyrinth = createSlice({
@@ -22,59 +21,52 @@ export const labyrinth = createSlice({
     },
 
     setCurrentDirection: (store, action) => {
-      const newAction = action.payload
-      const updatedActions = [...store.steps, newAction]
-      store.actions = updatedActions
+      store.labyrinth.currentDirection.push(action.payload)
     },
 
     restartGame: (store) => {
       store.userName = ''
-      store.actions = []
     }
   }
 })
-
 export const startTheGame = () => {
   return (dispatch, getState) => {
     const options = {
       method: 'POST',
       headers: {
-        'Content-type': 'application/json'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({ username: getState().labyrinth.userName })
-    }
+    };
+
     fetch('https://labyrinth.technigo.io/start', options)
-      .then((resp) => resp.json())
+      .then((res) => res.json())
       .then((data) => console.log('start', data))
-      .then((data) => {
-        dispatch(labyrinth.actions.setCurrentDirection(data))
-      // .finally(() => )
+      .finally((json) => {
+        dispatch(labyrinth.actions.setCurrentDirection(json))
       })
-  }
+  };
 }
 
-export const continueGame = () => {
+export const continueGame = (direction) => {
   return (dispatch, getState) => {
     const options = {
       method: 'POST',
       headers: {
-        'Content-type': 'application/json'
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(
-        {
-          username: getState().labyrinth.userName,
-          type: 'move',
-          direction: 'East'
-        }
-      )
-    }
+      body: JSON.stringify({ username: getState().labyrinth.userName,
+        type: 'move',
+        direction })
+    };
+
     fetch('https://labyrinth.technigo.io/action', options)
       .then((res) => res.json())
-      .then((json) => console.log('action', json))
-      .then(() => dispatch())
-  }
-
-  // how to move to next step?
+      .then((json) => console.log('continute', json))
+      .finally((json) => {
+        dispatch(labyrinth.actions.setCurrentDirection(json))
+      })
+  };
 }
 
 // export const { setUserName } = labyrinth.actions
