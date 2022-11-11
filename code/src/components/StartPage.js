@@ -55,7 +55,7 @@ const CardContainerStart = styled(CardContainer)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  height: 60vh;
 `
 
 const UserNameInput = styled.p`
@@ -71,8 +71,24 @@ const UserNameInputField = styled.input`
 const WelcomeTitle = styled.h1`
   font-size: 40px;
   font-family: 'Caveat', cursive;
-  margin-bottom: 20px;
-
+  margin-bottom: 30px;
+  color: #384238;
+  animation: flicker 1.5s infinite alternate;
+  @keyframes flicker {
+    
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+  text-shadow:
+      0 0 42px #436e43,
+      0 0 82px #436e43,
+      0 0 92px #436e43,
+      0 0 90px #436e43,
+      0 0 120px #436e43;
+    }
+  
+  20%, 24%, 55% {        
+      text-shadow: none;
+  } 
+}
   @media (min-width: 668px) {
     font-size: 55px;
   }
