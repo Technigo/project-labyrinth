@@ -92,12 +92,18 @@ const DirectionInput = ({ actions }) => {
           {availableActions[direction] ? (
             <NavButton
               type="button"
+              title={`Go ${direction}`}
               onClick={() => handleOnClick(direction)}>
               {direction.charAt(0)}
             </NavButton>
           ) : (
             // Return disabled button if not available
-            <NavButton disabled type="button">{direction.charAt(0)}</NavButton>
+            <NavButton
+              disabled
+              type="button"
+              title="This move is not possible here">
+              {direction.charAt(0)}
+            </NavButton>
           )}
         </div>
       ))}
