@@ -64,3 +64,8 @@ export const fetchGameSteps = (type, direction) => {
       .finally(() => dispatch(ui.actions.setLoading(false)));
   }
 };
+
+/* setTimeout(() => {
+  dispatch(labyrinth.actions.setStage(data))
+    .finally(dispatch(ui.actions.setLoading(false)))
+}, 500) */

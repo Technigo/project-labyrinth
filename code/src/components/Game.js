@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -22,7 +23,10 @@ const Game = () => {
         return (
           <div key={action.description}>
             <h3>{action.description}</h3>
-            <button type="button" onClick={() => onNextAction(action.type, action.direction)}>Go {action.direction}</button>
+            {action.direction === 'North' && <button type="button" className="north" onClick={() => onNextAction(action.type, action.direction)}>north</button>}
+            {action.direction === 'West' && <button type="button" className="west" onClick={() => onNextAction(action.type, action.direction)}>west</button>}
+            {action.direction === 'South' && <button type="button" className="south" onClick={() => onNextAction(action.type, action.direction)}>south</button>}
+            {action.direction === 'East' && <button type="button" className="east" onClick={() => onNextAction(action.type, action.direction)}>east</button>}
           </div>
         )
       })}
