@@ -7,10 +7,20 @@ const LoadingIndicator = () => {
   let [loadingDot, setLoadingDot] = useState('');
   const loadingAnimation = () => {
     loadingDot === '....'
-    ? setLoadingDot('')
-    : setTimeout(() => setLoadingDot(loadingDot += '.'), 250)
-  }
-  return <>{isLoading && <h6> Loading{loadingAnimation()}{loadingDot} </h6>}</>;
+      ? setLoadingDot('')
+      : setTimeout(() => setLoadingDot((loadingDot += '.')), 250);
+  };
+  return (
+    <>
+      {isLoading && (
+        <h6>
+          {' '}
+          Loading{loadingAnimation()}
+          {loadingDot}{' '}
+        </h6>
+      )}
+    </>
+  );
 };
 
 export default LoadingIndicator;

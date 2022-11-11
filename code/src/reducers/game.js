@@ -39,6 +39,7 @@ export default game;
 export const gameProgress = (nextMove) => {
   return (dispatch, getState) => {
     dispatch(game.actions.setLoading(true));
+    dispatch(game.actions.setResponse({}));
     const options = {
       method: 'POST',
       headers: {

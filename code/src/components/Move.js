@@ -1,33 +1,37 @@
 import React from 'react';
-import game, { gameProgress } from "reducers/game";
-import { useDispatch } from "react-redux";
+import game, { gameProgress } from 'reducers/game';
+import { useDispatch } from 'react-redux';
+import { DirectionsContainer } from './styled/containers';
 
-const Move = ({ response, looking, setLooking }) => {
-    const dispatch = useDispatch();
-  
-    const onDirectionClick = (direction) => {
-      dispatch(game.actions.setDirection(direction));
-      dispatch(gameProgress('action'));
-      setLooking(false);
-    };
+const Move = ({ response }) => {
+  const dispatch = useDispatch();
 
-    return (
-      <>
-      {response.actions?.map((action) => {
-        return (
-          <><p>{ action.description }</p><label>
-            <button
-              type="button"
-              className="nes-btn"
-              name="answer"
-              onClick={ () => onDirectionClick(action.direction) }>
-              Go { action.direction }
-            </button>
-          </label></>
-        )
-      })}
-      </>
-    );
+  const onDirectionClick = (direction) => {
+    dispatch(game.actions.setDirection(direction));
+    dispatch(gameProgress('action'));
   };
 
-  export default Move;
+  return (
+    <>
+      {response.actions?.map((action) => {
+        return (
+          <DirectionsContainer>
+            <p>{action.description}</p>
+            <label>
+              <button
+                type="button"
+                className="nes-btn is-primary"
+                name="answer"
+                onClick={() => onDirectionClick(action.direction)}
+              >
+                Go {action.direction}
+              </button>
+            </label>
+          </DirectionsContainer>
+        );
+      })}
+    </>
+  );
+};
+
+export default Move;

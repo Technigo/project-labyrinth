@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import game from 'reducers/game';
-import { GameWrapper } from './styled/GameWrapper.styled';
 import LoadingIndicator from './LoadingIndicator';
-import Look from './Look';
 import Move from './Move';
+import { Avatar } from './styled/Avatar';
+import { InnerWrapper, BoxContainer } from './styled/containers';
 
 const GameScreen = () => {
-  const [looking, setLooking] = useState(false);
   const dispatch = useDispatch();
   const response = useSelector((state) => state.game.response);
 
@@ -16,25 +15,31 @@ const GameScreen = () => {
   };
 
   return (
+    <>
+      <InnerWrapper>
+        <BoxContainer>
+          <Avatar src="/assets/avatarCrop.png" alt="avatar" />
+          {response.description && (
+            <div className="nes-container is-rounded">
+              <p>{response.description}</p>
+            </div>
+          )}
+          <LoadingIndicator />
 
-    <GameWrapper>
-      <div className="nes-container">
-      
-      <LoadingIndicator />
-      <p>{response.description}</p>
-      
-      <Look response={response} setLooking={setLooking} />   
-      {looking && <Move response={response} looking={looking} setLooking={setLooking} />}
+          <Move response={response} />
+        </BoxContainer>
+      </InnerWrapper>
 
       {response.coordinates === '1,3' && (
-        <button type="button" className="nes-btn" onClick={() => onRestartClick()}>
+        <button
+          type="button"
+          className="nes-btn is-success"
+          onClick={() => onRestartClick()}
+        >
           Restart Game
         </button>
       )}
-      {/*<progress className="nes-progress is-succress" value={response.coordinates} max="20" />*/}
-      
-      </div>
-    </GameWrapper>
+    </>
   );
 };
 

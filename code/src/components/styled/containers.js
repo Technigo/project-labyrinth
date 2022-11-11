@@ -36,20 +36,11 @@ export const CharacterContainer = styled.div`
   width: calc(50% - 5rem);
   min-width: 350px;
   background-color: #ffffff33;
-
-  h2 {
-    text-align: center;
-    font-size: 1rem;
-  }
+  padding: 20px;
 
   img {
     max-width: 150px;
     margin-bottom: 5rem;
-  }
-
-  h3 {
-    margin-bottom: 5rem;
-    color: white;
   }
 
   & .stat-container {
@@ -60,13 +51,23 @@ export const CharacterContainer = styled.div`
 
     p {
       margin-bottom: 0.5rem;
-      color: white;
+      text-align: left;
     }
   }
 
   button {
     background-color: #92cc40;
     padding: 1.2rem;
+    margin-top: 1rem;
+  }
+`;
+
+export const DirectionsContainer = styled(CharacterContainer)`
+  justify-content: space-between;
+  min-height: 25rem;
+
+  p {
+    font-size: 0.9rem;
     margin-top: 1rem;
   }
 `;

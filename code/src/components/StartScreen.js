@@ -9,8 +9,7 @@ import Stats from './Stats';
 import {
   BoxContainer,
   CharacterContainer,
-  InnerWrapper,
-  OuterWrapper
+  InnerWrapper
 } from './styled/containers';
 import { TextAnimation } from './styled/TextAnimation';
 
@@ -26,11 +25,7 @@ const StartScreen = () => {
   };
 
   return (
-    <OuterWrapper
-      style={{
-        backgroundImage: 'url(/assets/maze.png)'
-      }}
-    >
+    <>
       <TextAnimation>
         <h1> Welcome to the MAZE</h1>
       </TextAnimation>
@@ -48,7 +43,10 @@ const StartScreen = () => {
                 onChange={(event) => setUsernameInputValue(event.target.value)}
                 required
               />
-              <button type="submit"> Start Game</button>
+              <button className="nes-btn is-success" type="submit">
+                {' '}
+                Start Game
+              </button>
             </form>
           </CharacterContainer>
           <CharacterContainer>
@@ -59,7 +57,7 @@ const StartScreen = () => {
           </CharacterContainer>
         </BoxContainer>
       </InnerWrapper>
-    </OuterWrapper>
+    </>
   );
 };
 
