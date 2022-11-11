@@ -24,3 +24,15 @@ export const Button = styled.button`
     padding: 16px 0;
     border: none;
 `
+
+export const RestartButton = styled(Button)`
+    margin-top: 30px;
+    padding-left: 5%;
+    padding-right: 5%;
+`
+
+export const BackButton = styled(Button)`
+    margin-top: 30px;
+    padding-left: 5%;
+    padding-right: 5%;
+`

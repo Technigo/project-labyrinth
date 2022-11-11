@@ -7,9 +7,6 @@ const game = createSlice({
     started: false,
     description: '',
     step: []
-    // coordinates: '',
-    // loading: true,
-    // history: []
   },
   reducers: {
     setUser: (store, action) => {
@@ -19,27 +16,25 @@ const game = createSlice({
       store.started = action.payload;
     },
     setDescription: (store, action) => {
-      // if (store.quote !== '') {
-      //   store.history.push(store.description);
-      // }
       store.description = action.payload;
     },
     setStep: (store, action) => {
       store.step = [...store.moves, action.payload]
-    }
+      // store.step = store.moves.push(action.payload) // this works too
+    },
     // going back in history. delete 1 in history.
-    // setPrevious: (store, action) => {
-    //   const historyArraylength = store.history.length;
-    //   store.quote = store.history[historyArraylength - 1]
-    //   store.history.splice(historyArraylength - 1, 1)
-    //   console.log(action)
-    // },
-    // setCoordinates: (store, action) => {
-    //   store.type = action.payload;
-    // },
-    // isLoading: (store, action) => {
-    //   store.loading = action.payload;
-    // }
+    setPrevious: (store, action) => {
+      if (store.step.length > 1) {
+        store.moves = store.step[store.step.length - 1]
+        store.step.splice(0, store.step.length - 1)
+        console.log(action)
+      } else {
+        alert('You need to take a step before you can go back!');
+      }
+    },
+    isLoading: (store, action) => {
+      store.loading = action.payload;
+    }
   }
 });
 
@@ -47,6 +42,7 @@ export default game;
 
 export const startGame = () => {
   return (dispatch, getState) => {
+    dispatch(game.actions.isLoading(true))
     const start = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -58,11 +54,15 @@ export const startGame = () => {
         dispatch(game.actions.setDescription(data))
         dispatch(game.actions.gameStarted(true))
       })
+      .finally(() => {
+        dispatch(game.actions.isLoading(false))
+      })
   }
 }
 
 export const nextStep = (direction) => {
   return (dispatch, getState) => {
+    dispatch(game.actions.isLoading(true))
     const action = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -74,8 +74,9 @@ export const nextStep = (direction) => {
       .then((response) => response.json())
       .then((data) => {
         dispatch(game.actions.setDescription(data));
-        // dispatch(game.actions.setGameActions(game.actions))
-        // dispatch(game.actions.setCoordinates(game.coordinates))
+      })
+      .finally(() => {
+        dispatch(game.actions.isLoading(false))
       })
   }
 }
