@@ -13,11 +13,13 @@ export const GameWrapper = styled.section`
   & div {
     // background: rgba(0, 0, 0, 0.616);
     background-image: url(${game_background});
-    background-size: cover;
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
 
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    gap: 1rem;
     flex-direction: column;
 
     color: white;
@@ -42,6 +44,15 @@ export const GameWrapper = styled.section`
 
     & progress {
       height: 1.5rem;
+    }
+
+    & span {
+    }
+
+    & label {
+      background: lawngreen;
+      display: flex;
+      gap: 1rem;
     }
   }
   `

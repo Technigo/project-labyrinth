@@ -6,7 +6,7 @@ const LoadingIndicator = () => {
 
   let [loadingDot, setLoadingDot] = useState('');
   const loadingAnimation = () => {
-    loadingDot === '....' 
+    loadingDot === '....'
     ? setLoadingDot('')
     : setTimeout(() => setLoadingDot(loadingDot += '.'), 250)
   }
