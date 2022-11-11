@@ -15,7 +15,7 @@ const LoadingWrap = styled.div`
 `
 
 // EXAMPLE ANIMATION:
-const Loader = styled.div`
+/* const Loader = styled.div`
   border-radius: 50%;
   border-top: 14px solid rgb(228, 35, 93);
   border-bottom: 14px solid rgb(228, 35, 93);
@@ -41,4 +41,4 @@ const Loader = styled.div`
     transform: rotate(360deg);
   }
 }
-`
+` */
