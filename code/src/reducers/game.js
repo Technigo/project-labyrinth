@@ -1,5 +1,3 @@
-// add for testing git
-
 import { createSlice } from '@reduxjs/toolkit'
 
 const game = createSlice({
@@ -22,9 +20,10 @@ const game = createSlice({
     },
     setStep: (store, action) => {
       store.step = [...store.moves, action.payload]
-      // store.step = store.moves.push(action.payload) // this works too
+      // store.step = store.moves.push(action.payload) // this works too but above is correct way
     },
     // going back in history. delete 1 in history.
+    // this reducer does not work
     setPrevious: (store, action) => {
       if (store.step.length > 1) {
         store.moves = store.step[store.step.length - 1]

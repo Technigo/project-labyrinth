@@ -18,11 +18,15 @@ export const OuterWrapper = styled.div`
 `
 
 export const Button = styled.button`
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: orange;
     font-weight: 700;
     padding: 16px 0;
-    border: none;
+    border: 2px solid white;
+    &:hover {
+        background-color: white;
+        color: black;
+      }
 `
 
 export const RestartButton = styled(Button)`
