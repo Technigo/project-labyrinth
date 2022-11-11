@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const restart = { username: '' }
+
 const labyrinth = createSlice({
   name: 'labyrinth',
   initialState: {
     username: '',
     status: '',
-    // started: false,
     description: '',
     actions: [],
     isLoading: false
@@ -27,13 +28,13 @@ const labyrinth = createSlice({
         store.actions.splice(actionArraylength - 1, 1);
         console.log(action);
       }
-      //  else (actionArraylength  === 0) {
-
-      // return <UserInput />}
     },
 
     setLoading: (store, action) => {
       store.isLoading = action.payload;
+    },
+    resetGame: () => {
+      return restart;
     }
   }
 })

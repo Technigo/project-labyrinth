@@ -16,14 +16,6 @@ const StartScreen = () => {
   return (
     <Container>
       {isLoading ? <Loading /> : (<div>{gameStart === '' ? <UserInput /> : <MazePage />} </div>)}
-
-      {/* {isLoading && <Loading />}
-      {!isLoading && (
-        <div>
-          {gameStart === '' ? <UserInput /> : <MazePage />}
-        </div>
-      )} */}
-
     </Container>
   )
 }

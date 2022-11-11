@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components/macro'
 import { useDispatch } from 'react-redux';
 import labyrinth, { generateLabyrinth } from 'reducers/labyrinth'
-import { ChildContainer } from '../styles/GlobalStyles'
+import { ChildContainer, StyledHeading, Button } from '../styles/GlobalStyles'
 
 const UserInput = () => {
   const [userInputValue, setUserInputValue] = useState('')
@@ -29,13 +29,13 @@ const UserInput = () => {
           height: '250px' }}
         loop
         autoplay />
-      <h1>Welcome to the maze</h1>
-	    <form onSubmit={(event) => onFormSubmit(event)}>
+      <StyledHeading>Welcome to the maze</StyledHeading>
+	    <form autoComplete="off" onSubmit={(event) => onFormSubmit(event)}>
         <label htmlFor="input">
 			    Enter your name:
-          <Input id="input" placeholder="Type here" value={userInputValue} type="text" onChange={(event) => setUserInputValue(event.target.value)} />
+          <Input id="input" value={userInputValue} type="text" onChange={(event) => setUserInputValue(event.target.value)} />
         </label>
-        <button type="submit"> Start </button>
+        <Button type="submit"> Start </Button>
       </form>
     </ChildContainer>
   )
@@ -44,15 +44,15 @@ const UserInput = () => {
 export default UserInput;
 
 const Input = styled.input`
-  font-size: 12px;
-  margin: 10px;
-  padding: 9px 5px 5px 40px;
-  background: white;
-	font-weight: 400;
-  border: none;
+  font-family: "Press Start 2P", cursive;
+  font-size: .8em;
+  box-sizing: border-box;
+  margin: .8em;
+  padding: .8em;
+  background: transparent;
+  border: 3px solid #3fceea;
   border-radius: 3px;
-  ::placeholder {
-    color: #3fceea;
-		font-family: "Press Start 2P", cursive;
-  }
+  width: 15vw;
+  color: white;
+
 `;

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-closing-tag-location */
 /* eslint-disable no-tabs */
 /* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable max-len */
@@ -5,7 +6,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import labyrinth, { GameNextFetch } from 'reducers/labyrinth';
-import { ChildContainer } from '../styles/GlobalStyles'
+import styled from 'styled-components/macro'
+import { ChildContainer, StyledSubHeading, Button } from '../styles/GlobalStyles'
 
 const MazePage = () => {
   const dispatch = useDispatch();
@@ -21,31 +23,40 @@ const MazePage = () => {
 
   return (
     <ChildContainer>
-      <>
-        <div>
-          <p><button type="button" onClick={() => goToPreviousStatus()}>Go back</button></p>
+      <StyledTop>
+        <Button type="button" onClick={() => goToPreviousStatus()}>Go back</Button>
+        <p>Coordinates:{coordinates}</p>
+      </StyledTop>
+      <div>
+        <StyledSubHeading>{description}</StyledSubHeading>
+      </div>
+      {actions.length === 0 && (
+        <Button
+          type="button"
+          onClick={() => dispatch(labyrinth.actions.resetGame())}>
+            RESTART GAME
+        </Button>)}
+      {actions && actions.map((singleType) => (
+        <><div key={singleType.description}>
+          {singleType.description}
         </div>
-        <div>
-          <h3>{description}</h3>
-        </div>
-        <div>
-          <h3>Coordinates:</h3>
-          <h3>
-            {coordinates}
-          </h3>
-        </div>
-        {actions && actions.map((singleType) => (
-          <><div key={singleType.description}>
-            <p>{singleType.description}</p>
-						      </div>
-          <div>
-            <button onClick={() => onTypeButtonClick(singleType.type, singleType.direction)} type="button">{singleType.direction}</button>
-          </div>
-          </>
-        ))}
-      </>
+
+        <Button onClick={() => onTypeButtonClick(singleType.type, singleType.direction)} type="button">{singleType.direction}</Button>
+
+        </>
+      ))}
     </ChildContainer>
   )
 };
 
 export default MazePage;
+
+const StyledTop = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+
+p {
+  font-size: 0.6em;
+}
+`
