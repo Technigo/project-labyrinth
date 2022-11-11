@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { fetchChoices, choices } from 'reducers/choices';
 import { useDispatch } from 'react-redux';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 export const Start = () => {
   const dispatch = useDispatch()
