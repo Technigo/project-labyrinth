@@ -1,12 +1,13 @@
 # Project Labyrinth
 
-To do: 
- x remove choose direction at last page
+To do:
+x remove choose direction at last page
 responsiveness test
 comment
 map?
-sound? 
-history? 
+sound?
+history?
+If we end up not using the map, remove it and history in initalState.
 
 ## The problem
 

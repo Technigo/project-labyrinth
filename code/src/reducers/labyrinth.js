@@ -10,7 +10,8 @@ const labyrinth = createSlice({
     actions: [],
     username: null,
     isLoading: false,
-    chosenDirection: ''
+    chosenDirection: '',
+    history: []
   },
   reducers: {
     setLoading: (store, action) => {
@@ -33,6 +34,8 @@ const labyrinth = createSlice({
       store.coordinates = coordinates;
       store.description = description;
       store.actions = actions;
+      /* store.history.push(action.payload);
+      console.log(store.history) */
     }
   }
 });

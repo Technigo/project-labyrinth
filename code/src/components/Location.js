@@ -12,13 +12,7 @@ const Location = () => {
   const currentLocation = useSelector((store) => store.labyrinth);
   const dispatch = useDispatch();
 
-  /*   const actionDirections = currentLocation.actions.map((action) => {
-    return (
-      <p key={action.description}>{action.description}</p>
-    )
-  }) */
-
-  const actionButtons = currentLocation.actions.map((action) => {
+  const actionDirections = currentLocation.actions.map((action) => {
     // send chosen direction to reducer.
     const pickDirection = (direction) => {
       dispatch(labyrinth.actions.setDirection(direction))
@@ -42,12 +36,12 @@ const Location = () => {
       {currentLocation.isLoading ? <Loading />
         : <LocationWrapper>
           <h2>{currentLocation.description}</h2>
-          {/* {actionDirections} */}
           {currentLocation.coordinates !== '1,3'
             ? <h3>Which direction do you choose?</h3>
-            : <h3>You awake after a good nights sleep and smell your morning coffee</h3>}
+            : <h3>You awake after a good nights sleep and smell your morning coffee.
+            You feel rested and ready to take on any challenge life sends your way.</h3>}
           <Choice>
-            {actionButtons}
+            {actionDirections}
           </Choice>
         </LocationWrapper>}
     </>
@@ -69,9 +63,6 @@ const Choice = styled.div`
   @media (min-width:659px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-
-    
-    
   }
  
 `

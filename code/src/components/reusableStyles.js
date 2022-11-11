@@ -8,7 +8,6 @@ export const InnerWrapper = styled.main`
     max-width: 45rem;
   }
 `
-
 export const LocationWrapper = styled.section`
   padding: 1.5rem;
   display: flex;
@@ -17,9 +16,8 @@ export const LocationWrapper = styled.section`
   align-items: center;
   background-color: rgba(0, 0, 0, 0.6);
   min-height: 100vh;
-  // height: 100vh;
   text-align: center;
-  
+
 
   @media (min-width: 659px) {
     border: 2px solid white;
@@ -36,7 +34,8 @@ export const Button = styled.button`
   margin: 1rem auto 0;
   display: flex;
   background-color: tan;
-  box-shadow: 0.3rem 0.3rem 1rem white;
+  border: 1px solid black;
+  box-shadow: 0.2rem 0.2rem 1rem white;
   font-family: 'Calligraffitti', cursive;
   letter-spacing: 5px;
   font-size: 18px;
@@ -45,6 +44,11 @@ export const Button = styled.button`
   
   @media (min-width: 659px) {
     margin: 1rem 0 0;
-    &:hover{background-color: orange};
+  }
+
+  @media (min-width: 1024px) {
+    &:hover{
+      background-color: orange;
+    };
   }
 `

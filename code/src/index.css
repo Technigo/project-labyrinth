@@ -1,7 +1,5 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300;400&display=swap');
 
 
@@ -13,55 +11,44 @@
 body {
   background-color:black;
   color: white;
-  /* font-family: 'Calligraffitti', cursive; */
-  /* font-family: 'Amatic SC', cursive; */
   font-family: 'Dosis', sans-serif;
-/*   font-family: 'Quicksand', sans-serif; */
-
-
   letter-spacing: 2px;
 }
 
-h2{
-  font-size: 23px;
-
-
+h2 {
+  font-size: 1.5rem;
 }
 
-h3{
-  font-size: 20px;
+h3 {
+  font-size: 1.3rem;
   letter-spacing: 3.2px;
   color: tan;
-  margin: 2rem 0
-
+  margin: 2rem 0;
+  filter: drop-shadow(3px 3px 3px black);
 }
 
-p{
-  font-size: 16px;
+p {
+  font-size: 1rem;
 }
 
 /*Tablet*/
 @media (min-width: 759px) {
-  h2{
+  h2 {
     font-size: 2rem;
   }
   
-  p{
+  p {
     font-size: 1.3rem;
   }
 }
 
 /*Desktop*/
 @media (min-width: 1025px){
-  h2{
-    font-size: 24px;
+  h2 {
+    font-size: 2.5rem;
   }
   
-  p{
-    font-size: 16px;
+  p {
+    font-size: 1.5rem;
   }
-
-
 }
-
-

@@ -36,7 +36,7 @@ const Start = () => {
             placeholder="What is your name?"
             onChange={(event) => setUserName(event.target.value)} />
         </label>
-        <Button type="submit">Enter</Button>
+        <EnterButton type="submit">Enter</EnterButton>
       </Form>
     </LocationWrapper>
 
@@ -55,4 +55,8 @@ const TextInput = styled.input`
 
 const Form = styled.form`
   margin-top: 2rem;
+`
+
+const EnterButton = styled(Button)`
+margin: 1rem auto 0;
 `
