@@ -1,3 +1,5 @@
+/* eslint-disable operator-linebreak */
+/* eslint-disable implicit-arrow-linebreak */
 import styled, { createGlobalStyle, css } from 'styled-components/macro';
 import BackgroundImg from '../assets/background-img.jpg';
 
@@ -37,43 +39,22 @@ export const InnerWrapper = styled.div`
 `;
 
 export const Button = styled.button`
+  background-color: inherit;
+  font-size: 14px;
+  border: 2px solid black;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 2%;
 
-background-color: inherit;
-
- ${(props) => props.north && css`
- grid-area: 1 / 4 / span 2 / span 2;
-
- @media (max-width: 700px) {
-  grid-area: 1 / 3 / span 1 / span 4;
+  :hover {
+    opacity: 0.5;
   }
-  
-`};
 
-${(props) => props.east && css`
-grid-area: 4 / 7 / span 2 / span 3;
-
-@media (max-width: 700px) {
-  grid-area: 2 / 6 / span 2 / span 3;
-  }
-`};
-
-${(props) => props.west && css`
-grid-area: 4 / 1 / span 2 / span 2;
-
-@media (max-width: 700px) {
-  grid-area: 2 / 1 / span 2 / span 3;
-  }
-`};
-
-${(props) => props.south && css`
-grid-area: 7 / 3 / span 1 / span 4;
-
-@media (max-width: 700px) {
-  grid-area: 4 / 3 / span 1 / span 4;
-  }
-`};
-
-/* ${(props) => props.restart && css`
-flex-basis: 100;
-`}; */
+  ${(props) =>
+    props.restart &&
+    css`
+      /* position: absolute; */
+      top: 0;
+      left: 0;
+    `};
 `;
