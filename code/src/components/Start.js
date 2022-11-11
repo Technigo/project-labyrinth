@@ -27,7 +27,7 @@ export const Start = () => {
       {!startConfirmed && (
         <>
           <Header>
-            <h1>Welcome to the game</h1>
+            <HelloUser>👾Welcome to the game👾</HelloUser>
           </Header>
           <Form onSubmit={onFormSubmit}>
             <InputField
@@ -43,15 +43,15 @@ export const Start = () => {
         </>
       )}
       {startConfirmed && (
-        <section>
-          <h2>Hello {userName}!</h2>
-          <h4>Press start to get your first instructions</h4>
+        <WelcomeWrapper>
+          <HelloUser>Hello {userName}!</HelloUser>
+          <PressStart>Press start to get your first instructions</PressStart>
           <StartBtn
             type="button"
             onClick={() => dispatch(fetchChoices())}>
             Start Game
           </StartBtn>
-        </section>
+        </WelcomeWrapper>
       )}
     </section>
 
@@ -73,6 +73,7 @@ const CreatePlayerBtn = styled.button`
   padding: 10px 18px;
   margin: 8px 0;
   font-size: 16px;
+  font-family: 'Orbitron', sans-serif;
 `
 
 const StartBtn = styled.button`
@@ -84,6 +85,7 @@ const StartBtn = styled.button`
   padding: 10px 18px;
   margin: 8px 0;
   font-size: 16px;
+  font-family: 'Orbitron', sans-serif;
 `
 
 const Form = styled.form`
@@ -101,4 +103,23 @@ const InputField = styled.input`
   box-sizing: border-box;
   border-radius: 10px;
   font-size: 20px;
+`
+
+const HelloUser = styled.p`
+color: white;
+font-size: 40px;
+font-family: 'Orbitron', sans-serif;
+`
+
+const PressStart = styled.p`
+color: white;
+font-size: 16px;
+`
+
+const WelcomeWrapper = styled.div`
+display: flex;
+justify-content:center;
+flex-direction: column;
+align-items: center;
+
 `
