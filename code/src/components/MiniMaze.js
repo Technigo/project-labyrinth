@@ -12,7 +12,7 @@ const MiniMaze = () => {
     loop
     autoplay />
   return (
-    <Section>
+    <Section hide={coordinates === '1,3'}>
       <Map>
         {coordinates === '0,0' && <Pin1><span role="img" aria-label="pin">{animation}</span></Pin1>}
         {coordinates === '1,0' && <Pin2><span role="img" aria-label="pin">{animation}</span></Pin2>}
@@ -33,6 +33,7 @@ const Section = styled.section`
   height: 200px;
   justify-self: flex-end;
   margin: auto;
+  display: ${(props) => (props.hide ? 'none' : '')};
 `
 const Map = styled.div`
   bottom: 1rem;

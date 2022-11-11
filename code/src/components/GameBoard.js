@@ -7,6 +7,7 @@ import { Container } from 'styles/GlobalWrappers';
 import styled from 'styled-components/macro';
 import compass from 'assets/compass.png'
 import TypeWriterEffect from 'react-typewriter-effect';
+import trophy from 'assets/trophy.png'
 import BackgroundImage from './BackgroundImage';
 import MiniMaze from './MiniMaze';
 
@@ -28,17 +29,25 @@ const GameBoard = () => {
   }
   const winner = () => {
     return (
-      <WinnerWrapper>
-        <div>
-          <p>CONGRATZ <span>{userName.toUpperCase()}</span></p>
-          <p>You won the game!</p>
-        </div>
-      </WinnerWrapper>
+      <>
+        <WinnerWrapper>
+          <img src={trophy} alt="You win" />
+          <div>
+            <p>CONGRATZ <span>{userName.toUpperCase()}</span></p>
+            <h2>YOU WIN!</h2>
+          </div>
+        </WinnerWrapper>
+        <RestartBtn
+          type="button"
+          onClick={() => onRestartButtonClick()}>
+          RESTART
+        </RestartBtn>
+      </>
     )
   }
   return (
     <>
-      <Top>
+      <Top hide={coordinates === '1,3'}>
         <ButtonAndCompass>
           <RestartBtn
             type="button"
@@ -58,22 +67,20 @@ const GameBoard = () => {
             typeSpeed={70}
             hideCursorAfterText={true} />
         </Description>
-        <MazeImgContainer>
+        <MazeImgContainer hide={coordinates === '1,3'}>
           <MiniMaze />
           <ImgNavigation>
             <BackgroundImage coordinates={coordinates} />
-            <ButtonMap>
-              {actions && actions.map((item) => {
-                return (
-                  <ButtonWrapper key={item.direction}>
-                    <button
-                      type="button"
-                      onClick={() => onDirectionButtonClick(item.type, item.direction)}>GO {item.direction.toUpperCase()}
-                    </button>
-                  </ButtonWrapper>
-                );
-              })}
-            </ButtonMap>
+            {actions && actions.map((item) => {
+              return (
+                <ButtonWrapper key={item.direction}>
+                  <button
+                    type="button"
+                    onClick={() => onDirectionButtonClick(item.type, item.direction)}>GO {item.direction.toUpperCase()}
+                  </button>
+                </ButtonWrapper>
+              );
+            })}
           </ImgNavigation>
         </MazeImgContainer>
         <ActionsWrapper>
@@ -106,9 +113,6 @@ const Pdirection = styled.p`
 const ButtonWrapper = styled.div`
   margin-top: 5px;
 `
-const ButtonMap = styled.div`
-  
-`
 const ActionsWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -122,6 +126,7 @@ const Top = styled.div`
   color: red;  
   justify-content: space-between;
   align-items: center;
+  visibility: ${(props) => (props.hide ? 'hidden' : '')};
 `
 
 const Description = styled.div`
@@ -137,14 +142,25 @@ const Description = styled.div`
   }
 `
 const WinnerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 15px;
+  p {
+    text-align: center;
+  }
   span {
     color:red;
+  }
+  h2 {
+    font-size: 50px;
+    text-align: center;
   }
 `
 const MazeImgContainer = styled.div`
   display: flex;
   gap: 30px;
+  display: ${(props) => (props.hide ? 'none' : '')};
 `
 
 const ImgNavigation = styled.div`

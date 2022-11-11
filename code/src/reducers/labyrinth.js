@@ -50,11 +50,10 @@ export const startLabyrinth = () => {
     fetch(API_URL, options)
       .then((res) => res.json())
       .then((data) => {
-        setTimeout(() => {
-          dispatch(labyrinth.actions.setStage(data))
-            .finally(dispatch(ui.actions.setLoading(false)))
-        }, 0)
+        dispatch(labyrinth.actions.setStage(data))
       })
+      .catch((error) => console.log(error))
+      .finally(() => dispatch(ui.actions.setLoading(false)))
   }
 };
 
@@ -76,10 +75,9 @@ export const nextStage = (type, direction) => {
     fetch(API_URL_ACTION, optionsAction)
       .then((res) => res.json())
       .then((data) => {
-        setTimeout(() => {
-          dispatch(labyrinth.actions.setStage(data))
-            .finally(dispatch(ui.actions.setLoading(false)))
-        }, 0)
+        dispatch(labyrinth.actions.setStage(data))
       })
+      .catch((error) => console.log(error))
+      .finally(() => dispatch(ui.actions.setLoading(false)))
   }
 };
