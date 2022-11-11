@@ -5,10 +5,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchGameStart, maingame } from 'reducers/maingame';
 import styled from 'styled-components';
-import Lottie from 'react-lottie';
 import { GamePage } from './GamePage';
 import { LastPage } from './LastPage';
-import animationData from '../Lottie/lottiesparkle'
 
 export const StartPage = () => {
   const [usernameInput, setUserNameInput] = useState('')
@@ -20,14 +18,6 @@ export const StartPage = () => {
     dispatch(maingame.actions.setUsername(usernameInput))
     dispatch(fetchGameStart())
   }
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice'
-    }
-  };
 
   // Renders the GamePage in the browser if the gameProps is populated with an object with properties.
   if (globalGameProps === '0,0' || globalGameProps === '1,0' || globalGameProps === '1,1' || globalGameProps === '0,1' || globalGameProps === '0,2' || globalGameProps === '0,3') {
@@ -39,7 +29,6 @@ export const StartPage = () => {
   return (
     <CardContainerStart>
       <WelcomeTitle> Welcome to the Labyrinth!</WelcomeTitle>
-      <Lottie options={defaultOptions} height={400} width={400} />
       <UserNameInput> Choose your username:</UserNameInput>
       <form onSubmit={onFormSubmit}>
         <UserNameInputField
