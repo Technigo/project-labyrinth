@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import styled from 'styled-components'
-import Description from './Description';
+import Game from './Game';
 import UserNameInput from './UserNameInput';
 // import Loader from './Loader';
 
@@ -11,14 +10,10 @@ const StartScreen = () => {
   // if (loading) return <Loader />
 
   return (
-    <StartScreenerContainer>
-      {description === '' ? <UserNameInput /> : <Description />}
-    </StartScreenerContainer>
+    <div>
+      {description === '' ? <UserNameInput /> : <Game />}
+    </div>
   );
 }
 
 export default StartScreen;
-
-const StartScreenerContainer = styled.section`
-border: solid 3px blue;
-`

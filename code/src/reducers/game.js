@@ -4,8 +4,8 @@ const game = createSlice({ // quotes
   name: 'game', // quotes
   initialState: {
     username: '',
-    description: '',
-    steps: [] // Osäker på vad vi behöver här
+    description: ''
+    // steps: [] // Osäker på vad vi behöver här
   },
   reducers: {
     setUser: (store, action) => {
@@ -13,10 +13,11 @@ const game = createSlice({ // quotes
     },
     setDescription: (store, action) => {
       store.description = action.payload;
-    },
-    setStep: (store, action) => {
-      store.steps = [...store.moves, action.payload];
     }
+    // setStep: (store, action) => {
+    //   store.steps = [...store.moves, action.payload];
+    //   console.log('store.steps', store.steps)
+    // }
   }
 });
 
@@ -32,7 +33,8 @@ export const generateDescription = () => {
     fetch('https://labyrinth-technigo.herokuapp.com/start', start) // samma som happy
       .then((res) => res.json())
       .then((data) => {
-        dispatch(game.actions.setDescription(data));
+        dispatch(game.actions.setDescription(data))
+        console.log('data', data);
       });
   };
 };
@@ -49,7 +51,8 @@ export const generateNextDescription = (direction) => {
     fetch('https://labyrinth-technigo.herokuapp.com/action', action) // samma som happy
       .then((res) => res.json())
       .then((data) => {
-        dispatch(game.actions.setDescription(data));
+        dispatch(game.actions.setDescription(data))
+        console.log('data2', data);
       });
   };
 };

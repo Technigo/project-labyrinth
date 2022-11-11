@@ -2,9 +2,10 @@ import React from 'react';
 import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux';
 import { generateNextDescription } from 'reducers/game';
+// import Wrapper from './Wrapper';
 import Button from './Button';
 
-function coordsToBackgroundImageWeb(coords) {
+function coordsToBackgroundImage(coords) {
   // @TODO change to switch
   if (coords === '0,0') {
     return './assets/images/img_1.jpg'
@@ -23,6 +24,26 @@ function coordsToBackgroundImageWeb(coords) {
   }
   return './assets/images/fallback.jpg'
 }
+
+// function coordsToBackgroundImageMob(coords) {
+//   // @TODO change to switch
+//   if (coords === '0,0') {
+//     return './assets/images/mob_img_1.jpg'
+//   } else if (coords === '1,0') {
+//     return './assets/images/mob_img_2.jpg'
+//   } else if (coords === '1,1') {
+//     return './assets/images/mob_img_3.jpg'
+//   } else if (coords === '0,1') {
+//     return './assets/images/mob_img_4.jpg'
+//   } else if (coords === '0,2') {
+//     return './assets/images/mob_img_5.jpg'
+//   } else if (coords === '0,3') {
+//     return './assets/images/mob_img_6.jpg'
+//   } else if (coords === '1,3') {
+//     return './assets/images/mob_img_7.jpg'
+//   }
+//   return './assets/images/fallback.jpg'
+// }
 
 const DirectionInput = ({ actions }) => {
   // Get actions from API
@@ -49,16 +70,11 @@ const DirectionInput = ({ actions }) => {
         // Loop over all actions returned by the API, render a button for each
         <div key={direction}>
           {availableActions[direction] ? (
-            <>
-              <Button
-                type="button"
-                onClick={() => handleOnClick(direction)}>
-                {direction}
-              </Button>
-              <div>
-                {availableActions[direction].description}
-              </div>
-            </>
+            <Button
+              type="button"
+              onClick={() => handleOnClick(direction)}>
+              {direction}
+            </Button>
           ) : (
             // Return disabled button if not available
             <Button disabled type="button">
@@ -71,24 +87,53 @@ const DirectionInput = ({ actions }) => {
   )
 }
 
-const Description = () => {
-  const description = useSelector((state) => state.game.description); // get description
+const Game = () => {
+  const description = useSelector((store) => store.game.description); // get description
   console.log('description', description);
 
-  const bgImage = coordsToBackgroundImageWeb(description.coordinates);
+  const bgImage = coordsToBackgroundImage(description.coordinates);
 
   return (
-    <GameWrapper bgImage={bgImage}>
-      <Map>The Maze</Map>
+    <GameImage bgImage={bgImage}>
+      <Map>Map Image</Map>
       <DescriptionWrapper>
-        <DescriptionText>{description.description}</DescriptionText>
+        <DescriptionText>
+          {description.description}
+        </DescriptionText>
+        <div>
+          {description.actions.map((action) => (
+            <p key={action.direction}>
+              {action.direction}: {action.description}
+            </p>
+          ))}
+        </div>
         <DirectionInput
           actions={description.actions} />
       </DescriptionWrapper>
-    </GameWrapper>
+    </GameImage>
   );
 }
-export default Description;
+export default Game;
+
+const GameImage = styled.div`
+display: grid;
+background-image: url(${(props) => props.bgImage});
+/* background-image: url('/assets/images/image_3.jpg'); */
+min-height: 100vh;
+background-size: contain;
+background-position: center;
+background-repeat: no-repeat;
+background-color: black;
+
+@media (min-width: 667px) and (max-width: 1024px) {
+    background-position: right;
+  }
+
+@media (min-width: 1025px) {
+    background-position: right;
+  }
+
+`
 
 const Map = styled.div`
 color: white;
@@ -99,25 +144,24 @@ font-size: 1.5em;
 `
 
 const DescriptionWrapper = styled.div`
+color: white;
 border: solid 2px hotpink;
-margin-top: 300px;
+width: 70%;
+height: 50%;
+display: grid;
+justify-self: center;
+align-self: center;
 
 @media (min-width: 667px) and (max-width: 1024px) {
       width: 60%;
+      justify-self: left;
     }
-    @media (min-width: 1025px) {
-      width: 40%;
-    }
-`
 
-const GameWrapper = styled.section`
-border: solid 2px blue;
-display: flex;
-background-image: url(${(props) => props.bgImage});
-/* background-image: url('/assets/images/image_3.jpg'); */
-min-height: 100vh;
-background-size: cover;
-color: white;
+@media (min-width: 1025px) {
+      width: 30%;
+      margin-left: 50px;
+      justify-self: left;
+    }
 `
 
 const DescriptionText = styled.div`
@@ -128,4 +172,5 @@ color: white;
 const ChooseDirectionWrapper = styled.div`
 border: solid 2px red;
 display: grid;
+color: white;
 `
