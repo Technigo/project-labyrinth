@@ -20,20 +20,17 @@ export const LoadingPage = () => {
 }
 
 const LoadingPageWrapper = styled.div`
-  position: absolute;
+  display: flex;
+  flex-direction: column;
   z-index: 1;
-  top: 200px;
-  left: 10px;
-  height: 50vh;
+  position: absolute;
+  top: 30%;
 
   @media (min-width: 668px) and (max-width: 1023px){
-    top: 180px;
-    left: 10px;
-    margin: 0 auto;
+    top: 25%;
   }
 
   @media (min-width: 1024px){
-    top: -80px;
-    margin: 0 80px;
+    top: 0;
   }
 `
