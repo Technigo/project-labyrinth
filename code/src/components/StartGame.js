@@ -23,9 +23,8 @@ export const StartGame = () => {
 
   return (
     <GameContainer>
-      <h1>Hi</h1>
-      <h2>welcome</h2>
-      <p>who are you?</p>
+      <h1>Welcome, fellow adventurer, to this mystical forest.</h1>
+      <h2>What is your name?</h2>
       <InputAndStart>
         <InputField
           type="text"
@@ -53,55 +52,11 @@ display: flex;
 `;
 
 export const InputField = styled.input`
-outline: 2px dashed #0F887D;
+outline: 3px dashed #B1D9AF;
 border: none;
+margin-right: 5px;
 border-radius: 3px;
 `;
 
 export const GameHeader = styled.h1`
 `;
-
-/* import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import game, { fetchGame } from 'reducers/game';
-
-const Game = () => {
-  const [userNameInputValue, setUserNameInputValue] = useState('');
-  const dispatch = useDispatch();
-  const username = useSelector((store) => store.game.username);
-
-  const onFormSubmit = (event) => {
-    event.preventDefault();
-
-    dispatch(game.actions.setName(userNameInputValue))
-    dispatch(fetchGame());
-  }
-
-const Game = () => {
-  const isLoading = useSelector((store) => store.ui.isLoading)
-  const [userName, setUserName] = useState('')
-  const dispatch = useDispatch()
-
-  const onInputUserName = (event) => {
-    event.preventDefault()
-    setUserName(event.target.value)
-  }
-
-  const onChangeUserName = () => {
-    dispatch(game.actions.setName(userName))
-    setUserName('')
-    dispatch(fetchGame())
-  }
-
-  return (
-    <form onSubmit={(event) => onFormSubmit(event)}>
-      <label htmlFor="author-input">
-      Provide author name, please:
-        <input id="author-input" type="text" onChange={(event) =>
-          setUserNameInputValue(event.input.value)} />
-      </label>
-      <button type="submit">search for quotes</button>
-    </form>)
-}
-
-export default Game; */

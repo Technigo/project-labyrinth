@@ -33,12 +33,6 @@ export const OuterWrapper = styled.div`
 display: flex;
 flex-direction: column;
 align-items:center;
-
-@media (min-width: 667px) {
-  }
-
-  @media (min-width: 1024px) {  
-  }
 `;
 
 export const InnerWrapper = styled.div`
@@ -46,8 +40,8 @@ background-color: whitesmoke;
 background-image: url("./img/gameimage.png");
 background-size: cover;
 background-repeat: no-repeat;
-width: 65%;
-height: 280px;
+width: 250px;
+min-height: 360px;
 border: 10px solid black;
 border-radius: 30px;
 display: flex;
@@ -57,16 +51,12 @@ margin-bottom: -50px;
 margin-top: 30px;
 position: relative;
 
-@media (min-width: 667px) {
-  width: 300px;
-  }
-  @media (min-width: 1024px) {
-  width: 300px;
+ @media (min-width: 668px){
+  margin-top: 10%;
   }
 `;
 
 export const StartGameContainer = styled.div`
-  background-color: whitesmoke;
   opacity: 0.8;
   font-size: 14px;
   padding: 5px 10px;
@@ -80,4 +70,8 @@ height: 400px;
 top: 350px;
 background-image: url("./img/gamecontroller.png");
 background-size: contain;
+
+@media (min-width: 668px){
+  margin-top: 8%;
+  }
 `

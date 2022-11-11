@@ -4,6 +4,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { game } from 'reducers/game'
 import { ui } from 'reducers/ui'
 import { StartScreen } from 'components/StartScreen'
+import './index.css'
 
 const reducer = combineReducers({
   ui: ui.reducer,

@@ -33,22 +33,18 @@ align-items: center;
 `;
 
 const LoadingPageWrapper = styled.div`
-  border 2px solid red;
+  background: rgba(245, 245, 245, 0.541);
   position: absolute;
   z-index: 1;
-  width: 65%;
-  height: 280px;
+  width: 250px;
+  min-height: 360px;
   margin-bottom: -50px;
   margin-top: 30px;
-  top: 40px;
+  top: 8px;
   padding: 30px;
-  @media (min-width: 668px) and (max-width: 1023px){
-    top: 180px;
-    left: 10px;
-    margin: 0 auto;
-  }
-  @media (min-width: 1024px){
-    top: -80px;
-    margin: 0 80px;
+  border-radius: 24px;
+
+  @media (min-width: 668px){
+  margin-top: 10%;
   }
 `

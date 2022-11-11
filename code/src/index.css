@@ -22,10 +22,4 @@ code {
       width: 200px;
       z-index: 4;
     }
-    
-    @media (min-width: 667px) {
-      .animation {
-        width: 300px;
-      }
-      }
 
