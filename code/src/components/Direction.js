@@ -18,6 +18,7 @@ const NextDirection = ({ actions }) => {
             type="button"
             onClick={() => goNextOnClick(action.direction)}>
             {action.description}
+            <p>Go {action.direction}</p>
           </StyledButton>
         </DirectionWrapper>
       ))}
@@ -42,5 +43,14 @@ const StyledButton = styled.button`
   &:hover {
     background-color: white;
     color: black;
+  }
+
+  p {
+    margin: 0px;
+    color: orange;
+  }
+
+  @media (min-width: 1025px) {
+    width: 910px;
   }
 `

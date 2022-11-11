@@ -44,5 +44,5 @@ const MainDescriptionWrapper = styled.div`
 const StyledHeadingOne = styled.div`
   display: flex;
   justify-content: center;
-  width: 90%;
+  width: 100%;
 `
