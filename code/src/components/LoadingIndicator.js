@@ -1,12 +1,12 @@
 /* eslint-disable linebreak-style */
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { useSelector } from 'react-redux';
 
 export const LoadingIndicator = () => {
   const isLoading = useSelector((state) => state.ui.isLoading)
 
-  return isLoading && <LoadingWrap> Loading..</LoadingWrap>
+  return isLoading && <LoadingWrap>Loading..<Loader /></LoadingWrap>
 }
 
 // STYLING FOR ABOVE COMPONENT
@@ -15,8 +15,8 @@ const LoadingWrap = styled.div`
 `
 
 // EXAMPLE ANIMATION:
-/* const Loader = styled.div`
-  border-radius: 50%;
+const Loader = styled.div`
+  border-radius: 20%;
   border-top: 14px solid rgb(228, 35, 93);
   border-bottom: 14px solid rgb(228, 35, 93);
   width: 100px;
@@ -41,4 +41,4 @@ const LoadingWrap = styled.div`
     transform: rotate(360deg);
   }
 }
-` */
+`

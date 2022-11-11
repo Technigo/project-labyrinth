@@ -25,7 +25,7 @@ export const App = () => {
 }
 
 const OuterWrapper = styled.section`
-  max-width: 90%;
+  max-width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: center;

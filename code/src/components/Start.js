@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { fetchChoices, choices } from 'reducers/choices';
 import { useDispatch } from 'react-redux';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const Start = () => {
   const dispatch = useDispatch()
@@ -46,11 +46,11 @@ export const Start = () => {
         <section>
           <h2>Hello {userName}!</h2>
           <h4>Press start to get your first instructions</h4>
-          <button
+          <StartBtn
             type="button"
             onClick={() => dispatch(fetchChoices())}>
             Start Game
-          </button>
+          </StartBtn>
         </section>
       )}
     </section>
@@ -59,14 +59,31 @@ export const Start = () => {
 }
 
 const Header = styled.section`
-  font-size: 24px;
+  font-size: 38px;
+  text-align: center;
+  color: white;
 `
 
 const CreatePlayerBtn = styled.button`
   display: block;
   margin: 1rem;
   padding: 0.5rem;
-  
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px 18px;
+  margin: 8px 0;
+  font-size: 16px;
+`
+
+const StartBtn = styled.button`
+  display: block;
+  margin: 1rem;
+  padding: 0.5rem;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px 18px;
+  margin: 8px 0;
+  font-size: 16px;
 `
 
 const Form = styled.form`
@@ -78,7 +95,7 @@ const Form = styled.form`
 `
 
 const InputField = styled.input`
-width: 90%;
+  width: 90%;
   padding: 30px 38px;
   margin: 8px 0;
   box-sizing: border-box;
