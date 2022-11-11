@@ -6,7 +6,6 @@ export const OuterWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   height: 100vh;
-  padding: 10px;
   background-color: #16213E;
 `;
 
@@ -15,25 +14,19 @@ export const InnerWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 85%;
+  max-width: 85%;
   height: auto;
   padding: 20px;
-  margin-top: 30px;
   text-align: center;
   background-color: #0F3460;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   border-radius: 4px;
   @media (min-width: 790px) {
     max-width: 65%;   
   }
   @media (min-width: 990px) {
     max-width: 55%;
-  }
-  @media (min-width: 1290px) {
-    max-width: 40%;  
-  }
-  @media (min-width: 1990px) {
-    max-width: 30%;
+    margin-top: 100px;
   }
 `;
 
