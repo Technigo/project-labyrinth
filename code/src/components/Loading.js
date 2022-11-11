@@ -2,8 +2,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components/macro'
-import Lottie from 'react-lottie'
-import animationData from './lotties/RetroLoadingBar.json';
+import Lottie from 'lottie-react'
+import Bar from './lotties/RetroLoadingBar.json';
 
 const Loading = () => {
   const isLoading = useSelector((store) => store.ui.Loading)
@@ -11,7 +11,7 @@ const Loading = () => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData,
+    animationData: Bar,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice'
     }
@@ -23,6 +23,7 @@ const Loading = () => {
       {isLoading
     && <LoaderContainer>
       <Lottie
+        animationData={Bar}
         options={defaultOptions}
         width={200}
         height={200} />

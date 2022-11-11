@@ -58,6 +58,16 @@ Viktor morgon-dag-kväll:
 -ladde in tv stylingen i gamepage så att allt visas i en tv
 -gjorde en kontroll för att se ungefär hur det skulle vara
 
+# Fredag 
+Nina Kväll:
+
+- Jobbat i Illustrator med bilder
+- justerat react-dom till CreateRoot i index.js
+- Efter att Linda och Tika haft problem med deploy via Netlify så har jag gjort några ändringar: unintall Ract-Lottie och kollat så Lottie-react funkar.
+  även ändrat lite i koden samt kört en npm inatall react-prop-types
+
+
+
 
 --------------------------------------------
 

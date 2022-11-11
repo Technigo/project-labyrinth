@@ -20,7 +20,7 @@ export const StartPage = () => {
 
   return (
     <StartPageWrapper>
-      <WelcomeText> Hi! Do you want to play a game? Pleas enter your name</WelcomeText>
+      <WelcomeText> Hi! Do you want to play a game? Pleas enter your name.</WelcomeText>
       <NameForm onSubmit={handleSubmit}>
         <StyledInput
           type="text"

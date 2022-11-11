@@ -5,6 +5,7 @@
 	--clr-accent: #32aacf;
 	--clr-grey: #a3a3a3;
   --clr-darkgrey: #504f4f;
+  --clr-lilac: rgba(148, 154, 201, 0.4);
 
   /* Fonts */
   --font-pixel: 'Press Start 2P', cursive;
@@ -19,6 +20,9 @@
 }
 
 body {
+  display: flex;
+	justify-content: center;
+	background: var(--clr-grey);
   margin: 0;
   font-family: 'Play', sans-serif;
   -webkit-font-smoothing: antialiased;
