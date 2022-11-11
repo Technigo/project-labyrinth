@@ -127,7 +127,7 @@ const Game = () => {
 
   return (
     <GameImage bgImage={bgImage} sImage={sImage}>
-      <Map src={MazeMap} alt="Map of maze" />
+      <Map src={MazeMap} alt="Map of maze" title="Your current position" />
       <DescriptionWrapper>
         <DescriptionText>
           {description.description}
