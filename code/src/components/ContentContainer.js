@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable import/no-named-as-default-member */
 import React from 'react'
 import { useSelector } from 'react-redux'
@@ -10,6 +11,8 @@ const ContentContainer = () => {
   const coordinates = useSelector((store) => store.labyrinth.coordinates)
   const loadingState = useSelector((store) => store.loading.load)
   console.log(coordinates, loadingState)
+  const coordinatesWithoutCommas = coordinates.replace(',', '')
+  console.log(coordinatesWithoutCommas)
 
   if (loadingState) {
     return (
@@ -17,8 +20,8 @@ const ContentContainer = () => {
     )
   }
   return (
-    <Outerwrapper>
-      <Innerwrapper coordinates={coordinates}>
+    <Outerwrapper coordinates={coordinatesWithoutCommas}>
+      <Innerwrapper>
         {coordinates === '' && <StartPage />}
         {coordinates !== '' && <LabyrinthPart />}
       </Innerwrapper>

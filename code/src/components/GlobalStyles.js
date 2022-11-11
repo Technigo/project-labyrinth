@@ -1,8 +1,13 @@
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable indent */
+/* eslint-disable no-nested-ternary */
 import styled, { createGlobalStyle } from 'styled-components/macro';
-import zeroZero from '../images/0,0.jpg'
+import One from '../images/One.jpg'
 import Start from '../images/start.jpg'
+import Zero from '../images/Zero.jpg'
+import ZeroOne from '../images/ZeroOne.jpg'
+import ZeroTwo from '../images/ZeroTwo.jpg'
+import ZeroThree from '../images/ZeroThree.jpg'
+import OneOne from '../images/OneOne.jpg'
+import OneThree from '../images/OneThree.jpg'
 
 export const GlobalStyles = createGlobalStyle`
 // RESET CSS
@@ -52,10 +57,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 `
+
 export const Outerwrapper = styled.div`
-width: 100%;
-background-image: ${(props) =>
-  (props.coordinates === '0,0' ? zeroZero : Start)};
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  background-size: cover;
+  background-image: url(${(props) => (props.coordinates === '00' ? Zero : props.coordinates === '10' ? One : props.coordinates === '11' ? OneOne : props.coordinates === '01' ? ZeroOne : props.coordinates === '02' ? ZeroTwo : props.coordinates === '03' ? ZeroThree : props.coordinates === '13' ? OneThree : Start)})
 `
 
 export const Innerwrapper = styled.div`
