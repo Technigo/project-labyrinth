@@ -1,3 +1,25 @@
+import React from 'react'
+import { useSelector } from 'react-redux'
+
+const Loading = () => {
+  const isLoading = useSelector((store) => store.labyrinth.isLoading)
+  return (
+    <div><h1>We will get there shortly...</h1>
+      {isLoading
+      && <lottie-player
+        src="https://assets5.lottiefiles.com/private_files/lf30_esg1l8r1.json"
+        background="transparent"
+        speed="1"
+        style={{ width: '300px',
+          height: '300px' }}
+        loop
+        autoplay />}
+    </div>
+  )
+}
+export default Loading;
+
+/*
 import React from 'react';
 import Lottie from 'react-lottie';
 import styled from 'styled-components/macro'
@@ -36,4 +58,4 @@ const StyledHeading = styled.h1`
   color: tomato;
   line-height: 2em;
 `;
-
+ */

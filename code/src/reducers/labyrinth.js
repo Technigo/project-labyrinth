@@ -27,6 +27,9 @@ const labyrinth = createSlice({
         store.actions.splice(actionArraylength - 1, 1);
         console.log(action);
       }
+      //  else (actionArraylength  === 0) {
+
+      // return <UserInput />}
     },
 
     setLoading: (store, action) => {
