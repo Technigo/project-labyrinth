@@ -1,25 +1,38 @@
-import React from 'react'
-import { generateActionData } from 'reducers/labyrinth'
+import React, { useState } from 'react'
+import labyrinth, { generateActionData } from 'reducers/labyrinth'
 import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components/macro'
+import TypeIt from 'typeit-react';
 
 const LabyrinthPart = () => {
   const description = useSelector((store) => store.labyrinth.description)
   const actions = useSelector((store) => store.labyrinth.actions)
+  const [isActive, setActive] = useState('false');
 
   const dispatch = useDispatch()
 
+  const toggleDisplay = () => {
+    setActive(!isActive);
+  }
+
+  const restart = () => {
+    dispatch(labyrinth.actions.setUsername(''))
+    window.location.reload()
+  }
+
   return (
     <GameCard>
-      <h2>{description}</h2>
+      <TypeIt>{description}</TypeIt>
+      <button className={isActive ? null : 'instructions-btn'} type="button" onClick={toggleDisplay}>Click here to see directions</button>
       {actions.map((action) => {
         return (
-          <ActionDiv>
+          <div className={isActive ? 'hidden-instructions' : 'instructions'}>
             <p>{action.description}</p>
             <button type="button" onClick={() => dispatch(generateActionData(action.type, action.direction))}> Go {action.direction}</button>
-          </ActionDiv>
+          </div>
         )
       })}
+      <button className="restart-btn" type="button" onClick={restart}>Restart</button>
     </GameCard>
 
   )
@@ -34,29 +47,37 @@ const GameCard = styled.div`
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: #222727;
+    justify-content: center;
+    background-color: #010202c9;
     border-radius: 20px;
     color: white;
-
 
     button {
       margin-top: 1rem;
       background-color: #01FFC4;
       border: none;
-      border-radius: 6px;
+      border-radius: 5px;
+      padding: 5px 20px;
+    }
+    
+    .instructions-btn {
+    display: none;
+    }
+
+    .restart-btn {
+      background-color: transparent;
+      border: 1px solid #01FFC4;
+      color: #01FFC4;
     }
 
     @media (min-width: 668px) {
-      /* text-align: left; // Eller? */
+      padding: 1rem 2rem;
+      min-height: 400px;
+      width: 700px;
 
     }
     @media (min-width: 1025px) {
-      
+      min-height: 500px;
+      width: 800px;
     }
-`
-const ActionDiv = styled.div`
-  background-color: #323737;
-  border-radius: 10px;
-  margin-top: 1rem;
-  padding: 10px 5px;
 `

@@ -13,9 +13,9 @@ const StartPage = () => {
     dispatch(generateLabyrinthData(usernameInput))
   }
   return (
-    <div>
+    <StyledStartPage>
       <h1>Welcome to the labyrinth!</h1>
-      <FormStyled onSubmit={onFormSubmit}>
+      <form onSubmit={onFormSubmit}>
         <label htmlFor="username-input">
           Username:
           <input
@@ -24,12 +24,22 @@ const StartPage = () => {
             id="username-input" />
         </label>
         <button type="submit">Start</button>
-      </FormStyled>
-    </div>
+      </form>
+    </StyledStartPage>
   )
 }
 export default StartPage
 
-const FormStyled = styled.form`
+const StyledStartPage = styled.div`
+color: white;
+
+button {
+  margin-left: 10px;
+}
+
+form {
     display: flex;
-    align-items: flex-end;`
+    align-items: flex-end;
+  }
+
+`
