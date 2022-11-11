@@ -55,7 +55,7 @@ const HeaderText = styled.div`
   p{
     font-size: 0.6rem;
 
-    @media (min-width: 668px){
+  @media (min-width: 668px){
       font-size: 1rem;
   }
   }
@@ -64,16 +64,16 @@ const DescriptionWrapper = styled.div`
   width: 80%;
   padding: 20px;
   margin: 2em auto;
-    background-color: var(--orange);
+  background-color: var(--orange);
   box-shadow:
     -5px 0 0 0 var(--lightYellow),
     5px 0 0 0 var(--lightYellow),
     0 -5px 0 0 var(--lightYellow),
     0 5px 0 0 var(--lightYellow);
 
-    p{
-      text-align: center;
-    }
+  p{
+    text-align: center;
+  }
 `
 
 const OptionWrapper = styled.div`

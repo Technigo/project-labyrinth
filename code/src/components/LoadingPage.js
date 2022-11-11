@@ -25,16 +25,15 @@ const LoadingPageWrapper = styled.div`
   top: 200px;
   left: 10px;
   height: 50vh;
-  width: 100%;
 
   @media (min-width: 668px) and (max-width: 1023px){
-    margin: 10% auto;
+    top: 180px;
+    left: 10px;
+    margin: 0 auto;
   }
 
   @media (min-width: 1024px){
-    margin: 10% auto;
+    top: -80px;
+    margin: 0 80px;
   }
 `
-/*  position: absolute;
-  z-index: 1;
-  margin-right: 30px; */
