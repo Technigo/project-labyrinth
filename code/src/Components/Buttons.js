@@ -42,6 +42,8 @@ font-size:14px;
 font-weight:bold;
 padding:4px 12px;
 text-decoration:none;
+margin-top: 10px;
+display: inline-block;
 
 :hover {
 background:linear-gradient(to bottom, #8b7bb4 5%, #e2dae8 100%);

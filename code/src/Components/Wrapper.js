@@ -7,9 +7,9 @@ const Wrapper = ({ children }) => {
   `
   const InnerWrapper = styled.div`
     min-height: 100vh;
+    width: 300px;
     margin: 0 auto;
     justify-content: center;
-
   `
 
   return (

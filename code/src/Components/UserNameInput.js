@@ -34,9 +34,9 @@ const UserNameInput = () => {
       <Wrapper>
         <Header />
         <UserNameInputContainer>
-          <form onSubmit={(event) => onFormSubmit(event)}>
+          <form onSubmit={(event) => onFormSubmit(event)} style={{ textAlign: 'center' }}>
             <label htmlFor="user-input">
-              <p>Enter your username:</p>
+              <p style={{ textAlign: 'left', marginBottom: '7px', paddingLeft: '2px' }}>Enter your username:</p>
               <input
                 id="user-input"
                 type="text"
@@ -44,7 +44,8 @@ const UserNameInput = () => {
                 required
                 // eslint-disable-next-line jsx-a11y/no-autofocus
                 autoFocus
-                onChange={(event) => setUserNameInputValue(event.target.value)} />
+                onChange={(event) => setUserNameInputValue(event.target.value)}
+                style={{ padding: '3px', width: '200px' }} />
             </label><br />
             <StartButton type="submit">Start game</StartButton>
           </form>
