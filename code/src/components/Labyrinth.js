@@ -2,11 +2,12 @@
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable no-shadow */
 import React from 'react';
-import { InnerWrapper } from 'Styling/GlobalStyles';
-import styled from 'styled-components';
+// import { InnerWrapper } from 'Styling/GlobalStyles';
+import styled from 'styled-components/macro';
 import { useSelector, useDispatch } from 'react-redux';
 import { nextStep } from '../reducers/labyrinth';
 import { Btnstyling } from './Buttons';
+import victor from './victor.jpg'
 
 // import { labyrinth } from '../reducers/labyrinth';
 
@@ -18,29 +19,96 @@ const Labyrinth = () => {
   };
 
   const PlayGame = ({ description, type, direction }) => (
-    <div>
-      <p>{description}</p>
+    <Content>
+      <Clues>{description}</Clues>
       <Btnstyling
         type="button"
         onClick={() => handleButtonClick(type, direction)}>
         {type} {direction}
       </Btnstyling>
-    </div>
+    </Content>
   );
 
   return (
-    <div>
-      <InnerWrapper>
-        <h2>{description}</h2>
-        {actions.length === 0 && <h3>Great job, you survived!</h3>}
+    <Background>
+      <InnerWrapperLabyrinth>
+        <Descriptiontext>{description}</Descriptiontext>
         {actions.length > 0
           && actions.map((game) => (
             <PlayGame key={game.direction} {...game} />
           ))}
-      </InnerWrapper>
-    </div>
+        {actions.length === 0 && <Emoji>🌟</Emoji>}
+      </InnerWrapperLabyrinth>
+    </Background>
   );
 };
 
 export default Labyrinth;
 
+const Background = styled.div`
+  background-image: url(${victor});
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
+export const InnerWrapperLabyrinth = styled.div`
+width: 50%;
+display: flex;
+flex-direction: column;
+align-items: center;
+background-color: rgba(247, 204, 172, 0.7);
+padding: 10px;
+border-radius: 20px;
+border: 2px solid #3A3845;
+@media (min-width: 668px) and (max-width: 1024px) {
+  width: 60%;
+}
+@media (min-width: 1025px) {
+  width: 80%;
+}
+`
+const Content = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 5px;
+margin-bottom: 20px;
+border: 1px dotted #826F66;
+border-radius: 7px;
+padding: 0px 10px 5px 10px;
+`
+
+const Descriptiontext = styled.h2`
+font-family: 'Fondamento', cursive;
+font-size: 20px;
+text-align: center;
+padding: 15px 5px;
+
+@media (min-width: 668px) and (max-width: 1024px) {
+font-size: 30px;
+}
+@media (min-width: 1025px) {
+font-size: 35px;
+}
+`
+const Clues = styled.p`
+text-align: center;
+padding-top: 15px;
+font-size: 12px;
+font-weight: 600;
+font-family: 'Montserrat', sans-serif;
+
+@media (min-width: 668px) and (max-width: 1024px) {
+font-size: 16px;
+}
+@media (min-width: 1025px) {
+font-size: 20px;
+}
+`
+const Emoji = styled.span`
+font-size: 50px;
+`

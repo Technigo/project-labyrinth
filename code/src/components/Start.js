@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { startGame, labyrinth } from 'reducers/labyrinth';
 import styled from 'styled-components/macro';
-import { InnerWrapper } from 'Styling/GlobalStyles';
+// import { InnerWrapper } from 'Styling/GlobalStyles';
 import { Loading } from './Loading';
 import Labyrinth from './Labyrinth';
 import castle from './castle.jpg';
@@ -28,13 +28,17 @@ export const Start = () => {
   if (!userEntered) {
     return (
       <Background>
-        <InnerWrapper>
-          <h1>Welcome, insert a random string of letters to start game:</h1>
-          <h3>(Something like "ekfoepwv") 🦁 </h3>
-          <input
+        <InnerWrapperStart>
+          <StartHeader>Welcome!</StartHeader>
+          <StartDescription>Insert a random string of letters
+            to enter this mysterious maze:
+          </StartDescription>
+          <StartDetails>(Something like "ekfoepwv", go wild)</StartDetails>
+          <InputField
             type="text"
-            placeholder="Something unique"
+            placeholder="Something unique, just like you! <3"
             value={usernameInputValue}
+            required
             onChange={(event) => setUsernameInputValue(event.target.value)} />
           <Btnstyling
             start
@@ -42,7 +46,7 @@ export const Start = () => {
             onClick={onFormSubmit}>
             START
           </Btnstyling>
-        </InnerWrapper>
+        </InnerWrapperStart>
       </Background>
     );
   } else {
@@ -52,16 +56,75 @@ export const Start = () => {
 
 const Background = styled.div`
   background-image: url(${castle});
+  width: 100vw;
+  height: 100vh;
   background-size: cover;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
 `;
 
-/* @media(min - width: 668px) and(max - width: 1024px) {
-  ;
+export const InnerWrapperStart = styled.div`
+width: 50%;
+display: flex;
+flex-direction: column;
+align-items: center;
+background-color: rgba(247, 204, 172, 0.7);
+padding: 10px;
+border-radius: 20px;
+border: 2px solid #3A3845;
+@media (min-width: 668px) and (max-width: 1024px) {
+  width: 60%;
 }
-@media(min - width: 1025px) {
-  width: 100vw;
-  height: 100vh;
-} */
+@media (min-width: 1025px) {
+  width: 70%;
+}
 
+`
+
+const StartHeader = styled.h1`
+font-family: 'Fondamento', cursive;
+font-size: 27px;
+padding: 15px;
+
+@media (min-width: 668px) and (max-width: 1024px) {
+font-size: 35px;
+}
+@media (min-width: 1025px) {
+font-size: 45px;
+}
+`
+const StartDescription = styled.h2`
+font-family: 'Montserrat', sans-serif;
+font-size: 20px;
+text-align: center;
+padding-bottom: 20px;
+
+@media (min-width: 668px) and (max-width: 1024px) {
+font-size: 25px;
+}
+@media (min-width: 1025px) {
+font-size: 28px;
+}
+`
+const StartDetails = styled.h4`
+font-family: 'Montserrat', sans-serif;
+font-size: 15px;
+font-weight: 300;
+padding-bottom: 20px;
+
+@media (min-width: 668px) and (max-width: 1024px) {
+font-size: 20px;
+}
+@media (min-width: 1025px) {
+font-size: 22px;
+}
+`
+
+const InputField = styled.input`
+width: 90%;
+padding: 5px;
+border-radius: 5px;
+`
