@@ -1,9 +1,10 @@
+/* eslint-disable react/jsx-boolean-value */
 /* eslint-disable max-len */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import /* labyrinth,  */ { nextStage } from 'reducers/labyrinth';
-import styled from 'styled-components/macro';
+import { nextStage } from 'reducers/labyrinth';
 import { Container } from 'styles/GlobalWrappers';
+import styled from 'styled-components/macro';
 import compass from 'assets/compass.png'
 import TypeWriterEffect from 'react-typewriter-effect';
 import BackgroundImage from './BackgroundImage';
@@ -25,7 +26,6 @@ const GameBoard = () => {
       window.location.reload()
     )
   }
-
   const winner = () => {
     return (
       <WinnerWrapper>
@@ -50,17 +50,14 @@ const GameBoard = () => {
         <p>Player: {userName}</p>
       </Top>
       <Container>
-
         <Description>
           <TypeWriterEffect
             startDelay={100}
-            cursorColor="black"
+            cursorColor="#00cf00"
             text={description}
             typeSpeed={70}
-            // eslint-disable-next-line react/jsx-boolean-value
             hideCursorAfterText={true} />
         </Description>
-
         <MazeImgContainer>
           <MiniMaze />
           <ImgNavigation>
@@ -92,7 +89,6 @@ const GameBoard = () => {
         {coordinates === '1,3' && winner()}
       </Container>
     </>
-
   )
 };
 
@@ -126,7 +122,6 @@ const Top = styled.div`
   color: red;  
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
 `
 
 const Description = styled.div`
@@ -134,35 +129,31 @@ const Description = styled.div`
   justify-content: center;
   border: 1px dashed;
   color: #00cf00;
-  margin-top: 10px;
-  min-width: 95%;
+  min-width: 100%;
+  min-height: 20px;
   height: auto;
-  padding: 5px;
+  h1 {
+    padding: 5px;
+  }
 `
 const WinnerWrapper = styled.div`
-align-items: center;
-
-p {
-
-}
-
-span {
-  color:red;
-}
-
+  align-items: center;
+  span {
+    color:red;
+  }
 `
 const MazeImgContainer = styled.div`
-display: flex;
-gap: 30px;
+  display: flex;
+  gap: 30px;
 `
 
 const ImgNavigation = styled.div`
-display: flex;
-flex-direction: column;
-margin: 20px;
-row-gap: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  row-gap: 10px;
 `
 const ButtonAndCompass = styled.div`
-display: flex;
-gap: 10px;
+  display: flex;
+  gap: 10px;
 `

@@ -7,12 +7,11 @@ import LoadingAnimation from './LoadingAnimation';
 
 const StartScreen = () => {
   const gameStart = useSelector((store) => store.labyrinth.username);
-  const isLoading = useSelector((store) => store.ui.isLoading)
-
+  const isLoading = useSelector((store) => store.ui.isLoading);
   return (
     <OuterWrapper>
       <InnerWrapper>
-        {isLoading ? <LoadingAnimation /> : (<div>{gameStart === '' ? <UserNameInput /> : <GameBoard />} </div>)}
+        {isLoading ? <LoadingAnimation /> : (<>{gameStart === '' ? <UserNameInput /> : <GameBoard />} </>)}
       </InnerWrapper>
     </OuterWrapper>
   )

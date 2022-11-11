@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 
 const LoadingAnimation = () => {
   const loading = useSelector((store) => store.ui.isLoading)
-
   return (
     <div>
       {loading && (

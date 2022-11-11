@@ -18,6 +18,9 @@ const labyrinth = createSlice({
       }
       store.stage = action.payload
     },
+    setLoading: (store, action) => {
+      store.isLoading = action.payload
+    }
     /* setPreviousStage: (store, action) => {
       const historyArrayLength = store.history.length
       if (historyArrayLength > 0) {
@@ -26,9 +29,6 @@ const labyrinth = createSlice({
         console.log(action)
       }
     }, */
-    setLoading: (store, action) => {
-      store.isLoading = action.payload
-    }
   }
 });
 
@@ -83,11 +83,3 @@ export const nextStage = (type, direction) => {
       })
   }
 };
-
-/*
-const url = `https://api.quotable.io/random?author=$%7BgetState().quotes.author%7D%60 + (tag ? `&tags=${tag}` : '');
-    fetch(url)
-      .then((response) => response.json())
-      .then((quote) => dispatch(quotes.actions.setQuote(quote)));
-  }
-} */

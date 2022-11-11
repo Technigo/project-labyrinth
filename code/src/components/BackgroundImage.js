@@ -1,5 +1,4 @@
 import React from 'react';
-/* import archway from 'assets/archway.png'; */
 import warmer from 'assets/warmer.png';
 import cavern from 'assets/cavern.png';
 import cavernColorful from 'assets/cavern-colorful.png'

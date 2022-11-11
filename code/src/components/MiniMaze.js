@@ -11,12 +11,9 @@ const MiniMaze = () => {
     style={{ height: '50px', width: '50px' }}
     loop
     autoplay />
-
   return (
     <Section>
       <Map>
-        {/* <Start><span role="img" aria-label="pin"> </span></Start>
-        <Hinder><span role="img" aria-label="pin">💣</span></Hinder> */}
         {coordinates === '0,0' && <Pin1><span role="img" aria-label="pin">{animation}</span></Pin1>}
         {coordinates === '1,0' && <Pin2><span role="img" aria-label="pin">{animation}</span></Pin2>}
         {coordinates === '1,1' && <Pin3><span role="img" aria-label="pin">{animation}</span></Pin3>}
@@ -24,7 +21,6 @@ const MiniMaze = () => {
         {coordinates === '0,2' && <Pin5><span role="img" aria-label="pin">{animation}</span></Pin5>}
         {coordinates === '0,3' && <Pin6><span role="img" aria-label="pin">{animation}</span></Pin6>}
         {coordinates === '1,3' && <Pin7><span role="img" aria-label="pin">{animation}</span></Pin7>}
-        {/* {coordinates === '1,3' && <End><span role="img" aria-label="pin"> </span></End>} */}
       </Map>
     </Section>
   )
@@ -40,7 +36,6 @@ const Section = styled.section`
 `
 const Map = styled.div`
   bottom: 1rem;
-  // left: 50%;
   border: 1px dashed #00cf00;;
   width: 100%;
   height: 100%;
@@ -104,38 +99,3 @@ const Pin7 = styled.span`
   padding: 5px;
   margin-top: 5px;
 `
-// const Start = styled.span`
-//   position: absolute;
-//   bottom: 0;
-//   left: 0;
-//   font-size: 30px;
-//   padding: 5px;
-//   // height: 30px;
-//   // width: 30px;
-//   // background-color: #187909;
-//   // border-radius: 50%;
-//   // display: inline-block;
-//   // z-index:-5;
-//   // margin: 5px
-// `
-// const End = styled.span`
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   font-size: 30px;
-//   padding: 5px;
-//   height: 30px;
-//   width: 30px;
-//   background-color: #00cf00;;
-//   border-radius: 50%;
-//   display: inline-block;
-//   z-index:-5;
-//   margin:5px
-// `
-// const Hinder = styled.span`
-//   position: absolute;
-//   top: 25%;
-//   right: 0;
-//   font-size: 30px;
-//   padding: 5px;
-// `

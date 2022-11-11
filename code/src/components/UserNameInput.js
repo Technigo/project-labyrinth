@@ -1,23 +1,30 @@
+/* eslint-disable react/jsx-boolean-value */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import labyrinth, { startLabyrinth } from 'reducers/labyrinth';
+import TypeWriterEffect from 'react-typewriter-effect';
 import styled from 'styled-components/macro';
+import maze from 'assets/maze.png'
 
 const UserNameInput = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [userName, setUserName] = useState('');
-  console.log('userName', userName)
-  console.log('setUserName', setUserName)
-
   const onFormSubmit = (event) => {
     event.preventDefault();
     dispatch(labyrinth.actions.setUser(userName));
     dispatch(startLabyrinth());
-  }
-
+  };
   return (
     <Form onSubmit={(event) => onFormSubmit(event)}>
-      <Label htmlFor="author-input">PROVIDE YOUR NAME, PLEASE...
+      <img src={maze} alt="labyrinth" />
+      <Title>&lt; MAZE /&gt;</Title>
+      <Label htmlFor="author-input">
+        <TypeWriterEffect
+          startDelay={100}
+          cursorColor="#00cf00"
+          text="PROVIDE YOUR NAME, PLEASE..."
+          typeSpeed={70}
+          hideCursorAfterText={true} />
         <input id="author-input" type="text" onChange={(event) => setUserName(event.target.value)} />
       </Label>
       <button hidden={!userName} type="submit">START THE MAZE!</button>
@@ -27,6 +34,10 @@ const UserNameInput = () => {
 
 export default UserNameInput;
 
+const Title = styled.h2`
+  font-size: 50px;
+`
+
 const Form = styled.form`
   margin: 50% auto;
   display: flex;
@@ -34,6 +45,12 @@ const Form = styled.form`
   align-items: center;
   justify-content: center;
   row-gap: 20px;
+  h1 {
+    font-size: 16px;
+  }
+  button {
+    width: fit-content;
+  }
   label {
     width: 100%;
     word-wrap: break-word;   
@@ -49,10 +66,6 @@ const Form = styled.form`
     font-family: 'VT323', monospace;
     text-transform: uppercase;
   }
- /*  input[type = text]:focus {
-    background-color: transparent;
-    box-shadow: none;
-  }   */
 `
 const Label = styled.label`
   display: flex;
