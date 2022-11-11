@@ -4,16 +4,32 @@ import { useDispatch } from 'react-redux';
 import { gameState, fetchGame } from 'reducers/gamestate';
 import { Background } from 'styles/ProjectStyles';
 import styled from 'styled-components/macro';
+// import Game from './Game';
+// import LoadingIndicator from './LoadingIndicator';
 
 const GameStart = () => {
   const dispatch = useDispatch()
   const [userName, setUserName] = useState('');
+  // const stage = useSelector((store) => store.gamestate.stage)
+  // const loading = useSelector((store) => store.gamestate.loading)
 
   const onNameSubmit = (event) => {
     event.preventDefault();
     dispatch(gameState.actions.setUser(userName));
     dispatch(fetchGame());
   }
+
+  // if (stage) {
+  //   return (
+  //     <Game />
+  //   )
+  // }
+
+  // if (loading) {
+  //   return (
+  //     <LoadingIndicator />
+  //   )
+  // }
 
   return (
     <Background onSubmit={(event) => onNameSubmit(event)}>
@@ -59,16 +75,21 @@ const Wrapper = styled.div`
     padding:15px;
     min-height:30px; 
     min-width: 120px;
+    font-family: 'Russo One', sans-serif;
   }
   .start-button:hover {
     background-color: #002ead;
     transition: 0.7s;
-}
-::placeholder {
-  color: yellow;
-  // font-size: 5rem;
-  // text-transform: uppercase;
-}
+  }
+    input::placeholder {
+      color: black;
+      font-size: 0.75rem;
+      text-align: center;
+      font-family: 'Russo One', sans-serif;
+    }
+  .user-name {
+    color: white;
+  }
 `
 
 const Title = styled.h1`

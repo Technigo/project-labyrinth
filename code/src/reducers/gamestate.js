@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ui } from './ui'
+// import { ui } from './ui'
 
 export const gameState = createSlice({
   name: 'gameState',
@@ -17,13 +17,16 @@ export const gameState = createSlice({
     setRestartGame: (state) => {
       state.username = '';
       state.stage = [];
+    },
+    setLoading: (store, action) => {
+      store.isLoading = action.payload;
     }
   }
 });
 
 export const fetchGame = () => {
   return (dispatch, getState) => {
-    dispatch(ui.actions.setLoading(true))
+    dispatch(gameState.actions.setLoading(true))
     const options = {
       method: 'POST',
       headers: {
@@ -36,14 +39,15 @@ export const fetchGame = () => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(gameState.actions.setStage(data));
+        dispatch(gameState.actions.setLoading(false));
       })
-      .finally(() => dispatch(ui.actions.setLoading(false)));
+      // .finally(() => dispatch(ui.actions.setLoading(false)));
   }
 };
 
 export const fetchGameSteps = (type, direction) => {
   return (dispatch, getState) => {
-    dispatch(ui.actions.setLoading(true))
+    dispatch(gameState.actions.setLoading(true))
     const optionsAction = {
       method: 'POST',
       headers: {
@@ -60,8 +64,9 @@ export const fetchGameSteps = (type, direction) => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(gameState.actions.setStage(data));
+        dispatch(gameState.actions.setLoading(false));
       })
-      .finally(() => dispatch(ui.actions.setLoading(false)));
+      // .finally(() => dispatch(ui.actions.setLoading(false)));
   }
 };
 

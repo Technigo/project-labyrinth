@@ -3,7 +3,7 @@ body {
   font-family: 'Russo One', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: black;
+  color: rgba(0, 0, 0, 0.515);
 }
 
 code {
