@@ -39,6 +39,7 @@ export const InnerWrapper = styled.div`
 `;
 
 export const Button = styled.button`
+  overflow: hidden;
   background-color: inherit;
   font-size: 14px;
   border: 2px solid black;
@@ -48,6 +49,10 @@ export const Button = styled.button`
 
   :hover {
     opacity: 0.5;
+  }
+
+  @media (max-width: 1024px) {
+    overflow: unset;
   }
 
   ${(props) =>

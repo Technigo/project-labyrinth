@@ -59,10 +59,11 @@ const GameBoardStyle = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  /* padding-top: 15vh; */
 
-  /*  @media (max-width: 700px) {
-    flex-wrap: wrap;
-  } */
+  @media (max-width: 1024px) {
+    padding-top: 0;
+  }
 
   // Flex direction column for mobile?
 `;
@@ -70,6 +71,8 @@ const GameBoardStyle = styled.div`
 const ScrollWrapper = styled.div`
   width: 50%;
   /* margin: -10% auto; */
+  display: flex;
+  align-items: center;
 
   /* up to desktop */
   @media (max-width: 1024px) {
@@ -79,11 +82,13 @@ const ScrollWrapper = styled.div`
 
   /* big desktop */
   @media (min-width: 1300px) {
-    margin: -5% auto;
+    /* margin: -5% auto; */
   }
 `;
 const Scroll = styled.div`
   /* for desktop */
+  display: flex;
+  align-items: center;
   background-image: url(${PaperScroll});
   background-repeat: no-repeat;
   background-size: contain;
@@ -91,14 +96,16 @@ const Scroll = styled.div`
   position: relative;
   width: 100%;
   height: 80%; // Need to change width on mobile
+  min-height: 500px;
   text-align: center;
   margin: 0;
   padding: 0;
 
-  /* up to desktop */
+  /* mobile and tablet styling */
   @media (max-width: 1024px) {
     width: 100%;
     height: 50vh;
+    min-height: unset;
   }
   /* big desktop */
   @media (min-width: 1300px) {
@@ -109,15 +116,15 @@ const Scroll = styled.div`
 const EventText = styled.p`
   /* Desktop styling */
   width: 65%;
-  margin: 25vh auto;
-  padding-top: 25vh;
+  margin: auto;
+  /* padding-top: 25vh; */
   font-size: 120%;
 
   /* Tablet Styling */
   @media (min-width: 500px) and (max-width: 1023px) {
     max-width: 275px;
     margin: 3vh auto;
-    padding-top: 13vh;
+    /* padding-top: 13vh; */
     /* width: 50%; */
     font-size: 100%;
   }
@@ -126,29 +133,29 @@ const EventText = styled.p`
   @media (max-width: 499px) {
     width: 65%;
     font-size: 100%;
-    padding-top: 15vh;
+    /* padding-top: 15vh; */
     margin: 0 auto;
   }
 `;
 
 const CompassWrapper = styled.div`
   width: 50%;
-  margin-top: 3%;
+  /* margin-top: 3%; */
+  height: 100vh;
   text-align: center;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr);
-
-  @media (min-width: 500px) and (max-width: 1023px) {
-    height: 50vh;
-  }
 
   /* big desktop */
   @media (min-width: 1300px) {
     height: 100vh;
   }
 
+  /* tablet and mobile */
   @media (max-width: 1024px) {
+    height: 50vh;
+
     width: 100%;
     grid-template-rows: repeat(4, 1fr);
   }
