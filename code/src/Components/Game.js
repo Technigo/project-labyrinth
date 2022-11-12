@@ -1,7 +1,8 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components/macro';
 import { useSelector } from 'react-redux';
 import GameNavigation from './GameNavigation';
+import Map from './Map';
 
 function coordsToBackgroundImageWeb(coords) {
   // @TODO change to switch
@@ -43,37 +44,16 @@ function coordsToBackgroundImageMob(coords) {
   return './assets/images/fallback.jpg'
 }
 
-function coordsToMap(coords) {
-  // @TODO change to switch
-  if (coords === '0,0') {
-    return './assets/images/maze_1.svg'
-  } else if (coords === '1,0') {
-    return './assets/images/maze_2.svg'
-  } else if (coords === '1,1') {
-    return './assets/images/maze_3.svg'
-  } else if (coords === '0,1') {
-    return './assets/images/maze_4.svg'
-  } else if (coords === '0,2') {
-    return './assets/images/maze_5.svg'
-  } else if (coords === '0,3') {
-    return './assets/images/maze_6.svg'
-  } else if (coords === '1,3') {
-    return './assets/images/maze_7.svg'
-  }
-  return './assets/images/fallback.jpg'
-}
-
 const Game = () => {
   const description = useSelector((store) => store.game.description); // get description
   console.log('description', description);
 
   const bgImage = coordsToBackgroundImageWeb(description.coordinates);
   const sImage = coordsToBackgroundImageMob(description.coordinates);
-  const MazeMap = coordsToMap(description.coordinates);
 
   return (
     <GameImage bgImage={bgImage} sImage={sImage}>
-      <Map src={MazeMap} alt="Map of maze" title="Your current position" />
+      <Map coordinates={description.coordinates} />
       <DescriptionWrapper>
         <DescriptionText>
           {description.description}
@@ -111,22 +91,6 @@ background-color: black;
     background-position: right;
     background-image: url(${(props) => props.bgImage});
   }
-`
-
-const Map = styled.img`
-color: white;
-width: 15%;
-position: absolute;
-top: 40px;
-right: 40px;
-
-@media (min-width: 667px) and (max-width: 1024px) {
-   width: 100px;
-  }
-
-@media (min-width: 1025px) {
-   width: 100px;
- }
 `
 
 const DescriptionWrapper = styled.div`
