@@ -62,6 +62,6 @@ export const gameProgress = (type, direction) => {
       .then((data) => {
         dispatch(game.actions.setProgress(data));
       })
-      .finally(dispatch(game.actions.setLoader(false)))
+      .finally(() => dispatch(game.actions.setLoader(false)))
   }
 };

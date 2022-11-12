@@ -3,7 +3,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { gameProgress } from 'reducers/game'
-import { Loading } from './Loading';
+import { Styled } from './Gameplay.styled';
+import Loading from './Loading';
 
 export const Gameplay = () => {
   const dispatch = useDispatch();
@@ -19,22 +20,35 @@ export const Gameplay = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <div>
-          <p>Description: {progress.description}</p>
-          <div>
-            {progress.actions.map((item) => (
-              <>
-                <p>{item.description}</p>
-                <button
-                  type="button"
-                  onClick={
-                    () => onClickAction(item.type, item.direction)
-                  }> Go {item.direction}
-                </button>
-              </>
-            ))}
-          </div>
-        </div>
+        <>
+          <Styled.Container>
+            <div>
+              <Styled.GamePlayText>{progress.description}</Styled.GamePlayText>
+              <div>
+                {progress.actions.map((item) => (
+                  <>
+                    <Styled.GamePlayText>{item.description}</Styled.GamePlayText>
+                    <Styled.GamePlayButton
+                      type="button"
+                      onClick={() => onClickAction(item.type, item.direction)}> Go {item.direction}
+                    </Styled.GamePlayButton>
+                  </>
+                ))}
+              </div>
+            </div>
+          </Styled.Container>
+          <Styled.Footer>
+            <Styled.FooterText>
+          Made by Kim Svensson, Nick Jensen & Hanna Nörgård
+            </Styled.FooterText>
+            <Styled.FooterText>
+        Background by https://ansimuz.com/
+            </Styled.FooterText>
+            <Styled.FooterText>
+          Loading gif by https://twitter.com/HernanZh
+            </Styled.FooterText>
+          </Styled.Footer>
+        </>
       )}
     </>
   )
