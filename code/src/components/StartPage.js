@@ -21,9 +21,10 @@ const StartPage = () => {
           <input
             type="text"
             onChange={(event) => setUsernameInput(event.target.value)}
+            value={usernameInput}
             id="username-input" />
         </label>
-        <button type="submit">Start</button>
+        <button disabled={usernameInput.length < 1} type="submit">Start</button>
       </form>
     </StyledStartPage>
   )

@@ -8,8 +8,6 @@ import Directions from './Directions';
 const LabyrinthPart = () => {
   const description = useSelector((store) => store.labyrinth.description)
   const coordinates = useSelector((store) => store.labyrinth.coordinates)
-  console.log(coordinates)
-
   const dispatch = useDispatch()
 
   const restart = () => {

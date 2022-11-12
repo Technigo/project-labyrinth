@@ -5,6 +5,7 @@ import labyrinth from 'reducers/labyrinth'
 import loading from 'reducers/loading'
 import ContentContainer from 'components/ContentContainer'
 import { GlobalStyles } from 'components/GlobalStyles'
+import PreloadImages from 'images/PreloadImages'
 
 export const App = () => {
   const reducer = combineReducers({ labyrinth: labyrinth.reducer, loading: loading.reducer })
@@ -12,6 +13,7 @@ export const App = () => {
 
   return (
     <Provider store={store}>
+      <PreloadImages />
       <GlobalStyles />
       <ContentContainer />
     </Provider>
