@@ -5,6 +5,7 @@ export const DescriptionWrapper = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
+    font-size: 1.1rem;
     color: #fff;
     padding-bottom: 30px;
     text-shadow: 1px 1px 2px #209b1a, 0 0 1em #21137aed, 3px 2px 0em #03493aed;
@@ -33,7 +34,7 @@ export const Direction = styled.div`
     #North {
         position: absolute;
         top: 10px;
-        left: 80px;
+        left: 70px;
         display: flex;
         flex-direction: column;
         align-items: center;
