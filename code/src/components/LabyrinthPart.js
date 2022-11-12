@@ -1,19 +1,16 @@
-import React, { useState } from 'react'
-import labyrinth, { generateActionData } from 'reducers/labyrinth'
+import React from 'react'
+import labyrinth from 'reducers/labyrinth'
 import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components/macro'
 import TypeIt from 'typeit-react';
+import Directions from './Directions';
 
 const LabyrinthPart = () => {
   const description = useSelector((store) => store.labyrinth.description)
-  const actions = useSelector((store) => store.labyrinth.actions)
-  const [isActive, setActive] = useState('false');
+  const coordinates = useSelector((store) => store.labyrinth.coordinates)
+  console.log(coordinates)
 
   const dispatch = useDispatch()
-
-  const toggleDisplay = () => {
-    setActive(!isActive);
-  }
 
   const restart = () => {
     dispatch(labyrinth.actions.setUsername(''))
@@ -23,20 +20,12 @@ const LabyrinthPart = () => {
   return (
     <GameCard>
       <TypeIt>{description}</TypeIt>
-      <button className={isActive ? null : 'instructions-btn'} type="button" onClick={toggleDisplay}>Click here to see directions</button>
-      {actions.map((action) => {
-        return (
-          <div className={isActive ? 'hidden-instructions' : 'instructions'}>
-            <p>{action.description}</p>
-            <button type="button" onClick={() => dispatch(generateActionData(action.type, action.direction))}> Go {action.direction}</button>
-          </div>
-        )
-      })}
+      {coordinates !== '1,3' && <Directions />}
       <button className="restart-btn" type="button" onClick={restart}>Restart</button>
     </GameCard>
-
   )
 }
+
 export default LabyrinthPart
 
 // STYLING
