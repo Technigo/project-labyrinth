@@ -1,5 +1,4 @@
 import React from 'react'
-// import ReturnIcon from 'images/back.png'
 import { useDispatch } from 'react-redux'
 import game from 'reducers/game'
 import { BackButton } from './MainStyles'
