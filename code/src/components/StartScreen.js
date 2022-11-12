@@ -15,31 +15,27 @@ const StartScreen = () => {
   };
 
   return (
-    <div className="startScreenContainer">
+    <div className="main-container">
       <h4>Enjoy the Game</h4>
       <form onSubmit={(e) => userNameSubmit(e)}>
         <label htmlFor="username-input">
-          Enter your Name:
           <input
             id="username-input"
-            placeholder="Name..."
+            placeholder="Enter your Name..."
             type="text"
             value={inputValueUserName}
-            onChange={
-              (e) => setInputValueUserName(e.target.value)
-              // ;setNewUsername(e.target.value)
-            }
+            onChange={(e) => setInputValueUserName(e.target.value)}
           />
         </label>
       </form>
-      <div>
+      <div className="btn">
         <button
           className="StartButton"
           type="submit"
           onClick={userNameSubmit}
           disabled={inputValueUserName === ''}
         >
-          Start!
+          Start !
         </button>
       </div>
     </div>

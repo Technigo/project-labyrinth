@@ -1,12 +1,4 @@
-/* eslint-disable max-len */
-/* eslint-disable jsx-a11y/control-has-associated-label */
 import { createSlice } from '@reduxjs/toolkit';
-
-const initialState = {
-  username: null,
-  question: {},
-  moves: [],
-};
 
 export const questions = createSlice({
   name: 'questions',
@@ -55,7 +47,7 @@ export const generateQuestions = () => {
   };
 };
 
-export const gameProgress = (direction, type) => {
+export const gameProgress = (type, direction) => {
   return (dispatch, getState) => {
     const optionsAction = {
       method: 'POST',
@@ -73,7 +65,6 @@ export const gameProgress = (direction, type) => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(questions.actions.setGameQuestion(data));
-      })
-      .finally(() => dispatch(questions.actions.setLoading(false)));
+      });
   };
 };
