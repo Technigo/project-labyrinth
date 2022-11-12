@@ -69,7 +69,7 @@ const GameBoardStyle = styled.div`
 
 const ScrollWrapper = styled.div`
   width: 50%;
-  margin: -10% auto;
+  /* margin: -10% auto; */
 
   /* up to desktop */
   @media (max-width: 1024px) {
@@ -90,7 +90,7 @@ const Scroll = styled.div`
   background-position: center center;
   position: relative;
   width: 100%;
-  height: 100vh; // Need to change width on mobile
+  height: 80%; // Need to change width on mobile
   text-align: center;
   margin: 0;
   padding: 0;
