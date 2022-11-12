@@ -1,9 +1,7 @@
-/* eslint-disable max-len */
-
 import React from 'react';
 import Lottie from 'react-lottie';
+import styled from 'styled-components/macro';
 import animationData from '../lotties/labyrinth';
-import { OuterWrapper, InnerWrapper } from '../utils/GlobalStyle';
 
 export const LoadingIndicator = () => {
   const defaultOptions = {
@@ -16,14 +14,14 @@ export const LoadingIndicator = () => {
   };
 
   return (
-    <OuterWrapper>
-      <InnerWrapper>
-        <div>
-          <Lottie options={defaultOptions} height={400} width={400} />
-        </div>
-      </InnerWrapper>
-    </OuterWrapper>
+    <LottieWrapper>
+      <Lottie options={defaultOptions} height={400} width={400} />
+    </LottieWrapper>
   );
 };
 
-// For some reason the div is not showing up on the page
+const LottieWrapper = styled.div`
+  height: 100vh;
+  display: flex;
+  align-items: center;
+`;
