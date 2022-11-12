@@ -27,9 +27,11 @@ const DirectionButton = ({ direction, isAvailable, handleOnClick }) => {
   )
 }
 
-const GameNavigation = ({ actions }) => {
+const GameNavigation = ({ actions, coords }) => {
   // Get actions from API
   console.log('actions', actions)
+  console.log('coords', coords)
+  
   const dispatch = useDispatch();
 
   const handleOnClick = (direction) => {
@@ -45,6 +47,11 @@ const GameNavigation = ({ actions }) => {
   console.log('availableMoves', availableMoves)
 
   return (
+    {coords === '1,3'<<StartButton
+    type="button"
+    // title= 
+    // onClick={() => XXX(zzzz)}>
+    </StartButton> :
     <ChooseDirectionWrapper>
       <p style={{ fontWeight: 'bold' }}>Choose direction</p>
       <DirectionGrid>
@@ -61,7 +68,7 @@ const GameNavigation = ({ actions }) => {
           <DirectionButton direction="South" isAvailable={availableMoves.South} handleOnClick={handleOnClick} />
         </div>
       </DirectionGrid>
-    </ChooseDirectionWrapper>
+    </ChooseDirectionWrapper>}
   )
 }
 
