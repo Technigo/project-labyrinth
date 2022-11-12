@@ -12,81 +12,41 @@ export const DescriptionWrapper = styled.div`
 
     @media (max-width: 375px) {
         padding-bottom: 10px;
+        font-size: 1rem;
         }
 
 `
 
-export const Direction = styled.div`
-    position: relative;
-    width: 200px;
-    height: 400px;
+export const DirectionWrapper = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 250px;
 
-    img {
-        filter: invert(1);
-        width: 30px;
-        cursor: pointer;
-
-        &:hover {
-            opacity: 0.7
-        }
+    p {
+        font-size: 1rem;
+        font-family: 'Roboto', sans-serif;
     }
 
-    #North {
-        position: absolute;
-        top: 10px;
-        left: 70px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    div {
+        max-width: 200px;
     }
 
-    #East {
-        position: absolute;
-        right: 0;
-        top: 40%;
-        display: flex;
-        flex-direction: row-reverse;
-
-        img {
-            transform: rotate(90deg);
-        }
-    }
-
-    #West {
-        position: absolute;
-        left: 10px;
-        top: 50%;
-        display: flex;
-
-        img {
-            transform: rotate(-90deg);
-        }
-    }
-
-    #South {
-        position: absolute;
-        bottom: 0;
-        left: 70px;
-        display: flex;
-        flex-direction: column-reverse;
-        align-items: center;
-   
-
-        img {
-            transform: rotate(180deg);
-        }
-    }
-
-        @media (max-width: 375px) {
-            height: 300px;
-        }
     
 `
 
 export const DirectionBtn = styled.button`
-    background: transparent;
+    background: #044704ab;
+    box-shadow: inset 0 -0.6em 0 -0.35em rgb(0 0 0 / 17%);
     color: #fff;
     border: none;
+    margin: 10px 0px;
+    padding: 10px;
+    border-radius: 10px;
+
+    
+    &:hover {
+            transform: scale(1.1)
+        }
 
 `
 export const StartBtn = styled.button`
@@ -131,7 +91,7 @@ export const StartBtn = styled.button`
 
 export const GoBackBtn = styled(StartBtn)`
     position: absolute;
-    top: 75vh;
+    top: 72vh;
     left: 10px;
     width: 110px;
     height: 35px;
@@ -139,6 +99,12 @@ export const GoBackBtn = styled(StartBtn)`
     label {
         color: #233924
     }
+
+    @media (max-width: 360px) {
+            top: 80vh;
+            width: 100px;
+            font-size: 0.8rem;
+        }
 
     @media (min-width: 1280px) {
             top: 50vh;
@@ -150,7 +116,7 @@ export const GoBackBtn = styled(StartBtn)`
 
 export const RestartBtn = styled(StartBtn)`
     position: absolute;
-    top: 75vh;
+    top: 72vh;
     right: 10px;
     width: 110px;
     height: 35px;
@@ -163,10 +129,25 @@ export const RestartBtn = styled(StartBtn)`
         width: 30px;
     }
 
+    
+    @media (max-width: 360px) {
+            top: 80vh;
+            width: 100px;
+            font-size: 0.8rem;
+        }
+
     @media (min-width: 1280px) {
             top: 50vh;
             right: 30px;
         }
     
+
+`
+
+export const GameEnd = styled.div`
+    position: absolute;
+    top: 50%;
+    font-size: 1.1rem;
+    font-family: 'Roboto', sans-serif;
 
 `

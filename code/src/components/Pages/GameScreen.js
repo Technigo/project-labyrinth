@@ -4,29 +4,17 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react'
-import { GameWrapper } from 'components/Styles/Globalstyles'
-import { DescriptionWrapper, DirectionBtn, RestartBtn, GoBackBtn, Direction } from 'components/Styles/GameScreen.Styles'
-import { useDispatch, useSelector } from 'react-redux'
 import { labyrinth, continueGame } from 'reducers/labyrinth'
-import Lottie from 'react-lottie';
-import animationData from '../../lotties/81812-bat-halloween';
+import { useDispatch, useSelector } from 'react-redux'
+import { GameWrapper } from 'components/Styles/Globalstyles'
+import { DescriptionWrapper, DirectionWrapper, RestartBtn, GoBackBtn, DirectionBtn, GameEnd } from 'components/Styles/GameScreen.Styles'
 import { Loading } from './Loading'
-import arrow from '../../assets/arrow.png'
 
 export const GameScreen = () => {
   const dispatch = useDispatch()
   const description = useSelector((store) => store.labyrinth.description)
   const moves = useSelector((store) => store.labyrinth.moves)
   const loading = useSelector((store) => store.labyrinth.loading)
-
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice'
-    }
-  };
 
   const goBack = () => {
     dispatch(labyrinth.actions.setPreviousMove)
@@ -48,35 +36,27 @@ export const GameScreen = () => {
       <>
         <GameWrapper>
           <DescriptionWrapper>
-            <p>{description}</p>
-            <Lottie
-              id="Lottie"
-              options={defaultOptions}
-              height={100}
-              width={100}
-              style={{ position: 'absolute',
+            <lottie-player
+              src="https://assets4.lottiefiles.com/private_files/lf30_j3lhn3en.json"
+              speed="1"
+              background="transparent"
+              loop
+              autoplay
+              style={{ width: '100px',
+                height: '100px',
+                position: 'absolute',
                 right: '-70px',
                 top: '-45px',
                 transform: 'rotate(30deg)' }} />
+            <p>{description}</p>
           </DescriptionWrapper>
-
-          <Direction>
+          <DirectionWrapper>
             {moves && moves.map((action) => {
               return (
-                <label
-                  htmlFor="nextBtn"
+                <div
+                  className={action.length === 0 ? 'one' : 'two'}
                   key={action.direction}
-                  // different id's depending on direction, to style placement of button in CSS
-                  id={action.direction.includes('North')
-                    ? 'North'
-                    : action.direction.includes('South')
-                      ? 'South'
-                      : action.direction.includes('East')
-                        ? 'East'
-                        : action.direction.includes('West')
-                          ? 'West'
-                          : 'None'}>
-                  <img src={arrow} alt="gps" />
+                  htmlFor="nextBtn">
                   <DirectionBtn
                     key={action.direction}
                     type="button"
@@ -84,19 +64,27 @@ export const GameScreen = () => {
                     value={action.direction}
                     onClick={(event) => goToNextStep(event)}>Go {action.direction}
                   </DirectionBtn>
-                </label>
-
+                  <p>{action.description}</p>
+                </div>
               )
             })}
-          </Direction>
+          </DirectionWrapper>
+
           {/* displays only when you are out */}
           {moves.length === 0 && (
-            <p>Woho! You have made it out of the labyrinth!</p>
+            <GameEnd>Woho! You have made it out!
+              <lottie-player
+                src="https://assets10.lottiefiles.com/packages/lf20_3xwxlyv7.json"
+                speed="1"
+                background="transparent"
+                loop
+                autoplay
+                style={{ width: '300px', transform: 'rotate(180deg)' }} />
+            </GameEnd>
           )}
           {/*-*/}
 
         </GameWrapper>
-
         <GoBackBtn id="goBack" onClick={goBack}><label htmlFor="goBack">&#60; Go back</label></GoBackBtn>
         <RestartBtn id="restart" onClick={restartGame}><label htmlFor="goBack">Restart &#8634;</label></RestartBtn>
       </>

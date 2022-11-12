@@ -3,7 +3,6 @@ import { createSlice } from '@reduxjs/toolkit'
 import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
-  currentDirection: null,
   userName: '',
   description: '',
   direction: '',
@@ -33,10 +32,8 @@ export const labyrinth = createSlice({
     },
 
     setDirection: (store, action) => {
-      if (store.direction) {
-        store.history = [...store.history, store.direction]
-      }
       store.direction = action.payload
+      store.history = [...store.history, store.direction]
     },
 
     setLoading: (store, action) => {
@@ -77,7 +74,6 @@ export const startTheGame = () => {
         dispatch(labyrinth.actions.setDescription(json.description));
         dispatch(labyrinth.actions.setMoves(json.actions));
         dispatch(labyrinth.actions.setCoordinates(json.coordinates))
-        dispatch(labyrinth.actions.setDirection(json.actions.direction))
       })
       .finally(() => dispatch(labyrinth.actions.setLoading(false)))
   };

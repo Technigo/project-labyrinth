@@ -22,7 +22,7 @@ export const GlobalStyles = createGlobalStyle`
 `
 
 export const GameWrapper = styled.div`
-    margin: 20vw;
+    margin: 10vw;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -55,6 +55,14 @@ export const GameWrapper = styled.div`
       width: 155px;
       border-radius: 8px;
       background: #fcfdfc;
+    }
+
+    #gameEnd {
+      font-size:1.4rem;
+    }
+
+    @media (min-width: 768px) {
+      margin: 20vw;
     }
 
 `
