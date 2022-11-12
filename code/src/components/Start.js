@@ -71,9 +71,20 @@ const CreatePlayerBtn = styled.button`
   background-color: white;
   border-radius: 10px;
   padding: 10px 18px;
-  margin: 8px 0;
+  margin: 40px 0px 8px 0px;
   font-size: 16px;
   font-family: 'Orbitron', sans-serif;
+  &:hover {
+      color: white;
+      background-color:black; 
+  }
+  @media (min-width: 667px) and (max-width: 1024px) {
+    font-size: 20px;
+  }
+
+  @media (min-width: 1025px) {
+    font-size: 24px;
+  }
 `
 
 const StartBtn = styled.button`

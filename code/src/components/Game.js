@@ -22,7 +22,7 @@ export const Game = () => {
         </ReloadBtn>
       )}
       {list.map((choice) => (
-        <div key={list.indexOf(choice)}>
+        <Choices key={list.indexOf(choice)}>
           <Description><p>{choice.description}</p></Description>
           {console.log('list:', list)}
           {list && (
@@ -32,7 +32,7 @@ export const Game = () => {
               {choice.direction}
             </DirectionBtn>
           )}
-        </div>
+        </Choices>
       ))}
     </GameWrapper>
   )
@@ -64,6 +64,18 @@ const Description = styled.div`
     font-size: 26px;
   }
 
+`
+const Choices = styled.div`
+width: 60%;
+margin-bottom: 35px;
+
+@media (min-width: 667px) and (max-width: 1024px) {
+width: 50%;
+  }
+
+  @media (min-width: 1025px) {
+  width: 40%;
+  }
 `
 
 const TextBackground = styled(Description)`
