@@ -61,8 +61,19 @@ export const Button = styled.button`
   ${(props) =>
     props.restart &&
     css`
-      /* position: absolute; */
-      top: 0;
-      left: 0;
+      /* Styling for restart button */
+      position: absolute;
+      bottom: 5%;
+      left: 5%;
+      padding: 10px;
+
+      /* Tablet and mobile */
+      @media (max-width: 1024px) {
+        top: 10px;
+        bottom: unset;
+        padding: revert;
+
+        /* left: 50%; */
+      }
     `};
 `;

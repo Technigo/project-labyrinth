@@ -6,19 +6,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Button } from '../utils/GlobalStyle';
 import PaperScroll from '../assets/paper-scroll.png';
 import CompassImg from '../assets/compass.png';
-// import game, { generateMoves } from '../reducers/game';
-import { generateMoves } from '../reducers/game';
+import game, { generateMoves } from '../reducers/game';
 
 const GameBoard = () => {
   const description = useSelector((store) => store.game.description);
   const actions = useSelector((store) => store.game.actions);
   const dispatch = useDispatch();
 
-  // const onRestartButton = () => {
-  //   dispatch(game.actions.setUsername(''));
-  //   dispatch(game.actions.restartGame());
-  //   /* window.location.reload() */
-  // };
+  const onRestartButton = () => {
+    dispatch(game.actions.restartGame());
+  };
 
   console.log(actions);
 
@@ -27,9 +24,9 @@ const GameBoard = () => {
       <ScrollWrapper>
         <Scroll>
           <EventText> {description}</EventText>
-          {/* <Button restart type="button" onClick={onRestartButton}>
+          <Button restart type="button" onClick={onRestartButton}>
             Restart game
-          </Button> */}
+          </Button>
         </Scroll>
       </ScrollWrapper>
       <CompassWrapper>
@@ -42,7 +39,7 @@ const GameBoard = () => {
                 key={action.direction}
                 onClick={() => dispatch(generateMoves(action.direction))}
               >
-                <ActionText>{action.description}</ActionText>
+                <div>{action.description}</div>
               </Button>
               <Compass />
             </>
@@ -58,13 +55,6 @@ const GameBoardStyle = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  /* padding-top: 15vh; */
-
-  @media (max-width: 1024px) {
-    padding-top: 0;
-  }
-
-  // Flex direction column for mobile?
 `;
 
 const ScrollWrapper = styled.div`
@@ -72,8 +62,9 @@ const ScrollWrapper = styled.div`
   /* margin: -10% auto; */
   display: flex;
   align-items: center;
+  position: relative;
 
-  /* up to desktop */
+  /* mobile and tablet styling */
   @media (max-width: 1024px) {
     width: 100%;
     margin: 0% auto;
@@ -92,7 +83,7 @@ const Scroll = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
-  position: relative;
+  /* position: relative; */
   width: 100%;
   height: 80%; // Need to change width on mobile
   min-height: 500px;
@@ -118,6 +109,7 @@ const EventText = styled.p`
   margin: auto;
   /* padding-top: 25vh; */
   font-size: 120%;
+  max-width: 600px;
 
   /* Tablet Styling */
   @media (min-width: 500px) and (max-width: 1023px) {
@@ -199,17 +191,4 @@ const Compass = styled.div`
   @media (max-width: 1024px) {
     grid-area: 2 / 4 / span 2 / span 2;
   }
-`;
-
-const ActionText = styled.div`
-  /* opacity: 1; */
-  /* background-color: rgba(255, 255, 255, 0.908);
-  color: rgba(0, 0, 0, 0.908);
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; */
-  /* } */
 `;
