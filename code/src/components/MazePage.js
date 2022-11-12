@@ -7,13 +7,13 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import labyrinth, { GameNextFetch } from 'reducers/labyrinth';
 import styled from 'styled-components/macro'
-import { ChildContainer, StyledSubHeading, Button } from '../styles/GlobalStyles'
+import { ChildContainer, Button } from '../styles/GlobalStyles'
 
 const MazePage = () => {
   const dispatch = useDispatch();
   const description = useSelector((store) => store.labyrinth.status.description);
   const actions = useSelector((store) => store.labyrinth.status.actions);
-  const coordinates = useSelector((store) => store.labyrinth.status.coordinates);
+  /* const coordinates = useSelector((store) => store.labyrinth.status.coordinates); */
   const onTypeButtonClick = (type, direction) => {
     dispatch(GameNextFetch(type, direction));
   }
@@ -23,13 +23,10 @@ const MazePage = () => {
 
   return (
     <ChildContainer>
-      <StyledTop>
-        <Button type="button" onClick={() => goToPreviousStatus()}>Go back</Button>
-        <p>Coordinates:{coordinates}</p>
-      </StyledTop>
       <div>
-        <StyledSubHeading>{description}</StyledSubHeading>
+        <GoBackButton type="button" onClick={() => goToPreviousStatus()}>Go back</GoBackButton>
       </div>
+      <GameAlternatives>{description}</GameAlternatives>
       {actions.length === 0 && (
         <Button
           type="button"
@@ -37,13 +34,12 @@ const MazePage = () => {
             RESTART GAME
         </Button>)}
       {actions && actions.map((singleType) => (
-        <><div key={singleType.description}>
-          {singleType.description}
-        </div>
-
-        <Button onClick={() => onTypeButtonClick(singleType.type, singleType.direction)} type="button">{singleType.direction}</Button>
-
-        </>
+        <GameAlternatives>
+          <p key={singleType.description}>
+            {singleType.description}
+          </p>
+          <Button onClick={() => onTypeButtonClick(singleType.type, singleType.direction)} type="button">{singleType.direction}</Button>
+        </GameAlternatives>
       ))}
     </ChildContainer>
   )
@@ -51,12 +47,21 @@ const MazePage = () => {
 
 export default MazePage;
 
-const StyledTop = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: space-around;
+const GameAlternatives = styled.div`
+margin: 1em 0;
+width: 70vw;
+font-size: 0.6em;
+line-height: 1.5em;
 
-p {
-  font-size: 0.6em;
-}
+@media (min-width: 667px) {
+  font-size: .6em;
+  line-height: 1.5em;
+  }
+`
+const GoBackButton = styled(Button)`
+position: absolute;
+top: 0;
+left: 0;
+margin: 2%;
+font-size: 0.8em;
 `

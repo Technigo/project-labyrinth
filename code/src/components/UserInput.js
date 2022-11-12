@@ -32,8 +32,8 @@ const UserInput = () => {
       <StyledHeading>Welcome to the maze</StyledHeading>
 	    <form autoComplete="off" onSubmit={(event) => onFormSubmit(event)}>
         <label htmlFor="input">
-			    Enter your name:
-          <Input id="input" value={userInputValue} type="text" onChange={(event) => setUserInputValue(event.target.value)} />
+			    <StyledLabel>Enter your name:</StyledLabel>
+          <StyledInput id="input" value={userInputValue} type="text" onChange={(event) => setUserInputValue(event.target.value)} />
         </label>
         <Button type="submit"> Start </Button>
       </form>
@@ -43,7 +43,7 @@ const UserInput = () => {
 
 export default UserInput;
 
-const Input = styled.input`
+const StyledInput = styled.input`
   font-family: "Press Start 2P", cursive;
   font-size: .8em;
   box-sizing: border-box;
@@ -52,7 +52,21 @@ const Input = styled.input`
   background: transparent;
   border: 3px solid #3fceea;
   border-radius: 3px;
-  width: 15vw;
+  width: 40vw;
   color: white;
 
-`;
+  @media (min-width: 667px) {
+  width: 15vw;
+  }
+`
+
+const StyledLabel = styled.h5`
+font-family: "Press Start 2P", cursive;
+font-size: .5em;
+margin: 0;
+
+@media (min-width: 667px) {
+  font-size: 1em;
+  }
+
+`
