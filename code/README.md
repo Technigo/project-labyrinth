@@ -1,11 +1,13 @@
 # Project Labyrinth
-This week we used react and redux to create a labyrinth game. We used a thunk to fetch API's and styled everything with styled components.
 
+Replace this readme with your own information about your project.
+
+Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
 
 ## The problem
-It was a challenge to understand how everything connected in the code, which made it difficult to do a thorough plan in the beginning. We sorted out what styled components we needed and how the design should look like. But the backend was a lot of trial and error, but in the end we made it work. 
 
-With more time we could add a map that describes each step the player has taken and to make it more immersive adding more animations to the interface. Like fades between screens and events that illustrates what happens in the story.
+Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
 ## View it live
-https://turtles-labyrinth.netlify.app/
+
+Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
