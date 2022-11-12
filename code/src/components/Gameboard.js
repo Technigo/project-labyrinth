@@ -8,7 +8,7 @@ import { EndScreen } from './EndScreen';
 
 import './gameboard.css';
 
-export const GameBoard = () => {
+export const Gameboard = () => {
   const { description, actions } = useSelector(
     (store) => store.game.currentPosition
   )

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Start } from './Start';
-import { GameBoard } from './GameBoard';
+import { Gameboard } from './Gameboard';
 import { LoadingIndicator } from './LoadingIndicator';
 
 export const Game = () => {
@@ -11,7 +11,7 @@ export const Game = () => {
   return (
     <>
       {loading && <LoadingIndicator />}
-      {currentPosition ? <GameBoard /> : <Start />}
+      {currentPosition ? <Gameboard /> : <Start />}
     </>
   )
 }
