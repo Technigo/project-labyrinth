@@ -3,9 +3,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { labyrinth } from 'reducers/labyrinth';
-import { FirstScreen } from 'components/FirstScreen'
-import { GlobalStyles } from 'Globalstyles';
-import { Loading } from 'components/Loading'
+import { FirstScreen } from 'components/Pages/FirstScreen'
+import { GlobalStyles } from 'components/Styles/Globalstyles';
 
 export const App = () => {
   const reducer = combineReducers({
@@ -20,7 +19,6 @@ export const App = () => {
     <Provider store={store}>
       <GlobalStyles />
       <FirstScreen />
-      <Loading />
     </Provider>
   );
 }

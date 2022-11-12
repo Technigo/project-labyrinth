@@ -1,9 +1,12 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { GameWrapper } from 'Globalstyles';
+import { GameWrapper } from 'components/Styles/Globalstyles';
+import { StartBtn } from 'components/Styles/GameScreen.Styles'
 import React, { useState } from 'react';
 import { useDispatch /* useSelector */ } from 'react-redux';
 import { startTheGame, labyrinth } from 'reducers/labyrinth';
+import Lottie from 'react-lottie';
+import * as animationData from '../../lotties/79913-walk-man.json';
 
 export const WelcomePage = () => {
   const dispatch = useDispatch()
@@ -14,12 +17,19 @@ export const WelcomePage = () => {
     dispatch(labyrinth.actions.setUserName(input))
     dispatch(startTheGame())
   }
-
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
   return (
     <GameWrapper>
       <h1>Can you find your way out of the cavern?</h1>
       <form onSubmit={letsStart}>
-        <label htmlFor="usernameInput">Write your name please</label>
+        <label htmlFor="usernameInput">Write your name on the wall and lets go</label>
         <input
           id="usernameInput"
           type="text"
@@ -27,8 +37,14 @@ export const WelcomePage = () => {
           value={input}
           onChange={(event) => setInput(event.target.value)}
           required />
-        <button id="startBtn" type="submit" onClick={letsStart}>Enter cavern</button>
+        <StartBtn type="submit" onClick={letsStart}>Go in</StartBtn>
       </form>
+      <Lottie
+        id="Lottie"
+        options={defaultOptions}
+        height={200}
+        width={200}
+        style={{ margin: '0px' }} />
     </GameWrapper>
   )
 };
