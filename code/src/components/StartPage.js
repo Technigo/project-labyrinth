@@ -28,7 +28,7 @@ export const StartPage = () => {
           value={nameInput}
           placeholder="write your name here...."
           onChange={(event) => setNameInput(event.target.value)} />
-        <SendNameBtn type="submit" onClick={SetName} alt="start game">
+        <SendNameBtn type="submit" onClick={SetName} alt="start game" disabled={nameInput.length === 0}>
         Start the game
         </SendNameBtn>
       </NameForm>

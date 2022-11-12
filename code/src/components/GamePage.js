@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable react/button-has-type */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
@@ -8,12 +9,18 @@ import uniqid from 'uniqid';
 
 import nes from '../assets/nes.svg'
 import screen from '../assets/screen.svg'
-import { fetchLabyrinthTwo } from '../reducers/labyrinth'
+import { fetchLabyrinthTwo, labyrinth } from '../reducers/labyrinth'
 
 export const GamePage = () => {
   const position = useSelector((store) => store.labyrinth.position)
   /*   const isLoading = useSelector((store) => store.ui.Loading) */
   const dispatch = useDispatch();
+
+  /*   const actions = useSelector((store) => store.labyrinth.actions.actions) */
+
+  const restartGame = () => {
+    dispatch(labyrinth.actions.restartGame())
+  }
 
   return (
     <GamePageWrapper>
@@ -22,7 +29,9 @@ export const GamePage = () => {
           <Position>
             {position.description}
           </Position>
-          <Choice> Choose your direction:</Choice>
+          {position.coordinates !== '1,3' && <Choice> Choose your direction:</Choice>}
+
+          {position.coordinates === '1,3' && <><WonText> You WON! </WonText><RestartButton onClick={() => restartGame()}>Restart</RestartButton></>}
           {position.actions.map((item) => {
             return (
               <Direction key={uniqid()}>
@@ -222,9 +231,37 @@ const DirectionBtn = styled.button`
 }
 `;
 
-// const EndGame = styled.h3`
-//     font-family: var(--font-pixel);
-//     font-weight: 700;
-//     font-size: 1rem;
-//     color: purple;
-// `;
+const WonText = styled(Choice)`
+background: linear-gradient(-45deg,gold,gray,gold,silver);
+background-size: 400% 400%;
+animation: gradient 15s ease infinite;
+color: black;
+
+/* keyframes makes the element (gradient) move*/
+@keyframes gradient {
+0% {
+    background-position: 0% 50%;
+}
+50% {
+    background-position: 100% 50%;
+}
+100% {
+    background-position: 0% 50%;
+}
+}
+`;
+
+const RestartButton = styled.button`
+  width: 150px;
+  color: red;
+  border: 4px solid black;
+  border-radius: 3px;
+  background: var(--clr-grey);
+  font-size: 1rem;
+  padding: 10px;
+  margin-top: 2%;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  font-family: 'Press Start 2P', cursive;
+`;
+

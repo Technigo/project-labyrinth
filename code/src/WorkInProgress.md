@@ -68,7 +68,15 @@ Nina Kväll:
 
 -försökt få in consollen på position.
 
+# Lördag
 
+Nina och Viktor
+
+css massa strul
+-knappar på rätt position över nes-consoll
+-positionering av datorskärm och speltext
+
+-restart knapp vid spelets slut.
 --------------------------------------------
 
 # Frågeställningar:
@@ -97,17 +105,9 @@ Projektet Kod kvar:
 -Unique id byta ut mot kordinater
 - möjligtvis använda kordinaterna för att byta bakgrundsbild 
 
-Styling kod är det som är mest kvar av:
--color scheem
--bakgrundsbild
--spelkonsol
 
--Fonternas storlek i tv (eller göra tv större?)
 
--spelkontroll som ser ut som en spelkontroll
 
--Loader annan bakgrunds färg? nu är den vit, annann färg på animationen?
- - (om tid finns) som loadas i skärmen enbart när spelet är igång
 
 
 -accessability etc
@@ -129,5 +129,16 @@ Styling kod är det som är mest kvar av:
 -fått action att funka och man kan spela spelet
 -fått loading att funka
 
+-Fonternas storlek i tv (eller göra tv större?)
+
+-spelkontroll som ser ut som en spelkontroll
+
+-Loader annan bakgrunds färg? nu är den vit, annann färg på animationen?
+ - (om tid finns) som loadas i skärmen enbart när spelet är igång
+
+Styling kod är det som är mest kvar av:
+-color scheem
+-bakgrundsbild
+-spelkonsol
 
 

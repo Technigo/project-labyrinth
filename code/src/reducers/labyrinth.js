@@ -1,25 +1,30 @@
 import { createSlice } from '@reduxjs/toolkit';
 import ui from './ui';
 
+const initialState = {
+  username: null,
+  position: null,
+  actions: '',
+  history: []
+}
+
 export const labyrinth = createSlice({
   name: 'labyrinth',
-  initialState: {
-    // ska det vara username:TechnigoPlayer
-    username: null,
-    position: null,
-    history: []
-  },
-
+  initialState,
+  // ska det vara username:TechnigoPlayer
   reducers: {
     setUserName: (store, action) => {
       store.username = action.payload;
     },
     setPosition: (store, action) => {
       store.position = action.payload;
+    },
+    setActions: (store, action) => {
+      store.actions = action.payload
+    },
+    restartGame: () => {
+      return initialState;
     }
-    // restartGame: () => {
-    //   return initialState
-    // }
   }
 });
 
