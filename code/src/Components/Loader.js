@@ -1,13 +1,13 @@
-import React from 'react'
-import styled from 'styled-components/macro'
+import React from 'react';
+import styled from 'styled-components/macro';
 
 const LoaderContainer = styled.div`
-    text-align: center;
-    padding-top: 200px;
+  text-align: center;
+  padding-top: 200px;
 `
 
 const LoaderMessage = styled.p`
-    font-size: 25px;
+  font-size: 25px;
 `
 
 const Loader = () => (
@@ -16,5 +16,4 @@ const Loader = () => (
   </LoaderContainer>
 )
 
-export default Loader
-
+export default Loader;

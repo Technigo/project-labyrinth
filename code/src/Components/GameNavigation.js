@@ -51,7 +51,7 @@ const GameNavigation = ({ actions }) => {
         <div className="north">
           <DirectionButton direction="North" isAvailable={availableMoves.North} handleOnClick={handleOnClick} />
         </div>
-        <div className="west" >
+        <div className="west">
           <DirectionButton direction="West" isAvailable={availableMoves.West} handleOnClick={handleOnClick} />
         </div>
         <div className="east">
