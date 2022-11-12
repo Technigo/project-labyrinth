@@ -2,36 +2,13 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { useDispatch } from 'react-redux';
 import { generateNextDescription } from 'reducers/game';
-import { NavButton } from './Buttons';
-
-const DirectionButton = ({ direction, isAvailable, handleOnClick }) => {
-  if (isAvailable) {
-    return (
-      <NavButton
-        type="button"
-        title={`Go ${direction}`}
-        onClick={() => handleOnClick(direction)}>
-        {direction.charAt(0)}
-      </NavButton>
-    )
-  }
-
-  return (
-    // Return disabled button if not available
-    <NavButton
-      disabled
-      type="button"
-      title="This move is not possible here">
-      {direction.charAt(0)}
-    </NavButton>
-  )
-}
+import { NavButton, RestartButton } from './Buttons';
 
 const GameNavigation = ({ actions, coords }) => {
   // Get actions from API
   console.log('actions', actions)
   console.log('coords', coords)
-  
+
   const dispatch = useDispatch();
 
   const handleOnClick = (direction) => {
@@ -46,12 +23,20 @@ const GameNavigation = ({ actions, coords }) => {
 
   console.log('availableMoves', availableMoves)
 
+  if (coords === '1,3') {
+    return (
+      <RestartButton
+        type="button"
+        onClick={() => {
+
+          // set username and description to null?
+          // maybe add a new action for this?
+        }}>Restart game
+      </RestartButton>
+    )
+  }
+
   return (
-    {coords === '1,3'<<StartButton
-    type="button"
-    // title= 
-    // onClick={() => XXX(zzzz)}>
-    </StartButton> :
     <ChooseDirectionWrapper>
       <p style={{ fontWeight: 'bold' }}>Choose direction</p>
       <DirectionGrid>
@@ -68,7 +53,7 @@ const GameNavigation = ({ actions, coords }) => {
           <DirectionButton direction="South" isAvailable={availableMoves.South} handleOnClick={handleOnClick} />
         </div>
       </DirectionGrid>
-    </ChooseDirectionWrapper>}
+    </ChooseDirectionWrapper>
   )
 }
 
@@ -103,5 +88,28 @@ const DirectionGrid = styled.div`
       grid-area: west;
     }
   `
+
+const DirectionButton = ({ direction, isAvailable, handleOnClick }) => {
+  if (isAvailable) {
+    return (
+      <NavButton
+        type="button"
+        title={`Go ${direction}`}
+        onClick={() => handleOnClick(direction)}>
+        {direction.charAt(0)}
+      </NavButton>
+    )
+  }
+
+  return (
+  // Return disabled button if not available
+    <NavButton
+      disabled
+      type="button"
+      title="This move is not possible here">
+      {direction.charAt(0)}
+    </NavButton>
+  )
+}
 
 export default GameNavigation;

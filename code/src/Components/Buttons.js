@@ -56,4 +56,31 @@ top:1px;
 }
 `
 
-export { NavButton, StartButton };
+const RestartButton = styled.button`
+background:linear-gradient(to bottom, #e2dae8 5%, #8b7bb4 100%);
+background-color:#e2dae8;
+border-radius:6px;
+border:1px solid #8b7bb4;
+cursor:pointer;
+color:black;
+font-size:14px;
+font-weight:bold;
+padding:4px 12px;
+text-decoration:none;
+margin-top: 10px;
+display: inline-block;
+height: 50px;
+width: 150px;
+
+:hover {
+background:linear-gradient(to bottom, #8b7bb4 5%, #e2dae8 100%);
+background-color:#8b7bb4;
+}
+
+:active {
+position:relative;
+top:1px;
+}
+`
+
+export { NavButton, StartButton, RestartButton };

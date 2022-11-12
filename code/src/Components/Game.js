@@ -24,6 +24,7 @@ const Game = () => {
           ))}
         </div>
         <GameNavigation
+          coords={description.coordinates}
           actions={description.actions} />
       </DescriptionWrapper>
     </GameImage>
