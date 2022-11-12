@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { generateActionData } from 'reducers/labyrinth'
-import styled from 'styled-components'
 
 const Directions = () => {
   const actions = useSelector((store) => store.labyrinth.actions)
@@ -14,7 +13,7 @@ const Directions = () => {
   }
 
   return (
-    <FlexDiv>
+    <>
       <button className={isActive ? null : 'instructions-btn'} type="button" onClick={toggleDisplay}>Click here to see directions</button>
       {actions.map((action) => {
         return (
@@ -24,14 +23,8 @@ const Directions = () => {
           </div>
         )
       })}
-    </FlexDiv>
+    </>
   )
 }
 
 export default Directions
-
-const FlexDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  `
