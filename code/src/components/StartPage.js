@@ -30,7 +30,7 @@ export const StartPage = () => {
   return (
     <CardContainerStart>
       <WelcomeTitle> The Amazing Maze!</WelcomeTitle>
-      <Info>Greetings brave one. The key to succeed in this maze is to not walk in your own footsteps - always keep moving in a new direction. If you wish to try the maze again, please choose a new alias. Best of luck.</Info>
+      <Info><Bold>Greetings brave one.</Bold> The key to succeed in this maze is to not walk in your own footsteps - always keep moving in a new direction. If you wish to try the maze again, please choose a new alias. Best of luck.</Info>
       <MazePic src={mazePicture} alt="maze" />
       <UserNameInput> Enter your name:</UserNameInput>
       <form onSubmit={onFormSubmit}>
@@ -48,6 +48,9 @@ export const StartPage = () => {
     </CardContainerStart>
   )
 }
+
+const Bold = styled.span`
+font-weight: 600;`
 
 const Info = styled.div`
 font-size: 17px;
