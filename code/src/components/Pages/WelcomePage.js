@@ -5,8 +5,6 @@ import { StartBtn } from 'components/Styles/GameScreen.Styles'
 import React, { useState } from 'react';
 import { useDispatch /* useSelector */ } from 'react-redux';
 import { startTheGame, labyrinth } from 'reducers/labyrinth';
-import Lottie from 'react-lottie';
-import walkman from '../../lotties/79913-walk-man.json';
 
 export const WelcomePage = () => {
   const dispatch = useDispatch()
@@ -17,14 +15,7 @@ export const WelcomePage = () => {
     dispatch(labyrinth.actions.setUserName(input))
     dispatch(startTheGame())
   }
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: walkman,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice'
-    }
-  };
+
   return (
     <GameWrapper>
       <h1>Can you find your way out of the cavern?</h1>
@@ -39,12 +30,15 @@ export const WelcomePage = () => {
           required />
         <StartBtn type="submit" onClick={letsStart}>Go in</StartBtn>
       </form>
-      <Lottie
-        id="Lottie"
-        options={defaultOptions}
-        height={200}
-        width={200}
-        style={{ margin: '0px' }} />
+      <lottie-player
+        src="https://lottie.host/eb014269-5e29-41a8-b6d3-25526566bbcd/0mKM97lCJc.json"
+        speed="2"
+        background="transparent"
+        loop
+        autoplay
+        style={{ width: '300px',
+          height: '300px',
+          margin: '0px' }} />
     </GameWrapper>
   )
 };
