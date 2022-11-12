@@ -1,13 +1,16 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This app that retrieves a list of actions from the backend and presents them to the user as interactable items. For this app we fetch two APIs, by usig thunks to wrap the API calls.
+The page is responsive.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Fetching API and useing Thunk to wrap the API calls and dispatch Actions was complicated.
+
+I was successed to fetch API/start but I couldn't fetch the API/action. My second problem was about loading. After loading game page was moving to the last step.
+
+I solved the first problem by focusing to put my two arguments at function as same order as my function on the createSlice part.
+And for the second problem, I used if statement for loading the API.
+It took me a while to solve Errors.
 
 ## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
