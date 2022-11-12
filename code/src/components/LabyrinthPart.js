@@ -23,16 +23,18 @@ const LabyrinthPart = () => {
   return (
     <GameCard>
       <TypeIt>{description}</TypeIt>
-      <button className={isActive ? null : 'instructions-btn'} type="button" onClick={toggleDisplay}>Click here to see directions</button>
-      {actions.map((action) => {
-        return (
-          <div className={isActive ? 'hidden-instructions' : 'instructions'}>
-            <p>{action.description}</p>
-            <button type="button" onClick={() => dispatch(generateActionData(action.type, action.direction))}> Go {action.direction}</button>
-          </div>
-        )
-      })}
-      <button className="restart-btn" type="button" onClick={restart}>Restart</button>
+      <FlexDiv>
+        <button className={isActive ? null : 'instructions-btn'} type="button" onClick={toggleDisplay}>Click here to see directions</button>
+        {actions.map((action) => {
+          return (
+            <div className={isActive ? 'hidden-instructions' : 'instructions'}>
+              <p>{action.description}</p>
+              <button type="button" onClick={() => dispatch(generateActionData(action.type, action.direction))}> Go {action.direction}</button>
+            </div>
+          )
+        })}
+        <button className="restart-btn" type="button" onClick={restart}>Restart</button>
+      </FlexDiv>
     </GameCard>
 
   )
@@ -42,42 +44,47 @@ export default LabyrinthPart
 // STYLING
 
 const GameCard = styled.div`
-    display: flex;
-    padding: 1rem;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    background-color: #010202c9;
-    border-radius: 20px;
-    color: white;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  background-color: #010202c9;
+  border-radius: 20px;
+  color: white;
 
-    button {
-      margin-top: 1rem;
-      background-color: #01FFC4;
-      border: none;
-      border-radius: 5px;
-      padding: 5px 20px;
-    }
-    
-    .instructions-btn {
-    display: none;
-    }
+  button {
+    margin-top: 1rem;
+    background-color: #01FFC4;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 20px;
+  }
 
-    .restart-btn {
-      background-color: transparent;
-      border: 1px solid #01FFC4;
-      color: #01FFC4;
-    }
+  .instructions-btn {
+  display: none;
+  }
 
-    @media (min-width: 668px) {
-      padding: 1rem 2rem;
-      min-height: 400px;
-      width: 700px;
+  .restart-btn {
+    background-color: transparent;
+    border: 1px solid #01FFC4;
+    color: #01FFC4;
+  }
 
-    }
-    @media (min-width: 1025px) {
-      min-height: 500px;
-      width: 800px;
-    }
+  @media (min-width: 668px) {
+    padding: 1rem 2rem;
+    min-height: 400px;
+    width: 700px;
+
+  }
+  @media (min-width: 1025px) {
+    min-height: 500px;
+    min-width: 900px;
+  }
+`
+const FlexDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `

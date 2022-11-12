@@ -61,16 +61,15 @@ body {
   font-family: 'JetBrains Mono', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #222727;
 }
 
 span {
   display: block;
-    font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
+  font-size: 1.5em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
 }
 
 .instructions {
@@ -105,20 +104,20 @@ span {
 `
 
 export const Outerwrapper = styled.div`
-width: 100%;
-height: 100%;
-display: flex;
-align-items:center;
-justify-content: center;
-background-size: cover;
-background-image: url(${(props) => (props.coordinates === '00' ? Zero : props.coordinates === '10' ? One : props.coordinates === '11' ? OneOne : props.coordinates === '01' ? ZeroOne : props.coordinates === '02' ? ZeroTwo : props.coordinates === '03' ? ZeroThree : props.coordinates === '13' ? OneThree : Start)})
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  background-size: cover;
+  background-image: url(${(props) => (props.coordinates === '00' ? Zero : props.coordinates === '10' ? One : props.coordinates === '11' ? OneOne : props.coordinates === '01' ? ZeroOne : props.coordinates === '02' ? ZeroTwo : props.coordinates === '03' ? ZeroThree : props.coordinates === '13' ? OneThree : Start)})
 `
 
 export const Innerwrapper = styled.div`
-margin: 0 auto;
-width: 80%;
-height: 100%;
-display: flex;
-align-items: center;
-justify-content: center;
+  margin: 0 auto;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
