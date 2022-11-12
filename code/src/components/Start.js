@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 import React, { useState } from 'react';
-import { fetchChoices, choices } from 'reducers/choices';
+import { fetchGame, choices } from 'reducers/choices';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components/macro';
 
@@ -9,13 +9,14 @@ export const Start = () => {
   const [userName, setUserName] = useState('')
   const [startConfirmed, setStartConfirmed] = useState(false)
 
+  // Function for when the form is submitted by user
   const onFormSubmit = (event) => {
     event.preventDefault()
     dispatch(choices.actions.addUserName(userName))
     setStartConfirmed(true)
   }
 
-  // Function for storing user's text
+  // Function for storing entered username
   const handleChange = (event) => {
     setUserName(event.target.value);
   };
@@ -48,16 +49,16 @@ export const Start = () => {
           <PressStart>Press start to get your first instructions</PressStart>
           <StartBtn
             type="button"
-            onClick={() => dispatch(fetchChoices())}>
-            Start Game
+            onClick={() => dispatch(fetchGame('start'))}>
+          Start Game
           </StartBtn>
         </WelcomeWrapper>
       )}
     </section>
-
   )
 }
 
+// STYLING FOR ABOVE COMPONENT
 const Header = styled.section`
   font-size: 38px;
   text-align: center;
@@ -69,6 +70,7 @@ const CreatePlayerBtn = styled.button`
   margin: 1rem;
   padding: 0.5rem;
   background-color: white;
+  color: "#333";
   border-radius: 10px;
   padding: 10px 18px;
   margin: 8px 0;
@@ -81,6 +83,7 @@ const StartBtn = styled.button`
   margin: 1rem;
   padding: 0.5rem;
   background-color: white;
+  color: "#333";
   border-radius: 10px;
   padding: 10px 18px;
   margin: 8px 0;
@@ -106,20 +109,19 @@ const InputField = styled.input`
 `
 
 const HelloUser = styled.p`
-color: white;
-font-size: 40px;
-font-family: 'Orbitron', sans-serif;
+  color: white;
+  font-size: 40px;
+  font-family: 'Orbitron', sans-serif;
 `
 
 const PressStart = styled.p`
-color: white;
-font-size: 16px;
+  color: white;
+  font-size: 16px;
 `
 
 const WelcomeWrapper = styled.div`
-display: flex;
-justify-content:center;
-flex-direction: column;
-align-items: center;
-
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `

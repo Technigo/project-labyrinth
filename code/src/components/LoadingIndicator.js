@@ -18,7 +18,6 @@ const LoadingWrap = styled.div`
   font-size: 20px;
 `
 
-// EXAMPLE ANIMATION:
 const Loader = styled.div`
   margin-top: 5rem;
   border-radius: 20%;

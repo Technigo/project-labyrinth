@@ -10,6 +10,7 @@ export const Home = () => {
   const isLoading = useSelector((state) => state.ui.isLoading)
   const coordinates = useSelector((state) => state.choices.coordinates)
 
+  // Change background color according to where the user is in the game
   const background = () => {
     let color = '';
     switch (coordinates) {
@@ -50,18 +51,17 @@ export const Home = () => {
   )
 }
 
+// STYLING FOR ABOVE COMPONENT
 const BackgroundColor = styled.section`
   background-color: ${(props) => props.color};
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 `
 
 const InnerWrapper = styled.section`
-  background-color: ${(props) => props.color};
   width: 90%;
   margin: 0 auto;
   display: flex;
-  justify-content: justify-items;
   align-items: center;
   flex-direction: column;
 `

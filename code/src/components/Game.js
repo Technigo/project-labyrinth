@@ -10,10 +10,13 @@ export const Game = () => {
   const dispatch = useDispatch()
   const endOfGame = list.length === 0;
 
-  // If length of choices for user is more than 0, display direction buttons
+  // If it is not the end of the game, display the direction buttons
+  // otherwise, display the play again-button
   return (
     <GameWrapper>
-      <TextBackground><h2>{description}</h2></TextBackground>
+      <TextBackground>
+        <h2>{description}</h2>
+      </TextBackground>
       {endOfGame && (
         <ReloadBtn
           type="button"
@@ -23,13 +26,14 @@ export const Game = () => {
       )}
       {list.map((choice) => (
         <div key={list.indexOf(choice)}>
-          <Description><p>{choice.description}</p></Description>
-          {console.log('list:', list)}
+          <Description>
+            <p>{choice.description}</p>
+          </Description>
           {list && (
             <DirectionBtn
               type="button"
-              onClick={() => dispatch(fetchGame(choice.direction, choice.type))}>
-              {choice.direction}
+              onClick={() => dispatch(fetchGame('action', choice.direction, choice.type))}>
+              Go {choice.direction}
             </DirectionBtn>
           )}
         </div>
@@ -38,6 +42,7 @@ export const Game = () => {
   )
 }
 
+// STYLING FOR ABOVE COMPONENT
 const Description = styled.div`
   background-color: rgb(255, 255, 255, 0.5);
   border-radius: 10px;
@@ -51,11 +56,11 @@ const Description = styled.div`
 `
 
 const TextBackground = styled(Description)`
-margin-bottom: 60px;
+  margin-bottom: 60px;
 
-h2 {
-  font-family: 'Roboto', sans-serif;
-}
+  h2 {
+    font-family: 'Roboto', sans-serif;
+  }
 `
 
 const GameWrapper = styled.section`
@@ -70,6 +75,7 @@ const DirectionBtn = styled.button`
   margin: 1rem;
   padding: 0.5rem;
   background-color: white;
+  color: "#333";
   border-radius: 10px;
   padding: 10px;
   margin: 8px 0;
@@ -78,11 +84,12 @@ const DirectionBtn = styled.button`
 `
 
 const ReloadBtn = styled.button`
-display: block;
-width: 50%;
+  display: block;
+  width: 50%;
   margin: 1rem;
   padding: 0.5rem;
   background-color: white;
+  color: "#333";
   border-radius: 10px;
   padding: 10px 18px;
   margin: 8px 0;
