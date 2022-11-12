@@ -1,4 +1,3 @@
-/* eslint-disable implicit-arrow-linebreak */
 import { createSlice } from '@reduxjs/toolkit';
 import { ui } from './ui';
 
@@ -78,5 +77,5 @@ export const generateMoves = (direction) => {
       })
       .catch((error) => console.error(error))
       .finally(() => dispatch(ui.actions.setLoading(false)));
-  }
-}
+  };
+};

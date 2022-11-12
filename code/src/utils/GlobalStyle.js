@@ -15,22 +15,16 @@ html {
      background-position: center center;
      min-height: 100%;
      background-attachment: fixed;
-    /* width: 100%;
-    height: 100%; */
 }
   body {
     margin: 0;
     padding: 0;
-
     font-family: 'Permanent Marker', cursive;
   }
- 
 `;
 
 export const OuterWrapper = styled.div`
   height: 100vh;
-
-  /* padding: 100px 0; */
 `;
 
 export const InnerWrapper = styled.div`
@@ -72,8 +66,6 @@ export const Button = styled.button`
         top: 10px;
         bottom: unset;
         padding: revert;
-
-        /* left: 50%; */
       }
     `};
 `;

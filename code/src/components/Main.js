@@ -6,7 +6,6 @@ import UsernameInput from 'components/UsernameInput';
 import styled from 'styled-components/macro';
 import { LoadingIndicator } from 'components/LoadingIndicator';
 import { OuterWrapper, InnerWrapper } from '../utils/GlobalStyle';
-import GameTitleImg from '../assets/game-title.png';
 
 const Main = () => {
   const isLoading = useSelector((store) => store.ui.isLoading);
@@ -49,10 +48,4 @@ const BewareText = styled.p`
 const GameTitle = styled.h1`
   font-size: 500%;
   margin: 0 0 7%;
-  /* background-image: url(${GameTitleImg});
-background-size: contain;
-background-repeat: no-repeat;
-background-position: center center;
-width: 20%;
-height: 20%; */
 `;

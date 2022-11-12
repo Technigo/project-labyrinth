@@ -59,7 +59,6 @@ const GameBoardStyle = styled.div`
 
 const ScrollWrapper = styled.div`
   width: 50%;
-  /* margin: -10% auto; */
   display: flex;
   align-items: center;
   position: relative;
@@ -85,7 +84,7 @@ const Scroll = styled.div`
   background-position: center center;
   /* position: relative; */
   width: 100%;
-  height: 80%; // Need to change width on mobile
+  height: 80%;
   min-height: 500px;
   text-align: center;
   margin: 0;
@@ -107,7 +106,6 @@ const EventText = styled.p`
   /* Desktop styling */
   width: 65%;
   margin: auto;
-  /* padding-top: 25vh; */
   font-size: 120%;
   max-width: 600px;
 
@@ -115,8 +113,6 @@ const EventText = styled.p`
   @media (min-width: 500px) and (max-width: 1023px) {
     max-width: 275px;
     margin: 3vh auto;
-    /* padding-top: 13vh; */
-    /* width: 50%; */
     font-size: 100%;
   }
 
@@ -124,14 +120,12 @@ const EventText = styled.p`
   @media (max-width: 499px) {
     width: 65%;
     font-size: 100%;
-    /* padding-top: 15vh; */
     margin: 0 auto;
   }
 `;
 
 const CompassWrapper = styled.div`
   width: 50%;
-  /* margin-top: 3%; */
   height: 100vh;
   text-align: center;
   display: grid;
