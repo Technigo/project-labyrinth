@@ -74,6 +74,7 @@ span {
 button {
   cursor: pointer;
   transition: 0.3s ease-in-out;
+  color: black;
 
   &:hover {
       transform: scale(1.07);
