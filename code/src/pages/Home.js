@@ -41,7 +41,7 @@ export const Home = () => {
   }
 
   return (
-    <BackgroundColor color={background}>
+    <BackgroundColor background={background}>
       <InnerWrapper>
         {!coordinates && <Start />}
         {isLoading && <LoadingIndicator />}
@@ -53,7 +53,7 @@ export const Home = () => {
 
 // STYLING FOR ABOVE COMPONENT
 const BackgroundColor = styled.section`
-  background-color: ${(props) => props.color};
+  background-color: ${(props) => props.background};
   width: 100%;
   min-height: 100vh;
 `

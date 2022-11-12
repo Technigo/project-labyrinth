@@ -2,7 +2,7 @@
 import React from 'react';
 import { fetchGame } from 'reducers/choices';
 import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const Game = () => {
   const description = useSelector((state) => state.choices.description)
@@ -25,7 +25,7 @@ export const Game = () => {
         </ReloadBtn>
       )}
       {list.map((choice) => (
-        <div key={list.indexOf(choice)}>
+        <Choices key={list.indexOf(choice)}>
           <Description>
             <p>{choice.description}</p>
           </Description>
@@ -47,7 +47,7 @@ const Description = styled.div`
   background-color: rgb(255, 255, 255, 0.5);
   border-radius: 10px;
   margin: 15px;
-  padding: 10px;
+  padding: 10px 18px;
 
   p {
     font-size: 20px;
@@ -66,10 +66,10 @@ const Description = styled.div`
   }
 
   @media (min-width: 1025px) {
-    font-size: 26px;
+    font-size: 24px;
   }
-
 `
+
 const Choices = styled.div`
 width: 60%;
 margin-bottom: 35px;
@@ -103,7 +103,6 @@ const DirectionBtn = styled.button`
   margin: 1rem;
   padding: 0.5rem;
   background-color: white;
-  color: "#333";
   border-radius: 10px;
   padding: 10px;
   margin: 8px 0;
@@ -132,7 +131,6 @@ const ReloadBtn = styled.button`
   margin: 1rem;
   padding: 0.5rem;
   background-color: white;
-  color: "#333";
   border-radius: 10px;
   padding: 10px 18px;
   margin: 8px 0;

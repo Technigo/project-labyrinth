@@ -15,7 +15,9 @@ const LoadingWrap = styled.div`
   padding-top: 3rem;
   font-family: 'Orbitron', sans-serif;
   color: white;
-  font-size: 20px;
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 5px;
 `
 
 const Loader = styled.div`
