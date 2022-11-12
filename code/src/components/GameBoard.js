@@ -24,7 +24,5 @@ const GameBoard = () => {
 export default GameBoard
 
 const MainDescriptionWrapper = styled.div`
-  padding: 24px;
-  border: solid lightgrey 2px;
   background-color: black;
 `

@@ -21,9 +21,8 @@ export const OuterWrapper = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 85vh;
+    margin: 5% 0;
 `
 
 export const Button = styled.button`

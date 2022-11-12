@@ -37,7 +37,7 @@ const StyledButton = styled.button`
   color: white;
   font-weight: 700;
   border: 2px solid white;
-  padding: 16px 24px;
+  padding: 16px 16px;
   line-height: 24px;
   width: 100%;
 
