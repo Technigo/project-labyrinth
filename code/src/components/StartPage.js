@@ -29,11 +29,10 @@ export const StartPage = () => {
 
   return (
     <CardContainerStart>
-      <WelcomeTitle> Welcome to the Labyrinth!</WelcomeTitle>
-
+      <WelcomeTitle> The Amazing Maze!</WelcomeTitle>
+      <Info>Greetings brave one. The key to succeed in this maze is to not walk in your own footsteps - always keep moving in a new direction. If you wish to try the maze again, please choose a new alias. Best of luck.</Info>
       <MazePic src={mazePicture} alt="maze" />
-
-      <UserNameInput> Choose your username:</UserNameInput>
+      <UserNameInput> Enter your name:</UserNameInput>
       <form onSubmit={onFormSubmit}>
         <UserNameInputField
         // This button will do our initial fetch to fetch the first game instructions from
@@ -41,7 +40,7 @@ export const StartPage = () => {
           type="text"
           onChange={(event) => setUserNameInput(event.target.value)}
           id="username-input"
-          placeholder="Username"
+          placeholder="Name"
           value={usernameInput} />
       </form>
       <StyledButton onClick={onFormSubmit} type="submit">Start</StyledButton>
@@ -50,12 +49,22 @@ export const StartPage = () => {
   )
 }
 
+const Info = styled.div`
+font-size: 17px;
+padding: 10px;
+margin: 0px 10px 20px 10px;
+
+@media (min-width: 668px) {
+  width: 70%;
+}
+`
+
 const CardContainerStart = styled(CardContainer)`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 60vh;
+  height: 70vh;
 `
 
 const UserNameInput = styled.p`

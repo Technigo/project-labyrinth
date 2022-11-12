@@ -17,11 +17,8 @@ export const GamePage = () => {
     return <LoadingPage />
   } else {
     return (
-
       <CardContainerGame>
-
         <Description>&quot;{gameProps.description}&quot;</Description>
-
         <ChooseUser>Choose wisely, {username}...</ChooseUser>
         <Choices>
           {actions.map((action) => {
@@ -30,11 +27,9 @@ export const GamePage = () => {
                 <DescriptionText>{action.description}</DescriptionText>
                 <StyledButtonGame type="submit" onClick={() => dispatch(fetchGameStep(action.type, action.direction))}>Go {action.direction}</StyledButtonGame>
               </SingleChoice>
-
             )
           })}
         </Choices>
-
       </CardContainerGame>
 
     )
@@ -56,7 +51,7 @@ const Choices = styled.div`
 `
 
 const Description = styled.p`
-  font-size: 17px;
+  font-size: 20px;
   font-family: 'Montserrat', sans-serif;
   width: 80%;
 
@@ -71,9 +66,13 @@ const Description = styled.p`
 
 const ChooseUser = styled.p`
   font-style: italic;
-  font-size: 40px;
+  font-size: 30px;
   font-family: 'Caveat', cursive;
   margin:10px;
+
+  @media (min-width: 668) {
+  font-size: 40px;
+  }
 `
 const DescriptionText = styled.p`
   font-family: 'Montserrat', sans-serif;
@@ -85,9 +84,10 @@ const SingleChoice = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 15px;
   box-shadow: 0px 0px 7px 0px #888888;
   margin: 10px;
+  width: 68vw;
   
   @media (min-width: 600px) {
     flex-direction: column;
