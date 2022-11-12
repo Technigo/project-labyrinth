@@ -49,7 +49,6 @@ const StyledInput = styled.input`
   border: 1px solid white;
   background-color: black;
   padding: 24px;
-  width: 87%;
   text-align: center;
   font-size: 24px;
 
