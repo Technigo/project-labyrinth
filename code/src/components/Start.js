@@ -84,8 +84,16 @@ const StartBtn = styled.button`
   border-radius: 10px;
   padding: 10px 18px;
   margin: 8px 0;
-  font-size: 16px;
+  font-size: 18px;
   font-family: 'Orbitron', sans-serif;
+
+  @media (min-width: 667px) and (max-width: 1024px) {
+    font-size: 20px;
+  }
+
+  @media (min-width: 1025px) {
+    font-size: 24px;
+  }
 `
 
 const Form = styled.form`
@@ -109,11 +117,27 @@ const HelloUser = styled.p`
 color: white;
 font-size: 40px;
 font-family: 'Orbitron', sans-serif;
+
+@media (min-width: 667px) and (max-width: 1024px) {
+    font-size: 50px;
+  }
+
+  @media (min-width: 1025px) {
+    font-size: 60px;
+  }
 `
 
 const PressStart = styled.p`
 color: white;
-font-size: 16px;
+font-size: 18px;
+
+@media (min-width: 667px) and (max-width: 1024px) {
+    font-size: 20px;
+  }
+
+  @media (min-width: 1025px) {
+    font-size: 24px;
+  }
 `
 
 const WelcomeWrapper = styled.div`
