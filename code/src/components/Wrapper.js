@@ -53,11 +53,19 @@ const Wrapper = () => {
         <BackgroundContainer style={{ background: setBackgroundImage(coordinates) }}>
             {isLoading ? (
             <Loading />
-             ):
+             ) 
+             :
+            <>
             <div>
-                {coordinates ? <Labyrinth /> :   <StartPage /> }
-            </div>
-            }
+            {coordinates ? <Labyrinth /> : <StartPage />}
+            </div>    
+          {/* <div>
+              {coordinates > "0,0" &&
+                <LogIn /> }
+          </div> */}
+          </> 
+       
+}
         </BackgroundContainer>
     )
 }

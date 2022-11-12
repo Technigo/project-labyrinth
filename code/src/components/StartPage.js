@@ -6,10 +6,14 @@ import { useDispatch } from 'react-redux';
 import { OuterWrapper, InnerWrapper, TextWrapper, BigText, Button } from 'GlobalStyles';
 import styled from 'styled-components/macro'
 import Footer from 'components/Footer'
+// import { LogIn } from './LogIn'
+import Labyrinth from './Labyrinth';
 
 const StartPage = () => {
     const [userName, setUserName] = useState('')
     const dispatch = useDispatch();
+    // const { coordinates } = useSelector((store) => store.game.currentDirection)
+
 
     const onAction = () => {
         console.log(userName)
@@ -28,6 +32,7 @@ const StartPage = () => {
                         type="text" 
                         className="userName" 
                         placeholder="Please write your name"
+                        required
                         onChange={(event) => setUserName(event.target.value)}
                         value={userName} />
                     </TextWrapper>
@@ -36,6 +41,10 @@ const StartPage = () => {
                     onClick={onAction}> Let’s go </Button>
                     <Footer />
                 </InnerWrapper>
+                {/* <div>
+              {coordinates > "0,0" &&
+                <LogIn /> }
+          </div> */}
             </OuterWrapper>
        
     )
