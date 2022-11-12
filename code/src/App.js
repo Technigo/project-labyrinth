@@ -6,6 +6,7 @@ import Wrapper from 'components/Wrapper';
 
 // import { GameWrapper } from './components/styled/GameWrapper.styled';
 import 'nes.css/css/nes.min.css';
+
 import { OuterWrapper } from 'components/styled/containers';
 
 export const App = () => {
@@ -17,14 +18,14 @@ export const App = () => {
   });
 
   return (
-    <OuterWrapper
-      style={{
-        backgroundImage: 'url(/assets/maze.png)'
-      }}
-    >
-      <Provider store={store}>
+    <Provider store={store}>
+      <OuterWrapper
+        style={{
+          backgroundImage: 'url(/assets/maze.png)'
+        }}
+      >
         <Wrapper />
-      </Provider>
-    </OuterWrapper>
+      </OuterWrapper>
+    </Provider>
   );
 };
