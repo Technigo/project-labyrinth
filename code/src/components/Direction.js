@@ -39,6 +39,7 @@ const StyledButton = styled.button`
   border: 2px solid white;
   padding: 16px 24px;
   line-height: 24px;
+  width: 100%;
 
   &:hover {
     background-color: white;
@@ -48,13 +49,5 @@ const StyledButton = styled.button`
   p {
     margin: 0px;
     color: orange;
-  }
-
-  @media (min-width: 819px) {
-    width: 650px;
-  }
-
-  @media (min-width: 1025px) {
-    width: 910px;
   }
 `

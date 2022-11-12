@@ -7,14 +7,23 @@ export const InnerWrapper = styled.div`
     align-items: center;
     text-align: center;
     color: white;
+
+    @media (min-width: 768px) {
+        width: 70%;
+    }
+
+    @media (min-width: 992px) {
+        width: 60%;
+    }
 `
 
 export const OuterWrapper = styled.div`
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 85vh;
 `
 
 export const Button = styled.button`

@@ -12,16 +12,13 @@ const GameBoard = () => {
   };
 
   return (
-    <>
-      <StyledHeadingOne><h1>Labyrinth</h1></StyledHeadingOne>
-      <MainDescriptionWrapper>
-        <h2>{description.description} </h2>
-        <NextDirection actions={description.actions} />
-        {description.coordinates === '1,3' && (
-          <RestartButton type="button" onClick={handleStartOverClick}>Restart</RestartButton>
-        )}
-      </MainDescriptionWrapper>
-    </>
+    <MainDescriptionWrapper>
+      <h2>{description.description} </h2>
+      <NextDirection actions={description.actions} />
+      {description.coordinates === '1,3' && (
+        <RestartButton type="button" onClick={handleStartOverClick}>Restart</RestartButton>
+      )}
+    </MainDescriptionWrapper>
   )
 }
 export default GameBoard
@@ -30,10 +27,4 @@ const MainDescriptionWrapper = styled.div`
   padding: 24px;
   border: solid lightgrey 2px;
   background-color: black;
-`
-
-const StyledHeadingOne = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
 `

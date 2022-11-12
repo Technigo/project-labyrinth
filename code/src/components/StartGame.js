@@ -42,7 +42,6 @@ const StyledForm = styled.form`
   justify-content: center;
   gap: 24px;
   width: 100%;
-
 `
 
 const StyledInput = styled.input`

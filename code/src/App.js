@@ -4,7 +4,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import game from 'reducers/game';
 import StartScreen from 'components/StartScreen';
 import { InnerWrapper, OuterWrapper } from 'components/styling/MainStyles';
-import MazeIcon from 'components/styling/MazeIcon';
+import Header from 'components/styling/Header';
 
 export const App = () => {
   const reducer = combineReducers({
@@ -15,8 +15,8 @@ export const App = () => {
 
   return (
     <Provider store={store}>
+      <Header />
       <OuterWrapper>
-        <MazeIcon />
         <InnerWrapper>
           <StartScreen />
         </InnerWrapper>
