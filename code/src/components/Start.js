@@ -73,9 +73,20 @@ const CreatePlayerBtn = styled.button`
   color: "#333";
   border-radius: 10px;
   padding: 10px 18px;
-  margin: 8px 0;
+  margin: 40px 0px 8px 0px;
   font-size: 16px;
   font-family: 'Orbitron', sans-serif;
+  &:hover {
+      color: white;
+      background-color:black; 
+  }
+  @media (min-width: 667px) and (max-width: 1024px) {
+    font-size: 20px;
+  }
+
+  @media (min-width: 1025px) {
+    font-size: 24px;
+  }
 `
 
 const StartBtn = styled.button`
@@ -87,8 +98,23 @@ const StartBtn = styled.button`
   border-radius: 10px;
   padding: 10px 18px;
   margin: 8px 0;
-  font-size: 16px;
+  font-size: 18px;
   font-family: 'Orbitron', sans-serif;
+
+  @media (min-width: 667px) and (max-width: 1024px) {
+    font-size: 20px;
+    &:hover {
+      color: white;
+      background-color:black; 
+  }}
+
+  @media (min-width: 1025px) {
+    font-size: 24px;
+    &:hover {
+      color: white;
+      background-color:black; 
+    }
+  }
 `
 
 const Form = styled.form`
@@ -109,14 +135,30 @@ const InputField = styled.input`
 `
 
 const HelloUser = styled.p`
-  color: white;
-  font-size: 40px;
-  font-family: 'Orbitron', sans-serif;
+color: white;
+font-size: 40px;
+font-family: 'Orbitron', sans-serif;
+
+@media (min-width: 667px) and (max-width: 1024px) {
+    font-size: 50px;
+  }
+
+  @media (min-width: 1025px) {
+    font-size: 60px;
+  }
 `
 
 const PressStart = styled.p`
-  color: white;
-  font-size: 16px;
+color: white;
+font-size: 18px;
+
+@media (min-width: 667px) and (max-width: 1024px) {
+    font-size: 20px;
+  }
+
+  @media (min-width: 1025px) {
+    font-size: 24px;
+  }
 `
 
 const WelcomeWrapper = styled.div`

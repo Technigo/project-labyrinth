@@ -36,7 +36,7 @@ export const Game = () => {
               Go {choice.direction}
             </DirectionBtn>
           )}
-        </div>
+        </Choices>
       ))}
     </GameWrapper>
   )
@@ -52,6 +52,34 @@ const Description = styled.div`
   p {
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
+    @media (min-width: 667px) and (max-width: 1024px) {
+    font-size: 20px;
+  }
+
+  @media (min-width: 1025px) {
+    font-size: 24px;
+  }
+  }
+
+  @media (min-width: 667px) and (max-width: 1024px) {
+    font-size: 22px;
+  }
+
+  @media (min-width: 1025px) {
+    font-size: 26px;
+  }
+
+`
+const Choices = styled.div`
+width: 60%;
+margin-bottom: 35px;
+
+@media (min-width: 667px) and (max-width: 1024px) {
+width: 50%;
+  }
+
+  @media (min-width: 1025px) {
+  width: 40%;
   }
 `
 
@@ -81,6 +109,21 @@ const DirectionBtn = styled.button`
   margin: 8px 0;
   font-size: 16px;
   font-family: 'Orbitron', sans-serif;
+
+  @media (min-width: 667px) and (max-width: 1024px) {
+    font-size: 22px;
+    &:hover {
+      color: white;
+      background-color:black;
+  }}
+
+  @media (min-width: 1025px) {
+    font-size: 28px;
+    &:hover {
+      color: white;
+      background-color:black;
+    }
+  }
 `
 
 const ReloadBtn = styled.button`
@@ -95,4 +138,22 @@ const ReloadBtn = styled.button`
   margin: 8px 0;
   font-size: 16px;
   font-family: 'Orbitron', sans-serif;
+
+  @media (min-width: 667px) and (max-width: 1024px) {
+    width: 25%;
+    font-size: 20px;
+    &:hover {
+      color: white;
+      background-color:black;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    width: 15%;
+    font-size: 24px;
+    &:hover {
+      color: white;
+      background-color:black;
+  }}
 `
+
