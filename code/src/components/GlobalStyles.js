@@ -71,6 +71,14 @@ span {
   margin-inline-end: 0px;
   font-weight: bold;
 }
+button {
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+      transform: scale(1.07);
+    }
+}
 
 .instructions {
   background-color: #1c1f1f;

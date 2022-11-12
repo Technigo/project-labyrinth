@@ -42,6 +42,9 @@ const GameCard = styled.div`
   background-color: #010202c9;
   border-radius: 20px;
   color: white;
+  width: 90%;
+  height: 80%;
+  overflow: auto;
 
   button {
     margin-top: 1rem;
@@ -63,13 +66,10 @@ const GameCard = styled.div`
 
   @media (min-width: 668px) {
     padding: 1rem 2rem;
-    min-height: 400px;
-    width: 700px;
+    height: 70%;
 
   }
   @media (min-width: 1025px) {
-    min-height: 500px;
-    min-width: 900px;
   }
 `
 

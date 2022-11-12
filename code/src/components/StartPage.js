@@ -32,6 +32,10 @@ export default StartPage
 
 const StyledStartPage = styled.div`
 color: white;
+display: flex;
+flex-direction: column;
+align-items: center;
+animation: fadeIn 3s; 
 
 button {
   margin-left: 10px;
@@ -40,6 +44,11 @@ button {
 form {
     display: flex;
     align-items: flex-end;
+    margin-top: 1rem;
   }
 
+  @keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
 `
