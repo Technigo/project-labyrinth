@@ -9,15 +9,13 @@ import { InnerWrapper } from './mainStyles';
 
 const MainComponent = () => {
   const quest = useSelector((store) => store.labyrinth.quest);
-  console.log('quest', quest)
 
   const usernameTest = useSelector((store) => store.labyrinth.username);
-  console.log('usernameTest', usernameTest)
 
   return (
     <>
       <InnerWrapper>
-        {quest === '' ? <UserInput /> : <Choices />}
+        {quest === '' ? <UserInput /> : <Choices username={usernameTest} />}
       </InnerWrapper>
       <ButtonWrapper>
         {/* button-img */}

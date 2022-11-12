@@ -11,13 +11,11 @@ const UserInput = () => {
   const dispatch = useDispatch();
 
   const isLoading = useSelector((state) => state.ui.isLoading);
-  console.log('isLoading', isLoading)
 
   const onFormSubmit = (event) => {
     event.preventDefault();
     dispatch(labyrinth.actions.setUser(userNameInputValue));
     dispatch(generateFetch({ url: 'https://labyrinth.technigo.io/start', username: userNameInputValue }))
-    console.log('userNameInputValue', userNameInputValue)
     setUserName(false);
   }
 

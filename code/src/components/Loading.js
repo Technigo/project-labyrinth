@@ -6,7 +6,6 @@ import loadingPacMan from '../lotties/124683-eating-pixels';
 
 const Loading = () => {
   const isLoading = useSelector((state) => state.ui.isLoading);
-  console.log('isLoading', isLoading)
 
   const defaultOptions = {
     loop: true,
