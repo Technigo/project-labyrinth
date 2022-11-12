@@ -40,15 +40,17 @@ export const InnerWrapper = styled.div`
 
 export const Button = styled.button`
   overflow: hidden;
-  background-color: inherit;
   font-size: 14px;
   border: 2px solid black;
   border-radius: 15px;
   cursor: pointer;
   margin: 2%;
 
+  background-color: rgba(255, 255, 255, 0.5);
+  content: '';
+
   :hover {
-    opacity: 0.5;
+    opacity: 0.8;
   }
 
   @media (max-width: 1024px) {

@@ -36,14 +36,13 @@ const GameBoard = () => {
         {actions.length > 0 &&
           actions.map((action) => (
             <>
-              {console.log(action)}
               <Button
                 className={action.direction}
                 direction={action.direction}
                 key={action.direction}
                 onClick={() => dispatch(generateMoves(action.direction))}
               >
-                <div>{action.description}</div>
+                <ActionText>{action.description}</ActionText>
               </Button>
               <Compass />
             </>
@@ -200,4 +199,17 @@ const Compass = styled.div`
   @media (max-width: 1024px) {
     grid-area: 2 / 4 / span 2 / span 2;
   }
+`;
+
+const ActionText = styled.div`
+  /* opacity: 1; */
+  /* background-color: rgba(255, 255, 255, 0.908);
+  color: rgba(0, 0, 0, 0.908);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; */
+  /* } */
 `;
