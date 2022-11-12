@@ -18,7 +18,7 @@ export const Username = () => {
     <div>
       <Styled.Container>
         <Styled.StartScreenText>
-          Lorem  some fun intro text maybe
+          Welcome, traveller. Have you come seeking adventure?
         </Styled.StartScreenText>
         <form onSubmit={(event) => onFormSubmit(event)}>
           <label>
