@@ -45,6 +45,6 @@ const LoaderContainer = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: white;
+    background-color: black;
     z-index: 1500;  
     `;

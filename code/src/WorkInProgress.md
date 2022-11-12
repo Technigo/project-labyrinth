@@ -66,7 +66,7 @@ Nina Kväll:
 - Efter att Linda och Tika haft problem med deploy via Netlify så har jag gjort några ändringar: unintall Ract-Lottie och kollat så Lottie-react funkar.
   även ändrat lite i koden samt kört en npm inatall react-prop-types
 
-
+-försökt få in consollen på position.
 
 
 --------------------------------------------
