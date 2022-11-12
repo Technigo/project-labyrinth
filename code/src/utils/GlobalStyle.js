@@ -60,8 +60,8 @@ export const Button = styled.button`
 
   ${(props) =>
     props.restart &&
+    /* Styling for restart button */
     css`
-      /* Styling for restart button */
       position: absolute;
       bottom: 5%;
       left: 5%;

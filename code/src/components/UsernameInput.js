@@ -1,7 +1,10 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-closing-bracket-location */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import game, { generateGame } from 'reducers/game';
+import styled from 'styled-components';
+import { Button } from 'utils/GlobalStyle';
 
 // Game starts when the user inputs their username
 const UsernameInput = () => {
@@ -19,16 +22,27 @@ const UsernameInput = () => {
     <form onSubmit={onFormSubmit}>
       <label htmlFor="username-input">
         Enter username
-        <input
+        <InputStyle
           id="username-input"
           type="text"
           onChange={(event) => setUsernameInputValue(event.target.value)}
           value={UsernameInputValue}
         />
       </label>
-      <button type="submit">START</button>
+      <Button start type="submit">
+        START
+      </Button>
     </form>
   );
 };
 
 export default UsernameInput;
+
+const InputStyle = styled.input`
+  margin-left: 10px;
+  font-family: inherit;
+  padding: 0 5px;
+  font-size: 16px;
+  outline: none;
+  background-color: transparent;
+`;
