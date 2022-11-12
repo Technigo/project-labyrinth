@@ -28,11 +28,21 @@ const MazePage = () => {
       </div>
       <GameAlternatives>{description}</GameAlternatives>
       {actions.length === 0 && (
+        <><lottie-player
+          src="https://assets4.lottiefiles.com/packages/lf20_zdouw3jj.json"
+          background="transparent"
+          speed="1"
+          style={{
+            width: '150px',
+            height: '150px'
+          }}
+          loop
+          autoplay />
         <Button
           type="button"
           onClick={() => dispatch(labyrinth.actions.resetGame())}>
             RESTART GAME
-        </Button>)}
+        </Button></>)}
       {actions && actions.map((singleType) => (
         <GameAlternatives>
           <p key={singleType.description}>
@@ -56,6 +66,7 @@ line-height: 1.5em;
 @media (min-width: 667px) {
   font-size: .6em;
   line-height: 1.5em;
+  width: 40vw;
   }
 `
 const GoBackButton = styled(Button)`

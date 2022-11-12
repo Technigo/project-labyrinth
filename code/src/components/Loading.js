@@ -6,7 +6,7 @@ const Loading = () => {
   const isLoading = useSelector((store) => store.labyrinth.isLoading)
   return (
     <ChildContainer>
-      <StyledHeading>We will get there shortly...</StyledHeading>
+      <StyledHeading>Taking you there...</StyledHeading>
       {isLoading
       && <lottie-player
         src="https://assets5.lottiefiles.com/private_files/lf30_esg1l8r1.json"

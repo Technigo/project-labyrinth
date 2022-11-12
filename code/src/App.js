@@ -9,9 +9,6 @@ export const App = () => {
     labyrinth: labyrinth.reducer
   });
   const store = configureStore({ reducer });
-  // const store = configureStore(combineReducers({
-  //   quotes: quotes.reducer
-  // }));
 
   return (
     <Provider store={store}>

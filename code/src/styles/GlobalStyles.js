@@ -12,6 +12,7 @@ export const Container = styled.div`
 export const ChildContainer = styled.div`
   box-sizing: border-box;
     background: linear-gradient(rgba(82, 81, 81, 0.9), rgba(0, 0, 0, 0.9));
+    box-shadow: 0 15px 35px rgba(50,50,93,.3), 0 5px 15px rgba(0,0,0,0.5);
     border: 3px solid white;
     padding: 1.5em;
     margin: .5em;
@@ -22,11 +23,12 @@ export const ChildContainer = styled.div`
     position: relative;
     text-align: center;
     width: 80vw;
-    min-height: 65vh;
+    min-height: 70vh;
 
     @media (min-width: 667px) {
-    max-height: 60vh;
+    min-height: 60vh;
     padding: 3em;
+    max-width: 50vw;
     }
 `
 export const StyledHeading = styled.h1`
@@ -36,7 +38,7 @@ export const StyledHeading = styled.h1`
   line-height: 2em;
 
   @media (min-width: 667px) and (max-width: 1024px) {
-  font-size: 2.5em;
+  font-size: 1.8em;
   }
 
   @media (min-width: 1024px) {
