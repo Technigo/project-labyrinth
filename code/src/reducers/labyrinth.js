@@ -16,10 +16,8 @@ const labyrinth = createSlice({
     setChoice: (store, action) => {
       if (store.quest !== '') {
         store.history.push(store.quest);
-        console.log('inside if', store.quest)
       }
       store.quest = action.payload;
-      console.log('outside if', store.quest)
     }
   }
 });
@@ -30,6 +28,7 @@ export const generateFetch = ({ url, username, type, direction }) => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
     console.log('test2')
+
     fetch(url, {
       method: 'POST',
       headers: {
@@ -43,8 +42,6 @@ export const generateFetch = ({ url, username, type, direction }) => {
     })
       .then((result) => result.json())
       .then((json) => {
-        console.log('json', json)
-        console.log('json.description', json.description)
         dispatch(labyrinth.actions.setChoice(json))
         dispatch(ui.actions.setLoading(false));
       });

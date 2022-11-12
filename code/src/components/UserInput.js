@@ -23,7 +23,7 @@ const UserInput = () => {
     if (userName) {
       return (
         <>
-          <WelcomeText>GREETINGS PROFESSOR {userNameInputValue},</WelcomeText>
+          <WelcomeText>GREETINGS PROFESSOR {userNameInputValue.toUpperCase()},</WelcomeText>
           <WelcomeText>HOW ARE YOU FEELING TODAY?</WelcomeText>
           <WelcomeText>SHALL WE PLAY A GAME?</WelcomeText>
           <InputButton type="button" onClick={(e) => onFormSubmit(e)}>YES</InputButton>

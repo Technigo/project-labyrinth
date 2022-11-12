@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import labyrinth, { generateFetch } from 'reducers/labyrinth';
+import { generateFetch } from 'reducers/labyrinth';
 import styled from 'styled-components/macro';
 // import {  } from '../styles/mainStyles';
 
@@ -9,11 +9,7 @@ const Choices = ({ username }) => {
 
   const quest = useSelector((store) => store.labyrinth.quest);
 
-  console.log(quest)
-
   const onChoiceMade = (direction) => {
-    dispatch(labyrinth.actions.setChoice());
-    console.log('test3')
     dispatch(generateFetch({ url: 'https://labyrinth.technigo.io/action',
       username,
       type: 'move',
@@ -32,8 +28,7 @@ const Choices = ({ username }) => {
               </MainText>
               <button
                 type="button"
-                onClick={onChoiceMade}
-                direction={details.direction}>{details.direction}
+                onClick={() => onChoiceMade(details.direction)}>{details.direction}
               </button>
               {console.log('btn - details.direction', details.direction)}
             </Wrapper>
