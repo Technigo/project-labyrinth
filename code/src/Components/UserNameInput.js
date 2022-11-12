@@ -18,7 +18,7 @@ function makeid(length) {
 }
 
 const UserNameInput = () => {
-  const [userNameInputValue, setUserNameInputValue] = useState('');
+  const [userNameInputValue, setUserNameInputValue] = useState('testusername');
   const dispatch = useDispatch();
   // const author = useSelector((store) => store.quotes.author);
 
@@ -26,7 +26,6 @@ const UserNameInput = () => {
     event.preventDefault();
     dispatch(game.actions.setUser(userNameInputValue + makeid(16)));
     dispatch(generateDescription());
-    userNameInputValue('');
   }
 
   return (
@@ -61,13 +60,6 @@ const UserNameInputContainer = styled.div`
 justify-content: center;
 display: grid;
 `
-
-// const StartButton = styled.button`
-// font-size: 1em;
-// margin: 1em;
-// padding: 0.25em 1em;
-// border-radius: 3px;
-// `
 
 const UserNameInputBackground = styled.div`
   background-image: linear-gradient(#ad91bd, white);
