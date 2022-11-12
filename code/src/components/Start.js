@@ -100,10 +100,17 @@ const StartBtn = styled.button`
 
   @media (min-width: 667px) and (max-width: 1024px) {
     font-size: 20px;
-  }
+    &:hover {
+      color: white;
+      background-color:black; 
+  }}
 
   @media (min-width: 1025px) {
     font-size: 24px;
+    &:hover {
+      color: white;
+      background-color:black; 
+    }
   }
 `
 
