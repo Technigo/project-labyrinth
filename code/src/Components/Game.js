@@ -108,14 +108,12 @@ const DirectionInput = ({ actions }) => {
   return (
     <ChooseDirectionWrapper>
       <p style={{ fontWeight: 'bold' }}>Choose direction</p>
-
-      <div style={{ display: 'grid' }}>
+      <DirectionGrid>
         <div />
         <div>
           <DirectionButton direction="North" isAvailable={availableMoves.North} handleOnClick={handleOnClick} />
         </div>
         <div />
-
         <div>
           <DirectionButton direction="West" isAvailable={availableMoves.West} handleOnClick={handleOnClick} />
         </div>
@@ -123,21 +121,35 @@ const DirectionInput = ({ actions }) => {
         <div>
           <DirectionButton direction="East" isAvailable={availableMoves.East} handleOnClick={handleOnClick} />
         </div>
-
         <div />
         <div>
           <DirectionButton direction="South" isAvailable={availableMoves.South} handleOnClick={handleOnClick} />
         </div>
         <div />
-      </div>
+      </DirectionGrid>
     </ChooseDirectionWrapper>
   )
 }
 
 const ChooseDirectionWrapper = styled.div`
-border: solid 2px red;
-display: grid;
-color: white;
+  border: solid 2px red;
+  display: grid;
+  color: white;
+  text-align: center;
+`
+
+const DirectionGrid = styled.div`
+  display: grid;
+  grid-template-areas: 
+    "empty north empty"
+    "west empty east"
+    "empty south empty";
+  grid-template-rows: [row1-start] repeat(3, 1fr) [row1-end row2-start] repeat(3, 1fr) [row2-end row3-start] repeat(3, 1fr) [row3-end];
+  grid-template-columns: repeat(3, 1fr);    
+  width: 170px;
+  height: 170px;
+  gap: 5px;
+  justify-self: center;
 `
 
 const Game = () => {
