@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import { useDispatch /* useSelector */ } from 'react-redux';
 import { startTheGame, labyrinth } from 'reducers/labyrinth';
 import Lottie from 'react-lottie';
-import * as animationData from '../../lotties/79913-walk-man.json';
+import animationData from '../../lotties/79913-walk-man.json';
 
 export const WelcomePage = () => {
   const dispatch = useDispatch()

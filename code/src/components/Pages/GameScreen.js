@@ -9,7 +9,7 @@ import { DescriptionWrapper, DirectionBtn, RestartBtn, GoBackBtn, Direction } fr
 import { useDispatch, useSelector } from 'react-redux'
 import { labyrinth, continueGame } from 'reducers/labyrinth'
 import Lottie from 'react-lottie';
-import * as animationData from '../../lotties/81812-bat-halloween';
+import animationData from '../../lotties/81812-bat-halloween';
 import { Loading } from './Loading'
 import arrow from '../../assets/arrow.png'
 

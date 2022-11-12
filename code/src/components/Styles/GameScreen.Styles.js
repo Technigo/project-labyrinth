@@ -66,7 +66,7 @@ export const Direction = styled.div`
     #South {
         position: absolute;
         bottom: 0;
-        left: 80px;
+        left: 70px;
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
