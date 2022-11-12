@@ -45,9 +45,10 @@ export const Button = styled.button`
   border-radius: 15px;
   cursor: pointer;
   margin: 2%;
+  font-family: 'Permanent Marker', cursive;
+  line-height: 1.2;
 
   background-color: rgba(255, 255, 255, 0.5);
-  content: '';
 
   :hover {
     opacity: 0.8;
