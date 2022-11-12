@@ -117,7 +117,7 @@ display: flex;
 align-items:center;
 justify-content: center;
 background-size: cover;
-background-image: url(${(props) => (props.coordinates === '0,0' ? Zero : props.coordinates === '1,0' ? One : props.coordinates === '1,1' ? OneOne : props.coordinates === '0,1' ? ZeroOne : props.coordinates === '0,2' ? ZeroTwo : props.coordinates === '0,3' ? ZeroThree : props.coordinates === '1,3' ? OneThree : Start)})
+background-image: url(${(props) => (props.coordinates === '' ? Start : props.coordinates === '0,0' ? Zero : props.coordinates === '1,0' ? One : props.coordinates === '1,1' ? OneOne : props.coordinates === '0,1' ? ZeroOne : props.coordinates === '0,2' ? ZeroTwo : props.coordinates === '0,3' ? ZeroThree : props.coordinates === '1,3' ? OneThree : Start)})
 `
 
 export const Innerwrapper = styled.div`
