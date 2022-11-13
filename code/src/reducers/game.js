@@ -23,13 +23,6 @@ const game = createSlice({ // quotes
 
 export default game;
 
-export const resetGame = () => {
-  return (dispatch) => {
-    dispatch(game.actions.setDescription(null))
-    dispatch(game.actions.setUser(''))
-  };
-}
-
 export const generateDescription = () => {
   return (dispatch, getState) => {
     const start = {

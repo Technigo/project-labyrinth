@@ -23,15 +23,16 @@ const GameNavigation = ({ actions, coords }) => {
 
   console.log('availableMoves', availableMoves)
 
+  const resetGame = () => {
+    // dispatch(actions.setUserName(''));
+    window.location.reload();
+  };
+
   if (coords === '1,3') {
     return (
       <RestartButton
         type="button"
-        onClick={() => {
-
-          // set username and description to null?
-          // maybe add a new action for this?
-        }}>Restart game
+        onClick={resetGame}>Restart game
       </RestartButton>
     )
   }
