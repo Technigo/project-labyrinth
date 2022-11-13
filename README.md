@@ -14,3 +14,5 @@ And for the second problem, I used if statement for loading the API.
 It took me a while to solve Errors.
 
 ## View it live
+
+https://app.netlify.com/sites/labyrinth-scone-9c949b/overview

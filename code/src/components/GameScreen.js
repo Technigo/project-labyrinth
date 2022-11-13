@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { gameProgress } from 'reducers/questions';
-import { Loading } from './Loading';
+// import { Loading } from './Loading';
 
 const GameScreen = () => {
   const dispatch = useDispatch();
