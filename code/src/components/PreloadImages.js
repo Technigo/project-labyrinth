@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import One from './One.jpg'
-import Start from './start.jpg'
-import Zero from './Zero.jpg'
-import ZeroOne from './ZeroOne.jpg'
-import ZeroTwo from './ZeroTwo.jpg'
-import ZeroThree from './ZeroThree.jpg'
-import OneOne from './OneOne.jpg'
-import OneThree from './OneThree.jpg'
+import One from '../images/One.jpg'
+import Start from '../images/start.jpg'
+import Zero from '../images/Zero.jpg'
+import ZeroOne from '../images/ZeroOne.jpg'
+import ZeroTwo from '../images/ZeroTwo.jpg'
+import ZeroThree from '../images/ZeroThree.jpg'
+import OneOne from '../images/OneOne.jpg'
+import OneThree from '../images/OneThree.jpg'
 
 const PreloadImages = () => {
   return (

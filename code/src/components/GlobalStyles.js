@@ -66,7 +66,7 @@ body {
 
 span {
   display: block;
-  font-size: 1.5em;
+  font-size: 1.2rem;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   font-weight: bold;
@@ -75,6 +75,13 @@ button {
   cursor: pointer;
   transition: 0.3s ease-in-out;
   color: black;
+  height: 34px;
+  border-radius: 5px;
+  background-color: #E5E5E5;
+  
+  &:disabled {
+    background-color: #e5e5e580;
+  }
 
   &:hover {
       transform: scale(1.07);
@@ -102,11 +109,18 @@ button {
   html {
     font-size: 20px;
   }
+  button {
+    height: 36px;
+  }
 
     }
 @media (min-width: 1025px) {
   html {
     font-size: 22px;
+  }
+
+  button {
+    height: 39px;
   }
 }
 `
