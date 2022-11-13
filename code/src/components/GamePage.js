@@ -44,9 +44,11 @@ const Choices = styled.div`
   align-items: center;
   justify-content: center;
   width: 80%;
+
   @media (min-width: 1027px) {
     flex-direction: row;
     margin-top: 15px;
+    align-items: flex-start;
   }
 `
 
@@ -72,8 +74,9 @@ const ChooseUser = styled.p`
   font-weight: 600;
   margin-bottom: 30px;
 
-  @media (min-width: 668) {
+  @media (min-width: 668px) {
   font-size: 40px;
+  margin-bottom: 40px;
   }
 `
 const DescriptionText = styled.p`
@@ -102,7 +105,8 @@ const SingleChoice = styled.div`
 
   @media (min-width: 900px) {
     width:  30vw;
-    height: 35vh;
+    max-height: 35vh;
+
   }
 
   @media (min-width: 1000) {
