@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { restart } from 'features/game';
-import { game } from 'features/game';
+//import { game } from 'features/game';
 
 const GameOver = () => {
 	const dispatch = useDispatch();

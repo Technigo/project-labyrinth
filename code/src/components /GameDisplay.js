@@ -35,17 +35,11 @@ const GameDisplay = () => {
 				<div className="content">
 					{actions.length !== 0 && (
 						<>
-							<div className="bordered">
-								<h3 className="nes-container is-rounded is-dark">
-									{description}
-								</h3>
+							<div>
+								<h3>{description}</h3>
 							</div>
-							<div className="position-wrapper">
-								<h3 className="position-text">Coordinates:</h3>
-
-								<h3 className="nes-badge">
-									<span className="is-success">{coordinates}</span>
-								</h3>
+							<div>
+								<h3>Coordinates:{coordinates}</h3>
 							</div>
 							<div className="img-container">
 								<img
