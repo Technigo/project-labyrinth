@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { gameProgress } from 'reducers/questions';
+import { Loading } from './Loading';
 
 const GameScreen = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,6 @@ const GameScreen = () => {
   console.log('description', gameQuestion.description);
   console.log('actions', gameQuestion.actions.length);
 
-
   const onClickStartGame = (type, direction) => {
     console.log('direction on progress', direction);
     dispatch(gameProgress(type, direction));
@@ -20,7 +20,9 @@ const GameScreen = () => {
 
   return (
     <section>
+      {/* <Loading /> */}
       <div className="wrapper">
+    
         <div className="startText">
           {gameQuestion.actions.length > 0 ? (
             <h2 className="startTextUserName">
