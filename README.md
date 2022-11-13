@@ -1,12 +1,15 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+practicing fetch API in redux
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+using postman to get the json file in console, and to understand what items are needed to extract aka. read the json file was a difficult. What's inside button is both {type} and {direction} which took me a long time to understand. 
+
+Leadnings: 
+1) Postman, 
+2) Reading and understanding the returned json. file from fetched urls, 
+3) The logic applied to the GameDisplay page. ie. actions.length === 0 / actions.length >0, and actions.length <0, took me forever to figure out. Finally realized the logic should be based on actions, because actions is an array, and the descriptions+type returned is based on which item in the array. 
 
 ## View it live
 
