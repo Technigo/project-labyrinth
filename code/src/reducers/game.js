@@ -1,13 +1,14 @@
 /* eslint-disable no-shadow */
 import { createSlice } from '@reduxjs/toolkit';
+import { ui } from './ui';
 
 export const game = createSlice({
   name: 'games',
   initialState: {
     username: '',
-    description: [],
-    location: '',
-    loading: false
+    description: {},
+    location: [],
+    isCompleted: false
   },
   reducers: {
     setUserName: (store, action) => {
@@ -16,12 +17,12 @@ export const game = createSlice({
     setDescription: (store, action) => {
       store.description = action.payload;
     },
-    setLoading: (store, action) => {
-      store.loading = action.payload
-    },
     setLocation: (store, action) => {
-      store.location = action.payload
+      store.location = [...store.location, action.payload]
       console.log('Location', store.location)
+    },
+    setCompleted: (store, action) => {
+      store.isCompleted = action.payload;
     }
   }
 });
@@ -33,31 +34,41 @@ export const gameBoard = () => { // start api
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: getState().game.username })
     }
-    dispatch(game.actions.setLoading(true))
+    dispatch(ui.actions.setLoading(true))
     fetch('https://labyrinth.technigo.io/start', data)
       .then((response) => response.json())
+      .then((data) => {
+        dispatch(game.actions.setDescription(data))
+      })
       .catch((error) => console.log('Error', error))
-      .then((username) => dispatch(game.actions.setUserName(username)))
-      .then((response) => dispatch(game.actions.setDescription(response.description)))
-      .finally(() => dispatch(game.actions.setLoading(false)))
+      .finally(() => dispatch(ui.actions.setLoading(false)))
   }
 }
 
-export const gameAction = () => { // fetching options and getting the game riddles going
+export const gameAction = (item) => { // fetching options and getting the game riddles going
   return (dispatch, getState) => {
     const data = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username: getState().game.username }),
+      body: JSON.stringify({ username: getState().game.username,
+        type: item.type,
+        direction: item.direction }),
       type: 'move',
       direction: getState().game.description
     }
-    dispatch(game.actions.setLoading(true))
+    dispatch(ui.actions.setLoading(true))
     fetch('https://labyrinth.technigo.io/action', data)
       .then((response) => response.json())
-      .then((description) => dispatch(game.actions.setDescription(description)))
-      .then((json) => dispatch(game.actions.setLocation(json)))
-      .finally(() => dispatch(game.actions.setLoading(false)))
+      .then((data) => {
+        dispatch(game.actions.setDescription(data))
+        if (data.actions && data.actions.length === 0) {
+          dispatch(game.actions.setCompleted(true))
+        }
+      })
+      .finally(() => {
+        dispatch(game.actions.setLocation(item))
+        dispatch(ui.actions.setLoading(false))
+      })
   }
 }
 

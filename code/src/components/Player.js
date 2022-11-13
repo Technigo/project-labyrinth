@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import game from 'reducers/game';
+import game, { gameBoard } from 'reducers/game';
 
 const Player = () => {
   const [userName, setuserName] = useState('') // data binding
@@ -10,12 +10,16 @@ const Player = () => {
   const onFormSubmit = (event) => { // prevent reload of page, dipstaching the game and activating username
     event.preventDefault()
     dispatch(game.actions.setUserName(userName))
+    dispatch(gameBoard())
   }
 
   return (
     <>
       <section>
-        <h1>Welcome to the Labyrinth</h1>
+        <section className="header">
+          <h1 className="h1">WELCOME</h1>
+          <h2>TRIP TO MARS</h2>
+        </section>
         <input
           type="text"
           className="userName"
@@ -25,7 +29,7 @@ const Player = () => {
           required
           minLength="2" />
       </section>
-      <button type="submit" onClick={(event) => onFormSubmit(event)}>ENTER</button>
+      <button type="submit" onClick={(event) => onFormSubmit(event)}>ABOARD</button>
     </>
   )
 }

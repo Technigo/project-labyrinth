@@ -1,15 +1,18 @@
+/* eslint-disable import/no-cycle */
 import React from 'react';
 import { useSelector } from 'react-redux';
-// import AuthorInputSearch from './AuthorInputSearch';
-// import game, { gameBoard } from 'reducers/game';
 import TheLabyrinth from './TheLabyrinth'
 import Player from './Player'
+import Loading from './Loading'
 
 const StartScreen = () => {
   const name = useSelector((store) => store.game.username);
+  const loading = useSelector((store) => store.ui.isLoading)
 
   return (
-    <div> {name === '' ? <Player /> : <TheLabyrinth />}</div> // after typing name => entering labyrinth
+    loading
+      ? (<Loading />)
+      : (<div> {name === '' ? <Player /> : <TheLabyrinth />}</div>) /* after typing name => entering labyrinth */
   )
 }
 
