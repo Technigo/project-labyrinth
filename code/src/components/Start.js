@@ -1,9 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { startGame, labyrinth } from 'reducers/labyrinth';
 import styled from 'styled-components/macro';
-// import { InnerWrapper } from 'Styling/GlobalStyles';
+// reducers
+import { startGame, labyrinth } from 'reducers/labyrinth';
+// components and styling
 import { Loading } from './Loading';
 import Labyrinth from './Labyrinth';
 import castle from './castle.jpg';
@@ -63,11 +64,10 @@ const Background = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-`;
+`
 
 export const InnerWrapperStart = styled.div`
-width: 50%;
+width: 70%;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -76,12 +76,11 @@ padding: 10px;
 border-radius: 20px;
 border: 2px solid #3A3845;
 @media (min-width: 668px) and (max-width: 1024px) {
-  width: 60%;
-}
-@media (min-width: 1025px) {
   width: 70%;
 }
-
+@media (min-width: 1025px) {
+  width: 80%;
+}
 `
 
 const StartHeader = styled.h1`
@@ -96,6 +95,7 @@ font-size: 35px;
 font-size: 45px;
 }
 `
+
 const StartDescription = styled.h2`
 font-family: 'Montserrat', sans-serif;
 font-size: 20px;
@@ -109,6 +109,7 @@ font-size: 25px;
 font-size: 28px;
 }
 `
+
 const StartDetails = styled.h4`
 font-family: 'Montserrat', sans-serif;
 font-size: 15px;

@@ -1,14 +1,5 @@
 import styled from 'styled-components'
 
-// Start button (maybe Username input button)
-// Restart button
-// Directions button north/south/east/west
-
-// #3A3845 dark
-// #F7CCAC light beige
-// #C69B7B darker beige
-// #826F66 gray
-
 export const Btnstyling = styled.button`
 font-family: 'Montserrat', sans-serif;
 font-size: 15px;

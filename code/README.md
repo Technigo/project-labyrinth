@@ -1,13 +1,9 @@
 # Project Labyrinth
-
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Pair programming project by Thérèse Ånmark and Maria Westling. We built a labyrinth Game in Redux, fetching actions from an API and present them with directions for the player to follow. Styled using styled components.
 
 ## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We built this using reducers and with components to show the possible actions. We did alot of googling and looked at old projects, stackoverflow and from this put together a workable Labyrinth. If we had more time we would have included lotties in the final product and done some additional styling.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://serene-dusk-102e10.netlify.app/

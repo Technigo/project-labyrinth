@@ -2,14 +2,12 @@
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable no-shadow */
 import React from 'react';
-// import { InnerWrapper } from 'Styling/GlobalStyles';
 import styled from 'styled-components/macro';
 import { useSelector, useDispatch } from 'react-redux';
-import { nextStep } from '../reducers/labyrinth';
 import { Btnstyling } from './Buttons';
 import victor from './victor.jpg'
-
-// import { labyrinth } from '../reducers/labyrinth';
+// reducers
+import { nextStep } from '../reducers/labyrinth';
 
 const Labyrinth = () => {
   const { description, actions } = useSelector((store) => store.labyrinth.currentPosition)
@@ -55,8 +53,9 @@ const Background = styled.div`
   align-items: center;
   justify-content: center;
 `
-export const InnerWrapperLabyrinth = styled.div`
-width: 50%;
+
+const InnerWrapperLabyrinth = styled.div`
+width: 70%;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -65,13 +64,15 @@ padding: 10px;
 border-radius: 20px;
 border: 2px solid #3A3845;
 @media (min-width: 668px) and (max-width: 1024px) {
-  width: 60%;
+  width: 70%;
 }
 @media (min-width: 1025px) {
   width: 80%;
 }
 `
+
 const Content = styled.div`
+height: auto;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -95,6 +96,7 @@ font-size: 30px;
 font-size: 35px;
 }
 `
+
 const Clues = styled.p`
 text-align: center;
 padding-top: 15px;
@@ -109,6 +111,7 @@ font-size: 16px;
 font-size: 20px;
 }
 `
+
 const Emoji = styled.span`
 font-size: 50px;
 `
