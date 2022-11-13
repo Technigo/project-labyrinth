@@ -34,8 +34,6 @@ export const fetchGameStart = () => {
     fetch('https://labyrinth.technigo.io/start', options)
       .then((response) => response.json())
       .then((json) => {
-        console.log(json)
-        console.log(options)
         dispatch(maingame.actions.setGameProps(json))
       })
   }
@@ -59,7 +57,6 @@ export const fetchGameStep = (type, direction) => {
       .then((response) => response.json())
       .then((json) => {
         dispatch(maingame.actions.setGameProps(json))
-        console.log(json)
       })
       .finally(() => dispatch(loading.actions.setLoading(false)))
   }

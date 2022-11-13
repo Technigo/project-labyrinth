@@ -30,13 +30,12 @@ export const StartPage = () => {
   return (
     <CardContainerStart>
       <WelcomeTitle> The Amazing Maze!</WelcomeTitle>
-      <Info><Bold>Greetings brave one.</Bold> The key to succeed in this maze is to not walk in your own footsteps - always keep moving in a new direction. If you wish to try the maze again, please choose a new alias. Best of luck.</Info>
+      <Info><Bold>Greetings brave one.</Bold> The key to succeed in this maze is to not walk in your own footsteps - always look for new horizons. If you wish to try the maze again, please choose a new alias.<Bold> Best of luck.</Bold></Info>
       <MazePic src={mazePicture} alt="maze" />
       <UserNameInput> Enter your name:</UserNameInput>
       <form onSubmit={onFormSubmit}>
         <UserNameInputField
-        // This button will do our initial fetch to fetch the first game instructions from
-        // the backend
+        // This button will do our initial fetch to fetch the first game instructions from the backend
           type="text"
           onChange={(event) => setUserNameInput(event.target.value)}
           id="username-input"

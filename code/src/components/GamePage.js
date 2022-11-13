@@ -23,7 +23,7 @@ export const GamePage = () => {
         <Choices>
           {actions.map((action) => {
             return (
-              <SingleChoice>
+              <SingleChoice key={action.direction}>
                 <DescriptionText>{action.description}</DescriptionText>
                 <StyledButtonGame type="submit" onClick={() => dispatch(fetchGameStep(action.type, action.direction))}>Go {action.direction}</StyledButtonGame>
               </SingleChoice>
@@ -69,6 +69,8 @@ const ChooseUser = styled.p`
   font-size: 30px;
   font-family: 'Caveat', cursive;
   margin:10px;
+  font-weight: 600;
+  margin-bottom: 30px;
 
   @media (min-width: 668) {
   font-size: 40px;
@@ -87,7 +89,7 @@ const SingleChoice = styled.div`
   padding: 15px;
   box-shadow: 0px 0px 7px 0px #888888;
   margin: 10px;
-  width: 68vw;
+  width: 65vw;
   
   @media (min-width: 600px) {
     flex-direction: column;
@@ -100,7 +102,8 @@ const SingleChoice = styled.div`
 
   @media (min-width: 900px) {
     width:  30vw;
-    height: 35vh;
+    height: 27vh;
+    padding: 10px 40px 10px 40px;
   }
 
   @media (min-width: 1000) {
@@ -111,6 +114,7 @@ const SingleChoice = styled.div`
 
 const StyledButtonGame = styled(StyledButton)`
   width: 100px;
+  margin-top: 10px;
 `
 
 /*
