@@ -11,8 +11,15 @@ export const GlobalStyles = createGlobalStyle`
    }
 
    body {
-      background: url('https://images.unsplash.com/photo-1464809142576-df63ca4ed7f0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80');
+      background: url('https://images.unsplash.com/photo-1532062493181-1b3cff68c8fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
       background-size: auto;
+      background-position: center;
+      background-attachment: fixed;
+
+      @media (min-width: 1024px) {
+        background-size: cover; 
+
+      }
   }
 
   main {
@@ -26,7 +33,7 @@ export const GameWrapper = styled.div`
     padding: 20px;
     display: flex;
     flex-direction: column;
-    background: ${(props) => (props.bgColor || '#2a53575c')};
+    background: ${(props) => (props.bgColor || '#6c8a94c7')};
     text-align: center;
     align-items: center;
 
@@ -34,7 +41,7 @@ export const GameWrapper = styled.div`
     h1 {
       font-size: 1.2rem;
       color: #fff;
-      text-shadow: 1px 1px 2px #209b1a, 0 0 1em #21137aed, 3px 2px 0em #03493aed;
+      text-shadow: 1px 1px 2px #160000, 0 0 1em #21137aed, 3px 2px 0em #073047ed;
     }
 
     form {

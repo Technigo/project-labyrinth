@@ -36,6 +36,7 @@ export const GameScreen = () => {
   } else {
     return (
       <>
+        {console.log('moves', moves)}
         <GameWrapper>
           <DescriptionWrapper>
             <lottie-player
@@ -50,14 +51,13 @@ export const GameScreen = () => {
                 right: '-70px',
                 top: '-45px',
                 transform: 'rotate(30deg)' }} />
-            {history.length === 0 ? `Hello ${name}!` : `Choose your path,${name}!`}
+            {history.length === 0 ? `Welcome, ${name}.` : ''}
             <p>{description}</p>
           </DescriptionWrapper>
-          <DirectionWrapper>
+          <DirectionWrapper id={moves.length <= 1 ? 'oneMove' : 'twoMoves'}>
             {moves && moves.map((action) => {
               return (
                 <div
-                  className={action.length === 0 ? 'one' : 'two'}
                   key={action.direction}
                   htmlFor="nextBtn">
                   <DirectionBtn
@@ -75,7 +75,7 @@ export const GameScreen = () => {
 
           {/* displays only when you are out */}
           {moves.length === 0 && (
-            <GameEnd>Woho! You have made it out!
+            <GameEnd>Woho! You have made it out, {name}!
               <lottie-player
                 src="https://assets10.lottiefiles.com/packages/lf20_3xwxlyv7.json"
                 speed="1"

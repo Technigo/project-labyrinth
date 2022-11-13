@@ -3,7 +3,7 @@
 import { GameWrapper } from 'components/Styles/Globalstyles';
 import { StartBtn } from 'components/Styles/GameScreen.Styles'
 import React, { useState } from 'react';
-import { useDispatch /* useSelector */ } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { startTheGame, labyrinth } from 'reducers/labyrinth';
 
 export const WelcomePage = () => {
@@ -23,11 +23,11 @@ export const WelcomePage = () => {
         <label htmlFor="usernameInput">Write your name on the wall and lets go</label>
         <input
           id="usernameInput"
+          required
           type="text"
           placeholder="username"
           value={input}
-          onChange={(event) => setInput(event.target.value)}
-          required />
+          onChange={(event) => setInput(event.target.value)} />
         <StartBtn type="submit" onClick={letsStart}>Go in</StartBtn>
       </form>
       <lottie-player

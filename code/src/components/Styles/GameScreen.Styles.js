@@ -1,5 +1,5 @@
 /* eslint-disable linebreak-style */
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 export const DescriptionWrapper = styled.div`
     position: relative;
@@ -8,7 +8,7 @@ export const DescriptionWrapper = styled.div`
     font-size: 1.1rem;
     color: #fff;
     padding-bottom: 30px;
-    text-shadow: 1px 1px 2px #209b1a, 0 0 1em #21137aed, 3px 2px 0em #03493aed;
+    text-shadow: 1px 1px 2px #160000, 0 0 1em #21137aed, 3px 2px 0em #073047ed;
 
     @media (max-width: 375px) {
         padding-bottom: 10px;
@@ -19,23 +19,35 @@ export const DescriptionWrapper = styled.div`
 
 export const DirectionWrapper = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr;
     min-height: 250px;
+
+    &#twoMoves {
+        grid-template-columns: 1fr 1fr;
+        
+    }
+
+    &#oneMove {
+        grid-template-columns: 1fr;
+
+    }
 
     p {
         font-size: 1rem;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Verdana', Geneva, Tahoma, sans-serif;
+        font-weight: 500;
+        text-shadow: 4px -2px 20px white;
     }
 
     div {
         max-width: 200px;
+        padding: 10px;
     }
 
     
 `
 
 export const DirectionBtn = styled.button`
-    background: #044704ab;
+    background: #02101ec9;
     box-shadow: inset 0 -0.6em 0 -0.35em rgb(0 0 0 / 17%);
     color: #fff;
     border: none;
