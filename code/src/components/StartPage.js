@@ -4,6 +4,9 @@ import { useDispatch } from 'react-redux'
 import { labyrinth, fetchLabyrinthOne } from 'reducers/labyrinth'
 import { StartPageWrapper, WelcomeText, StyledInput, NameForm, SendNameBtn } from 'Globalstyles'
 
+/* Start page, where user writes there name, and if the don't write anything then you cant
+   press the button, we're also preventing the forms default with event.preventDefault */
+
 export const StartPage = () => {
   const [nameInput, setNameInput] = useState('')
 

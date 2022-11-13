@@ -13,7 +13,7 @@ import { fetchLabyrinthTwo, labyrinth } from '../reducers/labyrinth'
 
 export const GamePage = () => {
   const position = useSelector((store) => store.labyrinth.position)
-  /*   const isLoading = useSelector((store) => store.ui.Loading) */
+
   const dispatch = useDispatch();
 
   const changeIcon = (way) => {

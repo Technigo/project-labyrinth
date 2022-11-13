@@ -11,7 +11,6 @@ const initialState = {
 export const labyrinth = createSlice({
   name: 'labyrinth',
   initialState,
-  // ska det vara username:TechnigoPlayer
   reducers: {
     setUserName: (store, action) => {
       store.username = action.payload;
@@ -68,6 +67,3 @@ export const fetchLabyrinthTwo = ({ move = 'move', direction }) => {
       })
   }
 }
-
-// export default labyrinth;
-
