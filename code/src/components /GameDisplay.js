@@ -18,21 +18,17 @@ const GameDisplay = () => {
 		<div>
 			<h3>{description}</h3>
 			<div>
-				<button
-					id="direction"
-					className="nes-btn is-primary"
-					onClick={() => handleClick(type, direction)}
-				>
+				<button onClick={() => handleClick(type, direction)}>
 					{type} {direction}
 				</button>
 			</div>
 		</div>
 	);
 	return (
-		<div className="main">
+		<div>
 			{loading && <Loading />}
 			{!loading && (
-				<div className="content">
+				<div>
 					{actions.length !== 0 && (
 						<>
 							<div>
