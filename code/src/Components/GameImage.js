@@ -51,10 +51,6 @@ background-position: top;
 background-repeat: no-repeat;
 background-color: black;
 
-@media (min-width: 667px) and (max-width: 1024px) {
-
-  }
-
 @media (min-width: 1025px) {
     background-position: right;
     background-image: url(${(props) => props.bgImage});

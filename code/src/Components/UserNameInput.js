@@ -18,7 +18,7 @@ function makeid(length) {
 }
 
 const UserNameInput = () => {
-  const [userNameInputValue, setUserNameInputValue] = useState('testusername');
+  const [userNameInputValue, setUserNameInputValue] = useState('');
   const dispatch = useDispatch();
   // const author = useSelector((store) => store.quotes.author);
 
