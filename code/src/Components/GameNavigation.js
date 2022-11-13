@@ -5,10 +5,6 @@ import { generateNextDescription } from 'reducers/game';
 import { NavButton, RestartButton } from './Buttons';
 
 const GameNavigation = ({ actions, coords }) => {
-  // Get actions from API
-  console.log('actions', actions)
-  console.log('coords', coords)
-
   const dispatch = useDispatch();
 
   const handleOnClick = (direction) => {
@@ -21,19 +17,18 @@ const GameNavigation = ({ actions, coords }) => {
     availableMoves[action.direction] = action
   })
 
-  console.log('availableMoves', availableMoves)
-
   const resetGame = () => {
-    // dispatch(actions.setUserName(''));
     window.location.reload();
   };
 
   if (coords === '1,3') {
     return (
-      <RestartButton
-        type="button"
-        onClick={resetGame}>Restart game
-      </RestartButton>
+      <ChooseDirectionWrapper>
+        <RestartButton
+          type="button"
+          onClick={resetGame}>Restart game
+        </RestartButton>
+      </ChooseDirectionWrapper>
     )
   }
 
@@ -103,7 +98,6 @@ const DirectionButton = ({ direction, isAvailable, handleOnClick }) => {
   }
 
   return (
-  // Return disabled button if not available
     <NavButton
       disabled
       type="button"

@@ -71,6 +71,7 @@ margin-top: 10px;
 display: inline-block;
 height: 50px;
 width: 150px;
+justify-self: center;
 
 :hover {
 background:linear-gradient(to bottom, #8b7bb4 5%, #e2dae8 100%);
