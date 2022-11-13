@@ -1,19 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 // import AuthorInputSearch from './AuthorInputSearch';
+// import game, { gameBoard } from 'reducers/game';
+import TheLabyrinth from './TheLabyrinth'
 import Player from './Player'
 
 const StartScreen = () => {
-  const description = useSelector((store) => store.game.description);
-  console.log('Check', description)
+  const name = useSelector((store) => store.game.username);
 
   return (
-    <>
-      <p>{description}</p>
-      <Player />
-    </>
-
+    <div> {name === '' ? <Player /> : <TheLabyrinth />}</div> // after typing name => entering labyrinth
   )
 }
 
-export default StartScreen;
+export default StartScreen

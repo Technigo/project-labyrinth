@@ -1,27 +1,34 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import game, { gameBoard } from 'reducers/game';
+import game from 'reducers/game';
 
 const Player = () => {
-  const [authorNameInputValue, setAuthorNameInputValue] = useState('');
+  const [userName, setuserName] = useState('') // data binding
   const dispatch = useDispatch();
-  // const author = useSelector((store) => store.quotes.author);
-  const onFormSubmit = (event) => {
-    event.preventDefault();
 
-    dispatch(game.actions.setUsername(authorNameInputValue));
-    dispatch(gameBoard());
+  // eslint-disable-next-line max-len
+  const onFormSubmit = (event) => { // prevent reload of page, dipstaching the game and activating username
+    event.preventDefault()
+    dispatch(game.actions.setUserName(userName))
   }
 
   return (
-    <form onSubmit={(event) => onFormSubmit(event)}>
-      <label htmlFor="author-input">
-        Welcome to the labyrinth!
-        <input id="author-input" type="text" onChange={(event) => setAuthorNameInputValue(event.target.value)} />
-      </label>
-      <button type="submit">Start!</button>
-    </form>
+    <>
+      <section>
+        <h1>Welcome to the Labyrinth</h1>
+        <input
+          type="text"
+          className="userName"
+          placeholder="Your name please"
+          value={userName}
+          onChange={(event) => setuserName(event.target.value)}
+          required
+          minLength="2" />
+      </section>
+      <button type="submit" onClick={(event) => onFormSubmit(event)}>ENTER</button>
+    </>
   )
 }
 
 export default Player;
+
