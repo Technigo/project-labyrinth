@@ -1,0 +1,20 @@
+<svg width="122" height="122" viewBox="0 0 122 122" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="4" height="50" fill="black"/>
+<rect y="4" width="3.99999" height="121" transform="rotate(-90 0 4)" fill="black"/>
+<path d="M24 46H28V74H24V46Z" fill="black"/>
+<path d="M69.5 46H73.5V74H69.5V46Z" fill="black"/>
+<rect y="70" width="4" height="28" fill="black"/>
+<rect x="45" width="4" height="50" fill="black"/>
+<rect x="24" y="73.9995" width="4" height="25" transform="rotate(-90 24 73.9995)" fill="black"/>
+<rect x="70" y="50" width="4" height="29" transform="rotate(-90 70 50)" fill="black"/>
+<rect x="24" y="50" width="4" height="25" transform="rotate(-90 24 50)" fill="black"/>
+<rect x="95" y="26.9995" width="4" height="26" transform="rotate(-90 95 26.9995)" fill="black"/>
+<rect x="95" y="1" width="4" height="26" fill="black"/>
+<rect x="118" y="48" width="4" height="74" fill="black"/>
+<rect x="45" y="70" width="4" height="52" fill="black"/>
+<rect x="24" y="26.9995" width="4" height="47" transform="rotate(-90 24 26.9995)" fill="black"/>
+<rect y="98" width="4" height="99" transform="rotate(-90 0 98)" fill="black"/>
+<rect x="70" y="73.9995" width="4" height="52" transform="rotate(-90 70 73.9995)" fill="black"/>
+<path d="M0 122L-1.74845e-07 118L49 118L49 122L0 122Z" fill="black"/>
+<path d="M73 122L73 118L122 118L122 122L73 122Z" fill="black"/>
+</svg>

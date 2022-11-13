@@ -53,6 +53,10 @@ align-self: self-end;
 `
 
 const DescriptionText = styled.div`
-/* border: solid 2px green; */
+// border: solid 2px green;
 color: white;
+font-size: 13px;
+
+@media (min-width: 1025px) {
+font-size: 16px;
 `

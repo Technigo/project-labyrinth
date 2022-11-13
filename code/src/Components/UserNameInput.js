@@ -35,7 +35,7 @@ const UserNameInput = () => {
         <UserNameInputContainer>
           <form onSubmit={(event) => onFormSubmit(event)} style={{ textAlign: 'center' }}>
             <label htmlFor="user-input">
-              <p style={{ textAlign: 'left', marginBottom: '7px', paddingLeft: '2px' }}>Enter your username:</p>
+              <p style={{ textAlign: 'left', marginBottom: '17px', paddingLeft: '2px', color: 'white' }}>Enter your username:</p>
               <input
                 id="user-input"
                 type="text"
@@ -44,7 +44,7 @@ const UserNameInput = () => {
                 // eslint-disable-next-line jsx-a11y/no-autofocus
                 autoFocus
                 onChange={(event) => setUserNameInputValue(event.target.value)}
-                style={{ padding: '3px', width: '200px' }} />
+                style={{ padding: '3px', width: '200px', marginBottom: '17px' }} />
             </label><br />
             <StartButton type="submit">Start game</StartButton>
           </form>
@@ -59,8 +59,9 @@ export default UserNameInput;
 const UserNameInputContainer = styled.div`
 justify-content: center;
 display: grid;
+
 `
 
 const UserNameInputBackground = styled.div`
-  background-image: linear-gradient(#ad91bd, white);
+  background-image: linear-gradient(#AA9CC2, #18141E);
 `
