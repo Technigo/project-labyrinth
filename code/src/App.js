@@ -22,7 +22,6 @@ export const App = () => {
       <PageWrapper>
         <Loading />
         <SelectPage />
-        {/* <Loading /> */}
       </PageWrapper>
     </Provider>
   )

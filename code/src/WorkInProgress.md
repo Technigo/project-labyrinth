@@ -77,41 +77,69 @@ css massa strul
 -positionering av datorskärm och speltext
 
 -restart knapp vid spelets slut.
+
+senkväll Nina:
+
+-vet att det ser lite rörigt ut men jag har fått det att funka 
+  Hoppen är vid ca 370px, 420px, 500px, 550px och till slut 668px
+  @media ipad 820x1180
+  @media desktop 2560x1600
+-Kopierade in script så riktningarna blev ändrade från East - E osv.
+-kom på att vi kanske hade haft det lättare om vi skapat ett grid istället för flex på bild vs text....lätt att vz efterklok!
+
+-tagit bort alla "borders"
+
+-startat på ReadMe, 
 --------------------------------------------
+API info:
+<!-- // https://labyrinth.technigo.io/start
 
+// request body:
+
+// {
+//   username: "TechnigoPlayer"
+// }
+
+// Responce:
+// Description + actions
+
+// continue;
+// https://labyrinth.technigo.io/action
+
+// {
+//   username: "TechnigoPlayer",
+//   type: "move",
+//   direction: "East"
+// }
+
+// recive respons:
+// new description and new set of actions -->
+
+--------------------------------------------
 # Frågeställningar:
--vad ska spelet heta, ska projectet döpas?
--ska vi ha en karta som visar vart man befinner sig i spelet?
 
--hur får man till "fil-historia", är de det som händer med POST istället för GET?
 
--skall vi stoppa url'n i en separat datafill med namngedd url?
+# Att Göra Lista: Söndag
+- kolla accessability etc?
+- kolla förklaringar i koden, lägga till/ ta bort.
+- uppdatera ReadMe
+- Deploy/Pull request
+- skicka länkar till nina =)
 
--ska vi ha en avslutnings sida: hurra du vann! och en restart knapp alal quiz/survey?
+kolla @media vad du vill ha "påslaget" under presentationen
+jag har gått efter Responsive app. (se ovan arbetslogg)
 
-- använda kordinaterna för unique id !!
-
--Loader annan bakgrunds färg? nu är den vit? annann färg på animationen?
-
-# Att Göra Lista:
-Info:
-start design for mobile,
+<!-- start design for mobile,
 for tablet and Desktop add:
 @media (min-width: 667px) {
     blablabla;
-    }
+    } -->
 -------------------------------
-Projektet Kod kvar:
--Unique id byta ut mot kordinater
-- möjligtvis använda kordinaterna för att byta bakgrundsbild 
+Projekt Kod kvar:
+<!-- -Unique id byta ut mot kordinater
+- möjligtvis använda kordinaterna för att byta bakgrundsbild  
 
-
-
-
-
-
--accessability etc
-
+ - (om tid finns) som loadas i skärmen enbart när spelet är igång-->
 # flyttat till "Done" =)
 -Startsida: 
   *form/lable/input type "text" usernamne
@@ -133,12 +161,17 @@ Projektet Kod kvar:
 
 -spelkontroll som ser ut som en spelkontroll
 
--Loader annan bakgrunds färg? nu är den vit, annann färg på animationen?
- - (om tid finns) som loadas i skärmen enbart när spelet är igång
+-Loader annan bakgrunds färg: svart, annann färg på animationen?
+
+-fixat @media
+
+
 
 Styling kod är det som är mest kvar av:
 -color scheem
 -bakgrundsbild
 -spelkonsol
+
+- avslutnings sida: hurra du vann! och en restart knapp ala quiz/survey?
 
 

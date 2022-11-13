@@ -14,39 +14,34 @@ export const PageWrapper = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
     background-position-y: 95%;
-    border: 2px solid green;
-
+   
     /* @media screen and (min-width: 668px) {
         background-position-y: 75%;
         justify-content: space-around;
     } */
 `;
+
 // ------ StartPage---------
 
 export const StartPageWrapper = styled.div`
-     display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
      width: 80%;
     height: 100vh;
     
-    border: 3px solid lightblue;
-
-    /* @media screen and (min-width: 668px) {
-        background-position-y: 75%;
-        justify-content: space-around;
-    } */
+    /* border: 3px solid lightblue; */
 `;
 
 export const WelcomeText = styled.h1`
     text-align: center;
     color: var(clr-accent);
-    width: 80%;
+    width: 85%;
     font-family: var(--font-pixel);
     font-size: 1.5rem;
-    text-shadow: 1px 1px 1px var(--clr-darkgrey);
-    margin-top: 4rem;
+    text-shadow: 1px 1px 1px var(--clr-secondary);
+    margin-top: 1rem;
     margin-bottom: 3rem;
     line-height: 1.3em;
 
@@ -61,22 +56,22 @@ export const NameForm = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    /* position: relative; */
 
-    border: 2px solid red;
 `;
 
 export const StyledInput = styled.input`
     border: 4px solid;
     border-color: black;
-    width: 320px;
+    width: 300px;
     height: 50px;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     /* padding: 5px; */
     text-align: center;
-    font-family: 'Press Start 2P', cursive;
+    font-family: var(--font-pixel);
+
     &:hover,
     &:focus {
         outline: none;
@@ -86,7 +81,7 @@ export const StyledInput = styled.input`
         width: 400px;
         height: 70px;
         margin-bottom: 1rem;
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 `;
 
@@ -94,7 +89,7 @@ export const SendNameBtn = styled.button`
     font-size: 1rem;
     border: 4px solid;
     border-color: black;
-    width: 320px;
+    width: 300px;
     height: 50px;
     padding: 10px;
     margin-bottom: 2rem;
