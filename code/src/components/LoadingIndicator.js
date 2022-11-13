@@ -1,7 +1,7 @@
 import React from 'react';
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 import { useSelector } from 'react-redux';
-import animationData from '../animations/loading-compass';
+import Compass from '../animations/loading-compass';
 
 import './loadingindicator.css';
 
@@ -11,7 +11,7 @@ export const LoadingIndicator = () => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData,
+    animationData: Compass,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice'
     }
@@ -21,7 +21,7 @@ export const LoadingIndicator = () => {
     <div className="lottie-container">
       <div className="lottie">
         {loading && (
-          <Lottie options={defaultOptions} height={500} width={500} />
+          <Lottie animationData={Compass} options={defaultOptions} height={500} width={500} />
         )}
       </div>
     </div>

@@ -9,6 +9,7 @@ import { EndScreen } from './EndScreen';
 import './gameboard.css';
 
 export const Gameboard = () => {
+  // fetches the current position i the labyrinth
   const { description, actions } = useSelector(
     (store) => store.game.currentPosition
   )
