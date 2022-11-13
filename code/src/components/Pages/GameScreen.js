@@ -15,9 +15,11 @@ export const GameScreen = () => {
   const description = useSelector((store) => store.labyrinth.description)
   const moves = useSelector((store) => store.labyrinth.moves)
   const loading = useSelector((store) => store.labyrinth.loading)
+  const name = useSelector((store) => store.labyrinth.name)
+  const history = useSelector((store) => store.labyrinth.history)
 
   const goBack = () => {
-    dispatch(labyrinth.actions.setPreviousMove)
+    dispatch(labyrinth.actions.setPreviousMove())
   }
   const restartGame = () => {
     dispatch(labyrinth.actions.restartGame())
@@ -48,6 +50,7 @@ export const GameScreen = () => {
                 right: '-70px',
                 top: '-45px',
                 transform: 'rotate(30deg)' }} />
+            {history.length === 0 ? `Hello ${name}!` : `Choose your path,${name}!`}
             <p>{description}</p>
           </DescriptionWrapper>
           <DirectionWrapper>

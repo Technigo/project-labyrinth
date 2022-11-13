@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
   userName: '',
+  name: '',
   description: '',
   direction: '',
   moves: '',
@@ -21,6 +22,7 @@ export const labyrinth = createSlice({
       const { input } = action.payload
       const userId = uuidv4(input);
       store.userName = userId
+      store.name = action.payload
     },
 
     setDescription: (store, action) => {
@@ -48,7 +50,7 @@ export const labyrinth = createSlice({
       console.log(action)
       if (store.history.length) {
         store.direction = store.history[store.history.length - 1]
-        store.history = store.history.pull(store.history.length - 1)
+        store.history = store.history.slice(0, store.history.length - 1)
       }
     },
 
