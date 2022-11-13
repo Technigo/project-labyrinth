@@ -9,7 +9,7 @@ const StyledMazeLogo = styled.img`
 
 const MazeLogo = () => {
   return (
-    <StyledMazeLogo src="./assets/images/maze_icon.svg" alt="the maze" />
+    <StyledMazeLogo src="./assets/images/maze_icon.svg" alt="The Maze" />
   )
 }
 export default MazeLogo;
