@@ -46,7 +46,7 @@ display: grid;
 background-image: url(${(props) => props.sImage});
 //background-image: url('/assets/images/image_3.jpg');
 min-height: 100vh;
-background-size: contain;
+background-size: cover;
 background-position: top;
 background-repeat: no-repeat;
 background-color: black;
