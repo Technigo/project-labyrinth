@@ -25,6 +25,7 @@ const GameOverStyle = styled.div`
 	align-items: center;
 	justify-content: center;
 	height: 100vh;
+	width: 100vw;
 `;
 
 export default GameOver;
