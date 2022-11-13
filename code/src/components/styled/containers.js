@@ -23,6 +23,7 @@ export const BoxContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 5rem;
+  margin-bottom: 2rem;
 `;
 
 export const CharacterContainer = styled.div`

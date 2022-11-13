@@ -16,10 +16,10 @@ const GameScreen = () => {
 
   return (
     <>
-      <div className="profileContainer">
-        <Avatar src="/assets/avatarCrop.png" alt="avatar" />
-      </div>
       <InnerWrapper>
+        <div className="profileContainer">
+          <Avatar src="/assets/avatarCrop.png" alt="avatar" />
+        </div>
         <BoxContainer>
           {response.description && (
             <div className="nes-container is-rounded">
