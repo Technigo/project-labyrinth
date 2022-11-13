@@ -17,13 +17,11 @@ export const questions = createSlice({
       console.log('action', action);
       store.gameQuestion = action.payload;
       console.log('Game Question');
-      return store;
+      console.log(store.gameQuestion);
     },
     setLoading: (store, action) => {
       store.isLoading = action.payload;
-    },
-    restart: () => {
-      return initialState;
+      console.log('Loading');
     },
   },
 });

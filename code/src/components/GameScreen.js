@@ -12,6 +12,7 @@ const GameScreen = () => {
   console.log('description', gameQuestion.description);
   console.log('actions', gameQuestion.actions.length);
 
+
   const onClickStartGame = (type, direction) => {
     console.log('direction on progress', direction);
     dispatch(gameProgress(type, direction));
@@ -39,9 +40,9 @@ const GameScreen = () => {
               <p>➜ &nbsp;{option.description}</p>
               <button
                 className="StartButton"
-                onClick={() => onClickStartGame(option.direction, option.type)}
+                onClick={() => onClickStartGame(option.type, option.direction)}
               >
-                {option.type}&nbsp;
+                {option.type}&nbsp; to &nbsp;
                 {option.direction}
               </button>
             </div>
