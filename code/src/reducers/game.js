@@ -6,7 +6,6 @@ const initialState = {
   actions: [],
   coordinates: '',
   description: ''
-  /* history: [], */
 };
 
 const game = createSlice({
@@ -31,11 +30,13 @@ const game = createSlice({
 
 export default game;
 
+/* Sets the game */
 export const generateGame = () => {
   return (dispatch, getState) => {
+    /* starts loading page */
     dispatch(ui.actions.setLoading(true));
 
-    // fetch endpoint
+    /* gets info from API */
     fetch('https://labyrinth.technigo.io/start', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -43,6 +44,7 @@ export const generateGame = () => {
         username: getState().game.username
       })
     })
+    /* sets all the info and removes loading page */
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -55,10 +57,13 @@ export const generateGame = () => {
   };
 };
 
+/* takes care of the users chioces of direction */
 export const generateMoves = (direction) => {
   return (dispatch, getState) => {
+    /* starts loading page */
     dispatch(ui.actions.setLoading(true));
 
+    /* gets different info from API depending on username */
     fetch('https://labyrinth.technigo.io/action', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -68,6 +73,7 @@ export const generateMoves = (direction) => {
         direction
       })
     })
+    /* sets the next move with all of the info and then removes loading page */
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

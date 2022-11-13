@@ -13,6 +13,8 @@ const Main = () => {
 
   return (
     <OuterWrapper>
+      {/* If isLoading is true it shows the loading screen.
+       If there is a Username the gameboard shows. If not, the start page shows */}
       <InnerWrapper>
         {isLoading ? (
           <LoadingIndicator />
@@ -48,4 +50,8 @@ const BewareText = styled.p`
 const GameTitle = styled.h1`
   font-size: 500%;
   margin: 0 0 7%;
+
+  @media (max-width: 667px) {
+    font-size: 300%; 
+    }
 `;

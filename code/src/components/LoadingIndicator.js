@@ -3,6 +3,7 @@ import Lottie from 'react-lottie';
 import styled from 'styled-components/macro';
 import animationData from '../lotties/labyrinth';
 
+/* Maze animation */
 export const LoadingIndicator = () => {
   const defaultOptions = {
     loop: true,

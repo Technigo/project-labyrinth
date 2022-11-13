@@ -10,6 +10,7 @@ import { Button } from 'utils/GlobalStyle';
 const UsernameInput = () => {
   const [UsernameInputValue, setUsernameInputValue] = useState('');
 
+  /* function that starts the game, prevents page from reloading and empties input field */
   const dispatch = useDispatch();
   const onFormSubmit = (event) => {
     event.preventDefault();

@@ -82,7 +82,6 @@ const Scroll = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
-  /* position: relative; */
   width: 100%;
   height: 80%;
   min-height: 500px;
@@ -90,8 +89,15 @@ const Scroll = styled.div`
   margin: 0;
   padding: 0;
 
-  /* mobile and tablet styling */
-  @media (max-width: 1024px) {
+  /* phone styling */
+  @media (max-width: 667px) {
+    width: 100%;
+    height: 60vh;
+    min-height: unset;
+  }
+
+  /* tablet styling */
+  @media (min-width: 668px) and (max-width: 1024px) {
     width: 100%;
     height: 50vh;
     min-height: unset;
@@ -109,6 +115,16 @@ const EventText = styled.p`
   font-size: 120%;
   max-width: 600px;
 
+  /* Mobile Styling*/
+  @media (max-width: 499px) {
+    width: 65%;
+    font-size: 100%;
+    margin: 0 auto;
+    overflow: scroll;
+    height: 40%;
+  }
+  
+
   /* Tablet Styling */
   @media (min-width: 500px) and (max-width: 1023px) {
     max-width: 275px;
@@ -116,14 +132,10 @@ const EventText = styled.p`
     font-size: 100%;
   }
 
-  /* Mobile Styling*/
-  @media (max-width: 499px) {
-    width: 65%;
-    font-size: 100%;
-    margin: 0 auto;
-  }
+  
 `;
 
+/* Styling fow button and compass image wrapper, grid layout */
 const CompassWrapper = styled.div`
   width: 50%;
   height: 100vh;
@@ -132,21 +144,27 @@ const CompassWrapper = styled.div`
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr);
 
-  /* big desktop */
+  /* media query big desktop */
   @media (min-width: 1300px) {
     height: 100vh;
   }
-
-  /* tablet and mobile */
-  @media (max-width: 1024px) {
+  /* media query mobile */
+  @media (max-width: 667px) {
+    height: 75vh;
+    width: 100%;
+    grid-template-rows: repeat(4, 1fr);
+  }
+  /* media query tablet */
+  @media (min-width: 668px) and (max-width: 1024px) {
     height: 50vh;
-
     width: 100%;
     grid-template-rows: repeat(4, 1fr);
   }
 
+
+/* placement for all of the direction buttons, normal and media queries */
   .North {
-    grid-area: 1 / 4 / span 2 / span 2;
+    grid-area: 1 / 3 / span 2 / span 4;
     @media (max-width: 1024px) {
       grid-area: 1 / 3 / span 1 / span 4;
     }
@@ -165,7 +183,7 @@ const CompassWrapper = styled.div`
     }
   }
   .South {
-    grid-area: 7 / 3 / span 1 / span 4;
+    grid-area: 7 / 3 / span 2 / span 4;
 
     @media (max-width: 1024px) {
       grid-area: 4 / 3 / span 1 / span 4;
@@ -173,6 +191,7 @@ const CompassWrapper = styled.div`
   }
 `;
 
+/* styling and placement for compass image */
 const Compass = styled.div`
   background-image: url(${CompassImg});
   background-size: contain;
@@ -182,6 +201,7 @@ const Compass = styled.div`
   height: 100%;
   grid-area: 3 / 3 / span 4 / span 4;
 
+  /* Media query for phone and tablet  */
   @media (max-width: 1024px) {
     grid-area: 2 / 4 / span 2 / span 2;
   }
