@@ -46,14 +46,6 @@ export const labyrinth = createSlice({
       store.coordinates = action.payload
     },
 
-    setPreviousMove: (store, action) => {
-      console.log(action)
-      if (store.history.length) {
-        store.direction = store.history[store.history.length - 1]
-        store.history = store.history.slice(0, store.history.length - 1)
-      }
-    },
-
     restartGame: (store) => {
       store.userName = ''
     }

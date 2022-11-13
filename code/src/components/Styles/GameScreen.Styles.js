@@ -101,35 +101,10 @@ export const StartBtn = styled.button`
     }
 `
 
-export const GoBackBtn = styled(StartBtn)`
-    position: absolute;
-    top: 72vh;
-    left: 10px;
-    width: 110px;
-    height: 35px;
-
-    label {
-        color: #233924
-    }
-
-    @media (max-width: 360px) {
-            top: 80vh;
-            width: 100px;
-            font-size: 0.8rem;
-        }
-
-    @media (min-width: 1280px) {
-            top: 50vh;
-            left: 30px;
-        }
-    
-
-`
-
 export const RestartBtn = styled(StartBtn)`
     position: absolute;
     top: 72vh;
-    right: 10px;
+    right: 47%;
     width: 110px;
     height: 35px;
 
@@ -150,7 +125,7 @@ export const RestartBtn = styled(StartBtn)`
 
     @media (min-width: 1280px) {
             top: 50vh;
-            right: 30px;
+            right: 47%;
         }
     
 

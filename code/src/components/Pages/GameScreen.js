@@ -7,7 +7,7 @@ import React from 'react'
 import { labyrinth, continueGame } from 'reducers/labyrinth'
 import { useDispatch, useSelector } from 'react-redux'
 import { GameWrapper } from 'components/Styles/Globalstyles'
-import { DescriptionWrapper, DirectionWrapper, RestartBtn, GoBackBtn, DirectionBtn, GameEnd } from 'components/Styles/GameScreen.Styles'
+import { DescriptionWrapper, DirectionWrapper, RestartBtn, DirectionBtn, GameEnd } from 'components/Styles/GameScreen.Styles'
 import { Loading } from './Loading'
 
 export const GameScreen = () => {
@@ -18,9 +18,6 @@ export const GameScreen = () => {
   const name = useSelector((store) => store.labyrinth.name)
   const history = useSelector((store) => store.labyrinth.history)
 
-  const goBack = () => {
-    dispatch(labyrinth.actions.setPreviousMove())
-  }
   const restartGame = () => {
     dispatch(labyrinth.actions.restartGame())
   }
@@ -88,7 +85,6 @@ export const GameScreen = () => {
           {/*-*/}
 
         </GameWrapper>
-        <GoBackBtn id="goBack" onClick={goBack}><label htmlFor="goBack">&#60; Go back</label></GoBackBtn>
         <RestartBtn id="restart" onClick={restartGame}><label htmlFor="goBack">Restart &#8634;</label></RestartBtn>
       </>
     )
