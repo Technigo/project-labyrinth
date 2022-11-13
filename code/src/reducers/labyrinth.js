@@ -21,12 +21,11 @@ const labyrinth = createSlice({
       }
       store.status = action.payload;
     },
-    setPreviousStatus: (store, action) => {
+    setPreviousStatus: (store) => {
       const actionArraylength = store.actions.length;
-      if (actionArraylength > 1) {
+      if (actionArraylength > 0) {
         store.status = store.actions[actionArraylength - 1];
         store.actions.splice(actionArraylength - 1, 1);
-        console.log(action);
       }
     },
 
@@ -54,7 +53,6 @@ export const generateLabyrinth = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log('generateLabyrinth', data)
         dispatch(labyrinth.actions.setStatus(data))
         dispatch(labyrinth.actions.setLoading(false));
       })
@@ -75,7 +73,6 @@ export const GameNextFetch = (type, direction) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log('GameNextFetch', data)
         dispatch(labyrinth.actions.setStatus(data));
         dispatch(labyrinth.actions.setLoading(false));
       })
