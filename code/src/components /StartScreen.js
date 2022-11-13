@@ -1,6 +1,15 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { startGame, setUsername } from 'features/game';
+import styled from 'styled-components/macro';
+
+const StartInput = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+`;
 
 const StartScreen = () => {
 	const [input, setInput] = useState('');
@@ -14,7 +23,7 @@ const StartScreen = () => {
 			<div className="start-img">
 				{/* <img /> img to show on start screen with the input below */}
 			</div>
-			<div className="start-input">
+			<StartInput>
 				<label>Enter the Maze</label>
 				<input
 					type="text"
@@ -26,7 +35,7 @@ const StartScreen = () => {
 				<button disabled={!input} onClick={() => inputInfo()}>
 					Ready, Go!
 				</button>
-			</div>
+			</StartInput>
 		</>
 	);
 };

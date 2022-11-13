@@ -41,13 +41,9 @@ const GameDisplay = () => {
 							<div>
 								<h3>Coordinates:{coordinates}</h3>
 							</div>
-							<div className="img-container">
-								<img
-								/* className="cavern"
-									src="https://i.ibb.co/W3D338W/cavern.png"
-									alt="cavern" */
-								/>
-							</div>
+							{/* <div className="img-container">
+								<img/>
+							</div> */}
 						</>
 					)}
 					{actions.length === 0 ? (
