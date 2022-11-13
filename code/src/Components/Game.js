@@ -14,15 +14,14 @@ const Game = () => {
       <Map coordinates={description.coordinates} />
       <DescriptionWrapper>
         <DescriptionText>
-          {description.description}
-        </DescriptionText>
-        <div>
+          <p>{description.description}</p>
           {description.actions.map((action) => (
             <p key={action.direction}>
-              {action.direction}: {action.description}
+              Go {action.direction}: {action.description}
             </p>
           ))}
-        </div>
+          <p>What will you do next?</p>
+        </DescriptionText>
         <GameNavigation
           coords={description.coordinates}
           actions={description.actions} />
@@ -34,7 +33,7 @@ export default Game;
 
 const DescriptionWrapper = styled.div`
 color: white;
-border: solid 2px hotpink;
+/* border: solid 2px hotpink; */
 width: 70%;
 display: grid;
 justify-self: center;
@@ -54,6 +53,6 @@ align-self: self-end;
 `
 
 const DescriptionText = styled.div`
-border: solid 2px green;
+/* border: solid 2px green; */
 color: white;
 `

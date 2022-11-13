@@ -54,10 +54,12 @@ const GameNavigation = ({ actions, coords }) => {
 }
 
 const ChooseDirectionWrapper = styled.div`
-    border: solid 2px red;
+    /* border: solid 2px red; */
     display: grid;
     color: white;
     text-align: center;
+    height: 270px;
+    align-self: end;
   `
 
 const DirectionGrid = styled.div`
