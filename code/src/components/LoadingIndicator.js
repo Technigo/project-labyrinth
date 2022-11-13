@@ -1,7 +1,7 @@
 import React from 'react';
 import Lottie from 'react-lottie';
 import { useSelector } from 'react-redux';
-import animationData from '../animations/loading-maze';
+import animationData from '../animations/loading-compass';
 
 import './loadingindicator.css';
 
