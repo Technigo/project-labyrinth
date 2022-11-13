@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import GameOver from './GameOver';
 import { makeMoves } from 'features/game';
 import Loading from './Loading';
-//import Loading.js
 
 const GameDisplay = () => {
 	const dispatch = useDispatch();
@@ -50,16 +49,16 @@ const GameDisplay = () => {
 							</div>
 							<div className="img-container">
 								<img
-									className="cavern"
+								/* className="cavern"
 									src="https://i.ibb.co/W3D338W/cavern.png"
-									alt="cavern"
+									alt="cavern" */
 								/>
 							</div>
 						</>
 					)}
 					{actions.length === 0 ? (
 						<div>
-							<End />
+							<GameOver />
 						</div>
 					) : (
 						actions.length > 0 &&
