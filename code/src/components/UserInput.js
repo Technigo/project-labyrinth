@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import labyrinth, { generateFetch } from 'reducers/labyrinth';
@@ -68,14 +69,25 @@ const UserInput = () => {
 export default UserInput;
 
 const WelcomeText = styled.p`
-  font-size: 1em;
+  font-size: 1.7em;
   color: #43B771;
-`
 
+  @media (min-width: 1024px) {
+  font-size: 2.5em;
+}
+`
 const InputButton = styled.button`
   background-color: #A7BDAC;
   border-color: lightgrey;
   border-radius: 1px;
   box-shadow: 1px 1px 1px grey;
-  margin: 1%;
+  margin:5% 5% 3% 0%;
+  font-size: 1em;
+  color: black;
+  padding: 2%;
+  text-align: center;
+
+  @media (min-width: 1024px) {
+    font-size: 1.7em;
+  }
 `

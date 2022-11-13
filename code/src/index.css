@@ -1,9 +1,10 @@
 body {
+  box-sizing: border-box;
   margin: 0;
   font-family: 'VT323', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+  background-color: #F4D288;
 }
 
 .name-input {
@@ -11,5 +12,13 @@ body {
   color: #43B771;
   border: solid 1px gray;
   border-radius: 5px;
-  margin-right: 1%;
+  margin-right: 4%;
+  font-size: 1.2rem;
+  box-shadow: 1px 1px 1px grey;
+}
+
+@media (min-width: 1024px) {
+  .name-input {
+    font-size: 1.7rem;
+  }
 }
