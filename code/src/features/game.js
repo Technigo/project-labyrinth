@@ -40,6 +40,7 @@ export const startGame = () => {
 			.then((res) => res.json())
 			.then((json) => {
 				dispatch(setGameStatus(json));
+				//console.log(json);
 				dispatch(setLoading(false));
 			});
 	};

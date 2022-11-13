@@ -15,9 +15,9 @@ const GameDisplay = () => {
 	};
 
 	const GameSteps = ({ description, type, direction }) => (
-		<div className="main-2">
-			<h3 className="nes-balloon from-left nes-pointer">{description}</h3>
-			<div className="direction-wrapper">
+		<div>
+			<h3>{description}</h3>
+			<div>
 				<button
 					id="direction"
 					className="nes-btn is-primary"
