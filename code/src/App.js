@@ -12,6 +12,7 @@ export const App = () => {
     labyrinth: labyrinth.reducer,
     ui: ui.reducer
   });
+
   const store = configureStore({
     reducer
   })

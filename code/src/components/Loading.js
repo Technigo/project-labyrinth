@@ -7,7 +7,7 @@ const Loading = () => {
 
   return (
     <div>
-      {isLoading && <h1>loading</h1>}
+      {isLoading && <h1>loading...</h1>}
     </div>
   )
 }

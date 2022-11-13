@@ -4,6 +4,7 @@ import styled from 'styled-components/macro';
 
 export const OuterWrapper = styled.div`
   background-color: #F4D288;
+  min-height: 100vh;
   padding: 5% 5%;
 `
 
@@ -14,7 +15,7 @@ export const InnerWrapper = styled.div`
   border-radius: 5px;
   width: 90%;
   max-width: 900px;
-  min-height: 100px;
+  min-height: 50vh;
   margin: 0 auto;
   padding: 5% 5%;
 `
