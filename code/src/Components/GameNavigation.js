@@ -58,8 +58,12 @@ const ChooseDirectionWrapper = styled.div`
     display: grid;
     color: white;
     text-align: center;
-    height: 270px;
+    height: 240px;
     align-self: end;
+
+    @media (min-width: 1025px) {
+      height: 270px;
+    }
   `
 
 const DirectionGrid = styled.div`
@@ -68,8 +72,8 @@ const DirectionGrid = styled.div`
       ". north ."
       "west . east"
       ". south .";
-    width: 170px;
-    height: 170px;
+    width: 150px;
+    height: 150px;
     gap: 5px;
     justify-self: center;
 
