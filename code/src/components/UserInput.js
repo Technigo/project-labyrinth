@@ -11,8 +11,6 @@ import { ChildContainer, StyledHeading, Button } from '../styles/GlobalStyles'
 const UserInput = () => {
   const [userInputValue, setUserInputValue] = useState('')
   const dispatch = useDispatch()
-  // const author = useSelector((store) => store.quotes.author)
-
   const onFormSubmit = (event) => {
     event.preventDefault();
     dispatch(labyrinth.actions.setUsername(userInputValue));

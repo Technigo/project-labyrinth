@@ -13,7 +13,6 @@ const MazePage = () => {
   const dispatch = useDispatch();
   const description = useSelector((store) => store.labyrinth.status.description);
   const actions = useSelector((store) => store.labyrinth.status.actions);
-  /* const coordinates = useSelector((store) => store.labyrinth.status.coordinates); */
   const onTypeButtonClick = (type, direction) => {
     dispatch(GameNextFetch(type, direction));
   }
