@@ -22,17 +22,6 @@ const game = createSlice({
       store.step = [...store.moves, action.payload]
       // store.step = store.moves.push(action.payload) // this works too but above is correct way
     },
-    // going back in history. delete 1 in history.
-    // this reducer does not work
-    setPrevious: (store, action) => {
-      if (store.step.length > 1) {
-        store.moves = store.step[store.step.length - 1]
-        store.step.splice(0, store.step.length - 1)
-        console.log(action)
-      } else {
-        alert('You need to take a step before you can go back!');
-      }
-    },
     isLoading: (store, action) => {
       store.loading = action.payload;
     }
