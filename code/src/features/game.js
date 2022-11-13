@@ -31,7 +31,7 @@ export const { setLoading, setUsername, setGameStatus, restart } =
 
 export const startGame = () => {
 	return (dispatch, getState) => {
-		dispatch(/* gameSlice.actions. */ setLoading(true));
+		dispatch(setLoading(true));
 		fetch(startUrl, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },

@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { restart } from 'features/game';
-//import { game } from 'features/game';
+import { game } from 'features/game';
 
 const GameOver = () => {
 	const dispatch = useDispatch();
@@ -11,7 +11,9 @@ const GameOver = () => {
 		<>
 			{/* insert img here for winning */}
 			<h3>{description}</h3>
-			<button onClick={() => dispatch(restart())}>Play Again</button>
+			<button onClick={() => dispatch(restart({ initialState }))}>
+				Play Again
+			</button>
 		</>
 	);
 };
