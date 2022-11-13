@@ -1,13 +1,10 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+React project made with Redux to practice using thunks and working with an API together with Redux.
 
-## The problem
+We were provided with an labyrinth game API that once you sent a post request with a username to, you got a description and two options where to go next in response, and when you sent another post request with the direction you chose you got another response etc.
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+To execute the requests we used a thunk that took the end of the url as an argument, depending if it was to start the game or to go further. Except for the fetch it also took care of some other things like the loading indicator etc.
 
-## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+We used the nes.css library and styled components for the styling. There are a lot of things we would have done if we had more time, like a progress bar, maybe a back button, different styling for each “room” in the game etc.
