@@ -78,7 +78,7 @@ const GamePageWrapper = styled(StartPageWrapper)`
     width: 95%;
     /* height: 90%; */
 
-    border: 3px solid purple;
+    /* border: 3px solid purple; */
 
     @media (min-width: 420px) {
       width: 90%;
