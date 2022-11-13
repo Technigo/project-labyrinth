@@ -102,8 +102,7 @@ const SingleChoice = styled.div`
 
   @media (min-width: 900px) {
     width:  30vw;
-    height: 27vh;
-    padding: 10px 40px 10px 40px;
+    height: 35vh;
   }
 
   @media (min-width: 1000) {
