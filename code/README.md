@@ -25,3 +25,4 @@ Make a map of the Labyrinth as a hint-button.
 ## View it live
 
 Link to Netlify:
+https://retro-nina-and-viktors-labyrinth.netlify.app/
