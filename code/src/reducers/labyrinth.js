@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 import { createSlice } from '@reduxjs/toolkit';
 import ui from './ui';
 
@@ -10,7 +11,7 @@ const labyrinth = createSlice({
   },
   reducers: {
     setUser: (store, action) => {
-      store.username = `${new Date().getTime()}+${action.payload}`;
+      store.username = `${new Date().getTime()} ${action.payload}`;
     },
     setStage: (store, action) => {
       if (store.stage !== '') {
