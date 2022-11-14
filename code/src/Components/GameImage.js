@@ -18,7 +18,6 @@ function coordsToBackgroundImageWeb(coords) {
   } else if (coords === '1,3') {
     return './assets/images/img_7.jpg'
   }
-  return './assets/images/fallback.jpg'
 }
 
 function coordsToBackgroundImageMob(coords) {
@@ -38,13 +37,11 @@ function coordsToBackgroundImageMob(coords) {
   } else if (coords === '1,3') {
     return './assets/images/mob_img_7.jpg'
   }
-  return './assets/images/fallback.jpg'
 }
 
 const StyledGameImage = styled.div`
 display: grid;
 background-image: url(${(props) => props.sImage});
-//background-image: url('/assets/images/image_3.jpg');
 min-height: 100vh;
 background-size: contain;
 background-position: top;

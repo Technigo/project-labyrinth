@@ -7,11 +7,13 @@ border-radius:6px;
 border:1px solid #8b7bb4;
 cursor:pointer;
 color:#524182;
-font-size:18px;
+font-size:22px;
 font-weight:bold;
 width: 45px;
 height: 45px;
 text-decoration:none;
+margin:0;
+padding:0;
 
 :hover {
   background:linear-gradient(to bottom, #8b7bb4 5%, #e2dae8 100%);
@@ -63,7 +65,8 @@ border-radius:6px;
 border:1px solid #8b7bb4;
 cursor:pointer;
 color:black;
-font-size:14px;
+font-size:15px;
+letter-spacing: 0.5px;
 font-weight:bold;
 padding:4px 12px;
 text-decoration:none;

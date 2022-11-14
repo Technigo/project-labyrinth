@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import game, { generateDescription } from 'reducers/game';
 import styled from 'styled-components/macro'
 import { StartButton } from './Buttons';
-import Header from './Header';
+import MazeLogo from './MazeLogo';
 import Wrapper from './Wrapper';
 
 function makeid(length) {
@@ -31,7 +31,7 @@ const UserNameInput = () => {
   return (
     <UserNameInputBackground>
       <Wrapper>
-        <Header />
+        <MazeLogo />
         <UserNameInputContainer>
           <form onSubmit={(event) => onFormSubmit(event)} style={{ textAlign: 'center' }}>
             <label htmlFor="user-input">
@@ -59,7 +59,6 @@ export default UserNameInput;
 const UserNameInputContainer = styled.div`
 justify-content: center;
 display: grid;
-
 `
 
 const UserNameInputBackground = styled.div`

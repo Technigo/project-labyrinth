@@ -10,6 +10,7 @@ const Wrapper = ({ children }) => {
     width: 300px;
     margin: 0 auto;
     justify-content: center;
+    text-align: center;
   `
 
   return (
