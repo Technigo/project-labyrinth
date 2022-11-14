@@ -57,6 +57,6 @@ const DescriptionText = styled.div`
 color: white;
 font-size: 13px;
 
-@media (min-width: 1025px) {
+@media (min-width: 667px) and (max-width: 1024px) {
 font-size: 16px;
 `
