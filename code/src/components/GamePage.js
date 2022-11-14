@@ -7,6 +7,7 @@ import { DucklingHeader } from './DucklingHeader';
 import { EndingPage } from './EndingPage';
 
 export const GamePage = () => {
+  // Getting description and actions from currentLocation in the store
   const { description, actions } = useSelector((store) => store.game.currentLocation)
   const dispatch = useDispatch();
 

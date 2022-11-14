@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Button } from '../styled-components/GlobalStyles';
 
+// This will refresh the whole page
 const onRestartBtn = () => {
   window.location.reload();
 }

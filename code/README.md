@@ -11,4 +11,4 @@ If we had more time we would create pixel art to style our game more. And it wou
 
 ## View it live
 
-https://graceful-hotteok-897516.netlify.app/
+https://lostducklabyrinth.netlify.app/

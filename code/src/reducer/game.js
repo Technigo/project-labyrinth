@@ -5,7 +5,10 @@ const game = createSlice({
   name: 'game',
   initialState: {
     username: null,
+
+    // Stores the whole fetch from the API
     currentLocation: [],
+
     loading: false
   },
 
@@ -37,6 +40,7 @@ export const generateLabyrinth = () => {
       .then((data) => {
         dispatch(game.actions.setCurrentLocation(data))
       })
+      // To increase the time loading page is showing we added setTimeout
       .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000))
   }
 }

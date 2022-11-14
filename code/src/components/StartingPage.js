@@ -11,7 +11,9 @@ export const StartingPage = () => {
   const dispatch = useDispatch();
 
   const onUsernameInputValue = () => {
+    // When the user puts in name we dispatch it to store it in the store
     dispatch(game.actions.setUserName(inputValue));
+    // and we do the firstfetch from the API to create the labyrinth
     dispatch(generateLabyrinth());
   }
 
@@ -28,7 +30,7 @@ export const StartingPage = () => {
       <input
         type="text"
         value={inputValue}
-        placeholder="Type you name.."
+        placeholder="Type your name..."
         onChange={(event) => setInputValue(event.target.value)} />
       <Button
         type="submit"
