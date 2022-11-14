@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
 import React, { useState } from 'react';
@@ -39,7 +38,6 @@ const Start = () => {
         <EnterButton type="submit">Enter</EnterButton>
       </Form>
     </LocationWrapper>
-
   )
 }
 

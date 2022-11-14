@@ -1,23 +1,15 @@
-/* eslint-disable default-case */
-/* eslint-disable no-unused-vars */
-/* eslint-disable eqeqeq */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable react/style-prop-object */
 /* eslint-disable no-nested-ternary */
-/* eslint-disable max-len */
-/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable default-case */
 import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
 // Background images //
 import dream from 'assets/images/bed.jpg';
-import library from 'assets/images/library.jpg';
 import sunrise from 'assets/images/sunrise.jpeg';
 import cavernlight from 'assets/images/cavernlight.jpg';
 import cogs from 'assets/images/wheel.jpg';
 import colorfulcave from 'assets/images/colorfulcave.jpeg';
 import colorswirl from 'assets/images/colorswirl.jpg';
-import temple from 'assets/images/housetree.jpg';
 import archway from 'assets/images/archway.jpg'
 import library2 from 'assets/images/library2.jpeg'
 // mounted components
@@ -25,7 +17,6 @@ import Start from './Start';
 import { InnerWrapper } from './reusableStyles';
 import Location from './Location';
 import Loading from './Loading';
-import Map from './Map';
 
 const Parent = () => {
   const username = useSelector((store) => store.labyrinth.username)
@@ -65,7 +56,3 @@ const OuterWrapper = styled.div`
   background-size: cover;
   background-position: center;
 `
-
-// linear-gradient(270deg, #ec1004, #dcec04, #04ec5f, #045bec)
-
-// currentLocation.coordinates === '' ? dream : currentLocation.coordinates === '0,0' ? temple : null

@@ -1,4 +1,3 @@
-/* eslint-disable react/self-closing-comp */
 import React from 'react';
 import styled from 'styled-components';
 import compass from '../assets/images/compass2.svg';
