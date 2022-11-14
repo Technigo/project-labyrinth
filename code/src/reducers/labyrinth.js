@@ -1,5 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable prefer-const */
 import { createSlice } from '@reduxjs/toolkit';
 import ui from 'reducers/ui';
 
@@ -21,6 +19,7 @@ const labyrinth = createSlice({
       store.quest = action.payload;
     },
     clearHistory: (store) => {
+      store.username = ''
       store.quest = ''
       store.history = []
     }
@@ -32,7 +31,6 @@ export default labyrinth;
 export const generateFetch = ({ url, username, type, direction }) => {
   return (dispatch) => {
     dispatch(ui.actions.setLoading(true));
-    console.log('test2')
 
     fetch(url, {
       method: 'POST',

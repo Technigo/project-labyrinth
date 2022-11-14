@@ -1,7 +1,4 @@
-/* eslint-disable linebreak-style */
 /* eslint-disable no-nested-ternary */
-/* eslint-disable import/no-named-as-default-member */
-/* eslint-disable import/no-named-as-default */
 import React from 'react';
 import { useSelector } from 'react-redux';
 import UserInput from './UserInput';

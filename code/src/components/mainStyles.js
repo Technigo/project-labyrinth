@@ -1,8 +1,4 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable linebreak-style */
 import styled from 'styled-components/macro';
-
-//  background-color: #ffe8b7;
 
 const sizes = {
   tablet: '668px',
@@ -32,9 +28,16 @@ export const InnerWrapper = styled.div`
   margin: 0 auto;
   padding: 5% 5%;
 
-  @media (min-width: 1024px) {
-    hight: 60%;
+  @media ${Devices.laptop} {
+    min-height: 65vh;
   }
+`
+
+export const Wrapper = styled.div`
+background-color: blue;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
 `
 
 export const InputButton = styled.button`
@@ -49,8 +52,9 @@ export const InputButton = styled.button`
   padding: 2%;
   text-align: center;
 
-  @media (min-width: 1024px) {
-    font-size: 1.7em;
+  @media ${Devices.laptop} {
+    font-size: 1.5em;
+    padding: 1%;
   }
 `
 
@@ -66,7 +70,7 @@ export const DirectionButton = styled.button`
   padding: 6%;
   text-align: center;
   grid-column-start: ${(props) => (props.direction === 'North' && '2')};
-  grid-column-start: ${(props) => (props.direction === 'South' && '5')};
   grid-column-start: ${(props) => (props.direction === 'East' && '3')};
   grid-column-start: ${(props) => (props.direction === 'West' && '4')};
+  grid-column-start: ${(props) => (props.direction === 'South' && '5')};
 `

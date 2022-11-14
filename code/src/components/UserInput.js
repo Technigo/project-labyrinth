@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import labyrinth, { generateFetch } from 'reducers/labyrinth';
 import styled from 'styled-components/macro';
 import TypeIt from 'typeit-react';
-import { InputButton } from './mainStyles';
+import { InputButton, Devices } from './mainStyles';
 
 const UserInput = () => {
   const [userNameInputValue, setUserNameInputValue] = useState('');
-  const [userName, setUserName] = useState(false)
+  const [userName, setUserName] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -16,7 +16,7 @@ const UserInput = () => {
   const onFormSubmit = (event) => {
     event.preventDefault();
     dispatch(labyrinth.actions.setUser(userNameInputValue));
-    dispatch(generateFetch({ url: 'https://labyrinth.technigo.io/start', username: userNameInputValue }))
+    dispatch(generateFetch({ url: 'https://labyrinth.technigo.io/start', username: userNameInputValue }));
     setUserName(false);
   }
 
@@ -39,8 +39,8 @@ const UserInput = () => {
       return (
         isLoading === false && (
           <form onSubmit={(e) => {
-            setUserName(true)
-            renderWelcomePage(e)
+            setUserName(true);
+            renderWelcomePage(e);
           }}>
             <label htmlFor="user-input">
               <WelcomeText>Type in your name:</WelcomeText>
@@ -50,7 +50,7 @@ const UserInput = () => {
                 type="text"
                 value={userNameInputValue}
                 onChange={(e) => {
-                  setUserNameInputValue(e.target.value)
+                  setUserNameInputValue(e.target.value);
                 }} />
             </label>
             <InputButton
@@ -75,12 +75,11 @@ const WelcomeText = styled.p`
   font-size: 1.7em;
   color: #43B771;
 
-  @media (min-width: 1024px) {
-  font-size: 2.5em;
+  @media ${Devices.laptop} {
+  font-size: 2em;
 }
 `
 
 const WelcomeWrapper = styled.div`
   min-height: 150px;
-
 `

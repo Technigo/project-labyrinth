@@ -23,11 +23,6 @@ const RestartBtn = () => {
 
 export default RestartBtn;
 
-// const RestartButton = styled(InputButton)`
-//   display: flex;
-//   justify-self: center;
-// `
-
 const RestartWrapper = styled.div`
   display: flex;
   justify-content: center;
