@@ -4,32 +4,16 @@ import { useDispatch } from 'react-redux';
 import { gameState, fetchGame } from 'reducers/gamestate';
 import { Background } from 'styles/ProjectStyles';
 import styled from 'styled-components/macro';
-// import Game from './Game';
-// import LoadingIndicator from './LoadingIndicator';
 
 const GameStart = () => {
   const dispatch = useDispatch()
   const [userName, setUserName] = useState('');
-  // const stage = useSelector((store) => store.gamestate.stage)
-  // const loading = useSelector((store) => store.gamestate.loading)
 
   const onNameSubmit = (event) => {
     event.preventDefault();
     dispatch(gameState.actions.setUser(userName));
     dispatch(fetchGame());
   }
-
-  // if (stage) {
-  //   return (
-  //     <Game />
-  //   )
-  // }
-
-  // if (loading) {
-  //   return (
-  //     <LoadingIndicator />
-  //   )
-  // }
 
   return (
     <Background onSubmit={(event) => onNameSubmit(event)}>
