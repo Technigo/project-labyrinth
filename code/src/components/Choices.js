@@ -1,9 +1,12 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable linebreak-style */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { generateFetch } from 'reducers/labyrinth';
 import styled from 'styled-components/macro';
-// import {  } from '../styles/mainStyles';
+import TypeIt from 'typeit-react';
+import RestartBtn from './RestartBtn';
+import { DirectionButton, Devices } from './mainStyles';
 
 const Choices = ({ username }) => {
   const dispatch = useDispatch();
@@ -20,21 +23,30 @@ const Choices = ({ username }) => {
   return (
     <section>
       <div>
-        <MainText>{quest.description}</MainText>
+        <QuestTextWrapper>
+          <TypeIt>
+            <MainText>{quest.description}</MainText>
+          </TypeIt>
+        </QuestTextWrapper>
         {quest.actions.map((details) => {
           return (
             <Wrapper key={details.description}>
               <SecondText>
                 {details.direction}: {details.description}
               </SecondText>
-              <DirectionButton
-                type="button"
-                onClick={() => onChoiceMade(details.direction)}>{details.direction}
-              </DirectionButton>
-              {console.log('btn - details.direction', details.direction)}
+              <ButtonWrapper>
+                <DirectionButton
+                  type="button"
+                  direction={details.direction}
+                  onClick={() => onChoiceMade(details.direction)}>{details.direction}
+                </DirectionButton>
+              </ButtonWrapper>
             </Wrapper>
           )
         })}
+        {quest.coordinates === '1,3' && (
+          <RestartBtn />
+        )}
       </div>
     </section>
   )
@@ -42,45 +54,70 @@ const Choices = ({ username }) => {
 
 export default Choices;
 
+const QuestTextWrapper = styled.div`
+  min-height: 260px;
+`
+
 const MainText = styled.p`
   color: #43B771;
-  // background-color: lightgrey;
   margin: 5%;
-  font-size: 2rem;
-  padding: 2%;
+  font-size: 1.3em;
+  padding: 1%;
+  line-height: 1.4;
 
-  @media (min-width: 1024px) {
-   font-size: 3rem;
+  @media ${Devices.tablet} {
+    font-size: 1.4em;
+  }
+
+  @media ${Devices.desktop} {
+    font-size: 1.5em;
   }
 `
 
 const SecondText = styled.p`
   color: #43B771;
-  font-size: 1.5rem;
+  font-size: 1.2em;
+  font-weight: 400;
   padding: 1%;
+  line-height: 1.2;
 
-  @media (min-width: 1024px) {
-    font-size 2em;
-   }
+  @media ${Devices.tablet} {
+    font-size: 1.3em;
+  }
+
+  @media ${Devices.desktop} {
+    font-size: 1.4em;
+  }
 `
 const Wrapper = styled.div`
 background-color: blue;
-margin: 5%;
-padding: 1%;
 display: flex;
 flex-direction: column;
-align-items: center;
-`
-export const DirectionButton = styled.button`
-background-color: #A7BDAC;
-width: 15%;
-font-size: 1.3rem;
-margin: 5%;
-border-color: lightgrey;
-border-radius: 1px;
-box-shadow: 1px 1px 1px grey;
-color: black;
-padding: 1%;
-text-align: center;
+align-items: flex-start;
 `
 
+const ButtonWrapper = styled.div`
+  position: fixed;
+  display: inline-grid;
+  grid-template-columns: 100% 75% 75% 75% 75%;
+  margin-left: -30%;
+  bottom: 2%;
+
+  @media ${Devices.tablet} {
+  grid-template-columns: 100% 100% 100% 100% 100%;
+  margin-left: -5%;
+  bottom: 3%;
+  }
+
+  @media ${Devices.laptop} {
+  grid-template-columns: 100% 100% 100% 100% 100%;
+  margin-left: 10%;
+  bottom: 20%;
+  }
+
+  @media ${Devices.desktop} {
+  grid-template-columns: 100% 100% 100% 100% 100%;
+  margin-left: -10%;
+  bottom: 20%;
+  }
+`

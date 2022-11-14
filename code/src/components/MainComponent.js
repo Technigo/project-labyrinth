@@ -4,9 +4,8 @@
 /* eslint-disable import/no-named-as-default */
 import React from 'react';
 import { useSelector } from 'react-redux';
-// import styled from 'styled-components/macro';
 import UserInput from './UserInput';
-import Choices /* { DirectionButton } */ from './Choices';
+import Choices from './Choices';
 import { InnerWrapper } from './mainStyles';
 
 const MainComponent = () => {
@@ -18,22 +17,11 @@ const MainComponent = () => {
 
   return (
     isLoading === false && (
-      <>
-        <InnerWrapper>
-          {quest === '' ? <UserInput /> : <Choices username={usernameTest} />}
-        </InnerWrapper>
-        {/* <ButtonWrapper>
-           button-img
-        </ButtonWrapper> */}
-      </>
+      <InnerWrapper>
+        {quest === '' ? <UserInput /> : <Choices username={usernameTest} />}
+      </InnerWrapper>
     )
   )
 }
 
 export default MainComponent;
-
-// const ButtonWrapper = styled(InnerWrapper)`
-// background-color: lightgrey;
-// display: flex;
-// jusify-content: center;
-// align-item: center;`

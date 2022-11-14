@@ -1,32 +1,29 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable react/jsx-closing-tag-location */
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
-/* import Lottie from 'react-lottie'; */
-/* import loadingPacMan from '../lotties/124683-eating-pixels'; */
 
 const Loading = () => {
+  const [loadingDot, setLoadingDot] = useState('');
   const isLoading = useSelector((state) => state.ui.isLoading);
+
+  // Creates a movement in the dots after loading
+  const loadingAnimation = () => {
+    if (loadingDot === '....') {
+      setLoadingDot('');
+    } else {
+      setTimeout(() => setLoadingDot(`${loadingDot}.`), 350);
+    }
+  };
 
   return (
     <div>
-      {isLoading && <LoadingText>loading...</LoadingText>}
+      {isLoading && <LoadingText>loading{loadingAnimation()}
+        {loadingDot}</LoadingText>}
     </div>
   )
 }
 
 export default Loading;
-
-/* const WhileLoading = styled.div`
-  //border: double gray;//
-  border-radius: 5px;
-  width: 90%;
-  max-width: 900px;
-  min-height: 20px;
-  margin: 0 auto;
-  padding: 5% 5%;
-` */
 
 const LoadingText = styled.h1`
  font-size: 2.5rem;

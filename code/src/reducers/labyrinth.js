@@ -19,6 +19,10 @@ const labyrinth = createSlice({
         store.history.push(store.quest);
       }
       store.quest = action.payload;
+    },
+    clearHistory: (store) => {
+      store.quest = ''
+      store.history = []
     }
   }
 });

@@ -1,9 +1,9 @@
-/* eslint-disable linebreak-style */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import labyrinth, { generateFetch } from 'reducers/labyrinth';
 import styled from 'styled-components/macro';
-// import { InnerWrapper } from '../styles/mainStyles';
+import TypeIt from 'typeit-react';
+import { InputButton } from './mainStyles';
 
 const UserInput = () => {
   const [userNameInputValue, setUserNameInputValue] = useState('');
@@ -24,11 +24,15 @@ const UserInput = () => {
     if (userName) {
       return (
         <>
-          <WelcomeText>GREETINGS PROFESSOR {userNameInputValue.toUpperCase()},</WelcomeText>
-          <WelcomeText>HOW ARE YOU FEELING TODAY?</WelcomeText>
-          <WelcomeText>SHALL WE PLAY A GAME?</WelcomeText>
+          <WelcomeWrapper>
+            <TypeIt>
+              <WelcomeText>GREETINGS PROFESSOR {userNameInputValue.toUpperCase()},</WelcomeText>
+              <WelcomeText>HOW ARE YOU FEELING TODAY?</WelcomeText>
+              <WelcomeText>SHALL WE PLAY A GAME?</WelcomeText>
+            </TypeIt>
+          </WelcomeWrapper>
           <InputButton type="button" onClick={(e) => onFormSubmit(e)}>YES</InputButton>
-          <InputButton type="button">NO</InputButton>
+          <InputButton type="button" onClick={(e) => window.location.reload(e.preventDefault())}>NO</InputButton>
         </>
       )
     } else {
@@ -50,7 +54,6 @@ const UserInput = () => {
                 }} />
             </label>
             <InputButton
-              // Lade till en spärr så knappen inte blir aktiv förrän man skrivit in nått
               disabled={userNameInputValue.length < 1}
               type="submit">GO
             </InputButton>
@@ -76,18 +79,8 @@ const WelcomeText = styled.p`
   font-size: 2.5em;
 }
 `
-const InputButton = styled.button`
-  background-color: #A7BDAC;
-  border-color: lightgrey;
-  border-radius: 1px;
-  box-shadow: 1px 1px 1px grey;
-  margin:5% 5% 3% 0%;
-  font-size: 1em;
-  color: black;
-  padding: 2%;
-  text-align: center;
 
-  @media (min-width: 1024px) {
-    font-size: 1.7em;
-  }
+const WelcomeWrapper = styled.div`
+  min-height: 150px;
+
 `
