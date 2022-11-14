@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-no-useless-fragment */
-/* eslint-disable max-len */
 import React from 'react';
 import { useSelector } from 'react-redux';
 import MazePage from './MazePage';
