@@ -10,6 +10,7 @@ export const gameState = createSlice({
   reducers: {
     setUser: (store, action) => {
       store.username = `${new Date().getTime()}+${action.payload}`
+      store.showedUsername = action.payload
     },
     setStage: (store, action) => {
       store.stage = action.payload

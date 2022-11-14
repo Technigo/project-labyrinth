@@ -12,7 +12,7 @@ const Game = () => {
   console.log('description', description)
   console.log('actions', actions)
   const dispatch = useDispatch()
-  const userName = useSelector((store) => store.gameState.username);
+  const userName = useSelector((store) => store.gameState.showedUsername);
 
   const onNextAction = (type, direction) => {
     dispatch(fetchGameSteps(type, direction));
