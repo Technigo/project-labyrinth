@@ -34,13 +34,15 @@ export default Game;
 const DescriptionWrapper = styled.div`
 color: white;
 /* border: solid 2px hotpink; */
-width: 80%;
+width: 90%;
 display: grid;
 justify-self: center;
 align-self: self-end;
+line-height:0.9em;
 
 @media (min-width: 667px) and (max-width: 1024px) {
-      width: 65%;
+      width: 60%;
+      line-height:1.1em;
     }
 
 @media (min-width: 1025px) {
@@ -49,6 +51,7 @@ align-self: self-end;
       margin-left: 125px;
       justify-self: left;
       align-self: center;
+      line-height:1.2em;
     }
 `
 
@@ -56,7 +59,7 @@ const DescriptionText = styled.div`
 display: grid;
 /* border: solid 2px green; */
 color: white;
-font-size: 14px;
+font-size: 13px;
 align-self: end;
 
 @media (min-width: 1025px) {

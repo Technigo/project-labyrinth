@@ -12,6 +12,8 @@ font-weight:bold;
 width: 45px;
 height: 45px;
 text-decoration:none;
+margin:0;
+padding:0;
 
 :hover {
   background:linear-gradient(to bottom, #8b7bb4 5%, #e2dae8 100%);
