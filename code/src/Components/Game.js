@@ -33,15 +33,15 @@ export default Game;
 
 const DescriptionWrapper = styled.div`
 color: white;
-/* border: solid 2px hotpink; */
-width: 90%;
+// border: solid 2px hotpink;
+width: 80%;
 display: grid;
 justify-self: center;
 align-self: self-end;
 line-height:0.9em;
 
 @media (min-width: 667px) and (max-width: 1024px) {
-      width: 60%;
+      width: 80%;
       line-height:1.1em;
     }
 
@@ -57,10 +57,15 @@ line-height:0.9em;
 
 const DescriptionText = styled.div`
 display: grid;
-/* border: solid 2px green; */
+// border: solid 2px green;
 color: white;
-font-size: 13px;
+font-size: 14px;
 align-self: end;
+padding: 25px 0 35px 0;
+
+@media (min-width: 667px) and (max-width: 1024px) {
+padding: 25px 0 0 0;
+}
 
 @media (min-width: 1025px) {
 font-size: 16px;

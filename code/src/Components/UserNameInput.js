@@ -42,7 +42,7 @@ const UserNameInput = () => {
                 value={userNameInputValue}
                 required
                 // eslint-disable-next-line jsx-a11y/no-autofocus
-                autoFocus
+                // autoFocus
                 onChange={(event) => setUserNameInputValue(event.target.value)}
                 style={{ padding: '3px', width: '200px', marginBottom: '17px' }} />
             </label><br />
