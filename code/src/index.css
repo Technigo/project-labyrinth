@@ -34,10 +34,10 @@ code {
   height:50%;
   margin: auto;
   margin-top: 40px;
-  border: 6px dashed rgb(59, 248, 12);
+  border: 8px dashed rgb(59, 248, 12);
   padding: 40px;
   /* background-color: rgb(169, 187, 11); */
-  
+
   font-size: 22px;
 }
 .main-container h4 {
