@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable prefer-const */
 import { createSlice } from '@reduxjs/toolkit';
 import ui from 'reducers/ui';
