@@ -60,7 +60,7 @@ const ChooseDirectionWrapper = styled.div`
     text-align: center;
     height: 240px;
     align-self: end;
-    padding: 10px 0 20px 0;
+    padding: 0 0 20px 0;
 
     @media (min-width: 667px) and (max-width: 1024px) {
     padding: 0 0 30px 0;

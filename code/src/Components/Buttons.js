@@ -70,7 +70,7 @@ letter-spacing: 0.5px;
 font-weight:bold;
 padding:4px 12px;
 text-decoration:none;
-margin-top: 10px;
+margin-top: 30px;
 display: inline-block;
 height: 50px;
 width: 150px;

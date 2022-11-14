@@ -61,7 +61,7 @@ display: grid;
 color: white;
 font-size: 14px;
 align-self: end;
-padding: 25px 0 35px 0;
+padding: 25px 0 10px 0;
 
 @media (min-width: 667px) and (max-width: 1024px) {
 padding: 25px 0 0 0;
