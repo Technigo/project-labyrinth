@@ -13,7 +13,7 @@ const Move = ({ response }) => {
 
   return (
     <>
-      {response.actions.reverse().map((action) => {
+      {response.actions?.reverse().map((action) => {
         return (
           <DirectionsContainer>
             <p>{action.description}</p>
