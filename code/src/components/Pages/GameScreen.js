@@ -33,7 +33,6 @@ export const GameScreen = () => {
   } else {
     return (
       <>
-        {console.log('moves', moves)}
         <GameWrapper>
           <DescriptionWrapper>
             <lottie-player
@@ -85,7 +84,7 @@ export const GameScreen = () => {
           {/*-*/}
 
         </GameWrapper>
-        <RestartBtn id="restart" onClick={restartGame}><label htmlFor="goBack">Restart &#8634;</label></RestartBtn>
+        <RestartBtn onClick={restartGame}><label htmlFor="goBack">Restart &#8634;</label></RestartBtn>
       </>
     )
   }
