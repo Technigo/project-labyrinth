@@ -11,19 +11,14 @@ const Loading = () => {
 
   return (
     <div>
-      <WhileLoading>
-        {isLoading && <>
-          {/* <Lottie options={defaultOptions} height={150} width={150} /> */}
-          <LoadingText>LOADING</LoadingText>
-        </>}
-      </WhileLoading>
+      {isLoading && <LoadingText>loading...</LoadingText>}
     </div>
   )
 }
 
 export default Loading;
 
-const WhileLoading = styled.div`
+/* const WhileLoading = styled.div`
   //border: double gray;//
   border-radius: 5px;
   width: 90%;
@@ -31,7 +26,8 @@ const WhileLoading = styled.div`
   min-height: 20px;
   margin: 0 auto;
   padding: 5% 5%;
-`
+` */
+
 const LoadingText = styled.h1`
  font-size: 2.5rem;
  color: red;

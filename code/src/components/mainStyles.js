@@ -15,7 +15,7 @@ export const InnerWrapper = styled.div`
   border-radius: 5px;
   width: 90%;
   max-width: 900px;
-  min-height: 150px;
+  min-height: 50vh;
   margin: 0 auto;
   padding: 5% 5%;
 
