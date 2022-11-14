@@ -6,21 +6,21 @@ const labyrinth = createSlice({
   initialState: {
     username: '',
     stage: '',
-    history: []
+    history: [],
   },
   reducers: {
     setUser: (store, action) => {
-      store.username = action.payload
+      store.username = `${new Date().getTime()}+${action.payload}`;
     },
     setStage: (store, action) => {
       if (store.stage !== '') {
-        store.history.push(store.stage)
+        store.history.push(store.stage);
       }
-      store.stage = action.payload
+      store.stage = action.payload;
     },
     setLoading: (store, action) => {
-      store.isLoading = action.payload
-    }
+      store.isLoading = action.payload;
+    },
     /* setPreviousStage: (store, action) => {
       const historyArrayLength = store.history.length
       if (historyArrayLength > 0) {
@@ -29,55 +29,55 @@ const labyrinth = createSlice({
         console.log(action)
       }
     }, */
-  }
+  },
 });
 
 export default labyrinth;
 
 export const startLabyrinth = () => {
   return (dispatch, getState) => {
-    dispatch(ui.actions.setLoading(true))
-    const API_URL = 'https://labyrinth.technigo.io/start'
+    dispatch(ui.actions.setLoading(true));
+    const API_URL = 'https://labyrinth.technigo.io/start';
     const options = {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        username: getState().labyrinth.username
-      })
-    }
+        username: getState().labyrinth.username,
+      }),
+    };
     fetch(API_URL, options)
       .then((res) => res.json())
       .then((data) => {
-        dispatch(labyrinth.actions.setStage(data))
+        dispatch(labyrinth.actions.setStage(data));
       })
       .catch((error) => console.log(error))
-      .finally(() => dispatch(ui.actions.setLoading(false)))
-  }
+      .finally(() => dispatch(ui.actions.setLoading(false)));
+  };
 };
 
 export const nextStage = (type, direction) => {
   return (dispatch, getState) => {
-    dispatch(ui.actions.setLoading(true))
-    const API_URL_ACTION = 'https://labyrinth.technigo.io/action'
+    dispatch(ui.actions.setLoading(true));
+    const API_URL_ACTION = 'https://labyrinth.technigo.io/action';
     const optionsAction = {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         username: getState().labyrinth.username,
         type,
-        direction
-      })
-    }
+        direction,
+      }),
+    };
     fetch(API_URL_ACTION, optionsAction)
       .then((res) => res.json())
       .then((data) => {
-        dispatch(labyrinth.actions.setStage(data))
+        dispatch(labyrinth.actions.setStage(data));
       })
       .catch((error) => console.log(error))
-      .finally(() => dispatch(ui.actions.setLoading(false)))
-  }
+      .finally(() => dispatch(ui.actions.setLoading(false)));
+  };
 };
