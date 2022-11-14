@@ -24,7 +24,7 @@ const GameStart = () => {
         <input
           id="user-name"
           type="text"
-          placeholder="A name never used before"
+          placeholder="Enter your name here"
           onChange={(event) => setUserName(event.target.value)}
           required />
         <button
