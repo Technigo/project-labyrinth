@@ -7,7 +7,7 @@ border-radius:6px;
 border:1px solid #8b7bb4;
 cursor:pointer;
 color:#524182;
-font-size:18px;
+font-size:22px;
 font-weight:bold;
 width: 45px;
 height: 45px;
