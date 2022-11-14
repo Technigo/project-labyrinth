@@ -1,7 +1,4 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/jsx-closing-tag-location */
-/* eslint-disable no-tabs */
-/* eslint-disable no-mixed-spaces-and-tabs */
 import React, { useState } from 'react';
 import styled from 'styled-components/macro'
 import { useDispatch } from 'react-redux';
@@ -11,15 +8,13 @@ import { ChildContainer, StyledHeading, Button } from '../styles/GlobalStyles'
 const UserInput = () => {
   const [userInputValue, setUserInputValue] = useState('')
   const dispatch = useDispatch()
-  // const author = useSelector((store) => store.quotes.author)
 
   const onFormSubmit = (event) => {
     event.preventDefault();
     dispatch(labyrinth.actions.setUsername(userInputValue));
     dispatch(generateLabyrinth());
   }
-
-	 return (
+  return (
     <ChildContainer>
       <lottie-player
         src="https://assets5.lottiefiles.com/packages/lf20_92fyiqta.json"
@@ -30,9 +25,9 @@ const UserInput = () => {
         loop
         autoplay />
       <StyledHeading>Welcome to the maze</StyledHeading>
-	    <form autoComplete="off" onSubmit={(event) => onFormSubmit(event)}>
+      <form autoComplete="off" onSubmit={(event) => onFormSubmit(event)}>
         <label htmlFor="input">
-			    <StyledLabel>Enter your name:</StyledLabel>
+          <StyledLabel>Enter your name:</StyledLabel>
           <StyledInput id="input" value={userInputValue} type="text" onChange={(event) => setUserInputValue(event.target.value)} />
         </label>
         <Button type="submit"> Start </Button>

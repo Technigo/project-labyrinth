@@ -1,8 +1,3 @@
-/* eslint-disable react/jsx-closing-tag-location */
-/* eslint-disable no-tabs */
-/* eslint-disable no-mixed-spaces-and-tabs */
-/* eslint-disable max-len */
-/* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import labyrinth, { GameNextFetch } from 'reducers/labyrinth';
@@ -13,7 +8,6 @@ const MazePage = () => {
   const dispatch = useDispatch();
   const description = useSelector((store) => store.labyrinth.status.description);
   const actions = useSelector((store) => store.labyrinth.status.actions);
-  /* const coordinates = useSelector((store) => store.labyrinth.status.coordinates); */
   const onTypeButtonClick = (type, direction) => {
     dispatch(GameNextFetch(type, direction));
   }
@@ -28,27 +22,29 @@ const MazePage = () => {
       </div>
       <GameAlternatives>{description}</GameAlternatives>
       {actions.length === 0 && (
-        <><lottie-player
-          src="https://assets4.lottiefiles.com/packages/lf20_zdouw3jj.json"
-          background="transparent"
-          speed="1"
-          style={{
-            width: '150px',
-            height: '150px'
-          }}
-          loop
-          autoplay />
-        <Button
-          type="button"
-          onClick={() => dispatch(labyrinth.actions.resetGame())}>
+        <>
+          <lottie-player
+            src="https://assets4.lottiefiles.com/packages/lf20_zdouw3jj.json"
+            background="transparent"
+            speed="1"
+            style={{
+              width: '150px',
+              height: '150px'
+            }}
+            loop
+            autoplay />
+          <Button
+            type="button"
+            onClick={() => dispatch(labyrinth.actions.resetGame())}>
             RESTART GAME
-        </Button></>)}
+          </Button>
+        </>)}
       {actions && actions.map((singleType) => (
         <GameAlternatives>
           <p key={singleType.description}>
             {singleType.description}
           </p>
-          <Button onClick={() => onTypeButtonClick(singleType.type, singleType.direction)} type="button">{singleType.direction}</Button>
+          <Button onClick={() => onTypeButtonClick(singleType.type, singleType.direction)} type="button">Go {singleType.direction}</Button>
         </GameAlternatives>
       ))}
     </ChildContainer>

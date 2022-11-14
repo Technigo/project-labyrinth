@@ -13,7 +13,7 @@ const labyrinth = createSlice({
   },
   reducers: {
     setUsername: (store, action) => {
-      store.username = action.payload
+      store.username = `${new Date().getTime()}+${action.payload}`
     },
     setStatus: (store, action) => {
       if (store.status !== '') {
@@ -42,7 +42,6 @@ const labyrinth = createSlice({
 export default labyrinth;
 
 export const generateLabyrinth = () => {
-  // eslint-disable-next-line no-unused-vars
   return (dispatch, getState) => {
     dispatch(labyrinth.actions.setLoading(true))
     fetch('https://labyrinth.technigo.io/start', {
