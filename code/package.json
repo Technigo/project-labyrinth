@@ -13,14 +13,8 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-<<<<<<< HEAD
-    "react-global-style": "^0.2.1",
-    "react-lottie": "^1.2.3",
-    "react-redux": "^8.0.5"
-=======
     "react-redux": "^8.0.5",
     "styled-components": "^5.3.6"
->>>>>>> 51f21fe00c533eb591d85ed7516443ea3fa3687f
   },
   "scripts": {
     "start": "react-scripts start",
