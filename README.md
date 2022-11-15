@@ -14,3 +14,4 @@ If we had more time we would have worked more on styling, and tried to reach mor
 ## View it live
 
 Link to deployed app:
+https://developerslabyrinth.netlify.app
