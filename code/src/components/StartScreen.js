@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable indent */
 /* eslint-disable import/no-cycle */
 import React from 'react';

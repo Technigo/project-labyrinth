@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import game, { gameBoard } from 'reducers/game';
