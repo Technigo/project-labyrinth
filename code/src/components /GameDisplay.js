@@ -24,34 +24,28 @@ const GameDisplay = () => {
 			</div>
 		</div>
 	);
+	if (loading) {
+		return <Loading />;
+	}
+	if (actions.length === 0) {
+		return <GameOver />;
+	}
+
 	return (
 		<div>
-			{loading && <Loading />}
-			{!loading && (
+			<>
 				<div>
-					{actions.length !== 0 && (
-						<>
-							<div>
-								<h3>{description}</h3>
-							</div>
-							<div>
-								<h3>Coordinates:{coordinates}</h3>
-							</div>
-							{/* <div className="img-container">
-								<img/>
-							</div> */}
-						</>
-					)}
-					{actions.length === 0 ? (
-						<div>
-							<GameOver />
-						</div>
-					) : (
-						actions.length > 0 &&
-						actions.map((item) => <GameSteps key={item.direction} {...item} />)
-					)}
+					<h3>{description}</h3>
 				</div>
-			)}
+				<div>
+					<h3>Coordinates:{coordinates}</h3>
+				</div>
+				<div>
+					{actions.map((item) => (
+						<GameSteps key={item.direction} {...item} />
+					))}
+				</div>
+			</>
 		</div>
 	);
 };
