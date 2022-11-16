@@ -93,7 +93,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 h1 {
-    font-size: 20px;
+    font-size: 14px;
     @media (min-width: 667px) {
         font-size: 22px;
         width: 55vw;
@@ -181,7 +181,7 @@ justify-content: center;
 color: white;
 
 h2 {
-    font-size: 16px;
+    font-size: 13px;
     @media (min-width: 667px) {
       font-size: 18px;
   }
