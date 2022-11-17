@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const game = createSlice({ // quotes
-  name: 'game', // quotes
+const game = createSlice({
+  name: 'game',
   initialState: {
     username: '',
     description: ''
+    // loading: false
     // steps: [] // Osäker på vad vi behöver här
   },
   reducers: {
@@ -14,6 +15,9 @@ const game = createSlice({ // quotes
     setDescription: (store, action) => {
       store.description = action.payload;
     }
+    // setLoading: (store, action) => {
+    //   store.loading = action.payload;
+    // }
     // setStep: (store, action) => {
     //   store.steps = [...store.moves, action.payload];
     //   console.log('store.steps', store.steps)
@@ -30,12 +34,13 @@ export const generateDescription = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: getState().game.username })
     };
+    // dispatch(game.actions.setLoading(true))
     fetch('https://labyrinth-technigo.herokuapp.com/start', start)
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setDescription(data))
-        console.log('data', data);
-      });
+      })
+      // .finally(() => dispatch(game.actions.setLoading(false)))
   };
 };
 
@@ -48,11 +53,12 @@ export const generateNextDescription = (direction) => {
         type: 'move',
         direction })
     };
+    // dispatch(game.actions.setLoading(true))
     fetch('https://labyrinth-technigo.herokuapp.com/action', action)
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setDescription(data))
-        console.log('data2', data);
-      });
+      })
+      // .finally(() => dispatch(game.actions.setLoading(false)))
   };
 };

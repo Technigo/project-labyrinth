@@ -7,7 +7,6 @@ import GameImage from './GameImage.js'
 
 const Game = () => {
   const description = useSelector((store) => store.game.description); // get description
-  console.log('description', description);
 
   return (
     <GameImage coordinates={description.coordinates}>

@@ -6,14 +6,22 @@ import UserNameInput from './UserNameInput';
 
 const StartScreen = () => {
   const description = useSelector((store) => store.game.description);
-
-  // if (loading) return <Loader />
+  console.log('description', description)
+  // const loading = useSelector((store) => store.game.loading);
+  // console.log('loading', loading)
 
   return (
-    <div>
-      {description === '' ? <UserNameInput /> : <Game />}
-    </div>
-  );
+
+    <>
+      {/* {loading && <Loader />}
+      {!loading && ( */}
+      <div>
+        {description === '' ? <UserNameInput /> : <Game />}
+      </div>
+      {/* )} */}
+
+    </>
+  )
 }
 
 export default StartScreen;
