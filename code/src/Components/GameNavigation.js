@@ -34,7 +34,7 @@ const GameNavigation = ({ actions, coords }) => {
 
   return (
     <ChooseDirectionWrapper>
-      <p style={{ fontWeight: 'bold' }}>Choose direction</p>
+      <p style={{ fontWeight: 'bold', fontSize: 'Large' }}>Choose direction</p>
       <DirectionGrid>
         <div className="north">
           <DirectionButton direction="North" isAvailable={availableMoves.North} handleOnClick={handleOnClick} />

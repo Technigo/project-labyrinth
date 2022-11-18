@@ -1,35 +1,35 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import animationData from 'Lotties/Loader';
+import loaderAnimation from 'Lotties/Loader';
+import Lottie from 'react-lottie';
 
 const LoaderContainer = styled.div`
 display: flex;
-height: 100%;
-width: 100%;
-padding-top: 200px;
-`
-const Lottie = styled.p`
-padding: 2px;
-margin: 0 auto;`
+justify-content: center;
+// align-content: center;
+top-margin: 300px;
 
-// const LoaderMessage = styled.p`
-//   font-size: 25px;
-// `
+// .wrapper {
+//   border: solid 2px red;
+// }
+`
 
 const Loader = () => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData,
+    animationData: loaderAnimation,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice'
     }
   };
   return (
     <LoaderContainer>
-      <Lottie options={defaultOptions} height={100} width={100} />;
-      {/* <LoaderMessage>Page is loading...</LoaderMessage> */}
+      <div className="wrapper">
+        <Lottie options={defaultOptions} height={200} width={200} />;
+      </div>
     </LoaderContainer>
+
   )
 }
 

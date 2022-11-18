@@ -7,9 +7,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
-/* font-family: 'Eczar', serif; */
-  /* font-family: 'Syne Mono', monospace; */
-  /* font-family: 'Special Elite', cursive; */
+ /* font-family: 'Eczar', serif;  */
+font-family: 'Syne Mono', monospace;
+  /* font-family: 'Special Elite', cursive;  */
 
 }
 

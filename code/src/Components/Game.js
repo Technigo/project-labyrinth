@@ -59,6 +59,7 @@ display: grid;
 // border: solid 2px green;
 color: white;
 font-size: 14px;
+line-height: 1.3;
 align-self: end;
 padding: 25px 0 10px 0;
 

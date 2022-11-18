@@ -42,7 +42,7 @@ cursor:pointer;
 color:black;
 font-size:14px;
 font-weight:bold;
-padding:4px 12px;
+padding: 10px 14px;
 text-decoration:none;
 margin-top: 10px;
 display: inline-block;
