@@ -69,4 +69,5 @@ padding: 25px 0 0 0;
 
 @media (min-width: 1025px) {
 font-size: 16px;
+}
 `
