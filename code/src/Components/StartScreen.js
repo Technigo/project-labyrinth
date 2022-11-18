@@ -6,19 +6,17 @@ import Loader from './Loader';
 
 const StartScreen = () => {
   const description = useSelector((store) => store.game.description);
-  console.log('description', description)
   const loading = useSelector((store) => store.game.loading);
 
-  return (
-    <>
-      {loading && <Loader />}
-      {!loading && (
-        <div>
-          {description === '' ? <UserNameInput /> : <Game />}
-        </div>
-      )}
-    </>
-  )
+  if (loading) {
+    return <Loader />
+  }
+
+  if (description !== '') {
+    return <Game />
+  }
+
+  return <UserNameInput />
 }
 
 export default StartScreen;

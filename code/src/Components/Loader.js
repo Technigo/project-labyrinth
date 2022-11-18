@@ -1,36 +1,26 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import loaderAnimation from 'Lotties/Loader';
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 
 const LoaderContainer = styled.div`
-display: flex;
-justify-content: center;
-// align-content: center;
-top-margin: 300px;
-
-// .wrapper {
-//   border: solid 2px red;
-// }
+display: grid;
+align-content: center;
+width: 200px;
+margin: 0 auto;
+height: 100vh;
 `
 
-const Loader = () => {
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: loaderAnimation,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice'
-    }
-  };
-  return (
-    <LoaderContainer>
-      <div className="wrapper">
-        <Lottie options={defaultOptions} height={200} width={200} />;
-      </div>
-    </LoaderContainer>
-
-  )
-}
+const Loader = () => (
+  <LoaderContainer>
+    <Lottie
+      animationData={loaderAnimation}
+      loop
+      autoPlay
+      rendererSettings={{
+        preserveAspectRatio: 'xMidYMid slice'
+      }} />;
+  </LoaderContainer>
+)
 
 export default Loader;
