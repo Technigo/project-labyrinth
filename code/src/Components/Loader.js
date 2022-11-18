@@ -6,8 +6,6 @@ import Lottie from 'react-lottie';
 const LoaderContainer = styled.div`
 display: flex;
 justify-content: center;
-// align-content: center;
-top-margin: 300px;
 
 // .wrapper {
 //   border: solid 2px red;
