@@ -2,9 +2,9 @@
 HTML, CSS, JS, REACT, REDUX
 
 Fetched Api address.
-Used Thunks and Disptach with Redux. 
+Used Thunks and Dispatch with Redux. 
 Used Lottie animation.
-Useselector and Globalstyles.
+Useselector and Globalstyles used as well.
 
 ## View it live
 
