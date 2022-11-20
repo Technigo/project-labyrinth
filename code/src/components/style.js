@@ -6,7 +6,7 @@ background: green;
 margin: 0;
 `
 
-export const Div = styled.div `
+export const Div = styled.div`
 opacity: 5;
 `
 
