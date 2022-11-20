@@ -8,3 +8,4 @@ Useselector and Globalstyles used as well.
 
 ## View it live
 
+https://project-labyrinth-redux-react.netlify.app/
