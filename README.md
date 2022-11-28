@@ -1,11 +1,9 @@
 # Project Labyrinth
 
 This week's project comes in the form of a text-based adventure. Classic games like this usually present the user with a description of where they are and provide several alternatives about what they can do.
-<img width="679" alt="Screenshot 2022-11-28 at 14 58 22" src="https://user-images.githubusercontent.com/108176641/204295761-fa8d3c19-03e6-4f5d-9fd8-7e6a3968eee9.png">
 
-<img width="1658" alt="Screenshot 2022-11-28 at 14 59 34" src="https://user-images.githubusercontent.com/108176641/204295993-d3d2844d-52eb-4330-bf54-52fe593df72e.png">
-
-<img width="344" alt="Screenshot 2022-11-28 at 15 00 15" src="https://user-images.githubusercontent.com/108176641/204296154-4ddf5d3b-06d0-4dc3-97fb-93e1c5f1f8fa.png">
+<img width="479" alt="Screenshot 2022-11-28 at 14 58 22" src="https://user-images.githubusercontent.com/108176641/204295761-fa8d3c19-03e6-4f5d-9fd8-7e6a3968eee9.png">
+<img width="658" alt="Screenshot 2022-11-28 at 14 59 34" src="https://user-images.githubusercontent.com/108176641/204295993-d3d2844d-52eb-4330-bf54-52fe593df72e.png"><img width="144" alt="Screenshot 2022-11-28 at 15 00 15" src="https://user-images.githubusercontent.com/108176641/204296154-4ddf5d3b-06d0-4dc3-97fb-93e1c5f1f8fa.png">
 
 Requirements:
 
