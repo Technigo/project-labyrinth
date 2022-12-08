@@ -35,7 +35,7 @@ export const generateDescription = () => {
       body: JSON.stringify({ username: getState().game.username })
     };
     dispatch(game.actions.setLoading(true))
-    fetch('https://labyrinth-technigo.herokuapp.com/start', start)
+    fetch('https://labyrinth.technigo.io/start', start)
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setDescription(data))
@@ -54,7 +54,7 @@ export const generateNextDescription = (direction) => {
         direction })
     };
     dispatch(game.actions.setLoading(true))
-    fetch('https://labyrinth-technigo.herokuapp.com/action', action)
+    fetch('https://labyrinth.technigo.io/action', action)
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setDescription(data))
