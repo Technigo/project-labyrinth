@@ -369,7 +369,7 @@ color: black;
 
 const RestartButton = styled.button`
   width: 150px;
-  color: red;
+  color: rgb(200, 44, 33);
   border: 4px solid black;
   border-radius: 3px;
   background: var(--clr-grey);

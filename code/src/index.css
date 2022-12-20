@@ -7,6 +7,7 @@
   --clr-darkgrey: #504f4f;
   --clr-lilac: rgba(148, 154, 201, 0.4);
 
+
   /* Fonts */
   --font-pixel: 'Press Start 2P', cursive;
   --font-main:'Play', sans-serif;
@@ -22,7 +23,7 @@
 body {
   display: flex;
 	justify-content: center;
-	background: var(--clr-grey);
+  background: var(--clr-grey);
   margin: 0;
   font-family: 'Play', sans-serif;
   -webkit-font-smoothing: antialiased;
