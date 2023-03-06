@@ -4,6 +4,7 @@ import labyrinth, { generateFetch } from 'reducers/labyrinth';
 import styled from 'styled-components/macro';
 import TypeIt from 'typeit-react';
 import { InputButton, Devices } from './mainStyles';
+import Footer from './Footer';
 
 const UserInput = () => {
   const [userNameInputValue, setUserNameInputValue] = useState('');
@@ -38,26 +39,29 @@ const UserInput = () => {
     } else {
       return (
         isLoading === false && (
-          <form onSubmit={(e) => {
-            setUserName(true);
-            renderWelcomePage(e);
-          }}>
-            <label htmlFor="user-input">
-              <WelcomeText>Type in your name:</WelcomeText>
-              <input
-                className="name-input"
-                id="user-input"
-                type="text"
-                value={userNameInputValue}
-                onChange={(e) => {
-                  setUserNameInputValue(e.target.value);
-                }} />
-            </label>
-            <InputButton
-              disabled={userNameInputValue.length < 1}
-              type="submit">GO
-            </InputButton>
-          </form>
+          <>
+            <form onSubmit={(e) => {
+              setUserName(true);
+              renderWelcomePage(e);
+            }}>
+              <label htmlFor="user-input">
+                <WelcomeText>Type in your name:</WelcomeText>
+                <input
+                  className="name-input"
+                  id="user-input"
+                  type="text"
+                  value={userNameInputValue}
+                  onChange={(e) => {
+                    setUserNameInputValue(e.target.value);
+                  }} />
+              </label>
+              <InputButton
+                disabled={userNameInputValue.length < 1}
+                type="submit">GO
+              </InputButton>
+            </form>
+            <Footer />
+          </>
         ))
     }
   }

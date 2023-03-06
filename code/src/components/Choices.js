@@ -6,6 +6,7 @@ import styled from 'styled-components/macro';
 import TypeIt from 'typeit-react';
 import RestartBtn from './RestartBtn';
 import { DirectionButton, Devices, Wrapper } from './mainStyles';
+import Footer from './Footer';
 
 const Choices = ({ username }) => {
   const [hiddenText, setHiddenText] = useState(false);
@@ -61,7 +62,10 @@ const Choices = ({ username }) => {
         );
       })}
       {quest.coordinates === '1,3' && (
-        <RestartBtn />
+        <>
+          <RestartBtn />
+          <Footer />
+        </>
       )}
     </ChoicesSection>
   );
