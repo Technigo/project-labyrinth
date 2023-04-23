@@ -10,4 +10,4 @@ Describe how you approached to problem, and what tools and techniques you used t
 
 ## View it live
 
-https://matildas-labyrinth.netlify.app/
+https://enter-the-maze.netlify.app/
