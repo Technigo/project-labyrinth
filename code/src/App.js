@@ -22,24 +22,10 @@ export const App = () => {
   )
 }
 
-//         <Spinner />
-
-// const coordinates = '';
-
 /*
-  return (
-    <Provider store={store}>
-      <div className="container">
-        {coordinates === '' && <StartPage />}
-        {coordinates !== '' && <LabyrinthPage />}
-      </div>
-    </Provider>
-  )
-
     if (loadingState) {
     return (
       <CompassAnimation />
     )
   }
-
 */
