@@ -10,6 +10,8 @@ const StartPage = () => {
   const [usernameSubmit, setUsernameSubmit] = useState('')
   const [loading, setLoading] = useState(false)
   const dispatch = useDispatch()
+  // const coordinates = useSelector((store) => store.labyrinth.coordinates)
+  // const loadingState = useSelector((store) => store.loading.isLoading)
 
   const submitUsername = (event) => {
     event.preventDefault();
@@ -27,7 +29,7 @@ const StartPage = () => {
   return (
     !loading ? (
       <div className="start-container">
-        <h1>Labyrinth Game</h1>
+        <h1>THE MAZE</h1>
         <p>Enter the labyrinth on your own risk.</p>
         <p>Can you find a way out of the maze?</p>
         <form>

@@ -1,14 +1,11 @@
 import React from 'react'
 import { Provider } from 'react-redux';
+// import { Provider, useSelector } from 'react-redux';
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
+// import { CompassAnimation } from 'components/LoadingStates/CompassAnimation';
 import { labyrinth } from './reducers/labyrinth'
 import { loading } from './reducers/loading'
-// import Spinner from './components/LoadingStates/Spinner'
-// import CompassAnimation from './components/LoadingStates/CompassAnimation'
-import StartPage from './components/StartPage.js'
-import LabyrinthPage from './components/LabyrinthPage/LabyrinthPage.js'
-
-// https://lottiefiles.com/79847-compass-magnetism
+import Container from './components/Container.js'
 
 export const App = () => {
   const reducer = combineReducers({
@@ -18,19 +15,16 @@ export const App = () => {
 
   const store = configureStore({ reducer })
 
-  const coordinates = '';
-
   return (
     <Provider store={store}>
-      <div className="container">
-        {coordinates === '' && <StartPage />}
-        {coordinates !== '' && <LabyrinthPage />}
-      </div>
+      <Container />
     </Provider>
   )
 }
 
 //         <Spinner />
+
+// const coordinates = '';
 
 /*
   return (
@@ -41,4 +35,11 @@ export const App = () => {
       </div>
     </Provider>
   )
+
+    if (loadingState) {
+    return (
+      <CompassAnimation />
+    )
+  }
+
 */
