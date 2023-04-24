@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { useDispatch } from 'react-redux'
+import { generateActionData } from '../reducers/labyrinth'
 
 const Container = styled.div`
     width: 550px;
@@ -25,6 +27,8 @@ const Description = styled.p`
 `
 
 export const LabyrinthCard = ({ title, description, actions }) => {
+  const dispatch = useDispatch()
+
   console.log('description:', description)
   console.log('actions.length', actions.length, 'actions', actions)
   return (
@@ -36,6 +40,7 @@ export const LabyrinthCard = ({ title, description, actions }) => {
           <p>{item.type}</p>
           <p>{item.direction}</p>
           <p>{item.description}</p>
+          <button type="button" onClick={() => dispatch(generateActionData(item.type, item.direction))}>Go this way</button>
         </div>))}
     </Container>
   )
