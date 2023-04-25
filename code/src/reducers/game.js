@@ -6,14 +6,14 @@ export const game = createSlice({
   name: 'game',
   initialState: {
     username: null,
-    coordinates: ''
+    position: null
   },
   reducers: {
     addPlayer: (store, action) => {
       store.username = action.payload
     },
     setCurrentPosition: (store, action) => {
-      store.coordinates = action.payload
+      store.position = action.payload
     }
   }
 })
@@ -35,6 +35,3 @@ export const startGame = () => {
       })
   }
 }
-
-// Send the POST request with the input from your form (instead
-// of 'Hello world' like this example does):
