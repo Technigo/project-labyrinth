@@ -1,13 +1,27 @@
-# Project Labyrinth
+Project Labyrinth - add netlify link here.
 
-Replace this readme with your own information about your project.
+🏁 Goals:
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+In this week's project, we were tasked with building a project which allows a user to navigate a maze, in the form of a text-based adventure, provided by a backend in React and Redux and we have successfully completed what we set out to do.
 
-## The problem
+The goal for this week was to use the API specified to build a frontend that gives the user control over what to do next. We focused on using thunks and redux to build the communication with the backend. 
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Overall, we found this project to be a great opportunity to practice the use of thunks, bring together different parts of React and working with fetching and posting to an API. We are very pleased with the outcome and looking forward to using the skills and knowledge we gained from this project in future endeavors.
 
-## View it live
+Must-have requirements:
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+✅ Build a responsive page.
+
+✅ Use Redux to store the current state of the game.
+
+✅ Focus on the UX design and handle response delay.
+
+✅ Use thunks to wrap the API calls.
+
+🚧 The problem:
+
+💻 Tech stack:
+
+JavaScript React Redux CSS HTML Figma
+
+View it live 
