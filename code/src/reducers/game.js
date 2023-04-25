@@ -1,16 +1,15 @@
 /* eslint-disable linebreak-style */
-import React from 'react';
 import { createSlice } from '@reduxjs/toolkit';
 
 export const game = createSlice({
   name: 'game',
   initialState: {
-    username: '',
+    username: null,
     coordinates: ''
   },
   reducers: {
     addPlayer: (store, action) => {
-      store.username = [store.username, action.payload]
+      store.username = action.payload
     }
   }
 })

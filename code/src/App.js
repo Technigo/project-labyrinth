@@ -1,9 +1,22 @@
 /* eslint-disable linebreak-style */
 import React from 'react'
 import { Loader } from 'components/Loader'
+import { Provider } from 'react-redux'
+import { game } from 'reducers/game'
+import { configureStore, combineReducers } from '@reduxjs/toolkit'
+import { StartingPage } from 'components/StartingPage'
+
+const reducer = combineReducers({
+  game: game.reducer
+})
+
+const store = configureStore({ reducer })
 
 export const App = () => {
   return (
-    <Loader loaderColor="#fff" textColor="#fff" />
+    <Provider store={store}>
+      <Loader loaderColor="#fff" textColor="#fff" />
+      <StartingPage />
+    </Provider>
   )
 }
