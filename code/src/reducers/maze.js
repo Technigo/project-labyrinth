@@ -6,7 +6,7 @@ export const maze = createSlice({
     coordinates: '',
     description: '',
     actions: [],
-    username: null,
+    username: '',
     isLoading: false,
     chosenDirection: ''
   },
@@ -16,7 +16,7 @@ export const maze = createSlice({
       store.isLoading = action.payload
     },
     setUser: (store, action) => {
-      store.username = action.payload
+      store.username = `${new Date().getTime()}+${action.payload}` // Added time to make the username unique
     },
     setDirection: (store, action) => {
       store.chosenDirection = action.payload

@@ -10,7 +10,11 @@ export const MakeMove = () => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ username: getState().maze.username, type: 'move', direction: getState().maze.chosenDirection })
+        body: JSON.stringify({
+          username: getState().maze.username,
+          type: 'move',
+          direction: getState().maze.chosenDirection
+        })
       }
     )
       .then((res) => res.json())

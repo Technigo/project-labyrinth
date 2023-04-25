@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { maze } from 'reducers/maze'
 import FetchGame from './FetchGame'
+import { Loading } from './Loading'
 
 export const Start = () => {
   const currentLocation = useSelector((store) => store.maze)
@@ -14,9 +15,7 @@ export const Start = () => {
     dispatch(maze.actions.setUser(userName))
     dispatch(FetchGame())
   }
-  if (currentLocation.isLoading) {
-    return <p>Loading</p>
-  }
+  if (currentLocation.isLoading) return <Loading />
   return (
     <div>
       <p>Hello</p>

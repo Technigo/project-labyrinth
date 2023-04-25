@@ -7,7 +7,7 @@ const Main = () => {
   const username = useSelector((store) => store.maze.username)
   return (
     <div>
-      {username === null ? <Start /> : <Location />}
+      {username === '' ? <Start /> : <Location />}
     </div>
   )
 }

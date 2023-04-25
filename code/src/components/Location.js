@@ -1,7 +1,10 @@
+/* eslint-disable react/jsx-closing-tag-location */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { maze } from 'reducers/maze';
-import { MakeMove } from './MakeMove';
+import { maze } from 'reducers/maze'
+import { MakeMove } from './MakeMove'
+import { FinalStep } from './FinalStep'
+import { Loading } from './Loading'
 
 const Location = () => {
   const currentLocation = useSelector((store) => store.maze)
@@ -25,9 +28,16 @@ const Location = () => {
     )
   })
   return (
-    <div>
-      {actionDirections}
-    </div>
+    <container>
+      {currentLocation.isLoading ? <Loading />
+        : <div>
+          {currentLocation.description}
+          {currentLocation.coordinates !== '1,3'
+            ? <p>Make a choice:</p>
+            : <FinalStep />}
+          {actionDirections}
+        </div>}
+    </container>
   )
 }
 

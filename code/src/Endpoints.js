@@ -111,3 +111,4 @@ export const rooms = {
       'As you step into the light, you feel an immense relief and calm flow over you. It feels like an important journey has ended, but you get the sense that a new one is just beginning...',
     actions: [],
   }
+}
