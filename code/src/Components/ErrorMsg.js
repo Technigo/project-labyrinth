@@ -1,8 +1,7 @@
-/*
-import React from 'react';
+/*import React from 'react';
 import Lottie from 'lottie-react';
-import searching_errorAnimation from './lotties/searching_error.json';
+import searchErrorAnimation from './lotties/searchError.json';
 
-const ErrorMsg = () => <Lottie animationData={searching_errorAnimation} loop={true} />
+const ErrorMsg = () => <Lottie animationData={searchErrorAnimation} loop={true} />
 
 export default ErrorMsg*/
