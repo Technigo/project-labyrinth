@@ -24,6 +24,7 @@ export const startGame = () => {
     fetch(ApiStart, {
       method: 'POST',
       headers: {
+        Accept: 'application/json',
         'Content-type': 'application/json'
       },
       body: JSON.stringify({ username: getState().game.username })
