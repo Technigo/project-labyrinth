@@ -1,7 +1,7 @@
 /* eslint-disable linebreak-style */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { game } from 'reducers/game';
+import { game, startGame } from 'reducers/game';
 
 export const StartingPage = () => {
   const [username, setUsername] = useState('')
@@ -9,6 +9,7 @@ export const StartingPage = () => {
   const onFormSubmit = (event) => {
     event.preventDefault()
     dispatch(game.actions.addPlayer(username))
+    dispatch(startGame())
   }
   return (
     <form onSubmit={onFormSubmit}>
@@ -20,6 +21,7 @@ export const StartingPage = () => {
           onChange={(event) => setUsername(event.target.value)}
           required />
       </label>
+      <button type="submit">Next</button>
     </form>
   )
 }
