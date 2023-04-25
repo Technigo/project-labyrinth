@@ -1,12 +1,12 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { labyrinth } from 'reducers/labyrinth'
+import { labyrinth, startGame } from 'reducers/labyrinth'
 
 const StartScreen = () => {
   const dispatch = useDispatch()
   const handleSubmit = (event) => {
     event.preventDefault()
-    dispatch(labyrinth.actions.startGame())
+    dispatch(startGame())
   }
   const handleInputChange = (event) => {
     dispatch(labyrinth.actions.setUserName(event.target.value))
