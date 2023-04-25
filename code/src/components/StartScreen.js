@@ -12,7 +12,8 @@ const StartScreen = () => {
     e.preventDefault()
     dispatch(labyrinth.actions.setUsername(usernameInput))
     dispatch(gameProgress('start'));
-    dispatch(labyrinth.actions.showGame());
+    dispatch(labyrinth.actions.showGame(true));
+
     // post username to the API
   }
 
