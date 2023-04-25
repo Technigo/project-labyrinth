@@ -1,8 +1,6 @@
 # Project Labyrinth
+Group project with Vera and Jonas and Irupé where we build a project which allows a user to navigate a maze, in the form of a text-based adventure, provided by a backend.
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
 
 ## The problem
 
