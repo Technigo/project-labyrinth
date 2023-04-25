@@ -83,6 +83,7 @@ export const continueGame = (type, direction) => {
         dispatch(labyrinth.actions.setCoordinates(data.coordinates));
         dispatch(labyrinth.actions.setDescription(data.description));
         dispatch(labyrinth.actions.setActionOption(data.actions));
+        dispatch(loading.actions.setLoading(false));
       })
   }
 }
