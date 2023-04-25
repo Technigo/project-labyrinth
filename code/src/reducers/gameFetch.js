@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { batch } from 'react-redux';
 
-const fetchGame = createSlice({
-  name: 'fetchGame',
+export const gameFetch = createSlice({
+  name: 'gameFetch',
   initialState: {
-    userName: null,
+    userName: '',
     description: '',
     actions: [],
     loading: false,
@@ -12,6 +12,7 @@ const fetchGame = createSlice({
   },
   reducers: {
     setName: (store, action) => {
+      console.log(action.payload);
       store.userName = action.payload;
     },
     setDescription: (store, action) => {
@@ -29,36 +30,36 @@ const fetchGame = createSlice({
   }
 });
 
-export const fetchOne = (userName) => {
-  return (dispatch) => {
-    dispatch(fetchGame.actions.setLoading(true))
+export const fetchOne = () => {
+  return (dispatch, getState) => {
+    dispatch(gameFetch.actions.setLoading(true))
     fetch('https://labyrinth.technigo.io/start', {
 
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username: userName })
+      body: JSON.stringify({ username: getState().gameFetch.userName })
 
     })
       .then((res) => res.json())
       .then((data) => {
         batch(() => {
-          dispatch(fetchGame.actions.setDescription(data.description));
-          dispatch(fetchGame.actions.setActions(data.actions));
-          dispatch(fetchGame.actions.setCoordinates(data.cordinates));
-          dispatch(fetchGame.actions.setLoading(false));
+          dispatch(gameFetch.actions.setDescription(data.description));
+          dispatch(gameFetch.actions.setActions(data.actions));
+          dispatch(gameFetch.actions.setCoordinates(data.cordinates));
+          dispatch(gameFetch.actions.setLoading(false));
         })
       })
   }
 }
 
-export const fetchTwo = (userName, direction) => {
-  return (dispatch) => {
-    dispatch(fetchGame.actions.setLoading(true));
+export const fetchTwo = (direction) => {
+  return (dispatch, getState) => {
+    dispatch(gameFetch.actions.setLoading(true));
     fetch('https://labyrinth.technigo.io/action', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        userName,
+        username: getState().gameFetch.username,
         type: 'move',
         direction
       })
@@ -66,12 +67,12 @@ export const fetchTwo = (userName, direction) => {
       .then((res) => res.json())
       .then((data) => {
         batch(() => {
-          dispatch(fetchGame.actions.setDescription(data.description));
-          dispatch(fetchGame.actions.setActions(data.actions));
-          dispatch(fetchGame.actions.setCoordinates(data.coordinates));
-          dispatch(fetchGame.actions.setLoading(false));
+          dispatch(gameFetch.actions.setDescription(data.description));
+          dispatch(gameFetch.actions.setActions(data.actions));
+          dispatch(gameFetch.actions.setCoordinates(data.coordinates));
+          dispatch(gameFetch.actions.setLoading(false));
         });
       });
   };
 };
-export default fetchGame;
+export default gameFetch;
