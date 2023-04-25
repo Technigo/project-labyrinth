@@ -1,27 +1,80 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  items: [
+  username:"", 
+  response:
     {
-      type: '',
-      direction: '',
-      description:
-              ''
-    }
-  ]
+      "coordinates": "0",
+      "description": "",
+      "actions": [
+          {
+              "type": "",
+              "direction": "",
+              "description": ""
+          }
+      ]
+  }
 }
 
 export const Game = createSlice(
   {
-    name: '',
+    name: 'game',
     initialState,
     reducers: {
-      startGame: (store, action) => {
-
+      setUsername: (store, action) => {
+        store.username=action.payload
       },
-      userChoice: (store, action) => {
-
+      nextStep:(store, action) => {
+        store.response = action.payload
       },
+      
     }
   }
 )
+
+// thunk to handle start API
+export const startGame = () => {
+  return (dispatch, getState) => (
+fetch('https://labyrinth.technigo.io/start', {
+  method: 'POST',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    username: getState().game.username
+  })
+})
+.then((response) => response.json())
+.then((json) => {
+  // get the data from the api - save it in global state
+  dispatch(Game.actions.nextStep(json))})
+ .catch((error) => console.error(error))
+
+)
+}
+
+//thunk to handle action API
+export const getStory = (direction) => {
+
+  return (dispatch, getState) => (
+    fetch('https://labyrinth.technigo.io/action', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: getState().game.username,
+        "type": "move",
+        "direction":direction,
+      })
+    })
+    .then((response) => response.json())
+    .then((json) => {
+      // get the data from the api - save it in global state
+      dispatch(Game.actions.nextStep(json))})
+    .catch((error) => console.error(error))
+
+  )
+}
