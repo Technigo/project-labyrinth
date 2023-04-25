@@ -24,7 +24,7 @@ const labyrinth = createSlice({
 
 // a thunk to handle the API request
 // two API requests one for the startLabyrinth and one for all the rest
-export const startLabyrinth = () => {
+const startLabyrinth = () => {
   return (dispatch, getState) => {
     dispatch(labyrinth.actions.setLoader(true))
     const options = {
@@ -43,7 +43,8 @@ export const startLabyrinth = () => {
       })
       .finally(() => dispatch(labyrinth.actions.setLoading(false)))
   };
-}
+};
+export default startLabyrinth;
 
 export const labyrinthProgress = (type, direction) => {
   return (dispatch, getState) => {
