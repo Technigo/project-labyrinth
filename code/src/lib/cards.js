@@ -5,8 +5,7 @@ import { generateActionData } from '../reducers/labyrinth'
 
 const Container = styled.div`
   padding: 50px;
-  max-width: 700px;
-  max-height: 600px;
+  max-height: 600px; /* set a fixed height */
   margin: calc(50% - 220px) auto;
   border-radius: 50px;
   background-color: rgba(0, 0, 0, 0.7);
@@ -17,12 +16,15 @@ const Container = styled.div`
   justify-content: center;
   gap: 25px;
   text-align: center;
+  overflow-y: auto; /* add overflow-y property */
   @media (max-width: 768px) {
-    max-height: 500px;
+    max-height: 550px; /* set a smaller height */
     padding: 25px;
-    overflow: auto;
-    }
-`
+    align-items: flex-start;
+    margin: 0 auto; /* center horizontally */
+  }
+`;
+
 const Description = styled.p`
     font-size: 22px;
     color: white;
@@ -48,13 +50,21 @@ const DirectionContainer = styled.div`
   align-items: center;
   gap: 7px;
   text-align: left;
+
+  @media (max-width: 768px) {
+    margin-bottom: 7px;
+    gap: 0;
+  }
 `
 
 const DirectionDescription = styled.p`
-    font-size: 16px;
-    @media (max-width: 768px) {
-      font-size: 14px;
-    }
+  font-size: 16px;
+  margin-bottom: 7px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
 `
 
 const DirectionButton = styled.button`
