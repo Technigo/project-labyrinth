@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 import { createSlice } from '@reduxjs/toolkit';
-import { ApiStart } from '../utils/url';
+import { ApiStart, ApiMove } from '../utils/url';
 
 export const game = createSlice({
   name: 'game',
@@ -28,6 +28,29 @@ export const startGame = () => {
         'Content-type': 'application/json'
       },
       body: JSON.stringify({ username: getState().game.username })
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        dispatch(game.actions.setCurrentPosition(json))
+        // dispatch loading state to be false here
+      })
+  }
+}
+
+export const nextMove = (direction) => {
+  return (dispatch, getState) => {
+    // dispatch loading state to be true here
+    fetch(ApiMove, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: getState().game.username,
+        type: 'move',
+        direction
+      })
     })
       .then((res) => res.json())
       .then((json) => {
