@@ -1,15 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { batch } from 'react-redux';
 
+const initialState = {
+  userName: '',
+  description: '',
+  actions: [],
+  loading: false,
+  coordinates: ''
+}
+
 export const gameFetch = createSlice({
   name: 'gameFetch',
-  initialState: {
-    userName: '',
-    description: '',
-    actions: [],
-    loading: false,
-    coordinates: ''
-  },
+  initialState,
   reducers: {
     setName: (store, action) => {
       store.userName = action.payload;
@@ -25,7 +27,8 @@ export const gameFetch = createSlice({
     },
     setLoading: (store, action) => {
       store.loading = action.payload;
-    }
+    },
+    restartGame: () => initialState
   }
 });
 
@@ -75,4 +78,5 @@ export const fetchTwo = (direction) => {
       });
   };
 };
+
 export default gameFetch;

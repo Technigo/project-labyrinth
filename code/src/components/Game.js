@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchTwo } from 'reducers/gameFetch'
+import { fetchTwo, gameFetch } from 'reducers/gameFetch'
 import { StarterPage } from './StarterPage'
 
 export const Game = () => {
@@ -11,9 +11,14 @@ export const Game = () => {
 
   const dispatch = useDispatch();
 
+  const onRestartButton = () => {
+    dispatch(gameFetch.actions.restartGame());
+  };
+
   return (
     <div>
       {coordinates === '' && (<StarterPage />)}
+      {coordinates === '1,3' && (<button type="button" onClick={onRestartButton}>Restart</button>)}
       <p>{gameData.description}</p>
       {gameActions && gameActions.map((item) => {
         return (
