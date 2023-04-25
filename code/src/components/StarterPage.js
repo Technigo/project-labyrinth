@@ -1,36 +1,37 @@
-import React, { useState } from 'react'
-import { gameFetch, fetchOne } from 'reducers/gameFetch'
-import { useDispatch } from 'react-redux'
+import React, { useState } from 'react';
+import { gameFetch, fetchOne } from 'reducers/gameFetch';
+import { useDispatch } from 'react-redux';
 
 export const StarterPage = () => {
   const dispatch = useDispatch();
   const [userName, setUserName] = useState('');
+  const [submitted, setSubmitted] = useState(false);
 
   const onSubmitUserName = (event) => {
     event.preventDefault();
-    console.log(userName);
-    dispatch(gameFetch.actions.setName(userName))
-    dispatch(fetchOne())
-    /* dispatch(fetchOne({ username: userName })); */
-  }
+    dispatch(gameFetch.actions.setName(userName));
+    dispatch(fetchOne());
+    setSubmitted(true);
+  };
 
   return (
-
-    <form onSubmit={onSubmitUserName}>
-      <label htmlFor={userName}>
-        <input
-          type="text"
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)} />
-      </label>
-      <button
-        type="submit">
-        submit
-      </button>
-    </form>
-
-  )
-}
+    <div>
+      {submitted ? (
+        <h1>Hello, {userName}!</h1>
+      ) : (
+        <form onSubmit={onSubmitUserName}>
+          <label htmlFor={userName}>
+            <input
+              type="text"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)} />
+          </label>
+          <button type="submit">Submit</button>
+        </form>
+      )}
+    </div>
+  );
+};
 
 /* 1. en sida för input name(startsidan)
 2. vi börjar med att se till att fetchen funkar på vår sida

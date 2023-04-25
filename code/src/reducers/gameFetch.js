@@ -12,7 +12,6 @@ export const gameFetch = createSlice({
   },
   reducers: {
     setName: (store, action) => {
-      console.log(action.payload);
       store.userName = action.payload;
     },
     setDescription: (store, action) => {
@@ -33,22 +32,23 @@ export const gameFetch = createSlice({
 export const fetchOne = () => {
   return (dispatch, getState) => {
     dispatch(gameFetch.actions.setLoading(true))
-    fetch('https://labyrinth.technigo.io/start', {
 
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username: getState().gameFetch.userName })
-
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        batch(() => {
-          dispatch(gameFetch.actions.setDescription(data.description));
-          dispatch(gameFetch.actions.setActions(data.actions));
-          dispatch(gameFetch.actions.setCoordinates(data.cordinates));
-          dispatch(gameFetch.actions.setLoading(false));
-        })
+    setTimeout(() => {
+      fetch('https://labyrinth.technigo.io/start', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: getState().gameFetch.userName })
       })
+        .then((res) => res.json())
+        .then((data) => {
+          batch(() => {
+            dispatch(gameFetch.actions.setDescription(data.description));
+            dispatch(gameFetch.actions.setActions(data.actions));
+            dispatch(gameFetch.actions.setCoordinates(data.cordinates));
+            dispatch(gameFetch.actions.setLoading(false));
+          })
+        })
+    }, 1000);
   }
 }
 
