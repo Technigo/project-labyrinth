@@ -3,7 +3,7 @@ import { Player } from '@lottiefiles/react-lottie-player';
 
 export const CompassAnimation = () => {
   return (
-    <div>
+    <div className="Animation-container">
       <Player
         loop
         autoplay

@@ -12,8 +12,8 @@ export const labyrinth = createSlice({
   // Here we add functions that set the state, i.e. the username.
   reducers: {
     setUsername: (state, action) => {
-      state.username = action.payload
-      state.coordinates = '0,0';
+      state.username = action.payload;
+      // state.coordinates = '0,0';
     },
     setCoordinates: (state, action) => {
       state.coordinates = action.payload
@@ -47,17 +47,17 @@ export const generateLabyrinthData = () => {
     fetch('https://labyrinth.technigo.io/start', options)
       .then((response) => response.json())
       .then((data) => {
-        console.log('data', data)
-        console.log('data.coordinates:', data.coordinates)
+        console.log('generateLabyrinthData data', data)
+        console.log('generateLabyrinthData data.coordinates:', data.coordinates)
         dispatch(labyrinth.actions.setCoordinates(data.coordinates));
         dispatch(labyrinth.actions.setDescription(data.description));
         dispatch(labyrinth.actions.setActionOption(data.actions));
-        setTimeout(() => { dispatch(loading.actions.setLoading(false)) }, 3000);
+        setTimeout(() => { dispatch(loading.actions.setLoading(false)) }, 3500);
       })
   }
 }
 
-// The API request for when the suer is selecting an action
+// The API request for when the user is selecting an action
 export const generateActionData = (type, direction) => {
   return (dispatch, getState) => {
     dispatch(loading.actions.setLoading(true))
@@ -76,41 +76,13 @@ export const generateActionData = (type, direction) => {
       .then((respons) => respons.json())
       .then((data) => {
         console.log('data', data);
-        console.log('data.coordinates:', data.coordinates);
-        console.log('data.description:', data.description);
-        console.log('data.actions:', data.actions);
+        console.log('generateActionData data.coordinates:', data.coordinates);
+        console.log('generateActionData data.description:', data.description);
+        console.log('generateActionData data.actions:', data.actions);
         dispatch(labyrinth.actions.setCoordinates(data.coordinates));
         dispatch(labyrinth.actions.setDescription(data.description));
         dispatch(labyrinth.actions.setActionOption(data.actions));
-        dispatch(loading.actions.setLoading(false));
+        setTimeout(() => { dispatch(loading.actions.setLoading(false)) }, 2000);
       })
   }
 }
-
-/*
-export const nextStage = (type, direction) => {
-  return (dispatch, getState) => {
-    dispatch(loading.actions.setLoading(true));
-    const API_URL_ACTION = 'https://labyrinth.technigo.io/action';
-    const optionsAction = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        username: getState().labyrinth.username,
-        type,
-        direction
-      })
-    };
-    fetch(API_URL_ACTION, optionsAction)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log('data', data);
-        dispatch(labyrinth.actions.setStage(data));
-      })
-      .catch((error) => console.log(error))
-      .finally(() => dispatch(loading.actions.setLoading(false)));
-  };
-};
-*/

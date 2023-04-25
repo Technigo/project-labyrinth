@@ -12,19 +12,22 @@ export const SubmitBtn = styled.button`
 `
 
 export const MainButton = styled.button`
-    margin: 5px;
+    margin: 0;
     font-size: 22px;
-    padding: 12px 18px;
-    border-radius: 8px;
+    padding: 15px 18px;
+    border-radius: 25px 0 0 0;
     border: none;
-    background-color: grey;
+    background-color: #666;
     color: white;
     cursor: pointer;
 `
 
 const StyledP = styled.p`
     font-size: 26px;
-    color: white;
+    color: #B3D0B6;
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
 `
 
 export const DirectionArrow = ({ className }) => {
@@ -46,24 +49,43 @@ const NorthArrow = styled(DirectionArrow)`
     width: 80px;
     height: 80px;
     transform: rotate(-90deg);
+
+    @media (max-width: 768px) {
+        width: 40px;
+        height: 40px;
+    }
 `
 
 const SouthArrow = styled(DirectionArrow)`
     width: 80px;
     height: 80px;
     transform: rotate(90deg);
+
+    @media (max-width: 768px) {
+        width: 40px;
+        height: 40px;
+    }
 `
 
 const WestArrow = styled(DirectionArrow)`
     width: 80px;
     height: 80px;
     transform: rotate(180deg);
+
+    @media (max-width: 768px) {
+        width: 40px;
+        height: 40px;
+    }
 `
 
 const EastArrow = styled(DirectionArrow)`
     width: 80px;
     height: 80px;
 
+    @media (max-width: 768px) {
+        width: 40px;
+        height: 40px;
+    }
 `
 
 export const North = () => {

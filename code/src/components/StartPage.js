@@ -15,17 +15,25 @@ const StartPage = () => {
 
   const submitUsername = (event) => {
     event.preventDefault();
-    setTimeout(() => { setLoading(true); }, 100);
-    console.log('the user has now clicked the submit button')
-    console.log('usernameSubmit:', usernameSubmit)
-    // We send the usernameSubmit as payload to our slice labyrinth and the reducer setUsername
-    // Thus updating our state to hold a new username
-    dispatch(labyrinth.actions.setUsername(usernameSubmit));
-    // We also send this username into our thunk, generateLabyrinthData.
-    // The thunk allows us to POST or GET data to the API
-    dispatch(generateLabyrinthData(usernameSubmit));
-    setTimeout(() => { setLoading(false); }, 5000);
+    if (usernameSubmit !== '') {
+      setTimeout(() => {
+        setLoading(true);
+      }, 100);
+      console.log('the user has now clicked the submit button');
+      console.log('usernameSubmit:', usernameSubmit);
+      // We send the usernameSubmit as payload to our slice labyrinth and the reducer setUsername
+      // Thus updating our state to hold a new username
+      dispatch(labyrinth.actions.setUsername(usernameSubmit));
+      // We also send this username into our thunk, generateLabyrinthData.
+      // The thunk allows us to POST or GET data to the API
+      dispatch(generateLabyrinthData(usernameSubmit));
+      setTimeout(() => { setLoading(false); }, 5000);
+    }
+    if (usernameSubmit === '') {
+      alert('Please enter a valid username');
+    }
   }
+
   return (
     !loading ? (
       <div className="Start-container">
@@ -42,7 +50,10 @@ const StartPage = () => {
               onChange={(event) => setUsernameSubmit(event.target.value)}
               value={usernameSubmit} />
           </label>
-          <SubmitBtn type="submit" onClick={submitUsername}>Submit</SubmitBtn>
+          <SubmitBtn
+            type="submit"
+            onClick={submitUsername}>Submit
+          </SubmitBtn>
         </form>
       </div>
     ) : (
