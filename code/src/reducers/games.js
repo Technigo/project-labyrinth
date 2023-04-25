@@ -35,14 +35,14 @@ const games = createSlice({
 
     setCoordinates: (store, action) => {
       store.coordinates = action.payload
-    }
+    },
 
-    // setPreviousMove: (store, action) => {
-    //   if (store.history.length) {
-    //     store.moves = store.history[store.history.length - 1]
-    //     store.history = store.history.slice(0, store.history.length - 1)
-    //   }
-    // }
+    setPreviousMove: (store) => {
+      if (store.history.length) {
+        store.moves = store.history[store.history.length - 1]
+        store.history = store.history.slice(0, store.history.length - 1)
+      }
+    }
   }
 });
 
