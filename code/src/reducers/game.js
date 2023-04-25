@@ -24,7 +24,15 @@ export const startGame = () => {
   return (dispatch, getState) => {
     // set loading to true
     dispatch(game.actions.loading(true));
-    fetch('https://labyrinth.technigo.io/start/')
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username: 'username' })
+    };
+    fetch('https://labyrinth.technigo.io/start/', options)
       .then((response) => {
         console.log(response);
         return response.json();
