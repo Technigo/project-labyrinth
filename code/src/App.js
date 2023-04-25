@@ -10,8 +10,7 @@ export const App = () => {
   const store = configureStore({ reducer });
   return (
     <Provider store={store}>
-
-      Find me in src/app.js!
+hej hej
     </Provider>
   )
 }
