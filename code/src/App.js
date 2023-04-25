@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { maze } from 'reducers/maze';
 import { ui } from 'reducers/ui';
-import { WelcomePage } from 'components/WelcomePage';
+import { Main } from 'components/Main';
 
 export const App = () => {
   const reducer = combineReducers({
@@ -15,7 +15,7 @@ export const App = () => {
 
   return (
     <Provider store={store}>
-      <WelcomePage />
+      <Main />
     </Provider>
   )
 }
