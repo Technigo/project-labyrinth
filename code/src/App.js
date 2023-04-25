@@ -6,6 +6,7 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import { labyrinth } from './reducers/labyrinth'
 import { loading } from './reducers/loading'
 import Container from './components/Container.js'
+// import Background from './components/Background.js'
 
 export const App = () => {
   const reducer = combineReducers({
@@ -14,6 +15,11 @@ export const App = () => {
   })
 
   const store = configureStore({ reducer })
+
+  // const coordinates = useSelector((state) => state.labyrinth.coordinates)
+  // console.log('coordinates:', coordinates)
+  // const isLoading = useSelector((state) => state.loading.isLoading)
+  // console.log('isLoading:', isLoading)
 
   return (
     <Provider store={store}>
@@ -28,4 +34,22 @@ export const App = () => {
       <CompassAnimation />
     )
   }
+
+    return (
+    <Provider store={store}>
+      {!isLoading && (
+        <Background>
+          <Container />
+        </Background>
+      )}
+      {isLoading && <CompassAnimation />}
+    </Provider>
+  )
+
+      <Provider store={store}>
+      <Background>
+        <Container />
+        <CompassAnimation />
+      </Background>
+    </Provider>
 */

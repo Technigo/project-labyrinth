@@ -13,6 +13,7 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    transition: 1s ease-in;
 `
 
 const Title = styled.h1`

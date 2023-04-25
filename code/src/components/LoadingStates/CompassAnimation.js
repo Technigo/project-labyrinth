@@ -1,20 +1,17 @@
 import React from 'react';
-import Lottie from 'lottie-react';
-import animationData from './lotties/compass-lottie-black.json';
+// import Lottie from 'lottie-react';
+import { Player } from '@lottiefiles/react-lottie-player';
+// import animationData from './lotties/compass-lottie-black.json';
 
 export const CompassAnimation = () => {
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice'
-    }
-  };
-
   return (
     <div>
-      <Lottie options={defaultOptions} height={400} width={400} />
+      <Player
+        loop
+        autoplay
+        src="https://assets7.lottiefiles.com/packages/lf20_exfgqmmf.json"
+        className="lottie"
+        speed={1} />
     </div>
   );
 }

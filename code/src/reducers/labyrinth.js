@@ -13,7 +13,7 @@ export const labyrinth = createSlice({
   reducers: {
     setUsername: (state, action) => {
       state.username = action.payload
-      state.coordinates = '';
+      state.coordinates = '0,0';
     },
     setCoordinates: (state, action) => {
       state.coordinates = action.payload

@@ -28,7 +28,7 @@ const StartPage = () => {
   }
   return (
     !loading ? (
-      <div className="start-container">
+      <div className="Start-container">
         <h1>THE MAZE</h1>
         <p>Enter the labyrinth on your own risk.</p>
         <p>Can you find a way out of the maze?</p>
