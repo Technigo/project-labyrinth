@@ -25,6 +25,14 @@ const Description = styled.p`
     font-size: 22px;
     color: white;
     margin-bottom: 15px;
+    @media (max-width: 768px) {
+      font-size: 16px;
+      margin-bottom: 5px;
+      height: 100%;
+      max-height: 500px;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
 `
 const DirectionContainer = styled.div`
   padding: 15px;
@@ -40,6 +48,13 @@ const DirectionContainer = styled.div`
   align-items: center;
   gap: 7px;
   text-align: left;
+`
+
+const DirectionDescription = styled.p`
+    font-size: 16px;
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
 `
 
 const DirectionButton = styled.button`
@@ -62,7 +77,7 @@ export const LabyrinthCard = ({ description, actions }) => {
       <Description>{description}</Description>
       {actions.map((item) => (
         <DirectionContainer key={item.description}>
-          <p>{item.description}</p>
+          <DirectionDescription>{item.description}</DirectionDescription>
           <DirectionButton type="button" onClick={() => dispatch(generateActionData(item.type, item.direction))}>Go {item.direction}</DirectionButton>
         </DirectionContainer>))}
     </Container>

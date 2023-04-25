@@ -42,7 +42,7 @@ const Background = () => {
 
   if (coordinates === '0,0') {
     // You find yourself under a large archway opening into a cavern. A sense of purpose fills you.
-    imageUrl = 'https://i.postimg.cc/2SjZZWrf/tim-roosjen-IBXb-p-D17-M-unsplash.jpg';
+    imageUrl = 'https://i.postimg.cc/7PdQjynJ/polina-kocheva-2-FR-8-LV-0o-Q-unsplash.jpg';
   } else if (coordinates === '0,1') {
     // large, four-walled room with mechanical gadgets
     imageUrl = 'https://i.postimg.cc/fTCwHxH2/hermes-rivera-e-N1q-Ryr-F-U0-unsplash.jpg';
@@ -81,19 +81,3 @@ const Background = () => {
 }
 
 export default Background;
-
-/*
-const Background = () => {
-  const coordinates = useSelector((store) => store.labyrinth.coordinates)
-  const loading = useSelector((store) => store.loading.isLoading)
-  console.log('coordinates:', coordinates)
-  console.log('loading:', loading)
-  return (
-    {!loading && (
-    <StyledBackground />
-    )}
-    {loading && (
-      <StyledNoBackground />
-    )}
-  )
-} */
