@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const jokes = createSlice({
-  name: 'dailies',
+  name: 'jokes',
   initialState: {
     username: ''
     gameStep: {
-        coordinates: "0,0"
-    }
+        coordinates: "0,0",
+    },
+    history: 
     joke: {},
     category: ''
   },
