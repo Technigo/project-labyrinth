@@ -3,7 +3,6 @@ import { Provider } from 'react-redux'
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import { labyrinth } from 'reducers/labyrinth'
 import { loading } from 'reducers/loading'
-import { InnerWrapper } from 'components/GlobalStyles'
 import StartScreen from 'components/StartScreen'
 
 export const App = () => {
@@ -17,7 +16,6 @@ export const App = () => {
   return (
     <Provider store={store}>
       <StartScreen />
-      <InnerWrapper />
     </Provider>
   )
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { startGame, labyrinth } from 'reducers/labyrinth';
 import { useDispatch } from 'react-redux';
-import { StartContainer, TextP } from './GlobalStyles';
+import { StartContainer, SubmitBtn, TextP } from './GlobalStyles';
 import Game from './Game';
 
 const StartScreen = () => {
@@ -28,7 +28,7 @@ const StartScreen = () => {
           type="text"
           placeholder="Enter username"
           onChange={(event) => setUsernameInput(event.target.value)} />
-        <button type="submit">start</button>
+        <SubmitBtn type="submit">start</SubmitBtn>
       </form>
 
       {gameStart ? (

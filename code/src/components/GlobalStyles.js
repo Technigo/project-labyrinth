@@ -5,26 +5,31 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-max-width: 800px;
-min-height: 50vh;
-width: 90%;
+width: 400px;
+height: 600px;
 gap: 5px;
-margin: auto;
-background-color: #eab676;
+padding: 10px;
+background-color: grey;
+margin: 0 auto;
 `
 
 export const InnerWrapper = styled.div`
-display: flex;
+  padding: 100px;
+  height: 100vh;
+  width: 100vw;
+  background-color: beige;
+  position: relative;
+/* display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
 background-color: violet;
 padding: 5% 5%;
 border-radius: 5px;
-max-width: 600px;
+max-width: 400px;
 min-height: 50vh;
 margin: 0 auto;
-width: 90%;
+width: 90%; */
 `
 
 export const Wrapper = styled.div`
@@ -39,7 +44,7 @@ export const SubmitBtn = styled.button`
     padding: 8px 12px;
     border-radius: 8px;
     border: none;
-    background-color: black;
+    background-color: green;
     color: white;
     cursor: pointer;
 `
