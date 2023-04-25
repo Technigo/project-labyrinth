@@ -20,7 +20,7 @@ const LabyrinthPage = () => {
       <div className="Game-container">
         <LabyrinthCard title={title} description={description} actions={actions} />
       </div>
-      <Directions />
+      <Directions actions={actions} />
     </>
   )
 }

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { MainButton, North, South, West, East } from '../lib/buttons'
@@ -20,24 +21,73 @@ const Directions = () => {
     dispatch(labyrinth.actions.restart());
   }
 
-  const onClickGo = () => {
+  const onClickGo = (type, direction) => {
     console.log('user clicked one of the arrows')
-    dispatch(generateActionData(labyrinth.type, labyrinth.direction))
+    dispatch(generateActionData(type, direction))
   }
 
   return (
     <>
       {!endposition && !startposition && (
         <>
-          <North onClick={onClickGo} />
-          <South onClick={onClickGo} />
-          <West onClick={onClickGo} />
-          <East onClick={onClickGo} />
+          {actions.map((action) => {
+            let buttonElement = null;
+            if (action.direction === 'South') {
+              buttonElement = <South onClick={() => onClickGo(action.type, 'South')} key={action.direction} />;
+            } else if (action.direction === 'North') {
+              buttonElement = <North onClick={() => onClickGo(action.type, 'North')} key={action.direction} />;
+            } else if (action.direction === 'West') {
+              buttonElement = <West onClick={() => onClickGo(action.type, 'West')} key={action.direction} />;
+            } else if (action.direction === 'East') {
+              buttonElement = <East onClick={() => onClickGo(action.type, 'East')} key={action.direction} />;
+            }
+            return buttonElement;
+          })}
+        </>
+      )}
+      {!startposition && (
+        <MainButton style={{ position: 'absolute', bottom: '0', right: '0' }} onClick={onClickRestart}>Restart</MainButton>
+      )}
+    </>
+  );
+};
+
+export default Directions;
+
+/*
+
+actions.map(action => (
+  action.direction === 'South' ? (
+    <South onClick={() => onClickGo('SOUTH')} />
+  ) : action.direction === 'North' ? (
+    <North onClick={() => onClickGo('NORTH')} />
+  ) : action.direction === 'West' ? (
+    <West onClick={() => onClickGo('WEST')} />
+  ) : (
+    <East onClick={() => onClickGo('EAST')} />
+  )
+))
+
+  return (
+    <>
+      {!endposition && !startposition && (
+        <>
+          <button type="button" onClick={() => onClickGo('North')}>
+            <North />
+          </button>
+          <button type="button" onClick={() => onClickGo('South')}>
+            <South />
+          </button>
+          <button type="button" onClick={() => onClickGo('West')}>
+            <West />
+          </button>
+          <button type="button" onClick={() => onClickGo('East')}>
+            <East />
+          </button>
         </>
       )}
       {!startposition && (<MainButton style={{ position: 'absolute', bottom: '0', right: '0' }} onClick={onClickRestart}>Restart</MainButton>)}
     </>
   )
-}
 
-export default Directions;
+*/
