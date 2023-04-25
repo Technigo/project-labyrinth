@@ -1,12 +1,12 @@
-// import React, { useEffect } from 'react';
-// import AuthorInputSearch from './AuthorInputSearch';
-// import Joke from './Task';
+import React, { useEffect } from 'react';
+import InputSearch from './InputSearch';
+import labyrinth from 'reducers/labyrinth'
 
-// const StartScreen = () => {
-//   return <div> Start start
-//     <AuthorInputSearch />
-//     <Joke />
-//   </div>;
-// }
+const StartScreen = () => {
+  return ( 
+    <InputSearch />
+    <Task />
+    )
+}
 
-// export default StartScreen
+export default StartScreen
