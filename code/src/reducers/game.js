@@ -30,8 +30,8 @@ export const startGame = () => {
       body: JSON.stringify({ username: getState().game.username })
     })
       .then((res) => res.json())
-      .then((currentPosition) => {
-        dispatch(game.actions.setCurrentPosition(currentPosition))
+      .then((json) => {
+        dispatch(game.actions.setCurrentPosition(json))
         // dispatch loading state to be false here
       })
   }
