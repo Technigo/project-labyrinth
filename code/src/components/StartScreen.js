@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { startGame, labyrinth } from 'reducers/labyrinth';
 import { useDispatch } from 'react-redux';
-import { StartContainer, SubmitBtn, TextP } from './GlobalStyles';
+import { StartContainer, SubmitBtn, TextP } from '../styles/GlobalStyles';
 import Game from './Game';
 
 const StartScreen = () => {

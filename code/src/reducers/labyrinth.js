@@ -12,11 +12,10 @@ const initialState = {
 export const labyrinth = createSlice({
   name: 'labyrinth',
   initialState,
-  // Add functions that set state
+
   reducers: {
     setUsername: (state, action) => {
       state.username = action.payload
-      // state.coordinates = '';
     },
     setCoordinates: (state, action) => {
       state.coordinates = action.payload
@@ -27,12 +26,9 @@ export const labyrinth = createSlice({
     setActionOption: (state, action) => {
       state.actions = action.payload
     },
-    // restarting, putting the coordinates to '' to get to the start page
-    // maybe chose that it resets the whole state?
+
     restart: () => {
       return initialState
-      // state.coordinates = '';
-      // console.log('state.coordinates restarting:', state.coordinates)
     }
   }
 })
