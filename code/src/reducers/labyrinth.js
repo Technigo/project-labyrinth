@@ -3,28 +3,31 @@ import { loading } from './loading'
 
 const initialState = {
   username: null,
-  coordinates: '',
-  description: '',
-  direction: '',
-  actions: [],
   currentStep: {}
+  // coordinates: '',
+  // description: '',
+  // direction: '',
+  // actions: [],
 }
 export const labyrinth = createSlice({
   name: 'labyrinth',
   initialState,
 
   reducers: {
-    setUsername: (state, action) => {
-      state.username = action.payload
+    setUsername: (store, action) => {
+      store.username = action.payload
     },
-    setCoordinates: (state, action) => {
-      state.coordinates = action.payload
-    },
-    setDescription: (state, action) => {
-      state.description = action.payload
-    },
-    setActionOption: (state, action) => {
-      state.actions = action.payload
+    // setCoordinates: (store, action) => {
+    //   store.coordinates = action.payload
+    // },
+    // setDescription: (store, action) => {
+    //   store.description = action.payload
+    // },
+    // setActionOption: (store, action) => {
+    //   store.actions = action.payload
+    // },
+    setCurrentStep: (store, action) => {
+      store.currentStep = action.payload
     },
 
     restart: () => {
@@ -38,9 +41,7 @@ export const startGame = () => {
     dispatch(loading.actions.setLoading(true))
     const options = {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: getState().labyrinth.username })
     }
 
@@ -48,23 +49,21 @@ export const startGame = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log('data', data)
-        console.log('data.coordinates:', data.coordinates)
-        setTimeout(() => { dispatch(loading.actions.setLoading(false)) }, 3000);
+        dispatch(labyrinth.actions.setCurrentStep(data))
+        dispatch(loading.actions.setLoading(false));
       })
   }
 }
 
-export const continueGame = (type, direction) => {
+export const continueGame = (direction) => {
   return (dispatch, getState) => {
     dispatch(loading.actions.setLoading(true))
     const options = {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         username: getState().labyrinth.username,
-        type,
+        type: 'move',
         direction
       })
     }
@@ -72,9 +71,9 @@ export const continueGame = (type, direction) => {
     fetch('https://labyrinth.technigo.io/action', options)
       .then((respons) => respons.json())
       .then((data) => {
-        dispatch(labyrinth.actions.setCoordinates(data.coordinates));
-        dispatch(labyrinth.actions.setDescription(data.description));
-        dispatch(labyrinth.actions.setActionOption(data.actions));
+        // dispatch(labyrinth.actions.setCoordinates(data.coordinates));
+        // dispatch(labyrinth.actions.setDescription(data.description));
+        dispatch(labyrinth.actions.setCurrentStep(data));
         dispatch(loading.actions.setLoading(false));
       })
   }

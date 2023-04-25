@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components/macro'
 
-const Loading = () => {
+export const Loader = () => {
   const [loadingDot, setLoadingDot] = useState('');
-  const isLoading = useSelector((state) => state.ui.isLoading);
+  const isLoading = useSelector((store) => store.loading.isLoading);
 
   // Creates a movement in the dots after loading
   const loadingAnimation = () => {
@@ -22,8 +22,6 @@ const Loading = () => {
     </div>
   )
 }
-
-export default Loading;
 
 const LoadingText = styled.h1`
    font-size: 2.5rem;

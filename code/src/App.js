@@ -5,14 +5,13 @@ import { labyrinth } from 'reducers/labyrinth'
 import { loading } from 'reducers/loading'
 import StartScreen from 'components/StartScreen'
 
+const reducer = combineReducers({
+  labyrinth: labyrinth.reducer,
+  loading: loading.reducer
+})
+
+const store = configureStore({ reducer })
 export const App = () => {
-  const reducer = combineReducers({
-    labyrinth: labyrinth.reducer,
-    loading: loading.reducer
-  })
-
-  const store = configureStore({ reducer })
-
   return (
     <Provider store={store}>
       <StartScreen />

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { startGame, labyrinth } from 'reducers/labyrinth';
 import { useDispatch } from 'react-redux';
 import { StartContainer, SubmitBtn, TextP } from '../styles/GlobalStyles';
-import Game from './Game';
+import GameScreen from './GameScreen';
 
 const StartScreen = () => {
   const dispatch = useDispatch()
@@ -32,7 +32,7 @@ const StartScreen = () => {
       </form>
 
       {gameStart ? (
-        <Game />
+        <GameScreen />
       ) : null}
     </StartContainer>
   )
