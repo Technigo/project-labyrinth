@@ -1,3 +1,8 @@
+:root {
+  --headings-font-family: 'Bruno Ace', cursive;
+  --second-headings-font-family: 'Wallpoet', cursive;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
