@@ -6,7 +6,7 @@ import { generateActionData } from '../reducers/labyrinth'
 const Container = styled.div`
   padding: 50px;
   max-width: 700px;
-  max-height: 800px;
+  max-height: 600px;
   margin: calc(50% - 220px) auto;
   border-radius: 50px;
   background-color: rgba(0, 0, 0, 0.7);
@@ -18,20 +18,20 @@ const Container = styled.div`
   gap: 25px;
   text-align: center;
   @media (max-width: 768px) {
+    max-height: 500px;
     padding: 25px;
+    overflow: auto;
     }
 `
 const Description = styled.p`
     font-size: 22px;
     color: white;
     margin-bottom: 15px;
+    margin-top: 0;
     @media (max-width: 768px) {
       font-size: 16px;
       margin-bottom: 5px;
-      height: 100%;
-      max-height: 500px;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.5);
+      margin-top: 15px;
     }
 `
 const DirectionContainer = styled.div`
