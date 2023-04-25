@@ -53,9 +53,6 @@ export const startGame = () => {
       .then((data) => {
         console.log('data', data)
         console.log('data.coordinates:', data.coordinates)
-        // dispatch(labyrinth.actions.setCoordinates(data.coordinates));
-        // dispatch(labyrinth.actions.setDescription(data.description));
-        // dispatch(labyrinth.actions.setActionOption(data.actions));
         setTimeout(() => { dispatch(loading.actions.setLoading(false)) }, 3000);
       })
   }
@@ -75,8 +72,7 @@ export const continueGame = (type, direction) => {
         direction
       })
     }
-    // need to add dispatch for labyrinth.action and coordinate/description/actionOption
-    // set loading.actions.setLoading to false
+
     fetch('https://labyrinth.technigo.io/action', options)
       .then((respons) => respons.json())
       .then((data) => {
