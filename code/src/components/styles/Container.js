@@ -21,7 +21,15 @@ export const InnerWrapper = styled.div`
 
 export const BoxContainer = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5rem;
+  margin-bottom: 2rem;
+`;
+
+export const PlayerContainer = styled.div`
+  display: flex;
   flex-direction: column;
   justify-content: center;
   border: 0.2rem solid #9b9b9b;
@@ -31,5 +39,40 @@ export const BoxContainer = styled.div`
   min-width: 350px;
   background-color: #ffffff33;
   padding: 20px;
-// more to be added later on
+// more changes to be edited later on after discussion with teammate :)
+
+img {
+    max-width: 150px;
+    margin-bottom: 3rem;
+  }
+  h2 {
+    margin-bottom: 2rem;
+    color: white;
+  }
+
+  & .stat-container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 20rem;
+    margin-bottom: 1rem;
+    p {
+      margin-bottom: 0.5rem;
+      text-align: left;
+    }
+  }
+
+  button {
+    background-color: #92cc40;
+    padding: 1.2rem;
+    margin-top: 1rem;
+  }
+`;
+
+export const DirectionsContainer = styled(PlayerContainer)`
+  justify-content: space-between;
+  min-height: 25rem;
+  p {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
 `;

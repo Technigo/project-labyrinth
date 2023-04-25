@@ -4,15 +4,18 @@ import { useDispatch } from 'react-redux';
 // useDispatch is used in the reducer for the game to set the progress in the game for the player
 import labyrinth, { labyrinthProgress } from 'reducers/labyrinth';
 // this is the reducer-component used in the game
-import { v4 as uuidv4, v5 as uuidv5 } from 'uuid';
+// eslint-disable-next-line no-unused-vars
+import { v4 as uuidv4, v5 as uuidv5 } from 'uuid'; // - disabled this line due to uuidv5 not used for now
 // this is a package installed for creating Unique User IDs for use in the game
 // more info here: https://www.gregorypacheco.com.br/posts/generate-uuid-react.html
+import { StrengthsBar } from './StrengthsBar';
 
-// more imports will follow below as the building of the game goes over the week
 import {
   BoxContainer,
+  PlayerContainer,
   InnerWrapper
 } from './styles/Container';
+import { TextAnimation } from './styles/TextAnimation';
 
 export const Start = () => {
   const [usernameInputValue, setUsernameInputValue] = useState('');
@@ -27,10 +30,33 @@ export const Start = () => {
 
   return (
     <>
-      <h1> Let's take the a-MAZE-ing walk</h1>
+      <TextAnimation>
+        <h1> Let&apos;s start the labyrinth</h1>
+      </TextAnimation>
       <InnerWrapper>
         <BoxContainer>
-          <h2> Enter your character name:</h2>
+          <PlayerContainer>
+            <h2> Enter your player name:</h2>
+            <form onSubmit={(event) => onFormSubmit(event)}>
+              <input
+                name="username"
+                type="text"
+                placeholder="Enter your name..."
+                value={usernameInputValue}
+                onChange={(event) => setUsernameInputValue(event.target.value)}
+                required />
+              <button className="nes-btn is-success" type="submit">
+                {' '}
+              Start the Labyrinth
+              </button>
+            </form>
+          </PlayerContainer>
+          <PlayerContainer>
+            <h3>Strengths </h3>
+            <StrengthsBar className="is-primary" title="Intelligence" value="85" />
+            <StrengthsBar className="is-success" title="Stamina" value="70" />
+            <StrengthsBar title="Concentration" value="65" />
+          </PlayerContainer>
         </BoxContainer>
       </InnerWrapper>
     </>

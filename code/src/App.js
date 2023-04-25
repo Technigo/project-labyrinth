@@ -1,9 +1,28 @@
-import React from 'react'
+import React from 'react';
+import { Provider } from 'react-redux';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import labyrinth from 'reducers/labyrinth';
+import { LabyrinthWrapper } from 'components/LabyrinthWrapper';
+import 'nes.css/css/nes.min.css';
+// documentation on the nes.css to be found here: https://github.com/nostalgic-css/NES.css
+import { OuterWrapper } from 'components/styles/Container';
 
 export const App = () => {
+  const reducer = combineReducers({
+    labyrinth: labyrinth.reducer
+  });
+  const store = configureStore({
+    reducer
+  });
+
   return (
-    <div>
-      Find me in src/app.js!
-    </div>
-  )
-}
+    <Provider store={store}>
+      <OuterWrapper
+        style={{
+          background: 'black'
+        }}>
+        <LabyrinthWrapper />
+      </OuterWrapper>
+    </Provider>
+  );
+};
