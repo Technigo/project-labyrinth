@@ -1,9 +1,9 @@
+/* eslint-disable linebreak-style */
 import React from 'react'
+import { Loader } from 'components/Loader'
 
 export const App = () => {
   return (
-    <div>
-      Find me in src/app.js!
-    </div>
+    <Loader textColor="#fff" />
   )
 }
