@@ -59,7 +59,7 @@ export const fetchTwo = (direction) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        username: getState().gameFetch.username,
+        username: getState().gameFetch.userName,
         type: 'move',
         direction
       })
