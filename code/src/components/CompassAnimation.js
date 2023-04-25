@@ -1,7 +1,5 @@
 import React from 'react';
-// import Lottie from 'lottie-react';
 import { Player } from '@lottiefiles/react-lottie-player';
-// import animationData from './lotties/compass-lottie-black.json';
 
 export const CompassAnimation = () => {
   return (

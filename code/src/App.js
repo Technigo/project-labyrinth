@@ -6,7 +6,7 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import { labyrinth } from './reducers/labyrinth'
 import { loading } from './reducers/loading'
 import Container from './components/Container.js'
-// import Background from './components/Background.js'
+import Background from './components/Background.js'
 
 export const App = () => {
   const reducer = combineReducers({
@@ -23,6 +23,7 @@ export const App = () => {
 
   return (
     <Provider store={store}>
+      <Background />
       <Container />
     </Provider>
   )

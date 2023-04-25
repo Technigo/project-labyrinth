@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { SubmitBtn } from '../lib/buttons'
 import { labyrinth, generateLabyrinthData } from '../reducers/labyrinth'
 // import { loading } from './reducers/loading'
-import { CompassAnimation } from './LoadingStates/CompassAnimation'
+import { CompassAnimation } from './CompassAnimation'
 
 const StartPage = () => {
   const [usernameSubmit, setUsernameSubmit] = useState('')

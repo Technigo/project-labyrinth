@@ -6,7 +6,7 @@ export const SubmitBtn = styled.button`
     padding: 8px 12px;
     border-radius: 8px;
     border: none;
-    background-color: black;
+    background-color: #41614C;
     color: white;
     cursor: pointer;
 `
