@@ -13,10 +13,10 @@ const LoaderSpan = styled.span`
 
 @keyframes animloader {
   0% {
-    box-shadow: -72px 0 #FFF inset;
+    box-shadow: -72px 0 ${(props) => props.color} inset;
   }
   100% {
-    box-shadow: 48px 0 #FFF inset;
+    box-shadow: 48px 0 ${(props) => props.color} inset;
   } 
 `
 
@@ -41,10 +41,10 @@ padding: 2px;
 margin: 20px;
 `
 
-export const Loader = ({ textColor }) => {
+export const Loader = ({ loaderColor, textColor }) => {
   return (
     <LoaderContainer>
-      <LoaderSpan />
+      <LoaderSpan color={loaderColor} />
       <Loading color={textColor}>Loading...</Loading>
     </LoaderContainer>
   )

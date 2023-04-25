@@ -4,6 +4,6 @@ import { Loader } from 'components/Loader'
 
 export const App = () => {
   return (
-    <Loader textColor="#fff" />
+    <Loader loaderColor="#fff" textColor="#fff" />
   )
 }
