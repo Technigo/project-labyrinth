@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { startGame, labyrinth } from 'reducers/labyrinth';
 import { useDispatch } from 'react-redux';
+import { StartContainer, TextP } from './GlobalStyles';
 import Game from './Game';
 
 const StartScreen = () => {
@@ -17,8 +18,8 @@ const StartScreen = () => {
   }
 
   return (
-    <div>
-      <p>Welcome! Tell me your name:</p>
+    <StartContainer>
+      <TextP>Welcome! Tell me your name:</TextP>
       <form
         type="submit"
         onSubmit={onSubmitHandler}>
@@ -33,8 +34,7 @@ const StartScreen = () => {
       {gameStart ? (
         <Game />
       ) : null}
-    </div>
-
+    </StartContainer>
   )
 }
 

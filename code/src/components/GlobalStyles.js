@@ -1,8 +1,16 @@
 import styled from 'styled-components'
 
-export const OuterWrapper = styled.div`
-background-color: beige;
-padding: 5% 5%;
+export const StartContainer = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+max-width: 800px;
+min-height: 50vh;
+width: 90%;
+gap: 5px;
+margin: auto;
+background-color: #eab676;
 `
 
 export const InnerWrapper = styled.div`
