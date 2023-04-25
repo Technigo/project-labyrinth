@@ -1,9 +1,6 @@
-import React from 'react'
+/* eslint-disable linebreak-style */
+import React from 'react';
 
 export const App = () => {
-  return (
-    <div>
-      Find me in src/app.js!
-    </div>
-  )
-}
+  return <div>Find me in src/app.js!</div>;
+};
