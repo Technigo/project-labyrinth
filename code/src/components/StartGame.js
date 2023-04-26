@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Game, startGame } from 'reducers/Game';
+import { Loading } from './Loading';
 
 export const StartGame = () => {
   const [inputValue, setInputValue] = useState('');
   const dispatch = useDispatch();
+  const loading = useSelector((store) => store.game.loading);
 
   const onAddUsername = (event) => {
     event.preventDefault();
@@ -12,6 +14,9 @@ export const StartGame = () => {
     dispatch(startGame());
   };
 
+  if (loading) {
+    return <Loading />
+  }
   return (
     <section>
       <form className="UsernameForm" onSubmit={onAddUsername}>
