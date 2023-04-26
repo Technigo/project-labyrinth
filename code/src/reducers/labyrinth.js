@@ -1,6 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { loading } from './loading'
 
+const startURL = 'https://labyrinth.technigo.io/start'
+const actionURL = 'https://labyrinth.technigo.io/action'
+
 const initialState = {
   username: null,
   currentStep: {}
@@ -34,7 +37,7 @@ export const startGame = () => {
       body: JSON.stringify({ username: getState().labyrinth.username })
     }
 
-    fetch('https://labyrinth.technigo.io/start', options)
+    fetch(startURL, options)
       .then((response) => response.json())
       .then((data) => {
         console.log('data', data)
@@ -60,7 +63,7 @@ export const continueGame = (direction) => {
       })
     }
 
-    fetch('https://labyrinth.technigo.io/action', options)
+    fetch(actionURL, options)
       .then((respons) => respons.json())
       .then((data) => {
         dispatch(labyrinth.actions.setCurrentStep(data));
