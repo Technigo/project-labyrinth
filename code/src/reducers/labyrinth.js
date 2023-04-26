@@ -4,12 +4,9 @@ export const labyrinth = createSlice({
   name: 'labyrinth',
   initialState: {
     username: null,
-    coordinates: null,
-    description: null,
-    direction: null,
+    currentPosition: null,
     history: [],
     // Changed actions to moves because I think it was getting confused on the other actions name
-    moves: null,
     loading: false
   },
   reducers: {
@@ -17,21 +14,8 @@ export const labyrinth = createSlice({
       store.username = action.payload
       console.log(store.username)
     },
-    setCoordinates: (store, action) => {
-      store.coordinates = action.payload.coordinates
-    },
-    setDescription: (store, action) => {
-      store.description = action.payload.description
-    },
-    setDirection: (store, action) => {
-      store.direction = action.payload.direction
-    },
-    // Copied this
-    setMoves: (store, action) => {
-      if (store.moves) {
-        store.history = [...store.history, store.moves]
-      }
-      store.moves = action.payload.moves
+    setCurrentPosition: (store, action) => {
+      store.currentPosition = action.payload
     },
     setLoading: (store, action) => {
       store.loading = action.payload
@@ -54,11 +38,8 @@ export const startGame = () => {
       body: JSON.stringify({ username: getState().labyrinth.username })
     })
       .then((res) => res.json())
-      .then((data) => {
-        dispatch(labyrinth.actions.setCoordinates(data))
-        console.log(data)
-        dispatch(labyrinth.actions.setDescription(data))
-        dispatch(labyrinth.actions.setMoves(data))
+      .then((swag) => {
+        dispatch(labyrinth.actions.setCurrentPosition(swag))
       })
       .finally(() => {
         dispatch(labyrinth.actions.setLoading(false))

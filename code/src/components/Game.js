@@ -10,14 +10,14 @@ import { Labyrinth } from './Labyrinth'
 export const Game = () => {
   const loading = useSelector((store) => store.labyrinth.loading)
   // Above we use the useSelector hook to get the state of the store, specifically the loading-status
-  const coordinates = useSelector((store) => store.labyrinth.coordinates)
+  const position = useSelector((store) => store.labyrinth.currentPosition)
   // We use the useSelector hook to get the coordinates from the store.
 
   return (
     <>
       {loading && <Loading />}
       {/* If the loading status is true, then we render the Loading component */}
-      {coordinates ? <Labyrinth /> : <StartScreen />}
+      {position ? <Labyrinth /> : <StartScreen />}
       {/* if there are coordinates, then we render the Labyrinth component, if not we render the Startscreen component. This is what makes us see two StartScreen-components somehow */}
     </>
   )
