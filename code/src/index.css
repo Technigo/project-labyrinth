@@ -1,4 +1,5 @@
 body {
+  box-sizing: border-box;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -10,4 +11,13 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.name-input {
+  background-color: #18211E;
+  color: white;
+  border-radius: 5px;
+  margin-right: 4%;
+  font-size: 1.2rem;
+  box-shadow: 1px 1px 1px grey;
 }

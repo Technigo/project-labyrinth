@@ -13,10 +13,12 @@ background-color: lightgrey;
 `
 
 export const Th1 = styled.h1`
+font-family: 'Special Elite', cursive;
 font-size: 1.7em;
 color: white;
 `
 export const GameP = styled.p`
+font-family: 'Special Elite', cursive;
 font-size: 1.3em;
 color: black;
 line-height: 1.4;
