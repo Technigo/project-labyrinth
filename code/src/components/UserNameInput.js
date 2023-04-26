@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux'
 import game, { startGame } from 'reducers/game'
 import styled from 'styled-components/macro'
 
+// Since this component consist of several elements of the starting content maybe it should be
+// renamed to StartPage instead?
 export const UserNameInput = () => {
   const [userNameInputValue, setUserNameInputValue] = useState('')
   const dispatch = useDispatch()
