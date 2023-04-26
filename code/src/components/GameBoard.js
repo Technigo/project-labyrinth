@@ -24,7 +24,7 @@ export const GameBoard = () => {
     <GameBoardContainer>
       <HeaderBar>
         <Button type="button" buttonText="Restart" onClick={onRestartBtnClick} />
-        <h2>Player: {username}</h2>
+        <h2><span>const</span> Player: {username}</h2>
       </HeaderBar>
       <PositionDescription>
         <TypeWriterEffect
@@ -52,23 +52,24 @@ const GameBoardContainer = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    margin-top: 80px;
     justify-self: center;
     width: 90%;
     max-width: 300px;
-    background: #fff;
     margin-bottom: 20px;
 `
 
 const HeaderBar = styled.div`
     display: flex;
     align-items: center;
-    background: #fff;
     margin: 20px 0 20px 0;
     padding: 10px;
-    border: 2px solid black;
     h2 {
         font-size: 14px;
-        color: red;
+        color: rgb(130, 216, 96);
+    }
+    span {
+      color: rgb(83, 199, 210);
     }
 `
 
@@ -76,13 +77,12 @@ const PositionDescription = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid black;
     padding: 10px;
 
     margin-bottom: 30px;
     h1 {
         font-size: 16px;
-        color: #aaa;
+        color: rgb(121, 99, 209);
     }
 `
 
@@ -90,7 +90,6 @@ const ActionsContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding: 10px;
-    border: 2px solid black;
 `
 
 const SingleAction = styled.div`

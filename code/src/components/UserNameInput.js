@@ -18,7 +18,8 @@ export const UserNameInput = () => {
 
   return (
     <Form onSubmit={(event) => onFormSubmit(event)}>
-      <WelcomeText>Please enter your name to enter the maze:</WelcomeText>
+      <WelcomeText>Please enter your name to return the maze:
+      </WelcomeText>
       <Label htmlFor="username">
         <input
           id="username"
@@ -42,7 +43,9 @@ const Form = styled.form`
         border: 2px dashed #00cf00;
         padding: 5px;
         box-shadow: none;
-        color: white;
+        font-family: 'Source Code Pro', monospace;
+        color: rgb(58, 209, 225);
+        font-size: 17px;
         outline: none;
         margin-right: 10px;
     }
@@ -50,6 +53,7 @@ const Form = styled.form`
 
 const WelcomeText = styled.h2`
   font-size: 20px;
+  margin-bottom: 15px;
 `
 
 const Label = styled.label`

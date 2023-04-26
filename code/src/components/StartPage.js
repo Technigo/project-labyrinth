@@ -23,6 +23,6 @@ const MainPageContainer = styled.div`
     flex-direction: column;
     margin: 0 auto;
     width: 300px;
-    background: #fff;
     margin-bottom: 20px;
+    color: rgb(197, 91, 95);
 `
