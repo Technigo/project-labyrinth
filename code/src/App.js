@@ -1,12 +1,12 @@
 import React from 'react'
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-import { labyrinth } from './Reducers/labyrinth';
+import { labyrinthMango } from './Reducers/labyrinth';
 import { Firstscreen } from './Components/Firstscreen';
 
 export const App = () => {
   const reducer = combineReducers({
-    labyrinth: labyrinth.reducer
+    labyrinthMango: labyrinthMango.reducer
   })
   const store = configureStore({ reducer })
 
