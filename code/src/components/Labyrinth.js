@@ -11,16 +11,24 @@ export const Labyrinth = () => {
     <>
       <p> HEJ HEJ!!</p>
       <p>{position.username}</p>
-      <p>{position.description}</p>
       <p>{position.coordinates}</p>
+      <p>{position.description}</p>
       {/* The only thing above that renders as it should is the username and the coordinates.' */}
-      {/* <div>
-        {position.action.map((move, index) => (
-          <button key={index} type="button">{move.direction}</button>
+      <div>
+        {position.actions.map((action, index) => (
+          <div>
+            <p>{action.description}</p>
+            <button key={index} type="button">{action.direction}</button>
+          </div>
         ))}
-        </div> */}
+      </div>
 
     </>
   )
 }
 
+/* <div>
+        {position.action.map((move, index) => (
+          <button key={index} type="button">{move.direction}</button>
+        ))}
+        </div> */
