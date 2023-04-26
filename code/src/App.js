@@ -1,9 +1,11 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { maze } from 'reducers/maze';
 import { ui } from 'reducers/ui';
-import { Main } from 'components/Main';
+import { WelcomePage } from 'components/WelcomePage';
+import { MazeActions } from 'components/MazeActions';
 
 export const App = () => {
   const reducer = combineReducers({
@@ -15,7 +17,12 @@ export const App = () => {
 
   return (
     <Provider store={store}>
-      <Main />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<WelcomePage />} />
+          <Route path="/game" element={<MazeActions />} />
+        </Routes>
+      </BrowserRouter>
     </Provider>
   )
 }
