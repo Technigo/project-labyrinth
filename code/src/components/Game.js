@@ -1,22 +1,49 @@
 /* eslint-disable import/order */
-/* eslint-disable no-unused-vars */
-import React from 'react';
+// src/components/Game.js
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { game, startGame } from 'reducers/game';
+import { startGame, nextStep } from 'reducers/game';
+import LandingPage from './LandingPage';
 
-const Game = () => {
+const Game = ({ showLandingPage, setShowLandingPage }) => {
   const dispatch = useDispatch();
+  const gameState = useSelector((state) => state.game.game);
+  const loading = useSelector((state) => state.game.loading);
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    dispatch(startGame());
+  useEffect(() => {
+    if (!showLandingPage) {
+      dispatch(startGame());
+    }
+  }, [dispatch, showLandingPage]);
+
+  const handleActionClick = (direction) => {
+    dispatch(nextStep(direction));
   };
+
+  const handleStartGame = () => {
+    setShowLandingPage(false);
+  };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (showLandingPage) {
+    return <LandingPage onStartGame={handleStartGame} />;
+  }
+
+  if (!gameState) {
+    return null;
+  }
 
   return (
     <div>
-      <button type="button" onClick={handleClick}>
-        click me
-      </button>
+      <h2>{gameState.description}</h2>
+      {gameState.actions.map((action) => (
+        <button type="button" key={action.direction} onClick={() => handleActionClick(action.direction)}>
+          {action.description}
+        </button>
+      ))}
     </div>
   );
 };
