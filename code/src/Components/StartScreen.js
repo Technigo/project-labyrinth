@@ -1,5 +1,5 @@
 import React from 'react';
-import JokeInputSearch from './JokeInputSearch';
+import UserNameInput from './UserNameInput';
 import Joke from './Joke';
 
 const StartScreen = () => {
@@ -7,7 +7,7 @@ const StartScreen = () => {
   return (
     <div>
         Start your adventure here
-        <JokeInputSearch />
+        <UserNameInput />
         <Joke />
     </div>);
 }
