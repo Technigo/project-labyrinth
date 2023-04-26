@@ -1,4 +1,7 @@
-import React from 'react'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { Provider } from 'react-redux'
+import React, { useEffect } from 'react'
+import game, { generateGame } from 'reducers/game'
 // import { combineReducers, configureStore } from '@reduxjs/toolkit';
 // import { Provider } from 'react-redux';
 // Importera game from redcers här
@@ -7,9 +10,19 @@ import React from 'react'
 // Import GlobalStyle from
 
 export const App = () => {
+  const reducer = combineReducers({
+    game: game.reducer
+  });
+
+  const store = configureStore({ reducer });
+
+  useEffect(() => {
+    store.dispatch(generateGame());
+  }, [store]);
+
   return (
-    <div>
+    <Provider store={store}>
       Gurus rule.
-    </div>
+    </Provider>
   )
 }
