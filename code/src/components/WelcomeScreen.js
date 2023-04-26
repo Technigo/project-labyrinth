@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { labyrinth, startLabyrinth } from 'reducers/labyrinth'
 import { Button } from 'reusableComponents/Button';
+import { Title } from 'reusableComponents/Title';
 
 export const WelcomeScreen = () => {
   const [userName, setUsername] = useState('');
@@ -54,15 +55,6 @@ const Form = styled.form`
   border-radius:20px;
   background-color: rgb(0 0 0 / 50%);
 `
-const Title = styled.h1`
-  font-size: 1.2em;
-  font-weight: bold;
-  text-align: center;
-  margin: 1em;
-  color: #fff;
-  overflow-wrap: break-word;
-`;
-
 const Input = styled.input`
     border: 0;
     margin: 1em 0 1em 0;
@@ -76,6 +68,7 @@ const Input = styled.input`
     color: #000;
     transition: all .15s ease;
     box-sizing:border-box;
+    font-family: 'Shadows Into Light', cursive;
     &&:focus{
      background-color: rgb(74 74 74 / 30%);
       outline: none;
@@ -83,14 +76,3 @@ const Input = styled.input`
     }
 
 `
-// const Button = styled.button`
-//   background-color: #6c63ff;
-//   padding: 16px 32px;
-//   border-radius: 8px;
-//   color: #fff;
-//   font-size: 16px;
-//   font-weight: bold;
-//   width: 15em;
-//   margin: 1em 0 1em 0;
-// `;
-

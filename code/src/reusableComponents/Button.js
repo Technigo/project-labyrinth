@@ -14,23 +14,21 @@ export const Button = styled.button`
   transition: .3s linear, color 0s, background-color 0s;
   outline: var(--b) solid #0000;
   outline-offset: 0.6em;
-  font-size: 16px;
-
+  font-size: 1em;
+  font-family: 'Shadows Into Light', cursive;
   border: 0;
-
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
 
-
 &&:hover,:focus-visible{
   --_p: 0px;
-  outline-color: var(--color);
+  outline-color:var(--color);
   outline-offset: .05em;
 }
 
 &&:active {
-  background: var(--color);
+  background:var(--color);
   color: #fff;
 }
 `
