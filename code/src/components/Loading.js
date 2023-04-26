@@ -4,7 +4,13 @@ import styled from 'styled-components';
 const LoadingContainer = styled.div`
     width: 100%;
     height: 100%;
-    display: flex;`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #61605c;
+    position: absolute;
+    z-index: 1;` // This is needed for the Loading component to be placed on top of the Labyrinth-component.
 
 const Spinner = styled.span`
   width: 54px;

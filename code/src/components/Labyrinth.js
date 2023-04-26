@@ -1,14 +1,31 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable max-len */
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import styled from 'styled-components';
+import { labyrinth, nextMove } from '../reducers/labyrinth';
+// For some reason, when dealing with thunks - they have to be imported.
+
+const LabyrinthWrapper = styled.div`
+position: relative; //This is needed for the Loading-component to be placed on top.
+`
 
 export const Labyrinth = () => {
   const position = useSelector((store) => store.labyrinth.currentPosition);
-  // Took away .coordinates from the useSelector and instead linked it directly to the reducer
-  // We use object destructuring to get the username, description, and coordinates from the store, I COMPLETELY STOLE this.
+
+  const dispatch = useDispatch();
+
+  const handleMoveButtonClick = (type, direction) => {
+    dispatch(nextMove(type, direction))
+    // This function is called when the button with the directions are clicked. It starts the function nextMove, which is a thunk taking care of the second fetch-request. See the store for more info!
+  }
+
+  const handleRestartButtonClick = () => {
+    dispatch(labyrinth.actions.restartGame())
+  }
+
   return (
-    <>
+    <LabyrinthWrapper>
       <p> HEJ HEJ!!</p>
       <p>{position.username}</p>
       <p>{position.coordinates}</p>
@@ -18,17 +35,18 @@ export const Labyrinth = () => {
         {position.actions.map((action, index) => (
           <div>
             <p>{action.description}</p>
-            <button key={index} type="button">{action.direction}</button>
+            {/* I added the description that is in the actions array. */}
+            <button key={index} type="button" onClick={() => handleMoveButtonClick(action.type, action.direction)}>{action.direction}</button>
           </div>
         ))}
       </div>
+      {position.coordinates === '1,3' && (
+        <button type="button" onClick={() => handleRestartButtonClick()}>
+        Restart
+        </button>
+      )}
+      {/* if the coordinates is 1,3, then the restart-button above will be rendered. */}
 
-    </>
+    </LabyrinthWrapper>
   )
 }
-
-/* <div>
-        {position.action.map((move, index) => (
-          <button key={index} type="button">{move.direction}</button>
-        ))}
-        </div> */
