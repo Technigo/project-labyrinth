@@ -2,52 +2,95 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { labyrinth, startLabyrinth } from 'reducers/labyrinth'
+import { Button } from 'reusableComponents/Button';
 
 export const WelcomeScreen = () => {
   const [userName, setUsername] = useState('');
   const dispatch = useDispatch();
-  // const username = useSelector((store) => store.username);
-  // const description = useSelector((store) => store.description);
-  // const moveDirection = useSelector((store) => store.moves[0].direction);
-  // const moveDescription = useSelector((store) => store.moves[0].description);
 
-  const onAction = () => {
+  const onAction = (e) => {
+    e.preventDefault()
     dispatch(labyrinth.actions.setUsername(userName))
     dispatch(startLabyrinth())
   }
 
   return (
-    <OuterWrapper>
-      <WelcomeWrapper>
-        <h1>Welcome player 1 would you like to enter the Labyrinth?</h1>
+    <WelcomeWrapper>
+      <Form onSubmit={onAction}>
+        <Title>Welcome player 1 would you like to enter the Labyrinth?</Title>
         <Input
           type="text"
           className="userName"
-          placeholder="Please enter your name here"
+          placeholder="Enter your name here"
           required
           onChange={(event) => setUsername(event.target.value)}
           value={userName} />
-        <button type="submit" onClick={onAction}> Enter the Labyrinth </button>
-      </WelcomeWrapper>
-    </OuterWrapper>)
+        <Button type="submit"> Enter the Labyrinth </Button>
+      </Form>
+    </WelcomeWrapper>)
 };
 
-const OuterWrapper = styled.section`
-  background-image: url('/assets/welcomeScreen.jpg');
+const WelcomeWrapper = styled.section`
+
+  background-image: url('/images/welcomeScreen.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
-const WelcomeWrapper = styled.section`
+const Form = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin:15px;
+  padding:15px;
+  height: max-content;
+  max-width:70%;
+  border-radius:20px;
+  background-color: rgb(0 0 0 / 50%);
+`
+const Title = styled.h1`
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  margin: 1em;
+  color: #fff;
+  overflow-wrap: break-word;
 `;
 
-const Input = styled.input`display:flex;`
+const Input = styled.input`
+    border: 0;
+    margin: 1em 0 1em 0;
+    padding:1.3em;
+    width: 15em;
+    height: 1em;
+    font-size: 16px;
+    border-radius: 8px;
+    font-weight: 400;
+    background-color: #f5f5f5;
+    color: #000;
+    transition: all .15s ease;
+    box-sizing:border-box;
+    &&:focus{
+     background-color: rgb(74 74 74 / 30%);
+      outline: none;
+      color: #f5f5f5;
+    }
 
-// const Button = styled.input`display:flex;`
+`
+// const Button = styled.button`
+//   background-color: #6c63ff;
+//   padding: 16px 32px;
+//   border-radius: 8px;
+//   color: #fff;
+//   font-size: 16px;
+//   font-weight: bold;
+//   width: 15em;
+//   margin: 1em 0 1em 0;
+// `;
+
