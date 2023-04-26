@@ -3,10 +3,16 @@ import { createSlice } from '@reduxjs/toolkit';
 import { ui } from './ui';
 
 const game = createSlice({
-  name: 'labyrinth',
+  name: 'game',
   initialState: {
-    all: []
+    username: null,
+
+    // Stores the whole fetch from the API
+    currentLocation: [],
+
+    loading: false
   },
+
   reducers: {
     setUserName: (store, action) => {
       store.username = action.payload

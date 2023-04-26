@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { generateMoves } from 'reducers/game'
 // import styled from 'styled-components'
 
-export const GameBoard = () => {
+const GameBoard = () => {
   const { description, actions } = useSelector((store) => store.game.currentLocation)
   const dispatch = useDispatch()
   const username = useSelector((store) => store.game.username)
