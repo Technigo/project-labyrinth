@@ -1,8 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  username: 'Hannah Sammy Johanna',
-  gameId: ''
+  username: 'Hannah Sammy Johanna'
 }
 
 const game = createSlice({
@@ -11,9 +10,6 @@ const game = createSlice({
   reducers: {
     setUsername: (state, action) => {
       state.username = action.payload;
-    },
-    setGameId: (state, action) => {
-      state.gameId = action.payload;
     }
   }
 });
