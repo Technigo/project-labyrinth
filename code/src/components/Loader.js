@@ -1,7 +1,7 @@
 import React from 'react'
-import styled from 'styled-components/macro'
+import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
-const LoaderContainer = styled.div`
+/* const LoaderContainer = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -11,12 +11,16 @@ const LoaderContainer = styled.div`
     max-width: 300px;
     background: #fff;
     margin-bottom: 20px;
-`
+` */
 
 export const Loader = () => {
   return (
-    <LoaderContainer>
-        LOADING
-    </LoaderContainer>
+    <Player
+      autoplay
+      loop
+      src="https://assets7.lottiefiles.com/private_files/lf30_dz8ymnuq.json"
+      style={{ height: '300px', width: '300px' }}>
+      <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
+    </Player>
   )
 }
