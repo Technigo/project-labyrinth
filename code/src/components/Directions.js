@@ -1,52 +1,30 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { getLabyrinth } from 'reducers/labyrinth'
 
-const Joke = () => {
-  const joke = useSelector((store) => store.jokes)
-  console.log('global state joke', joke)
+const Directions = () => {
+  const actions = useSelector((store) => store.labyrinth.actions)
+  const [isActive, setActive] = useState('false')
 
-  return <div>This is the jooke</div>;
+  const dispatch = useDispatch()
+
+  const toggleDisplay = () => {
+    setActive(!isActive);
+  }
+
+  return (
+    <>
+      <button className={isActive ? null : 'instructions-btn'} type="button" onClick={toggleDisplay}>Click here to see directions</button>
+      {actions.map((action) => {
+        return (
+          <div className={isActive ? 'hidden-instructions' : 'instructions'}>
+            <p>{action.description}</p>
+            <button type="button" onClick={() => dispatch(getLabyrinth(action.type, action.direction))}> Go {action.direction}</button>
+          </div>
+        )
+      })}
+    </>
+  )
 }
 
-export default Joke;
-
-// import React, { useEffect } from 'react';
-// import { useSelector } from 'react-redux';
-
-// const Joke = () => {
-//   const joke = useSelector((store) => store.jokes)
-//   console.log('global state joke', joke)
-
-//   return <div>
-//     <p>{joke.type}</p>
-//     <p>{joke.setup}</p>
-//     <p>{joke.delivery}</p>
-//   </div>;
-// }
-
-// export default Joke;
-
-// import React, { useEffect } from 'react';
-// import { useSelector } from 'react-redux';
-
-// const Joke = () => {
-//   const joke = useSelector((store) => store.jokes)
-//   console.log('global state joke', joke)
-
-//   const gameActions = useSelector((store) => store.game.actions)
-
-//   return <div>
-//     <p>{joke.type}</p>
-//     <p>{joke.setup}</p>
-//     <p>{joke.delivery}</p>
-
-//     {gameActions.map(item =>
-//       <div>
-//         <p>{item.description}</p>
-//         <button onClick={dispatch()}>{item.direction}</button>
-//       </div>
-//     }
-//   </div>;
-// }
-
-// export default Joke;
+export default Directions
