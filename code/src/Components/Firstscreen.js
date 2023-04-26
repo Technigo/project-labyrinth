@@ -4,7 +4,7 @@ import { Startpage } from './Startpage';
 import { Gamepage } from './Gamepage';
 
 export const Firstscreen = () => {
-  const userName = useSelector((store) => store.labyrinth.userName)
+  const userName = useSelector((store) => store.labyrinthMango.userName)
   return (
     <div>
       {userName === '' ? <Startpage /> : <Gamepage />}  {/* Ternary Operator */}

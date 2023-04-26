@@ -18,10 +18,10 @@ export const labyrinthMango = createSlice({
   reducers: {
 
     setUserName: (store, action) => {
-      const { input } = action.payload
+      const input = action.payload;
       const userId = uuidv4(input);
-      store.userName = userId
-      store.name = action.payload
+      store.userName = userId;
+      store.name = input;
     },
 
     setDescription: (store, action) => {
@@ -86,7 +86,7 @@ export const continueGame = () => {
       body: JSON.stringify({
         username: getState().labyrinthMango.userName,
         type: 'move',
-        direction: getState().labyrinthMango.directions
+        direction: getState().labyrinthMango.direction
       })
     };
 

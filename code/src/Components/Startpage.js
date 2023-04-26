@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { startGame } from 'Reducers/labyrinth';
 import { useDispatch } from 'react-redux';
-import { BigText } from './Startpage.styled';
+import { startGame } from 'Reducers/labyrinth';
 import { labyrinthMango } from '../Reducers/labyrinth';
+import { BigText } from './Startpage.styled';
 
 export const Startpage = () => {
   const dispatch = useDispatch()
@@ -10,8 +10,8 @@ export const Startpage = () => {
 
   const letsStart = (e) => {
     e.preventDefault();
-    dispatch(labyrinthMango.actions.setUserName(input))
-    dispatch(startGame())
+    dispatch(labyrinthMango.actions.setUserName(input));
+    dispatch(startGame());
   }
 
   return (
@@ -26,7 +26,7 @@ export const Startpage = () => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           required />
-        <button alt="start button" type="submit">Start Game</button>
+        <button type="submit" onClick={letsStart}>Start Game</button>
       </form>
     </div>
   )
