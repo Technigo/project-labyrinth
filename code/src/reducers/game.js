@@ -4,8 +4,7 @@ const initialState = {
   user: '',
   isStarted: false,
   description: '',
-  move: [],
-  loading: false
+  move: []
 }
 
 export const game = createSlice({
@@ -22,7 +21,7 @@ export const game = createSlice({
       store.description = action.payload
     },
     setMove: (store, action) => {
-      store.move = [...store.move, action.payload]
+      store.move = [...store.moves, action.payload]
     },
     isLoading: (store, action) => {
       store.loading = action.payload
@@ -63,7 +62,7 @@ export const nextMove = (direction) => {
         type: 'move',
         direction })
     }
-    fetch('https://labyrinth.technigo.io/start', move)
+    fetch('https://labyrinth.technigo.io/action', move)
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setDescription(data))

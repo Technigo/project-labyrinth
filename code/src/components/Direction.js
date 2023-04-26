@@ -10,7 +10,10 @@ export const Direction = ({ actions = [] }) => {
   return (
     <>
       {actions.map((action) => (
-        <button type="button" onClick={() => moveOnClick(action.direction)}>Go {action.direction}</button>
+        <div key={action.direction}>
+          {action.description}
+          <button type="button" onClick={() => moveOnClick(action.direction)}>Go {action.direction}</button>
+        </div>
       ))}
     </>
   )

@@ -8,7 +8,7 @@ export const StartGame = () => {
 
   const InputUserName = (event) => {
     event.preventDefault();
-    dispatch(game.actions.InputUserName(userName));
+    dispatch(game.actions.setUserName(userName));
     dispatch(startGame());
   }
 
