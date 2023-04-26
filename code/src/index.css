@@ -17,30 +17,3 @@ height: 30px;
 font-size: 25px;
 }
 
-.left {
-  position: relative;
-  width: var(--size-arrow);
-  height: var(--size-arrow);
-  margin: 40px;
-  background: transparent;
-  border: 0;
-  border-left: var(--stroke-arrow) var(--style-arrow) var(--color-arrow);
-  border-bottom: var(--stroke-arrow) var(--style-arrow) var(--color-arrow);
-  cursor: pointer;
-  transform: rotate(  45deg);
-}
-.left::before {
-  position: absolute;
-  left: 0;
-  top: calc(var(--size-arrow) - var(--stroke-arrow) * 1.5);
-  clip-path: polygon(0 50%, calc(var(--stroke-arrow) / 2) 0, 100% 0, 100% 100%, calc(var(--stroke-arrow) / 2) 100%);
-  width: calc(var(--size-arrow) * 1.2);
-  height: 0;
-  border-top: var(--stroke-arrow) var(--style-arrow) var(--color-arrow);
-  transform-origin: 0 50%;
-  transform: rotate(-45deg);
-  content: '';
-}
-
-.left:hover  { opacity: 0.75; }
-.left:active { opacity: 0.5; }

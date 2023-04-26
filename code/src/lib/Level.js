@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import start from 'images/start.png'
 import image1 from 'images/level1.png'
 import image2 from 'images/level2.png'
@@ -69,7 +69,11 @@ export const GreetingText = styled.h1`
 `
 
 export const DirectionButton = styled.button`
-  background: #9747FF;
+  background: transparent;
+  outline: none;
+  border: none;
+  position: relative;
+  padding: none;
 `
 
 export const SpaceButton = styled.button`
@@ -89,3 +93,26 @@ export const StarterForm = styled.form`
     justify-content: center;
     align-items: center;
 `
+
+const flyAway = keyframes`
+0% {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+100% {
+  transform: translate(-50%, -500%);
+  opacity: 1;
+}
+`;
+
+export const PlayerWrapper = styled.div`
+  position: relative;
+  .player {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-100%, 600%);
+    animation: ${flyAway} 2s ease forwards;
+  }
+`;
+

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { gameFetch, fetchOne } from 'reducers/gameFetch';
 import { useDispatch } from 'react-redux';
-import { StartBackground, SpaceButton, GreetingText, StarterForm } from 'lib/Level';
+import { StartBackground, SpaceButton, GreetingText, StarterForm, PlayerWrapper } from 'lib/Level';
 import { Player } from '@lottiefiles/react-lottie-player';
 import startgame from 'images/arrow-button.png';
 
@@ -20,7 +20,23 @@ export const StarterPage = () => {
   return (
     <StartBackground>
       {submitted ? (
-        <GreetingText>Hello, {userName}!</GreetingText>
+        <>
+          <GreetingText>Hello, {userName}!</GreetingText>
+          <PlayerWrapper>
+            <Player
+              src="https://assets2.lottiefiles.com/packages/lf20_cgbjomca.json"
+              className="player"
+              loop
+              autoplay
+              speed={1}
+              style={{
+                width: '150px',
+                height: '150px',
+                transform: 'translate(0, -100vh)',
+                opacity: 0
+              }} />
+          </PlayerWrapper>
+        </>
       ) : (
         <>
           <StarterForm onSubmit={onSubmitUserName}>
@@ -30,7 +46,8 @@ export const StarterPage = () => {
                 type="text"
                 value={userName}
                 onChange={(e) => setUserName(e.target.value)}
-                placeholder="Enter Name" />
+                placeholder="Enter Name"
+                required />
             </label>
 
             <SpaceButton type="submit">
@@ -45,6 +62,7 @@ export const StarterPage = () => {
             autoplay
             speed={1}
             style={{ width: '150px', height: '150px' }} />
+
         </>
       )}
     </StartBackground>
