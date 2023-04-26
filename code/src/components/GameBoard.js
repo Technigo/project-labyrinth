@@ -12,7 +12,7 @@ export const GameBoard = () => {
       {gameboard.map((item) => (
         <Card key={item.direction}>
           <Description>{item.description}</Description>
-          <Button type="submit" onClick={dispatch(labyrinthProgress('move', item.direction))}>{item.direction}</Button>
+          <Button type="submit" onClick={() => dispatch(labyrinthProgress('move', item.direction))}>{item.direction}</Button>
         </Card>))}
     </GameWrapper>
   )

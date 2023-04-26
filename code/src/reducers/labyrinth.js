@@ -65,7 +65,7 @@ export const labyrinthProgress = (type, direction) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ username: getState().labyrinthla.username, type, direction })
+      body: JSON.stringify({ username: getState().labyrinth.username, type, direction })
     };
 
     fetch('https://labyrinth.technigo.io/action', optionsProgress)
