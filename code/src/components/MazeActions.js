@@ -2,8 +2,10 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { moveForward } from 'reducers/maze';
 import { Loading } from 'components/Loading';
+import styled from 'styled-components';
 import { Button } from './global-style/Button';
 import { Wrapper } from './global-style/Wrapper';
+import { BodyText } from './global-style/BodyText';
 
 export const MazeActions = () => {
   const isLoading = useSelector((state) => state.ui.isLoading)
@@ -20,19 +22,37 @@ export const MazeActions = () => {
       {isLoading && (<Loading />)}
       {!isLoading && (
         <Wrapper>
-          <p>{description}</p>
-          {actions.map((eachAction) => {
-            return (
-              <div key={eachAction.description}>
-                <p>{eachAction.description}</p>
-                <Button type="button" onClick={() => handleDirectionButton(eachAction.direction)}>
-                  {eachAction.direction}
-                </Button>
-              </div>
-            )
-          })}
+          <h3>{description}</h3>
+          <InnerWrapper>
+            {actions.map((eachAction) => {
+              return (
+                <ButtonWrapper key={eachAction.description}>
+                  <Button type="button" onClick={() => handleDirectionButton(eachAction.direction)}>
+                    {eachAction.direction}
+                  </Button>
+                  <BodyText>{eachAction.description}</BodyText>
+                </ButtonWrapper>
+              )
+            })}
+          </InnerWrapper>
         </Wrapper>
       )}
     </>
   )
 };
+
+export const InnerWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 20px 0;
+`
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  max-width: 50%;
+`
