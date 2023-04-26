@@ -30,6 +30,9 @@ export const Game = createSlice(
       },
       setLoading: (store, action) => {
         store.loading = action.payload
+      },
+      restartGame: () => {
+        return initialState;
       }
     }
   }
