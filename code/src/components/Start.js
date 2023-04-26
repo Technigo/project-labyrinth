@@ -18,7 +18,11 @@ export const Start = () => {
   if (currentLocation.isLoading) return <Loading />
   return (
     <div>
-      <p>Hello</p>
+      <p>You have a burning ache in your throat
+        as you emerge on the beach of the island.
+        You remember the storm that sunk your ship,
+        but do you remember your name, sailor?
+      </p>
       <form onSubmit={(event) => onNameSubmit(event)}>
         <label htmlFor="name">
           <input type="text" id="name" onChange={(event) => setUserName(event.target.value)} />
