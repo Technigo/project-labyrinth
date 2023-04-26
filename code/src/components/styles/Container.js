@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const OuterWrapper = styled.div`
 // the bc-color will change later when we style the game
