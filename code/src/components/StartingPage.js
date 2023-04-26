@@ -32,7 +32,7 @@ export const StartingPage = () => {
                 onChange={(event) => setUsername(event.target.value)}
                 required />
             </label>
-            <button type="submit">Start</button>
+            <StyledButton type="submit">Start</StyledButton>
           </FormStyled>
         </FormWrapper>
       </InnerWrapper>
@@ -48,7 +48,7 @@ const MainSection = styled.section`
   background-image: url(${startImage});
 `
 const InnerWrapper = styled.div`
-  height: 50vh;
+  height: 55vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,9 +56,12 @@ const InnerWrapper = styled.div`
   gap: 15px;
 `
 const TextWrapper = styled.div`
+  width: 80vw;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 3px;
   background-color: rgba(0,0,0,.5);
   padding: 15px;
 `
@@ -68,8 +71,10 @@ color: #7D458C;
 font-size: 53px;
 `
 
-const Text = styled.p`
+export const Text = styled.p`
 color: #BFBFBF;
+text-align: center;
+font-size: 1.5rem;
 `
 
 const FormWrapper = styled.div`
@@ -78,4 +83,24 @@ background-color: rgba(0,0,0,.5);
 const FormStyled = styled.form`
   display: flex;
   flex-direction: column;
+  align-items: center;
+
+input {
+  border-radius: 10px;
+  padding: 10px;
+  font-family: 'Roboto Slab', serif;
+}
+
+input::placeholder {
+  font-family: 'Roboto Slab', serif;
+}
+`
+const StyledButton = styled.button`
+  width: 65px;
+  border-radius: 15px;
+  padding: 5px;
+  color: white;
+  background: black;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1rem;
 `

@@ -10,7 +10,7 @@ export const Game = () => {
   const loading = useSelector((store) => store.ui.loading)
   return (
     <>
-      {loading && <Loader />}
+      {loading && <Loader loaderColor="#fff" textColor="#fff" />}
       {!loading && currentPosition && <GamePlay />}
       {!loading && !currentPosition && <StartingPage />}
     </>
