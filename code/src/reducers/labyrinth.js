@@ -5,42 +5,37 @@ const labyrinth = createSlice ({
   name: 'labyrinth',
   initialState: {
     username: '',
+    actions: []
     // gameStep: where in the game the user is. {
     // coordinates:"0,0"}    
   },
 
     // history: ["0,0", "0,2", ]
 
+    // an action to save the category (choice) to global state. Dynamically chosen by user.   
     reducers: {
-      setLabyrinth:(store, action) => {
-        store.labyrinth = action.payload
+      setUserName: (state, action) => {
+        state.username = action.payload
       },
-
-    // an action to save the category (choice) to global state. Dynamically chosen by user. GET/POST REQUEST. The information provided from the user. Ex. go North.
-      setUserName: (store, action) => {
-        store.username = action.payload
+      setCoordinates: (state, action) => {
+        state.coordinates = action.payload
       },
-      setCoordinates: (store, action) => {
-        store.coordinates = action.payload
+      setDescription: (state, action) => {
+        state.description = action.payload
       },
-      setDescription: (store, action) => {
-        store.description = action.payload
-      },
-      setActionOption: (store, action) => {
-        store.actions = action.payload  
+      setActionOption: (state, action) => {
+        state.actions = action.payload  
     }
   }
 });  
-
-//const {category, setUp, delivery} = action.payload
-//store.joke = [...store.joke, category, setUp, delivery]
 
 export default labyrinth;
 
 // a thunk to handle api call. Can be reused. startGame . Response back (coordinates, description) Actions are in an array. 
 export const getLabyrinth = () => {
   return (dispatch, getState) => {
-dispatch(loading.actions.setLoading(true))
+// dispatch(loading.actions.setLoading(true))
+
 const options = {
   method: 'POST',
   headers: {
@@ -55,8 +50,33 @@ const options = {
         console.log(gameData)
         dispatch(labyrinth.actions.setCoordinates(gameData.coordinates))
         dispatch(labyrinth.actions.setDescription(gameData.description))
-        dispatch(labyrinth.actions.setActionOption(data.actions))
-        dispatch(loading.actions.setLoading(false))
+        dispatch(labyrinth.actions.setActionOption(gameData.actions))
+        // dispatch(loading.actions.setLoading(false))
+      })
+  }
+}
+
+export const generateOptions = (type, direction) => {
+  return (dispatch, getState) => {
+   // dispatch(loading.actions.setLoading(true))
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: getState().labyrinth.username,
+        type,
+        direction
+      })
+    }
+    fetch(`https://labyrinth.technigo.io/action`, options)
+      .then((respons) => respons.json())
+      .then((gameData) => {
+        dispatch(labyrinth.actions.setCoordinates(gameData.coordinates))
+        dispatch(labyrinth.actions.setDescription(gameData.description))
+        dispatch(labyrinth.actions.setActionOption(gameData.actions))
+        // dispatch(loading.actions.setLoading(false))
       })
   }
 }
