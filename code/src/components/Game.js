@@ -1,11 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-// import { loading } from 'reducers/loading'
+// import { loading } from '../reducers/loading'
 
-const Game = () => {
+const GameBoard = () => {
   const game = useSelector((store) => store.game.gameStep)
 
-  // export const loading = useSelector((store) => store.game.loading)
+  // const loading = useSelector((store) => store.game.loading)
   console.log('game', game)
 
   return (
@@ -18,4 +18,4 @@ const Game = () => {
   )
 }
 
-export default Game;
+export default GameBoard;

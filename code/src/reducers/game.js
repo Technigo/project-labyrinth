@@ -8,7 +8,6 @@ export const game = createSlice({
     loading: false,
     gameStep: {
       coordinates: ''
-      // description: ''
     }
   },
 
@@ -19,17 +18,18 @@ export const game = createSlice({
       store.gameStep = action.payload
     },
 
+    // an action to save the username
     setUsername: (store, action) => {
       store.username = action.payload;
-    },
+    }
 
     // an action to save the current loading state to global state
-    setLoading: (store, action) => {
-      store.loading = action.payload
-    }
+    // setLoading: (store, action) => {
+    //   store.loading = action.payload
+    // }
   }
 })
-
+// the thunk:
 export const getGameStarted = () => {
   return (dispatch, getState) => {
     const options = {

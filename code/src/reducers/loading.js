@@ -5,10 +5,11 @@ export const loading = createSlice({
   initialState: {
     isLoading: false
   },
+
   reducers: {
-    setLoading: (state, action) => {
+    setLoading: (store, action) => {
       // send in payload with true or false and set new loading state
-      state.isLoading = action.payload
+      store.isLoading = action.payload
     }
   }
 })

@@ -21,9 +21,12 @@ const StartPage = () => {
     <form onSubmit={(event) => onFormSubmit(event)}>
       <label htmlFor="user-input">
                 Whats your name?
-        <input id="user-input" type="text" onChange={(event) => setUsername(event.target.value)} />
+        <input
+          id="user-input"
+          type="text"
+          onChange={(event) => setUsername(event.target.value)} />
       </label>
-      <button type="submit">get direction</button>
+      <button type="submit">START</button>
     </form>)
 }
 
