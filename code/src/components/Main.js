@@ -7,7 +7,6 @@ import GameScreen from './GameScreen';
 export const Main = () => {
   const username = useSelector((store) => store.labyrinth.username)
   const isLoading = useSelector((store) => store.loading.isLoading)
-  // const currentStep = useSelector((store) => store.labyrinth.currentStep);
 
   if (isLoading) {
     return <Loader />
