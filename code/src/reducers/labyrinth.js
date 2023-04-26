@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { ui } from './ui';
 
 export const labyrinth = createSlice({
   name: 'labyrinth',
@@ -49,7 +50,7 @@ export const labyrinth = createSlice({
 // two API requests one for the startLabyrinth and one for all the rest
 export const startLabyrinth = () => {
   return (dispatch, getState) => {
-    dispatch(labyrinth.actions.setLoading(true))
+    dispatch(ui.actions.setIsLoading(true))
     const options = {
       method: 'POST',
       headers: {
@@ -64,13 +65,13 @@ export const startLabyrinth = () => {
         dispatch(labyrinth.actions.setMoves(json.actions));
         dispatch(labyrinth.actions.setCoordinates(json.coordinates))
       })
-      .finally(() => dispatch(labyrinth.actions.setLoading(false)))
+      .finally(() => dispatch(ui.actions.setIsLoading(false)))
   };
 };
 
 export const labyrinthProgress = (type, direction) => {
   return (dispatch, getState) => {
-    dispatch(labyrinth.actions.setLoading(true))
+    dispatch(ui.actions.setIsLoading(true))
     const optionsProgress = {
       method: 'POST',
       headers: {
@@ -87,6 +88,6 @@ export const labyrinthProgress = (type, direction) => {
         dispatch(labyrinth.actions.setCoordinates(json.coordinates))
         dispatch(labyrinth.actions.setDirection(json.actions.direction))
       })
-      .finally(() => dispatch(labyrinth.actions.setLoading(false)))
+      .finally(() => dispatch(ui.actions.setIsLoading(false)))
   };
 }
