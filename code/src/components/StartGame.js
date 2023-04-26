@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import games, { createPlayer } from 'reducers/games';
-// import styled from 'styled-components';
+import Header from './Header';
 
 const StartGame = () => {
   const [PlayerInputValue, setPlayerInputValue] = useState('');
@@ -15,7 +15,7 @@ const StartGame = () => {
 
   return (
     <>
-      <h1>Welcome to the labyrinth</h1>
+      <Header />
       <h2>Do you want to play a game?</h2>
       <form onSubmit={(event) => onFormSubmit(event)}>
         <label htmlFor="player-input">
