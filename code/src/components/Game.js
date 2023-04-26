@@ -8,8 +8,8 @@ const Game = () => {
 
   return (
     <div>
-      <p>{labyrinth.description}</p>
-      {labyrinth.action.map((userAction) =>
+      <p>{labyrinth.response.description}</p>
+      {labyrinth.response.actions.map((userAction) =>
         <>
           <p>{userAction.type}:{userAction.direction}</p>
           <p>{userAction.description}</p>

@@ -39,7 +39,7 @@ export const labyrinth = createSlice({
 export const gameProgress = (nextMove) => {
   return (dispatch, getState) => {
     dispatch(labyrinth.actions.setLoading(true));
-    dispatch(labyrinth.actions.setResponse({}));
+    // dispatch(labyrinth.actions.setResponse({}));
     const options = {
       method: 'POST',
       headers: {
@@ -52,9 +52,13 @@ export const gameProgress = (nextMove) => {
       })
     };
 
+    console.log('nextMove')
+    console.log(nextMove)
     fetch(`https://labyrinth.technigo.io/${nextMove}`, options)
       .then((response) => response.json())
       .then((json) => {
+        console.log('json')
+        console.log(json)
         dispatch(labyrinth.actions.setResponse(json));
         dispatch(labyrinth.actions.setLoading(false));
       })

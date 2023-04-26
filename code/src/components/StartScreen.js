@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { labyrinth, gameProgress } from 'reducers/labyrinth';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { labyrinth, gameProgress } from '../reducers/labyrinth';
 // import AuthorInputSearch from './AuthorInputSearch';
 import Game from './Game';
 
@@ -8,14 +8,17 @@ const StartScreen = () => {
   const dispatch = useDispatch()
 
   const [usernameInput, setUsernameInput] = useState('')
+  // Added useSelector to get the gameStarted value from the Redux store.
   const onFormSubmit = (e) => {
     e.preventDefault()
     dispatch(labyrinth.actions.setUsername(usernameInput))
     dispatch(gameProgress('start'));
-    dispatch(labyrinth.actions.showGame(true));
+    dispatch(labyrinth.actions.showGame());
 
     // post username to the API
   }
+  const gameStarted = useSelector((state) => state.labyrinth.gameStarted)
+  const isLoading = useSelector((state) => state.labyrinth.isLoading)
 
   return (
     <div>
@@ -30,9 +33,9 @@ const StartScreen = () => {
           value={usernameInput}
           onChange={(event) => setUsernameInput(event.target.value)}
           required />
-        <button type="button">start</button>
+        <button type="submit">start</button>
       </form>
-      {labyrinth.gameStarted ? (
+      {gameStarted && !isLoading ? (
         <Game />
       ) : null}
     </div>
