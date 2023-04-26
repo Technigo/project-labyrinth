@@ -7,12 +7,11 @@ const StyledButton = styled.button`
     font-size: 17px;
     font-family:  'Source Code Pro', monospace;
     width: fit-content;
-    border: 2px dashed rgb(134, 84, 240);
+    border: 2px dashed white;
     border-radius: 3px;
     margin-right: 10px; 
     &:hover,
     &:focus {
-        background-color: black;
         border-color: rgb(192, 81, 111);
         color: rgb(58, 209, 225);
     }

@@ -82,7 +82,7 @@ const PositionDescription = styled.div`
     margin-bottom: 30px;
     h1 {
         font-size: 16px;
-        color: rgb(121, 99, 209);
+        color: rgb(164, 145, 230);
     }
 `
 
@@ -99,5 +99,6 @@ const SingleAction = styled.div`
     p {
         font-size: 16px;
         margin-bottom: 10px;
+        color: rgb(239, 92, 116);
     }
 `
