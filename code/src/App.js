@@ -1,7 +1,7 @@
 /*eslint-disable*/
 import React from 'react';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import jokes from 'reducers/jokes';
+import labyrinth from 'reducers/labyrinth';
 import StartScreen from 'components/StartScreen';
 import Lottie from 'lottie-react';
 import searchErrorAnimation from './lotties/searchError.json';
@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 
 export const App = () => {
   const reducer = combineReducers({
-    jokes: jokes.reducer
+    labyrinth: labyrinth.reducer
   });
 
 const store = configureStore({ reducer });

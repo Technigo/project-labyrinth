@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import labyrinth, { getLabyrinth } from 'reducers/labyrinth';
 
-
 const UserNameInput = () => {
-    const [userNameInputValue, setUserNameInputValue] = useState('');
+    const [userNameInputValue,setUserNameInputValue] = useState('');
     const dispatch = useDispatch();
    
     const onFormSubmit = (event) => {

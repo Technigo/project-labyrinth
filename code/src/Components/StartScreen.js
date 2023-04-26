@@ -1,6 +1,5 @@
 import React from 'react';
 import UserNameInput from './UserNameInput';
-import Joke from './Joke';
 
 const StartScreen = () => {
  
@@ -8,7 +7,6 @@ const StartScreen = () => {
     <div>
         Start your adventure here
         <UserNameInput />
-        <Joke />
     </div>);
 }
 
