@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { game, getGameStep } from 'reducers/game'
+import { game, getGameStarted } from '../reducers/game'
 
 const StartPage = () => {
   const [username, setUsername] = useState('');
@@ -14,7 +14,7 @@ const StartPage = () => {
 
     // eslint-disable-next-line max-len
     /* dispatch(.actions.setCategory(authorNameInputValue)); */ // choises in the game or what user types in the form
-    dispatch(getGameStep());
+    dispatch(getGameStarted());
   }
 
   return (

@@ -1,12 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-// import Loading from './Loading'
+// import { loading } from 'reducers/loading'
 
 const Game = () => {
-  // const game = useSelector((store) => store.games.actions)
   const game = useSelector((store) => store.game.gameStep)
 
-  //   const loading = useSelector((store) => store.games.loading)
+  // export const loading = useSelector((store) => store.game.loading)
   console.log('game', game)
 
   return (
