@@ -1,10 +1,8 @@
 /* eslint-disable max-len */
-/* eslint-disable linebreak-style */
 import React from 'react'
 import { Provider } from 'react-redux'
 import { labyrinth } from 'reducers/labyrinth'
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
-import StartScreen from 'components/StartScreen'
 import { Game } from 'components/Game'
 
 export const App = () => {
@@ -18,7 +16,6 @@ export const App = () => {
   return (
     <Provider store={store}>
       <Game />
-      <StartScreen />
     </Provider>
   )
 }
