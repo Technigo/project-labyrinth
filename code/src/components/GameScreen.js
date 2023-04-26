@@ -2,6 +2,8 @@
 import React from 'react';
 import { continueGame } from 'reducers/labyrinth';
 import { useDispatch, useSelector } from 'react-redux';
+import { GameWrapper, GameP, Th1 } from 'styles/GameStyles';
+import TypeIt from 'typeit-react';
 
 const GameScreen = () => {
   const dispatch = useDispatch();
@@ -14,9 +16,14 @@ const GameScreen = () => {
   console.log('currentStep', currentStep)
 
   return (
-    <div>
-      <h1>{currentStep.description}</h1>
-      <p>Choose wisely {labyrinth.username}</p>
+    <GameWrapper>
+      <TypeIt
+        options={{
+          speed: 30
+        }}>
+        <Th1>{currentStep.description}</Th1>
+        <GameP>Choose wisely {labyrinth.username}</GameP>
+      </TypeIt>
       <div>
         {currentStepActions ? (
           <div>
@@ -38,7 +45,7 @@ const GameScreen = () => {
           ''
         )}
       </div>
-    </div>
+    </GameWrapper>
   );
 }
 

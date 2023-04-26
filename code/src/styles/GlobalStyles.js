@@ -13,25 +13,17 @@ background-color: grey;
 margin: 0 auto;
 `
 
-export const GameWrapper = styled.div`
-display: flex;
-align-items: center;
-text-align: center;
-padding: 100px;
-height: 100vh;
-width: 100vw;
-background-color: violet;
-position: relative;
-`
-
 export const SubmitBtn = styled.button`
-margin: 5px;
-padding: 8px 12px;
-border-radius: 8px;
-border: none;
-background-color: green;
-color: white;
-cursor: pointer;
+background-color: #A7BDAC;
+  width: 4em;
+  margin: 10px;
+  font-size: 1.3rem;
+  border-color: lightgrey;
+  border-radius: 1px;
+  box-shadow: 1px 1px 1px grey;
+  color: black;
+  padding: 6%;
+  text-align: center;
 `
 
 export const TextH1 = styled.h1`
