@@ -22,18 +22,7 @@ export const StartContainer = styled.div`
   background-repeat: no-repeat, repeat;
   background-size: cover;
   background-position: center;
-/* display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-max-width: 500px;
-min-height: 40vh;
-gap: 3px;
-padding: 50px;
-padding-top: 10px;
-/* background: transparent; */
-/* margin: auto;
-box-shadow: 2px 2px 2px 2px grey; */ 
+ 
 
 @media ${Devices.mobile} {
   min-height: 30vh;
@@ -69,19 +58,6 @@ export const SubmitBtn = styled.button`
     color: rgb(255, 204, 29);
     transform: scale(1.1, 1.1);
   }
-/* transition: all 0.3s ease;
-  background-color: #A7BDAC;
-  width: 4em;
-  margin: 10px;
-  font-size: 1.3rem;
-  border-color: lightgrey;
-  border-radius: 1px;
-  box-shadow: 1px 1px 1px 1px grey;
-  color: black;
-  padding: 6%;
-  text-align: center;
-  cursor: pointer;
-  gap: 5px; */
 
   @media ${Devices.mobile} {
   width: 10px;
