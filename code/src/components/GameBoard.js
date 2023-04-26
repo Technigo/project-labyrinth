@@ -11,19 +11,22 @@ const GameBoard = () => {
   const dispatch = useDispatch()
 
   // const loading = useSelector((store) => store.game.loading)
-  console.log('game', game)
 
   return (
     <div>
-      {actions.map((action) => (
+      <p>{game.description}</p>
+      <p>{game.coordinates}</p>
+      {actions && actions.map((action) => (
         <div key={actions.direction}>
-          <p>{game.description}</p>
-          <p>{game.coordinates}</p>
           <p>{game.type}</p>
+          <p>{action.description}</p>
           <p>Pick a direction, {username}</p>
           <button
             type="submit"
-            onClick={() => dispatch(getGameStep(actions.type, actions.direction))}>
+            onClick={() => dispatch(getGameStep(
+              action.type,
+              action.direction
+            ))}>
             Go {action.direction}
           </button>
         </div>

@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { game, getGameStarted } from '../reducers/game'
+import GameBoard from './GameBoard.js'
+import { FinalPage } from './FinalPage.js'
 
 const StartPage = () => {
   const [username, setUsername] = useState('');
   const dispatch = useDispatch();
+  const globalGameStep = useSelector((store) => store.game.gameStep.coordinates);
 
   // create function that stores coordinates
 
@@ -17,6 +20,12 @@ const StartPage = () => {
     dispatch(getGameStarted());
   }
 
+  if (globalGameStep === '0,0' || globalGameStep === '1,0' || globalGameStep === '1,1' || globalGameStep
+  === '0,1' || globalGameStep === '0,2' || globalGameStep === '0,3') {
+    return <GameBoard />
+  } else if (globalGameStep === '1,3') {
+    return <FinalPage />
+  }
   return (
     <form onSubmit={(event) => onFormSubmit(event)}>
       <label htmlFor="user-input">

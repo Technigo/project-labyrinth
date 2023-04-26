@@ -43,7 +43,7 @@ export const getGameStarted = () => {
       .then((response) => response.json())
       .then((json) => {
         dispatch(game.actions.setGame(json))
-        dispatch(game.actions.setLoading(false))
+        // dispatch(game.actions.setLoading(false))
       })
   }
 }
@@ -67,5 +67,6 @@ export const getGameStep = (type, direction) => {
         dispatch(game.actions.setGame(json))
       })
       .finally(() => dispatch(loading.actions.setLoading(false)))
+    console.log(loading)
   }
 }
