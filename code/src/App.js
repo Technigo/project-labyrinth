@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import game from 'reducers/game'
-import { UserNameInput } from 'components/UserNameInput'
+import { StartPage } from 'components/StartPage'
 
 export const App = () => {
   const reducer = combineReducers({
@@ -13,7 +13,7 @@ export const App = () => {
 
   return (
     <Provider store={store}>
-      <UserNameInput />
+      <StartPage />
     </Provider>
   )
 }

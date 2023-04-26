@@ -14,14 +14,21 @@ export const UserNameInput = () => {
   }
 
   return (
-    <Form onSubmit={(event) => onFormSubmit(event)}>
-      <label htmlFor="username">
-        <input
-          id="username"
-          type="text"
-          onChange={(event) => setUserNameInputValue(event.target.value)} />
-      </label>
-    </Form>
+    <>
+      <Form onSubmit={(event) => onFormSubmit(event)}>
+        <label htmlFor="username">
+          <input
+            id="username"
+            type="text"
+            value={userNameInputValue}
+            onChange={(event) => setUserNameInputValue(event.target.value)} />
+        </label>
+      </Form>
+      <button
+        type="submit"
+        onClick={onFormSubmit}>Start
+      </button>
+    </>
   )
 }
 
