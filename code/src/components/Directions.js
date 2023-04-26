@@ -7,11 +7,9 @@ import { labyrinth, generateActionData } from '../reducers/labyrinth'
 const Directions = () => {
   const dispatch = useDispatch()
   const coordinates = useSelector((store) => store.labyrinth.coordinates)
-  console.log('DIRECTIONS coordinates:', coordinates)
-  const description = useSelector((store) => store.labyrinth.description)
-  console.log('DIRECTIONS description:', description)
+  // console.log('DIRECTIONS coordinates:', coordinates)
   const actions = useSelector((store) => store.labyrinth.actions)
-  console.log('DIRECTIONS actions:', actions)
+  // console.log('DIRECTIONS actions:', actions)
 
   const startposition = coordinates === '';
   const endposition = coordinates === '1,3';
@@ -53,42 +51,3 @@ const Directions = () => {
 };
 
 export default Directions;
-
-/*
-<img className="soundbutton" src="https://img.icons8.com/ios-filled/50/null/room-sound.png" alt="sound button" />
-
-actions.map(action => (
-  action.direction === 'South' ? (
-    <South onClick={() => onClickGo('SOUTH')} />
-  ) : action.direction === 'North' ? (
-    <North onClick={() => onClickGo('NORTH')} />
-  ) : action.direction === 'West' ? (
-    <West onClick={() => onClickGo('WEST')} />
-  ) : (
-    <East onClick={() => onClickGo('EAST')} />
-  )
-))
-
-  return (
-    <>
-      {!endposition && !startposition && (
-        <>
-          <button type="button" onClick={() => onClickGo('North')}>
-            <North />
-          </button>
-          <button type="button" onClick={() => onClickGo('South')}>
-            <South />
-          </button>
-          <button type="button" onClick={() => onClickGo('West')}>
-            <West />
-          </button>
-          <button type="button" onClick={() => onClickGo('East')}>
-            <East />
-          </button>
-        </>
-      )}
-      {!startposition && (<MainButton style={{ position: 'absolute', bottom: '0', right: '0' }} onClick={onClickRestart}>Restart</MainButton>)}
-    </>
-  )
-
-*/

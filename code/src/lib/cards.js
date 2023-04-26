@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components/macro';
 import { useDispatch } from 'react-redux'
 import { generateActionData } from '../reducers/labyrinth'
 
 const Container = styled.div`
   padding: 50px;
-  max-height: 600px;
+  max-height: 700px;
   max-width: 600px;
   margin: calc(50% - 220px) auto;
   border-radius: 50px;
@@ -17,7 +17,6 @@ const Container = styled.div`
   justify-content: center;
   gap: 25px;
   text-align: center;
-  overflow-y: auto; 
   @media (max-width: 768px) {
     max-height: 550px; 
     padding: 25px;
@@ -32,7 +31,7 @@ const Description = styled.p`
     margin-bottom: 15px;
     margin-top: 0;
     @media (max-width: 768px) {
-      font-size: 16px;
+      font-size: 18px;
       margin-bottom: 5px;
       margin-top: 15px;
     }
@@ -40,21 +39,19 @@ const Description = styled.p`
 const DirectionContainer = styled.div`
   padding: 15px;
   background-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 100%;
-  margin: auto;
+  margin: 10px auto;
   border: 1px solid #B3D0B6;
   border-radius: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 7px;
+  gap: 12px;
   text-align: left;
 
   @media (max-width: 768px) {
     margin-bottom: 7px;
-    gap: 0;
+    gap: 12px;
   }
 `
 
@@ -80,17 +77,37 @@ const DirectionButton = styled.button`
 
 export const LabyrinthCard = ({ description, actions }) => {
   const dispatch = useDispatch()
+  const [showDirections, setShowDirections] = useState(false);
+  const [showDescription, setShowDescription] = useState(true);
 
-  console.log('description:', description)
-  console.log('actions.length', actions.length, 'actions', actions)
+  const toggleDirections = () => {
+    setShowDirections(!showDirections);
+    setShowDescription(!showDescription);
+  };
+
+  // console.log('description:', description)
+  // console.log('actions.length', actions.length, 'actions', actions)
+
   return (
     <Container>
-      <Description>{description}</Description>
-      {actions.map((item) => (
-        <DirectionContainer key={item.description}>
-          <DirectionDescription>{item.description}</DirectionDescription>
-          <DirectionButton type="button" onClick={() => dispatch(generateActionData(item.type, item.direction))}>Go {item.direction}</DirectionButton>
-        </DirectionContainer>))}
+      <button type="button" onClick={toggleDirections} className="toggle-button">
+        {showDirections ? 'Show Location' : 'Show Directions'}
+      </button>
+      {showDescription && <Description>{description}</Description>}
+      {showDirections && (
+        <div>
+          {actions.map((item) => (
+            <DirectionContainer key={item.description}>
+              <DirectionDescription>{item.description}</DirectionDescription>
+              <DirectionButton
+                type="button"
+                onClick={() => dispatch(generateActionData(item.type, item.direction))}>
+                Go {item.direction}
+              </DirectionButton>
+            </DirectionContainer>
+          ))}
+        </div>
+      )}
     </Container>
-  )
+  );
 }

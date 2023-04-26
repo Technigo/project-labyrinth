@@ -163,13 +163,29 @@ input {
   z-index: 100000;
   background-color: #B3D0B6;
   border-radius: 50%;
-  margin: 1rem;
+  margin: .5rem;
   padding: .4rem;
 }
 
 .soundbutton:hover {
   opacity: 0.5;
 }
+
+.toggle-button {
+  border: none;
+  border-radius: 25px;
+  background-color: #17295c;
+  color: white;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+.toggle-button:hover {
+  background-color: #2a3b6b;
+}
+
 
 @media (max-width: 768px) {
 
@@ -209,6 +225,11 @@ input {
   
   .lottie {
     width: 350px;
+  }
+
+  .soundbutton {
+    width: 30px;
+    height:30px;
   }
 
 }
