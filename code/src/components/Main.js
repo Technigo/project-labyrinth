@@ -1,7 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import StartScreen from './StartScreen'
-import GameBoard from './GameBoard'
+import { GameBoard } from './GameBoard'
+import Loading from './Loading';
 
 export const Main = () => {
   const { coordinates } = useSelector((store) => store.game.currentLocation)
@@ -9,7 +10,7 @@ export const Main = () => {
 
   return (
     <div>
-      {isLoading && <div> Loading... </div>}
+      {isLoading && <Loading />}
       {coordinates
         ? <GameBoard coordinates={coordinates} />
         : <StartScreen />}
