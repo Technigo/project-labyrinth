@@ -15,7 +15,7 @@ export const Loader = () => {
         autoplay
         loop
         src="https://assets7.lottiefiles.com/private_files/lf30_dz8ymnuq.json"
-        style={{ height: '200px', width: '200px' }}>
+        style={{ height: '150px', width: '150px' }}>
         <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
       </Player>
     </LoaderContainer>
