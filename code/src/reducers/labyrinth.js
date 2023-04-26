@@ -21,9 +21,11 @@ export const labyrinth = createSlice({
       store.currentStep = action.payload
     },
 
-    restart: (store) => {
-      store.username = initialState.username
-      store.currentStep = initialState.currentStep
+    restart: () => {
+      // store.username = initialState.username
+      // store.currentStep = initialState.currentStep
+      console.log('Restarting game...');
+      return initialState
     }
   }
 })
@@ -74,3 +76,9 @@ export const continueGame = (direction) => {
       });
   }
 }
+
+// export const restartGame = () => {
+//   return {
+//     initialState
+//   }
+// }

@@ -31,15 +31,14 @@ const GameScreen = () => {
         {currentStepActions ? (
           <div>
             {currentStepActions.map((action) => (
-              <>
+              <div key={action.direction}>
                 <button
                   type="button"
-                  key={action.direction}
                   onClick={() => dispatch(continueGame(action.direction))}>
                   Go {action.direction}
                 </button>
                 <InfoText>To the {action.direction}: {action.description}</InfoText>
-              </>
+              </div>
             ))}
           </div>
         ) : (
@@ -48,7 +47,10 @@ const GameScreen = () => {
       </div>
       <button
         type="button"
-        onClick={() => dispatch(labyrinth.actions.restart)}>
+        onClick={() => {
+          console.log('Restart button clicked');
+          dispatch(labyrinth.actions.restart());
+        }}>
         Restart
       </button>
     </GameWrapper>
