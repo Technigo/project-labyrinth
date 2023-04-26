@@ -34,8 +34,8 @@ const BackgroundMusic = () => {
 
   return (
     <div onClick={handleAudioClick} onKeyDown={handleAudioClick} role="presentation">
-      {isMusicPaused && (<img className="soundbutton" src="https://img.icons8.com/ios-filled/50/null/room-sound.png" alt="sound button" />)}
-      {!isMusicPaused && (<img className="soundbutton" src="https://img.icons8.com/ios-filled/50/null/no-audio--v1.png" alt="sound button" />)}
+      {!isMusicPaused && (<img className="soundbutton" src="https://img.icons8.com/ios-filled/50/null/room-sound.png" alt="sound button" />)}
+      {isMusicPaused && (<img className="soundbutton" src="https://img.icons8.com/ios-filled/50/null/no-audio--v1.png" alt="sound button" />)}
     </div>
   )
 }

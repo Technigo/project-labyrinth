@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/macro';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { generateActionData } from '../reducers/labyrinth'
 
 const Container = styled.div`
@@ -20,7 +20,6 @@ const Container = styled.div`
   @media (max-width: 768px) {
     max-height: 550px; 
     padding: 25px;
-    align-items: flex-start;
     margin: 0 auto; 
   }
 `;
@@ -77,8 +76,12 @@ const DirectionButton = styled.button`
 
 export const LabyrinthCard = ({ description, actions }) => {
   const dispatch = useDispatch()
+  const coordinates = useSelector((store) => store.labyrinth.coordinates)
+
   const [showDirections, setShowDirections] = useState(false);
   const [showDescription, setShowDescription] = useState(true);
+
+  const endposition = coordinates === '1,3';
 
   const toggleDirections = () => {
     setShowDirections(!showDirections);
@@ -87,6 +90,14 @@ export const LabyrinthCard = ({ description, actions }) => {
 
   // console.log('description:', description)
   // console.log('actions.length', actions.length, 'actions', actions)
+
+  if (endposition) {
+    return (
+      <Container>
+        <Description>{description}</Description>
+      </Container>
+    );
+  }
 
   return (
     <Container>
