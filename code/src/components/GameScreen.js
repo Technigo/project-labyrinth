@@ -26,7 +26,7 @@ const GameScreen = () => {
                   type="button"
                   key={action.direction}
                   onClick={() => dispatch(continueGame(action.direction))}>
-                  Go .. {action.direction}
+                  Go {action.direction}
                 </button>
                 <p>
                   To the {action.direction}: {action.description}
