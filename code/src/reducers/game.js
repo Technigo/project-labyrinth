@@ -7,8 +7,7 @@ const game = createSlice({
   initialState: {
     username: null,
     // Stores the whole fetch from the API
-    currentLocation: [],
-    loading: false
+    currentLocation: []
   },
 
   reducers: {
@@ -18,10 +17,6 @@ const game = createSlice({
 
     setGame: (store, action) => {
       store.all = action.payload
-    },
-
-    setLoading: (store, action) => {
-      store.loading = action.payload
     },
 
     // The setCurrentLocation reducer function sets the currentLocation property of the store object
@@ -39,22 +34,6 @@ const game = createSlice({
 // creating a Thunk, which is really a function, and that function returns another function. In that function, Redux will pass
 // it a dispatch. This will allow us to dispatch more actions to our state. It can also pass another function
 // called getState, which we can use to get the current state of our Redux store if we need to.
-
-// export const startGame = () => {
-//   return (dispatch, getState) => {
-//     dispatch(ui.actions.setLoading(true))
-//     const API_URL = 'https://labyrinth.technigo.io/start'
-//     fetch(API_URL), {
-//       method:
-//     }
-//       .then((res) => res.json())
-//       .then((json) => {
-//         // get the data from the API - save it in the global state
-//         dispatch(game.actions.setGame(json))
-//         dispatch(ui.actions.setLoading(false))
-//       })
-//   }
-// }
 
 // First thunk
 
@@ -86,7 +65,7 @@ export const generateMoves = (direction) => {
 
     const options = {
       method: 'POST',
-      headers: { 'Content-Type': 'aplication/json' },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         username: getState().game.username,
         type: 'move',

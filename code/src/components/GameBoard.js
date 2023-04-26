@@ -7,11 +7,12 @@ import Loading from './Loading'
 
 const GameContainer = styled.div`
 display: flex; 
+position: relative; 
 flex-direction:column; 
 align-items: center;
-border:20px solid red; 
-color: white; 
-margin: 20px 40px; 
+border:2px solid red; 
+background: #ffff;
+margin: 5% 20%; 
 justify-content: center;
 `
 
@@ -30,7 +31,7 @@ export const GameBoard = () => {
             return (
               <div key={action.direction}>
                 <p>{action.description}</p>
-                <Button onClick={() => dispatch(generateMoves(action))}>
+                <Button onClick={() => dispatch(generateMoves(action.direction))}>
                   {action.direction}
                 </Button>
               </div>
