@@ -2,7 +2,7 @@ import styled from 'styled-components/macro';
 import { Devices } from './GlobalStyles';
 
 export const GameWrapper = styled.div`
-background-color: #cdc5bb;
+/* background-color: #cdc5bb; */
   overflow-x: hidden;
   border: double gray;
   border-radius: 5px;
@@ -10,7 +10,10 @@ background-color: #cdc5bb;
   min-height: 20vh;
   margin: 0 auto;
   padding-top: 5px;
-  box-shadow: 2px 2px 2px 2px grey;
+  box-shadow: 1px 1px 1px 1px grey;
+  background-color: rgba(255, 255, 255, 0.063);
+  backdrop-filter: blur(30px);
+  --webkit-backdrop-filter: blur(30px);
 
   @media ${Devices.mobile} {
   max-width: 400px;
