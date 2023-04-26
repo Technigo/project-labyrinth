@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const labyrinth = createSlice({
+export const labyrinth = createSlice({
   name: 'labyrinth',
   initialState: {
     username: '',
@@ -16,17 +16,29 @@ const labyrinth = createSlice({
     setProgress: (store, action) => {
       store.progress = action.payload
     },
-    setLoader: (store, action) => {
+    setLoading: (store, action) => {
       store.isLoading = action.payload
+    },
+    setDescription: (store, action) => {
+      store.description = action.payload
+    },
+    setMoves: (store, action) => {
+      store.setMoves = action.payload
+    },
+    setCoordinates: (store, action) => {
+      store.coordinates = action.payload
+    },
+    setDirection: (store, action) => {
+      store.direction = action.payload
     }
   }
 });
 
 // a thunk to handle the API request
 // two API requests one for the startLabyrinth and one for all the rest
-const startLabyrinth = () => {
+export const startLabyrinth = () => {
   return (dispatch, getState) => {
-    dispatch(labyrinth.actions.setLoader(true))
+    dispatch(labyrinth.actions.setLoading(true))
     const options = {
       method: 'POST',
       headers: {
@@ -44,11 +56,10 @@ const startLabyrinth = () => {
       .finally(() => dispatch(labyrinth.actions.setLoading(false)))
   };
 };
-export default startLabyrinth;
 
 export const labyrinthProgress = (type, direction) => {
   return (dispatch, getState) => {
-    dispatch(labyrinth.actions.setLoader(true))
+    dispatch(labyrinth.actions.setLoading(true))
     const optionsProgress = {
       method: 'POST',
       headers: {

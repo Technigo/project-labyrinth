@@ -1,15 +1,16 @@
-import React, { Provider } from 'react';
+import React from 'react';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
 import WelcomeScreen from 'components/WelcomeScreen';
-import startLabyrinth from 'reducers/labyrinth';
+import { labyrinth } from 'reducers/labyrinth';
+
+const reducer = combineReducers({
+  labyrinth: labyrinth.reducer
+});
+
+const store = configureStore({ reducer });
 
 export const App = () => {
-  const reducer = combineReducers({
-    labyrinth: startLabyrinth.reducer
-  });
-
-  const store = configureStore({ reducer });
-
   return (
     <Provider store={store}>
       <WelcomeScreen />
