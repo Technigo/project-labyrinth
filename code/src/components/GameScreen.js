@@ -37,7 +37,7 @@ const GameScreen = () => {
                   onClick={() => dispatch(continueGame(action.direction))}>
                   Go {action.direction}
                 </button>
-                <InfoText>To the {action.direction}: {action.description}</InfoText>
+                <InfoText>You look {action.direction}: {action.description}</InfoText>
               </div>
             ))}
           </div>
