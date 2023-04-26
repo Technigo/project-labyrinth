@@ -3,6 +3,9 @@ import React from 'react';
 import { continueGame } from 'reducers/labyrinth';
 import { useDispatch, useSelector } from 'react-redux';
 import { GameWrapper, GameP, Th1 } from 'styles/GameStyles';
+import { Devices } from 'styles/GlobalStyles';
+import styled from 'styled-components'
+
 import TypeIt from 'typeit-react';
 
 const GameScreen = () => {
@@ -35,9 +38,7 @@ const GameScreen = () => {
                   onClick={() => dispatch(continueGame(action.direction))}>
                   Go {action.direction}
                 </button>
-                <p>
-                  To the {action.direction}: {action.description}
-                </p>
+                <InfoText>To the {action.direction}: {action.description}</InfoText>
               </>
             ))}
           </div>
@@ -49,4 +50,14 @@ const GameScreen = () => {
   );
 }
 
+const InfoText = styled.p`
+font-family: 'Special Elite';
+font-size: 1em;
+color: black;
+line-height: 1.4;
+
+@media ${Devices.mobile} {
+  font-size: 14px;
+}
+`
 export default GameScreen;

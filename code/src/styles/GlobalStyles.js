@@ -56,9 +56,17 @@ export const TextH1 = styled.h1`
 font-family: 'Special Elite', cursive;
 font-size: 1.7em;
 color: red;
+
+@media ${Devices.mobile} {
+  font-size: 14px;
+}
 `
 export const TextP = styled.p`
 font-family: 'Special Elite', cursive;
 font-size: 1.5em;
 color: black;
+
+@media ${Devices.mobile} {
+  font-size: 12px;
+}
 `

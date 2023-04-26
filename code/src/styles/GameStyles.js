@@ -35,6 +35,6 @@ color: black;
 line-height: 1.4;
 
 @media ${Devices.mobile} {
-  font-size: 1.3em;
+  font-size: 14px;
 }
 `
