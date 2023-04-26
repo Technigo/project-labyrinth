@@ -6,16 +6,14 @@ const game = createSlice({
   name: 'game',
   initialState: {
     username: null,
-
     // Stores the whole fetch from the API
     currentLocation: [],
-
     loading: false
   },
 
   reducers: {
     setUserName: (store, action) => {
-      store.username = action.payload
+      store.username = `${new Date().getTime()} ${action.payload}`
     },
 
     setGame: (store, action) => {
@@ -26,8 +24,14 @@ const game = createSlice({
       store.loading = action.payload
     },
 
+    // The setCurrentLocation reducer function sets the currentLocation property of the store object
+    // to a new object that is a shallow copy of the action.payload object.
+    // This is achieved by using the spread operator (...) to create a copy of the action.payload object
+    // and then placing it in a new object with {} curly braces. By doing this, any changes made to the
+    // currentLocation object will not modify the original action.payload object.
+
     setCurrentLocation: (store, action) => {
-      store.currentLocation = action.payload
+      store.currentLocation = { ...action.payload }
     }
   }
 })
