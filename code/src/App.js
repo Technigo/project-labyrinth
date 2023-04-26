@@ -6,7 +6,6 @@ import { maze } from 'reducers/maze';
 import { ui } from 'reducers/ui';
 import { WelcomePage } from 'components/WelcomePage';
 import { MazeActions } from 'components/MazeActions';
-import { Body } from 'components/global-style/Body';
 
 export const App = () => {
   const reducer = combineReducers({
@@ -18,7 +17,6 @@ export const App = () => {
 
   return (
     <Provider store={store}>
-      <Body />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<WelcomePage />} />
