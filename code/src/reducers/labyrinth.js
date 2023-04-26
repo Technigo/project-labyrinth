@@ -37,9 +37,11 @@ export const labyrinth = createSlice({
 // a thunk to handle api call
 
 export const gameProgress = (nextMove) => {
+  const url = nextMove === 'start' ? 'https://labyrinth.technigo.io/start' : 'https://labyrinth.technigo.io/action';
+
   return (dispatch, getState) => {
     dispatch(labyrinth.actions.setLoading(true));
-    // dispatch(labyrinth.actions.setResponse({}));
+    dispatch(labyrinth.actions.setResponse({}));
     const options = {
       method: 'POST',
       headers: {
@@ -48,16 +50,14 @@ export const gameProgress = (nextMove) => {
       body: JSON.stringify({
         username: getState().labyrinth.username,
         type: 'move',
-        direction: getState().labyrinth.direction
+        direction: nextMove // getState().labyrinth.direction
       })
     };
 
-    console.log('nextMove')
     console.log(nextMove)
-    fetch(`https://labyrinth.technigo.io/${nextMove}`, options)
+    fetch(url, options)
       .then((response) => response.json())
       .then((json) => {
-        console.log('json')
         console.log(json)
         dispatch(labyrinth.actions.setResponse(json));
         dispatch(labyrinth.actions.setLoading(false));
@@ -67,18 +67,3 @@ export const gameProgress = (nextMove) => {
       });
   };
 };
-
-// fetch(`https://v2.jokeapi.dev/joke/${getState().room.coordinates}`)
-
-// const obj = {name: "John", age: 30, city: "New York"};
-// const myJSON = JSON.stringify(obj);
-
-/* const submitHandler = (message) => {
-    fetch('https://labyrinth.technigo.io/start', {
-      method: 'POST',
-      body: JSON.stringify({ message }),
-      headers: { 'Content-Type': 'application/json' }
-    }).then((response) => response.json()).then((data) => {
-      setThoughtList((pv) => [data, ...pv])
-    })
-} */

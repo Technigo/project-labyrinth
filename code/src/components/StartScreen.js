@@ -8,7 +8,6 @@ const StartScreen = () => {
   const dispatch = useDispatch()
 
   const [usernameInput, setUsernameInput] = useState('')
-  // Added useSelector to get the gameStarted value from the Redux store.
   const onFormSubmit = (e) => {
     e.preventDefault()
     dispatch(labyrinth.actions.setUsername(usernameInput))
@@ -17,6 +16,7 @@ const StartScreen = () => {
 
     // post username to the API
   }
+  // Added useSelector to get the gameStarted value from the Redux store.
   const gameStarted = useSelector((state) => state.labyrinth.gameStarted)
   const isLoading = useSelector((state) => state.labyrinth.isLoading)
 
