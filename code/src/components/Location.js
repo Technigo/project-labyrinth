@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { maze } from 'reducers/maze'
 import Lottie from 'lottie-react'
 import styled from 'styled-components';
+import TypeIt from 'typeit-react';
 import { MakeMove } from './MakeMove'
 import { FinalStep } from './FinalStep'
 import { Loading } from './Loading'
@@ -20,7 +21,7 @@ const Location = () => {
       dispatch(MakeMove())
     }
     return (
-      <SignsDiv>
+      <div>
         <Sign key={action.description}>
           <p>{action.description}</p>
           <button
@@ -30,29 +31,41 @@ const Location = () => {
             {action.direction}
           </button>
         </Sign>
-      </SignsDiv>
+      </div>
 
     )
   })
   return (
     <div>
       {currentLocation.isLoading ? <Loading />
-        : <div>
-          <Sign>
-            {currentLocation.description}
-          </Sign>
+        : <LocationsDiv>
+          <TypeIt options={{ speed: 50 }}>
+            <LocationText>
+              {currentLocation.description}
+            </LocationText>
+          </TypeIt>
           <Lottie style={{ width: '200px' }} animationData={compass} loop />
           {currentLocation.coordinates === '1,3' ? <FinalStep /> : null}
-          {actionDirections}
-        </div>}
+          <SignsDiv>
+            {actionDirections}
+          </SignsDiv>
+        </LocationsDiv>}
     </div>
   )
 }
 
 export default Location
 
+const LocationsDiv = styled.div`
+display: flex;
+flex-direction: column;
+border: solid blue 2px;
+align-items: center;
+`
+
 const SignsDiv = styled.div`
 display: flex;
+flex-direction: row;
 `
 
 const Sign = styled.div`
@@ -69,4 +82,10 @@ font-size: 30px;
 text-shadow: 1px 1px grey;
 box-shadow: 2px 6px 6px 2px black;
 margin: 10px;
+`
+
+const LocationText = styled.div`
+border: solid black 2px;
+font-size: 24px;
+padding: 10px;
 `
