@@ -45,3 +45,28 @@ export const startGame = () => {
       .finally(() => dispatch(game.actions.setLoading(false)))
   }
 }
+
+// Here goes the second thunk
+export const nextMove = (direction) => {
+  return (dispatch, getState) => {
+    dispatch(game.actions.setLoading(true))
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: getState().game.username,
+        type: 'move',
+        direction
+      })
+    };
+    fetch('https://labyrinth.technigo.io/action', options)
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(game.actions.setPosition(data))
+      })
+      .catch((error) => console.error(error))
+      .finally(() => dispatch(game.actions.setLoading(false)))
+  }
+}

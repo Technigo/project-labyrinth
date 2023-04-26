@@ -5,7 +5,7 @@ import styled from 'styled-components/macro'
 
 export const UserNameInput = () => {
   const [userNameInputValue, setUserNameInputValue] = useState('')
-  const dispatch = useDispatch
+  const dispatch = useDispatch()
 
   const onFormSubmit = (event) => {
     event.preventDefault();
