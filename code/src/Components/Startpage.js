@@ -12,20 +12,22 @@ export const Startpage = () => {
     dispatch(startTheGame())
   }
 
-
   return (
     <div>
       <bigText>Welcome text ish</bigText>
-      <input type="input" alt="input">Name here</input>
-      <button alt="start button" type="button">Start Game</button>
+      <form onSubmit={letsStart}>
+      <input 
+      type="text" 
+      alt="input" 
+      id="usernameInput"
+      placeholder="username"
+      value={input}
+      onChange={(e) => setInput(e.target.value)}
+      required />
+      <button alt="start button" type="submit">Start Game</button>
+      </form>
     </div>
   )
-}
+};
 
-  return (
-    <Container>
-      {isLoading ? <Loading /> : (<div>{gameStart === '' ? <UserInput /> : <MazePage />} </div>)}
-    </Container>
-  )
-}
 
