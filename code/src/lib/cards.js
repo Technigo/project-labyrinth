@@ -5,7 +5,8 @@ import { generateActionData } from '../reducers/labyrinth'
 
 const Container = styled.div`
   padding: 50px;
-  max-height: 600px; /* set a fixed height */
+  max-height: 600px;
+  max-width: 600px;
   margin: calc(50% - 220px) auto;
   border-radius: 50px;
   background-color: rgba(0, 0, 0, 0.7);
@@ -16,12 +17,12 @@ const Container = styled.div`
   justify-content: center;
   gap: 25px;
   text-align: center;
-  overflow-y: auto; /* add overflow-y property */
+  overflow-y: auto; 
   @media (max-width: 768px) {
-    max-height: 550px; /* set a smaller height */
+    max-height: 550px; 
     padding: 25px;
     align-items: flex-start;
-    margin: 0 auto; /* center horizontally */
+    margin: 0 auto; 
   }
 `;
 

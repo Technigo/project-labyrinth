@@ -33,13 +33,13 @@ const Directions = () => {
           {actions.map((action) => {
             let buttonElement = null;
             if (action.direction === 'South') {
-              buttonElement = <South onClick={() => onClickGo(action.type, 'South')} key={action.direction} />;
+              buttonElement = <South handleClick={() => onClickGo(action.type, 'South')} key={action.direction} />;
             } else if (action.direction === 'North') {
-              buttonElement = <North onClick={() => onClickGo(action.type, 'North')} key={action.direction} />;
+              buttonElement = <North handleClick={() => onClickGo(action.type, 'North')} key={action.direction} />;
             } else if (action.direction === 'West') {
-              buttonElement = <West onClick={() => onClickGo(action.type, 'West')} key={action.direction} />;
+              buttonElement = <West handleClick={() => onClickGo(action.type, 'West')} key={action.direction} />;
             } else if (action.direction === 'East') {
-              buttonElement = <East onClick={() => onClickGo(action.type, 'East')} key={action.direction} />;
+              buttonElement = <East handleClick={() => onClickGo(action.type, 'East')} key={action.direction} />;
             }
             return buttonElement;
           })}
@@ -55,6 +55,7 @@ const Directions = () => {
 export default Directions;
 
 /*
+<img className="soundbutton" src="https://img.icons8.com/ios-filled/50/null/room-sound.png" alt="sound button" />
 
 actions.map(action => (
   action.direction === 'South' ? (

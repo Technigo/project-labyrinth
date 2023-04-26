@@ -88,36 +88,36 @@ const EastArrow = styled(DirectionArrow)`
     }
 `
 
-export const North = () => {
+export const North = ({ handleClick }) => {
   return (
-    <div className="north">
+    <div className="north" onClick={handleClick} onKeyDown={handleClick} role="presentation">
       <NorthArrow />
       <StyledP>North</StyledP>
     </div>
   )
 }
 
-export const South = () => {
+export const South = ({ handleClick }) => {
   return (
-    <div className="south">
+    <div className="south" onClick={handleClick} onKeyDown={handleClick} role="presentation">
       <SouthArrow />
       <StyledP>South</StyledP>
     </div>
   )
 }
 
-export const West = () => {
+export const West = ({ handleClick }) => {
   return (
-    <div className="west">
+    <div className="west" onClick={handleClick} onKeyDown={handleClick} role="presentation">
       <WestArrow />
       <StyledP>West</StyledP>
     </div>
   )
 }
 
-export const East = () => {
+export const East = ({ handleClick }) => {
   return (
-    <div className="east">
+    <div className="east" onClick={handleClick} onKeyDown={handleClick} role="presentation">
       <EastArrow />
       <StyledP>East</StyledP>
     </div>
