@@ -19,23 +19,22 @@ export const SubmitBtn = styled.button`
   width: 4em;
   margin: 10px;
   font-size: 1.3rem;
-  font-family: 'Special Elite';
   border-color: lightgrey;
   border-radius: 1px;
   box-shadow: 1px 1px 1px grey;
   color: black;
-  padding: 6%;
+  padding: 4%;
   text-align: center;
   cursor: pointer;
 `
 
 export const TextH1 = styled.h1`
-font-family: 'VT323', monospace;
-font-size: 1.9em;
+font-family: 'Special Elite', cursive;
+font-size: 1.7em;
 color: red;
 `
 export const TextP = styled.p`
-font-family: 'VT323', monospace;
+font-family: 'Special Elite', cursive;
 font-size: 1.5em;
 color: black;
 `
