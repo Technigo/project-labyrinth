@@ -26,7 +26,6 @@ const GameQuestions = () => {
 
   return (
     <div>
-     return (
       <div>
         {history.length > 0 && (
           <button type="button" onClick={goToPreviousMove}>
@@ -34,7 +33,6 @@ const GameQuestions = () => {
           </button>
         )}
       </div>
-);
       <button type="button" onClick={onRestartButton}>Restart</button>
       <div>
         <h1>{description}</h1>

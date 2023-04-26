@@ -1,29 +1,23 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import games, { createPlayer } from 'reducers/games';
-// import styled from 'styled-components';
+import React from 'react';
+import PlayerInput from 'components/PlayerInput';
+import { useSelector } from 'react-redux';
+import GameQuestions from './GameQuestions';
+import Loading from './Loading';
 
 const StartGame = () => {
-  const [PlayerInputValue, setPlayerInputValue] = useState('');
-  const dispatch = useDispatch();
-  const onFormSubmit = (event) => {
-    event.preventDefault();
-
-    dispatch(games.actions.setUserName(PlayerInputValue));
-    dispatch(createPlayer());
-  }
+  const username = useSelector((store) => store.games.username)
+  const loading = useSelector((store) => store.games.loading)
 
   return (
     <>
-      <h1>Welcome to the labyrinth</h1>
-      <h2>Do you want to play a game?</h2>
-      <form onSubmit={(event) => onFormSubmit(event)}>
-        <label htmlFor="player-input">
-      Enter player name:
-          <input id="player-input" required type="text" onChange={(event) => setPlayerInputValue(event.target.value)} />
-        </label>
-        <button type="submit">Start Game</button>
-      </form>
+      {loading && <Loading />}
+      {!loading && (
+        <div>
+          {username
+            ? <GameQuestions />
+            : <PlayerInput />}
+        </div>
+      )}
     </>
   )
 }
