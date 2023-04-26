@@ -68,7 +68,7 @@ export const continueGame = (direction) => {
       })
     }
 
-    fetch(`https://labyrinth.technigo.io/${direction}`, options)
+    fetch('https://labyrinth.technigo.io/action', options)
       .then((respons) => respons.json())
       .then((data) => {
         // dispatch(labyrinth.actions.setCoordinates(data.coordinates));

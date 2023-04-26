@@ -28,9 +28,7 @@ const StartScreen = () => {
           type="text"
           placeholder="Enter username"
           onChange={(event) => setUsernameInput(event.target.value)} />
-        <SubmitBtn
-          type="submit">start
-        </SubmitBtn>
+        <SubmitBtn type="submit">start</SubmitBtn>
       </form>
 
       {gameStart ? (
