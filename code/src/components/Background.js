@@ -45,10 +45,10 @@ const Background = () => {
     imageUrl = 'https://i.postimg.cc/7PdQjynJ/polina-kocheva-2-FR-8-LV-0o-Q-unsplash.jpg';
   } else if (coordinates === '0,1') {
     // large, four-walled room with mechanical gadgets
-    imageUrl = 'https://i.postimg.cc/fTCwHxH2/hermes-rivera-e-N1q-Ryr-F-U0-unsplash.jpg';
+    imageUrl = 'https://i.postimg.cc/Hsrgtfyx/ryan-tauss-NLbv-Pon-5r8-unsplash.jpg';
   } else if (coordinates === '0,2') {
     // As you move through the room, the walls change colors with every step you take.
-    imageUrl = 'https://i.postimg.cc/Hsrgtfyx/ryan-tauss-NLbv-Pon-5r8-unsplash.jpg';
+    imageUrl = 'https://i.postimg.cc/fTCwHxH2/hermes-rivera-e-N1q-Ryr-F-U0-unsplash.jpg';
   } else if (coordinates === '0,3') {
     // The mouth of the chest swings open.
     imageUrl = 'https://i.postimg.cc/N0gjsdKw/stefan-steinbauer-HK8-Io-D-5zpg-unsplash.jpg';

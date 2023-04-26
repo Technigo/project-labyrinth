@@ -15,7 +15,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 25px;
+  gap: 20px;
   text-align: center;
   @media (max-width: 768px) {
     max-height: 550px; 
@@ -56,7 +56,7 @@ const DirectionContainer = styled.div`
 
 const DirectionDescription = styled.p`
   font-size: 16px;
-  margin-bottom: 7px;
+  margin-bottom: 12px;
 
   @media (max-width: 768px) {
     font-size: 14px;
