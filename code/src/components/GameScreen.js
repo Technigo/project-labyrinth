@@ -31,21 +31,28 @@ const GameScreen = () => {
         {currentStepActions ? (
           <div>
             {currentStepActions.map((action) => (
-              <>
+              <div key={action.direction}>
                 <button
                   type="button"
-                  key={action.direction}
                   onClick={() => dispatch(continueGame(action.direction))}>
                   Go {action.direction}
                 </button>
-                <InfoText>To the {action.direction}: {action.description}</InfoText>
-              </>
+                <InfoText>You look {action.direction}: {action.description}</InfoText>
+              </div>
             ))}
           </div>
         ) : (
           ''
         )}
       </div>
+      {/* <button
+        type="button"
+        onClick={() => {
+          console.log('Restart button clicked');
+          dispatch(labyrinth.actions.restart());
+        }}>
+        Restart
+      </button> */}
     </GameWrapper>
   );
 }

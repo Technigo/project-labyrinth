@@ -1,6 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { loading } from './loading'
 
+const startURL = 'https://labyrinth.technigo.io/start'
+const actionURL = 'https://labyrinth.technigo.io/action'
+
 const initialState = {
   username: null,
   currentStep: {}
@@ -19,6 +22,9 @@ export const labyrinth = createSlice({
     },
 
     restart: () => {
+      // store.username = initialState.username
+      // store.currentStep = initialState.currentStep
+      console.log('Restarting game...');
       return initialState
     }
   }
@@ -33,13 +39,16 @@ export const startGame = () => {
       body: JSON.stringify({ username: getState().labyrinth.username })
     }
 
-    fetch('https://labyrinth.technigo.io/start', options)
+    fetch(startURL, options)
       .then((response) => response.json())
       .then((data) => {
         console.log('data', data)
         dispatch(labyrinth.actions.setCurrentStep(data))
         dispatch(loading.actions.setLoading(false));
       })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 }
 
@@ -56,11 +65,20 @@ export const continueGame = (direction) => {
       })
     }
 
-    fetch('https://labyrinth.technigo.io/action', options)
+    fetch(actionURL, options)
       .then((respons) => respons.json())
       .then((data) => {
         dispatch(labyrinth.actions.setCurrentStep(data));
         dispatch(loading.actions.setLoading(false));
       })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 }
+
+// export const restartGame = () => {
+//   return {
+//     initialState
+//   }
+// }
