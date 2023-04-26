@@ -18,8 +18,9 @@ export const labyrinth = createSlice({
       store.currentStep = action.payload
     },
 
-    restart: () => {
-      return initialState
+    restart: (store) => {
+      store.username = initialState.username
+      store.currentStep = initialState.currentStep
     }
   }
 })
@@ -40,6 +41,9 @@ export const startGame = () => {
         dispatch(labyrinth.actions.setCurrentStep(data))
         dispatch(loading.actions.setLoading(false));
       })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 }
 
@@ -62,5 +66,8 @@ export const continueGame = (direction) => {
         dispatch(labyrinth.actions.setCurrentStep(data));
         dispatch(loading.actions.setLoading(false));
       })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 }

@@ -48,7 +48,7 @@ const GameScreen = () => {
       </div>
       <button
         type="button"
-        onClick={() => dispatch(labyrinth.actions.restart())}>
+        onClick={() => dispatch(labyrinth.actions.restart)}>
         Restart
       </button>
     </GameWrapper>
