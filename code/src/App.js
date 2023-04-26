@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
-import UserNameInput from 'components/UserNameInput'
 import React, { useEffect } from 'react'
+import Main from 'components/Main'
 import game, { generateGame } from 'reducers/game'
 // import { combineReducers, configureStore } from '@reduxjs/toolkit';
 // import { Provider } from 'react-redux';
@@ -24,7 +24,7 @@ export const App = () => {
   return (
     <Provider store={store}>
       Gurus rule.
-      <UserNameInput />
+      <Main />
     </Provider>
   )
 }
