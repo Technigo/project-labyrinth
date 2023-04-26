@@ -32,5 +32,30 @@ const StartScreen = () => {
 export default StartScreen
 
 const StyledStartPage = styled.div`
-color: red;
+color: black;
+margin: 5px;
+padding: 10px;
+
+input {
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid white;
+  margin: 10px;
+}
+
+button {
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  height: 34px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  margin: 10px;
+
+  }
+  &:hover {
+      transform: scale(1.07);
+    }
+}
 `

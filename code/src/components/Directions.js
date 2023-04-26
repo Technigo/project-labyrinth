@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getLabyrinth } from 'reducers/labyrinth'
+import { getAction } from 'reducers/labyrinth'
 
 const Directions = () => {
   const actions = useSelector((store) => store.labyrinth.actions)
@@ -19,7 +19,7 @@ const Directions = () => {
         return (
           <div className={isActive ? 'hidden-instructions' : 'instructions'}>
             <p>{action.description}</p>
-            <button type="button" onClick={() => dispatch(getLabyrinth(action.type, action.direction))}> Go {action.direction}</button>
+            <button type="button" onClick={() => dispatch(getAction(action.type, action.direction))}> Go {action.direction}</button>
           </div>
         )
       })}

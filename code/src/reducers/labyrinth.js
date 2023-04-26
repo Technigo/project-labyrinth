@@ -12,19 +12,20 @@ const labyrinth = createSlice({
   },
   reducers: {
 
-    setUsername: (store, action) => {
-      store.username = action.payload
+    setUsername: (state, action) => {
+      state.username = action.payload
     },
 
-    setCoordinates: (store, action) => {
-      store.coordinates = action.payload
+    setCoordinates: (state, action) => {
+      state.coordinates = action.payload
     },
 
-    setDescrition: (store, action) => {
-      store.coordinates = action.payload
+    setDescription: (state, action) => {
+      state.description = action.payload
     },
-    setAction: (store, action) => {
-      store.action = action.payload
+
+    setAction: (state, action) => {
+      state.actions = action.payload
     }
   }
 });
@@ -49,7 +50,7 @@ export const getLabyrinth = () => {
         console.log(data)
         dispatch(labyrinth.actions.setCoordinates(data.coordinates))
         dispatch(labyrinth.actions.setDescription(data.description))
-        dispatch(labyrinth.actions.setActionOption(data.actions))
+        dispatch(labyrinth.actions.setAction(data.actions))
         dispatch(loading.actions.setLoading(false))
       })
   }
@@ -75,7 +76,7 @@ export const getAction = (type, direction) => {
         console.log(data)
         dispatch(labyrinth.actions.setCoordinates(data.coordinates))
         dispatch(labyrinth.actions.setDescription(data.description))
-        dispatch(labyrinth.actions.setActionOption(data.actions))
+        dispatch(labyrinth.actions.setAction(data.actions))
         dispatch(loading.actions.setLoading(false))
       })
   }
