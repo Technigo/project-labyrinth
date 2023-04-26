@@ -2,19 +2,17 @@
 import React from 'react';
 import Lottie from 'lottie-react';
 import searchErrorAnimation from './lotties/searchError.json';
-import moodyDogAnimation from './lotties/moodyDog.json';
-import errorDogAnimation from './lotties/errorDog.json';
+import loadingStateAnimation from './lotties/loadingState.json';
 //import ErrorMsg from 'Components/ErrorMsg';
 
 //export const App = () => <Lottie animationData={searchErrorAnimation} loop={true} />;
-//export const App = () => <Lottie animationData={moodyDogAnimation} loop={true} />;
+//export const App = () => <Lottie animationData={loadingStateAnimation} loop={true} />;
 
 export const App = () => {
   return (
     <div>
-      <Lottie animationData={moodyDogAnimation} loop={true} />
       <Lottie animationData={searchErrorAnimation} loop={true} />
-      <Lottie animationData={errorDogAnimation} loop={true} />
+      <Lottie animationData={loadingStateAnimation} loop={true} />
     </div>
   )
 }
