@@ -5,6 +5,7 @@ import { GameScreen } from 'components/GameScreen';
 
 export const AppStart = () => {
   const username = useSelector((store) => store.game.username);
+
   return (
     <div>
       {username === '' ? <StartGame /> : <GameScreen />}
