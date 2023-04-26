@@ -5,16 +5,17 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-width: 400px;
-height: 600px;
+max-width: 900px;
+min-height: 75vh;
 gap: 5px;
-padding: 10px;
+padding: 20px;
 background-color: grey;
 margin: 0 auto;
+overflow-x: hidden;
 `
 
 export const SubmitBtn = styled.button`
-background-color: #A7BDAC;
+  background-color: #A7BDAC;
   width: 4em;
   margin: 10px;
   font-size: 1.3rem;

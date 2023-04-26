@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { startGame, labyrinth } from 'reducers/labyrinth';
+import TypeIt from 'typeit-react';
 import { StartContainer, SubmitBtn, TextP } from '../styles/GlobalStyles';
 
 const StartScreen = () => {
@@ -17,7 +18,12 @@ const StartScreen = () => {
     <StartContainer>
       <form
         onSubmit={onSubmitHandler}>
-        <TextP>Welcome! Tell me your name:</TextP>
+        <TypeIt
+          options={{
+            speed: 40
+          }}>
+          <TextP>Welcome! Tell me your name:</TextP>
+        </TypeIt>
         <input
           required
           type="text"
