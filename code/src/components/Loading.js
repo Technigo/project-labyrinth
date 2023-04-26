@@ -6,7 +6,7 @@ export const Loading = () => {
 
   return (
     <div>
-      {isLoading && <div> !!Loading!! </div>}
+      {isLoading && <div> Loading... </div>}
     </div>
   )
 }
