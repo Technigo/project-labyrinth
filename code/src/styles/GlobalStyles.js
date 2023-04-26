@@ -3,13 +3,13 @@ import styled from 'styled-components'
 const sizes = {
   mobile: '364px',
   tablet: '668px',
-  laptop: '1024px'
+  desktop: '2560px'
 };
 
 export const Devices = {
   mobile: `min-width: ${sizes.mobile})`,
   tablet: `min-width: ${sizes.tablet})`,
-  laptop: `min-width: ${sizes.laptop})`
+  desktop: `min-width: ${sizes.desktop})`
 };
 
 export const StartContainer = styled.div`
@@ -43,6 +43,7 @@ export const SubmitBtn = styled.button`
   padding: 6%;
   text-align: center;
   cursor: pointer;
+  gap: 5px;
 
   @media ${Devices.mobile} {
   width: 10px;

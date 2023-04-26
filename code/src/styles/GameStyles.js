@@ -6,15 +6,15 @@ background-color: #cdc5bb;
   overflow-x: hidden;
   border: double gray;
   border-radius: 5px;
-  width: 90%;
-  width: 800px;
+  max-width: 800px;
   min-height: 20vh;
   margin: 0 auto;
   padding-top: 5px;
   box-shadow: 2px 2px 2px 2px grey;
 
   @media ${Devices.mobile} {
-  min-height: 30vh;
+  max-width: 400px;
+  max-height: 75vh;
   }
 `
 
