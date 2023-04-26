@@ -45,14 +45,14 @@ const GameScreen = () => {
           ''
         )}
       </div>
-      <button
+      {/* <button
         type="button"
         onClick={() => {
           console.log('Restart button clicked');
           dispatch(labyrinth.actions.restart());
         }}>
         Restart
-      </button>
+      </button> */}
     </GameWrapper>
   );
 }
