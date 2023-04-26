@@ -7,7 +7,7 @@ const StyledButton = styled.button`
     font-size: 17px;
     font-family:  'Source Code Pro', monospace;
     width: fit-content;
-    border: 2px dashed white;
+    border: 2px dashed grey;
     border-radius: 3px;
     margin-right: 10px; 
     &:hover,

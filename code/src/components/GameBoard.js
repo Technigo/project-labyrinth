@@ -23,8 +23,8 @@ export const GameBoard = () => {
   return (
     <GameBoardContainer>
       <HeaderBar>
-        <Button type="button" buttonText="Restart" onClick={onRestartBtnClick} />
-        <h2><span>const</span> Player: {username}</h2>
+        <Button type="button" buttonText="RestartBtn" onClick={onRestartBtnClick} />
+        <h2><span>const</span> Player <span>=</span> {username}</h2>
       </HeaderBar>
       <PositionDescription>
         <TypeWriterEffect
@@ -52,7 +52,7 @@ const GameBoardContainer = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    margin-top: 80px;
+    margin-top: 90px;
     justify-self: center;
     width: 90%;
     max-width: 300px;

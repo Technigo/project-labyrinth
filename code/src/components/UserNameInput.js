@@ -24,9 +24,10 @@ export const UserNameInput = () => {
         <input
           id="username"
           type="text"
+          placeholder="InputValue"
           value={userNameInputValue}
           onChange={(event) => setUserNameInputValue(event.target.value)} />
-        <Button type="submit" onClick={onFormSubmit} buttonText="Start" />
+        <Button type="submit" onClick={onFormSubmit} buttonText="submit" />
       </Label>
     </Form>
   )
@@ -37,7 +38,7 @@ const Form = styled.form`
     flex-direction: column;
     width: 90%;
     max-width: 300px;
-    margin: 100px 0 20px 0;
+    margin: 180px 0 20px 0;
     input[type=text] {
         background-color: transparent;
         border: 2px dashed #00cf00;
@@ -45,15 +46,16 @@ const Form = styled.form`
         box-shadow: none;
         font-family: 'Source Code Pro', monospace;
         color: rgb(58, 209, 225);
-        font-size: 17px;
+        font-size: 15px;
         outline: none;
         margin-right: 10px;
     }
 `
 
 const WelcomeText = styled.h2`
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 15px;
+  color: rgb(239, 92, 116);
 `
 
 const Label = styled.label`
