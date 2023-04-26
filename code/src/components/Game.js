@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { startGame, nextStep } from 'reducers/game';
 import LandingPage from './LandingPage';
+import backgroundImages from './backgroundImages';
 
 const Game = ({ showLandingPage, setShowLandingPage }) => {
   const dispatch = useDispatch();
@@ -36,8 +37,14 @@ const Game = ({ showLandingPage, setShowLandingPage }) => {
     return null;
   }
 
+  const currentBackground = gameState && backgroundImages[gameState.coordinates];
+
   return (
-    <div>
+    <div
+      style={{ backgroundImage: `url(${currentBackground})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        minHeight: '100vh' }}>
       <h2>{gameState.description}</h2>
       {gameState.actions.map((action) => (
         <button type="button" key={action.direction} onClick={() => handleActionClick(action.direction)}>
