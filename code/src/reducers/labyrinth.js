@@ -6,30 +6,41 @@ export const labyrinth = createSlice({
     username: '',
     progress: {},
     history: [],
+    moves: '',
+    coordinates: '',
+    description: '',
+
     // need this to store how people have moved in the labyrinth so they can go back steps
     isLoading: false
   },
   reducers: {
     setUsername: (store, action) => {
       store.username = action.payload;
+      console.log('username:', action.payload)
     },
     setProgress: (store, action) => {
       store.progress = action.payload
+      console.log('progress:', action.payload)
     },
     setLoading: (store, action) => {
       store.isLoading = action.payload
+      console.log('isLoading:', action.payload)
     },
     setDescription: (store, action) => {
       store.description = action.payload
+      console.log('description:', action.payload)
     },
     setMoves: (store, action) => {
       store.setMoves = action.payload
+      console.log('moves:', action.payload)
     },
     setCoordinates: (store, action) => {
       store.coordinates = action.payload
+      console.log('coordinates:', action.payload)
     },
     setDirection: (store, action) => {
       store.direction = action.payload
+      console.log('direction:', action.payload)
     }
   }
 });

@@ -3,9 +3,13 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { labyrinth, startLabyrinth } from 'reducers/labyrinth'
 
-const WelcomeScreen = () => {
+export const WelcomeScreen = () => {
   const [userName, setUsername] = useState('');
   const dispatch = useDispatch();
+  // const username = useSelector((store) => store.username);
+  // const description = useSelector((store) => store.description);
+  // const moveDirection = useSelector((store) => store.moves[0].direction);
+  // const moveDescription = useSelector((store) => store.moves[0].description);
 
   const onAction = () => {
     dispatch(labyrinth.actions.setUsername(userName))
@@ -32,6 +36,7 @@ const OuterWrapper = styled.section`
   background-image: url('/assets/welcomeScreen.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
 `;
 
 const WelcomeWrapper = styled.section`
@@ -39,11 +44,10 @@ const WelcomeWrapper = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 20%;
+  text-align: center;
+  margin:15px;
 `;
 
 const Input = styled.input`display:flex;`
 
 // const Button = styled.input`display:flex;`
-
-export default WelcomeScreen

@@ -1,15 +1,15 @@
 import React from 'react';
-import 'lottie-player';
+// import Lottie from 'react-lottie';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 const LoadingScreen = () => {
-  const loading = useSelector((store) => store.ui.loading)
+  const isLoading = useSelector((store) => store.ui.isLoading)
 
   return (
     <LoadingWrapper>
-      {loading && (
-        <><script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" /><lottie-player src="https://assets8.lottiefiles.com/packages/lf20_IJpMIV0zMj.json" background="transparent" speed="1" loop controls autoplay /></>
+      {isLoading && (
+        <><script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" /><lottie-player src="/Lotties/lottie.json" background="transparent" speed="1" loop controls autoplay /></>
       )}
     </LoadingWrapper>)
 }
