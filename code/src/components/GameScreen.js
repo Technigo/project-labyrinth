@@ -2,6 +2,11 @@
 import React from 'react';
 import { continueGame } from 'reducers/labyrinth';
 import { useDispatch, useSelector } from 'react-redux';
+import { GameWrapper, GameP, Th1 } from 'styles/GameStyles';
+import { Devices } from 'styles/GlobalStyles';
+import styled from 'styled-components'
+
+import TypeIt from 'typeit-react';
 
 const GameScreen = () => {
   const dispatch = useDispatch();
@@ -14,9 +19,14 @@ const GameScreen = () => {
   console.log('currentStep', currentStep)
 
   return (
-    <div>
-      <h1>{currentStep.description}</h1>
-      <p>Choose wisely {labyrinth.username}</p>
+    <GameWrapper>
+      <TypeIt
+        options={{
+          speed: 30
+        }}>
+        <Th1>{currentStep.description}</Th1>
+        <GameP>Choose wisely {labyrinth.username}</GameP>
+      </TypeIt>
       <div>
         {currentStepActions ? (
           <div>
@@ -28,9 +38,7 @@ const GameScreen = () => {
                   onClick={() => dispatch(continueGame(action.direction))}>
                   Go {action.direction}
                 </button>
-                <p>
-                  To the {action.direction}: {action.description}
-                </p>
+                <InfoText>To the {action.direction}: {action.description}</InfoText>
               </>
             ))}
           </div>
@@ -38,8 +46,18 @@ const GameScreen = () => {
           ''
         )}
       </div>
-    </div>
+    </GameWrapper>
   );
 }
 
+const InfoText = styled.p`
+font-family: 'Special Elite';
+font-size: 1em;
+color: black;
+line-height: 1.4;
+
+@media ${Devices.mobile} {
+  font-size: 14px;
+}
+`
 export default GameScreen;

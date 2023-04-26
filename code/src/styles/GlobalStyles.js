@@ -1,44 +1,88 @@
 import styled from 'styled-components'
+import img from '../assets/maze.jpg'
+
+const sizes = {
+  mobile: '366px',
+  tablet: '668px',
+  desktop: '2560px'
+};
+
+export const Devices = {
+  mobile: `min-width: ${sizes.mobile})`,
+  tablet: `min-width: ${sizes.tablet})`,
+  desktop: `min-width: ${sizes.desktop})`
+};
 
 export const StartContainer = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-width: 400px;
-height: 600px;
-gap: 5px;
-padding: 10px;
-background-color: grey;
-margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(${img});
+  background-repeat: no-repeat, repeat;
+  background-size: cover;
+  background-position: center;
+ 
+
+@media ${Devices.mobile} {
+  min-height: 30vh;
+}
+`;
+
+export const Header = styled.header`
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0.063);
+  backdrop-filter: blur(30px);
+  --webkit-backdrop-filter: blur(30px);
 `
 
-export const GameWrapper = styled.div`
-display: flex;
-align-items: center;
-text-align: center;
-padding: 100px;
-height: 100vh;
-width: 100vw;
-background-color: violet;
-position: relative;
+export const HeadedingOneContainer = styled.div`
+  display: flex;
+  justify-content: center;
 `
 
 export const SubmitBtn = styled.button`
-margin: 5px;
-padding: 8px 12px;
-border-radius: 8px;
-border: none;
-background-color: green;
-color: white;
-cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: rgb(17, 101, 48);
+  background-color: rgb(255, 204, 29);
+  font-weight: bolder;
+  border: none;
+  font-size: 1.2rem;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  :hover {
+    background-color: rgb(68,60,37);
+    color: rgb(255, 204, 29);
+    transform: scale(1.1, 1.1);
+  }
+
+  @media ${Devices.mobile} {
+  width: 10px;
+  height: 20px;
+  font-size: 12px;
+  }
 `
 
 export const TextH1 = styled.h1`
-font-size: 30px;
+font-family: 'Special Elite', cursive;
+font-size: 1.7em;
 color: red;
+text-align: center;
+
+
+@media ${Devices.mobile} {
+  font-size: 14px;
+}
 `
 export const TextP = styled.p`
-font-size: 20px;
+font-family: 'Special Elite', cursive;
+font-size: 1.5em;
 color: black;
+
+@media ${Devices.mobile} {
+  font-size: 12px;
+}
 `

@@ -24,6 +24,8 @@ export const Loader = () => {
 }
 
 const LoadingText = styled.h1`
+ padding: 10%;
+  font-family: 'Special Elite', cursive;
    font-size: 2.5rem;
    color: red;
    text-align: center;
