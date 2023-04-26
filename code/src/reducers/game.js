@@ -16,7 +16,7 @@ const game = createSlice({
       store.position = action.payload;
     },
     setUsername: (store, action) => {
-      store.username = action.payload;
+      store.username = `${action.payload} ${Date.now().toString()}`;
     }
   }
 })
