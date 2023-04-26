@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/tooklit'
+import { createSlice } from '@reduxjs/toolkit'
 
-const game = createSlice({
+export const game = createSlice({
   name: 'game',
   initialState: {
     loading: false,
@@ -12,7 +12,7 @@ const game = createSlice({
   reducers: {
     // an action to save the gameStep to local state
     setGame: (store, action) => {
-      store.game = action.payload
+      store.gameStep = action.payload
     },
 
     // an action to save the current loading state to global state
@@ -24,24 +24,16 @@ const game = createSlice({
 
 export const getGameStep = () => {
   return (dispatch, getState) => {
-    dispatch(game.actions.setLoading(true))
-
-    /*     (actions.setLoading(true)) */
-    fetch('https://labyrinth.technigo.io/start/${getState().name.gameStep}')
+    const options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: getState().game.username })
+    }
+    fetch('https://labyrinth.technigo.io/start', options)
       .then((response) => response.json())
-      .then((json) => dispatchEvent(game.actions.setGame(json)))
-    dispatch(game.actions.setLoading(false))
+      .then((json) => {
+        dispatch(game.actions.setGame(json))
+        dispatch(game.actions.setLoading(false))
+      })
   }
 }
-
-fetch(URL, {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      username: USERNAME
-    })
-})
-  
