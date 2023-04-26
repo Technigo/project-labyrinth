@@ -1,15 +1,16 @@
 import styled from 'styled-components/macro';
 
 export const GameWrapper = styled.div`
-background-color: lightgrey;
+background-color: #cdc5bb;
   overflow-x: hidden;
   border: double gray;
   border-radius: 5px;
   width: 90%;
-  max-width: 900px;
-  min-height: 75vh;
+  width: 800px;
+  min-height: 20vh;
   margin: 0 auto;
-  padding: 5% 5%;
+  padding-top: 5px;
+  box-shadow: 2px 2px 2px 2px grey;
 `
 
 export const Th1 = styled.h1`

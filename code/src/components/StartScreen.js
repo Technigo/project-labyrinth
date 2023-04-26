@@ -22,8 +22,9 @@ const StartScreen = () => {
           options={{
             speed: 40
           }}>
-          <TextP>Welcome! Tell me your name:</TextP>
+          <TextP>Type in your name:</TextP>
         </TypeIt>
+        <br />
         <input
           required
           type="text"

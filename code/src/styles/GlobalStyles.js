@@ -5,13 +5,15 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-max-width: 900px;
-min-height: 75vh;
-gap: 5px;
-padding: 20px;
-background-color: grey;
-margin: 0 auto;
-overflow-x: hidden;
+max-width: 500px;
+min-height: 40vh;
+gap: 3px;
+padding: 50px;
+padding-top: 10px;
+background: transparent;
+margin: auto;
+box-shadow: 2px 2px 2px 2px grey;
+/* overflow-x: hidden; */
 `
 
 export const SubmitBtn = styled.button`
@@ -21,9 +23,9 @@ export const SubmitBtn = styled.button`
   font-size: 1.3rem;
   border-color: lightgrey;
   border-radius: 1px;
-  box-shadow: 1px 1px 1px grey;
+  box-shadow: 1px 1px 1px 1px grey;
   color: black;
-  padding: 4%;
+  padding: 6%;
   text-align: center;
   cursor: pointer;
 `
