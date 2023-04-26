@@ -21,7 +21,7 @@ export const game = createSlice({
       store.description = action.payload
     },
     setMove: (store, action) => {
-      store.move = [...store.moves, action.payload]
+      store.move = [...store.move, action.payload]
     },
     isLoading: (store, action) => {
       store.loading = action.payload
