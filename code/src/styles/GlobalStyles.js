@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import img from '../assets/maze.jpg'
 
 const sizes = {
-  mobile: '364px',
+  mobile: '366px',
   tablet: '668px',
   desktop: '2560px'
 };
