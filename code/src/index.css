@@ -1,3 +1,10 @@
+html {
+  background-image: url('./assets/maze.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 body {
   box-sizing: border-box;
   margin: 0;
@@ -6,8 +13,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('./assets/maze.jpg');
-  background-size: cover;
+ 
+
 }
 
 code {

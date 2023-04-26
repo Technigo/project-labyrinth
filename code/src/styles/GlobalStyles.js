@@ -1,5 +1,17 @@
 import styled from 'styled-components'
 
+const sizes = {
+  mobile: '364px',
+  tablet: '668px',
+  laptop: '1024px'
+};
+
+export const Devices = {
+  mobile: `min-width: ${sizes.mobile})`,
+  tablet: `min-width: ${sizes.tablet})`,
+  laptop: `min-width: ${sizes.laptop})`
+};
+
 export const StartContainer = styled.div`
 display: flex;
 flex-direction: column;
@@ -13,7 +25,10 @@ padding-top: 10px;
 background: transparent;
 margin: auto;
 box-shadow: 2px 2px 2px 2px grey;
-/* overflow-x: hidden; */
+
+@media ${Devices.mobile} {
+  min-height: 30vh;
+}
 `
 
 export const SubmitBtn = styled.button`
@@ -28,6 +43,12 @@ export const SubmitBtn = styled.button`
   padding: 6%;
   text-align: center;
   cursor: pointer;
+
+  @media ${Devices.mobile} {
+  width: 10px;
+  height: 20px;
+  font-size: 12px;
+  }
 `
 
 export const TextH1 = styled.h1`
