@@ -30,15 +30,18 @@ export const StartContainer = styled.div`
 `;
 
 export const Header = styled.header`
-  width: 90%;
+  width: 60%;
   background-color: rgba(255, 255, 255, 0.063);
   backdrop-filter: blur(30px);
   --webkit-backdrop-filter: blur(30px);
 `
 
-export const HeadedingOneContainer = styled.div`
+export const HeadingOneContainer = styled.div`
+  margin-top: 30px;
+  border: 1px solid red;
   display: flex;
   justify-content: center;
+  
 `
 
 export const SubmitBtn = styled.button`
@@ -51,7 +54,7 @@ export const SubmitBtn = styled.button`
   font-weight: bolder;
   border: none;
   font-size: 1.2rem;
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 30px;
   :hover {
     background-color: rgb(68,60,37);
@@ -69,8 +72,8 @@ export const SubmitBtn = styled.button`
 export const TextH1 = styled.h1`
 font-family: 'Special Elite', cursive;
 font-size: 1.7em;
-color: red;
 text-align: center;
+margin: 20px 0;
 
 
 @media ${Devices.mobile} {
