@@ -1,43 +1,43 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { generateMoves } from 'reducers/game'
-// import styled from 'styled-components'
+import styled from 'styled-components/macro';
+import { Button } from './Button'
+import Loading from './Loading'
 
-const GameBoard = () => {
-  const { description, actions } = useSelector((store) => store.game.currentLocation)
-  const dispatch = useDispatch()
-  const username = useSelector((store) => store.game.username)
+const GameContainer = styled.div`
+display: flex; 
+flex-direction:column; 
+align-items: center;
+border:20px solid red; 
+color: white; 
+margin: 20px 40px; 
+justify-content: center;
+`
+
+export const GameBoard = () => {
+  const currentLocation = useSelector((store) => store.game.currentLocation)
+  const dispatch = useDispatch();
+  const isLoading = useSelector((store) => store.ui.isLoading)
 
   return (
-    <section>
-      <div>
-        {actions.length > 0 ? (
-          <h1>
-          Let&apos;s go {username}!
-          </h1>
-        ) : (<p>Thank you for your help, {username}! </p>)}
-      </div>
-      <div>
-        <p> &quot;{description}&quot; </p>
-        {actions.length > 0 && <p>Choose your next step: </p>}
-      </div>
-      <div>
-        {actions.length > 0
-        && actions.map((action) => (
-          <div key={action.direction}>
-            <p>{action.description} </p>
-            <button
-              type="button"
-              onClick={() => dispatch(generateMoves(action.direction))}>
-              {action.direction}
-            </button>
-          </div>
-
-        ))}
-        {/* {actions.length === 0 && <EndPage/>} */}
-      </div>
-    </section>
+    <GameContainer>
+      {isLoading && <Loading />}
+      {!isLoading && (
+        <div>
+          <p>{currentLocation?.description} </p>
+          {currentLocation?.actions?.map((action) => {
+            return (
+              <div key={action.direction}>
+                <p>{action.description}</p>
+                <Button onClick={() => dispatch(generateMoves(action))}>
+                  {action.direction}
+                </Button>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </GameContainer>
   )
 }
-
-export default GameBoard;

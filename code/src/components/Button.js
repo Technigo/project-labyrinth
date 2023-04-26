@@ -1,18 +1,26 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { startGame } from 'reducers/game';
+import styled from 'styled-components/macro';
 
-export const Button = () => {
-  const dispatch = useDispatch()
-
+export const Button = ({ children, onClick }) => {
+  // children prop will be the text displayed on the button
+  // The onClick prop takes a function that will be called when
+  // the button is clicked
   return (
-    <button type="button" onClick={() => dispatch(startGame())}>
-      Next step
-    </button>
+    <StyledBtn
+      type="button"
+      onClick={onClick}>
+      {children}
+    </StyledBtn>
   )
 }
 
+const StyledBtn = styled.button`
+background: green; 
+padding: 20px; 
+color: white;
+`
+
 // We dispatch our thunk in this component
-// The fetchGame needs to be invoked because it returns the inner part of the function
+// The startGame needs to be invoked because it returns the inner part of the function
 // which then redux will go and fire more dispatches and dispatch all of those actions
 // that we just wrote.

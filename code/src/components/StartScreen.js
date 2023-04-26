@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
 import game, { startGame } from '../reducers/game'
+import { Button } from './Button'
 
 const StartScreen = () => {
   const [inputValue, setInputValue] = useState('')
@@ -18,11 +19,11 @@ const StartScreen = () => {
         value={inputValue}
         placeholder="Type your name here"
         onChange={(event) => setInputValue(event.target.value)} />
-      <button
+      <Button
         type="submit"
         onClick={onUsernameInputValue}>
         Let&apos;s go!
-      </button>
+      </Button>
     </>
   )
 }
