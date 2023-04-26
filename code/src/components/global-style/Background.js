@@ -4,7 +4,7 @@ import { Img1, Img2, Img3, Img4, Img5, Img6, Img7, Img8 } from 'components/Image
 
 export const Background = styled.section`
   margin: 0;
-  padding: 0;
+  padding: 0 10px;
   display: flex;
   align-items: center;
   height: 100vh;

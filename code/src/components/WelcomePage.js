@@ -5,7 +5,7 @@ import { maze, postUsername } from 'reducers/maze';
 import styled from 'styled-components';
 import { Button } from './global-style/Button';
 import { Wrapper } from './global-style/Wrapper';
-import { BodyText } from './global-style/BodyText';
+import { Header1, BodyText } from './global-style/Text';
 import { Background } from './global-style/Background';
 
 export const WelcomePage = () => {
@@ -25,7 +25,7 @@ export const WelcomePage = () => {
   return (
     <Background coordinates={coordinates}>
       <Wrapper>
-        <h1>Welcome to the Maze</h1>
+        <Header1>Welcome to the Maze</Header1>
         <BodyText>Please enter your username</BodyText>
         <FormWrapper onSubmit={handleSubmit}>
           <input type="text" onChange={(event) => setUsername(event.target.value)} value={username} />
