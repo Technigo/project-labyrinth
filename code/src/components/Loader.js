@@ -4,7 +4,7 @@ import styled from 'styled-components/macro'
 
 export const Loader = () => {
   const [loadingDot, setLoadingDot] = useState('');
-  const isLoading = useSelector((store) => store.loading.isLoading);
+  const isLoading = useSelector((store) => store.labyrinth.isLoading);
 
   // Creates a movement in the dots after loading
   const loadingAnimation = () => {
