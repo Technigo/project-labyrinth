@@ -1,28 +1,31 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  username: 'Hannah Sammy Johanna'
+  username: 'Hannah Sammy Johanna',
+  actions: [],
+  coordinates: '',
+  description: ''
 }
 
-const game = createSlice({
+export const game = createSlice({
   name: 'game',
   initialState,
   reducers: {
-    setUsername: (state, action) => {
-      state.username = action.payload;
+    setUsername: (store, action) => {
+      store.username = action.payload;
     },
-    setActions: (state, action) => {
-      state.action = action.payload;
+    setActions: (store, action) => {
+      store.actions = action.payload;
     },
-    setDescription: (state, action) => {
-      state.description = action.payload;
+    setDescription: (store, action) => {
+      store.description = action.payload;
     },
-    setCordinates: (state, action) => {
-      state.cordinates = action.payload;
-    }
+    setCoordinates: (store, action) => {
+      store.coordinates = action.payload;
+    },
+    restartGame: () => initialState
   }
 });
-export default game;
 
 export const generateGame = () => {
   return (dispatch, getState) => {
@@ -37,9 +40,33 @@ export const generateGame = () => {
       .then((data) => {
         console.log(data);
         dispatch(game.actions.setActions(data.actions));
-        dispatch(game.actions.setDescription(data.descriptions));
-        dispatch(game.actions.setCordinates(data.cordinates));
+        dispatch(game.actions.setDescription(data.description));
+        dispatch(game.actions.setCoordinates(data.coordinates));
       })
       .catch((error) => console.error(error));
-  }
+  };
+}
+
+export const generateMoves = (direction) => {
+  return (dispatch, getState) => {
+    /* insert dispatch that starts loading page */
+    /* get different info from API depending on username */
+    fetch('https://labyrinth.technigo.io/action', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: getState().game.username,
+        type: 'move',
+        direction
+      })
+    })
+    /* sets the next move with all of the info and then removes loading page */
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(game.actions.setActions(data.actions));
+        dispatch(game.actions.setDescription(data.description));
+        dispatch(game.actions.setCoordinates(data.coordinates));
+      })
+      .catch((error) => console.error(error));
+  };
 }
