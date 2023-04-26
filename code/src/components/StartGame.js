@@ -25,7 +25,8 @@ export const StartGame = () => {
             id="usernameForm"
             value={inputValue}
             onChange={(event) => setInputValue(event.target.value)}
-            type="text" />
+            type="text"
+            required />
         </label>
         <button
           type="submit">
