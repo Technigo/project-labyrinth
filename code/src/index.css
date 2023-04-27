@@ -1,6 +1,7 @@
 :root {
   --headings-font-family: 'Bruno Ace', cursive;
   --second-headings-font-family: 'Wallpoet', cursive;
+  --paragraph-font-family: 'Cormorant Garamond', serif;
 }
 
 body {
