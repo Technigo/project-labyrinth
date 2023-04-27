@@ -4,13 +4,15 @@ import { Provider } from 'react-redux';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { maze } from 'reducers/maze';
 import { ui } from 'reducers/ui';
+import { userhistory } from 'reducers/userhistory';
 import { WelcomePage } from 'components/WelcomePage';
 import { MazeActions } from 'components/MazeActions';
 
 export const App = () => {
   const reducer = combineReducers({
     maze: maze.reducer,
-    ui: ui.reducer
+    ui: ui.reducer,
+    userhistory: userhistory.reducer
   });
 
   const store = configureStore({ reducer });

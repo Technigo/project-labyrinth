@@ -10,6 +10,6 @@ export const Wrapper = styled.div`
     margin: 0 auto;
     background-color: black;
     color: white;
-    opacity: 0.7;
+    /* opacity: 0.7; */
     border-radius: 40px;
 `
