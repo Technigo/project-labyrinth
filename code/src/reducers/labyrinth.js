@@ -28,8 +28,14 @@ export const labyrinth = createSlice({
     setLoading: (state, action) => {
       state.isLoading = action.payload;
     },
-    restart: () => {
-      return initialState;
+    restart: (state) => {
+      // return initialState;
+      // console.log('restart started')
+      state.username = initialState.username
+      state.gameStarted = initialState.gameStarted
+      state.response = initialState.response
+      state.direction = initialState.direction
+      state.isLoading = initialState.isLoading
     }
   }
 });

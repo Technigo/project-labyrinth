@@ -37,7 +37,6 @@ const StartScreen = () => {
             required />
           <button type="submit">start</button>
         </form>
-        {/* {gameStarted ? (<Game />) : null} */}
       </div>
     )
   }
