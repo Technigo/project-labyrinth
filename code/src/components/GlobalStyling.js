@@ -27,8 +27,14 @@ export const ResetButton = styled.button`
     cursor: pointer;
     padding: 2rem 0.313rem;
     font-family: var(--button-font-family);
+    font-size: 0.8rem;
     border: none;
     text-transform: uppercase;
+
+     &:hover {
+    transition-duration: 0.4s;
+    font-size: 1rem;
+  }
 `;
 
 export const Button = styled.button`
