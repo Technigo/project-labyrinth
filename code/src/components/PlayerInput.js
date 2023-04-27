@@ -23,7 +23,7 @@ const PlayerInput = () => {
         <SecondHeading>Do You Want to Play a Game?</SecondHeading>
         <UserNameForm onSubmit={(event) => onFormSubmit(event)}>
           <SecondHeadingLabel htmlFor="player-input">
-      Enter player name:
+           Enter player name:
             <StyledInput id="player-input" required type="text" placeholder="Name" onChange={(event) => setPlayerInputValue(event.target.value)} />
           </SecondHeadingLabel>
           <StartButton type="submit">Start</StartButton>

@@ -60,4 +60,10 @@ export const StyledInput = styled.input`
   font-family: var(--paragraph-font-family);
   font-size: 1.3rem;
   margin: 0.625rem;
+
+   ::placeholder {
+    color: #000;
+    font-weight: bold;
+    font-style: italic;
+  }
 `;
