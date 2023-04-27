@@ -1,13 +1,11 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
+Using React, Redux toolkit, Lotties and an API built by technigo we have created a labyrinth game. This game was built by Jennifer Feenstra-Arengard, Nora Terbocs, and Nina Waldreus.
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+First we created a Figma file with the design of the project, we included each step a player could take and the text that would be returned with the API in order to find suitable background images. Then we used a pair programming approach to create the main components. When the main functionality of the project was working we divided the tasks to work on our own schedules. 
+
+If we had more time we could have added some music, shown a history of what the player has done and created a back button. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.

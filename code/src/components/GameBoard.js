@@ -5,6 +5,7 @@ import { Button } from 'reusableComponents/Button';
 import { Description } from 'reusableComponents/Description';
 import { Title } from 'reusableComponents/Title';
 import styled from 'styled-components';
+import { BackgroundImage } from './BackgroundImages';
 
 export const GameBoard = () => {
   const gameboard = useSelector((store) => store.labyrinth.setMoves);
@@ -14,14 +15,17 @@ export const GameBoard = () => {
 
   return (
     <GameWrapper>
-      <Title>{description}</Title>
-      <CardsContainer>
-        {isLoading === false && gameboard.map((item) => (
-          <Card key={item.direction}>
-            <Description>{item.description}</Description>
-            <Button direction type="submit" onClick={() => dispatch(labyrinthProgress('move', item.direction))}>{item.direction}</Button>
-          </Card>))}
-      </CardsContainer>
+      <BackgroundImage />
+      <div>
+        <Title>{description}</Title>
+        <CardsContainer>
+          {isLoading === false && gameboard.map((item) => (
+            <Card key={item.direction}>
+              <Description>{item.description}</Description>
+              <Button direction type="submit" onClick={() => dispatch(labyrinthProgress('move', item.direction))}>{item.direction}</Button>
+            </Card>))}
+        </CardsContainer>
+      </div>
     </GameWrapper>
   )
 };
@@ -33,9 +37,6 @@ const GameWrapper = styled.section`
   min-height:100vh;
   text-align: center;
   box-sizing:border-box;
-  background-image: url('/images/welcomeScreen.jpg'); // I just added it to see how it looks with the background
-  background-repeat: no-repeat;
-  background-size: cover;
 `;
 
 const CardsContainer = styled.div`
