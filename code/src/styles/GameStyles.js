@@ -1,17 +1,28 @@
 import styled from 'styled-components/macro';
-import img from '../assets/maze.jpg'
+// import img from '../assets/maze.jpg'
+// import stones from '../assets/stones.jpg'
 import { Devices } from './GlobalStyles';
 
-export const GameWrapper = styled.div`
-  background-image: url(${img});
-  background-repeat: no-repeat, repeat;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+// export const GameWrapper = styled.div`
+//   /* background-image: url(${img}); */
+//   background-repeat: no-repeat, repeat;
+//   background-size: cover;
+//   background-position: center;
+//   height: 100vh;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+
+//   background-image: ${(props) => {
+//     let bgImage;
+//     if (props.coordinates === '0,0') {
+//       bgImage = `url(${img})`;
+//     } else if (props.coordinates === '1,0') {
+//       bgImage = `url(${stones})`;
+//     }
+//     return bgImage
+//   }};`
+
 export const InnerWrapper = styled.main`
   display:flex;
   flex-direction: column;

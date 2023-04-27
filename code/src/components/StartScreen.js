@@ -6,7 +6,7 @@ import TypeIt from 'typeit-react';
 import styled from 'styled-components';
 import { StartContainer, SubmitBtn, Header, HeadingOneContainer, Devices } from '../styles/GlobalStyles';
 
-const StartScreen = () => {
+export const StartScreen = () => {
   const dispatch = useDispatch()
 
   const [usernameInput, setUsernameInput] = useState('')
@@ -75,5 +75,3 @@ const Label = styled.label`
   margin-bottom: 10px;
   font-size: 1.3rem;
 `;
-
-export default StartScreen;

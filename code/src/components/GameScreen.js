@@ -1,19 +1,27 @@
 /* eslint-disable implicit-arrow-linebreak */
 import React from 'react';
+import styled from 'styled-components';
 import { continueGame, labyrinth } from 'reducers/labyrinth';
 import { useDispatch, useSelector } from 'react-redux';
-import { GameWrapper, InnerWrapper, Th1, DirectionContainer, GameBtn, ActionContainer, RestartBtn } from 'styles/GameStyles';
+import { InnerWrapper, Th1, DirectionContainer, GameBtn, ActionContainer, RestartBtn } from 'styles/GameStyles';
 import { Devices } from 'styles/GlobalStyles';
-import styled from 'styled-components'
-
 import TypeIt from 'typeit-react';
 
-const GameScreen = () => {
+import arch from '../assets/arch.jpg';
+import bridge from '../assets/bridge.jpg';
+import end from '../assets/end.png';
+import cave from '../assets/cave.jpg';
+import mechanical from '../assets/mechanical.jpg';
+import light from '../assets/light.jpg';
+import room from '../assets/room.jpg';
+
+export const GameScreen = () => {
   const dispatch = useDispatch();
   const currentGameState = useSelector((store) => store.labyrinth.currentGameState);
   const currentGameStateActions = useSelector(
     (store) => store.labyrinth.currentGameState.actions
   );
+  const coordinates = useSelector((store) => store.labyrinth.currentGameState.coordinates);
 
   const onClickRestart = () => {
     console.log('user restarted')
@@ -23,7 +31,7 @@ const GameScreen = () => {
   console.log('currentGameState', currentGameState)
 
   return (
-    <GameWrapper>
+    <GameWrapper coordinates={coordinates}>
       <InnerWrapper>
         <TypeIt
           options={{
@@ -59,6 +67,35 @@ const GameScreen = () => {
   );
 }
 
+export const GameWrapper = styled.div`
+  background-repeat: no-repeat, repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: ${(props) => {
+    let bgImage;
+    if (props.coordinates === '0,0') {
+      bgImage = `url(${arch})`;
+    } else if (props.coordinates === '1,0') {
+      bgImage = `url(${cave})`;
+    } else if (props.coordinates === '1,1') {
+      bgImage = `url(${bridge})`;
+    } else if (props.coordinates === '0,1') {
+      bgImage = `url(${mechanical})`;
+    } else if (props.coordinates === '0,2') {
+      bgImage = `url(${room})`;
+    } else if (props.coordinates === '0,3') {
+      bgImage = `url(${light})`;
+    } else if (props.coordinates === '1,3') {
+      bgImage = `url(${end})`;
+    }
+    return bgImage
+  }};`
+
 const InfoText = styled.p`
 font-family: 'Special Elite';
 font-size: 1em;
@@ -70,4 +107,3 @@ text-align:center;
   font-size: 14px;
 }
 `
-export default GameScreen;
