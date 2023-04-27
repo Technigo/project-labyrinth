@@ -22,36 +22,48 @@ export const GameBoard = () => {
   }
 
   return (
-    <GameBoardContainer>
-      <PlayerBar>
-        <Button type="button" buttonText="RestartBtn" onClick={onRestartBtnClick} />
-        <h2><span>const</span> Player <span>=</span> {username}</h2>
-      </PlayerBar>
-      <Prompt>
-        <h2>prompt()</h2>
-      </Prompt>
-      <PositionDescription>
-        <TypeWriterEffect
-          startDelay={100}
-          cursorColor="#BBBBBB"
-          text={description}
-          typeSpeed={70}
-          hideCursorAfterText="true" />
-      </PositionDescription>
-      <ActionsContainer>
-        {actions.map((singleAction) => (
-          <SingleAction>
-            <p>{singleAction.description}</p>
-            <Button
-              buttonText={`Go ${singleAction.direction}`}
-              onClick={() => onDirectionBtnClick(singleAction.direction)} />
-          </SingleAction>
-        ))}
-      </ActionsContainer>
+    <ContentContainer>
+      <GameBoardContainer>
+        <PlayerBar>
+          <Button type="button" buttonText="RestartBtn" onClick={onRestartBtnClick} />
+          <h2><span>const</span> Player <span>=</span> {username}</h2>
+        </PlayerBar>
+        <Prompt>
+          <h2>prompt()</h2>
+        </Prompt>
+        <PositionDescription>
+          <TypeWriterEffect
+            startDelay={100}
+            cursorColor="#BBBBBB"
+            text={description}
+            typeSpeed={70}
+            hideCursorAfterText="true" />
+        </PositionDescription>
+        <ActionsContainer>
+          {actions.map((singleAction) => (
+            <SingleAction>
+              <p>{singleAction.description}</p>
+              <Button
+                buttonText={`Go ${singleAction.direction}`}
+                onClick={() => onDirectionBtnClick(singleAction.direction)} />
+            </SingleAction>
+          ))}
+        </ActionsContainer>
+      </GameBoardContainer>
       <Map coordinates={coordinates} />
-    </GameBoardContainer>
+    </ContentContainer>
   )
 }
+
+const ContentContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 668px) {
+      display: flex;
+      flex-direction: row;
+    }
+`
 
 const GameBoardContainer = styled.div`
     display: flex;

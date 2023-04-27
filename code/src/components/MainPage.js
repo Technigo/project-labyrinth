@@ -1,8 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components/macro'
-// import map00 from '../images/map-maze-00.png'
-import starTest from '../images/star.png'
 import { Loader } from './Loader'
 import { StartPage } from './StartPage'
 import { GameBoard } from './GameBoard'
@@ -17,7 +15,6 @@ export const MainPage = () => {
     <MainPageContainer>
       <Header />
       {isLoading ? <Loader /> : (<> {isUserNameProvided === '' ? <StartPage /> : <GameBoard />} </>)}
-      <img src={starTest} alt="map" />
       <Footer />
     </MainPageContainer>
   )
