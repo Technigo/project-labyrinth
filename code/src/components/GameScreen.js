@@ -1,8 +1,41 @@
 import React from 'react';
+import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { getStory } from 'reducers/Game';
 import { Loading } from './Loading';
 import { EndGame } from './EndGame';
+import { DirectionButton } from '../styles/Button';
+import maze from './img/maze.png';
+
+export const GameScreenSection = styled.section`
+background-color: green;
+background-image: url(${maze});
+height: 100vh;
+display: flex;
+flex-direction: column;
+gap: 3%;
+align-items: center;
+justify-content: center;
+`
+export const GameSection = styled.section`
+font-family: "Press Start 2P";
+font-size: 1em;
+line-height: 1.6em;
+background: white;
+border: 10px solid black;
+align-self: center;
+width: 60%;
+margin-right: auto;
+margin-left: auto;
+padding: 5%;
+margin-bottom: 2%;
+
+@media (min-width: 770px) {
+    font-size: 10px;
+    width: 40%;
+    font-size: 1em;
+    line-height: 1.6em;
+}`
 
 export const GameScreen = () => {
   const dispatch = useDispatch();
@@ -23,22 +56,24 @@ export const GameScreen = () => {
   }
 
   return (
-    <section>
-      <p> {gameStep.description} </p>
+    <GameScreenSection>
+      <GameSection>
+        <p> {gameStep.description} </p>
+      </GameSection>
       <section>
         {gameStep.actions.map((singleStep) => {
           return (
-            <section key={singleStep.direction}>
+            <GameSection key={singleStep.direction}>
               <h2> {singleStep.description} </h2>
-              <button
+              <DirectionButton
                 type="button"
                 onClick={() => onClickNextStep(singleStep.direction)}>
                 {singleStep.direction}
-              </button>
-            </section>
+              </DirectionButton>
+            </GameSection>
           )
         })}
       </section>
-    </section>
+    </GameScreenSection>
   )
 }

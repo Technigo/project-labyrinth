@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Game, startGame } from 'reducers/Game';
 import { Loading } from './Loading';
+import { Button } from '../styles/Button'
 
 export const StartGame = () => {
   const [inputValue, setInputValue] = useState('');
@@ -28,10 +29,10 @@ export const StartGame = () => {
             type="text"
             required />
         </label>
-        <button
+        <Button
           type="submit">
-          Start Game
-        </button>
+          Start Game!
+        </Button>
       </form>
     </section>
   )
