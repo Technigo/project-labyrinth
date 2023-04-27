@@ -7,13 +7,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
+.img {
+  filter: blur(60%)
+}
 
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
 
 .animation {
-  -webkit-animation: slidein 50s;
-  animation: slidein 50s;
+  -webkit-animation: slidein 25s;
+  animation: slidein 25s;
 
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;

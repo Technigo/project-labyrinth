@@ -41,7 +41,6 @@ const Game = ({ showLandingPage, setShowLandingPage }) => {
 
   return (
     <div
-      className="animation"
       style={{ backgroundImage: `url(${currentBackground})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',

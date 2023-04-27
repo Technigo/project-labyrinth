@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Background = styled.div`
-  background-image: url('/assets/img0.jpg');
+  background-image: url('/assets/img1.jpg');
   background-size: cover;
     background-position: center;
     height: 100vh;
