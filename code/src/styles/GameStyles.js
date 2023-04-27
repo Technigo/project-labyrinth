@@ -1,29 +1,35 @@
 import styled from 'styled-components/macro';
+import img from '../assets/maze.jpg'
 import { Devices } from './GlobalStyles';
 
 export const GameWrapper = styled.div`
-/* background-color: #cdc5bb; */
-  overflow-x: hidden;
-  border: double gray;
-  border-radius: 5px;
-  max-width: 800px;
-  min-height: 20vh;
-  margin: 0 auto;
-  padding-top: 5px;
-  box-shadow: 1px 1px 1px 1px grey;
-  background-color: rgba(255, 255, 255, 0.063);
-  backdrop-filter: blur(30px);
-  --webkit-backdrop-filter: blur(30px);
+  background-image: url(${img});
+  background-repeat: no-repeat, repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+`;
+export const InnerWrapper = styled.main`
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgb(140,122,103);
+  backdrop-filter: blur(12px);
+  --webkit-backdrop-filter: blur(12px);
 
-  @media ${Devices.mobile} {
-  max-width: 400px;
-  max-height: 75vh;
+  @media (min-width: 768px) {
+    margin: 0 auto;
+    max-width: 500px;
   }
 `
 
 export const Th1 = styled.h1`
+margin: 10px;
 font-family: 'Special Elite', cursive;
-font-size: 1.5em;
+font-size: 1.2em;
 color: white;
 
 @media ${Devices.mobile} {
@@ -41,3 +47,35 @@ line-height: 1.4;
   font-size: 14px;
 }
 `
+export const DirectionContainer = styled.div`
+width: fit-content;
+margin-top: 10px;
+display: flex;
+justify-content: center;
+flex-direction: column;
+margin-bottom: 20px;
+gap: 8px;
+`;
+
+export const ActionContainer = styled.div`
+display: flex;
+flex-direction: row;
+gap: 10px;
+`
+
+export const GameBtn = styled.button`
+  width: 120px;
+  /* margin: auto; */
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer;
+  border: none;
+  background-color: #b87209;
+  color: #fff;
+  :hover {
+    background-color: black;
+    color: orange;
+    transform: scale(1.1, 1.1);
+  }
+`;

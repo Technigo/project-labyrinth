@@ -4,7 +4,7 @@ import { startGame, labyrinth } from 'reducers/labyrinth';
 
 import TypeIt from 'typeit-react';
 import styled from 'styled-components';
-import { StartContainer, SubmitBtn, Header, HeadedingOneContainer } from '../styles/GlobalStyles';
+import { StartContainer, SubmitBtn, Header, HeadingOneContainer, Devices } from '../styles/GlobalStyles';
 
 const StartScreen = () => {
   const dispatch = useDispatch()
@@ -19,14 +19,14 @@ const StartScreen = () => {
   return (
     <StartContainer>
       <Header>
-        <HeadedingOneContainer>
+        <HeadingOneContainer>
           <TypeIt
             options={{
               speed: 40
             }}>
             <Label>Type in your name:</Label>
           </TypeIt>
-        </HeadedingOneContainer>
+        </HeadingOneContainer>
 
         <Form
           onSubmit={onSubmitHandler}>
@@ -50,16 +50,24 @@ const Form = styled.form`
   align-items: center;
   margin: 0 auto;
   width: 300px;
+
+  @media ${Devices.mobile} {
+  width: 100px;
+  height: 50px;
+  font-size: 12px;
+  }
 `;
 
 const Input = styled.input`
   height: 25px;
   font-size: 1.2rem;
-  margin-bottom: 5px;
-`;
+  margin-bottom: 3px;
+  `
 
 const Label = styled.label`
+ font-family: 'Special Elite', cursive;
   color: #fff;
+  margin-top: 10px;
   margin-bottom: 10px;
   font-size: 1.3rem;
 `;
