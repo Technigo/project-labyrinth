@@ -99,8 +99,33 @@ const flyAway = keyframes`
   transform: translate(-50%, -50%);
   opacity: 1;
 }
+10% {
+  transform: translate(-50%, -50%) rotate(5deg);
+}
+15% {
+  transform: translate(-50%, -48%) rotate(-8deg);
+}
+20% {
+  transform: translate(-50%, -50%) rotate(8deg);
+}
+23% {
+  transform: translate(-50%, -57%) rotate(-10deg);
+}
+28% {
+  transform: translate(-50%, -53%) rotate(10deg);
+}
+35% {
+  transform: translate(-50%, -50%) rotate(-12deg);
+}
+44% {
+  transform: translate(-50%, -53%) rotate(12deg);
+}
+48% {
+  transform: translate(-50%, -45%) rotate(-15deg) scale(1.3);
+}
+
 100% {
-  transform: translate(-50%, -500%);
+  transform: translate(-50%, -500%) rotate(-12deg) scale(1.2);
   opacity: 1;
 }
 `;
@@ -111,7 +136,7 @@ export const PlayerWrapper = styled.div`
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-100%, 600%);
+    transform: translate(-50%, 50%);
     animation: ${flyAway} 2s ease forwards;
   }
 `;
