@@ -8,7 +8,7 @@ import light from '../images/light.jpg'
 import entrance from '../images/entrance.jpg'
 import color from '../images/color.jpg'
 import bridge from '../images/bridge.png'
-import cave from '../images/cave.jpg'
+import EndImg from '../images/end.jpg'
 import workshop from '../images/workshop.jpg'
 import library from '../images/library.jpg'
 
@@ -30,7 +30,7 @@ const Main = () => {
       break;
     case '1,1': backgroundImage = light;
       break;
-    case '1,3': backgroundImage = cave;
+    case '1,3': backgroundImage = EndImg;
       break;
     default: backgroundImage = StartImg;
   }
