@@ -13,7 +13,7 @@ const labyrinth = createSlice({
   reducers: {
 
     setUsername: (state, action) => {
-      state.username = action.payload
+      state.username = `${new Date().getTime()}+${action.payload}`
     },
 
     setCoordinates: (state, action) => {
@@ -51,7 +51,7 @@ export const getLabyrinth = () => {
         dispatch(labyrinth.actions.setCoordinates(data.coordinates))
         dispatch(labyrinth.actions.setDescription(data.description))
         dispatch(labyrinth.actions.setAction(data.actions))
-        dispatch(loading.actions.setLoading(false))
+        setTimeout(() => { dispatch(loading.actions.setLoading(false)) }, 1500)
       })
   }
 }
@@ -77,7 +77,7 @@ export const getAction = (type, direction) => {
         dispatch(labyrinth.actions.setCoordinates(data.coordinates))
         dispatch(labyrinth.actions.setDescription(data.description))
         dispatch(labyrinth.actions.setAction(data.actions))
-        dispatch(loading.actions.setLoading(false))
+        setTimeout(() => { dispatch(loading.actions.setLoading(false)) }, 1500)
       })
   }
 }

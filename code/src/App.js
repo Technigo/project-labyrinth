@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import labyrinth from 'reducers/labyrinth';
 import loading from 'reducers/loading';
-import { GlobalStyles } from 'components/GlobalStyles'
 import Container from 'components/Container';
 
 export const App = () => {
@@ -12,7 +11,6 @@ export const App = () => {
 
   return (
     <Provider store={store}>
-      <GlobalStyles />
       <Container />
     </Provider>
   )

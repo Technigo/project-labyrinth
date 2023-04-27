@@ -32,7 +32,7 @@ const StartScreen = () => {
 export default StartScreen
 
 const StyledStartPage = styled.div`
-color: black;
+color: white;
 margin: 5px;
 padding: 10px;
 
@@ -51,11 +51,14 @@ button {
   background-color: transparent;
   border: 1px solid white;
   color: white;
-  margin: 10px;
+  font-size: 1.2rem; 
+  
+  
 
-  }
   &:hover {
       transform: scale(1.07);
-    }
+      border: 2px solid #79c99e;
+    
+}
 }
 `
