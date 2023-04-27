@@ -13,4 +13,5 @@ export const Background = styled.section`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  filter: brightness(90%);
 `
