@@ -8,23 +8,23 @@ const LoadingContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #61605c;
+    background-color: rgba(0,0,0,.7);
     position: absolute;
     z-index: 1;` // This is needed for the Loading component to be placed on top of the Labyrinth-component.
 
 const Spinner = styled.span`
-  width: 54px;
-  height: 54px;
+  width: 100px;
+  height: 100px;
   position: relative;
-  border-radius: 4px;
+  border-radius: 8px;
   background-color: #fff;
   background-image:
-    radial-gradient(circle 5px , #FF3D00 100%, transparent 0),
-    radial-gradient(circle 5px , #FF3D00 100%, transparent 0),
-    radial-gradient(circle 5px , #FF3D00 100%, transparent 0),
-    radial-gradient(circle 5px , #FF3D00 100%, transparent 0),
-    radial-gradient(circle 5px , #FF3D00 100%, transparent 0),
-    radial-gradient(circle 5px , #FF3D00 100%, transparent 0);
+    radial-gradient(circle 8px , #363636 100%, transparent 0),
+    radial-gradient(circle 8px , #363636 100%, transparent 0),
+    radial-gradient(circle 8px , #363636 100%, transparent 0),
+    radial-gradient(circle 8px , #363636 100%, transparent 0),
+    radial-gradient(circle 8px , #363636 100%, transparent 0),
+    radial-gradient(circle 8px , #363636 100%, transparent 0);
     background-repeat: no-repeat;
   animation: move 4s linear infinite , rotate 2s linear infinite;
 
@@ -38,33 +38,33 @@ const Spinner = styled.span`
 @keyframes move {
   0% ,  9%{
       background-position:
-      -12px -15px,  -12px 0px, -12px 15px,
-      12px -15px,  12px 0px,  12px 15px;
+      -24px -30px,  -24px 0px, -24px 30px,
+      24px -30px,  24px 0px,  24px 30px;
   }
   10% , 25%{
       background-position:
-      0px -15px,  -12px 0px, -12px 15px,
-      34px -15px,  12px 0px,  12px 15px;
+      0px -30px,  -24px 0px, -24px 30px,
+      68px -30px,  24px 0px,  24px 30px;
   }
   30% , 45%{
       background-position:
-      0px -34px, -12px -10px, -12px 12px,
-      34px -15px, 12px -10px, 12px 12px;
+      0px -68px, -24px -20px, -24px 24px,
+      68px -30px, 24px -20px, 24px 24px;
   }
   50% , 65% {
       background-position:
-      0px -34px, -12px -34px, -12px 12px,
-      34px -12px, 0px -10px, 12px 12px;
+      0px -68px, -24px -68px, -24px 24px,
+      68px -24px, 0px -20px, 24px 24px;
   }
   70% , 85% {
       background-position:
-      0px -34px, -12px -34px, 0px 12px,
-      34px -12px, 0px -10px, 34px 12px;
+      0px -68px, -24px -68px, 0px 24px,
+      68px -24px, 0px -20px, 68px 24px;
   }
- 90% , 100% {
+  90% , 100% {
       background-position:
-      0px -34px, -12px -34px, 0px 0px,
-      34px -12px, 0px 0px, 34px 12px;
+      0px -68px, -24px -68px, 0px 0px,
+      68px -24px, 0px 0px, 68px 24px;
   }
 }`
 
