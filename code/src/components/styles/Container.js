@@ -12,17 +12,13 @@ export const OuterWrapper = styled.div`
 `;
 
 export const InnerWrapper = styled.div`
-// all these can be changed later on when we work on the styling
-  max-width: 1200px;
   margin: 0 auto;
-  width: 100%;
   padding: 2rem;
-  
 `;
 
 export const BoxContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   gap: 5rem;
@@ -34,10 +30,9 @@ export const PlayerContainer = styled.div`
   flex-direction: column;
   justify-content: center; 
   border-radius: 5px;
-  min-height: 60vh;
   width: calc(50% - 5rem);
   min-width: 350px;
-  background-color: #161616;
+  background-color: var(--primaryBlack);
   padding: 20px;
 
 img {
@@ -62,7 +57,7 @@ img {
 
   button {
     background-color: #b3b813;
-    border: none;
+    border: #b3b813 1px solid;
     border-radius:25px;
     padding: 1.2rem;
     margin-top: 1rem;
@@ -73,24 +68,63 @@ img {
     border: #b3b813 1px solid;
     color: var(--primaryWhite)
   }
+
+  @media (max-width:668px) {
+  width: calc(50% - 5rem);
+  max-height: 60vh;
+  min-width: 200px;
+  }
+`;
+
+export const ParentDirectionsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: border;
+  align-items: center;
 `;
 
 export const DirectionsContainer = styled(PlayerContainer)`
   justify-content: space-between;
+  max-width: 5rem;
   min-height: 5rem;
-  p {
-    font-size: 0.9rem;
+    p {
+    font-size: 1rem;
     margin-top: 1rem;
   }
 `;
 
 export const P = styled.p`
 font-size: 20px;
-color: red;
+text-align: center;
+color: var (--primaryWhite);
 `;
 
 export const TextBox = styled.div`
+display: flex;
+flex-direction: row;
 font-size: 20px;
 background-color: var(--primaryBlack);
-padding:20px;
+text-align: center;
+padding:40px;
+margin: 0 20px;
+border-radius: 40px 15px 40px 15px;
+border: red solid 2px;
 `;
+
+export const ButtonRestart = styled.button`
+  background-color: #b3b813;
+  border: #b3b813 1px solid;
+  border-radius:25px;
+  padding: 1.2rem;
+
+  &:hover {
+    background-color: var(--secondaryGreen);
+    border: var(--secondaryGreen) 1px solid;
+    color: var(--primaryBlack);
+  }
+
+`;
+
+export const LoadingBox = styled.div`
+background: red;
+`

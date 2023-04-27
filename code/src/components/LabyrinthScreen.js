@@ -4,7 +4,7 @@ import labyrinth from 'reducers/labyrinth';
 import { Loading } from './Loading';
 import { LabyrinthMove } from './LabyrinthMove';
 // add this - import { Player } from './styled/Player';
-import { InnerWrapper, BoxContainer, P, TextBox } from './styles/Container';
+import { InnerWrapper, BoxContainer, P, TextBox, ButtonRestart } from './styles/Container';
 
 export const LabyrinthScreen = () => {
   const dispatch = useDispatch();
@@ -34,12 +34,11 @@ export const LabyrinthScreen = () => {
       </InnerWrapper>
 
       {response.coordinates === '1,3' && (
-        <button
+        <ButtonRestart
           type="button"
-          className="nes-btn is-success"
           onClick={() => onRestartClick()}>
           Restart Game
-        </button>
+        </ButtonRestart>
       )}
     </>
   );

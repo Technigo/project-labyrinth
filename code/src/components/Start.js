@@ -45,7 +45,7 @@ export const Start = () => {
                 value={usernameInputValue}
                 onChange={(event) => setUsernameInputValue(event.target.value)}
                 required />
-              <button className="nes-btn is-success" type="submit">
+              <button type="submit">
                 {' '}
               Start the Labyrinth
               </button>
