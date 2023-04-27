@@ -19,6 +19,7 @@ const StyledButton = styled.button`
   cursor: pointer;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  margin-bottom:20px;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.3);
@@ -39,7 +40,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 100vh;
   height: 100vh;
   padding: 20px;
   box-sizing: border-box;

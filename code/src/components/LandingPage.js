@@ -43,18 +43,29 @@ const FrostedButton = styled.button`
   }
 `;
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+`;
+
 const LandingPage = ({ onStartGame }) => {
   return (
     <Background>
-      <Title> Welcome to the Adventure! </Title>
-      <Description>
-         Are you ready to begin your adventure?
-      </Description>
-      <FrostedButton type="button" onClick={onStartGame}>
-       Start Game
-      </FrostedButton>
+      <Container>
+        <Title>Welcome to the Adventure!</Title>
+        <Description>Are you ready to begin your adventure?</Description>
+        <FrostedButton type="button" onClick={onStartGame}>
+          Start Game
+        </FrostedButton>
+      </Container>
     </Background>
-  )
-}
+  );
+};
 
 export default LandingPage;
