@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Game, startGame } from 'reducers/Game';
 import { Loading } from './Loading';
 import { Button } from '../styles/Button';
-import { GameScreenSection, GameSection, Form } from '../styles/Sections';
+import { StartScreenSection, GameSection, Form } from '../styles/Sections';
+import './StartGame.css';
 
 export const StartGame = () => {
   const [inputValue, setInputValue] = useState('');
@@ -20,7 +21,7 @@ export const StartGame = () => {
     return <Loading />
   }
   return (
-    <GameScreenSection>
+    <StartScreenSection>
       <GameSection>
         From right to left, and to and fro,
         Caught in a labyrinth you go,
@@ -52,13 +53,12 @@ export const StartGame = () => {
                 margin: '5px'
               }} />
           </label>
-          <img alt="Mario" src="./img/mario.png" />
           <Button
             type="submit">
             Start Game!
           </Button>
         </Form>
       </GameSection>
-    </GameScreenSection>
+    </StartScreenSection>
   )
 }

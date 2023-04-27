@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import running from './img/running.gif';
+import loader from './img/loader.gif';
+import './Loading.css';
 
 const LoadingSection = styled.section`
 display: flex;
@@ -14,10 +16,7 @@ const LoadingText = styled.h1`
   font-size: 30px;
   display: flex;
   align-items: center;
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-
+  
 
   @media (min-width: 770px) {
     font-size: 80px;
@@ -26,7 +25,10 @@ const LoadingText = styled.h1`
 export const Loading = () => {
   return (
     <LoadingSection>
-      <LoadingText>LOADING...<img src={running} alt="running" /></LoadingText>
+      <div className="loadingScreen">
+        <LoadingText className="loadingText"><img className="loader" src={loader} alt="loader" /></LoadingText>
+        <img className="runner" src={running} alt="running" />
+      </div>
     </LoadingSection>
   )
 }

@@ -1,9 +1,21 @@
 import styled from 'styled-components';
 import startScreenBg from '../components/img/startScreen.png';
+import cave from '../components/img/cave.gif';
 
-export const GameScreenSection = styled.section`
+export const StartScreenSection = styled.section`
 background-color: green;
 background-image: url(${startScreenBg});
+height: 100vh;
+display: flex;
+flex-direction: column;
+gap: 3%;
+align-items: center;
+justify-content: center;
+`
+export const GameScreenSection = styled.section`
+background-color: green;
+background-image: url(${cave});
+background-size: cover;
 height: 100vh;
 display: flex;
 flex-direction: column;

@@ -1,0 +1,18 @@
+.loadingScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    background-image: url(C:\Users\ajmal\Desktop\code\project-labyrinth\code\src\components\img\forest.gif);
+    background-size: cover;
+}
+
+.runner {
+scale: 70%;
+}
+
+
+.loadingText {
+    
+}
