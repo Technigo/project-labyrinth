@@ -1,12 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { getStory } from 'reducers/Game';
 import { Loading } from './Loading';
 import { EndGame } from './EndGame';
 import { DirectionButton } from '../styles/Button';
-import maze from './img/maze.png';
+import { GameScreenSection, GameSection } from '../styles/Sections';
 
+/*
 export const GameScreenSection = styled.section`
 background-color: green;
 background-image: url(${maze});
@@ -39,6 +39,7 @@ margin-bottom: 2%;
     line-height: 1.6em;
 }`
 
+*/
 export const GameScreen = () => {
   const dispatch = useDispatch();
   const gameStep = useSelector((store) => store.game.response);

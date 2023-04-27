@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import maze from '../components/img/maze.png';
 
 export const GameScreenSection = styled.section`
 background-color: green;
-background-image: url(${maze});
+background-image: url(${(props) => props.imageUrl});
 height: 100vh;
 display: flex;
 flex-direction: column;
