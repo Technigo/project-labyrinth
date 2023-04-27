@@ -4,17 +4,17 @@ const initialState = {
   username: '',
   loading: false,
   response:
-    {
-      coordinates: '0',
-      description: '',
-      actions: [
-        {
-          type: '',
-          direction: '',
-          description: ''
-        }
-      ]
-    }
+  {
+    coordinates: '0',
+    description: '',
+    actions: [
+      {
+        type: '',
+        direction: '',
+        description: ''
+      }
+    ]
+  }
 }
 
 export const Game = createSlice(
@@ -83,7 +83,7 @@ export const getStory = (direction) => {
     })
       .then((response) => response.json())
       .then((json) => {
-      // get the data from the api - save it in global state
+        // get the data from the api - save it in global state
         dispatch(Game.actions.nextStep(json))
       })
       .catch((error) => console.error(error))

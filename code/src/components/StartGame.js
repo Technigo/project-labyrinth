@@ -22,17 +22,17 @@ export const StartGame = () => {
   return (
     <GameScreenSection>
       <GameSection>
-      From right to left, and to and fro,
-      Caught in a labyrinth you go,
-      And turn, and turn, and turn again,
-      To solve the mystery, but in vain;
-      Stand still, and breathe, and take from me
-      A clue, that soon shall set you free!
-      Not Ariadne, if you met her,
-      Herself could serve you with a better.
-      You enter d easily--find where--
-      And make with ease your exit there!
-      by William Cowper
+        From right to left, and to and fro,
+        Caught in a labyrinth you go,
+        And turn, and turn, and turn again,
+        To solve the mystery, but in vain;
+        Stand still, and breathe, and take from me
+        A clue, that soon shall set you free!
+        Not Ariadne, if you met her,
+        Herself could serve you with a better.
+        You enter d easily--find where--
+        And make with ease your exit there!
+        by William Cowper
         <Form
           className="UsernameForm"
           onSubmit={onAddUsername}>
@@ -44,16 +44,18 @@ export const StartGame = () => {
               type="text"
               required
               placeholder="READY PLAYER 1"
-              style={{ background: 'transparent',
+              style={{
+                background: 'transparent',
                 padding: '20px 30px 20px 30px',
                 font: 'Press Start 2P',
                 border: '2px solid black',
-                margin: '5px' }} />
+                margin: '5px'
+              }} />
           </label>
           <img alt="Mario" src="./img/mario.png" />
           <Button
             type="submit">
-          Start Game!
+            Start Game!
           </Button>
         </Form>
       </GameSection>

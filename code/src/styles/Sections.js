@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import startScreenBg from '../components/img/startScreen.png';
 
 export const GameScreenSection = styled.section`
 background-color: green;
-background-image: url(${(props) => props.imageUrl});
+background-image: url(${startScreenBg});
 height: 100vh;
 display: flex;
 flex-direction: column;

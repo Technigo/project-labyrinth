@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import running from './img/running.gif';
 
 const LoadingSection = styled.section`
 display: flex;
@@ -25,7 +26,7 @@ const LoadingText = styled.h1`
 export const Loading = () => {
   return (
     <LoadingSection>
-      <LoadingText>LOADING...</LoadingText>
+      <LoadingText>LOADING...<img src={running} alt="running" /></LoadingText>
     </LoadingSection>
   )
 }
