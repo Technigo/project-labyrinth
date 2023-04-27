@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import TypeIt from 'typeit-react'
@@ -5,6 +6,7 @@ import styled from 'styled-components/macro'
 import { maze } from 'reducers/maze'
 import FetchGame from './FetchGame'
 import { Loading } from './Loading'
+import { Button } from './Buttons'
 
 export const Start = () => {
   const currentLocation = useSelector((store) => store.maze)
@@ -21,7 +23,7 @@ export const Start = () => {
   return (
     <StartPage>
       <TypeIt
-        options={{ speed: 50 }}>
+        options={{ speed: 50, cursor: false }}>
         <StartText>
           <p>
             You have a burning ache in your throat
@@ -37,8 +39,10 @@ export const Start = () => {
       </TypeIt>
       <form onSubmit={(event) => onNameSubmit(event)}>
         <label htmlFor="name">
-          <input type="text" id="name" onChange={(event) => setUserName(event.target.value)} />
-          <button type="submit">Enter</button>
+          <FormDiv>
+            <Input type="text" id="name" onChange={(event) => setUserName(event.target.value)} />
+            <StyledButton type="submit">Enter</StyledButton>
+          </FormDiv>
         </label>
       </form>
     </StartPage>
@@ -46,14 +50,33 @@ export const Start = () => {
 }
 
 const StartPage = styled.div`
-border: red solid 2px;
 display: flex;
 flex-direction: column;
 align-items: center;
+padding: 20px;
 `
 
 const StartText = styled.div`
-border: solid 1px blue;
-width: 350px;
-font-size: 20px;
+max-width: 400px;
+font-size: 30px;
+`
+
+const FormDiv = styled.div`
+display:flex;
+flex-direction: column;
+`
+
+const Input = styled.input`
+border: inset;
+border-radius: 6px;
+font-size: 16px;
+background-color: #AEAD8A;
+&:focus {
+  border: 3px solid #555;
+  background-color: #EEEA8A;
+}
+`
+const StyledButton = styled(Button)`
+color: black;
+text-shadow: none;
 `

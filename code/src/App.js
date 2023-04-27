@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
 margin: none;
 padding: none;
 font-family: 'Pirata One', cursive;
-box-sizing: border-box
+box-sizing: border-box;
 }
 
 `
