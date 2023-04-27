@@ -26,7 +26,7 @@ export const labyrinth = createSlice({
       // store.currentGameState = initialState.currentGameState
       console.log('Restarting game...');
       store.username = null;
-      store.currentGameState = {};
+      store.currentGameState = '';
     }
   }
 })
