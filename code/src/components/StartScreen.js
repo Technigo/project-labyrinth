@@ -19,25 +19,28 @@ const StartScreen = () => {
   // Added useSelector to get the gameStarted value from the Redux store.
   const gameStarted = useSelector((state) => state.labyrinth.gameStarted)
 
-  return (
-    <div>
-      <p>Welcome! Tell me your name:</p>
-      <form
-        type="submit"
-        onSubmit={(event) => onFormSubmit(event)}>
-        <input
-          id=""
-          type="text"
-          placeholder="Enter name"
-          value={usernameInput}
-          onChange={(event) => setUsernameInput(event.target.value)}
-          required />
-        <button type="submit">start</button>
-      </form>
-      {gameStarted ? (<Game />) : null}
-    </div>
-
-  )
+  if (gameStarted) {
+    return <Game />
+  } else {
+    return (
+      <div>
+        <p>Welcome! Tell me your name:</p>
+        <form
+          type="submit"
+          onSubmit={(event) => onFormSubmit(event)}>
+          <input
+            id=""
+            type="text"
+            placeholder="Enter name"
+            value={usernameInput}
+            onChange={(event) => setUsernameInput(event.target.value)}
+            required />
+          <button type="submit">start</button>
+        </form>
+        {/* {gameStarted ? (<Game />) : null} */}
+      </div>
+    )
+  }
 }
 
 export default StartScreen;
