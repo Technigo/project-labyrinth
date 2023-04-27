@@ -11,6 +11,11 @@ const game = createSlice({
   },
 
   reducers: {
+
+    restartGame: (store) => {
+      store.username = null
+      store.currentLocation = []
+    },
     setUserName: (store, action) => {
       store.username = `${new Date().getTime()} ${action.payload}`
     },

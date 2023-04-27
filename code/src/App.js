@@ -1,8 +1,8 @@
 import React from 'react'
 import { Provider } from 'react-redux';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import game from 'reducers/game';
 import { ui } from './reducers/ui';
-import game from './reducers/game';
 import { Main } from './components/Main';
 
 const reducer = combineReducers({
