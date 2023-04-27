@@ -32,3 +32,9 @@ margin-bottom: 2%;
 @media (min-width: 770px) {
     width: 40%;
 }`
+
+export const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`

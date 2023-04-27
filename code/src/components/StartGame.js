@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Game, startGame } from 'reducers/Game';
 import { Loading } from './Loading';
 import { Button } from '../styles/Button';
-import { GameScreenSection, GameSection } from '../styles/Sections';
+import { GameScreenSection, GameSection, Form } from '../styles/Sections';
 
 export const StartGame = () => {
   const [inputValue, setInputValue] = useState('');
@@ -33,28 +33,29 @@ export const StartGame = () => {
       You enter d easily--find where--
       And make with ease your exit there!
       by William Cowper
-        <GameSection>
-          <form className="UsernameForm" onSubmit={onAddUsername}>
-            <label htmlFor="usernameForm">
-              <input
-                id="usernameForm"
-                value={inputValue}
-                onChange={(event) => setInputValue(event.target.value)}
-                type="text"
-                required
-                placeholder="PLAYER 1"
-                style={{ background: 'transparent',
-                  padding: '10px 20px 10px 20px',
-                  font: 'Press Start 2P',
-                  border: '2px solid black',
-                  margin: '5px' }} />
-            </label>
-            <Button
-              type="submit">
+        <Form
+          className="UsernameForm"
+          onSubmit={onAddUsername}>
+          <label htmlFor="usernameForm">
+            <input
+              id="usernameForm"
+              value={inputValue}
+              onChange={(event) => setInputValue(event.target.value)}
+              type="text"
+              required
+              placeholder="READY PLAYER 1"
+              style={{ background: 'transparent',
+                padding: '20px 30px 20px 30px',
+                font: 'Press Start 2P',
+                border: '2px solid black',
+                margin: '5px' }} />
+          </label>
+          <img alt="Mario" src="./img/mario.png" />
+          <Button
+            type="submit">
           Start Game!
-            </Button>
-          </form>
-        </GameSection>
+          </Button>
+        </Form>
       </GameSection>
     </GameScreenSection>
   )
