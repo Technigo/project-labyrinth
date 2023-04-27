@@ -17,7 +17,8 @@ const EndContainer = styled.section`
 `;
 
 const StyledTypeIt = styled(TypeIt)`
-  font-size: 1.5em;
+  font-size: 2em;
+  font-family: var(--font-family);
 `;
 
 const StartOverBtn = styled.button`

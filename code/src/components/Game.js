@@ -11,36 +11,80 @@ const GameContainer = styled.section`
   align-items: center;
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.5);
-  width: 40vw;
-  height: 50vh;
-  border-radius: 10%;
+  width: 70vw;
+  height: 70vh;
+  border-radius: 15px;
+  box-shadow: 1px 1px 26px 6px rgba(0,0,0,0.41);
+  -webkit-box-shadow: 1px 1px 26px 6px rgba(0,0,0,0.41);
+  -moz-box-shadow: 1px 1px 26px 6px rgba(0,0,0,0.41);
+
+  @media (min-width: 667px) {
+    height: 60vh;
+  }
+
+  @media (min-width: 1024px) {
+    width: 50vw;
+    height: 55vh;
+  }
 `;
 
 const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
+  margin: 15px;
+
+  @media (min-width: 667px) {
+    margin: 30px;
+  }
+
+  @media (min-width: 1024px) {
+    margin: 50px;
+
+  }
 `;
 
 const StyledTypeIt = styled(TypeIt)`
   font-size: 1.1em;
   font-family: 'Special Elite', cursive;
   font-weight: bold;
+
+  @media (min-width: 667px) {
+    font-size: 1.4em;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 1.6em;
+  }
 `;
 
 const CollapsBtn = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: left;
+  text-align: center;
   background: lightblue;
   border: solid 1px black;
+  border-radius: 5px;
   margin-top: 10px;
   width: 110px;
   padding: 3px;
   font-size: 0.8em;
   font-family: 'Nanum Gothic Coding', monospace;
+
+  @media (min-width: 667px) {
+    font-size: 1em;
+    width: 130px;
+    padding: 5px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 1.1em;
+    width: 150px;
+    margin-top: 30px;
+  }
 `;
 
 const DirectionsContainer = styled.div`
@@ -49,10 +93,22 @@ const DirectionsContainer = styled.div`
   font-family: 'Nanum Gothic Coding', monospace;
   font-weight: 500;
 
+  @media (min-width: 667px) {
+    font-size: 1.2em;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 1.3em;
+  }
+
   button {
     margin: 10px;
     font-size: 1em;
     font-family: 'Nanum Gothic Coding', monospace;
+
+    @media (min-width: 1024px) {
+    margin-bottom: 30px;
+  }
   }
 `;
 
