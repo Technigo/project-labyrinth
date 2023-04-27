@@ -44,7 +44,7 @@ export const Game = () => {
                 {coordinates === '1,3' && (<button type="button" onClick={onRestartButton}>Restart</button>)}
                 <MainDescriptionCard style={{ display: showDirection ? 'none' : 'block' }}>
                   <MainDescription>{gameData.description}</MainDescription>
-                  <ShowMoreButton type="button" onClick={() => onShowDirectionClick()}>Show more</ShowMoreButton>
+                  {coordinates !== '1,3' && (<ShowMoreButton type="button" onClick={() => onShowDirectionClick()}>Show directions</ShowMoreButton>)}
                 </MainDescriptionCard>
                 {gameActions && gameActions.map((item) => {
                   return (

@@ -57,17 +57,13 @@ export const fetchOne = () => {
             dispatch(loading.actions.setLoading(false));
           })
         })
-    }, 10000);
+    }, 3000);
   }
 }
 
 export const fetchTwo = (direction) => {
   return (dispatch, getState) => {
-    dispatch(gameFetch.actions.setLoading(true));
-
-    setTimeout(() => {
-      dispatch(loading.actions.setLoading(true));
-    }, 10000)
+    dispatch(loading.actions.setLoading(true));
 
     setTimeout(() => {
       fetch('https://labyrinth.technigo.io/action', {
@@ -89,7 +85,7 @@ export const fetchTwo = (direction) => {
             dispatch(loading.actions.setLoading(false));
           });
         });
-    }, 13000);
+    }, 2700);
   };
 };
 

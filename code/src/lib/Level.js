@@ -1,13 +1,13 @@
 /* eslint-disable no-nested-ternary */
 import styled, { keyframes } from 'styled-components';
-import start from 'images/start.png'
-import image1 from 'images/level1.png'
-import image2 from 'images/level2.png'
-import image3 from 'images/level3.png'
-import image4 from 'images/level4.png'
-import image5 from 'images/level5.png'
-import image6 from 'images/level6.png'
-import image7 from 'images/level7.png'
+import start from 'images/start.jpg'
+import image1 from 'images/level1.jpg'
+import image2 from 'images/level2.jpg'
+import image3 from 'images/level3.jpg'
+import image4 from 'images/level4.jpg'
+import image5 from 'images/level5.jpg'
+import image6 from 'images/level6.jpg'
+import image7 from 'images/level7.jpg'
 
 export const Background = styled.div`
   display: flex;

@@ -21,6 +21,9 @@ const FullPage = styled.div`
   width: 100vw;
   height: 100vh;
   background-image: url(${loadingspace});
+  background-repeat: no-repeat;
+  background-size: cover;
+
 `;
 
 const FlyRoundAnimation = styled(Player)`
