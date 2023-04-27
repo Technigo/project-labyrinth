@@ -31,6 +31,6 @@ export const StyledInput = styled.input`
   border: 0.063rem solid gray;
   border-radius: 0.313rem;
   font-family: var(--paragraph-font-family);
-  font-size: 1rem;
+  font-size: 1.3rem;
   margin: 0.625rem;
 `;

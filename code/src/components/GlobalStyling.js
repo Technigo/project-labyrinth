@@ -8,7 +8,7 @@ export const Button = styled.button`
     align-items: center;
     text-align: center;
     font-family: var(--button-font-family);
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 600;
     border: none; 
     padding: 0.7rem 1rem;
