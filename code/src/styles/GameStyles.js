@@ -100,3 +100,12 @@ export const GameBtn = styled.button`
     transform: scale(1.1, 1.1);
   }
 `;
+
+export const AnimationContainer = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 100vh;
+background-color: black;
+`
