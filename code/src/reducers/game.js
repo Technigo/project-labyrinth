@@ -23,10 +23,6 @@ export const game = createSlice({
       store.username = action.payload;
     }
 
-    // an action to save the current loading state to global state
-    // setLoading: (store, action) => {
-    //   store.loading = action.payload
-    // }
   }
 })
 // the thunk:
@@ -39,11 +35,12 @@ export const getGameStarted = () => {
         username: getState().game.username
       })
     }
+
     fetch('https://labyrinth.technigo.io/start', options)
       .then((response) => response.json())
       .then((json) => {
         dispatch(game.actions.setGame(json))
-        // dispatch(game.actions.setLoading(false))
+        dispatch(loading.actions.setLoading(false))
       })
   }
 }
@@ -51,6 +48,7 @@ export const getGameStarted = () => {
 export const getGameStep = (type, direction) => {
   return (dispatch, getState) => {
     dispatch(loading.actions.setLoading(true))
+    console.log(loading, 'loading getGameStep')
 
     const options = {
       method: 'POST',
@@ -67,6 +65,6 @@ export const getGameStep = (type, direction) => {
         dispatch(game.actions.setGame(json))
       })
       .finally(() => dispatch(loading.actions.setLoading(false)))
-    console.log(loading)
+    console.log(loading, 'loading,setGame')
   }
 }

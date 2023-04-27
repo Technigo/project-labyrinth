@@ -13,3 +13,7 @@ export const loading = createSlice({
     }
   }
 })
+
+// setLoading: (store, action) => {
+//   store.loading = action.payload
+// }

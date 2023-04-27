@@ -1,13 +1,13 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-// import { loading } from '../reducers/loading'
 import { getGameStep } from 'reducers/game'
+// import { LoadingPage } from './LoadingPage'
 
 const GameBoard = () => {
   const game = useSelector((store) => store.game.gameStep)
   const username = useSelector((store) => store.game.username);
   const actions = useSelector((store) => store.game.gameStep.actions);
-  // const isLoading = useSelector((store) => store.loading.isLoading);
+
   const dispatch = useDispatch()
 
   // const loading = useSelector((store) => store.game.loading)

@@ -3,11 +3,13 @@ import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import MainPage from 'components/MainPage.js'
 import { game } from 'reducers/game.js'
+import { loading } from 'reducers/loading.js'
 
 export const App = () => {
   const reducer = combineReducers({
 
-    game: game.reducer
+    game: game.reducer,
+    loading: loading.reducer
 
   })
 
