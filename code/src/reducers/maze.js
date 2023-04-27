@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import uniqid from 'uniqid';
 import { ui } from './ui';
 
 const initialState = {
@@ -13,7 +14,7 @@ export const maze = createSlice({
   initialState,
   reducers: {
     storeUsername: (store, action) => {
-      store.username = action.payload
+      store.username = `${uniqid()}+${action.payload}}`
     },
     storeCoordinates: (store, action) => {
       store.coordinates = action.payload
