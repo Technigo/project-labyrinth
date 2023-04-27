@@ -12,8 +12,7 @@ export const labyrinth = createSlice({
   // Here we add functions that set the state, i.e. the username.
   reducers: {
     setUsername: (state, action) => {
-      state.username = action.payload;
-      // state.coordinates = '0,0';
+      state.username = `${new Date().getTime()}+${action.payload}`
     },
     setCoordinates: (state, action) => {
       state.coordinates = action.payload
