@@ -19,8 +19,6 @@ export const GameWrapper = styled.div`
   }
 `
 export const InnerWrapper = styled.main`
-  height: 60vh; 
-  width: 500px;
   padding: 20px;
   border-radius: 10px;
   background-color: rgb(140,122,103);
@@ -55,7 +53,7 @@ line-height: 1.4;
 }
 `
 export const DirectionContainer = styled.div`
-width: 50vw;
+width: fit-content;
 margin-top: 10px;
 display: flex;
 justify-content: center;
