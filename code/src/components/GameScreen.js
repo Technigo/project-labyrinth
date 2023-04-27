@@ -13,7 +13,6 @@ import books from '../assets/books.jpg';
 import end from '../assets/end.png';
 import cave from '../assets/cave.jpg';
 import mechanical from '../assets/mechanical.jpg';
-import light from '../assets/light.jpg';
 import room from '../assets/room.jpg';
 
 export const GameScreen = () => {
