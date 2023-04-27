@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { maze, postUsername } from 'reducers/maze';
+import styled from 'styled-components';
 import { Button } from './global-style/Button';
 import { Wrapper } from './global-style/Wrapper';
+import { Header1, BodyText } from './global-style/Text';
+import { Background } from './global-style/Background';
 
 export const WelcomePage = () => {
+  const coordinates = useSelector((store) => store.maze.coordinates);
   const [username, setUsername] = useState('');
   const dispatch = useDispatch();
 
@@ -19,13 +23,20 @@ export const WelcomePage = () => {
     navigate('/game');
   };
   return (
-    <Wrapper>
-      <h1>Welcome to the Maze</h1>
-      <p>Please enter your username</p>
-      <form onSubmit={handleSubmit}>
-        <input type="text" onChange={(event) => setUsername(event.target.value)} value={username} />
-        <Button type="submit">Submit Username</Button>
-      </form>
-    </Wrapper>
+    <Background coordinates={coordinates}>
+      <Wrapper>
+        <Header1>Welcome to the Maze</Header1>
+        <BodyText>Please enter your username</BodyText>
+        <FormWrapper onSubmit={handleSubmit}>
+          <input type="text" onChange={(event) => setUsername(event.target.value)} value={username} />
+          <Button type="submit">Submit Username</Button>
+        </FormWrapper>
+      </Wrapper>
+    </Background>
   )
-}
+};
+
+export const FormWrapper = styled.form`
+  display: flex;
+  flex-direction: column;
+`

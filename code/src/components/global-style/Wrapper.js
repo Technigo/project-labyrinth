@@ -6,10 +6,14 @@ export const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     padding: 20px;
-    width: 70%;
+    width: 90%;
     margin: 0 auto;
     background-color: black;
     color: white;
-    opacity: 0.7;
+    opacity: 0.8;
     border-radius: 40px;
+
+    @media (min-width: 667px) {
+        width: 70%;
+    }
 `
