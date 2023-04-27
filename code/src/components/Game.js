@@ -1,14 +1,14 @@
-/* eslint-disable import/order */
 // src/components/Game.js
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { startGame, nextStep } from 'reducers/game';
+import styled from 'styled-components';
 import LandingPage from './LandingPage';
 import backgroundImages from './backgroundImages';
-import styled from 'styled-components';
+import Loading from './Loading';
 
 const StyledButton = styled.button`
- background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   justify-content:center;
   align-items: center;
   border: none;
@@ -24,12 +24,11 @@ const StyledButton = styled.button`
   &:hover {
     background-color: rgba(255, 255, 255, 0.3);
     transform: scale(1.05);
-
   }
 `;
 
 const StyledText = styled.h2`
-   font-size: 24px;
+  font-size: 24px;
   color: #ffffff;
   margin-bottom: 40px;
   text-align: center;
@@ -66,7 +65,7 @@ const Game = ({ showLandingPage, setShowLandingPage }) => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (showLandingPage) {
@@ -103,3 +102,4 @@ const Game = ({ showLandingPage, setShowLandingPage }) => {
 };
 
 export default Game;
+
