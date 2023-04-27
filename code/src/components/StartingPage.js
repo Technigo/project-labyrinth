@@ -48,7 +48,7 @@ const MainSection = styled.section`
   background-image: url(${startImage});
 `
 const InnerWrapper = styled.div`
-  height: 55vh;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,6 +64,10 @@ const TextWrapper = styled.div`
   gap: 3px;
   background-color: rgba(0,0,0,.5);
   padding: 15px;
+
+  @media (min-width: 668px) {
+    width: 50vw;
+  }  
 `
 
 const Title = styled.h1`
@@ -78,12 +82,13 @@ font-size: 1.5rem;
 `
 
 const FormWrapper = styled.div`
-background-color: rgba(0,0,0,.5);
+/* background-color: rgba(0,0,0,.5); */
 `
 const FormStyled = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 2px;
 
 input {
   border-radius: 10px;
@@ -97,10 +102,12 @@ input::placeholder {
 `
 const StyledButton = styled.button`
   width: 65px;
+  border: none;
   border-radius: 15px;
   padding: 5px;
   color: white;
-  background: black;
+  background: #486F73;
   font-family: 'Roboto Slab', serif;
   font-size: 1rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 `

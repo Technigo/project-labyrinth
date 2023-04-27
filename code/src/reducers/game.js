@@ -14,6 +14,10 @@ export const game = createSlice({
     },
     setCurrentPosition: (store, action) => {
       store.position = action.payload
+    },
+    restartGame: (store) => {
+      store.username = null
+      store.position = null
     }
   }
 })
