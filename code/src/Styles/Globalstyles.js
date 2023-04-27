@@ -1,7 +1,7 @@
 /* eslint-disable linebreak-style */
 import styled, { createGlobalStyle } from 'styled-components/macro';
 
-export const GlobalStyles = createGlobalStyle`
+export const GlobalRules = createGlobalStyle`
    
    *{
         margin: 0;

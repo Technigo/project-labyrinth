@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { labyrinthMango, startGame } from '../Reducers/labyrinth';
 import { BigText } from './Startpage.styled';
 import { GameWrapper } from '../Styles/Globalstyles';
+import { StartBtn } from './Gamepage.styled';
 
 export const Startpage = () => {
   const dispatch = useDispatch()
@@ -26,7 +27,7 @@ export const Startpage = () => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           required />
-        <button type="submit" onClick={letsStart}>Start Game</button>
+        <StartBtn type="submit" onClick={letsStart}>Start</StartBtn>
       </form>
     </GameWrapper>
   )

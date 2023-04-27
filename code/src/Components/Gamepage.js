@@ -7,11 +7,11 @@ import { DescriptionWrapper, DirectionWrapper, RestartBtn, DirectionBtn, GameEnd
 
 export const Gamepage = () => {
   const dispatch = useDispatch()
-  const description = useSelector((store) => store.labyrinth.description)
-  const moves = useSelector((store) => store.labyrinth.moves)
-  const loading = useSelector((store) => store.labyrinth.loading)
-  const name = useSelector((store) => store.labyrinth.name)
-  const history = useSelector((store) => store.labyrinth.history)
+  const description = useSelector((store) => store.labyrinthMango.description)
+  const moves = useSelector((store) => store.labyrinthMango.moves)
+  const loading = useSelector((store) => store.labyrinthMango.loading)
+  const name = useSelector((store) => store.labyrinthMango.name)
+  const history = useSelector((store) => store.labyrinthMango.history)
 
   const restartGame = () => {
     dispatch(labyrinthMango.actions.restartGame())
@@ -32,7 +32,7 @@ export const Gamepage = () => {
             {history.lenght === 0 ? `Welcome, ${name}.` : ''}
             <p>{description}</p>
           </DescriptionWrapper>
-          <DirectionWrapper id={moves.length <= 1 ? 'oneMove' : 'twoMoves'}>
+          <DirectionWrapper id={moves.lenght <= 1 ? 'oneMove' : 'twoMoves'}>
             {moves && moves.map((action) => (
               <div key={action.direction}>
                 <DirectionBtn
@@ -46,10 +46,10 @@ export const Gamepage = () => {
               </div>
             ))}
           </DirectionWrapper>
-          {moves.length === 0 && (
+          {moves.lenght === 0 && (
             <GameEnd>Woho! You have made it out, {name}!</GameEnd>)}
         </GameWrapper>
-        <RestartBtn onClick={restartGame}>Go back: Restart &#8634;</RestartBtn>
+        <RestartBtn onClick={restartGame}>Restart &#8634;</RestartBtn>
       </>
     )
   )
