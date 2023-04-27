@@ -38,12 +38,12 @@ align-items: center;
 `
 
 const Innerwrapper = styled.div`
-  background: background: rgb(200, 200, 200, 0.7);
+  background: rgba(77, 83, 89, 0.7);
   margin: 0 auto;
   width: 40%;
   height: 40%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid red;
+  border: 2px solid #508484;
 `

@@ -41,6 +41,8 @@ input {
   border-radius: 5px;
   border: 1px solid white;
   margin: 10px;
+  color: #79c99e;
+  font-weight: bold;
 }
 
 button {
@@ -53,12 +55,9 @@ button {
   color: white;
   font-size: 1.2rem; 
   
-  
-
   &:hover {
       transform: scale(1.07);
       border: 2px solid #79c99e;
-    
 }
 }
 `

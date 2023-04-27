@@ -38,10 +38,24 @@ flex-direction: column;
 
 const DirectionBtn1 = styled.button`
 color: purple;
+cursor: pointer;
+transition: 0.3s ease-in-out;
+height: 34px;
+border-radius: 5px;
+background-color: transparent;
+border: 1px solid purple;
+font-size: 1.2rem; 
 `
 const DirectionText = styled.div`
 flex-direction: column;
 `
 const DirectionBtn2 = styled.button`
-color: yellow;
+color: #97db4f;
+cursor: pointer;
+transition: 0.3s ease-in-out;
+height: 34px;
+border-radius: 5px;
+background-color: transparent;
+border: 1px solid #97db4f;
+font-size: 1.2rem; 
 `

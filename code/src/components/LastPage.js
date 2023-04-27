@@ -36,9 +36,14 @@ const GameCard = styled.div`
   display: none;
   }
   .restart-btn {
-    background-color: transparent;
-    border: 1px solid #01FFC4;
-    color: #01FFC4;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  height: 34px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid #79c99e;
+  color: #79c99e;
+  font-size: 1.2rem; 
   }
   @media (min-width: 668px) {
     padding: 1rem 2rem;
