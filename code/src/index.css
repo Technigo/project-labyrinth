@@ -13,13 +13,27 @@ code {
     monospace;
 }
 
+:root {
+  --primaryBlack: #161616;
+  --primaryWhite: #fbfbfbef;
+  --mainGreen: #b3b813;
+  --secondaryGreen: rgb(232, 247, 180); 
+  --darkGreen: rgb(1, 15, 1);
+
+}
+
 form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
   gap: 0.3rem;
+
 }
 input {
   max-width: 250px;
+
 }
 
 progress.nes-progress {

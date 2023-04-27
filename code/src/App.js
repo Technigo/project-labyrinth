@@ -17,10 +17,7 @@ export const App = () => {
 
   return (
     <Provider store={store}>
-      <OuterWrapper
-        style={{
-          background: 'black'
-        }}>
+      <OuterWrapper>
         <LabyrinthWrapper />
       </OuterWrapper>
     </Provider>

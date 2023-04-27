@@ -1,8 +1,7 @@
 import styled from 'styled-components/macro';
 
 export const OuterWrapper = styled.div`
-// the bc-color will change later when we style the game
-  background-color: hotpink;
+  background-image: url("https://images.unsplash.com/photo-1548783917-a211bcc263cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1486&q=80");
   min-height: 100vh; //vh = view-height
   background-size: cover;
   display: flex;
@@ -31,15 +30,13 @@ export const BoxContainer = styled.div`
 export const PlayerContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  border: 0.2rem solid #9b9b9b;
+  justify-content: center; 
   border-radius: 5px;
   min-height: 60vh;
   width: calc(50% - 5rem);
   min-width: 350px;
-  background-color: #ffffff33;
+  background-color: #161616;
   padding: 20px;
-// more changes to be edited later on after discussion with teammate :)
 
 img {
     max-width: 150px;
@@ -62,8 +59,8 @@ img {
   }
 
   button {
-    background-color: #92cc40;
-    padding: 1.2rem;
+    background-color: ;
+    // padding: 1.2rem;
     margin-top: 1rem;
   }
 `;

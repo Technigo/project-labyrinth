@@ -8,7 +8,7 @@ import labyrinth, { labyrinthProgress } from 'reducers/labyrinth';
 import { v4 as uuidv4, v5 as uuidv5 } from 'uuid'; // - disabled this line due to uuidv5 not used for now
 // this is a package installed for creating Unique User IDs for use in the game
 // more info here: https://www.gregorypacheco.com.br/posts/generate-uuid-react.html
-import { StrengthsBar } from './StrengthsBar';
+// import { StrengthsBar } from './StrengthsBar';
 
 import {
   BoxContainer,
@@ -50,12 +50,6 @@ export const Start = () => {
               Start the Labyrinth
               </button>
             </form>
-          </PlayerContainer>
-          <PlayerContainer>
-            <h3>Strengths </h3>
-            <StrengthsBar className="is-primary" title="Intelligence" value="85" />
-            <StrengthsBar className="is-success" title="Stamina" value="70" />
-            <StrengthsBar title="Concentration" value="65" />
           </PlayerContainer>
         </BoxContainer>
       </InnerWrapper>
