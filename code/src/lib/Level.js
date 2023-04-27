@@ -42,6 +42,7 @@ export const LevelCard = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: relative;
 `
 export const DescriptionCard = styled.div`
   display: flex;
@@ -72,8 +73,8 @@ export const DirectionButton = styled.button`
   background: transparent;
   outline: none;
   border: none;
-  position: relative;
   padding: none;
+  position: absolute;
 `
 
 export const SpaceButton = styled.button`

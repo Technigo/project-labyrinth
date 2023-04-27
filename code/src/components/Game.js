@@ -35,10 +35,10 @@ export const Game = () => {
                     direction={item.direction}
                     type="button"
                     onClick={() => dispatch(fetchTwo(item.direction))}>
-                    {item.direction === 'East' && (<img style={{ width: '60px', position: 'absolute', left: '-30px' }} src={arrow} alt="arrow" />)}
-                    {item.direction === 'West' && (<img style={{ transform: 'rotate(180deg)', width: '60px', position: 'absolute', left: '-30px' }} src={arrow} alt="arrow" />)}
-                    {item.direction === 'North' && (<img style={{ transform: 'rotate(-90deg)', width: '60px', position: 'absolute', left: '-30px', top: '-20px' }} src={arrow} alt="arrow" />)}
-                    {item.direction === 'South' && (<img style={{ transform: 'rotate(90deg)', width: '60px', position: 'absolute', left: '-30px', top: '-20px' }} src={arrow} alt="arrow" />)}
+                    {item.direction === 'East' && (<img style={{ width: '60px', left: '-30px' }} src={arrow} alt="arrow" />)}
+                    {item.direction === 'West' && (<img style={{ transform: 'rotate(180deg)', width: '60px', left: '-30px' }} src={arrow} alt="arrow" />)}
+                    {item.direction === 'North' && (<img style={{ transform: 'rotate(-90deg)', width: '60px', left: '-30px', top: '-20px' }} src={arrow} alt="arrow" />)}
+                    {item.direction === 'South' && (<img style={{ transform: 'rotate(90deg)', width: '60px', left: '-30px', top: '-20px' }} src={arrow} alt="arrow" />)}
                     {/*  {item.direction} */}
                   </DirectionButton>
                 </DescriptionCard>
