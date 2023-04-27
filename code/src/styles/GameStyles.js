@@ -1,7 +1,9 @@
 import styled from 'styled-components/macro';
+import img from '../assets/maze.jpg'
 import { Devices } from './GlobalStyles';
 
 export const GameWrapper = styled.div`
+  background-image: url(${img});
   background-repeat: no-repeat, repeat;
   background-size: cover;
   background-position: center;
@@ -10,15 +12,6 @@ export const GameWrapper = styled.div`
   justify-content: center;
   align-items: center;
   background-color: grey;
-/* background-color: #cdc5bb;
-  overflow-x: hidden;
-  border: double gray;
-  border-radius: 5px;
-  max-width: 800px;
-  min-height: 20vh;
-  margin: 0 auto;
-  padding-top: 5px;
-  box-shadow: 1px 1px 1px 1px grey; */
 
   @media ${Devices.mobile} {
   max-width: 200px;
@@ -27,7 +20,7 @@ export const GameWrapper = styled.div`
 `
 export const InnerWrapper = styled.main`
   height: 60vh; 
-  width: 100vw;
+  width: 500px;
   padding: 20px;
   border-radius: 10px;
   background-color: rgb(140,122,103);
@@ -62,9 +55,9 @@ line-height: 1.4;
 }
 `
 export const DirectionContainer = styled.div`
+width: 50vw;
 margin-top: 10px;
 display: flex;
-flex-direction: column;
 justify-content: center;
 margin-bottom: 20px;
 gap: 8px;

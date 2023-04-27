@@ -38,7 +38,6 @@ export const Header = styled.header`
 
 export const HeadingOneContainer = styled.div`
   margin-top: 30px;
-  border: 1px solid red;
   display: flex;
   justify-content: center;
   
