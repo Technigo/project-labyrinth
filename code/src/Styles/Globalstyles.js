@@ -1,6 +1,10 @@
 /* eslint-disable linebreak-style */
 import styled, { createGlobalStyle } from 'styled-components/macro';
 
+export const BigText = styled.h1`
+font-size: 15px;
+background-color: red;
+`
 export const GlobalRules = createGlobalStyle`
    
    *{

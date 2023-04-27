@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { labyrinthMango, startGame } from '../Reducers/labyrinth';
-import { BigText } from './Startpage.styled';
-import { GameWrapper } from '../Styles/Globalstyles';
+import { GameWrapper, BigText } from '../Styles/Globalstyles';
 import { StartBtn } from './Gamepage.styled';
 
 export const Startpage = () => {
