@@ -18,7 +18,11 @@ align-items: center;
 justify-content: center;
 `
 export const GameSection = styled.section`
+display: flex;
+flex-direction: column;
+gap: 10px;
 font-family: "Press Start 2P";
+font-size: 10px;
 font-size: 1em;
 line-height: 1.6em;
 background: white;
@@ -27,12 +31,10 @@ align-self: center;
 width: 60%;
 margin-right: auto;
 margin-left: auto;
-padding: 5%;
+padding: 2%;
 margin-bottom: 2%;
 
 @media (min-width: 770px) {
-    font-size: 10px;
-    width: 40%;
     font-size: 1em;
     line-height: 1.6em;
 }`
