@@ -40,12 +40,13 @@ export const HeadingOneContainer = styled.div`
   margin-top: 30px;
   display: flex;
   justify-content: center;
+  animation: fade-in 1s ease-in forwards;
   
 `
 
 export const SubmitBtn = styled.button`
   transition: all 0.3s ease;
-  border-radius: 10px;
+  border-radius: 0 20px 0 20px;
   padding: 10px 20px;
   cursor: pointer;
   color: rgb(17, 101, 48);

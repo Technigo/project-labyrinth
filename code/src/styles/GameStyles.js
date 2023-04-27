@@ -11,7 +11,6 @@ export const GameWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: grey;
 `;
 export const InnerWrapper = styled.main`
   display:flex;
@@ -20,9 +19,9 @@ export const InnerWrapper = styled.main`
   align-items: center;
   padding: 20px;
   border-radius: 10px;
-  background-color: rgb(140,122,103);
-  backdrop-filter: blur(12px);
-  --webkit-backdrop-filter: blur(12px);
+  background-color: rgba(0, 0, 0, 0.7);
+  /* background-color: rgb(140,122,103); */
+  animation: fade-in 1s ease-in forwards;
 
   @media (min-width: 768px) {
     margin: 0 auto;
@@ -36,10 +35,6 @@ font-family: 'Special Elite', cursive;
 font-size: 1.2em;
 color: white;
 line-height: 1.2;
-
-/* [data-typeit-id='8565706'] .ti-cursor{
-  display:none;
-} */
 
 @media ${Devices.mobile} {
   font-size: 1.3em;
@@ -66,8 +61,6 @@ flex-direction: row;
 justify-content: space-around;
 margin-bottom: 20px;
 gap: 10px;
-
-/* border:solid red; */
 `;
 
 export const ActionContainer = styled.div`
@@ -78,16 +71,14 @@ padding:10px;
 gap: 30px;
 min-width: 50%;
 max-width: 50%;
-
-/* border:solid green; */
 `
 
 export const GameBtn = styled.button`
-  min-width: 80px;
-  max-width: 80px;
+  /* min-width: 80px;
+  max-width: 80px; */
   transition: all 0.3s ease;
   border-radius: 10px;
-  padding: 15px 5px;
+  padding: 15px 18px;
   align-self: center;
   cursor: pointer;
   border: none;
@@ -100,3 +91,34 @@ export const GameBtn = styled.button`
     transform: scale(1.1, 1.1);
   }
 `;
+
+export const AnimationContainer = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 100vh;
+background-color: #f3f0e4;
+
+@media ${Devices.mobile} {
+height: 50vh;
+width: 50%;
+}
+`
+
+export const RestartBtn = styled.button`
+margin: 0;
+font-size: 1rem;
+padding: 9px 12px;
+border-radius: 25px 0 0 0;
+background-color: #241a0c;
+color: whitesmoke;
+cursor: pointer;
+animation: fade-in 1s ease-in forwards;
+
+:hover {
+    background-color: black;
+    color: orange;
+    transform: scale(1.1, 1.1);
+  }
+`
