@@ -48,8 +48,6 @@ export const MazeActions = () => {
                 )
               })}
             </InnerWrapper>
-          </Wrapper>
-          <Wrapper>
             <UserHistory />
           </Wrapper>
         </Background>
