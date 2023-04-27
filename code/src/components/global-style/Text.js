@@ -26,4 +26,5 @@ export const BodyText = styled.p`
     font-size: 16px;
     text-align: center;
     font-family: 'Sanchez', serif;
+    margin: 5px;
 `;

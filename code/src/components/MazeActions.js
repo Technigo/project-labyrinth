@@ -16,16 +16,9 @@ export const MazeActions = () => {
   const coordinates = useSelector((store) => store.maze.coordinates);
   const actions = useSelector((store) => store.maze.actions);
   const description = useSelector((store) => store.maze.description);
-  // const coordinates = useSelector((store) => store.maze.coordinates)
   const dispatch = useDispatch();
 
   const handleDirectionButton = (moveDirection) => {
-    // const nextStep = {
-    //   id: Date.now(),
-    //   direction: moveDirection,
-    //   movedFrom: coordinates
-    // }
-
     dispatch(moveForward(moveDirection))
     dispatch(userhistory.actions.addChoice(moveDirection))
   };
