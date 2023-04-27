@@ -4,7 +4,7 @@ import { nextMove } from 'reducers/game';
 import TypeWriterEffect from 'react-typewriter-effect';
 import styled from 'styled-components/macro';
 import { Button } from 'lib/Button';
-import Map from './Map';
+import { Map } from './Map';
 
 export const GameBoard = () => {
   const { description, actions, coordinates } = useSelector((store) => store.game.position)
@@ -22,59 +22,58 @@ export const GameBoard = () => {
   }
 
   return (
-    <ContentContainer>
-      <GameBoardContainer>
-        <PlayerBar>
-          <Button type="button" buttonText="RestartBtn" onClick={onRestartBtnClick} />
-          <h2><span>const</span> Player <span>=</span> {username}</h2>
-        </PlayerBar>
-        <Prompt>
-          <h2>prompt()</h2>
-        </Prompt>
-        <PositionDescription>
-          <TypeWriterEffect
-            startDelay={100}
-            cursorColor="#BBBBBB"
-            text={description}
-            typeSpeed={70}
-            hideCursorAfterText="true" />
-        </PositionDescription>
-        <ActionsContainer>
-          {actions.map((singleAction) => (
-            <SingleAction>
-              <p>{singleAction.description}</p>
-              <Button
-                buttonText={`Go ${singleAction.direction}`}
-                onClick={() => onDirectionBtnClick(singleAction.direction)} />
-            </SingleAction>
-          ))}
-        </ActionsContainer>
-      </GameBoardContainer>
-      <Map coordinates={coordinates} />
-    </ContentContainer>
+    <GameBoardContainer>
+      <PlayerBar>
+        <h2><span>const</span> Player <span>=</span> {username}</h2>
+        <Button type="button" buttonText="RestartBtn" onClick={onRestartBtnClick} />
+      </PlayerBar>
+      <ContentContainer>
+        <TextContainer>
+          <Prompt>
+            <h2>prompt()</h2>
+          </Prompt>
+          <PositionDescription>
+            <TypeWriterEffect
+              startDelay={100}
+              cursorColor="#BBBBBB"
+              text={description}
+              typeSpeed={70}
+              hideCursorAfterText="true" />
+          </PositionDescription>
+          <ActionsContainer>
+            {actions.map((singleAction) => (
+              <SingleAction>
+                <p>{singleAction.description}</p>
+                <Button
+                  buttonText={`Go ${singleAction.direction}`}
+                  onClick={() => onDirectionBtnClick(singleAction.direction)} />
+              </SingleAction>
+            ))}
+          </ActionsContainer>
+        </TextContainer>
+        <Map coordinates={coordinates} />
+      </ContentContainer>
+    </GameBoardContainer>
   )
 }
-
-const ContentContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-
-    @media (min-width: 668px) {
-      display: flex;
-      flex-direction: row;
-    }
-`
 
 const GameBoardContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 90%;
     max-width: 400px;
+    margin: 0 auto;
+    padding-bottom: 3.5rem;
+
+    @media (min-width: 668px) {
+      max-width: 700px;
+    }
 `
 
 const PlayerBar = styled.div`
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: 10px;
     padding: 10px;
     h2 {
@@ -85,23 +84,42 @@ const PlayerBar = styled.div`
       color: rgb(83, 199, 210);
     }
 `
+
+const ContentContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: 668px) {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 30px;
+      justify-items: center;
+    }
+`
+
+const TextContainer = styled.div`
+    width: 100%;
+`
+
 const Prompt = styled.p`
-  font-size: 16px;
+  font-size: 15px;
   color: rgb(164, 145, 230);
-  padding: 10px;
+  padding: 0px 00px 10px 10px;
 `
 
 const PositionDescription = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 70px;
+    height: fit-content;
     border: 2px dashed rgb(164, 145, 230);
     border-radius: 3px;
     padding: 10px;
-    margin: 0 10px 10px 10px;
+    margin: 0 0px 10px 10px;
     h1 {
-        font-size: 16px;
+        font-size: 15px;
         color: rgb(164, 145, 230);
     }
 `
@@ -117,12 +135,8 @@ const SingleAction = styled.div`
     flex-direction: column;
     padding: 5px 0 5px 0;
     p {
-        font-size: 16px;
-        margin: 15px 5px 15px 0;
+        font-size: 15px;
+        margin: 5px 5px 15px 0;
         color: rgb(239, 92, 116);
     }
-    /*button {
-      align-self: center;
-      margin-left: 10px;
-    }*/
 `

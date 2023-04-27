@@ -23,10 +23,10 @@ export const MainPage = () => {
 const MainPageContainer = styled.div`
     display: flex;
     flex-direction: column;
+    position: relative;
     align-items: center;
+    min-height: 100vh;
     margin: 0 auto;
-    margin-top: 30px;
-    width: 400px;
     margin-bottom: 20px;
     color: rgb(197, 91, 95);
 `

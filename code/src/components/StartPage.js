@@ -35,8 +35,10 @@ const Form = styled.form`
     display: flex;
     flex-direction: column;
     width: 90%;
-    max-width: 300px;
+    max-width: 262px;
     margin: 100px 0 20px 0;
+    padding-bottom: 3.5rem;
+
     input[type=text] {
         background-color: transparent;
         border: 2px dashed #00cf00;

@@ -4,18 +4,25 @@ import styled from 'styled-components/macro'
 export const Header = () => {
   return (
     <HeaderContainer>
-      <h1>THE LABYRINTH</h1>
+      <h1>&lt;THE LABYRINTH /&gt;</h1>
     </HeaderContainer>
   )
 }
 
 const HeaderContainer = styled.div`
     display: flex;
-    align-items: center;
-    margin: 10px 0 10px 0;
-    padding: 10px;
+    text-align: center;
+    margin: 35px 10px 20px 10px;
     h1 {
-        font-size: 32px;
+        font-family: 'Press Start 2P', cursive;
+        font-size: 20px;
+        text-decoration: dashed underline;
         color: rgb(164, 145, 230);
+    }
+
+    @media (min-width: 668px) {
+        h1 {
+          font-size: 24px;
+      }
     }
 `
