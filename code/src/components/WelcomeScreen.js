@@ -4,31 +4,43 @@ import styled from 'styled-components';
 import { labyrinth, startLabyrinth } from 'reducers/labyrinth'
 import { Button } from 'reusableComponents/Button';
 import { Title } from 'reusableComponents/Title';
+import { LoadingScreen } from './LoadingScreen';
 
 export const WelcomeScreen = () => {
   const [userName, setUsername] = useState('');
+  const [loading, setLoading] = useState(false)
   const dispatch = useDispatch();
 
   const onAction = (e) => {
-    e.preventDefault()
-    dispatch(labyrinth.actions.setUsername(userName))
-    dispatch(startLabyrinth())
+    e.preventDefault();
+    if (userName !== '') {
+      setTimeout(() => {
+        setLoading(true);
+      }, 100);
+      dispatch(labyrinth.actions.setUsername(userName));
+      dispatch(startLabyrinth());
+      setTimeout(() => { setLoading(false); }, 5000);
+    }
   }
 
   return (
-    <WelcomeWrapper>
-      <Form onSubmit={onAction}>
-        <Title>Welcome player 1 would you like to enter the Labyrinth?</Title>
-        <Input
-          type="text"
-          className="userName"
-          placeholder="Enter your name here"
-          required
-          onChange={(event) => setUsername(event.target.value)}
-          value={userName} />
-        <Button type="submit"> Enter the Labyrinth </Button>
-      </Form>
-    </WelcomeWrapper>)
+    !loading ? (
+      <WelcomeWrapper>
+        <Form onSubmit={onAction}>
+          <Title>Welcome player 1 would you like to enter the Labyrinth?</Title>
+          <Input
+            type="text"
+            className="userName"
+            placeholder="Enter your name here"
+            required
+            onChange={(event) => setUsername(event.target.value)}
+            value={userName} />
+          <Button type="submit"> Enter the Labyrinth </Button>
+        </Form>
+      </WelcomeWrapper>
+    ) : (
+      <LoadingScreen />
+    ))
 };
 
 const WelcomeWrapper = styled.section`

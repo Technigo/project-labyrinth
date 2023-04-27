@@ -3,14 +3,20 @@ import React from 'react';
 import { GameBoard } from 'components/GameBoard'
 import { useSelector } from 'react-redux';
 import { WelcomeScreen } from 'components/WelcomeScreen';
+import { LoadingScreen } from './LoadingScreen';
 
 export const Main = () => {
   const coordinates = useSelector((store) => store.labyrinth.coordinates);
+  const isLoading = useSelector((store) => store.ui.isLoading)
 
   return (
-    <div>
-      {coordinates === '' && <WelcomeScreen />}
-      {coordinates !== '' && <GameBoard />}
+    <div> {!isLoading ? (
+      <div>
+        {coordinates === '' && <WelcomeScreen />}
+        {coordinates !== '' && <GameBoard />}
+      </div>
+    ) : (<LoadingScreen />
+    )}
     </div>
   )
 }

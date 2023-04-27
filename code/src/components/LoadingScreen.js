@@ -1,45 +1,31 @@
-import React, { useEffect, useRef } from 'react';
-import Lottie from 'lottie-web';
-import { useSelector } from 'react-redux';
+import React from 'react';
+import { Player } from '@lottiefiles/react-lottie-player';
 import styled from 'styled-components';
 
 export const LoadingScreen = () => {
-  const isLoading = useSelector((store) => store.ui.isLoading);
-  const container = useRef(null);
-
-  useEffect(() => {
-    console.log('lottie is bieng loaded')
-    Lottie.loadAnimation({
-      container: container.current,
-      renderer: 'json',
-      loop: true,
-      autoplay: true,
-      animationData: './Lotties/lottie.json'
-      // maybe could also use url = https://lottiefiles.com/28400-hora-del-camping
-    });
-    console.log('animation object');
-  }, []);
-
-  console.log('isLoading', isLoading)
-
   return (
-    <LoadingWrapper>
-      <div className="container" ref={container}>
-        {isLoading && (
-          <Lottie />
-        )}
+    <LottieWrapper>
+      <div className="container">
+        <Player
+          loop
+          autoplay
+          src="https://assets6.lottiefiles.com/packages/lf20_LHHbJ8.json"
+          className="lottie"
+          speed={1} />
       </div>
-
-    </LoadingWrapper>)
+    </LottieWrapper>
+  )
 };
 
-const LoadingWrapper = styled.section`
-width: 300px; 
-height: 300px;
-display:flex;
-
-.container{ 
-  width: 300px;
-  height: 300px;
-}
-`
+const LottieWrapper = styled.section`
+    width: 100vw;
+    height: 100vh;
+    background-color:lightgrey;
+    z-index: 1;
+    .lottie{
+      height: 60vh;
+      width: 60vw;
+      align-items: center;
+      padding-top: 30%;
+    }
+    `
