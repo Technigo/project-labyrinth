@@ -1,7 +1,7 @@
 import React from 'react'
 import { Player } from '@lottiefiles/react-lottie-player';
 import styled, { keyframes } from 'styled-components';
-import loadingspace from 'images/loadingspace.png'
+import loadingspace from 'images/loadingspace.jpg'
 
 const flyRound = keyframes`
  0% {
