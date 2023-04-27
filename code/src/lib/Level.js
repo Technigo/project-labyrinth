@@ -135,7 +135,7 @@ export const Description = styled.p`
   color: #FFFAF0;
   background: rgb(151 71 255 / 70%);
   font-weight: 800;
-  font-size: 20px;
+  font-size: 16px;
   line-height:  24px;
   letter-spacing: 1px;
   max-width: 200px;
