@@ -1,7 +1,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import StartPage from 'components/StartPage.js'
+import MainPage from 'components/MainPage.js'
 import { game } from 'reducers/game.js'
 
 export const App = () => {
@@ -15,7 +15,7 @@ export const App = () => {
   return (
     <Provider store={store}>
       <div>
-        <StartPage />
+        <MainPage />
       </div>
     </Provider>
   )

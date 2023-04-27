@@ -1,21 +1,21 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-// import { loading } from '../reducers/loading'
+// import React from 'react'
+// import { useSelector } from 'react-redux'
+// // import { loading } from '../reducers/loading'
 
-const GameBoard = () => {
-  const game = useSelector((store) => store.game.gameStep)
+// const GameBoard = () => {
+//   const game = useSelector((store) => store.game.gameStep)
 
-  // const loading = useSelector((store) => store.game.loading)
-  console.log('game', game)
+//   // const loading = useSelector((store) => store.game.loading)
+//   console.log('game', game)
 
-  return (
-    <div>
-      <p>{game.description}</p>
-      <p>{game.coordinates}</p>
-      <p>{game.type}</p>
+//   return (
+//     <div>
+//       <p>{game.description}</p>
+//       <p>{game.coordinates}</p>
+//       <p>{game.type}</p>
 
-    </div>
-  )
-}
+//     </div>
+//   )
+// }
 
-export default GameBoard;
+// export default GameBoard;
