@@ -75,11 +75,11 @@ max-width: 50%;
 `
 
 export const GameBtn = styled.button`
-  min-width: 80px;
-  max-width: 80px;
+  /* min-width: 80px;
+  max-width: 80px; */
   transition: all 0.3s ease;
   border-radius: 10px;
-  padding: 15px 5px;
+  padding: 15px 18px;
   align-self: center;
   cursor: pointer;
   border: none;
@@ -99,5 +99,26 @@ justify-content: center;
 align-items: center;
 width: 100%;
 height: 100vh;
-background-color: black;
+background-color: #f3f0e4;
+
+@media ${Devices.mobile} {
+height: 50vh;
+width: 50%;
+}
+`
+
+export const RestartBtn = styled.button`
+margin: 0;
+font-size: 1rem;
+padding: 12px 15px;
+border-radius: 25px 0 0 0;
+background-color: #241a0c;
+color: whitesmoke;
+cursor: pointer;
+
+:hover {
+    background-color: black;
+    color: orange;
+    transform: scale(1.1, 1.1);
+  }
 `
