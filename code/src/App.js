@@ -2,15 +2,17 @@
 import React from 'react';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import labyrinth from 'reducers/labyrinth';
+import loading from 'reducers/loading';
 import StartScreen from 'components/StartScreen';
-import Lottie from 'lottie-react';
-import searchErrorAnimation from './lotties/searchError.json';
-import loadingStateAnimation from './lotties/loadingState.json';
 import { Provider } from 'react-redux';
+import Loading from 'components/Loading';
+import Error from 'components/Error';
+import End from 'components/EndPage';
 
 export const App = () => {
   const reducer = combineReducers({
-    labyrinth: labyrinth.reducer
+    labyrinth: labyrinth.reducer,
+    loading: loading.reducer
   });
 
 const store = configureStore({ reducer });
@@ -21,36 +23,3 @@ const store = configureStore({ reducer });
     </Provider>
   )
 }
-
-//export const App = () => <Lottie animationData={searchErrorAnimation} loop={true} />;
-//export const App = () => <Lottie animationData={loadingStateAnimation} loop={true} />;
-/*
-export const App = () => {
-  return (
-    <div>
-      <Lottie animationData={searchErrorAnimation} loop={true} />
-      <Lottie animationData={loadingStateAnimation} loop={true} />
-    </div>
-  )
-}*/
-
-/*export const App = () => {
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-    preserveAspectRatio: "xMidYMid slice"
-      }
-    };
-  
-  return (
-    <div>
-      <Lottie 
-	    options={defaultOptions}
-        height={400}
-        width={400}
-      />
-    </div>
-  );
-}*/

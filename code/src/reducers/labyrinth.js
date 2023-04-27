@@ -1,10 +1,13 @@
 /*eslint-disable*/
 import { createSlice } from '@reduxjs/toolkit';
+import loading from './loading';
 
 const labyrinth = createSlice ({
   name: 'labyrinth',
   initialState: {
     username: '',
+    coordinates:'', 
+    description: '',
     actions: []
     // gameStep: where in the game the user is. {
     // coordinates:"0,0"}    
@@ -25,7 +28,7 @@ const labyrinth = createSlice ({
       },
       setActionOption: (state, action) => {
         state.actions = action.payload  
-    }
+    },
   }
 });  
 
@@ -34,7 +37,7 @@ export default labyrinth;
 // a thunk to handle api call. Can be reused. startGame . Response back (coordinates, description) Actions are in an array. 
 export const getLabyrinth = () => {
   return (dispatch, getState) => {
-// dispatch(loading.actions.setLoading(true))
+dispatch(loading.actions.setLoading(true))
 
 const options = {
   method: 'POST',
@@ -51,14 +54,16 @@ const options = {
         dispatch(labyrinth.actions.setCoordinates(gameData.coordinates))
         dispatch(labyrinth.actions.setDescription(gameData.description))
         dispatch(labyrinth.actions.setActionOption(gameData.actions))
-        // dispatch(loading.actions.setLoading(false))
+        setTimeout(() => {
+          dispatch(loading.actions.setLoading(false));
+        }, 2000);
       })
   }
 }
 
 export const generateOptions = (type, direction) => {
   return (dispatch, getState) => {
-   // dispatch(loading.actions.setLoading(true))
+   dispatch(loading.actions.setLoading(true))
     const options = {
       method: 'POST',
       headers: {
@@ -76,7 +81,9 @@ export const generateOptions = (type, direction) => {
         dispatch(labyrinth.actions.setCoordinates(gameData.coordinates))
         dispatch(labyrinth.actions.setDescription(gameData.description))
         dispatch(labyrinth.actions.setActionOption(gameData.actions))
-        // dispatch(loading.actions.setLoading(false))
+        setTimeout(() => {
+          dispatch(loading.actions.setLoading(false));
+        }, 2000);
       })
   }
 }
