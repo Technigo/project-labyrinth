@@ -57,13 +57,15 @@ export const fetchOne = () => {
             dispatch(loading.actions.setLoading(false));
           })
         })
-    }, 3000);
+    }, 4000);
   }
 }
 
 export const fetchTwo = (direction) => {
   return (dispatch, getState) => {
-    dispatch(loading.actions.setLoading(true));
+    setTimeout(() => {
+      dispatch(loading.actions.setLoading(true));
+    }, 4000)
 
     setTimeout(() => {
       fetch('https://labyrinth.technigo.io/action', {
@@ -85,7 +87,7 @@ export const fetchTwo = (direction) => {
             dispatch(loading.actions.setLoading(false));
           });
         });
-    }, 2700);
+    }, 6000);
   };
 };
 

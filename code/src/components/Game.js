@@ -3,8 +3,9 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchTwo, gameFetch } from 'reducers/gameFetch'
-import { LevelCard, Description, Background, DescriptionCard, DirectionButton, Arrow, ShowMoreButton, MainDescriptionCard, MainDescription } from 'lib/Level'
+import { LevelCard, Description, Background, DescriptionCard, DirectionButton, Arrow, ShowMoreButton, MainDescriptionCard, MainDescription, PlayerLevelWrapper } from 'lib/Level'
 import arrow from 'images/purple-arrow.png'
+import { Player } from '@lottiefiles/react-lottie-player';
 import { StarterPage } from './StarterPage'
 import { Animation } from './LoadingAnimation'
 
@@ -13,6 +14,8 @@ export const Game = () => {
   const gameActions = useSelector((store) => store.gameFetch.actions)
   const coordinates = useSelector((store) => store.gameFetch.coordinates)
   const [showDirection, setShowDirection] = useState(false);
+  const [directionTaken, setDirectionTaken] = useState(false);
+  const [banana, setBanana] = useState(null);
 
   console.log(coordinates);
   const dispatch = useDispatch();
@@ -27,8 +30,14 @@ export const Game = () => {
   };
 
   const onDirectionClick = (direction) => {
+    setBanana(direction)
+    setDirectionTaken(true)
     dispatch(fetchTwo(direction))
-    setShowDirection(false)
+    setTimeout(() => {
+      setShowDirection(false);
+      setDirectionTaken(false);
+      setBanana(null)
+    }, 4000)
   };
 
   return (
@@ -46,6 +55,13 @@ export const Game = () => {
                   <MainDescription>{gameData.description}</MainDescription>
                   {coordinates !== '1,3' && (<ShowMoreButton type="button" onClick={() => onShowDirectionClick()}>Show directions</ShowMoreButton>)}
                 </MainDescriptionCard>
+                {!directionTaken && (<Player
+                  src="https://assets2.lottiefiles.com/packages/lf20_cgbjomca.json"
+                  className="player"
+                  loop
+                  autoplay
+                  speed={1}
+                  style={{ width: '150px', height: '150px', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }} />)}
                 {gameActions && gameActions.map((item) => {
                   return (
                     <DescriptionCard key={item.direction} direction={item.direction} style={{ display: showDirection ? 'flex' : 'none' }}>
@@ -59,6 +75,23 @@ export const Game = () => {
                     </DescriptionCard>
                   );
                 })}
+                {directionTaken
+                    && (
+                      <PlayerLevelWrapper direction={banana}>
+                        <Player
+                          src="https://assets2.lottiefiles.com/packages/lf20_cgbjomca.json"
+                          className="player"
+                          loop
+                          autoplay
+                          speed={1}
+                          style={{
+                            width: '150px',
+                            height: '150px',
+                            transform: 'translate(0, -100vh)',
+                            opacity: 0
+                          }} />
+                      </PlayerLevelWrapper>
+                    )}
               </LevelCard>
             </Background>
           )}
