@@ -2,7 +2,7 @@
 import React from 'react';
 import { continueGame } from 'reducers/labyrinth';
 import { useDispatch, useSelector } from 'react-redux';
-import { GameWrapper, GameP, Th1 } from 'styles/GameStyles';
+import { GameWrapper, InnerWrapper, GameP, Th1, DirectionContainer, GameBtn } from 'styles/GameStyles';
 import { Devices } from 'styles/GlobalStyles';
 import styled from 'styled-components'
 
@@ -20,32 +20,34 @@ const GameScreen = () => {
 
   return (
     <GameWrapper>
-      <TypeIt
-        options={{
-          speed: 30
-        }}>
-        <Th1>{currentStep.description}</Th1>
-        <GameP>Choose wisely {labyrinth.username}</GameP>
-      </TypeIt>
-      <div>
-        {currentStepActions ? (
-          <div>
-            {currentStepActions.map((action) => (
-              <>
-                <button
-                  type="button"
-                  key={action.direction}
-                  onClick={() => dispatch(continueGame(action.direction))}>
+      <InnerWrapper>
+        <TypeIt
+          options={{
+            speed: 30
+          }}>
+          <Th1>{currentStep.description}</Th1>
+          <GameP>Choose wisely {labyrinth.username}</GameP>
+        </TypeIt>
+        <div>
+          {currentStepActions ? (
+            <DirectionContainer>
+              {currentStepActions.map((action) => (
+                <>
+                  <GameBtn
+                    type="button"
+                    key={action.direction}
+                    onClick={() => dispatch(continueGame(action.direction))}>
                   Go {action.direction}
-                </button>
-                <InfoText>To the {action.direction}: {action.description}</InfoText>
-              </>
-            ))}
-          </div>
-        ) : (
-          ''
-        )}
-      </div>
+                  </GameBtn>
+                  <InfoText>To the {action.direction}: {action.description}</InfoText>
+                </>
+              ))}
+            </DirectionContainer>
+          ) : (
+            ''
+          )}
+        </div>
+      </InnerWrapper>
     </GameWrapper>
   );
 }
@@ -53,7 +55,7 @@ const GameScreen = () => {
 const InfoText = styled.p`
 font-family: 'Special Elite';
 font-size: 1em;
-color: black;
+color: whitesmoke;
 line-height: 1.4;
 
 @media ${Devices.mobile} {
