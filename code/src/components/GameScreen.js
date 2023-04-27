@@ -2,7 +2,7 @@
 import React from 'react';
 import { continueGame, labyrinth } from 'reducers/labyrinth';
 import { useDispatch, useSelector } from 'react-redux';
-import { GameWrapper, InnerWrapper, Th1, DirectionContainer, GameBtn, ActionContainer } from 'styles/GameStyles';
+import { GameWrapper, InnerWrapper, Th1, DirectionContainer, GameBtn, ActionContainer, RestartBtn } from 'styles/GameStyles';
 import { Devices } from 'styles/GlobalStyles';
 import styled from 'styled-components'
 
@@ -10,7 +10,6 @@ import TypeIt from 'typeit-react';
 
 const GameScreen = () => {
   const dispatch = useDispatch();
-  // const actions = useSelector((store) => store.labyrinth.actions);
   const currentGameState = useSelector((store) => store.labyrinth.currentGameState);
   const currentGameStateActions = useSelector(
     (store) => store.labyrinth.currentGameState.actions
@@ -32,7 +31,6 @@ const GameScreen = () => {
             cursor: false
           }}>
           <Th1>{currentGameState.description}</Th1>
-          {/* <GameP>Choose wisely {labyrinth.username}</GameP> */}
         </TypeIt>
         <div>
           {currentGameStateActions ? (
@@ -53,10 +51,10 @@ const GameScreen = () => {
             ''
           )}
         </div>
-        <button
+        <RestartBtn
           type="button"
           onClick={onClickRestart}>Restart
-        </button>
+        </RestartBtn>
       </InnerWrapper>
     </GameWrapper>
   );
