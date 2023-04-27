@@ -15,11 +15,11 @@ const Directions = () => {
 
   return (
     <Direction>
-      <DirectionBtn1 className={isActive ? null : 'instructions-btn'} type="button" onClick={toggleDisplay}>Click here to see directions</DirectionBtn1>
-      {actions.map((action) => {
+      <DirectionBtn1 className={isActive ? null : 'instructions-btn'} type="button" onClick={toggleDisplay}>Directions</DirectionBtn1>
+      {isActive && actions.map((action) => {
         return (
           <div>
-            <DirectionText className={isActive ? 'hidden-instructions' : 'instructions'}>
+            <DirectionText className="instructions">
               {action.description}
             </DirectionText>
             <DirectionBtn2 type="button" key={action.direction} onClick={() => dispatch(getAction(action.type, action.direction))}> Go {action.direction}</DirectionBtn2>
@@ -33,29 +33,35 @@ const Directions = () => {
 export default Directions;
 
 const Direction = styled.div`
-flex-direction: column;
+  flex-direction: column;
 `
 
 const DirectionBtn1 = styled.button`
-color: purple;
-cursor: pointer;
-transition: 0.3s ease-in-out;
-height: 34px;
-border-radius: 5px;
-background-color: transparent;
-border: 1px solid purple;
-font-size: 1.2rem; 
+  color: #ba8f95;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  height: 34px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid #ba8f95;
+  font-size: 1.2rem; 
 `
+
 const DirectionText = styled.div`
-flex-direction: column;
+  flex-direction: column;
+
+  &.instructions {
+    display: block;
+  }
 `
+
 const DirectionBtn2 = styled.button`
-color: #97db4f;
-cursor: pointer;
-transition: 0.3s ease-in-out;
-height: 34px;
-border-radius: 5px;
-background-color: transparent;
-border: 1px solid #97db4f;
-font-size: 1.2rem; 
+  color: #97db4f;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  height: 34px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid #97db4f;
+  font-size: 1.2rem; 
 `

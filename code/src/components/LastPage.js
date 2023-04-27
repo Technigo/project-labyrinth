@@ -30,11 +30,11 @@ export default LastPage
 
 const GameCard = styled.div`
   display: flex;
-  
   }
-  .instructions-btn {
-  display: none;
-  }
+//   .instructions-btn {
+//   display: none;
+//   }
+
   .restart-btn {
   cursor: pointer;
   transition: 0.3s ease-in-out;
