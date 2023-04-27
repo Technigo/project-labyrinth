@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { startGame } from 'Reducers/labyrinth';
-import { labyrinthMango } from '../Reducers/labyrinth';
+import { labyrinthMango, startGame } from '../Reducers/labyrinth';
 import { BigText } from './Startpage.styled';
+import { GameWrapper } from '../Styles/Globalstyles';
 
 export const Startpage = () => {
   const dispatch = useDispatch()
@@ -15,7 +15,7 @@ export const Startpage = () => {
   }
 
   return (
-    <div>
+    <GameWrapper>
       <BigText>Welcome text ish</BigText>
       <form onSubmit={letsStart}>
         <input
@@ -28,7 +28,7 @@ export const Startpage = () => {
           required />
         <button type="submit" onClick={letsStart}>Start Game</button>
       </form>
-    </div>
+    </GameWrapper>
   )
 };
 
