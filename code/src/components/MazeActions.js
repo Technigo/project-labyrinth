@@ -1,22 +1,32 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { moveForward } from 'reducers/maze';
+import { userhistory } from 'reducers/userhistory';
 import { Loading } from 'components/Loading';
 import styled from 'styled-components';
 import { Button } from './global-style/Button';
 import { Wrapper } from './global-style/Wrapper';
 import { DescriptionHeader, BodyText } from './global-style/Text';
 import { Background } from './global-style/Background';
+import { UserHistory } from './UserHistory';
 
 export const MazeActions = () => {
   const isLoading = useSelector((state) => state.ui.isLoading)
   const coordinates = useSelector((store) => store.maze.coordinates);
   const actions = useSelector((store) => store.maze.actions);
   const description = useSelector((store) => store.maze.description);
+  // const coordinates = useSelector((store) => store.maze.coordinates)
   const dispatch = useDispatch();
 
   const handleDirectionButton = (moveDirection) => {
+    // const nextStep = {
+    //   id: Date.now(),
+    //   direction: moveDirection,
+    //   movedFrom: coordinates
+    // }
+
     dispatch(moveForward(moveDirection))
+    dispatch(userhistory.actions.addChoice(moveDirection))
   };
 
   return (
@@ -38,6 +48,9 @@ export const MazeActions = () => {
                 )
               })}
             </InnerWrapper>
+          </Wrapper>
+          <Wrapper>
+            <UserHistory />
           </Wrapper>
         </Background>
       )}
