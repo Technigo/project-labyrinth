@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
     padding: 20px;
     width: 70%;
     margin: 0 auto;
-    background-color: black;
+    background-color: rgb(0, 0, 0, .7);
     color: white;
     /* opacity: 0.7; */
     border-radius: 40px;

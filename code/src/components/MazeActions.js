@@ -29,20 +29,24 @@ export const MazeActions = () => {
     <>
       {isLoading && (<Loading />)}
       {!isLoading && (
-        <Wrapper>
-          <p>{description}</p>
-          {actions.map((eachAction) => {
-            return (
-              <div key={eachAction.description}>
-                <p>{eachAction.description}</p>
-                <Button type="button" onClick={() => handleDirectionButton(eachAction.direction)}>
-                  {eachAction.direction}
-                </Button>
-              </div>
-            )
-          })}
-          <UserHistory />
-        </Wrapper>
+        <>
+          <Wrapper>
+            <p>{description}</p>
+            {actions.map((eachAction) => {
+              return (
+                <div key={eachAction.description}>
+                  <p>{eachAction.description}</p>
+                  <Button type="button" onClick={() => handleDirectionButton(eachAction.direction)}>
+                    {eachAction.direction}
+                  </Button>
+                </div>
+              )
+            })}
+          </Wrapper>
+          <Wrapper>
+            <UserHistory />
+          </Wrapper>
+        </>
       )}
     </>
   )
