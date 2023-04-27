@@ -14,6 +14,13 @@ export const StyledHeroPlayerInputContainer = styled.div`
   text-align: center;
 `;
 
+export const OuterWrapper = styled.div`
+  background-color: rgba(145, 132, 115, 0.7);
+  max-width: 50rem;
+  margin: 5rem auto;
+  padding: 1rem;
+`;
+
 export const UserNameForm = styled.form`
   padding: 0;
   display: flex;

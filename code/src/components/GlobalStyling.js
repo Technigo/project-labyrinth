@@ -22,50 +22,29 @@ export const Button = styled.button`
     color: gray;
     border-radius: 0.438rem;
     box-shadow: 0 .2em gray; 
+
+      &:hover {
+    transition-duration: 0.4s;
+    font-size: 1.2rem;
+  }
 `;
 
 export const StartButton = styled(Button)`
     display: inline-block;
-
-
-   &:hover {
-    transition-duration: 0.4s;
-    font-size: 2rem;
-  }
 `;
 
 export const NorthButton = styled(Button)`
     display: inline-block;
-
-   &:hover {
-   transition-duration: 0.4s;
-    font-size: 2rem;
-  }
 `;
 
 export const EastButton = styled(Button)`
     display: inline-block;
-
-    &:hover {
-    transition-duration: 0.4s;
-    font-size: 2rem;
-  }
 `;
 
 export const SouthButton = styled(Button)`
     display: inline-block;
-
-    &:hover {
-    transition-duration: 0.4s;
-    font-size: 2rem;
-  }
 `;
 
 export const WestButton = styled(Button)`
     display: inline-block; 
-
-    &:hover {
-    transition-duration: 0.4s;
-    font-size: 2rem;
-  }
 `;

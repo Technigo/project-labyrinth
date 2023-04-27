@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import games, { createPlayer } from 'reducers/games';
 import Header from './Header';
-import { StyledHeroPlayerInputContainer, SecondHeading, SecondHeadingLabel, StyledInput, UserNameForm } from './PlayerInputStyling';
+import { OuterWrapper, StyledHeroPlayerInputContainer, SecondHeading, SecondHeadingLabel, StyledInput, UserNameForm } from './PlayerInputStyling';
 import { StartButton } from './GlobalStyling';
 
 const PlayerInput = () => {
@@ -17,15 +17,17 @@ const PlayerInput = () => {
 
   return (
     <StyledHeroPlayerInputContainer>
-      <Header />
-      <SecondHeading>Do you want to play a game?</SecondHeading>
-      <UserNameForm onSubmit={(event) => onFormSubmit(event)}>
-        <SecondHeadingLabel htmlFor="player-input">
+      <OuterWrapper>
+        <Header />
+        <SecondHeading>Do You Want to Play a Game?</SecondHeading>
+        <UserNameForm onSubmit={(event) => onFormSubmit(event)}>
+          <SecondHeadingLabel htmlFor="player-input">
       Enter player name:
-          <StyledInput id="player-input" required type="text" placeholder="Name" onChange={(event) => setPlayerInputValue(event.target.value)} />
-        </SecondHeadingLabel>
-        <StartButton type="submit">Start</StartButton>
-      </UserNameForm>
+            <StyledInput id="player-input" required type="text" placeholder="Name" onChange={(event) => setPlayerInputValue(event.target.value)} />
+          </SecondHeadingLabel>
+          <StartButton type="submit">Start</StartButton>
+        </UserNameForm>
+      </OuterWrapper>
     </StyledHeroPlayerInputContainer>
   )
 }
