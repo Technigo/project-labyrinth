@@ -33,7 +33,7 @@ const GameScreen = () => {
           <Th1>{currentGameState.description}</Th1>
         </TypeIt>
         <div>
-          {currentGameStateActions ? (
+          {currentGameStateActions.length > 0 ? (
             <DirectionContainer>
               {currentGameStateActions.map((action) => (
                 <ActionContainer>
@@ -47,9 +47,8 @@ const GameScreen = () => {
                 </ActionContainer>
               ))}
             </DirectionContainer>
-          ) : (
-            'Well done. You have successfully navigated out of the labyrinth'
-          )}
+          )
+            : <img src="https://media.giphy.com/media/tk8aCAvTg8Hjq/giphy.gif" alt="clapping man" />}
         </div>
         <RestartBtn
           type="button"
