@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import games, { createPlayer } from 'reducers/games';
 import Header from './Header';
 import { SecondHeading, SecondHeadingLabel, StyledInput, UserNameForm } from './PlayerInputStyling';
+import { StartButton } from './GlobalStyling';
 
 const PlayerInput = () => {
   const [PlayerInputValue, setPlayerInputValue] = useState('');
@@ -21,9 +22,9 @@ const PlayerInput = () => {
       <UserNameForm onSubmit={(event) => onFormSubmit(event)}>
         <SecondHeadingLabel htmlFor="player-input">
       Enter player name:
-          <StyledInput id="player-input" required type="text" onChange={(event) => setPlayerInputValue(event.target.value)} />
+          <StyledInput id="player-input" required type="text" placeholder="Name" onChange={(event) => setPlayerInputValue(event.target.value)} />
         </SecondHeadingLabel>
-        <button type="submit">Start Game</button>
+        <StartButton type="submit">Start</StartButton>
       </UserNameForm>
     </>
   )
