@@ -23,6 +23,7 @@ const FullPage = styled.div`
   background-image: url(${loadingspace});
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 
 `;
 

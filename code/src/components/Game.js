@@ -3,9 +3,10 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchTwo, gameFetch } from 'reducers/gameFetch'
-import { LevelCard, Description, Background, DescriptionCard, DirectionButton, Arrow, ShowMoreButton, MainDescriptionCard, MainDescription, PlayerLevelWrapper } from 'lib/Level'
+import { LevelCard, Description, Background, DescriptionCard, DirectionButton, Arrow, ShowMoreButton, MainDescriptionCard, MainDescription, PlayerLevelWrapper, SpaceButton } from 'lib/Level'
 import arrow from 'images/purple-arrow.png'
 import { Player } from '@lottiefiles/react-lottie-player';
+import startgame from 'images/arrow-button.png';
 import { StarterPage } from './StarterPage'
 import { Animation } from './LoadingAnimation'
 
@@ -50,10 +51,14 @@ export const Game = () => {
           {coordinates !== 'starter-page' && (
             <Background coordinates={coordinates}>
               <LevelCard>
-                {coordinates === '1,3' && (<button type="button" onClick={onRestartButton}>Restart</button>)}
+                {coordinates === '1,3'
+                && (
+                  <SpaceButton type="button" onClick={onRestartButton}>
+                    <img src={startgame} alt="startbutton" />
+                  </SpaceButton>)}
                 <MainDescriptionCard style={{ display: showDirection ? 'none' : 'block' }}>
                   <MainDescription>{gameData.description}</MainDescription>
-                  {coordinates !== '1,3' && (<ShowMoreButton type="button" onClick={() => onShowDirectionClick()}>Show directions</ShowMoreButton>)}
+                  {coordinates !== '1,3' && (<ShowMoreButton type="button" onClick={() => onShowDirectionClick()}>Decide where to go</ShowMoreButton>)}
                 </MainDescriptionCard>
                 {!directionTaken && (<Player
                   src="https://assets2.lottiefiles.com/packages/lf20_cgbjomca.json"

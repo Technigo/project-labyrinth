@@ -6,7 +6,7 @@ import image2 from 'images/level2.jpg'
 import image3 from 'images/level3.jpg'
 import image4 from 'images/level4.jpg'
 import image5 from 'images/level5.jpg'
-import image6 from 'images/level6.jpg'
+import image6 from 'images/level6new.png'
 import image7 from 'images/level7.jpg'
 
 export const Background = styled.div`
@@ -72,6 +72,18 @@ export const MainDescription = styled.p`
   line-height:  24px;
   letter-spacing: 1px;
   margin-top: 0;
+
+  @media(min-width: 1025px) {
+   font-size: 22px;
+   line-height:  26px;
+  }
+`
+
+const shake = keyframes`
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
 `
 
 export const DirectionButton = styled.button`
@@ -80,6 +92,12 @@ export const DirectionButton = styled.button`
   border: none;
   padding: 0;
   cursor: pointer;
+
+  &:hover {
+  animation: ${shake} 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  perspective: 1000px;
+  }
 `
 
 export const ShowMoreButton = styled(DirectionButton)`
@@ -88,13 +106,11 @@ export const ShowMoreButton = styled(DirectionButton)`
   font-size: 20px;
   letter-spacing: 2px;
   font-weight: 900;
-  width: 150px;
-  height: 30px;
   font-family: 'Bebas Neue', cursive;
   cursor: pointer;
-
-  &:hover {
-    font-size: 21px;
+  background: transparent;
+  padding: 1px 5px;
+  border-radius: 6px;
   }
 `
 
@@ -124,12 +140,18 @@ export const Description = styled.p`
   letter-spacing: 1px;
   max-width: 200px;
   margin: 0;
+
+  @media(min-width: 1025px) {
+   font-size: 22px;
+   line-height:  26px;
+  }
 `
 
 export const GreetingText = styled.h1`
   color: white;
   font-size: 60px;
   letter-spacing: 1px;
+  padding: 0 20px;
 `
 
 export const Arrow = styled.img`
@@ -139,14 +161,22 @@ export const Arrow = styled.img`
 
 `
 export const SpaceButton = styled.button`
-width:150px;
     background: none;
     border:none;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    margin-left: 10px;
+    cursor: pointer;
 
     img{
-      width: 50%;
-      padding: 10px;
+      width: 90%;
+
+      &:hover {
+        width: 100%;
+      }
     }
   `
 
@@ -154,6 +184,8 @@ export const StarterForm = styled.form`
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
+    width: 100%;
 `
 
 const flyAway = keyframes`
@@ -197,12 +229,7 @@ const FlySouth = keyframes`
   transform: translate(-50%, -50%);
   opacity: 1;
 }
-10% {
-  transform: translate(-50%, -47%) rotate(5deg);
-}
-15% {
-  transform: translate(-50%, -55%) rotate(-8deg);
-}
+
 100% {
   transform: translate(-50%, 500%) rotate(-12deg) scale(1.2);
   opacity: 1;
