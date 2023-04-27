@@ -23,7 +23,8 @@ const GameScreen = () => {
       <InnerWrapper>
         <TypeIt
           options={{
-            speed: 30
+            speed: 30,
+            cursor: false
           }}>
           <Th1>{currentGameState.description}</Th1>
           {/* <GameP>Choose wisely {labyrinth.username}</GameP> */}
