@@ -20,7 +20,7 @@ export const GameBoard = () => {
       </button>
 
       <div className="CompasWrapper">
-        {actions.map((action) => (
+        {actions.length > 0 && actions.map((action) => (
           <>
             <p>{action.description}</p>
             <button

@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { ui } from './ui'
 
 const initialState = {
-  username: 'JOHANNAHANNAHSAMMY',
+  username: '',
   actions: [],
   coordinates: '',
   description: ''
@@ -29,6 +30,7 @@ export const game = createSlice({
 
 export const generateGame = () => {
   return (dispatch, getState) => {
+    dispatch(ui.actions.setLoading(true));
     fetch('https://labyrinth.technigo.io/start', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -43,12 +45,14 @@ export const generateGame = () => {
         dispatch(game.actions.setDescription(data.description));
         dispatch(game.actions.setCoordinates(data.coordinates));
       })
-      .catch((error) => console.error(error));
+      .catch((error) => console.error(error))
+      .finally(() => dispatch(ui.actions.setLoading(false)));
   };
 }
 
 export const generateMoves = (direction) => {
   return (dispatch, getState) => {
+    dispatch(ui.actions.setLoading(true));
     /* insert dispatch that starts loading page */
     /* get different info from API depending on username */
     fetch('https://labyrinth.technigo.io/action', {
@@ -67,6 +71,7 @@ export const generateMoves = (direction) => {
         dispatch(game.actions.setDescription(data.description));
         dispatch(game.actions.setCoordinates(data.coordinates));
       })
-      .catch((error) => console.error(error));
+      .catch((error) => console.error(error))
+      .finally(() => dispatch(ui.actions.setLoading(false)));
   };
 }
