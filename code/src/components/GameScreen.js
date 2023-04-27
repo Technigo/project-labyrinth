@@ -11,12 +11,12 @@ import TypeIt from 'typeit-react';
 const GameScreen = () => {
   const dispatch = useDispatch();
   const labyrinth = useSelector((store) => store.labyrinth);
-  const currentStep = useSelector((store) => store.labyrinth.currentStep);
-  const currentStepActions = useSelector(
-    (store) => store.labyrinth.currentStep.actions
+  const currentGameState = useSelector((store) => store.labyrinth.currentGameState);
+  const currentGameStateActions = useSelector(
+    (store) => store.labyrinth.currentGameState.actions
   );
   console.log('labyrinth details', labyrinth);
-  console.log('currentStep', currentStep)
+  console.log('currentGameState', currentGameState)
 
   return (
     <GameWrapper>
@@ -24,13 +24,13 @@ const GameScreen = () => {
         options={{
           speed: 30
         }}>
-        <Th1>{currentStep.description}</Th1>
+        <Th1>{currentGameState.description}</Th1>
         <GameP>Choose wisely {labyrinth.username}</GameP>
       </TypeIt>
       <div>
-        {currentStepActions ? (
+        {currentGameStateActions ? (
           <div>
-            {currentStepActions.map((action) => (
+            {currentGameStateActions.map((action) => (
               <div key={action.direction}>
                 <button
                   type="button"
@@ -45,14 +45,14 @@ const GameScreen = () => {
           ''
         )}
       </div>
-      {/* <button
+      <button
         type="button"
         onClick={() => {
           console.log('Restart button clicked');
           dispatch(labyrinth.actions.restart());
         }}>
         Restart
-      </button> */}
+      </button>
     </GameWrapper>
   );
 }
