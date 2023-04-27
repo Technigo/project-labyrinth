@@ -10,7 +10,7 @@ export const LabyrinthAni = () => {
         autoplay
         src="https://assets4.lottiefiles.com/packages/lf20_mcpnydwp.json"
         className="lottie"
-        speed={2}
+        speed={1}
         style={{ height: '400px', width: '500px' }} />
     </AnimationContainer>
   );

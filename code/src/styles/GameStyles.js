@@ -37,10 +37,6 @@ font-size: 1.2em;
 color: white;
 line-height: 1.2;
 
-/* [data-typeit-id='8565706'] .ti-cursor{
-  display:none;
-} */
-
 @media ${Devices.mobile} {
   font-size: 1.3em;
 
@@ -66,8 +62,6 @@ flex-direction: row;
 justify-content: space-around;
 margin-bottom: 20px;
 gap: 10px;
-
-/* border:solid red; */
 `;
 
 export const ActionContainer = styled.div`
@@ -78,8 +72,6 @@ padding:10px;
 gap: 30px;
 min-width: 50%;
 max-width: 50%;
-
-/* border:solid green; */
 `
 
 export const GameBtn = styled.button`

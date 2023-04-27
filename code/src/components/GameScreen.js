@@ -10,7 +10,6 @@ import TypeIt from 'typeit-react';
 
 const GameScreen = () => {
   const dispatch = useDispatch();
-  // const actions = useSelector((store) => store.labyrinth.actions);
   const currentGameState = useSelector((store) => store.labyrinth.currentGameState);
   const currentGameStateActions = useSelector(
     (store) => store.labyrinth.currentGameState.actions
@@ -32,7 +31,6 @@ const GameScreen = () => {
             cursor: false
           }}>
           <Th1>{currentGameState.description}</Th1>
-          {/* <GameP>Choose wisely {labyrinth.username}</GameP> */}
         </TypeIt>
         <div>
           {currentGameStateActions ? (
