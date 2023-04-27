@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import games, { createPlayer } from 'reducers/games';
 import Header from './Header';
-import { SecondHeading, SecondHeadingLabel, StyledInput, UserNameForm } from './PlayerInputStyling';
+import { StyledHeroPlayerInputContainer, SecondHeading, SecondHeadingLabel, StyledInput, UserNameForm } from './PlayerInputStyling';
 import { StartButton } from './GlobalStyling';
 
 const PlayerInput = () => {
@@ -16,7 +16,7 @@ const PlayerInput = () => {
   }
 
   return (
-    <>
+    <StyledHeroPlayerInputContainer>
       <Header />
       <SecondHeading>Do you want to play a game?</SecondHeading>
       <UserNameForm onSubmit={(event) => onFormSubmit(event)}>
@@ -26,7 +26,7 @@ const PlayerInput = () => {
         </SecondHeadingLabel>
         <StartButton type="submit">Start</StartButton>
       </UserNameForm>
-    </>
+    </StyledHeroPlayerInputContainer>
   )
 }
 

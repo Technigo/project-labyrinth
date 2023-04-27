@@ -1,4 +1,18 @@
 import styled from 'styled-components';
+import HeroPlayerInputContainer from '../assets/hero-start-page.jpg';
+
+export const StyledHeroPlayerInputContainer = styled.div`
+  background-image: url(${HeroPlayerInputContainer});
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  object-fit: cover;
+  position: relative;
+  min-height: 100vh;
+  align-items: center;
+  text-align: center;
+`;
 
 export const UserNameForm = styled.form`
   padding: 0;

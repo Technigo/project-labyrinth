@@ -20,8 +20,7 @@ export const Button = styled.button`
     background-color: rgba(211, 211, 211, 0.8);
     text-shadow: -1px -1px black, 1px 1px white;
     color: gray;
-
-    border-radius: 7px;
+    border-radius: 0.438rem;
     box-shadow: 0 .2em gray; 
 `;
 
