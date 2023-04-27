@@ -9,6 +9,7 @@ import TypeIt from 'typeit-react';
 
 import arch from '../assets/arch.jpg';
 import bridge from '../assets/bridge.jpg';
+import books from '../assets/books.jpg';
 import end from '../assets/end.png';
 import cave from '../assets/cave.jpg';
 import mechanical from '../assets/mechanical.jpg';
@@ -89,7 +90,7 @@ export const GameWrapper = styled.div`
     } else if (props.coordinates === '0,2') {
       bgImage = `url(${room})`;
     } else if (props.coordinates === '0,3') {
-      bgImage = `url(${light})`;
+      bgImage = `url(${books})`;
     } else if (props.coordinates === '1,3') {
       bgImage = `url(${end})`;
     }
