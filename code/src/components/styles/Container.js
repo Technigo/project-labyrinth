@@ -4,6 +4,7 @@ export const OuterWrapper = styled.div`
   background-image: url("https://images.unsplash.com/photo-1548783917-a211bcc263cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1486&q=80");
   min-height: 100vh; //vh = view-height
   background-size: cover;
+  background-repeat: repeat;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -16,6 +17,7 @@ export const InnerWrapper = styled.div`
   margin: 0 auto;
   width: 100%;
   padding: 2rem;
+  
 `;
 
 export const BoxContainer = styled.div`
@@ -24,7 +26,7 @@ export const BoxContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
 `;
 
 export const PlayerContainer = styled.div`
@@ -59,17 +61,36 @@ img {
   }
 
   button {
-    background-color: ;
-    // padding: 1.2rem;
+    background-color: #b3b813;
+    border: none;
+    border-radius:25px;
+    padding: 1.2rem;
     margin-top: 1rem;
+  }
+
+  button:hover {
+    background-color: transparent;
+    border: #b3b813 1px solid;
+    color: var(--primaryWhite)
   }
 `;
 
 export const DirectionsContainer = styled(PlayerContainer)`
   justify-content: space-between;
-  min-height: 25rem;
+  min-height: 5rem;
   p {
     font-size: 0.9rem;
     margin-top: 1rem;
   }
+`;
+
+export const P = styled.p`
+font-size: 20px;
+color: red;
+`;
+
+export const TextBox = styled.div`
+font-size: 20px;
+background-color: var(--primaryBlack);
+padding:20px;
 `;

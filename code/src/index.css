@@ -14,11 +14,11 @@ code {
 }
 
 :root {
-  --primaryBlack: #161616;
+  --primaryBlack: #161616af;
   --primaryWhite: #fbfbfbef;
   --mainGreen: #b3b813;
   --secondaryGreen: rgb(232, 247, 180); 
-  --darkGreen: rgb(1, 15, 1);
+  --darkGreen: rgba(1, 15, 1, 0.226);
 
 }
 
