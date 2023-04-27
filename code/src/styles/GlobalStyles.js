@@ -40,6 +40,7 @@ export const HeadingOneContainer = styled.div`
   margin-top: 30px;
   display: flex;
   justify-content: center;
+  animation: fade-in 1s ease-in forwards;
   
 `
 

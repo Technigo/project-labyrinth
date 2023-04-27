@@ -11,7 +11,6 @@ export const GameWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: grey;
 `;
 export const InnerWrapper = styled.main`
   display:flex;
@@ -21,8 +20,7 @@ export const InnerWrapper = styled.main`
   padding: 20px;
   border-radius: 10px;
   background-color: rgb(140,122,103);
-  backdrop-filter: blur(12px);
-  --webkit-backdrop-filter: blur(12px);
+  animation: fade-in 1s ease-in forwards;
 
   @media (min-width: 768px) {
     margin: 0 auto;
