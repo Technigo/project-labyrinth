@@ -16,7 +16,8 @@ export const SecondHeadingLabel = styled.label`
   font-family: var(--paragraph-font-family);
   font-weight: 600;
   font-size: 1.5rem;
-  margin: 0;
+  margin: 1rem 2rem;
+  text-align: center;
 `;
 
 export const SecondHeading = styled.h2`
@@ -24,6 +25,7 @@ export const SecondHeading = styled.h2`
   font-weight: 100;
   font-size: 1.7rem;
   text-align: center;
+  margin: 0.5rem 2rem;
 `;
 
 export const StyledInput = styled.input`

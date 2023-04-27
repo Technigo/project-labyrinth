@@ -5,7 +5,7 @@ export const StyledTitle = styled.h1`
     font-size:2rem;
     font-weight: 600;
     top: 0;
-    margin: 0 auto;
+    margin: 2rem auto;
     text-align: center;
     padding: 1rem;
 ;`
