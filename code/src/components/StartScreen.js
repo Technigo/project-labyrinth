@@ -24,7 +24,7 @@ const StartScreen = () => {
             options={{
               speed: 40
             }}>
-            <Label>Type in your name:</Label>
+            <Label>Welcome to the Labyrinth.</Label>
           </TypeIt>
         </HeadingOneContainer>
 
@@ -65,6 +65,7 @@ const Input = styled.input`
   font-size: 1.2rem;
   margin-bottom: 3px;
   align-self: center;
+  font-family: 'Special Elite', cursive;
   `
 
 const Label = styled.label`
