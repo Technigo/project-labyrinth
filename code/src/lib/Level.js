@@ -171,7 +171,7 @@ export const SpaceButton = styled.button`
     cursor: pointer;
 
     img{
-      width: 80%;
+      width: 90%;
 
       &:hover {
         width: 100%;
