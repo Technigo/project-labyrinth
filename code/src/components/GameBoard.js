@@ -115,7 +115,7 @@ export const GameBoard = () => {
               <StyledOption key={action.direction}>
                 <OptionDescription>{action.description}</OptionDescription>
                 <Button onClick={() => dispatch(generateMoves(action.direction))}>
-                  {action.direction}
+                  Go {action.direction}
                 </Button>
               </StyledOption>
             );
