@@ -15,3 +15,4 @@ Every project should be deployed somewhere. Be sure to include the link to the d
 
 ## Image credits
 https://www.artstation.com/artwork/nYB6y6
+"https://www.flaticon.com/free-icons/maze" Maze icons created by Freepik - Flaticon
