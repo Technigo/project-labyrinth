@@ -52,13 +52,20 @@ width: fit-content;
 margin-top: 10px;
 display: flex;
 justify-content: center;
+flex-direction: column;
 margin-bottom: 20px;
 gap: 8px;
 `;
 
+export const ActionContainer = styled.div`
+display: flex;
+flex-direction: row;
+gap: 10px;
+`
+
 export const GameBtn = styled.button`
   width: 120px;
-  margin: 10px auto;
+  /* margin: auto; */
   transition: all 0.3s ease;
   border-radius: 10px;
   padding: 5px;

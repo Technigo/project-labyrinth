@@ -2,7 +2,7 @@
 import React from 'react';
 import { continueGame } from 'reducers/labyrinth';
 import { useDispatch, useSelector } from 'react-redux';
-import { GameWrapper, InnerWrapper, GameP, Th1, DirectionContainer, GameBtn } from 'styles/GameStyles';
+import { GameWrapper, InnerWrapper, Th1, DirectionContainer, GameBtn, ActionContainer } from 'styles/GameStyles';
 import { Devices } from 'styles/GlobalStyles';
 import styled from 'styled-components'
 
@@ -26,13 +26,13 @@ const GameScreen = () => {
             speed: 30
           }}>
           <Th1>{currentStep.description}</Th1>
-          <GameP>Choose wisely {labyrinth.username}</GameP>
+          {/* <GameP>Choose wisely {labyrinth.username}</GameP> */}
         </TypeIt>
         <div>
           {currentStepActions ? (
             <DirectionContainer>
               {currentStepActions.map((action) => (
-                <>
+                <ActionContainer>
                   <GameBtn
                     type="button"
                     key={action.direction}
@@ -40,7 +40,7 @@ const GameScreen = () => {
                   Go {action.direction}
                   </GameBtn>
                   <InfoText>To the {action.direction}: {action.description}</InfoText>
-                </>
+                </ActionContainer>
               ))}
             </DirectionContainer>
           ) : (
