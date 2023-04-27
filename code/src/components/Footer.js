@@ -4,7 +4,7 @@ import styled from 'styled-components/macro';
 export const Footer = () => {
   return (
     <FooterSection>
-      <FooterText>Designed by students @ Technigo Bootcamp</FooterText>
+      <FooterText>Designed by students @ Technigo Bootcamp 2023</FooterText>
       <Links>
         <StyledA href="https://www.linkedin.com/in/emiliasaberski/">Emilia
           <i className="fa-brands fa-linkedin-in" />
