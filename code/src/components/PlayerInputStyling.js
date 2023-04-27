@@ -16,7 +16,6 @@ export const SecondHeadingLabel = styled.label`
   font-family: var(--paragraph-font-family);
   font-weight: 600;
   font-size: 1.5rem;
-  margin: 1rem 2rem;
   text-align: center;
 `;
 

@@ -12,7 +12,7 @@ export const Button = styled.button`
     font-weight: 600;
     border: none; 
     padding: 0.7rem 1rem;
-    margin: 0.625rem;
+    margin: 0.625rem 0;
     transition-duration: 0.4s;
     text-align: center;
     cursor: pointer;
