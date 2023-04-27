@@ -214,12 +214,6 @@ const FlyWest = keyframes`
   transform: translate(-50%, -50%);
   opacity: 1;
 }
-10% {
-  transform: translate(-53%, -50%) rotate(5deg);
-}
-15% {
-  transform: translate(-45%, -48%) rotate(-8deg);
-}
 100% {
   transform: translate(-800%, -50%) rotate(-12deg) scale(1.2);
   opacity: 1;
@@ -231,31 +225,6 @@ const FlyEast = keyframes`
   transform: translate(-50%, -50%);
   opacity: 1;
 }
-10% {
-  transform: translate(-50%, -50%) rotate(5deg);
-}
-15% {
-  transform: translate(-50%, -48%) rotate(-8deg);
-}
-20% {
-  transform: translate(-50%, -50%) rotate(8deg);
-}
-23% {
-  transform: translate(-50%, -57%) rotate(-10deg);
-}
-28% {
-  transform: translate(-50%, -53%) rotate(10deg);
-}
-35% {
-  transform: translate(-50%, -50%) rotate(-12deg);
-}
-44% {
-  transform: translate(-47%, -50%) rotate(12deg);
-}
-48% {
-  transform: translate(-54%, -50%) rotate(-15deg) scale(1.3);
-}
-
 100% {
   transform: translate(500%, -50%) rotate(-12deg) scale(1.2);
   opacity: 1;
