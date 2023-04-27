@@ -50,7 +50,7 @@ export const gameProgress = (nextMove) => {
       body: JSON.stringify({
         username: getState().labyrinth.username,
         type: 'move',
-        direction: nextMove // getState().labyrinth.direction
+        direction: nextMove
       })
     };
 

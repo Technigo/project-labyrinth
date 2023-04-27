@@ -18,7 +18,6 @@ const StartScreen = () => {
   }
   // Added useSelector to get the gameStarted value from the Redux store.
   const gameStarted = useSelector((state) => state.labyrinth.gameStarted)
-  const isLoading = useSelector((state) => state.labyrinth.isLoading)
 
   return (
     <div>
@@ -35,9 +34,7 @@ const StartScreen = () => {
           required />
         <button type="submit">start</button>
       </form>
-      {gameStarted && !isLoading ? (
-        <Game />
-      ) : null}
+      {gameStarted ? (<Game />) : null}
     </div>
 
   )
