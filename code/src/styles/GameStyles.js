@@ -108,11 +108,12 @@ width: 50%;
 export const RestartBtn = styled.button`
 margin: 0;
 font-size: 1rem;
-padding: 12px 15px;
+padding: 9px 12px;
 border-radius: 25px 0 0 0;
 background-color: #241a0c;
 color: whitesmoke;
 cursor: pointer;
+animation: fade-in 1s ease-in forwards;
 
 :hover {
     background-color: black;
