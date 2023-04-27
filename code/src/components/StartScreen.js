@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-autofocus */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components/macro'
@@ -20,7 +21,17 @@ const StartScreen = () => {
   margin: 5% 20%;; 
   gap: 20px;
   background: white; 
-  box-shadow:0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2);`
+  box-shadow:0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2);
+  
+  h1 {
+    text-align:center;
+  }
+
+  input {
+    width: 50%;
+    align-self:center;
+  }
+  `
 
   const ButtonContainer = styled.div`
   display: flex; 
@@ -30,12 +41,13 @@ const StartScreen = () => {
   return (
     <>
       <StartWrapper>
-        <h1> Come play with us, Danny! </h1>
+        <h1> Come play with us! </h1>
         <input
           type="text"
           value={inputValue}
           placeholder="Type your name here"
-          onChange={(event) => setInputValue(event.target.value)} />
+          onChange={(event) => setInputValue(event.target.value)}
+          autoFocus />
       </StartWrapper>
       <ButtonContainer>
         <Button
