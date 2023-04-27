@@ -45,7 +45,7 @@ export const HeadingOneContainer = styled.div`
 
 export const SubmitBtn = styled.button`
   transition: all 0.3s ease;
-  border-radius: 10px;
+  border-radius: 0 20px 0 20px;
   padding: 10px 20px;
   cursor: pointer;
   color: rgb(17, 101, 48);
