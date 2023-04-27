@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-closing-tag-location */
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { maze } from 'reducers/maze'
 import Lottie from 'lottie-react'
@@ -15,25 +15,34 @@ import { Button } from './Buttons'
 const Location = () => {
   const currentLocation = useSelector((store) => store.maze)
   const dispatch = useDispatch()
+  const [clickCount, setClickCount] = useState(0)
 
   const actionDirections = currentLocation.actions.map((action) => {
     const chooseDirection = (direction) => {
       dispatch(maze.actions.setDirection(direction))
       dispatch(MakeMove())
+      setClickCount(0)
     }
-    return (
-      <div>
-        <Sign key={action.description} className={action.direction}>
-          <p>{action.description}</p>
-          <Button
-            value={action.direction}
-            type="button"
-            onClick={((event) => chooseDirection(event.target.value))}>
-            {action.direction}
-          </Button>
-        </Sign>
-      </div>
 
+    const handleClicks = () => {
+      if (clickCount === 0) {
+        console.log(currentLocation)
+        setClickCount(1)
+      } else {
+        chooseDirection(event.target.value);
+      }
+    }
+
+    return (
+      <Sign key={action.description} className={action.direction}>
+        {clickCount === 1 && <DirectionsP>{action.description}</DirectionsP>}
+        <Button
+          value={action.direction}
+          type="button"
+          onClick={((event) => handleClicks(event.target.value))}>
+          {action.direction}
+        </Button>
+      </Sign>
     )
   })
   return (
@@ -45,13 +54,15 @@ const Location = () => {
               {currentLocation.description}
             </LocationText>
           </TypeIt>
-          <CompassSquare>
-            <Lottie style={{ width: '200px', position: 'relative' }} animationData={compass} loop />
-            {currentLocation.coordinates === '1,3' ? <FinalStep /> : null}
-            <SignsDiv>
-              {actionDirections}
-            </SignsDiv>
-          </CompassSquare>
+          <CompassWrapper>
+            <CompassSquare>
+              <Lottie style={{ width: '200px', position: 'relative' }} animationData={compass} loop />
+              {currentLocation.coordinates === '1,3' ? <FinalStep /> : null}
+              <SignsDiv>
+                {actionDirections}
+              </SignsDiv>
+            </CompassSquare>
+          </CompassWrapper>
         </LocationsDiv>}
     </div>
   )
@@ -71,6 +82,12 @@ const LocationsDiv = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
+max-width: 600px;
+height: 200px;
+`
+
+const CompassWrapper = styled.div`
+padding-top: 100px;
 `
 
 const CompassSquare = styled.div`
@@ -80,6 +97,7 @@ position:relative;
 align-items: center;
 justify-content:center;
 border-radius: 50%;
+margin: 40px;
 `
 
 const SignsDiv = styled.div`
@@ -90,7 +108,7 @@ flex-direction: row;
 const Sign = styled.div`
 border-radius: 8px 30px 90px 60px;
 padding: 8px 30px;
-width: 400px;
+width: 200px;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -103,30 +121,32 @@ margin: 10px;
 
 &.North {
   position: absolute;
-  top: 0;
-  right: calc(50%);
+  top: -82px;
+  right: -10px;
 }
 
 &.South {
   position: absolute;
-  bottom: 0;
-  right: calc(50%);
+  bottom: -116px;
+  right: -10px;
 }
 
 &.East {
   position: absolute;
-  right: calc(-10%);
-  top: calc(40%);
 }
 
 &.West {
   position: absolute;
-  top: calc(50%);
-  left: 0;
+  top: 72px;
+  left: -248px;
 }
 `
 
 const LocationText = styled.div`
 font-size: 24px;
 padding: 10px;
+`
+
+const DirectionsP = styled.p`
+font-size: 16px;
 `
