@@ -24,6 +24,10 @@ margin: 20px;
 gap: 10px;
 box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
+@media (min-width:667px) {
+  margin: 2% 10% 5%; 
+}
+
 @media (min-width:1024px) {
   align-self: center;
   margin: 2% 25% 5%; 
@@ -35,6 +39,7 @@ const GameContent = styled.div`
 display: flex; 
 flex-direction: column;
 padding: 30px; 
+gap: 20px; 
 `
 
 const CurrentStyled = styled.p`
@@ -58,6 +63,17 @@ border: 2px dotted black;
 flex-basis: 40%
 flex-wrap:wrap;
 margin-bottom: 20px;
+justify-content: space-between; 
+
+button {
+  align-items: flex-end; 
+  justify-content:center;
+
+}
+
+@media (min-width: 667px) {
+  width: 50%; 
+}
 
 `
 
@@ -69,7 +85,14 @@ margin: 10px;
 
 @media (min-width:1024px) {
 font-size: 24px;
+}
+`
+const OptionBox = styled.div`
+display: flex; 
+flex-direction:column;
 
+@media (min-width: 667px) {
+  flex-direction: row; 
 }
 `
 const OptionDescription = styled.p`
@@ -81,7 +104,6 @@ font-size: 20px;
 
 }
 `
-
 const WinnerText = styled.p`
 text-align:center;
 font-size: 22px;
@@ -109,7 +131,7 @@ export const GameBoard = () => {
       <GameContent>
         <CurrentStyled>{currentLocation?.description} </CurrentStyled>
         {currentLocation.coordinates !== '1,3' && <StyledQuestion> Where do you want to go next? </StyledQuestion>}
-        <div>
+        <OptionBox>
           {currentLocation?.actions?.map((action) => {
             return (
               <StyledOption key={action.direction}>
@@ -120,7 +142,7 @@ export const GameBoard = () => {
               </StyledOption>
             );
           })}
-        </div>
+        </OptionBox>
         {currentLocation.coordinates === '1,3' && <div><WinnerText>Well done! You made it out alive!</WinnerText> <Button onClick={() => restartGame()}>Restart</Button></div>}
       </GameContent>
     </GameContainer>
