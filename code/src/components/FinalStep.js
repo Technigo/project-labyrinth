@@ -1,4 +1,6 @@
 import React from 'react'
+import Lottie from 'lottie-react'
+import ship from '../lotties/ship'
 
 export const FinalStep = () => {
   return (
@@ -13,7 +15,7 @@ export const FinalStep = () => {
         You turn your gaze back to the horizon,
         open the bottle from your chest pocket and take a sip... Yohoho!
       </p>
-      <img src="ship sails away with a jolly melody playing" alt="" />
+      <Lottie style={{ width: '200px', margin: 'auto' }} animationData={ship} loop />
     </div>
   )
 }
