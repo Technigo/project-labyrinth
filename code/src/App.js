@@ -2,6 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import MainPage from 'components/MainPage.js'
+import Footer from 'components/Footer.js'
 import { game } from 'reducers/game.js'
 import { loading } from 'reducers/loading.js'
 
@@ -18,6 +19,7 @@ export const App = () => {
     <Provider store={store}>
       <div>
         <MainPage />
+        <Footer />
       </div>
     </Provider>
   )
