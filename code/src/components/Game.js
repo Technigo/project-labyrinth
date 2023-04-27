@@ -1,9 +1,9 @@
 /* disable-eslint */
 
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchTwo, gameFetch } from 'reducers/gameFetch'
-import { LevelCard, Description, Background, DescriptionCard, DirectionButton } from 'lib/Level'
+import { LevelCard, Description, Background, DescriptionCard, DirectionButton, Arrow, ShowMoreButton, MainDescriptionCard, MainDescription } from 'lib/Level'
 import arrow from 'images/purple-arrow.png'
 import { StarterPage } from './StarterPage'
 
@@ -11,12 +11,23 @@ export const Game = () => {
   const gameData = useSelector((store) => store.gameFetch)
   const gameActions = useSelector((store) => store.gameFetch.actions)
   const coordinates = useSelector((store) => store.gameFetch.coordinates)
+  const [showDirection, setShowDirection] = useState(false);
+
   console.log(coordinates);
 
   const dispatch = useDispatch();
 
   const onRestartButton = () => {
     dispatch(gameFetch.actions.restartGame());
+  };
+
+  const onShowDirectionClick = () => {
+    setShowDirection(true)
+  };
+
+  const onDirectionClick = (direction) => {
+    dispatch(fetchTwo(direction))
+    setShowDirection(false)
   };
 
   return (
@@ -26,21 +37,19 @@ export const Game = () => {
         <Background coordinates={coordinates}>
           <LevelCard>
             {coordinates === '1,3' && (<button type="button" onClick={onRestartButton}>Restart</button>)}
-            <Description>{gameData.description}</Description>
+            <MainDescriptionCard style={{ display: showDirection ? 'none' : 'block' }}>
+              <MainDescription>{gameData.description}</MainDescription>
+              <ShowMoreButton type="button" onClick={() => onShowDirectionClick()}>Show more</ShowMoreButton>
+            </MainDescriptionCard>
             {gameActions && gameActions.map((item) => {
               return (
-                <DescriptionCard key={item.direction}>
-                  <Description>{item.description}</Description>
+                <DescriptionCard key={item.direction} direction={item.direction} style={{ display: showDirection ? 'flex' : 'none' }}>
                   <DirectionButton
-                    direction={item.direction}
                     type="button"
-                    onClick={() => dispatch(fetchTwo(item.direction))}>
-                    {item.direction === 'East' && (<img style={{ width: '60px', left: '-30px' }} src={arrow} alt="arrow" />)}
-                    {item.direction === 'West' && (<img style={{ transform: 'rotate(180deg)', width: '60px', left: '-30px' }} src={arrow} alt="arrow" />)}
-                    {item.direction === 'North' && (<img style={{ transform: 'rotate(-90deg)', width: '60px', left: '-30px', top: '-20px' }} src={arrow} alt="arrow" />)}
-                    {item.direction === 'South' && (<img style={{ transform: 'rotate(90deg)', width: '60px', left: '-30px', top: '-20px' }} src={arrow} alt="arrow" />)}
-                    {/*  {item.direction} */}
+                    onClick={() => onDirectionClick(item.direction)}>
+                    <Arrow direction={item.direction} src={arrow} alt="arrow" />
                   </DirectionButton>
+                  <Description>{item.description}</Description>
                 </DescriptionCard>
               );
             })}
