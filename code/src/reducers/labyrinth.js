@@ -1,9 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { loading } from './loading'
 
+const startURL = 'https://labyrinth.technigo.io/start'
+const actionURL = 'https://labyrinth.technigo.io/action'
+
 const initialState = {
   username: null,
-  currentStep: {}
+  currentGameState: {}
 }
 export const labyrinth = createSlice({
   name: 'labyrinth',
@@ -14,12 +17,16 @@ export const labyrinth = createSlice({
       store.username = action.payload
     },
 
-    setCurrentStep: (store, action) => {
-      store.currentStep = action.payload
+    setcurrentGameState: (store, action) => {
+      store.currentGameState = action.payload
     },
 
-    restart: () => {
-      return initialState
+    restart: (store) => {
+      // store.username = initialState.username
+      // store.currentGameState = initialState.currentGameState
+      console.log('Restarting game...');
+      store.username = null;
+      store.currentGameState = {};
     }
   }
 })
@@ -33,13 +40,16 @@ export const startGame = () => {
       body: JSON.stringify({ username: getState().labyrinth.username })
     }
 
-    fetch('https://labyrinth.technigo.io/start', options)
+    fetch(startURL, options)
       .then((response) => response.json())
       .then((data) => {
         console.log('data', data)
-        dispatch(labyrinth.actions.setCurrentStep(data))
+        dispatch(labyrinth.actions.setcurrentGameState(data))
         dispatch(loading.actions.setLoading(false));
       })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 }
 
@@ -56,11 +66,20 @@ export const continueGame = (direction) => {
       })
     }
 
-    fetch('https://labyrinth.technigo.io/action', options)
+    fetch(actionURL, options)
       .then((respons) => respons.json())
       .then((data) => {
-        dispatch(labyrinth.actions.setCurrentStep(data));
+        dispatch(labyrinth.actions.setcurrentGameState(data));
         dispatch(loading.actions.setLoading(false));
       })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 }
+
+// export const restartGame = () => {
+//   return {
+//     initialState
+//   }
+// }
