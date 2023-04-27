@@ -48,8 +48,9 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin: 0 auto;
-  width: 300px;
+  width: 60%;
 
   @media ${Devices.mobile} {
   width: 100px;
@@ -60,8 +61,10 @@ const Form = styled.form`
 
 const Input = styled.input`
   height: 25px;
+  max-width:200px;
   font-size: 1.2rem;
   margin-bottom: 3px;
+  align-self: center;
   `
 
 const Label = styled.label`

@@ -39,7 +39,7 @@ const GameScreen = () => {
                     onClick={() => dispatch(continueGame(action.direction))}>
                   Go {action.direction}
                   </GameBtn>
-                  <InfoText>To the {action.direction}: {action.description}</InfoText>
+                  <InfoText>You look {action.direction}, <br /> {action.description}</InfoText>
                 </ActionContainer>
               ))}
             </DirectionContainer>
@@ -56,7 +56,6 @@ const GameScreen = () => {
         Restart
         </button>
       </InnerWrapper>
-
     </GameWrapper>
   );
 }
@@ -66,6 +65,7 @@ font-family: 'Special Elite';
 font-size: 1em;
 color: whitesmoke;
 line-height: 1.4;
+text-align:center;
 
 @media ${Devices.mobile} {
   font-size: 14px;
