@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { batch } from 'react-redux';
+import { loading } from './load'
 
 const initialState = {
   userName: '',
@@ -34,7 +35,11 @@ export const gameFetch = createSlice({
 
 export const fetchOne = () => {
   return (dispatch, getState) => {
-    dispatch(gameFetch.actions.setLoading(true))
+    dispatch(gameFetch.actions.setLoading(true));
+
+    setTimeout(() => {
+      dispatch(loading.actions.setLoading(true));
+    }, 2000)
 
     setTimeout(() => {
       fetch('https://labyrinth.technigo.io/start', {
@@ -49,33 +54,42 @@ export const fetchOne = () => {
             dispatch(gameFetch.actions.setActions(data.actions));
             dispatch(gameFetch.actions.setCoordinates(data.cordinates));
             dispatch(gameFetch.actions.setLoading(false));
+            dispatch(loading.actions.setLoading(false));
           })
         })
-    }, 1000);
+    }, 10000);
   }
 }
 
 export const fetchTwo = (direction) => {
   return (dispatch, getState) => {
     dispatch(gameFetch.actions.setLoading(true));
-    fetch('https://labyrinth.technigo.io/action', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        username: getState().gameFetch.userName,
-        type: 'move',
-        direction
+
+    setTimeout(() => {
+      dispatch(loading.actions.setLoading(true));
+    }, 10000)
+
+    setTimeout(() => {
+      fetch('https://labyrinth.technigo.io/action', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: getState().gameFetch.userName,
+          type: 'move',
+          direction
+        })
       })
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        batch(() => {
-          dispatch(gameFetch.actions.setDescription(data.description));
-          dispatch(gameFetch.actions.setActions(data.actions));
-          dispatch(gameFetch.actions.setCoordinates(data.coordinates));
-          dispatch(gameFetch.actions.setLoading(false));
+        .then((res) => res.json())
+        .then((data) => {
+          batch(() => {
+            dispatch(gameFetch.actions.setDescription(data.description));
+            dispatch(gameFetch.actions.setActions(data.actions));
+            dispatch(gameFetch.actions.setCoordinates(data.coordinates));
+            dispatch(gameFetch.actions.setLoading(false));
+            dispatch(loading.actions.setLoading(false));
+          });
         });
-      });
+    }, 13000);
   };
 };
 

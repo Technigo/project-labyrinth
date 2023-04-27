@@ -62,10 +62,11 @@ export const StarterPage = () => {
             autoplay
             speed={1}
             style={{ width: '150px', height: '150px' }} />
-
         </>
+
       )}
     </StartBackground>
+
   );
 };
 

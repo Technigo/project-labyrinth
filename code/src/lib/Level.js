@@ -36,7 +36,6 @@ const FadeIn = keyframes`
   0% { opacity: 0; }
   100% { opacity: 1; }
 `
-
 export const LevelCard = styled.div`
   padding: 0 20px;
   position: relative;
