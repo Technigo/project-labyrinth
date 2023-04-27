@@ -23,7 +23,7 @@ export const Gamepage = () => {
 
   // Function to go to the next step
   const goToNextStep = (e) => {
-    dispatch(labyrinthMango.actions.setDirection(e.target.value))
+    dispatch(labyrinthMango.actions.setDirection(e.target.value)) // setDirection working?
     dispatch(continueGame())
   }
 
@@ -37,10 +37,10 @@ export const Gamepage = () => {
         <GameWrapper>
           <DescriptionWrapper>
             {/* Display welcome message if there's no history */}
-            {history.length === 0 ? `Welcome, ${name}.` : ''}
+            {history.length === 0 ? `Welcome, ${name}.` : ''} {/* name comes from the state */}
             <p>{description}</p>
           </DescriptionWrapper>
-          <DirectionWrapper id={moves.length <= 1 ? 'oneMove' : 'twoMoves'}>
+          <DirectionWrapper id={moves.length <= 1 ? 'oneMove' : 'twoMoves'}> {/* styling for 1or2 buttons from gamepage.styled */}
             {/* Map through moves and display buttons */}
             {moves && moves.map((action) => (
               <div key={action.direction}>
@@ -50,7 +50,8 @@ export const Gamepage = () => {
                   id="nextBtn"
                   value={action.direction}
                   onClick={(e) => goToNextStep(e)}>
-                  Go {action.direction}
+                  Go {action.direction} {/* the "Go" + the direction from the api
+                  will have same styling */}
                 </DirectionBtn>
               </div>
             ))}
@@ -61,6 +62,7 @@ export const Gamepage = () => {
           )}
         </GameWrapper>
         <RestartBtn onClick={restartGame}>Restart &#8634;</RestartBtn>
+        {/* This is defined in the begining of the page */}
       </>
     )
   )
