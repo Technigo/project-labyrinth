@@ -4,8 +4,11 @@ const game = createSlice({
   name: 'game',
   initialState: {
     username: null,
-    currentLocation: [],
-    isLoading: false
+    currentLocation: {},
+    isLoading: false,
+    isGameStarted: false,
+    isStartScreen: true,
+    isEndScreen: false
   },
   reducers: {
     setUserName: (store, action) => {
@@ -13,18 +16,39 @@ const game = createSlice({
     },
     setCurrentLocation: (store, action) => {
       store.currentLocation = action.payload;
+      if (action.payload.actions.length === 0) {
+        store.isEndScreen = true;
+      } else {
+        store.isEndScreen = false;
+      }
     },
     setLoading: (store, action) => {
       store.isLoading = action.payload
+    },
+    setGameStarted: (store, action) => {
+      store.isGameStarted = action.payload
+    },
+    showStartScreen: (store) => {
+      store.isStartScreen = true;
+    },
+    hideStartScreen: (store) => {
+      store.isStartScreen = false;
+    },
+    restart: (store) => {
+      store.username = null;
+      store.currentLocation = {};
+      store.isLoading = false;
+      store.isGameStarted = false;
+      store.isStartScreen = true;
+      store.isEndScreen = false;
     }
   }
-  // an action to save the joke to global state
-  // an action to save the category to global state
 });
-export const { setUserName, setCurrentLocation, setLoading } = game.actions;
+// eslint-disable-next-line max-len
+export const { setUserName, setCurrentLocation, setLoading, setGameStarted, showStartScreen, hideStartScreen, restart } = game.actions;
 export default game;
 
-// a thunk to handle api call to start the game
+// thunk to handle api call to start the game
 export const startGame = () => {
   return (dispatch, getState) => {
     dispatch(game.actions.setLoading(true));
@@ -40,6 +64,7 @@ export const startGame = () => {
       .then((response) => response.json())
       .then((json) => {
         dispatch(game.actions.setCurrentLocation(json))
+        dispatch(game.actions.setGameStarted(true));
       })
       .finally(setTimeout(() => dispatch(game.actions.setLoading(false)), 1500))
   }
