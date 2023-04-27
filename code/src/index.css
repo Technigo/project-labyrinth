@@ -15,7 +15,6 @@ body {
   background-color: rgb(45, 43, 43);
 }
 
-.fa-brands icon {
-height: 30px;
-width: 30px;
+.fa-brands {
+font-size: 25px;
 }
