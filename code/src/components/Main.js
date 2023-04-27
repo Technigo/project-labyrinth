@@ -5,8 +5,8 @@ import { GameBoard } from './GameBoard';
 const Main = () => {
   return (
     <>
-      <UserNameInput />
       <GameBoard />
+      <UserNameInput />
     </>
   )
 }
