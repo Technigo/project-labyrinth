@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import styled from 'styled-components';
-import { Img1, Img2, Img3, Img4, Img5, Img6, Img7, Img8 } from 'components/Images';
+import { Img1, Img2, Img3, Img4, Img5, Img6, Img7, Img8 } from 'components/global-style/Images';
 
 export const Background = styled.section`
   margin: 0;

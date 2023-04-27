@@ -1,8 +1,11 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
+This week's project is all about tying together the skills you've learnt to build an app that retrieves a list of actions from the backend and presents them to the user as interactable items.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+✓ Your page should be responsive.
+✓ Use redux to store the current state of the game.
+✓ Focus on making the UX of your app good. Handle the response delay.
+✓ Use thunks to wrap your API calls.
 
 ## The problem
 
@@ -10,4 +13,4 @@ Describe how you approached to problem, and what tools and techniques you used t
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://maze-by-fanny-and-bridget.netlify.app/
