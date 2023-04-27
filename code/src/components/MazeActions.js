@@ -8,7 +8,8 @@ import { Button } from './global-style/Button';
 import { Wrapper } from './global-style/Wrapper';
 import { DescriptionHeader, BodyText } from './global-style/Text';
 import { Background } from './global-style/Background';
-import { UserHistory } from './UserHistory';
+import { UserHistory } from './user-history/UserHistory';
+import { MiniMap } from './mini-map/MiniMap';
 
 export const MazeActions = () => {
   const isLoading = useSelector((state) => state.ui.isLoading)
@@ -48,6 +49,7 @@ export const MazeActions = () => {
                 )
               })}
             </InnerWrapper>
+            <MiniMap />
             <UserHistory />
           </Wrapper>
         </Background>

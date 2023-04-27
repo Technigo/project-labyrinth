@@ -6,6 +6,14 @@ export const Header1 = styled.h1`
     margin: 20px 0;
 `;
 
+export const SecondaryHeader = styled.h2`
+    font-family: 'Trochut', cursive;
+    font-size: 22px;
+    text-align: center;
+    width: 100%;
+    margin: 5px;
+`
+
 export const DescriptionHeader = styled.h3`
     font-family: 'Trochut', cursive;
     font-size: 22px;

@@ -7,10 +7,10 @@ export const Wrapper = styled.div`
     align-items: center;
     padding: 20px;
     width: 90%;
-    margin: 0 auto;
-    background-color: rgb(0, 0, 0, .7);
+    margin: 10px auto;
+    background-color: rgb(0, 0, 0, .5);
     color: white;
-    opacity: 0.8;
+    /* opacity: 0.8; */
     border-radius: 40px;
 
     @media (min-width: 667px) {
