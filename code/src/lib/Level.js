@@ -136,12 +136,12 @@ export const Description = styled.p`
   background: rgb(151 71 255 / 70%);
   font-weight: 800;
   font-size: 16px;
-  line-height:  24px;
+  line-height:  18px;
   letter-spacing: 1px;
   max-width: 200px;
   margin: 0;
 
-  @media(min-width: 1025px) {
+  @media(min-width: 768px) {
    font-size: 22px;
    line-height:  26px;
   }
@@ -166,13 +166,12 @@ export const SpaceButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 70px;
-    height: 70px;
-    margin-left: 10px;
+    width: 90px;
+    height: 90px;
     cursor: pointer;
 
     img{
-      width: 90%;
+      width: 80%;
 
       &:hover {
         width: 100%;
