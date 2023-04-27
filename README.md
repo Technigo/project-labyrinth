@@ -9,7 +9,8 @@ This week's project is all about tying together the skills you've learnt to buil
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We started the week going through the material individually and then got started on the project together through LiveShare. We decided on a design and created store, reducers and thunk together and got everything to work before splitting up. Bridget made a branch to keep the user history and show a map of the steps and Fanny made a branch for styling and change of background in the different rooms.
+When done we merged together and did the final touches before deploying.
 
 ## View it live
 
