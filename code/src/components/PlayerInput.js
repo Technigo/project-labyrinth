@@ -4,6 +4,7 @@ import games, { createPlayer } from 'reducers/games';
 import Header from './Header';
 import { OuterWrapper, StyledHeroPlayerInputContainer, SecondHeading, SecondHeadingLabel, StyledInput, UserNameForm } from './PlayerInputStyling';
 import { StartButton } from './GlobalStyling';
+import { MazeAnimation } from './MazeAnimation';
 
 const PlayerInput = () => {
   const [PlayerInputValue, setPlayerInputValue] = useState('');
@@ -27,6 +28,7 @@ const PlayerInput = () => {
           </SecondHeadingLabel>
           <StartButton type="submit">Start</StartButton>
         </UserNameForm>
+        <MazeAnimation />
       </OuterWrapper>
     </StyledHeroPlayerInputContainer>
   )
