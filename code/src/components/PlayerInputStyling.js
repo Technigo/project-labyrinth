@@ -10,15 +10,20 @@ export const StyledHeroPlayerInputContainer = styled.div`
   object-fit: cover;
   position: relative;
   min-height: 100vh;
+  max-width: 100%;
   align-items: center;
   text-align: center;
 `;
 
 export const OuterWrapper = styled.div`
   background-color: rgba(145, 132, 115, 0.7);
-  max-width: 50rem;
+  max-width: 100%;
   margin: 2rem auto;
   padding: 1rem;
+
+  @media (min-width: 1440px) {
+    max-width: 50rem;
+  }
 `;
 
 export const UserNameForm = styled.form`
