@@ -10,7 +10,6 @@ import TypeIt from 'typeit-react';
 
 const GameScreen = () => {
   const dispatch = useDispatch();
-  // const actions = useSelector((store) => store.labyrinth.actions);
   const currentGameState = useSelector((store) => store.labyrinth.currentGameState);
   const currentGameStateActions = useSelector(
     (store) => store.labyrinth.currentGameState.actions
@@ -50,7 +49,7 @@ const GameScreen = () => {
               ))}
             </DirectionContainer>
           ) : (
-            ''
+            'Well done. You have successfully navigated out of the labyrinth'
           )}
         </div>
         <button
