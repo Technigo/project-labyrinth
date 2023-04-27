@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { moveForward } from 'reducers/maze';
+import { useNavigate } from 'react-router-dom';
+import { maze, moveForward } from 'reducers/maze';
 import { userhistory } from 'reducers/userhistory';
 import { Loading } from 'components/Loading';
 import styled from 'styled-components';
@@ -17,10 +18,16 @@ export const MazeActions = () => {
   const actions = useSelector((store) => store.maze.actions);
   const description = useSelector((store) => store.maze.description);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleDirectionButton = (moveDirection) => {
     dispatch(moveForward(moveDirection))
     dispatch(userhistory.actions.addChoice(moveDirection))
+  };
+
+  const handleRestart = () => {
+    dispatch(maze.actions.restart())
+    navigate('/')
   };
 
   return (
@@ -44,6 +51,7 @@ export const MazeActions = () => {
             </InnerWrapper>
             <MiniMap />
             <UserHistory />
+            {coordinates === '1,3' && (<Button type="button" onClick={handleRestart}>Restart</Button>)}
           </Wrapper>
         </Background>
       )}
