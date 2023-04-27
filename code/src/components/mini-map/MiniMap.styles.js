@@ -21,10 +21,4 @@ export const Box = styled.div`
     padding: 3px;
     font-size: 24px;
  }
-
- /* p {
-    text-align: ${(props) => props.pAlign || 'center'};
-    margin: 0;
-    padding: ${(props) => props.pPadding || '5px'};
- } */
 `

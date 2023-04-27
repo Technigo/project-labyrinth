@@ -24,6 +24,9 @@ export const maze = createSlice({
     },
     storeActions: (store, action) => {
       store.actions = action.payload
+    },
+    restart: () => {
+      return initialState
     }
   }
 })

@@ -5,12 +5,11 @@ export const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
     width: 90%;
-    margin: 10px auto;
+    margin: 10% auto;
     background-color: rgb(0, 0, 0, .5);
     color: white;
-    /* opacity: 0.8; */
     border-radius: 40px;
 
     @media (min-width: 667px) {

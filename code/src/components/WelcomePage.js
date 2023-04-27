@@ -25,11 +25,11 @@ export const WelcomePage = () => {
   return (
     <Background coordinates={coordinates}>
       <Wrapper>
-        <Header1>Welcome to the Maze</Header1>
-        <BodyText>Please enter your username</BodyText>
+        <Header1>Are you reade to enter the Maze?</Header1>
+        <BodyText>First we need your name..</BodyText>
         <FormWrapper onSubmit={handleSubmit}>
-          <input type="text" onChange={(event) => setUsername(event.target.value)} value={username} />
-          <Button type="submit">Submit Username</Button>
+          <input type="text" placeholder="Type your name here" onChange={(event) => setUsername(event.target.value)} value={username} />
+          <Button type="submit">I am ready!</Button>
         </FormWrapper>
       </Wrapper>
     </Background>
