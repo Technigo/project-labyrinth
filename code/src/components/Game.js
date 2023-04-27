@@ -5,6 +5,45 @@ import { useSelector, useDispatch } from 'react-redux';
 import { startGame, nextStep } from 'reducers/game';
 import LandingPage from './LandingPage';
 import backgroundImages from './backgroundImages';
+import styled from 'styled-components';
+
+const StyledButton = styled.button`
+ background-color: rgba(255, 255, 255, 0.2);
+  justify-content:center;
+  align-items: center;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color:#ffffff;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+
+  }
+`;
+
+const StyledText = styled.h2`
+   font-size: 24px;
+  color: #ffffff;
+  margin-bottom: 40px;
+  text-align: center;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+`;
 
 const Game = ({ showLandingPage, setShowLandingPage }) => {
   const dispatch = useDispatch();
@@ -41,16 +80,23 @@ const Game = ({ showLandingPage, setShowLandingPage }) => {
 
   return (
     <div
-      style={{ backgroundImage: `url(${currentBackground})`,
+      style={{
+        backgroundImage: `url(${currentBackground})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        minHeight: '100vh' }}>
-      <h2>{gameState.description}</h2>
-      {gameState.actions.map((action) => (
-        <button type="button" key={action.direction} onClick={() => handleActionClick(action.direction)}>
-          {action.description}
-        </button>
-      ))}
+        minHeight: '100vh'
+      }}>
+      <Container>
+        <StyledText>{gameState.description}</StyledText>
+        {gameState.actions.map((action) => (
+          <StyledButton
+            type="button"
+            key={action.direction}
+            onClick={() => handleActionClick(action.direction)}>
+            {action.description}
+          </StyledButton>
+        ))}
+      </Container>
     </div>
   );
 };
