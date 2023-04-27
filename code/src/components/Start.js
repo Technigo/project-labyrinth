@@ -41,7 +41,7 @@ export const Start = () => {
         <label htmlFor="name">
           <FormDiv>
             <Input type="text" id="name" onChange={(event) => setUserName(event.target.value)} />
-            <StyledButton type="submit">Enter</StyledButton>
+            <Button type="submit">Enter</Button>
           </FormDiv>
         </label>
       </form>
@@ -58,7 +58,8 @@ padding: 20px;
 
 const StartText = styled.div`
 max-width: 400px;
-font-size: 30px;
+font-size: 24px;
+text-shadow: whitesmoke 2px 2px;
 `
 
 const FormDiv = styled.div`
@@ -75,8 +76,4 @@ background-color: #AEAD8A;
   border: 3px solid #555;
   background-color: #EEEA8A;
 }
-`
-const StyledButton = styled(Button)`
-color: black;
-text-shadow: none;
 `

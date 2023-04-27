@@ -46,7 +46,6 @@ export default Main
 const MainSection = styled.main`
 display: flex;
 justify-content: center;
-border: pink solid 4px;
 height: 100vh;
 background-image: ${(props) => `url(${props.backgroundImage})`};
 background-size: cover;
