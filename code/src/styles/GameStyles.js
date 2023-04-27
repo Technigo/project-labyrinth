@@ -19,7 +19,8 @@ export const InnerWrapper = styled.main`
   align-items: center;
   padding: 20px;
   border-radius: 10px;
-  background-color: rgb(140,122,103);
+  background-color: rgba(0, 0, 0, 0.7);
+  /* background-color: rgb(140,122,103); */
   animation: fade-in 1s ease-in forwards;
 
   @media (min-width: 768px) {
