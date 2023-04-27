@@ -1,12 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { game, generateGame } from 'reducers/game';
 
-const userNameInput = () => {
+const UserNameInput = () => {
+  const [UsernameInputValue, setUsernameInputValue] = useState('');
+
+  const dispatch = useDispatch();
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+    dispatch(game.actions.setUsername(UsernameInputValue));
+    dispatch(generateGame());
+    setUsernameInputValue('');
+  };
+
   return (
     <div>
-      <form>
+      <form onSubmit={onFormSubmit}>
         <label htmlFor="user-name-input">
         Enter name
-          <input id="user-name-input" />
+          <input
+            id="user-name-input"
+            onChange={(event) => setUsernameInputValue(event.target.value)}
+            value={UsernameInputValue} />
         </label>
         <button type="submit">Start game</button>
       </form>
@@ -14,4 +29,4 @@ const userNameInput = () => {
   )
 }
 
-export default userNameInput;
+export default UserNameInput;

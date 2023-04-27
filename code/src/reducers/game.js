@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  username: 'Hannah Sammy Johanna',
+  username: 'JohannaSammyHannah',
   actions: [],
   coordinates: '',
   description: ''
