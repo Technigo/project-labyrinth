@@ -4,6 +4,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { labyrinth, nextMove } from '../reducers/labyrinth';
+import './Labyrinth.css'
 // For some reason, when dealing with thunks - they have to be imported.
 
 const LabyrinthWrapper = styled.div`
@@ -25,18 +26,17 @@ export const Labyrinth = () => {
   }
 
   return (
-    <LabyrinthWrapper>
-      <p> HEJ HEJ!!</p>
+    <LabyrinthWrapper className="labyrinthWrapper">
       <p>{position.username}</p>
-      <p>{position.coordinates}</p>
-      <p>{position.description}</p>
+      {/* <p>{position.coordinates}</p> not sure if we want to keep this in or not */}
+      <p className="currentPosition">{position.description}</p>
       {/* The only thing above that renders as it should is the username and the coordinates.' */}
-      <div>
+      <div className="moveAction">
         {position.actions.map((action, index) => (
           <div>
             <p>{action.description}</p>
             {/* I added the description that is in the actions array. */}
-            <button key={index} type="button" onClick={() => handleMoveButtonClick(action.type, action.direction)}>{action.direction}</button>
+            <button className="moveBtn" key={index} type="button" onClick={() => handleMoveButtonClick(action.type, action.direction)}>{action.direction}</button>
           </div>
         ))}
       </div>
