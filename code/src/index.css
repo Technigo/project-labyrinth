@@ -3,6 +3,7 @@
   --second-headings-font-family: 'Wallpoet', cursive;
   --paragraph-font-family: 'Cormorant Garamond', serif;
   --button-font-family: 'Press Start 2p';
+  --drop-shadow: drop-shadow(2px 4px 1px rgb(0 0 0 / 0.3));
 }
 
 body {

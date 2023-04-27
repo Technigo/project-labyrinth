@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import games, { createPlayer } from 'reducers/games';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import Header from './Header';
 import { OuterWrapper, StyledHeroPlayerInputContainer, SecondHeading, SecondHeadingLabel, StyledInput, UserNameForm } from './PlayerInputStyling';
-import { StartButton } from './GlobalStyling';
+import { StartButton, StyledIcon } from './GlobalStyling';
 import { MazeAnimation } from './MazeAnimation';
 
 const PlayerInput = () => {
@@ -26,7 +27,9 @@ const PlayerInput = () => {
            Enter player name:
             <StyledInput id="player-input" required type="text" placeholder="Name" onChange={(event) => setPlayerInputValue(event.target.value)} />
           </SecondHeadingLabel>
-          <StartButton type="submit">Start</StartButton>
+          <StartButton type="submit">Start
+            <StyledIcon icon={faPlay} />
+          </StartButton>
         </UserNameForm>
         <MazeAnimation />
       </OuterWrapper>

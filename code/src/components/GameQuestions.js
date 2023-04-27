@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons';
 import games, { GenerateQuestion } from '../reducers/games';
-import { DirectionButton, GoBackButton, ResetButton } from './GlobalStyling';
+import { DirectionButton, GoBackButton, ResetButton, StyledIcon } from './GlobalStyling';
 
 const GameQuestions = () => {
   const description = useSelector((store) => store.games.description);
@@ -30,7 +31,8 @@ const GameQuestions = () => {
       <div>
         {history.length > 0 && (
           <GoBackButton type="button" onClick={goToPreviousMove}>
-        Go back
+            <StyledIcon icon={faArrowLeftLong} />
+            Go back
           </GoBackButton>
         )}
       </div>
@@ -49,7 +51,8 @@ const GameQuestions = () => {
         ))}
         {coordinates === '1,3' ? <div>Your JSX element here</div> : null}
       </div>
-      <ResetButton type="button" onClick={onRestartButton}>Reset</ResetButton>
+      <ResetButton type="button" onClick={onRestartButton}>Reset
+      </ResetButton>
     </div>
   );
 };

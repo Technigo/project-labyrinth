@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 
 // Button styling inspired by https://codepen.io/reulison/pen/WNNVPZq
@@ -45,17 +46,16 @@ export const Button = styled.button`
     font-family: var(--button-font-family);
     font-weight: 600;
     border: none; 
-    padding: 0.7rem 1rem;
+    padding: 0.5rem 1rem;
     margin: 0.625rem 0;
     transition-duration: 0.4s;
-    text-align: center;
     cursor: pointer;
     text-transform: uppercase;
     background-color: rgba(211, 211, 211, 0.8);
     text-shadow: -1px -1px black, 1px 1px white;
     color: gray;
     border-radius: 0.438rem;
-    box-shadow: 0 .2em gray; 
+    box-shadow: 0 .4em gray; 
 
       &:hover {
     transition-duration: 0.4s;
@@ -64,16 +64,20 @@ export const Button = styled.button`
 `;
 
 export const StartButton = styled(Button)`
-    display: inline-block;
     font-size: 1rem;
 `;
 
 export const DirectionButton = styled(Button)`
-    display: inline-block;
     font-size: 0.6rem;
 `;
 
 export const GoBackButton = styled(Button)`
-    display: inline-block;
     font-size: 0.6rem;
+`;
+
+export const StyledIcon = styled(FontAwesomeIcon)`
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: bold;
 `;
