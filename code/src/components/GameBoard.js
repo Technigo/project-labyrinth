@@ -22,7 +22,7 @@ export const GameBoard = () => {
           {isLoading === false && gameboard.map((item) => (
             <Card key={item.direction}>
               <Description>{item.description}</Description>
-              <Button direction type="submit" onClick={() => dispatch(labyrinthProgress('move', item.direction))}>{item.direction}</Button>
+              <Button direction="submit" onClick={() => dispatch(labyrinthProgress('move', item.direction))}>{item.direction}</Button>
             </Card>))}
         </CardsContainer>
       </div>
