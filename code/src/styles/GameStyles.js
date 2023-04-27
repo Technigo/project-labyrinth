@@ -12,12 +12,7 @@ export const GameWrapper = styled.div`
   justify-content: center;
   align-items: center;
   background-color: grey;
-
-  @media ${Devices.mobile} {
-  max-width: 200px;
-  max-height: 50vh;
-  }
-`
+`;
 export const InnerWrapper = styled.main`
   padding: 20px;
   border-radius: 10px;
