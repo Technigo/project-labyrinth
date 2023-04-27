@@ -1,3 +1,5 @@
+// /////////////// IMPORTS //////////////////////// //
+
 // Import necessary libraries
 import { createSlice } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
@@ -13,6 +15,8 @@ const initialState = {
   loading: false,
   coordinates: ''
 }
+
+// /////////////// REDUCER //////////////////////// //
 
 // Create Redux slice
 export const labyrinthMango = createSlice({
@@ -59,6 +63,8 @@ export const labyrinthMango = createSlice({
     }
   }
 })
+
+// /////////////// FETCHCALLS / THUNKS //////////////////////// //
 
 // Thunk to start the game
 export const startGame = () => {
