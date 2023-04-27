@@ -4,9 +4,10 @@ import { nextMove } from 'reducers/game';
 import TypeWriterEffect from 'react-typewriter-effect';
 import styled from 'styled-components/macro';
 import { Button } from 'lib/Button';
+import Map from './Map';
 
 export const GameBoard = () => {
-  const { description, actions } = useSelector((store) => store.game.position)
+  const { description, actions, coordinates } = useSelector((store) => store.game.position)
   const dispatch = useDispatch()
   const username = useSelector((store) => store.game.username)
 
@@ -22,10 +23,13 @@ export const GameBoard = () => {
 
   return (
     <GameBoardContainer>
-      <HeaderBar>
+      <PlayerBar>
         <Button type="button" buttonText="RestartBtn" onClick={onRestartBtnClick} />
         <h2><span>const</span> Player <span>=</span> {username}</h2>
-      </HeaderBar>
+      </PlayerBar>
+      <Prompt>
+        <h2>prompt()</h2>
+      </Prompt>
       <PositionDescription>
         <TypeWriterEffect
           startDelay={100}
@@ -39,11 +43,12 @@ export const GameBoard = () => {
           <SingleAction>
             <p>{singleAction.description}</p>
             <Button
-              buttonText={singleAction.direction}
+              buttonText={`Go ${singleAction.direction}`}
               onClick={() => onDirectionBtnClick(singleAction.direction)} />
           </SingleAction>
         ))}
       </ActionsContainer>
+      <Map coordinates={coordinates} />
     </GameBoardContainer>
   )
 }
@@ -51,18 +56,14 @@ export const GameBoard = () => {
 const GameBoardContainer = styled.div`
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
-    margin-top: 90px;
-    justify-self: center;
     width: 90%;
-    max-width: 300px;
-    margin-bottom: 20px;
+    max-width: 400px;
 `
 
-const HeaderBar = styled.div`
+const PlayerBar = styled.div`
     display: flex;
     align-items: center;
-    margin: 20px 0 20px 0;
+    margin-bottom: 10px;
     padding: 10px;
     h2 {
         font-size: 14px;
@@ -72,14 +73,21 @@ const HeaderBar = styled.div`
       color: rgb(83, 199, 210);
     }
 `
+const Prompt = styled.p`
+  font-size: 16px;
+  color: rgb(164, 145, 230);
+  padding: 10px;
+`
 
 const PositionDescription = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 70px;
+    border: 2px dashed rgb(164, 145, 230);
+    border-radius: 3px;
     padding: 10px;
-
-    margin-bottom: 30px;
+    margin: 0 10px 10px 10px;
     h1 {
         font-size: 16px;
         color: rgb(164, 145, 230);
@@ -98,7 +106,11 @@ const SingleAction = styled.div`
     padding: 5px 0 5px 0;
     p {
         font-size: 16px;
-        margin-bottom: 10px;
+        margin: 15px 5px 15px 0;
         color: rgb(239, 92, 116);
     }
+    /*button {
+      align-self: center;
+      margin-left: 10px;
+    }*/
 `
