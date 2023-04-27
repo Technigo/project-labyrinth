@@ -17,7 +17,7 @@ export const StyledHeroPlayerInputContainer = styled.div`
 export const OuterWrapper = styled.div`
   background-color: rgba(145, 132, 115, 0.7);
   max-width: 50rem;
-  margin: 5rem auto;
+  margin: 2rem auto;
   padding: 1rem;
 `;
 
