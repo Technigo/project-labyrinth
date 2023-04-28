@@ -3,9 +3,18 @@ Group project with Vera and Jonas and Irupé where we build a project which allo
 
 
 ## The problem
+This week's project involved diving deeper into Redux and working with APIs and thunks. The project also covered the structuring of Redux stores, reusable components, and sending JSON in the body of a request. 
+We started with mob-programing to then branchout and then mob-programing again. 
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Tools and Technologies Used
+React
+Redux
+JSONPlaceholder
+Visual Studio Code
+Git and GitHub
+
+
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://the-great-space-maze.netlify.app
