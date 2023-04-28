@@ -34,8 +34,17 @@ const EndContainer = styled.section`
 `;
 
 const StyledTypeIt = styled(TypeIt)`
-  font-size: 2em;
+  font-size: 1.8em;
   font-family: var(--font-family);
+  margin: 10px;
+
+  @media (max-width: 340px) {
+    font-size: 1.6em;
+  }
+
+  @media (min-width: 667px) {
+    margin: 30px;
+  }
 `;
 
 const StartOverBtn = styled.button`
