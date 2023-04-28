@@ -14,7 +14,8 @@ const games = createSlice({
 
   reducers: {
     setUserName: (store, action) => {
-      store.username = action.payload;
+      store.username = `${new Date().getTime()}+${action.payload}`
+      // Add time to make the username unique
     },
     setDescription: (store, action) => {
       store.description = action.payload;
