@@ -1,22 +1,29 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-// import styled from 'styled-components/macro'
+// import { useDispatch } from 'react-redux'
+import styled from 'styled-components/macro'
 import Lottie from 'lottie-react'
-// import { StartText } from './Start'
-import Bottle from '../lotties/bottle.json'
+// import { maze } from 'reducers/maze'
+import ship from '../lotties/ship.json'
 import { Button } from './Buttons'
-import { GrandFinal } from './GrandFinal'
 
 export const FinalStep = () => {
-  const dispatch = useDispatch()
-  const handleBottleClick = () => {
-    dispatch(GrandFinal())
+  // const dispatch = useDispatch()
+
+  const onClickRestart = () => {
+    window.location.reload()
   }
 
   return (
-    <Button type="button" onClick={((event) => handleBottleClick(event.target.value))}>
-      <Lottie style={{ width: '200px', margin: 'auto' }} animationData={Bottle} loop />
-      Click bottle
-    </Button>
+    <div>
+      <Lottie style={{ width: '400px', margin: 'auto' }} animationData={ship} />
+      <RestartButton type="button" onClick={() => onClickRestart()}>Restart</RestartButton>
+    </div>
   )
 }
+
+const RestartButton = styled(Button)`
+color: goldenrod;
+position: absolute;
+bottom: 5px;
+right:5px;
+`

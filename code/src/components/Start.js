@@ -1,22 +1,25 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import TypeIt from 'typeit-react'
-// import FadedText from 'faded-text'
 import styled from 'styled-components/macro'
 import { maze } from 'reducers/maze'
-import FetchGame from './FetchGame'
+import { FetchGame } from './FetchGame'
 import { Loading } from './Loading'
 import { Button } from './Buttons'
+import beachWaves from '../sounds/beach.mp3'
 
 export const Start = () => {
   const currentLocation = useSelector((store) => store.maze)
   const [userName, setUserName] = useState('')
-
+  const [audio] = useState(new Audio(beachWaves))
   const dispatch = useDispatch()
 
-  // const FADED_TEXT = new FadedText('idElement')
-  // FADED_TEXT.charFadeIn()
+  useEffect(() => {
+    audio.loop = true
+    audio.play()
+    return () => audio.pause()
+  }, [audio])
 
   const onNameSubmit = (event) => {
     event.preventDefault()
@@ -62,13 +65,14 @@ padding: 20px;
 
 export const StartText = styled.div`
 max-width: 400px;
+height: 265px;
 font-size: 24px;
 text-shadow: whitesmoke 2px 2px;
 
 @media (min-width: 768px) {
   font-size: 32px;
+  height: 400px;
 }
-
 `
 
 const FormDiv = styled.div`

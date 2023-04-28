@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { createGlobalStyle } from 'styled-components'
 import { maze } from 'reducers/maze'
-import Main from 'components/Main'
+import { Main } from 'components/Main'
 
 export const App = () => {
   const reducer = combineReducers({

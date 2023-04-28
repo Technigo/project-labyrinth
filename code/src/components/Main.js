@@ -1,7 +1,8 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
-import Location from './Location'
+import { Location } from './Location'
 import { Start } from './Start'
 import StartImg from '../images/StartPage.jpg'
 import LightImg from '../images/light.jpg'
@@ -12,7 +13,7 @@ import EndImg from '../images/end.jpg'
 import WorkshopImg from '../images/workshop.jpg'
 import library from '../images/library.jpg'
 
-const Main = () => {
+export const Main = () => {
   const username = useSelector((store) => store.maze.username)
   const currentLocation = useSelector((store) => store.maze.coordinates)
 
@@ -34,14 +35,13 @@ const Main = () => {
       break;
     default: backgroundImage = StartImg;
   }
+
   return (
     <MainSection backgroundImage={backgroundImage}>
-      {username === '' ? <Start /> : <Location />}
+      {username === '' ? (<Start />) : (<Location />)}
     </MainSection>
   )
 }
-
-export default Main
 
 const MainSection = styled.main`
 display: flex;

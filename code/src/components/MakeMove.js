@@ -23,7 +23,7 @@ export const MakeMove = () => {
         coordinates: location.coordinates,
         actions: location.actions
       })))
-      .catch((error) => console.log(error))
+      .catch((error) => console.error(error))
       .finally(() => dispatch(maze.actions.setLoading(false)))
   }
 }

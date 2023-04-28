@@ -1,6 +1,6 @@
 import { maze } from 'reducers/maze'
 
-const FetchGame = () => {
+export const FetchGame = () => {
   return (dispatch, getState) => {
     dispatch(maze.actions.setLoading(true))
     fetch(
@@ -23,5 +23,3 @@ const FetchGame = () => {
       .finally(() => dispatch(maze.actions.setLoading(false)))
   }
 }
-
-export default FetchGame

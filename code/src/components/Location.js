@@ -1,3 +1,5 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable max-len */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable react/jsx-closing-tag-location */
 import React, { useState } from 'react'
@@ -12,8 +14,9 @@ import { Loading } from './Loading'
 import compass from '../lotties/compass.json'
 import woodenSign from '../images/plank.jpg'
 import { Button } from './Buttons'
+import { GrandFinal } from './GrandFinal'
 
-const Location = () => {
+export const Location = () => {
   const currentLocation = useSelector((store) => store.maze)
   const dispatch = useDispatch()
   const [clickCount, setClickCount] = useState(0)
@@ -47,7 +50,7 @@ const Location = () => {
         <div>
           {clickCount === 1
             && <DirectionsSign className={action.direction}>
-              {action.direction}
+              <DirectionHeading>{action.direction}</DirectionHeading>
               <DirectionsP>
                 {action.description}
               </DirectionsP>
@@ -56,26 +59,30 @@ const Location = () => {
       </>
     )
   })
+
   return (
+
     <div>
       {currentLocation.isLoading ? <LoadingDiv><Loading /></LoadingDiv>
         : <LocationsDiv>
-          <TypeIt options={{ speed: 50, cursor: false }}>
-            <LocationText>
-              {currentLocation.description}
-            </LocationText>
-          </TypeIt>
+          <div>
+            <TypeIt options={{ speed: 50, cursor: false }}>
+              <LocationText>
+                {currentLocation.description}
+              </LocationText>
+            </TypeIt>
+          </div>
           <CompassSquare>
             {currentLocation.coordinates === '1,3' ? null : <Lottie style={{ width: '150px', position: 'relative' }} animationData={compass} loop />}
             {actionDirections}
           </CompassSquare>
-          {currentLocation.coordinates === '1,3' ? <FinalStep /> : null}
+          {currentLocation.coordinates === '1,3' ? (
+            <FinalStep />) : null}
+          {currentLocation.isGameEnded ? <GrandFinal /> : null}
         </LocationsDiv>}
     </div>
   )
 }
-
-export default Location
 
 const LoadingDiv = styled.div`
 display: flex;
@@ -90,13 +97,21 @@ display: flex;
 flex-direction: column;
 align-items: center;
 max-width: 600px;
-height: 200px;
+height: 100vh;
+`
+
+const DirectionHeading = styled.p`
+margin: 0;
+@media (min-width: 768px) {
+display: none;
+}
 `
 const LocationText = styled.div`
 font-size: 18px;
-padding: 10px;
+padding: 0px 10px;
 color: whitesmoke;
 text-shadow: black 2px 1px;
+height: 140px;
 
 @media (min-width: 768px) {
   font-size: 32px;
@@ -112,54 +127,57 @@ background-image: url(${woodenSign});
 background-size: cover;
 width: 160px;
 margin: 10px;
-padding: 6px 6px;
+padding: 4px 10px;
 box-shadow: 2px 6px 6px 2px black;
 text-shadow: 0px 1px whitesmoke;
 
 &.North{
   position:absolute;
-  right: calc(-20%);
-  bottom: calc(-100%);
-  border-radius: 30px 60px 50px 20px;
+  right: calc(-15%);
+  bottom: calc(-70%);
+  border-radius: 30px 40px 50px 20px;
+  width: 190px;
 
   @media (min-width: 768px) {
-  top: calc(-100%);
-  right: calc(10%);
+  top: calc(-45%);
+  right: calc(-10%);
+  width: 300px;
 }
 }
 &.South{
   position:absolute;
-  right: calc(-20%);
-  bottom: calc(-100%);
+  right: calc(-13%);
+  bottom: calc(-70%);
   border-radius: 30px 60px 50px 20px;
 
   @media (min-width: 768px) {
-  bottom: calc(-75%);
-  right: calc(10%);
+  bottom: calc(-30%);
+  right: calc(-15%);
+  width: 300px;
 }
 }
 
 &.West{
   position: absolute;
-  left: calc(-20%);
-  bottom: calc(-100%);
+  left: calc(-13%);
+  bottom: calc(-70%);
   border-radius: 30px 25px 40px 2px;
 
   @media (min-width: 768px){
     top: calc(35%);
-    left: calc(-100%);
+    left: calc(-70%);
   }
 }
 
 &.East {
   position: absolute;
-  left: calc(-20%);
-  bottom: calc(-100%);
+  left: calc(-10%);
+  bottom: calc(-70%);
   border-radius: 30px 25px 40px 2px;
 
   @media (min-width: 768px){
-    top: 20%;
-    left: calc(120%);
+    top: calc(30%);
+    left: calc(110%);
   }
 }
 `
@@ -178,16 +196,16 @@ top: calc(0%);
 align-items: center;
 justify-content:center;
 border-radius: 50%;
-min-width: 250px;
-min-height: 250px;
+min-width: 300px;
+min-height: 300px;
 
 @media (min-width: 768px) {
-  top: calc(130%);
+  top: calc(20%);
 }
 `
 
 const Sign = styled.div`
-padding: 8px 8px;
+padding: 6px 8px;
 width: fit-content;
 display: flex;
 flex-direction: column;
@@ -201,28 +219,28 @@ margin: 10px;
 
 &.North {
   position: absolute;
-  top: calc(-5%);
+  top: calc(0%);
   right: calc(30%);
   border-radius: 8px 30px 90px 60px;
 }
 
 &.South {
   position: absolute;
-  bottom: calc(-5%);
-  left: calc(30%);
+  bottom: calc(5%);
+  left: calc(35%);
 }
 
 &.East {
   position: absolute;
-  top: calc(40%);
-  right: calc(-20%);
+  top: calc(35%);
+  right: calc(-10%);
   border-radius: 40px 4px 50px 10px;
 }
 
 &.West {
   position: absolute;
   top: calc(40%);
-  left: calc(-20%);
+  left: calc(-10%);
   border-radius: 20px 0px 8px 20px;
 }
 

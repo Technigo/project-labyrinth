@@ -8,7 +8,8 @@ export const maze = createSlice({
     actions: [],
     username: '',
     isLoading: false,
-    chosenDirection: ''
+    chosenDirection: '',
+    isGameEnded: false // state to track if the game has ended
   },
 
   reducers: {
@@ -30,6 +31,9 @@ export const maze = createSlice({
       store.coordinates = coordinates
       store.description = description
       store.actions = actions
+    },
+    endGame: (store, action) => {
+      store.isGameEnded = action.payload
     }
   }
 })
