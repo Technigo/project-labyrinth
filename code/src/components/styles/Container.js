@@ -1,9 +1,7 @@
 import styled from 'styled-components/macro';
 
 export const OuterWrapper = styled.div`
-  background-image: url("https://images.unsplash.com/photo-1548783917-a211bcc263cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1486&q=80");
   min-height: 100vh; //vh = view-height
-  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -11,20 +9,17 @@ export const OuterWrapper = styled.div`
 `;
 
 export const InnerWrapper = styled.div`
-// all these can be changed later on when we work on the styling
-  max-width: 1200px;
   margin: 0 auto;
-  width: 100%;
   padding: 2rem;
 `;
 
 export const BoxContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   gap: 5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
 `;
 
 export const PlayerContainer = styled.div`
@@ -32,10 +27,9 @@ export const PlayerContainer = styled.div`
   flex-direction: column;
   justify-content: center; 
   border-radius: 5px;
-  min-height: 60vh;
   width: calc(50% - 5rem);
   min-width: 350px;
-  background-color: #161616;
+  background-color: var(--primaryBlack);
   padding: 20px;
 
 img {
@@ -59,17 +53,79 @@ img {
   }
 
   button {
-    background-color: ;
-    // padding: 1.2rem;
+    background-color: #b3b813;
+    border: #b3b813 1px solid;
+    border-radius:25px;
+    padding: 1.2rem;
     margin-top: 1rem;
   }
+
+  button:hover {
+    background-color: transparent;
+    border: #b3b813 1px solid;
+    color: var(--primaryWhite)
+  }
+
+  @media (max-width:668px) {
+  width: calc(50% - 5rem);
+  max-height: 60vh;
+  min-width: 200px;
+  }
+`;
+
+export const ParentDirectionsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: border;
+  align-items: center;
 `;
 
 export const DirectionsContainer = styled(PlayerContainer)`
   justify-content: space-between;
-  min-height: 25rem;
-  p {
-    font-size: 0.9rem;
+  max-width: 5rem;
+  min-height: 5rem;
+    p {
+    font-size: 1rem;
     margin-top: 1rem;
   }
 `;
+
+export const P = styled.p`
+font-size: 20px;
+text-align: center;
+color: var (--primaryWhite);
+`;
+
+export const TextBox = styled.div`
+display: flex;
+flex-direction: row;
+font-size: 20px;
+background-color: var(--primaryBlack);
+text-align: center;
+padding:40px;
+margin: 0 20px;
+border-radius: 40px 15px 40px 15px;
+border: red solid 2px;
+`;
+
+export const ButtonRestart = styled.button`
+  background-color: #b3b813;
+  border: #b3b813 1px solid;
+  border-radius:25px;
+  padding: 1.2rem;
+
+  &:hover {
+    background-color: var(--secondaryGreen);
+    border: var(--secondaryGreen) 1px solid;
+    color: var(--primaryBlack);
+  }
+
+`;
+
+export const LoadingBox = styled.div`
+background-image: url("https://images.unsplash.com/photo-1548783917-a211bcc263cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1486&q=80");
+`
+
+export const Loading = styled.div`
+background-color:red;
+`

@@ -41,6 +41,7 @@ export const Loading = () => {
       )}
     </Animation>
   );
+<<<<<<< HEAD
 }
 
 const Animation = styled.div`
@@ -58,3 +59,6 @@ justify-content: center;
 align-items: center;
 z-index: 9999; */
 `
+=======
+};
+>>>>>>> de205ff1ea26388a07aeefa3a4be59bd45681194

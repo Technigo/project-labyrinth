@@ -30,7 +30,7 @@ export const TextAnimation = styled.div`
         border-color: transparent;
       }
       50% {
-        border-color: blue;
+        border-color: var(--primaryWhite);
       }
     }
     @media (max-width: 667px) {

@@ -1,24 +1,23 @@
 body {
   margin: 0;
-  /* CHANGE FONT AND MORE STYLING WITH MAJA */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Nunito', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(./assets/maze.jpg);
+  background-size: cover;
+  background-repeat: repeat;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: 'Nunito', sans-serif;
 }
 
 :root {
-  --primaryBlack: #161616;
+  --primaryBlack: #161616af;
   --primaryWhite: #fbfbfbef;
   --mainGreen: #b3b813;
   --secondaryGreen: rgb(232, 247, 180); 
-  --darkGreen: rgb(1, 15, 1);
+  --darkGreen: rgba(1, 15, 1, 0.226);
 
 }
 
@@ -70,7 +69,7 @@ span {
   margin: 0 auto;
   width: 100%;
   display: flex;
-  margin-top: 3rem;
+  margin-top: 1rem;
   margin-bottom: 5rem;
-  gap: 10px;
+  gap: 5px;
 }

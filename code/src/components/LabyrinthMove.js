@@ -3,7 +3,7 @@
 import React from 'react';
 import labyrinth, { labyrinthProgress } from 'reducers/labyrinth';
 import { useDispatch } from 'react-redux';
-import { DirectionsContainer } from './styles/Container';
+import { DirectionsContainer, P, ParentDirectionsContainer } from './styles/Container';
 
 export const LabyrinthMove = ({ response }) => {
   const dispatch = useDispatch();
@@ -20,18 +20,21 @@ export const LabyrinthMove = ({ response }) => {
     <>
       {response.actions && response.actions.map((action) => {
         return (
-          <DirectionsContainer>
-            <p>{action.description}</p>
-            <label>
-              <button
-                type="button"
-                className="nes-btn is-primary"
-                name="answer"
-                onClick={() => onDirectionClick(action.direction)}>
-                Go {action.direction}
-              </button>
-            </label>
-          </DirectionsContainer>
+          <ParentDirectionsContainer>
+            <DirectionsContainer>
+              <P>{action.description}</P>
+              <label>
+                <button
+                  type="button"
+                  className="nes-btn is-primary"
+                  name="answer"
+                  onClick={() => onDirectionClick(action.direction)}>
+                          Go {action.direction}
+                </button>
+              </label>
+            </DirectionsContainer>
+          </ParentDirectionsContainer>
+
         );
       })}
     </>
