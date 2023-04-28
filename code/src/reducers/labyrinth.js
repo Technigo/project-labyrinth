@@ -4,7 +4,6 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   username: null,
   currentPosition: null,
-  history: [],
   loading: false
 }
 

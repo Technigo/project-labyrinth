@@ -5,6 +5,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { labyrinth, nextMove } from '../reducers/labyrinth';
 import './Labyrinth.css'
+
+import caveImg from '../images/cave.jpg'
+import bridgeImg from '../images/bridge.jpg';
+import stonesImg from '../images/stones.jpg';
+import gearsImg from '../images/gears.jpg';
+import treasureImg from '../images/treasure.jpg';
+import lightCaveImg from '../images/light-cave.jpg';
+import forestImg from '../images/forest.jpg';
 // For some reason, when dealing with thunks - they have to be imported.
 
 const LabyrinthWrapper = styled.div`
@@ -25,28 +33,59 @@ export const Labyrinth = () => {
     dispatch(labyrinth.actions.restartGame())
   }
 
-  return (
-    <LabyrinthWrapper className="labyrinthWrapper">
-      <p>{position.username}</p>
-      {/* <p>{position.coordinates}</p> not sure if we want to keep this in or not */}
-      <p className="currentPosition">{position.description}</p>
-      {/* The only thing above that renders as it should is the username and the coordinates.' */}
-      <div className="moveAction">
-        {position.actions.map((action, index) => (
-          <div>
-            <p>{action.description}</p>
-            {/* I added the description that is in the actions array. */}
-            <button className="moveBtn" key={index} type="button" onClick={() => handleMoveButtonClick(action.type, action.direction)}>{action.direction}</button>
-          </div>
-        ))}
-      </div>
-      {position.coordinates === '1,3' && (
-        <button type="button" onClick={() => handleRestartButtonClick()}>
-        Restart
-        </button>
-      )}
-      {/* if the coordinates is 1,3, then the restart-button above will be rendered. */}
+  const positionImages = () => {
+    switch (position.coordinates) {
+      case '0,0':
+        return caveImg;
+      case '1,0':
+        return bridgeImg;
+      case '1,1':
+        return stonesImg;
+      case '0,1':
+        return gearsImg;
+      case '0,2':
+        return treasureImg;
+      case '0,3':
+        return lightCaveImg;
+      case '1,3':
+        return forestImg;
+      default:
+        return caveImg;
+    }
+  };
 
-    </LabyrinthWrapper>
+  return (
+    <section
+      className="backgroundImages"
+      style={{
+        backgroundImage: `url(${positionImages()})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        height: '100vh'
+      }}>
+      <LabyrinthWrapper className="labyrinthWrapper">
+        <p>{position.username}</p>
+        {/* <p>{position.coordinates}</p> not sure if we want to keep this in or not */}
+        <p className="currentPosition">{position.description}</p>
+        {/* The only thing above that renders as it should is the username and the coordinates.' */}
+        <div className="moveActionWrapper">
+          <div className="moveAction">
+            {position.actions.map((action, index) => (
+              <div>
+                <p>{action.description}</p>
+                {/* I added the description that is in the actions array. */}
+                <button className="moveBtn" key={index} type="button" onClick={() => handleMoveButtonClick(action.type, action.direction)}>{action.direction}</button>
+              </div>
+            ))}
+          </div>
+        </div>
+        {position.coordinates === '1,3' && (
+          <button type="button" onClick={() => handleRestartButtonClick()}>
+        Restart
+          </button>
+        )}
+        {/* if the coordinates is 1,3, then the restart-button above will be rendered. */}
+      </LabyrinthWrapper>
+    </section>
   )
 }
