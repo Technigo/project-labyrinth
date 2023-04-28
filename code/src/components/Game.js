@@ -3,10 +3,12 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchTwo } from 'reducers/gameFetch';
-import { LevelCard, Description, Background, DescriptionCard, DirectionButton, Arrow, ShowMoreButton, MainDescriptionCard, MainDescription, PlayerLevelWrapper } from 'lib/Level';
+import { LevelCard, Background, DescriptionCard, Arrow, MainDescriptionCard, PlayerLevelWrapper } from 'lib/General';
+import { MainDescription, Description } from 'lib/Text';
 import arrow from 'images/purple-arrow.png';
+import { DirectionButton, ShowMoreButton } from 'lib/Buttons';
 import { StarterPage } from './StarterPage';
-import { Animation } from './LoadingAnimation';
+import { LoadingAnimation } from './LoadingAnimation';
 import { RestartButton } from './RestartButton';
 import { UfoWaiting } from './UfoWaiting';
 import { UfoMoving } from './UfoMoving';
@@ -36,13 +38,13 @@ export const Game = () => {
       setShowMore(false);
       setDirectionTaken(false);
       setGoDirection(null)
-    }, 4000)
+    }, 2000)
   };
 
   return (
     <div>
       {isLoading ? ( // Good! All should be like this
-        <Animation />
+        <LoadingAnimation />
       ) : (
         <div>
           {coordinates === 'x,x' && (

@@ -3,6 +3,8 @@ body {
   font-family: 'Bebas Neue', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: black;
+  overflow: hidden;
 }
 
 code {

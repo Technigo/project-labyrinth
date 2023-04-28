@@ -10,6 +10,11 @@ import image5 from 'images/level5.jpg'
 import image6 from 'images/level6new.png'
 import image7 from 'images/level7.jpg'
 
+const FadeIn = keyframes`
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+`
+
 export const Background = styled.div`
   display: flex;
   flex-direction: column;
@@ -19,6 +24,7 @@ export const Background = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  animation: ${FadeIn} 2s ease-in forwards;
   background-image: url(${(props) => (props.coordinates === undefined || props.coordinates === '0,0' ? image1 : props.coordinates === '1,0' ? image2 : props.coordinates === '1,1' ? image3 : props.coordinates === '0,1' ? image4 : props.coordinates === '0,2' ? image5 : props.coordinates === '0,3' ? image6 : props.coordinates === '1,3' ? image7 : '')})
 `
 
@@ -31,12 +37,10 @@ export const StartBackground = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url(${start})
+  background-image: url(${start});
+  animation: ${FadeIn} 2s ease-in forwards;
 `
-const FadeIn = keyframes`
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-`
+
 export const LevelCard = styled.div`
   padding: 0 20px;
   position: relative;
@@ -63,52 +67,6 @@ export const DescriptionCard = styled.div`
   @media(min-width: 1025px) {
     gap: 20px;
   }
-  `
-
-export const MainDescription = styled.p`
-  font-family: 'Teko', sans-serif;
-  color: #FFFAF0;
-  font-weight: 800;
-  font-size: 20px;
-  line-height:  24px;
-  letter-spacing: 1px;
-  margin-top: 0;
-
-  @media(min-width: 1025px) {
-   font-size: 22px;
-   line-height:  26px;
-  }
-`
-
-const shake = keyframes`
-  10%, 90% { transform: translate3d(-1px, 0, 0); }
-  20%, 80% { transform: translate3d(2px, 0, 0); }
-  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
-  40%, 60% { transform: translate3d(4px, 0, 0); }
-`
-
-export const DirectionButton = styled.button`
-  background: transparent;
-  outline: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-
-  &:hover {
-  animation: ${shake} 0.82s cubic-bezier(.36,.07,.19,.97) both;
-  transform: translate3d(0, 0, 0);
-  perspective: 1000px;
-  }
-`
-
-export const ShowMoreButton = styled(DirectionButton)`
-  color: #FFFAF0;
-  text-align: left;
-  font-size: 20px;
-  letter-spacing: 2px;
-  font-weight: 900;
-  font-family: 'Bebas Neue', cursive;
-  cursor: pointer;
 `
 
 export const MainDescriptionCard = styled.div`
@@ -116,39 +74,11 @@ export const MainDescriptionCard = styled.div`
   padding: 15px;
   background: rgb(151 71 255 / 70%);
   max-width: 100%;
-  animation: ${FadeIn} 2s ease-in forwards;
   margin-bottom: 277px;
 
   @media(min-width: 1025px) {
     max-width: 40%;
   }
-`
-
-export const Description = styled.p`
-  font-family: 'Teko', sans-serif;
-  padding: 15px;
-  width: 80%;
-  border-radius: 6px;
-  color: #FFFAF0;
-  background: rgb(151 71 255 / 70%);
-  font-weight: 800;
-  font-size: 16px;
-  line-height:  18px;
-  letter-spacing: 1px;
-  max-width: 200px;
-  margin: 0;
-
-  @media(min-width: 768px) {
-   font-size: 22px;
-   line-height:  26px;
-  }
-`
-
-export const GreetingText = styled.h1`
-  color: white;
-  font-size: 60px;
-  letter-spacing: 1px;
-  padding: 0 20px;
 `
 
 export const Arrow = styled.img`
@@ -157,24 +87,6 @@ export const Arrow = styled.img`
   transform: ${(props) => (props.direction === 'East' ? '' : props.direction === 'West' ? 'rotate(180deg)' : props.direction === 'North' ? 'rotate(-90deg)' : props.direction === 'South' ? 'rotate(90deg)' : '')}
 
 `
-export const SpaceButton = styled.button`
-    background: none;
-    border:none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 90px;
-    height: 90px;
-    cursor: pointer;
-
-    img{
-      width: 90%;
-
-      &:hover {
-        width: 100%;
-      }
-    }
-  `
 
 export const StarterForm = styled.form`
     display: flex;
@@ -220,6 +132,18 @@ const flyAway = keyframes`
 }
 `;
 
+const FlyNorth = keyframes`
+0% {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+100% {
+  transform: translate(-50%, -500%) rotate(-12deg) scale(1.2);
+  opacity: 1;
+}
+`;
+
 const FlySouth = keyframes`
 0% {
   transform: translate(-50%, -50%);
@@ -249,7 +173,7 @@ const FlyEast = keyframes`
   opacity: 1;
 }
 100% {
-  transform: translate(500%, -50%) rotate(-12deg) scale(1.2);
+  transform: translate(600%, -50%) rotate(-12deg) scale(1.2);
   opacity: 1;
 }
 `;
@@ -277,7 +201,7 @@ export const PlayerLevelWrapper = styled.div`
     `}
 
     ${({ direction }) => direction === 'East' && css`
-      animation: ${FlyEast} 4s ease forwards;
+      animation: ${FlyEast} 3s ease forwards;
     `}
 
       ${({ direction }) => direction === 'South' && css`
@@ -285,7 +209,7 @@ export const PlayerLevelWrapper = styled.div`
     `}
 
       ${({ direction }) => direction === 'North' && css`
-      animation: ${flyAway} 4s ease forwards;
+      animation: ${FlyNorth} 3s ease forwards;
     `}
   }
 `;

@@ -2,17 +2,16 @@
 import React from 'react'
 import { Player } from '@lottiefiles/react-lottie-player';
 import styled, { keyframes } from 'styled-components';
-import loadingspace from 'images/loadingspace.jpg'
 
 const flyRound = keyframes`
  0% {
     -webkit-transform: scale(1);
-    transform: scale(1);
+    transform: scale(3);
     opacity: 1;
   }
   100% {
     -webkit-transform: scale(0);
-    transform: scale(0);
+    transform: scale(0) rotate(720deg);
     opacity: 1;
   }
 `;
@@ -21,11 +20,10 @@ const FullPage = styled.div`
   position: relative;
   width: 100vw;
   height: 100vh;
-  background-image: url(${loadingspace});
+  background-color: black;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-
 `;
 
 const FlyRoundAnimation = styled(Player)`
@@ -33,10 +31,10 @@ const FlyRoundAnimation = styled(Player)`
   top: 44%;
   left: 40%;
   transform: translate(50%, 50%);
-  animation: ${flyRound} 6s ease forwards;
+  animation: ${flyRound} 3s ease forwards;
 `;
 
-export const Animation = () => (
+export const LoadingAnimation = () => (
   <FullPage>
     <FlyRoundAnimation
       src="https://assets2.lottiefiles.com/packages/lf20_cgya0u79.json"

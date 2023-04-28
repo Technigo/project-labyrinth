@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { gameFetch, fetchOne } from 'reducers/gameFetch';
 import { useDispatch } from 'react-redux';
-import { StartBackground, SpaceButton, GreetingText, StarterForm, PlayerWrapper } from 'lib/Level';
-import { Player } from '@lottiefiles/react-lottie-player';
+import { StartBackground, StarterForm, PlayerWrapper } from 'lib/General';
+import { SpaceButton } from 'lib/Buttons';
+import { GreetingText } from 'lib/Text';
 import startgame from 'images/arrow-button.png';
+import { UfoMoving } from './UfoMoving';
+import { UfoWaitingStart } from './UfoWaitingStart';
 
 export const StarterPage = () => {
   const dispatch = useDispatch();
@@ -23,18 +26,7 @@ export const StarterPage = () => {
         <>
           <GreetingText>Hello, {userName}!</GreetingText>
           <PlayerWrapper>
-            <Player
-              src="https://assets2.lottiefiles.com/packages/lf20_cgbjomca.json"
-              className="player"
-              loop
-              autoplay
-              speed={1}
-              style={{
-                width: '150px',
-                height: '150px',
-                transform: 'translate(0, -100vh)',
-                opacity: 0
-              }} />
+            <UfoMoving />
           </PlayerWrapper>
         </>
       ) : (
@@ -55,13 +47,7 @@ export const StarterPage = () => {
             </SpaceButton>
           </StarterForm>
 
-          <Player
-            src="https://assets2.lottiefiles.com/packages/lf20_cgbjomca.json"
-            className="player"
-            loop
-            autoplay
-            speed={1}
-            style={{ width: '150px', height: '150px' }} />
+          <UfoWaitingStart />
         </>
 
       )}
@@ -69,9 +55,3 @@ export const StarterPage = () => {
 
   );
 };
-
-/* 1. en sida för input name(startsidan)
-2. vi börjar med att se till att fetchen funkar på vår sida
-3. en sida där själva spelet kommer fortgå(spelsidan)
-4. knappar så en kan välja vilken väg en ska ta
-5. lägga rätt fetch på rätt plats */
