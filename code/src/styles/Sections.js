@@ -11,6 +11,7 @@ flex-direction: column;
 gap: 3%;
 align-items: center;
 justify-content: center;
+background-size: cover;
 `
 export const GameScreenSection = styled.section`
 background-color: green;
