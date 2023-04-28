@@ -7,7 +7,7 @@
     max-width: 35rem;
     border-radius: 2rem;
     padding: 1rem;
-    margin: 1rem 1rem 10rem 1rem;
+    margin: 3rem 1rem 10rem 1rem;
 }
 
 .description-box {
@@ -53,28 +53,28 @@
 
 @media (min-width: 767px) {
     .description-box {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
 
     .moveAction {
         display: flex;
         gap: 25px;
         padding: 25px;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     } 
 
 }
 
 @media (min-width: 1024px) {
     .description-box {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
 
     .moveAction {
         display: flex;
         gap: 25px;
         padding: 25px;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     } 
 
 

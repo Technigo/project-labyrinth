@@ -28,7 +28,6 @@ align-items: center;
 gap: 1.5rem;
 `
 export const StartScreenText = styled.p`
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 font-size: 0.8rem;
 color: white;
 
@@ -59,7 +58,6 @@ max-width: 320px;
 min-width: 250px;
 min-height: 30px;
 max-height: 35px;
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 font-size: 0.8rem;
 text-align: center;
 border: 2px solid darkgray;
@@ -78,7 +76,6 @@ font-size: 1.3rem;
 
 export const StartBtn = styled.button`
 border: none;
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 font-size: 1rem;
 display: flex;
 justify-content: center;
