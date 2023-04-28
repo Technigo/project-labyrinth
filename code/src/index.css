@@ -42,7 +42,6 @@ code {
 }
 
 .actionsContainer:last-of-type {
-  text-align: right;
   border-top: 0;
 }
 
@@ -60,6 +59,7 @@ h2 {
 }
 
 p {
+  font-size: 1rem;
   color: white;
   font-family: Roboto Mono;
 }
@@ -130,5 +130,53 @@ input[type=text] {
   100% { 
     top: -1000px;
     transform: rotateX(25deg) translateZ(-2000px);
+  }
+}
+
+@media screen and (max-width: 667px) {
+  .text-animation {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 80px;    
+    letter-spacing: 6px;
+    line-height: 100%;
+    perspective: 100px;
+    text-align: justify;
+  }
+  
+  .buttonDesc {
+    height: 5rem;
+    overflow: scroll;
+  }
+
+  input {
+    font-size: 1rem;
+    font-family: Roboto Mono;
+    width: 80%;
+    padding: 8px 16px;
+    border: solid;
+    border-radius: 6px;
+    margin-left: 1rem;
+    margin-top: 5rem;
+  }
+  
+  .actionsContainer {
+    max-width: 70%;
+    height: 10rem;
+  }
+
+  .lottiePlayer {
+    max-width: 90vw;
+    margin-top: 1rem;
+  }
+}
+@media screen and (max-width: 375px) {
+  .actionsContainer {
+    max-width: 80%;
+}
+
+  input {
+    margin-top: 5rem;
   }
 }

@@ -6,6 +6,9 @@ const commonButtonStyles = css`
     color: white;
     text-shadow: 1px 1px black;
   }
+  @media screen and (max-width: 667px) {
+    margin-top: 1rem;
+  }
 `;
 
 // Submit button
@@ -20,6 +23,10 @@ export const SubmitBtn = styled.button`
   cursor: pointer;
 
   ${commonButtonStyles}
+
+  @media screen and (max-width: 667px) {
+    margin-left: 1rem;
+  }
 `;
 
 // Restart button
@@ -50,4 +57,7 @@ export const OptionBtn = styled.button`
     cursor: pointer;
 
     ${commonButtonStyles}
+    @media screen and (max-width: 667px) {
+      height: 2.4rem; 
+    }
 `

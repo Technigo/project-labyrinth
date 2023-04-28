@@ -32,8 +32,10 @@ const GameScreenLotties = () => {
       autoplay
       loop
       src={lottieURL}
-      style={{ height: '400px', width: '400px' }} />
+      className="lottiePlayer" />
   )
 }
 
 export default GameScreenLotties;
+
+// style={{ height: '400px', width: '400px' }}
