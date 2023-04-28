@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getGameStep } from 'reducers/game'
+import { CardContainer, StyledButton, LocationText, SingleChoice } from './GlobalStyles'
 
 const GameBoard = () => {
   const game = useSelector((store) => store.game.gameStep)
@@ -9,26 +10,27 @@ const GameBoard = () => {
   const dispatch = useDispatch()
 
   return (
-    <div>
-      <p>{game.description}</p>
-      <p>{game.coordinates}</p>
+    <CardContainer>
+      <LocationText>{game.description}</LocationText>
+      <p>Your location is currently: {game.coordinates}</p>
       <p>Which way will you travel, {username}?</p>
       {actions && actions.map((action) => (
-        <div key={actions.direction}>
-          <p>{game.type}</p>
+        <SingleChoice key={actions.direction}>
+          <LocationText>{game.type}</LocationText>
           <p>{action.description}</p>
-          <button
+          <StyledButton
             type="submit"
             onClick={() => dispatch(getGameStep(
               action.type,
               action.direction
             ))}>
             Go {action.direction}
-          </button>
-        </div>
+          </StyledButton>
+        </SingleChoice>
       ))}
-    </div>
+    </CardContainer>
   );
 }
 
 export default GameBoard
+

@@ -1,7 +1,6 @@
 import React from 'react'
-import Lottie from 'react-lottie';
-import '../styles.css';
-import animationData from '../lotties/compass.json';
+import Lottie from 'react-lottie'
+import animationData from '../lotties/compass.json'
 
 export const LoadingPage = () => {
   const defaultOptions = {

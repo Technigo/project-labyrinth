@@ -2,16 +2,19 @@
 /* eslint-disable max-len */
 import React from 'react';
 import { useSelector } from 'react-redux'
+import { CardContainer, LocationText, SingleChoice } from './GlobalStyles'
 
 export const FinalPage = () => {
   const game = useSelector((store) => store.game.gameStep)
   const username = useSelector((store) => store.game.username)
 
   return (
-    <>
-      <header>Here we can put a styled header with something nice congratulating the user with {username}</header>
-      <p>{game.description}</p>
+
+    <CardContainer>
+      <LocationText>{game.description}</LocationText>
+      <SingleChoice>Congratulations, {username}, you have made it out of the rabbit hole!</SingleChoice>
+
       {/* <button /> */}
-    </>
+    </CardContainer>
   )
 }

@@ -5,6 +5,7 @@ import MainPage from 'components/MainPage.js'
 import Footer from 'components/Footer.js'
 import { game } from 'reducers/game.js'
 import { loading } from 'reducers/loading.js'
+import { OuterWrapper, InnerWrapper } from 'components/GlobalStyles'
 
 export const App = () => {
   const reducer = combineReducers({
@@ -17,10 +18,12 @@ export const App = () => {
   const store = configureStore({ reducer });
   return (
     <Provider store={store}>
-      <div>
-        <MainPage />
-        <Footer />
-      </div>
+      <OuterWrapper>
+        <InnerWrapper>
+          <MainPage />
+          <Footer />
+        </InnerWrapper>
+      </OuterWrapper>
     </Provider>
   )
 }
