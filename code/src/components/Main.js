@@ -1,9 +1,38 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
 import { useSelector } from 'react-redux';
+import styled from 'styled-components/macro';
 import UserNameInput from './UserNameInput';
 import { LoadingMaze } from './LoadingIndicator';
 import { GameBoard } from './GameBoard';
+
+const Background = styled.div`
+width: 100vw;
+height: 100vh;
+${({ imageUrl }) => `
+  background-image: url(${imageUrl});
+`}
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+top: 0;
+left: 0;
+position: absolute;
+`
+
+const EnterText = styled.h1`
+display: flex;
+justify-content: center;
+margin: 15rem 0 0 0;
+color: white;
+font-size: 34px;
+`;
+
+const HeaderText = styled.h2`
+display: flex;
+justify-content: center;
+color: white;
+`;
 
 const Main = () => {
   const isLoading = useSelector((store) => store.ui.isLoading);
@@ -30,19 +59,19 @@ const Main = () => {
   }
 
   return (
-    <div style={{ backgroundImage: `url(${imageUrl})` }}>
+    <Background imageUrl={imageUrl}>
       {isLoading ? (
         <LoadingMaze />
       ) : username ? (
         <GameBoard />
       ) : (
         <section className="start-section">
-          <h1>You are now entering the labyrinth so beware and tred carefully</h1>
-          <h2>The Labyrinth</h2>
+          <EnterText>You are now entering the labyrinth so beware and tred carefully</EnterText>
+          <HeaderText>The Labyrinth</HeaderText>
           <UserNameInput />
         </section>
       )}
-    </div>
+    </Background>
   )
 };
 

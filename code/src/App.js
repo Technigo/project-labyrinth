@@ -20,7 +20,6 @@ export const App = () => {
 
   return (
     <Provider store={store}>
-      Gurus rule.
       <Main />
     </Provider>
   )
