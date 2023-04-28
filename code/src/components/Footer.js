@@ -34,11 +34,14 @@ const FooterSection = styled.div`
   margin-top: 20px;
   margin-bottom: 10px;
   height: 2.5rem;
+  padding-bottom: 20px;
 `
 const FooterText = styled.div`
 font-size: 14px;
 color: grey;
 margin-bottom: -20px;
+align-items: center;
+text-align: center;
 `
 
 const StyledA = styled.a`
