@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { labyrinth, gameProgress } from '../reducers/labyrinth';
-// import AuthorInputSearch from './AuthorInputSearch';
 import Game from './Game';
+import { StartScreenWrapper, WelcomeText, WelcomeTextWrapper, NameForm, Btn, NameInput } from './StartScreenCSS';
 
 const StartScreen = () => {
   const dispatch = useDispatch()
@@ -23,21 +23,23 @@ const StartScreen = () => {
     return <Game />
   } else {
     return (
-      <div>
-        <p>Welcome! Tell me your name:</p>
-        <form
+      <StartScreenWrapper>
+        <WelcomeTextWrapper>
+          <WelcomeText>Welcome! Let the annals of man know thy name</WelcomeText>
+        </WelcomeTextWrapper>
+        <NameForm
           type="submit"
           onSubmit={(event) => onFormSubmit(event)}>
-          <input
+          <NameInput
             id=""
             type="text"
             placeholder="Enter name"
             value={usernameInput}
             onChange={(event) => setUsernameInput(event.target.value)}
             required />
-          <button type="submit">start</button>
-        </form>
-      </div>
+          <Btn type="submit">Enter the maze </Btn>
+        </NameForm>
+      </StartScreenWrapper>
     )
   }
 }
