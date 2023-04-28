@@ -9,14 +9,9 @@ export const Restart = () => {
   const onRestartButton = () => {
     dispatch(labyrinth.actions.restart())
   }
+
   return (
     <RestartWrapper>
-      {/* <p>{labyrinth.response.description}</p>
-      {labyrinth.response.actions && labyrinth.response.actions.map((userAction) =>
-        <div key={userAction.type && userAction.direction}>
-          <p>{userAction.type}:{userAction.direction}</p>
-          <p>{userAction.description}</p>
-        </div>)} */}
       <button type="button" onClick={onRestartButton}>RESTART</button>
     </RestartWrapper>
   )

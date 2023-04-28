@@ -33,6 +33,7 @@ const Game = () => {
               Go {userAction.direction}
             </Btn>
           </ActionWrapper>)}
+        <Restart />
       </GameWrapper>)
   }
 }
