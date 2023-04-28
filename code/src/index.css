@@ -5,9 +5,190 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.allWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.storyContainer {
+  width: 50vw;
+  text-align: center;
+}
+
+.actionsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 40%;
+  height: 12rem;
+  text-align: left;
+  padding-bottom: 0.5rem;
+  margin-top: 1rem;
+  border-top: 2px dotted #fff7cc;
+  border-bottom: 2px dotted #fff7cc;
+}
+
+.actionsContainer:last-of-type {
+  border-top: 0;
+}
+
+h1 {
+ font-family: Sigmar;
+ color: gold;
+ font-size: 4rem;
+ font-weight: 300;
+}
+
+h2 {
+  color: rgb(226, 223, 183);
+  font-family: Roboto Mono;
+  font-size: 1.3rem !important;
+}
+
+p {
+  font-size: 1rem;
+  color: white;
+  font-family: Roboto Mono;
+}
+
+input {
+  font-size: 1rem;
+  font-family: Roboto Mono;
+  width: 80%;
+  padding: 12px 20px;
+  border: solid;
+  border-radius: 6px;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+input:focus {
+  color: white;
+ background-color: transparent;
+}
+
+input[type=text] {
+  font-family: Roboto Mono;
+}
+
+.lottiePlayer {
+  max-width: 500px;
+}
+
+@media screen and (max-width: 1200px) {
+  .storyContainer {
+  width: 70vw;
+  }
+}
+
+/* Animation for h1*/
+.text-animation {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 200px;
+  font-size: 500%;
+  font-weight: 600;
+  letter-spacing: 6px;
+  line-height: 150%;
+  perspective: 400px;
+  text-align: justify;
+}
+
+.crawl {
+  position: relative;
+  top: 9999px;
+  transform-origin: 50% 100%;
+  animation: crawl 40s linear infinite;
+}
+
+.crawl > .title {
+  font-size: 100%;
+  text-align: center;
+}
+
+.crawl > .title h1 {
+  margin: 0 0 100px;
+}
+
+@keyframes crawl {
+  0% {
+    top: 0;
+    transform: rotateX(20deg)  translateZ(0);
+  }
+  100% { 
+    top: -1000px;
+    transform: rotateX(25deg) translateZ(-2000px);
+  }
+}
+
+@media screen and (max-width: 667px) {
+  .text-animation {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 80px;    
+    letter-spacing: 6px;
+    line-height: 100%;
+    perspective: 100px;
+    text-align: justify;
+  }
+  
+  .buttonDesc {
+    height: 5rem;
+    overflow: scroll;
+    scrollbar-width: none;
+  }
+  .buttonDesc::-webkit-scrollbar{
+    display: none;
+  } /* this hides the scrollbars in Chrome and Safari */
+
+  input {
+    font-size: 1rem;
+    font-family: Roboto Mono;
+    width: 80%;
+    padding: 8px 16px;
+    border: solid;
+    border-radius: 6px;
+    margin-left: 1rem;
+    margin-top: 5rem;
+  }
+  
+  .actionsContainer {
+    max-width: 70%;
+    height: 10rem;
+  }
+
+  .lottiePlayer {
+    max-width: 90vw;
+    margin-top: 1rem;
+  }
+}
+@media screen and (max-width: 375px) {
+  .actionsContainer {
+    max-width: 80%;
+}
+
+  input {
+    margin-top: 5rem;
+  }
+
+  form {
+   width: 300px;
+  }
 }

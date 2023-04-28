@@ -1,13 +1,21 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
+This week the focus is on Redux and things such as async actions and other ways of writing Redux, without Redux toolkit.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Main goals:
+✓ How to work with APIs together with Redux
+✓ How to use thunks
+✓ Other ways of writing Redux
+✓ Reusable components
+✓ How to structure your redux store to suit your data
+✓ To send JSON in the body of a request
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We tested to use lottie animations by installing the lottie-package. 
+We used thunks for the first time.
+We got more experience in using reusable components.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Pls view our project on https://space-labyrinth.netlify.app/
