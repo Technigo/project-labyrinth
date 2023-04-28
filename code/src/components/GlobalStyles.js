@@ -37,7 +37,7 @@ export const CardContainer = styled.div`
     height: 80vh;
     font-size: 17px;
     overflow: auto;
-    background-color: rgb(66,146,85, 0.8);
+    background-color: ${(props) => props.bgColor || 'rgb(86, 135, 98, 0.8)'};
     display: flex;
     flex-direction: column;
     align-items: center;

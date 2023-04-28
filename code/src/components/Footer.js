@@ -4,14 +4,16 @@ import styled from 'styled-components';
 const Footer = () => {
   return (
     <FooterWrapper>
-      <p>Created by Annika and Fiona |</p>
-      <a href="https://annikalindberg-portfolio.netlify.app/">
-        <FooterImage src="/images/Annika-Lindberg.jpg" className="contact-logo" alt="link to Annika's portfolio" />
-      </a>
-      <a href="https://fiona-klacar-portfolio.netlify.app/">
-        <FooterImage src="/images/Fiona-Klacar.jpg" className="contact-logo" alt="link to Fiona's portfolio" />
-      </a>
-      <p>| Technigo Bootcamp Spring 2023</p>
+      <p>Created by Annika and Fiona</p>
+      <IconContainer>
+        <a href="https://annikalindberg-portfolio.netlify.app/">
+          <FooterImage src="/images/Annika-Lindberg.jpg" className="contact-logo" alt="link to Annika's portfolio" />
+        </a>
+        <a href="https://fiona-klacar-portfolio.netlify.app/">
+          <FooterImage src="/images/Fiona-Klacar.jpg" className="contact-logo" alt="link to Fiona's portfolio" />
+        </a>
+      </IconContainer>
+      <p>Technigo Bootcamp Spring 2023</p>
     </FooterWrapper>
   )
 }
@@ -23,11 +25,25 @@ const FooterWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap-reverse;
+  /* flex-wrap: wrap-reverse; */
   background-color: rgb(138 106 148 / 80%);
   border-top: 2px solid black;
   opacity: 0.95;
+
+  @media (max-width: 604px) {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+  }
   `
+
+const IconContainer = styled.div`
+  display: flex;
+  margin-top: 5px;
+  margin-left: 8px;
+  margin-right: 8px;
+`
 
 const FooterImage = styled.img`
   width: 30px;
