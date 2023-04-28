@@ -1,28 +1,6 @@
 import styled from 'styled-components/macro';
-// import img from '../assets/maze.jpg'
-// import stones from '../assets/stones.jpg'
 import img from '../assets/planet.jpg'
 import { Devices } from './GlobalStyles';
-
-// export const GameWrapper = styled.div`
-//   /* background-image: url(${img}); */
-//   background-repeat: no-repeat, repeat;
-//   background-size: cover;
-//   background-position: center;
-//   height: 100vh;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-
-//   background-image: ${(props) => {
-//     let bgImage;
-//     if (props.coordinates === '0,0') {
-//       bgImage = `url(${img})`;
-//     } else if (props.coordinates === '1,0') {
-//       bgImage = `url(${stones})`;
-//     }
-//     return bgImage
-//   }};`
 
 export const InnerWrapper = styled.main`
   display:flex;
@@ -32,7 +10,6 @@ export const InnerWrapper = styled.main`
   padding: 20px;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.7);
-  /* background-color: rgb(140,122,103); */
   animation: fade-in 1s ease-in forwards;
 
   @media (min-width: 768px) {
@@ -62,6 +39,33 @@ line-height: 1.4;
 @media ${Devices.mobile} {
   font-size: 14px;
 }
+`
+export const InfoText = styled.p`
+font-family: 'Special Elite';
+font-size: 1em;
+color: whitesmoke;
+line-height: 1.4;
+text-align:center;
+
+@media ${Devices.mobile} {
+  font-size: 14px;
+};
+`
+
+export const HistoryContainer = styled.div`
+display:flex;
+flex-direction:row;
+justify-content:center;
+align-items:center;
+gap: 1rem;
+flex-wrap: wrap;
+`
+
+export const ArrowText = styled.p`
+font-family: 'Special Elite';
+font-size: 1rem;
+color: whitesmoke;
+line-height: 1.4;
 `
 
 export const DirectionContainer = styled.div`

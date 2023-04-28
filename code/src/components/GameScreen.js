@@ -4,8 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { continueGame, labyrinth } from 'reducers/labyrinth';
 import { useDispatch, useSelector } from 'react-redux';
-import { InnerWrapper, Th1, DirectionContainer, GameBtn, ActionContainer, RestartBtn } from 'styles/GameStyles';
-import { Devices } from 'styles/GlobalStyles';
+import { InnerWrapper, Th1, DirectionContainer, GameBtn, ActionContainer, RestartBtn, InfoText, HistoryContainer, ArrowText } from 'styles/GameStyles';
 import TypeIt from 'typeit-react';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -121,30 +120,3 @@ const GameWrapper = styled.div`
     return bgImage
   }};`
 
-const InfoText = styled.p`
-font-family: 'Special Elite';
-font-size: 1em;
-color: whitesmoke;
-line-height: 1.4;
-text-align:center;
-
-@media ${Devices.mobile} {
-  font-size: 14px;
-};
-`
-
-const HistoryContainer = styled.div`
-display:flex;
-flex-direction:row;
-justify-content:center;
-align-items:center;
-gap: 1rem;
-flex-wrap: wrap;
-`
-
-const ArrowText = styled.p`
-font-family: 'Special Elite';
-font-size: 1rem;
-color: whitesmoke;
-line-height: 1.4;
-`
