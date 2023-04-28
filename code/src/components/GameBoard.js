@@ -10,7 +10,7 @@ import { BackgroundImage } from './BackgroundImages';
 export const GameBoard = () => {
   const gameboard = useSelector((store) => store.labyrinth.setMoves);
   const description = useSelector((store) => store.labyrinth.description);
-  const isLoading = useSelector((store) => store.labyrinth.isLoading);
+  const isLoading = useSelector((store) => store.ui.isLoading);
   const dispatch = useDispatch();
 
   return (
