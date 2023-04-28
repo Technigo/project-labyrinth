@@ -1,12 +1,10 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This weeks project was to build an old school computer labyrinth game using an external API. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Since this week was a group project, we started by planning on how and when we could work together. We started by looking at the API and how we did POST and what we got back. We structured the project and decided what reducers and components we needed. Then we started to build the game by adding a game reducer and thunks to fetch the API. With all the functions in place we started on the styling. No major problems this week. 
 
 ## View it live
 
