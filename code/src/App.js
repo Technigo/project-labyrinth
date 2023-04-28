@@ -3,9 +3,9 @@ import React from 'react';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import labyrinth from 'reducers/labyrinth';
 import loading from 'reducers/loading';
-import StartScreen from 'components/StartScreen';
+import StartScreen from 'berry/StartScreen';
 import { Provider } from 'react-redux';
-import SpaceBackground from 'components/SpaceBackground';
+import SpaceBackground from 'berry/SpaceBackground';
 
 export const App = () => {
   const reducer = combineReducers({
