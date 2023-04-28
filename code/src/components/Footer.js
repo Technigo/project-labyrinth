@@ -31,16 +31,13 @@ const FooterSection = styled.div`
   gap: 30px;
   bottom: 0;
   left: 0;
-  margin-top: 20px;
   margin-bottom: 10px;
   height: 2.5rem;
-  padding-bottom: 20px;
 `
 const FooterText = styled.div`
 font-size: 14px;
 color: grey;
 margin-bottom: -20px;
-align-items: center;
 text-align: center;
 `
 
