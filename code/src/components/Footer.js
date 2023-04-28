@@ -4,23 +4,29 @@ import styled from 'styled-components';
 const Footer = () => {
   return (
     <FooterWrapper>
-      <div>
-        <a href="https://www.linkedin.com/in/annika-lindberg-a3398b263/"><img src="/images/annika.jpg" className="contact-logo" alt="link to Annika's LinkedIn" /></a>
-        <a href="https://fiona-klacar-portfolio.netlify.app/"> <img src="" className="contact-logo" alt="link to Fiona's portfolio" /></a>
-      </div>
-      <div>
-        <p>Created by Annika and Fiona | Technigo Bootcamp Spring 2003</p>
-      </div>
+      <a href="https://annikalindberg-portfolio.netlify.app/">
+        <FooterImage src="/images/Annika-Lindberg.jpg" className="contact-logo" alt="link to Annika's portfolio" />
+      </a>
+      <a href="https://fiona-klacar-portfolio.netlify.app/">
+        <FooterImage src="/images/Fiona-Klacar.jpg" className="contact-logo" alt="link to Fiona's portfolio" />
+      </a>
+      <p>Created by Annika and Fiona | Technigo Bootcamp Spring 2003</p>
     </FooterWrapper>
   )
 }
 
-export default Footer;
-
 const FooterWrapper = styled.div`
-  background-color: yellow;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 65px;
+  max-width: 1300px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+  
   `
+const FooterImage = styled.img`
+  width: 30px;
+  `
+
+export default Footer;

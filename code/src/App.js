@@ -21,9 +21,9 @@ export const App = () => {
       <OuterWrapper>
         <InnerWrapper>
           <MainPage />
-          <Footer />
         </InnerWrapper>
       </OuterWrapper>
+      <Footer />
     </Provider>
   )
 }
