@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
 // import img from '../assets/maze.jpg'
 // import stones from '../assets/stones.jpg'
+import img from '../assets/planet.jpg'
 import { Devices } from './GlobalStyles';
 
 // export const GameWrapper = styled.div`
@@ -107,9 +108,17 @@ export const AnimationContainer = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-width: 100%;
+width: 100vw;
 height: 100vh;
-background-color: #f3f0e4;
+top: 0;
+left: 0;
+z-index: 1;
+background-image: url(${img});
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+background-color: black;
+position: absolute;
 
 @media ${Devices.mobile} {
 height: 50vh;
