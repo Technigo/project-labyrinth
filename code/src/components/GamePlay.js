@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { useSelector, useDispatch } from 'react-redux';
 import { nextMove, game } from 'reducers/game';
+import uniqid from 'uniqid';
 import { Text } from './StartingPage.js';
 import FirstImage from '../assets/1-0.jpg'
 import SecondImage from '../assets/1-1.jpg'
@@ -65,7 +66,7 @@ export const GamePlay = () => {
         <OptionWrapper>
           {direction.map((item) => {
             return (
-              <DirectionTextWrapper className={item.direction} key="directionTextWrapper">
+              <DirectionTextWrapper className={item.direction} key={uniqid()}>
                 <DescriptionTitle>{item.direction}</DescriptionTitle>
                 <DirectionText>{item.description}</DirectionText>
               </DirectionTextWrapper>
@@ -73,7 +74,7 @@ export const GamePlay = () => {
           })}
           <ButtonWrapper>
             {direction.map((item) => {
-              return <DirectionBtn key="directionButton" className={item.direction} type="button" onClick={() => onButtonClick(item.direction)}>Go {item.direction}</DirectionBtn>
+              return <DirectionBtn key={uniqid()} className={item.direction} type="button" onClick={() => onButtonClick(item.direction)}>Go {item.direction}</DirectionBtn>
             })}
             {noActionsLeft && <Restartbutton type="button" onClick={() => onRestartButton()}>Restart</Restartbutton>}
           </ButtonWrapper>
