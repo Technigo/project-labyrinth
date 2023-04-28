@@ -8,8 +8,7 @@ export const maze = createSlice({
     actions: [],
     username: '',
     isLoading: false,
-    chosenDirection: '',
-    isGameEnded: false // state to track if the game has ended
+    chosenDirection: ''
   },
 
   reducers: {

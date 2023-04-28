@@ -1,14 +1,10 @@
 import React from 'react'
-// import { useDispatch } from 'react-redux'
 import styled from 'styled-components/macro'
 import Lottie from 'lottie-react'
-// import { maze } from 'reducers/maze'
 import ship from '../lotties/ship.json'
 import { Button } from './Buttons'
 
 export const FinalStep = () => {
-  // const dispatch = useDispatch()
-
   const onClickRestart = () => {
     window.location.reload()
   }

@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { Location } from './Location'
@@ -12,10 +12,49 @@ import BridgeImg from '../images/bridge.png'
 import EndImg from '../images/end.jpg'
 import WorkshopImg from '../images/workshop.jpg'
 import library from '../images/library.jpg'
+import beachWaves from '../sounds/beach.mp3'
+import bridge from '../sounds/bridge.mp3'
+import cave from '../sounds/cave.mp3'
+import clock from '../sounds/clock.mp3'
+import gear from '../sounds/gear.mp3'
+import papers from '../sounds/papers.mp3'
+import pirate from '../sounds/pirate.mp3'
 
 export const Main = () => {
   const username = useSelector((store) => store.maze.username)
   const currentLocation = useSelector((store) => store.maze.coordinates)
+
+  // const [audio, setAudio] = useState(null)
+  const audioRef = useRef(null)
+
+  useEffect(() => {
+    // Define the audio sources for different locations
+    const audioSources = {
+      '0,0': beachWaves,
+      '0,1': clock,
+      '0,2': gear,
+      '0,3': papers,
+      '1,0': bridge,
+      '1,1': cave,
+      '1,3': pirate
+    }
+
+    const newAudio = new Audio(audioSources[currentLocation])
+    newAudio.loop = true
+    newAudio.play()
+    // setAudio(newAudio)
+    // Pause the previous audio by referring to the current audio element
+    if (audioRef.current) {
+      audioRef.current.pause()
+    }
+    audioRef.current = newAudio
+
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause()
+      }
+    }
+  }, [currentLocation])
 
   let backgroundImage;
   switch (currentLocation) {
