@@ -1,13 +1,11 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week we were pair-programming. I worked with friend Peki and we made a Labyrinth App i Redux.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This week we talked alot about how everything was connected in redux. We did not manage to do the most advanced app but we realy understod what we were writing. For the styling we splitted in two and made our own styling. I had this idea with helpfull illustrations.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://labyrinthmango.netlify.app/

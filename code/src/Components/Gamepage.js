@@ -5,6 +5,7 @@
 import React from 'react';
 import { labyrinthMango, continueGame } from 'Reducers/labyrinth';
 import { useDispatch, useSelector } from 'react-redux';
+import { CoordsImageDisplay } from './CoordsImageDisplay';
 import { Loader } from './Loader';
 import { GameWrapper } from '../Styles/Globalstyles';
 import { DescriptionWrapper, DirectionWrapper, RestartBtn, DirectionBtn, GameEnd } from '../Styles/Gamepage.styled';
@@ -20,6 +21,7 @@ export const Gamepage = () => {
   const loading = useSelector((store) => store.labyrinthMango.loading)
   const name = useSelector((store) => store.labyrinthMango.name)
   const history = useSelector((store) => store.labyrinthMango.history)
+  const coordinates = useSelector((store) => store.labyrinthMango.coordinates)
 
   // Function to restart the game
   const restartGame = () => {
@@ -43,6 +45,7 @@ export const Gamepage = () => {
       <GameWrapper>
         <DescriptionWrapper>
           {/* Display welcome message if there's no history */}
+          <CoordsImageDisplay coordinates={coordinates} />
           {history.length === 0 ? `Welcome, ${name}.` : ''} {/* name comes from the state */}
           <p>&quot;{description}&quot;</p>
         </DescriptionWrapper>

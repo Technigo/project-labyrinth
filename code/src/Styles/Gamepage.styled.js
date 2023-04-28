@@ -8,25 +8,24 @@ import styled from 'styled-components/macro'
 export const DescriptionWrapper = styled.div`
     position: relative;
     display: flex;
+    max-width: 500px;
     flex-direction: column;
-    font-size: 4rem;
+    font-size: 1.8rem;
     font-family: 'Futura', Geneva, Tahoma, sans-serif;
     color: #fff;
-    padding-bottom: 30px;
 
 p {
     font-size: 1.8rem;
     color: #ff5a5f;
     font-family: 'Futura', Geneva, Tahoma, sans-serif;
     font-weight: 500;
+    margin-bottom: 25px;
 }
 `
-
 // This is the container to the directions-buttons
 
 export const DirectionWrapper = styled.div`
     display: grid;
-    min-height: 250px;
     font-family: 'Futura';
 
 &#twoMoves {
@@ -38,28 +37,24 @@ export const DirectionWrapper = styled.div`
 }
 
 p {
-    font-size: 6rem;
+    font-size: 1.5rem;
     font-family: 'Futura', Geneva, Tahoma, sans-serif;
     font-weight: 500;
-    text-shadow: 4px -2px 20px white;
 }
 
 div {
     max-width: 500px;
-    padding: 10px;
 }   
 `
 // This is were direction-buttons get styled
 
 export const DirectionBtn = styled.button`
     background: #3d81b8;
-    box-shadow: inset 0 -0.6em 0 -0.35em rgb(0 0 0 / 17%);
     color: #fff;
     border: none;
-    margin: 10px 0px;
-    padding: 10px;
-    border-radius: 10px;
-    
+    padding: 9px;
+    border-radius: 14px;
+    margin: 0px 10px 0px 10px;    
 &:hover {
     transform: scale(1.1)
 }
@@ -76,10 +71,10 @@ export const StartBtn = styled.button`
     border-radius: 14px;
     border-width: 0;
     box-sizing: border-box;
-    color: #233924;
+    color: #ff5a5fff;
     cursor: pointer;
     height: 40px;
-    width: 80px;
+    width: 265px;
     justify-content: center;
     line-height: 1;
     list-style: none;
@@ -90,10 +85,6 @@ export const StartBtn = styled.button`
     white-space: nowrap;
     will-change: box-shadow,transform;
     font-size: 15px;
-
-&:hover {
-    transform: scale(1.1)
-}
 `
 
 export const RestartBtn = styled(StartBtn)`
@@ -109,7 +100,9 @@ label {
 
 export const GameEnd = styled.div`
     position: absolute;
-    top: 50%;
-    font-size: 1.1rem;
+    top: 8%;
+    font-size: 1.8rem;
     font-family: 'Futura';
+    color: #fff;
+    transform: rotate(-10deg);
 `
