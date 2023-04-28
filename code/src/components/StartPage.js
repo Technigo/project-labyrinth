@@ -37,7 +37,7 @@ const Form = styled.form`
     width: 90%;
     max-width: 262px;
     margin: 100px 0 20px 0;
-    padding-bottom: 3.5rem;
+    padding-bottom: 4.5rem;
 
     input[type=text] {
         background-color: transparent;

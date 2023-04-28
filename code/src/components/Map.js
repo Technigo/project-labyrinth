@@ -45,7 +45,7 @@ export const Map = ({ coordinates }) => {
 
 const MapImage = styled.img`
   align-self: center;
-  width: 300px;
+  width: 280px;
   object-fit: contain;
 
   @media (min-width: 668px) {

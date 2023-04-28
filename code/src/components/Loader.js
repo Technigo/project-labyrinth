@@ -20,5 +20,5 @@ const LoaderContainer = styled.div`
     display: flex;
     flex-direction: column;
     margin-top: 100px;
-    padding-bottom: 3.5rem;
+    padding-bottom: 4.5rem;
 `

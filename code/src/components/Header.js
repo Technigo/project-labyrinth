@@ -21,6 +21,7 @@ const HeaderContainer = styled.div`
     }
 
     @media (min-width: 668px) {
+      margin: 60px 10px 20px 10px;
         h1 {
           font-size: 24px;
       }
