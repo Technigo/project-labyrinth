@@ -62,20 +62,22 @@ export const GamePlay = () => {
         <TextWrapper>
           <Text>{story}</Text>
         </TextWrapper>
-        <ButtonWrapper>
+        <OptionWrapper>
+          <ButtonWrapper>
+            {direction.map((item) => {
+              return <DirectionBtn className={item.direction} type="button" onClick={() => onButtonClick(item.direction)}>Go {item.direction}</DirectionBtn>
+            })}
+            {noActionsLeft && <Restartbutton type="button" onClick={() => onRestartButton()}>Restart</Restartbutton>}
+          </ButtonWrapper>
           {direction.map((item) => {
-            return <DirectionBtn className={item.direction} type="button" onClick={() => onButtonClick(item.direction)}>Go {item.direction}</DirectionBtn>
+            return (
+              <DirectionTextWrapper className={item.direction}>
+                <DescriptionTitle>{item.direction}</DescriptionTitle>
+                <DirectionText>{item.description}</DirectionText>
+              </DirectionTextWrapper>
+            )
           })}
-          {noActionsLeft && <Restartbutton type="button" onClick={() => onRestartButton()}>Restart</Restartbutton>}
-        </ButtonWrapper>
-        {direction.map((item) => {
-          return (
-            <DirectionTextWrapper className={item.direction}>
-              <DescriptionTitle>{item.direction}</DescriptionTitle>
-              <DirectionText>{item.description}</DirectionText>
-            </DirectionTextWrapper>
-          )
-        })}
+        </OptionWrapper>
       </InnerWrapper>
     </MainSection>
   )
@@ -111,6 +113,11 @@ const TextWrapper = styled.div`
         width: 50vw;
         }  
         `
+const OptionWrapper = styled.div`
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+`
 const DirectionBtn = styled.button`
         border-radius: 15px;
         padding: 5px;
@@ -150,13 +157,12 @@ const ButtonWrapper = styled.div`
         height: 110px;
         border: 2px solid black;
         border-radius: 50%;
+        margin-bottom: 20px;
         `
 const DirectionTextWrapper = styled.div`
         margin-top: 5px;
         text-align: center;
-        /* background-color: #486F73; */
         width: 80vw;
-        /* border-radius: 10px; */
         padding: 5px;
         /* From https://css.glass */
         background: rgba(72, 111, 115, 0.51);
@@ -167,8 +173,22 @@ const DirectionTextWrapper = styled.div`
         border: 1px solid rgba(72, 111, 115, 0.3);
 
         @media (min-width: 668px) {
+        
+        {
         width: 50vw;
         }  
+/* 
+        &.North {
+          position: relative;
+          top: -70%;
+        }
+
+        &.West {
+          width: 50%;
+          position: relative;
+          left: 0;
+        } */
+      }
         `
 const DescriptionTitle = styled.h2`
         color: #BFBFBF;

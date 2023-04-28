@@ -10,7 +10,7 @@ export const game = createSlice({
   },
   reducers: {
     addPlayer: (store, action) => {
-      store.username = action.payload
+      store.username = `${new Date().getTime()} ${action.payload}`
     },
     setCurrentPosition: (store, action) => {
       store.position = action.payload
