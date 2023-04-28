@@ -10,7 +10,9 @@ export const StartScreenWrapper = styled.div`
   align-items: center;`
 
 export const WelcomeText = styled.p`
-width: 60%;
+  width: 60%;
+  line-height: 30px;
+  text-align: center;
 `
 
 export const WelcomeTextWrapper = styled.div`
@@ -18,8 +20,11 @@ export const WelcomeTextWrapper = styled.div`
   background-image: url(${ScrollIMG});
   background-size: cover;
   height: 50%;
+  width: 100%;
   align-items: center;
-  justify-content: center;`
+  justify-content: center;
+  background-repeat: no-repeat;
+  max-width: 302px;`
 
 export const NameForm = styled.form`
   display: flex;
@@ -33,14 +38,18 @@ export const Btn = styled.button`
     background-color: transparent;
     border: none;
     background-size: cover;
-    height: 89px;
-    width: 236px;
+    height: 98px;
+    width: 253px;
     color: black;
     font-size: 14px;`
 
 export const NameInput = styled.input`
-    line-height: 26px;
-    text-align: center;
-    background-color: #ffea8ed4;
-    width: 75%;
+  line-height: 26px;
+  text-align: center;
+  background-color: rgba(255, 234, 142, 0.83);
+  width: 220px;
+  height: 40px;
+`
+
+export const RestartWrapper = styled.div`
 `

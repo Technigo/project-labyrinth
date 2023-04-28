@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { gameProgress } from 'reducers/labyrinth';
 import { Loader } from './Loader';
 import { Restart } from './Restart';
-import { GameWrapper, ActionWrapper } from './GameCSS';
+import { GameWrapper, ActionWrapper, ActionTop, ActionBottom, EnvironmentIMG } from './GameCSS';
 import { Btn } from './StartScreenCSS';
 
 const Game = () => {
@@ -20,18 +20,23 @@ const Game = () => {
   } else {
     return (
       <GameWrapper>
+        <EnvironmentIMG labyrinth={labyrinth} />
         <p>{labyrinth.response.description}</p>
         {labyrinth.response.actions && labyrinth.response.actions.map((userAction) =>
           <ActionWrapper key={userAction.type && userAction.direction}>
-            <p>{userAction.type}:{userAction.direction}</p>
-            <p>{userAction.description}</p>
-            <Btn
-              type="button"
-              onClick={
-                () => dispatch(gameProgress(userAction.direction))
-              }>
+            <ActionTop>
+              <p>{userAction.type}:{userAction.direction}</p>
+              <p>{userAction.description}</p>
+            </ActionTop>
+            <ActionBottom>
+              <Btn
+                type="button"
+                onClick={
+                  () => dispatch(gameProgress(userAction.direction))
+                }>
               Go {userAction.direction}
-            </Btn>
+              </Btn>
+            </ActionBottom>
           </ActionWrapper>)}
         <Restart />
       </GameWrapper>)
