@@ -11,12 +11,6 @@ gap: 3%;
 align-items: center;
 justify-content: center;
 background-size: cover;
-
-@media (max-width : 428px) {
-background-image: url(${startScreenBg});
-height: 100vh;
-background-size: cover;
-}
 `
 export const GameScreenSection = styled.section`
 background-image: url(${cave});
