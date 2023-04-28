@@ -9,7 +9,7 @@ justify-content: center;
 `;
 
 const LabelName = styled.label`
-color: white;
+color: #F6D579;
 `;
 
 const UserNameInput = () => {

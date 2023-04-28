@@ -21,7 +21,7 @@ export const LoadingMaze = () => {
       <Player
         loop
         autoplay
-        src="https://assets8.lottiefiles.com/packages/lf20_jpasoh0f.json"
+        src="https://assets2.lottiefiles.com/private_files/lf30_ployuqvp.json"
         className="lottie"
         speed={1} />
     </LottieContainer>

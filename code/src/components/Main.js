@@ -41,21 +41,21 @@ const Main = () => {
   let imageUrl;
 
   if (coordinates === '0,0') {
-    imageUrl = 'https://i.postimg.cc/pV8sx0sd/maze-1.png';
+    imageUrl = 'https://i.postimg.cc/9FDv5xNX/1maze.png';
   } else if (coordinates === '0,1') {
-    imageUrl = 'https://i.postimg.cc/bJS3ZL83/maze-4.png';
+    imageUrl = 'https://i.postimg.cc/t4mKL32G/4maze.png';
   } else if (coordinates === '0,2') {
-    imageUrl = 'https://i.postimg.cc/9FY1wD55/maze-5.png';
+    imageUrl = 'https://i.postimg.cc/BQnw488S/5maze.png';
   } else if (coordinates === '0,3') {
-    imageUrl = 'https://i.postimg.cc/RVBX0cYL/maze-6.png';
+    imageUrl = 'https://i.postimg.cc/zX9D9H7M/44.png';
   } else if (coordinates === '1,0') {
-    imageUrl = 'https://i.postimg.cc/52P3pD2s/maze-2.png';
+    imageUrl = 'https://i.postimg.cc/pTkpHc7L/2maze.png';
   } else if (coordinates === '1,1') {
-    imageUrl = 'https://i.postimg.cc/Gt0zGYmr/maze-3.png';
+    imageUrl = 'https://i.postimg.cc/Hks8kyXL/3maze.png';
   } else if (coordinates === '1,3') {
-    imageUrl = 'https://i.postimg.cc/Dz8cN5Wn/maze-7.png';
+    imageUrl = 'https://i.postimg.cc/zX9D9H7M/44.png';
   } else {
-    imageUrl = 'https://i.postimg.cc/x1j5v9nk/maze-intro.png';
+    imageUrl = 'https://i.postimg.cc/zX9D9H7M/44.png';
   }
 
   return (
