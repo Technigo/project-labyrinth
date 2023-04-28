@@ -11,6 +11,7 @@ gap: 3%;
 align-items: center;
 justify-content: center;
 background-size: cover;
+position: fixed;
 `
 export const GameScreenSection = styled.section`
 background-image: url(${cave});
