@@ -86,6 +86,10 @@ input[type=text] {
   font-family: Roboto Mono;
 }
 
+.lottiePlayer {
+  max-width: 500px;
+}
+
 @media screen and (max-width: 1200px) {
   .storyContainer {
   width: 70vw;

@@ -31,7 +31,6 @@ export const SubmitBtn = styled.button`
 
 // Restart button
 export const RestartBtn = styled.button`
-    margin: 4px;
     padding: 10px 14px;
     font-family: Sigmar;
     font-size: 1.2rem; 
@@ -40,6 +39,7 @@ export const RestartBtn = styled.button`
     background-color: pink;
     cursor: pointer;
     margin-top: 2rem;
+    margin-bottom: 2.5rem;
 
     ${commonButtonStyles}
 `
