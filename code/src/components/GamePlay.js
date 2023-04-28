@@ -65,7 +65,7 @@ export const GamePlay = () => {
         <OptionWrapper>
           {direction.map((item) => {
             return (
-              <DirectionTextWrapper className={item.direction}>
+              <DirectionTextWrapper className={item.direction} key="directionTextWrapper">
                 <DescriptionTitle>{item.direction}</DescriptionTitle>
                 <DirectionText>{item.description}</DirectionText>
               </DirectionTextWrapper>
@@ -73,7 +73,7 @@ export const GamePlay = () => {
           })}
           <ButtonWrapper>
             {direction.map((item) => {
-              return <DirectionBtn className={item.direction} type="button" onClick={() => onButtonClick(item.direction)}>Go {item.direction}</DirectionBtn>
+              return <DirectionBtn key="directionButton" className={item.direction} type="button" onClick={() => onButtonClick(item.direction)}>Go {item.direction}</DirectionBtn>
             })}
             {noActionsLeft && <Restartbutton type="button" onClick={() => onRestartButton()}>Restart</Restartbutton>}
           </ButtonWrapper>
@@ -98,6 +98,12 @@ const InnerWrapper = styled.div`
         justify-content: center;
         gap: 15px;
         padding-top: 30px;
+        @media (min-width: 668px) {
+          padding-top: 50px;
+        }
+        @media (min-width: 1024px) {
+          padding-top: 100px;
+        }
         `
 const TextWrapper = styled.div`
         width: 80vw;
@@ -162,6 +168,7 @@ const ButtonWrapper = styled.div`
         border: 2px solid black;
         border-radius: 50%;
         margin-top: 30px;
+        box-shadow: rgb(158, 202, 237) 0px 0px 10px;
         `
 const DirectionTextWrapper = styled.div`
         margin-top: 5px;
@@ -206,7 +213,5 @@ const Restartbutton = styled.button`
       top: calc(50% - 16px);
       right: calc(50% - 32px);
       pointer: cursor;
-      text-shadow: 3px 0px 7px rgba(81,67,21,0.8), -3px 0px 7px rgba(81,67,21,0.8), 0px 4px 7px rgba(81,67,21,0.8);
-      &:hover: {text-shadow: 3px 3px 20px #ff99cc,
-      -2px 1px 30px #ff99cc;
+      &:hover {text-shadow: 3px 0px 7px #7D458C, -3px 0px 7px #7D458C, 0px 4px 7px #7D458C;
 `

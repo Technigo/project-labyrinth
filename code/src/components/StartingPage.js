@@ -75,11 +75,15 @@ const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  @media (min-width: 668px) {
+    width: 50vw;
+  }
   `
 
 const Title = styled.h1`
 color: #7D458C;
-font-size: 53px;
+font-size: 60px;
 `
 
 export const Text = styled.p`
@@ -118,6 +122,9 @@ input {
     border-color: #7D458C;
     box-shadow: 0 0 10px #7D458C;
     outline: none;
+  }
+  @media (min-width: 668px) {
+    width: 32vw;
   }
 }
 
