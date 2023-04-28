@@ -7,7 +7,7 @@ import './Loading.css';
 const LoadingSection = styled.section`
 display: flex;
 height: 100vh;
-background-color: green;
+background-color: none;
 `
 
 const LoadingText = styled.h1`
