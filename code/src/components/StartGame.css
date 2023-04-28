@@ -8,16 +8,6 @@
         scale: 55%;
     }
     #usernameForm {
-        font-size: 16px;
-    }
-    input:focus {
-        /* Set overflow to hidden when input is focused */
-        overflow: hidden;
-      }
-      
-      input:focusout {
-        /* Set overflow back to auto when focus is lost */
-        overflow: auto;
-      }
-      
+        font-size: 16px!important;
+    }    
 }
