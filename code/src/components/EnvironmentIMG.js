@@ -4,7 +4,7 @@ import cavernlightIMG from '../assets/1,0.jfif';
 import cavernbrightcolorfulIMG from '../assets/1,1.gif';
 import mechanicalroomIMG from '../assets/0,1.jfif';
 import wallcolorIMG1 from '../assets/0,21.jfif';
-import largechestIMG from '../assets/chest.webp';
+import largechestIMG from '../assets/chest.jfif';
 import endIMG from '../assets/end.jfif';
 import { EnImg } from './GameCSS'
 

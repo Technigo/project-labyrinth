@@ -23,9 +23,9 @@ const LoadingWrapper = styled.div`
   display: flex;
   text-align: center;
   justify-content: center;
-  margin-top: 40%;
+  margin-top: 30%;
 `
 const LoadingImage = styled.img`
-   width: 90%;
-   height: 90%;
+   width: 70%;
+   height: 70%;
 `
