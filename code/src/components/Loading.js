@@ -7,12 +7,13 @@ import './Loading.css';
 const LoadingSection = styled.section`
 display: flex;
 height: 100vh;
+background-color: none;
 `
 
 const LoadingText = styled.h1`
   color: black;
   font-family: "Press Start 2P";
-  font-size: 20px;
+  font-size: 30px;
   display: flex;
   align-items: center;
   
