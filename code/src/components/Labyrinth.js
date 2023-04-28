@@ -17,6 +17,7 @@ import forestImg from '../images/forest.jpg';
 
 const LabyrinthWrapper = styled.div`
 position: relative; //This is needed for the Loading-component to be placed on top.
+z-index: 1;
 `
 
 export const Labyrinth = () => {
