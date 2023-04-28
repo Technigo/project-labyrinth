@@ -1,10 +1,7 @@
 import styled from 'styled-components/macro';
 
 export const OuterWrapper = styled.div`
-  background-image: url("https://images.unsplash.com/photo-1548783917-a211bcc263cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1486&q=80");
   min-height: 100vh; //vh = view-height
-  background-size: cover;
-  background-repeat: repeat;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -126,5 +123,9 @@ export const ButtonRestart = styled.button`
 `;
 
 export const LoadingBox = styled.div`
-background: red;
+background-image: url("https://images.unsplash.com/photo-1548783917-a211bcc263cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1486&q=80");
+`
+
+export const Loading = styled.div`
+background-color:red;
 `
