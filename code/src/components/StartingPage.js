@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { game, startGame } from 'reducers/game';
-import styled from 'styled-components/macro';
+import styled, { keyframes } from 'styled-components/macro';
 import startImage from '../assets/start.jpg'
 
 export const StartingPage = () => {
@@ -81,9 +81,20 @@ const FormWrapper = styled.div`
   }
   `
 
+const glow = keyframes`
+  from {
+    text-shadow: 0 0 10px #B8B6F2, 0 0 20px #486F73, 0 0 30px #7D458C, 0 0 40px #7D458C, 0 0 50px #7D458C, 0 0 60px #7D458C, 0 0 70px #7D458C;
+  }
+  to {
+    text-shadow: 0 0 20px #486F73, 0 0 30px #ff4da6, 0 0 40px #7D458C, 0 0 50px #7D458C, 0 0 60px #242526, 0 0 70px #242526, 0 0 80px #242526;
+  }
+}
+`
+
 const Title = styled.h1`
-color: #7D458C;
+color: black;
 font-size: 60px;
+animation: ${glow} 1s ease-in-out infinite alternate;
 `
 
 export const Text = styled.p`
