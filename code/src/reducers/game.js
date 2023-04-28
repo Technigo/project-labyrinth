@@ -12,8 +12,8 @@ const game = createSlice({
     isEndScreen: false
   },
   reducers: {
-    setUserName: (store, action) => {
-      store.username = action.payload;
+    setUserName: (store) => {
+      store.username = uuidv4();
     },
     setCurrentLocation: (store, action) => {
       store.currentLocation = action.payload;
@@ -51,9 +51,9 @@ export default game;
 
 // thunk to handle api call to start the game
 export const startGame = () => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     dispatch(game.actions.setLoading(true));
-    const username = { username: uuidv4() }
+    const username = { username: getState().game.username }
 
     const options = {
       method: 'POST',

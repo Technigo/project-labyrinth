@@ -38,6 +38,7 @@ const GameContainer = styled.section`
 
   @media (min-width: 1024px) {
     width: 60vw;
+    height: 70vh;
   }
 `;
 

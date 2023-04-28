@@ -2,8 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   :root {
-    --primary-color-1: rgba(204, 194, 184, 0.5);
-    --primary-color-2: #F5F5F5;
+    --primary-color-1: #faedcd;
     --neutral-light: #FFFFFF;
     --neutral-medium: #525252;
     --neutral-dark: #000000;

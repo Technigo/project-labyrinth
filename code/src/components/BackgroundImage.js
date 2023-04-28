@@ -16,6 +16,7 @@ const StyledBackground = styled.div`
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-color: var(--primary-color-1);
     position: absolute;
     top: 0;
     left: 0;
@@ -48,9 +49,9 @@ const BackgroundImage = () => {
         return `url(${process.env.PUBLIC_URL}/assets/pathway-step3.png)`;
       case '0,1': // Step 4
         return `url(${process.env.PUBLIC_URL}/assets/machine-step4.png)`;
-      case '0,2': // Step 4
+      case '0,2': // Step 5
         return `url(${process.env.PUBLIC_URL}/assets/room-step5.jpg)`;
-      case '0,3': // Step 5
+      case '0,3': // Step 6
         return `url(${process.env.PUBLIC_URL}/assets/bookshelves.png)`;
 
       default: // Fall back img
@@ -64,7 +65,7 @@ const BackgroundImage = () => {
       style={{
         backgroundColor: isLoading ? 'var(--primary-color-1)' : 'transparent',
         backgroundImage: isLoading
-          ? 'none'
+          ? 'var(--primary-color-1)'
           : `linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), ${selectBackgroundImage()}`
       }} />
   );
