@@ -40,7 +40,7 @@ line-height: 1.6em;
 background: white;
 border: 10px solid black;
 align-self: center;
-width: 85%;
+width: 60%;
 margin-right: auto;
 margin-left: auto;
 padding: 2%;
@@ -49,10 +49,7 @@ margin-bottom: 2%;
 @media (max-width : 428px) {
     font-size: 10px;
 }
-
-@media (min-width: 770px) {
-    width: 40%;
-}`
+`
 
 export const Form = styled.form`
     display: flex;
