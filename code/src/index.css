@@ -20,13 +20,12 @@ code {
   width: 100px;
   margin-top: 40px;
 
-  
-
 }
 
 @media (min-width: 767px) {
 
     .maze {
-      width: 200px;
-      height: 200px;}
+      width: 150px;
+      height: 150px;
+      margin-top: 60px;}
 }

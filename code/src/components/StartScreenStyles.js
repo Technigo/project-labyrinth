@@ -35,11 +35,6 @@ color: white;
 font-size: 1.3rem;
 
 }
-
-@media (min-width: 1024px) {
-font-size: 1.5rem;
-
-}
 `
 export const TextContainer = styled.div`
 display: flex;
@@ -69,7 +64,7 @@ font-size: 1rem;
 }
 
 @media (min-width: 1024px) {
-font-size: 1.3rem;
+font-size: 1.1rem;
 
 }
 `
@@ -96,7 +91,7 @@ padding: 8px 10px;
 }
 
 @media (min-width: 1024px) {
-font-size: 1.5rem;
+font-size: 1.2rem;
 padding: 8px 10px;
 }
 
