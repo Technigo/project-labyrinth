@@ -23,9 +23,9 @@ position: absolute;
 const EnterText = styled.h1`
 display: flex;
 justify-content: center;
-margin: 15rem 2rem 0 2rem;
+margin: 15rem 0rem 0 0rem;
 color: white;
-font-size: 34px;
+font-size: 24px;
 `;
 
 const HeaderText = styled.h2`
