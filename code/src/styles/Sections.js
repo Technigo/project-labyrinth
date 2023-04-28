@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import startScreenBg from '../components/img/startScreen.png';
+import startScreenBg from '../components/img/startBg.png';
 import cave from '../components/img/cave.gif';
 
 export const StartScreenSection = styled.section`
