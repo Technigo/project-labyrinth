@@ -15,7 +15,7 @@ const StyledButton = styled.button`
     width: fit-content;
     border: 2px dashed grey;
     border-radius: 3px;
-    margin-right: 10px; 
+    /*margin-right: 10px; */
     &:hover,
     &:focus {
         border-color: rgb(192, 81, 111);

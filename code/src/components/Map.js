@@ -45,17 +45,22 @@ export const Map = ({ coordinates }) => {
 
 const MapImage = styled.img`
   align-self: center;
-  width: 280px;
+  width: 300px;
   object-fit: contain;
 
   @media (min-width: 668px) {
       align-self: flex-start;
-      max-width: 700px;
+     /*max-width: 300px;*/
     }
 `
 
 const StarImage = styled.img`
   width: 300px;
+
+  @media (min-width: 668px) {
+      align-self: flex-start;
+      /*max-width: 300px;*/
+    }
 `
 const ImageContainer = styled.div`
   display: flex;

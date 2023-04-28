@@ -74,8 +74,7 @@ const PlayerBar = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 10px;
-    padding: 10px;
+    padding: 10px 20px 20px 20px;
     h2 {
         font-size: 14px;
         color: rgb(130, 216, 96);
@@ -83,12 +82,17 @@ const PlayerBar = styled.div`
     span {
       color: rgb(83, 199, 210);
     }
+
+    @media (min-width: 668px) {
+      padding: 10px 20px 20px 10px;
+    }
 `
 
 const ContentContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 
     @media (min-width: 668px) {
       display: flex;
@@ -100,13 +104,21 @@ const ContentContainer = styled.div`
 `
 
 const TextContainer = styled.div`
-    width: 100%;
+    width: 90%;
+
+    @media (min-width: 668px) {
+      width: 100%;
+    }
 `
 
 const Prompt = styled.p`
   font-size: 15px;
   color: rgb(164, 145, 230);
-  padding: 0px 00px 10px 10px;
+  padding-bottom: 10px;
+
+  @media (min-width: 668px) {
+      padding: 0 0 20px 10px;
+    }
 `
 
 const PositionDescription = styled.div`
@@ -117,10 +129,15 @@ const PositionDescription = styled.div`
     border: 2px dashed rgb(164, 145, 230);
     border-radius: 3px;
     padding: 10px;
-    margin: 0 0px 10px 10px;
+    margin-bottom: 10px;
     h1 {
         font-size: 15px;
         color: rgb(164, 145, 230);
+    }
+
+    @media (min-width: 668px) {
+      width: 95%;
+      margin: 0 0 10px 10px;
     }
 `
 

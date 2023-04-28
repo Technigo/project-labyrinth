@@ -26,7 +26,7 @@ const MainPageContainer = styled.div`
     position: relative;
     align-items: center;
     min-height: 100vh;
-    max-width: 100vw;
+    /*max-width: 100vw;*/
     margin: 0 auto;
     margin-bottom: 20px;
     color: rgb(197, 91, 95);
