@@ -1,13 +1,21 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+A project which allows a user to navigate a maze, in the form of a text-based adventure, provided by a backend. This week dug deeper into redux and went through things such as async actions and other ways of writing Redux, without Redux toolkit.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+✓ How to work with APIs together with Redux
+
+✓ How to use thunks
+
+✓ Other ways of writing Redux
+
+✓ Reusable components
+
+✓ How to structure your redux store to suit your data
+
+✓ To send JSON in the body of a request
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://labyrinthw12-reactredux.netlify.app/
