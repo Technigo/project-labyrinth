@@ -152,7 +152,11 @@ input[type=text] {
   .buttonDesc {
     height: 5rem;
     overflow: scroll;
+    scrollbar-width: none;
   }
+  .buttonDesc::-webkit-scrollbar{
+    display: none;
+  } /* this hides the scrollbars in Chrome and Safari */
 
   input {
     font-size: 1rem;
@@ -182,5 +186,9 @@ input[type=text] {
 
   input {
     margin-top: 5rem;
+  }
+
+  form {
+   width: 300px;
   }
 }
