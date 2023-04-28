@@ -1,3 +1,4 @@
+// Check the naming
 import React from 'react'
 import { Player } from '@lottiefiles/react-lottie-player';
 import styled, { keyframes } from 'styled-components';
@@ -50,6 +51,3 @@ export const Animation = () => (
       }} />
   </FullPage>
 );
-
-/*
- */

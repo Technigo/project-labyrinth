@@ -1,4 +1,5 @@
 /* eslint-disable no-nested-ternary */
+// Rename component and whats the common use of lib?
 import styled, { keyframes, css } from 'styled-components';
 import start from 'images/start.jpg'
 import image1 from 'images/level1.jpg'

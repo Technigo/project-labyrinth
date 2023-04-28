@@ -1,31 +1,34 @@
 /* disable-eslint */
 
-import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { fetchTwo, gameFetch } from 'reducers/gameFetch'
-import { LevelCard, Description, Background, DescriptionCard, DirectionButton, Arrow, ShowMoreButton, MainDescriptionCard, MainDescription, PlayerLevelWrapper, SpaceButton } from 'lib/Level'
-import arrow from 'images/purple-arrow.png'
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchTwo, gameFetch } from 'reducers/gameFetch';
+import { LevelCard, Description, Background, DescriptionCard, DirectionButton, Arrow, ShowMoreButton, MainDescriptionCard, MainDescription, PlayerLevelWrapper, SpaceButton } from 'lib/Level';
+import arrow from 'images/purple-arrow.png';
 import { Player } from '@lottiefiles/react-lottie-player';
 import startgame from 'images/arrow-button.png';
-import { StarterPage } from './StarterPage'
-import { Animation } from './LoadingAnimation'
+import { StarterPage } from './StarterPage';
+import { Animation } from './LoadingAnimation';
 
 export const Game = () => {
-  const gameData = useSelector((store) => store.gameFetch)
-  const gameActions = useSelector((store) => store.gameFetch.actions)
-  const coordinates = useSelector((store) => store.gameFetch.coordinates)
+  const gameData = useSelector((store) => store.gameFetch);
+  /* Is one useSel enough? The one above has all data of the ones below */
+  const gameActions = useSelector((store) => store.gameFetch.actions);
+  const coordinates = useSelector((store) => store.gameFetch.coordinates);
+  /* useStates */
   const [showDirection, setShowDirection] = useState(false);
   const [directionTaken, setDirectionTaken] = useState(false);
   const [banana, setBanana] = useState(null);
+  const isLoading = useSelector((state) => state.loading.isLoading);
 
-  console.log(coordinates);
+  console.log(coordinates); // remove
   const dispatch = useDispatch();
-  const isLoading = useSelector((state) => state.loading.isLoading)
 
   const onRestartButton = () => {
     dispatch(gameFetch.actions.restartGame());
   };
 
+  /* Functions */
   const onShowDirectionClick = () => {
     setShowDirection(true)
   };
@@ -43,7 +46,7 @@ export const Game = () => {
 
   return (
     <div>
-      {isLoading ? (
+      {isLoading ? ( // Good! All should be like this
         <Animation />
       ) : (
         <div>
