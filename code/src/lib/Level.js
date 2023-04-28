@@ -109,10 +109,6 @@ export const ShowMoreButton = styled(DirectionButton)`
   font-weight: 900;
   font-family: 'Bebas Neue', cursive;
   cursor: pointer;
-  background: transparent;
-  padding: 1px 5px;
-  border-radius: 6px;
-  }
 `
 
 export const MainDescriptionCard = styled.div`

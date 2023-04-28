@@ -7,7 +7,7 @@ const initialState = {
   description: '',
   actions: [],
   loading: false,
-  coordinates: 'starter-page' // x,x is more understandable
+  coordinates: 'x,x'
 }
 
 export const gameFetch = createSlice({
