@@ -15,11 +15,11 @@ export const Loader = () => {
   return (
     <LoaderContainer>
       <StyledPlayer
-        src="https://assets7.lottiefiles.com/packages/lf20_92fyiqta.json"
+        src="https://assets9.lottiefiles.com/packages/lf20_ndmmn0a6.json"
         className="player"
         loop
         autoplay
-        speed={3} />
+        speed={1} />
     </LoaderContainer>
   )
 }

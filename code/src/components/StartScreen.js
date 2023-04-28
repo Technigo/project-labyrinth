@@ -27,11 +27,11 @@ const StyledForm = styled.form`
     margin-bottom: 10px;
 
     @media (min-width: 667px) {
-      font-size: 60px;
+      font-size: 3.3em;
     }
 
     @media (min-width: 1024px) {
-      font-size: 60px;
+      font-size: 3.5em;
     }
   }
 
@@ -42,11 +42,11 @@ const StyledForm = styled.form`
     font-size: 2.4em;
 
     @media (min-width: 667px) {
-      font-size: 60px;
+      font-size: 3em;
     }
 
     @media (min-width: 1024px) {
-      font-size: 60px;
+      font-size: 3.2em;
     }
   }
 
