@@ -15,7 +15,7 @@ export const gameFetch = createSlice({
   initialState,
   reducers: {
     setName: (store, action) => {
-      store.userName = action.payload;
+      store.userName = `${action.payload} ${Date.now().toString()}`;
     },
     setDescription: (store, action) => {
       store.description = action.payload;
