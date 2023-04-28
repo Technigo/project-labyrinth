@@ -24,7 +24,7 @@ export const WelcomeTextWrapper = styled.div`
   align-items: center;
   justify-content: center;
   background-repeat: no-repeat;
-  max-width: 302px;`
+  max-width: 380px;`
 
 export const NameForm = styled.form`
   display: flex;
@@ -49,7 +49,4 @@ export const NameInput = styled.input`
   background-color: rgba(255, 234, 142, 0.83);
   width: 220px;
   height: 40px;
-`
-
-export const RestartWrapper = styled.div`
 `

@@ -2,7 +2,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { labyrinth } from 'reducers/labyrinth'
-import { Btn, RestartWrapper } from './StartScreenCSS'
+import { RestartBtn, RestartWrapper } from './GameCSS'
 
 export const Restart = () => {
   const dispatch = useDispatch()
@@ -12,7 +12,7 @@ export const Restart = () => {
 
   return (
     <RestartWrapper>
-      <Btn type="button" onClick={onRestartButton}>RESTART</Btn>
+      <RestartBtn type="button" onClick={onRestartButton} />
     </RestartWrapper>
   )
 }

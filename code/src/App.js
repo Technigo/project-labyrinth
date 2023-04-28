@@ -9,8 +9,8 @@ import rockbkgrndIMG from './assets/rockbackground.jfif'
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   justify-content: center;
   background-image: url(${rockbkgrndIMG});
   background-size: contain;`

@@ -4,8 +4,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { gameProgress } from 'reducers/labyrinth';
 import { Loader } from './Loader';
 import { Restart } from './Restart';
-import { GameWrapper, ActionWrapper, ActionTop, ActionBottom, EnvironmentIMG } from './GameCSS';
+import { GameWrapper, ActionWrapper, SingleActionWrapper, ActionTop, CurrentRoomDescriptionText, NextRoomDescriptionText } from './GameCSS';
 import { Btn } from './StartScreenCSS';
+import { EnvironmentIMG } from './EnvironmentIMG';
 
 const Game = () => {
   const labyrinth = useSelector((store) => store.labyrinth)
@@ -15,20 +16,17 @@ const Game = () => {
 
   if (isLoading) {
     return <Loader />
-  } else if (resp.coordinates === '0,0') {
-    return <Restart />
   } else {
     return (
       <GameWrapper>
-        <EnvironmentIMG labyrinth={labyrinth} />
-        <p>{labyrinth.response.description}</p>
-        {labyrinth.response.actions && labyrinth.response.actions.map((userAction) =>
-          <ActionWrapper key={userAction.type && userAction.direction}>
-            <ActionTop>
-              <p>{userAction.type}:{userAction.direction}</p>
-              <p>{userAction.description}</p>
-            </ActionTop>
-            <ActionBottom>
+        <EnvironmentIMG coordinates={resp.coordinates} />
+        <CurrentRoomDescriptionText>{labyrinth.response.description}</CurrentRoomDescriptionText>
+        <ActionWrapper>
+          {labyrinth.response.actions && labyrinth.response.actions.map((userAction) =>
+            <SingleActionWrapper key={userAction.type && userAction.direction}>
+              <ActionTop>
+                <NextRoomDescriptionText>{userAction.description}</NextRoomDescriptionText>
+              </ActionTop>
               <Btn
                 type="button"
                 onClick={
@@ -36,9 +34,9 @@ const Game = () => {
                 }>
               Go {userAction.direction}
               </Btn>
-            </ActionBottom>
-          </ActionWrapper>)}
-        <Restart />
+            </SingleActionWrapper>)}
+          <Restart />
+        </ActionWrapper>
       </GameWrapper>)
   }
 }
