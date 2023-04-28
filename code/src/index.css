@@ -5,9 +5,34 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.allWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.actionsContainer {
+  display: flex;
+}
+
+h1 {
+ font-family: Sigmar;
+ color: gold;
+ font-weight: 300;
+}
+
+p {
+  color: white;
+  font-family: Roboto Mono;
 }

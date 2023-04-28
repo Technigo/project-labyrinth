@@ -5,7 +5,7 @@ const Loading = () => (
   <Player
     autoplay
     loop
-    src="https://assets1.lottiefiles.com/packages/lf20_de6cmki0.json"
+    src="https://assets7.lottiefiles.com/datafiles/WZMt4Klgo3TYk1R/data.json"
     style={{ height: '400px', width: '400px' }} />
 )
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import labyrinth, { getLabyrinth } from 'reducers/labyrinth';
+import { SubmitBtn } from 'library/buttons';
 
 const UserNameInput = ({ onStartGame }) => {
   const [userNameInputValue, setUserNameInputValue] = useState('');
@@ -23,13 +24,15 @@ const UserNameInput = ({ onStartGame }) => {
   }
 
   return (
-    <form onSubmit={(event) => onFormSubmit(event)}>
-      <label htmlFor="name-input">
-        Provide a user name
-        <input required id="name-input" type="text" onChange={(event) => setUserNameInputValue(event.target.value)} />
-      </label>
-      <button type="submit">START GAME</button>
-    </form>
+    <div className="allWrapper">
+      <form onSubmit={(event) => onFormSubmit(event)}>
+        <label htmlFor="name-input">
+          Provide a user name
+          <input required id="name-input" type="text" placeholder="Write your username here" onChange={(event) => setUserNameInputValue(event.target.value)} />
+        </label>
+        <SubmitBtn type="submit">START GAME</SubmitBtn>
+      </form>
+    </div>
   )
 }
 
