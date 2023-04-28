@@ -1,13 +1,149 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+  font-size: 15px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+body {
+  margin: 0;
+  font-family: 'Ubuntu Mono', monospace;;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+  color: #fef5bd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.spinner {
+  height: 200px;
+  width: 200px;
+  margin-top: 40px;
+}
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  width: 260px;
+}
+.top-lottie-container {
+  margin-top: 60px;
+}
+.top-lottie {
+  width: 100px;
+}
+.maze-span {
+  color: #F8E152;
+}
+.large-span {
+  white-space: nowrap;
+}
+.game-div {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.game-p {
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-align: center;
+  width: 80vw;
+  color: #F8E152;
+  margin-bottom: 30px;
+}
+.direction-div {
+  width: 90vw;
+  height: auto;
+  background-color: black;
+  color: #fef5bd;
+  border: 2px dotted rgb(254, 245, 189);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.direction-div p {
+  text-align: justify;
+  width: 80vw;
+  padding: 5px 15px;
+  font-size: 1rem;
+  word-spacing: -3px;
+}
+.credits {
+  color: #fef5bd;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.credits a {
+  color: #F8E152;
+}
+@media (min-width: 668px) and (max-width: 1023px) {
+  .top-lottie {
+    width: 150px;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  .spinner {
+    height: 300px;
+    width: 300px;
+  }
+  .game-p {
+    font-size: 2rem;
+  }
+  .direction-div {
+    margin-bottom: 20px;
+  }
+  .direction-div p {
+    font-size: 1.3rem;
+    width: auto;
+  }
+  .credits {
+    font-size: 1.3rem;
+    position: relative;
+    top: 400px;
+  }
+}
+@media (min-width: 1024px) {
+  .top-lottie-container {
+    position: absolute;
+    top: 2vh;
+    left: 2vh;
+    margin: 0;
+  }
+  .top-lottie {
+    width: 100px;
+  }
+  .main-container {
+    margin-top: 100px;
+  }
+  h1 {
+    font-size: 3.5rem;
+  }
+  .game-p {
+    width: 70vw;
+    font-size: 1.6rem;
+  }
+  .direction-div {
+    width: 70vw;
+  }
+  .direction-div p {
+    width: 60vw;
+    font-size: 1.3rem;
+  }
+  .credits {
+    font-size: 1.3rem;
+    position: relative;
+    top: 350px;
+  }
 }

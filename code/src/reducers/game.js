@@ -66,9 +66,9 @@ export const nextMove = (direction) => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.setDescription(data))
-          .finally(() => {
-            dispatch(game.actions.isLoading(false))
-          })
+      })
+      .finally(() => {
+        dispatch(game.actions.isLoading(false))
       })
   }
 }

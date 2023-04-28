@@ -10,9 +10,12 @@ export const App = () => {
   })
 
   const store = configureStore({ reducer });
+
   return (
-    <Provider store={store}>
-      <StartScreen />
-    </Provider>
+    <section className="main-container">
+      <Provider store={store}>
+        <StartScreen />
+      </Provider>
+    </section>
   )
 }
