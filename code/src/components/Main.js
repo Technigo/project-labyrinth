@@ -23,7 +23,7 @@ position: absolute;
 const EnterText = styled.h1`
 display: flex;
 justify-content: center;
-margin: 15rem 0 0 0;
+margin: 15rem 2rem 0 2rem;
 color: white;
 font-size: 34px;
 `;
