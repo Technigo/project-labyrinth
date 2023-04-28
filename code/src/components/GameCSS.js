@@ -31,3 +31,9 @@ export const ActionWrapper = styled.div`
     animation: ${fadeInAnimation} 1.2s ease-in-out;
     background-image: url(${ScrollIMG});
 `
+
+export const ActionTop = styled.div`
+`
+
+export const ActionBottom = styled.div`
+`

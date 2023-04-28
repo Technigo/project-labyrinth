@@ -2,7 +2,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { labyrinth } from 'reducers/labyrinth'
-import styled from 'styled-components'
+import { Btn, RestartWrapper } from './StartScreenCSS'
 
 export const Restart = () => {
   const dispatch = useDispatch()
@@ -17,10 +17,7 @@ export const Restart = () => {
           <p>{userAction.type}:{userAction.direction}</p>
           <p>{userAction.description}</p>
         </div>)} */}
-      <button type="button" onClick={onRestartButton}>RESTART</button>
+      <Btn type="button" onClick={onRestartButton}>RESTART</Btn>
     </RestartWrapper>
   )
 }
-
-const RestartWrapper = styled.div`
- `
