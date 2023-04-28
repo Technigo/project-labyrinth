@@ -1,13 +1,14 @@
 import React from 'react'
-import { useDispatch } from 'react-redux';
-import { postUsername, game } from 'reducers/game';
+// import { useDispatch } from 'react-redux';
+// import { postUsername, game } from 'reducers/game';
+import StartingPage from './StartingPage'
 
 const Main = () => {
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
-  dispatch(postUsername())
+  // dispatch(postUsername())
 
-  return (<h1>Main</h1>);
+  return (<StartingPage />);
 }
 
 export default Main;
