@@ -26,6 +26,6 @@ const LottieWrapper = styled.section`
       height: 60vh;
       width: 60vw;
       align-items: center;
-      padding-top: 30%;
+      padding-top: 13%;
     }
     `
