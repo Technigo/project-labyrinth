@@ -22,9 +22,10 @@ export const StartScreen = () => {
         <HeadingOneContainer>
           <TypeIt
             options={{
-              speed: 40
+              speed: 40,
+              cursor: false
             }}>
-            <Label>Welcome to the Labyrinth.</Label>
+            <Label>Welcome to the Labyrinth</Label>
           </TypeIt>
         </HeadingOneContainer>
 
