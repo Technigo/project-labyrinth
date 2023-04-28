@@ -40,7 +40,7 @@ line-height: 1.6em;
 background: white;
 border: 10px solid black;
 align-self: center;
-width: 60%;
+width: 85%;
 margin-right: auto;
 margin-left: auto;
 padding: 2%;
