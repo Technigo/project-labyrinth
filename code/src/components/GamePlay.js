@@ -63,12 +63,6 @@ export const GamePlay = () => {
           <Text>{story}</Text>
         </TextWrapper>
         <OptionWrapper>
-          <ButtonWrapper>
-            {direction.map((item) => {
-              return <DirectionBtn className={item.direction} type="button" onClick={() => onButtonClick(item.direction)}>Go {item.direction}</DirectionBtn>
-            })}
-            {noActionsLeft && <Restartbutton type="button" onClick={() => onRestartButton()}>Restart</Restartbutton>}
-          </ButtonWrapper>
           {direction.map((item) => {
             return (
               <DirectionTextWrapper className={item.direction}>
@@ -77,6 +71,12 @@ export const GamePlay = () => {
               </DirectionTextWrapper>
             )
           })}
+          <ButtonWrapper>
+            {direction.map((item) => {
+              return <DirectionBtn className={item.direction} type="button" onClick={() => onButtonClick(item.direction)}>Go {item.direction}</DirectionBtn>
+            })}
+            {noActionsLeft && <Restartbutton type="button" onClick={() => onRestartButton()}>Restart</Restartbutton>}
+          </ButtonWrapper>
         </OptionWrapper>
       </InnerWrapper>
     </MainSection>
@@ -111,6 +111,10 @@ const TextWrapper = styled.div`
 
         @media (min-width: 668px) {
         width: 50vw;
+        }  
+
+        @media (min-width: 1024px) {
+        width: 30vw;
         }  
         `
 const OptionWrapper = styled.div`
@@ -157,7 +161,7 @@ const ButtonWrapper = styled.div`
         height: 110px;
         border: 2px solid black;
         border-radius: 50%;
-        margin-bottom: 20px;
+        margin-top: 25px;
         `
 const DirectionTextWrapper = styled.div`
         margin-top: 5px;
@@ -177,17 +181,12 @@ const DirectionTextWrapper = styled.div`
         {
         width: 50vw;
         }  
-/* 
-        &.North {
-          position: relative;
-          top: -70%;
-        }
 
-        &.West {
-          width: 50%;
-          position: relative;
-          left: 0;
-        } */
+        @media (min-width: 668px) {
+        
+        {
+        width: 30vw;
+        }  
       }
         `
 const DescriptionTitle = styled.h2`
