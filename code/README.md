@@ -12,6 +12,7 @@ Redux
 JavaScript
 Styled Components
 TypeIt
+UUID (Universally Unique Identifier)
 
 Features:
 User can navigate a text-based maze

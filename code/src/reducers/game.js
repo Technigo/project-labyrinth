@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { v4 as uuidv4 } from 'uuid';
 
 const game = createSlice({
   name: 'game',
@@ -50,9 +51,9 @@ export default game;
 
 // thunk to handle api call to start the game
 export const startGame = () => {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(game.actions.setLoading(true));
-    const username = { username: getState().game.username }
+    const username = { username: uuidv4() }
 
     const options = {
       method: 'POST',
