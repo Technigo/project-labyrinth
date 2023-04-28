@@ -43,7 +43,6 @@ code {
 
 .actionsContainer:last-of-type {
   text-align: right;
-  align-items: flex-end;
   border-top: 0;
 }
 
