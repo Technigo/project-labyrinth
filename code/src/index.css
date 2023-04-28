@@ -3,7 +3,7 @@ body {
   font-family: 'Nunito', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url(./assets/maze.jpg);
+  background-image: url(./assets/stable.jpg);
   background-size: cover;
   background-repeat: repeat;
 }
@@ -18,8 +18,9 @@ code {
   --mainGreen: #b3b813;
   --secondaryGreen: rgb(232, 247, 180); 
   --darkGreen: rgba(1, 15, 1, 0.226);
+  --pink: #e15ff7;
 
-}
+} 
 
 form {
   display: flex;
@@ -33,10 +34,6 @@ form {
 input {
   max-width: 250px;
 
-}
-
-progress.nes-progress {
-  max-height: 2rem;
 }
 
 h2 {
@@ -63,7 +60,7 @@ span {
   color: white;
 }
 
-.profileContainer {
+/* .profileContainer {
   justify-content: flex-end;
   max-width: 1050px;
   margin: 0 auto;
@@ -72,4 +69,4 @@ span {
   margin-top: 1rem;
   margin-bottom: 5rem;
   gap: 5px;
-}
+} */

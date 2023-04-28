@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 
 export const TextAnimation = styled.div`
-  max-width: 700px;
+  max-width: 1000px;
   margin-bottom: 5rem;
   margin-top: 3rem;
   h1 {

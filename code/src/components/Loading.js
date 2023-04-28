@@ -11,41 +11,26 @@ export const Loading = () => {
   useEffect(() => {
     setLoading(isLoading);
   }, [isLoading]);
-  // const [loadingDot, setLoadingDot] = useState('');
-  // const loadingAnimation = () => {
-  //  if (loadingDot === '....') {
-  //    setLoadingDot('');
-  //  } else {
-  //    setTimeout(() => setLoadingDot(`${loadingDot}.`), 250);
-  //  }
-  // };
-
-  //   <h4>
-  //   Loading{loadingAnimation()}
-  //     {loadingDot}
-  //   </h4>
-  // )}
   return (
     <Animation>
       {loading && (
         <>
           <Player
-            src="https://assets5.lottiefiles.com/packages/lf20_0ifhkw8a.json"
+            src="https://assets1.lottiefiles.com/packages/lf20_YrARNi6H6D.json"
             className="lottie"
             loop
             mode="normal"
             autoplay
             speed={1.2}
-            style={{ height: '400px', width: '400px' }} />
+            style={{ height: '350px', width: '350px' }} />
         </>
       )}
     </Animation>
   );
-<<<<<<< HEAD
 }
 
 const Animation = styled.div`
-background-color: black;
+//background-color: white;
 width: 100%;
 height: 100%;
 //background-size: cover;
@@ -59,6 +44,3 @@ justify-content: center;
 align-items: center;
 z-index: 9999; */
 `
-=======
-};
->>>>>>> de205ff1ea26388a07aeefa3a4be59bd45681194

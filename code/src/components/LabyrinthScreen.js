@@ -17,18 +17,13 @@ export const LabyrinthScreen = () => {
   return (
     <>
       <InnerWrapper>
-        <div className="profileContainer">
-          {/* ADD THIS <Player src="/assets/avatarCrop.png" alt="avatar" /> */}
-        </div>
         <BoxContainer>
           {response.description && (
             <TextBox>
               <P>{response.description}</P>
             </TextBox>
           )}
-
           <Loading />
-
           <LabyrinthMove response={response} />
         </BoxContainer>
       </InnerWrapper>

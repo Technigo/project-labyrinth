@@ -31,23 +31,23 @@ export const Start = () => {
   return (
     <>
       <TextAnimation>
-        <h1> Let&apos;s start the labyrinth</h1>
+        <h1> Welcome to the mysterious stable</h1>
       </TextAnimation>
       <InnerWrapper>
         <BoxContainer>
           <PlayerContainer>
-            <h2> Enter your player name:</h2>
+            <h2> Name of your horse:</h2>
             <form onSubmit={(event) => onFormSubmit(event)}>
               <input
                 name="username"
                 type="text"
-                placeholder="Enter your name..."
+                placeholder="Enter the name..."
                 value={usernameInputValue}
                 onChange={(event) => setUsernameInputValue(event.target.value)}
                 required />
               <button type="submit">
                 {' '}
-              Start the Labyrinth
+              Start the Ride
               </button>
             </form>
           </PlayerContainer>
