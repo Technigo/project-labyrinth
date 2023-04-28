@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import TypeIt from 'typeit-react'
+// import FadedText from 'faded-text'
 import styled from 'styled-components/macro'
 import { maze } from 'reducers/maze'
 import FetchGame from './FetchGame'
@@ -13,6 +14,9 @@ export const Start = () => {
   const [userName, setUserName] = useState('')
 
   const dispatch = useDispatch()
+
+  // const FADED_TEXT = new FadedText('idElement')
+  // FADED_TEXT.charFadeIn()
 
   const onNameSubmit = (event) => {
     event.preventDefault()
@@ -56,10 +60,15 @@ align-items: center;
 padding: 20px;
 `
 
-const StartText = styled.div`
+export const StartText = styled.div`
 max-width: 400px;
 font-size: 24px;
 text-shadow: whitesmoke 2px 2px;
+
+@media (min-width: 768px) {
+  font-size: 32px;
+}
+
 `
 
 const FormDiv = styled.div`

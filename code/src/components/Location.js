@@ -12,7 +12,6 @@ import { Loading } from './Loading'
 import compass from '../lotties/compass.json'
 import woodenSign from '../images/plank.jpg'
 import { Button } from './Buttons'
-import ship from '../lotties/ship'
 
 const Location = () => {
   const currentLocation = useSelector((store) => store.maze)
@@ -47,12 +46,12 @@ const Location = () => {
         </Sign>
         <div>
           {clickCount === 1
-            && <LocationSign className={action.direction}>
+            && <DirectionsSign className={action.direction}>
               {action.direction}
               <DirectionsP>
                 {action.description}
               </DirectionsP>
-            </LocationSign>}
+            </DirectionsSign>}
         </div>
       </>
     )
@@ -67,7 +66,7 @@ const Location = () => {
             </LocationText>
           </TypeIt>
           <CompassSquare>
-            {currentLocation.coordinates === '1,3' ? <Lottie style={{ width: '200px', margin: 'auto' }} animationData={ship} loop /> : <Lottie style={{ width: '150px', position: 'relative' }} animationData={compass} loop />}
+            {currentLocation.coordinates === '1,3' ? null : <Lottie style={{ width: '150px', position: 'relative' }} animationData={compass} loop />}
             {actionDirections}
           </CompassSquare>
           {currentLocation.coordinates === '1,3' ? <FinalStep /> : null}
@@ -93,39 +92,76 @@ align-items: center;
 max-width: 600px;
 height: 200px;
 `
-
-const LocationSign = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-background-image: url(${woodenSign});
-background-size: cover;
-width: 160px;
-margin: 10px;
-padding: 4px 6px;
-box-shadow: 2px 6px 6px 2px black;
-text-shadow: 0px 1px whitesmoke;
-
-&.North, &.South{
-  position:absolute;
-  right: calc(-20%);
-  bottom: calc(-100%);
-  border-radius: 30px 60px 50px 20px;
-}
-
-&.West, &.East {
-  position: absolute;
-  left: calc(-20%);
-  bottom: calc(-100%);
-  border-radius: 30px 25px 40px 2px;
-}
-`
-
 const LocationText = styled.div`
 font-size: 18px;
 padding: 10px;
 color: whitesmoke;
 text-shadow: black 2px 1px;
+
+@media (min-width: 768px) {
+  font-size: 32px;
+}
+`
+
+const DirectionsSign = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+max-height: fit-content;
+background-image: url(${woodenSign});
+background-size: cover;
+width: 160px;
+margin: 10px;
+padding: 6px 6px;
+box-shadow: 2px 6px 6px 2px black;
+text-shadow: 0px 1px whitesmoke;
+
+&.North{
+  position:absolute;
+  right: calc(-20%);
+  bottom: calc(-100%);
+  border-radius: 30px 60px 50px 20px;
+
+  @media (min-width: 768px) {
+  top: calc(-100%);
+  right: calc(10%);
+}
+}
+&.South{
+  position:absolute;
+  right: calc(-20%);
+  bottom: calc(-100%);
+  border-radius: 30px 60px 50px 20px;
+
+  @media (min-width: 768px) {
+  bottom: calc(-75%);
+  right: calc(10%);
+}
+}
+
+&.West{
+  position: absolute;
+  left: calc(-20%);
+  bottom: calc(-100%);
+  border-radius: 30px 25px 40px 2px;
+
+  @media (min-width: 768px){
+    top: calc(35%);
+    left: calc(-100%);
+  }
+}
+
+&.East {
+  position: absolute;
+  left: calc(-20%);
+  bottom: calc(-100%);
+  border-radius: 30px 25px 40px 2px;
+
+  @media (min-width: 768px){
+    top: 20%;
+    left: calc(120%);
+  }
+}
 `
 
 const DirectionsP = styled.p`
@@ -144,6 +180,10 @@ justify-content:center;
 border-radius: 50%;
 min-width: 250px;
 min-height: 250px;
+
+@media (min-width: 768px) {
+  top: calc(130%);
+}
 `
 
 const Sign = styled.div`
@@ -161,7 +201,7 @@ margin: 10px;
 
 &.North {
   position: absolute;
-  top: calc(0%);
+  top: calc(-5%);
   right: calc(30%);
   border-radius: 8px 30px 90px 60px;
 }
@@ -185,5 +225,6 @@ margin: 10px;
   left: calc(-20%);
   border-radius: 20px 0px 8px 20px;
 }
+
 `
 
