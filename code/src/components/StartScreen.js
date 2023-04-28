@@ -40,11 +40,25 @@ const StyledForm = styled.form`
   button {
     font-family: var(--font-family);
     padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+    color: black;
+    cursor: pointer;
   }
 
   input {
     font-family: 'Cinzel', serif;
-;
+    border-radius: 5px;
+    border: none;
+    padding: 3px;
+    background-color: white;
+    color: black;
+
+    &:focus {
+        outline: black solid 1px;
+        background-color: white;
+    }
   }
 `;
 

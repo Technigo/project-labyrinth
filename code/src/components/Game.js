@@ -10,13 +10,13 @@ const GameContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.5);
   width: 70vw;
   height: 70vh;
-  border-radius: 15px;
-  box-shadow: 1px 1px 26px 6px rgba(0,0,0,0.41);
-  -webkit-box-shadow: 1px 1px 26px 6px rgba(0,0,0,0.41);
-  -moz-box-shadow: 1px 1px 26px 6px rgba(0,0,0,0.41);
+  background: rgba(255, 255, 255, 0.21);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
 
   @media (min-width: 667px) {
     height: 60vh;
@@ -65,6 +65,7 @@ const CollapsBtn = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
+  color: black;
   background: lightblue;
   border: solid 1px black;
   border-radius: 5px;
@@ -73,6 +74,9 @@ const CollapsBtn = styled.div`
   padding: 3px;
   font-size: 0.8em;
   font-family: 'Nanum Gothic Coding', monospace;
+  box-shadow: 1px 3px 2px 1px rgba(0,0,0,0.09);
+    -webkit-box-shadow: 1px 3px 2px 1px rgba(0,0,0,0.09);
+    -moz-box-shadow: 1px 3px 2px 1px rgba(0,0,0,0.09);
 
   @media (min-width: 667px) {
     font-size: 1em;
@@ -105,6 +109,11 @@ const DirectionsContainer = styled.div`
     margin: 10px;
     font-size: 1em;
     font-family: 'Nanum Gothic Coding', monospace;
+    border-radius: 5px;
+    border: solid 1px black;
+    box-shadow: 1px 3px 2px 1px rgba(0,0,0,0.09);
+    -webkit-box-shadow: 1px 3px 2px 1px rgba(0,0,0,0.09);
+    -moz-box-shadow: 1px 3px 2px 1px rgba(0,0,0,0.09);
 
     @media (min-width: 1024px) {
     margin-bottom: 30px;
