@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { playGame, startGame } from 'reducers/game';
 import TypeIt from 'typeit-react';
 import { Loader } from './Loader';
 import EndScreen from './EndScreen';
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 const GameContainer = styled.section`
   display: flex;
@@ -52,7 +61,7 @@ const ContentContainer = styled.div`
 
 const StyledTypeIt = styled(TypeIt)`
   font-size: 1.1em;
-  font-family: 'Special Elite', cursive;
+  font-family: var(--secondary-font-family-1);
   font-weight: bold;
   margin-top: 10px;
 
@@ -70,15 +79,14 @@ const CollapsBtn = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: black;
   background: lightblue;
-  border: solid 1px black;
+  border: solid 1px var(--neutral-dark);
   border-radius: 5px;
   margin-top: 10px;
   width: 110px;
   padding: 3px;
   font-size: 0.8em;
-  font-family: 'Nanum Gothic Coding', monospace;
+  font-family: var( --secondary-font-family-2);
   box-shadow: 1px 3px 2px 1px rgba(0,0,0,0.09);
     -webkit-box-shadow: 1px 3px 2px 1px rgba(0,0,0,0.09);
     -moz-box-shadow: 1px 3px 2px 1px rgba(0,0,0,0.09);
@@ -100,8 +108,9 @@ const CollapsBtn = styled.div`
 const DirectionsContainer = styled.div`
   font-size: 0.9em;
   margin-top: 10px;
-  font-family: 'Nanum Gothic Coding', monospace;
+  font-family: var( --secondary-font-family-2);
   font-weight: 500;
+  animation: ${fadeIn} 2s ease-in;
 
   @media (min-width: 667px) {
     font-size: 1.3em;
@@ -115,9 +124,9 @@ const DirectionsContainer = styled.div`
     margin: 10px;
     padding: 3px 5px;
     font-size: 1em;
-    font-family: 'Nanum Gothic Coding', monospace;
+    font-family: var(--secondary-font-family-2);
     border-radius: 5px;
-    border: solid 1px black;
+    border: solid 1px var(--neutral-dark);
     box-shadow: 1px 3px 2px 1px rgba(0,0,0,0.09);
     -webkit-box-shadow: 1px 3px 2px 1px rgba(0,0,0,0.09);
     -moz-box-shadow: 1px 3px 2px 1px rgba(0,0,0,0.09);

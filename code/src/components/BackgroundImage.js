@@ -62,7 +62,7 @@ const BackgroundImage = () => {
     <StyledBackground
       key={coordinates}
       style={{
-        backgroundColor: isLoading ? 'rgba(204, 194, 184, 0.5)' : 'transparent',
+        backgroundColor: isLoading ? 'var(--primary-color-1)' : 'transparent',
         backgroundImage: isLoading
           ? 'none'
           : `linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), ${selectBackgroundImage()}`

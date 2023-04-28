@@ -1,8 +1,17 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import game from 'reducers/game';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import TypeIt from 'typeit-react';
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 const EndContainer = styled.section`
   display: flex;
@@ -35,9 +44,8 @@ const StartOverBtn = styled.button`
   padding: 5px 10px;
   border-radius: 5px;
   border: none;
-  background-color: white;
-  color: black;
   cursor: pointer;
+  animation: ${fadeIn} 17s ease-in;
 `;
 
 const EndScreen = () => {

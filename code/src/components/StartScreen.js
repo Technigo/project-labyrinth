@@ -61,8 +61,6 @@ const StyledForm = styled.form`
     padding: 5px 10px;
     border-radius: 5px;
     border: none;
-    background-color: white;
-    color: black;
     cursor: pointer;
   }
 
@@ -71,17 +69,17 @@ const StyledForm = styled.form`
     border-radius: 5px;
     border: none;
     padding: 3px;
-    background-color: white;
-    color: black;
+    background-color: var(--neutral-light);
+    color: var(--neutral-dark);
 
     &:focus {
         outline: black solid 1px;
-        background-color: white;
+        background-color: var(--neutral-light);
     }
 
     &::placeholder {
       font-size: 14px;
-      color: grey;
+      color: var(--neutral-medium);
     }
   }
 `;

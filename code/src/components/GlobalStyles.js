@@ -2,18 +2,14 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   :root {
-    --primary-color-1: #F5F5F5;
-    --primary-color-2: #FAC65D;
-    --primary-color-3: #4E80D5;
-    --primary-color-4: #FF90D1;
-    --secondary-color-1: #D9D9D9;
-    --secondary-color-2: #E39F49;
-    --secondary-color-3: #3253A8;
-    --secondary-color-4: #F80A0A;
+    --primary-color-1: rgba(204, 194, 184, 0.5);
+    --primary-color-2: #F5F5F5;
     --neutral-light: #FFFFFF;
     --neutral-medium: #525252;
     --neutral-dark: #000000;
     --font-family: 'Poltawski Nowy', serif;
+    --secondary-font-family-1: 'Special Elite', cursive;
+    --secondary-font-family-2: 'Nanum Gothic Coding', monospace;
     --font-size: 16px;
   }
 
@@ -36,9 +32,6 @@ export const GlobalStyles = createGlobalStyle`
 
   button {
     color: var(--neutral-dark);
-  }
-
-  header, section, footer {
-    padding: 10px;
+    background-color: var(--neutral-light);
   }
 `;
