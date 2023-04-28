@@ -77,6 +77,7 @@ font-size: 1.3rem;
 export const StartBtn = styled.button`
 border: none;
 font-size: 1rem;
+font-family: 'Kumbh Sans', sans-serif;
 display: flex;
 justify-content: center;
 align-items: center;
