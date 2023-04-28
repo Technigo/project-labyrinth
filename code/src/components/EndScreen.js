@@ -9,11 +9,19 @@ const EndContainer = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.5);
-  width: 40vw;
-  height: 50vh;
-  border-radius: 10%;
   text-align: center;
+  height: 80vh;
+  width: 80vw;
+  background: rgba(255, 255, 255, 0.21);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+
+  @media (min-width: 667px) {
+    width: 40vw;
+    height: 50vh;
+  }
 `;
 
 const StyledTypeIt = styled(TypeIt)`
@@ -22,8 +30,14 @@ const StyledTypeIt = styled(TypeIt)`
 `;
 
 const StartOverBtn = styled.button`
-  font-size: 1em;
+  font-size: 20px;
   margin-top: 30px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+  color: black;
+  cursor: pointer;
 `;
 
 const EndScreen = () => {

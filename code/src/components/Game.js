@@ -18,13 +18,17 @@ const GameContainer = styled.section`
   backdrop-filter: blur(4.9px);
   -webkit-backdrop-filter: blur(4.9px);
 
+  @media (max-width: 340px) {
+    height: 80vh;
+    width: 80vw;
+  }
+
   @media (min-width: 667px) {
     height: 60vh;
   }
 
   @media (min-width: 1024px) {
-    width: 50vw;
-    height: 55vh;
+    width: 60vw;
   }
 `;
 
@@ -50,13 +54,14 @@ const StyledTypeIt = styled(TypeIt)`
   font-size: 1.1em;
   font-family: 'Special Elite', cursive;
   font-weight: bold;
+  margin-top: 10px;
 
   @media (min-width: 667px) {
-    font-size: 1.4em;
+    font-size: 1.6em;
   }
 
   @media (min-width: 1024px) {
-    font-size: 1.6em;
+    font-size: 1.7em;
   }
 `;
 
@@ -77,16 +82,17 @@ const CollapsBtn = styled.div`
   box-shadow: 1px 3px 2px 1px rgba(0,0,0,0.09);
     -webkit-box-shadow: 1px 3px 2px 1px rgba(0,0,0,0.09);
     -moz-box-shadow: 1px 3px 2px 1px rgba(0,0,0,0.09);
+  cursor: pointer;
 
   @media (min-width: 667px) {
-    font-size: 1em;
-    width: 130px;
+    font-size: 1.1em;
+    width: 150px;
     padding: 5px;
   }
 
   @media (min-width: 1024px) {
-    font-size: 1.1em;
-    width: 150px;
+    font-size: 1.2em;
+    width: 160px;
     margin-top: 30px;
   }
 `;
@@ -98,15 +104,16 @@ const DirectionsContainer = styled.div`
   font-weight: 500;
 
   @media (min-width: 667px) {
-    font-size: 1.2em;
+    font-size: 1.3em;
   }
 
   @media (min-width: 1024px) {
-    font-size: 1.3em;
+    font-size: 1.4em;
   }
 
   button {
     margin: 10px;
+    padding: 3px 5px;
     font-size: 1em;
     font-family: 'Nanum Gothic Coding', monospace;
     border-radius: 5px;
@@ -114,10 +121,11 @@ const DirectionsContainer = styled.div`
     box-shadow: 1px 3px 2px 1px rgba(0,0,0,0.09);
     -webkit-box-shadow: 1px 3px 2px 1px rgba(0,0,0,0.09);
     -moz-box-shadow: 1px 3px 2px 1px rgba(0,0,0,0.09);
+    cursor: pointer;
 
     @media (min-width: 1024px) {
-    margin-bottom: 30px;
-  }
+      margin-bottom: 30px;
+    }
   }
 `;
 
