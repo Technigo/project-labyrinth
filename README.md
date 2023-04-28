@@ -1,8 +1,6 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This React project was focused on delving deeper into Redux. The project includes Redux-related topics, such as using thunks for async actions, working with APIs, and using Redux Toolkit. We worked in a pair and gained a more understanding of working with APIs with Redux, using thunks, and structuring our Redux store to best suit our data. We also learned about creating reusable components and sending JSON in the body of a request.
 
 ## The problem
 
