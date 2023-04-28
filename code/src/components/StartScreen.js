@@ -33,8 +33,13 @@ export default StartScreen
 
 const StyledStartPage = styled.div`
 color: white;
-margin: 5px;
+margin: 0 0 20px 0;
 padding: 10px;
+width: auto;
+
+h1 {
+  text-align: center;
+}
 
 input {
   height: 30px;
@@ -60,4 +65,14 @@ button {
       border: 2px solid #79c99e;
 }
 }
+
+@media (max-width:900px) {
+  width: 30%;
+  font-size: 0.8rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  }
 `

@@ -17,7 +17,12 @@ const LastPage = () => {
 
   return (
     <GameCard>
-      <TypeIt>{description}</TypeIt>
+      <TypeItContainer>
+        <TypeIt
+          options={{ speed: 100 }}>
+          {description}
+        </TypeIt>
+      </TypeItContainer>
       <FlexDiv>
         {coordinates !== '1,3' && <Directions />}
         <button className="restart-btn" type="button" onClick={restart}>Restart</button>
@@ -30,6 +35,7 @@ export default LastPage
 
 const GameCard = styled.div`
   display: flex;
+  flex-direction: column;
   }
 //   .instructions-btn {
 //   display: none;
@@ -44,6 +50,7 @@ const GameCard = styled.div`
   border: 1px solid #79c99e;
   color: #79c99e;
   font-size: 1.2rem; 
+  margin: 10px;
   }
   @media (min-width: 668px) {
     padding: 1rem 2rem;
@@ -57,4 +64,11 @@ const FlexDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   `
+
+const TypeItContainer = styled.div`
+  text-align: center;
+  margin: 5%;
+`;

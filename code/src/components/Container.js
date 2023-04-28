@@ -28,6 +28,8 @@ const Container = () => {
 export default Container;
 
 const Outerwrapper = styled.div`
+font-family: 'EB Garamond', serif;
+font-size: larger;
 width: 100vw;
 height: 100vh;
 position: relative;
@@ -39,11 +41,17 @@ align-items: center;
 
 const Innerwrapper = styled.div`
   background: rgba(77, 83, 89, 0.7);
-  margin: 0 auto;
+  margin: 20px;
   width: 40%;
-  height: 40%;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 2px solid #508484;
+
+  @media (max-width:600px) {
+    width: 90%;
+    font-size: smaller;
+    padding: 0.5rem;
+  }
 `
