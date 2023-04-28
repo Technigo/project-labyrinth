@@ -20,9 +20,9 @@ export const StartingPage = () => {
           <Title>Welcome</Title>
           <Text>Do you dare to enter the labyrinth cave?</Text>
           <Text>Pay attention or you will be lost forever</Text>
-          <Text>Enter your name and start your journey into the unknown</Text>
         </TextWrapper>
         <FormWrapper>
+          <LowerText>To start your journey into the unknown...</LowerText>
           <FormStyled onSubmit={onFormSubmit}>
             <label htmlFor="usernameInput">
               <input
@@ -52,8 +52,9 @@ const InnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 15px;
+  justify-content: flex-start;
+  gap: 10px;
+  padding-top: 30px;
 `
 const TextWrapper = styled.div`
   width: 80vw;
@@ -69,6 +70,12 @@ const TextWrapper = styled.div`
     width: 50vw;
   }  
 `
+const FormWrapper = styled.div`
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  `
 
 const Title = styled.h1`
 color: #7D458C;
@@ -81,33 +88,55 @@ text-align: center;
 font-size: 1.5rem;
 `
 
-const FormWrapper = styled.div`
-/* background-color: rgba(0,0,0,.5); */
+const LowerText = styled.p`
+color: #B8B6F2;
+text-align: center;
+font-size: 20px;
+background-color: rgba(0, 0, 0, 0.5);
+padding: 15px;
+font-family: 'Poltawski Nowy', serif;
+border-radius: 10px;
+font-style: italic;
+text-shadow: 3px 3px 20px #ff99cc,
+    -2px 1px 30px #7D458C;
 `
+
 const FormStyled = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 10px;
 
 input {
+  border: 2px #242526 solid;
   border-radius: 10px;
-  padding: 10px;
-  font-family: 'Roboto Slab', serif;
+  padding: 5px;
+  font-family: 'Poltawski Nowy', serif;
+  font-size: 20px;
+  width: 65vw;
+  &:focus {
+    border-color: #7D458C;
+    box-shadow: 0 0 10px #7D458C;
+    outline: none;
+  }
 }
 
 input::placeholder {
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Poltawski Nowy', serif;
 }
 `
 const StyledButton = styled.button`
+  font-size: 21px;
   width: 65px;
   border: none;
   border-radius: 15px;
   padding: 5px;
   color: white;
   background: #486F73;
-  font-family: 'Roboto Slab', serif;
-  font-size: 1rem;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  font-family: 'Poltawski Nowy', serif;
+  box-shadow: 0 0 10px black;
+  margin-top: 10px;
+  &:hover {
+    box-shadow: 0 0 10px #7D458C;
+  }
 `

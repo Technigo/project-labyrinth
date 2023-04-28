@@ -84,7 +84,7 @@ export const GamePlay = () => {
 }
 
 const MainSection = styled.section`
-        height: 120vh;
+        height: 130vh;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -97,7 +97,7 @@ const InnerWrapper = styled.div`
         align-items: center;
         justify-content: center;
         gap: 15px;
-        padding-top: 10px;
+        padding-top: 30px;
         `
 const TextWrapper = styled.div`
         width: 80vw;
@@ -127,7 +127,7 @@ const DirectionBtn = styled.button`
         padding: 5px;
         color: white;
         background: black;
-        font-family: 'Roboto Slab', serif;
+        font-family: 'Poltawski Nowy', serif;
         font-size: 1rem;
         cursor: pointer;
 
@@ -161,7 +161,7 @@ const ButtonWrapper = styled.div`
         height: 110px;
         border: 2px solid black;
         border-radius: 50%;
-        margin-top: 25px;
+        margin-top: 30px;
         `
 const DirectionTextWrapper = styled.div`
         margin-top: 5px;
@@ -171,7 +171,7 @@ const DirectionTextWrapper = styled.div`
         /* From https://css.glass */
         background: rgba(72, 111, 115, 0.51);
         border-radius: 16px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 30px #B8B6F2;
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
         border: 1px solid rgba(72, 111, 115, 0.3);
@@ -179,23 +179,19 @@ const DirectionTextWrapper = styled.div`
         @media (min-width: 668px) {
         
         {
-        width: 50vw;
-        }  
-
-        @media (min-width: 668px) {
-        
-        {
-        width: 30vw;
+        width: 42vw;
+        margin-bottom
         }  
       }
         `
 const DescriptionTitle = styled.h2`
         color: #BFBFBF;
         margin: 0;
-        text-shadow: 3px 0px 7px rgba(81,67,21,0.8), -3px 0px 7px rgba(81,67,21,0.8), 0px 4px 7px rgba(81,67,21,0.8);
+        text-shadow: 3px 0px 7px #7D458C, -3px 0px 7px #7D458C, 0px 4px 7px #7D458C;
         `
 const DirectionText = styled.p`
         color: #BFBFBF;
+        font-family: 'Poltawski Nowy', serif;
         `
 const Restartbutton = styled.button`
       height: 2rem;
