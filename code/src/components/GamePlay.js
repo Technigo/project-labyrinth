@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { useSelector, useDispatch } from 'react-redux';
 import { nextMove, game } from 'reducers/game';
 import { Text } from './StartingPage.js';
@@ -84,7 +84,7 @@ export const GamePlay = () => {
 }
 
 const MainSection = styled.section`
-        height: 100vh;
+        height: 120vh;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -192,14 +192,15 @@ const DirectionTextWrapper = styled.div`
 const DescriptionTitle = styled.h2`
         color: #BFBFBF;
         margin: 0;
+        text-shadow: 3px 0px 7px rgba(81,67,21,0.8), -3px 0px 7px rgba(81,67,21,0.8), 0px 4px 7px rgba(81,67,21,0.8);
         `
 const DirectionText = styled.p`
         color: #BFBFBF;
         `
 const Restartbutton = styled.button`
       height: 2rem;
-      background-color: #BFBFBF;
-      font-family: 'Roboto Slab', serif;
+      background-color: transparent;
+      font-family: 'Sail', cursive;
       font-size: 1rem;
       padding: 5px;
       color: #7D458C;
@@ -209,4 +210,7 @@ const Restartbutton = styled.button`
       top: calc(50% - 16px);
       right: calc(50% - 32px);
       pointer: cursor;
+      text-shadow: 3px 0px 7px rgba(81,67,21,0.8), -3px 0px 7px rgba(81,67,21,0.8), 0px 4px 7px rgba(81,67,21,0.8);
+      &:hover: {text-shadow: 3px 3px 20px #ff99cc,
+      -2px 1px 30px #ff99cc;
 `

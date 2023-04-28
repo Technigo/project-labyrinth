@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 import { createSlice } from '@reduxjs/toolkit';
-import { ApiStart, ApiMove } from '../utils/Url';
+import { ApiStart, ApiMove } from '../utils/api.js';
 
 export const game = createSlice({
   name: 'game',
