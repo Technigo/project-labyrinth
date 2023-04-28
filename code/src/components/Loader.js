@@ -22,29 +22,29 @@ const LoaderSpan = styled.span`
 `
 
 const Loading = styled.p`
-color: ${(props) => props.color};
-overflow:hidden;
-border-right: .15em solid white;
-white-space: nowrap;
-margin: 0 auto;
-letter-spacing: .15em;
-animation:      typing 3.5s steps(40, end),     blink-caret .75s step-end infinite;
+  color: ${(props) => props.color};
+  overflow:hidden;
+  border-right: .15em solid white;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em;
+  animation:      typing 3.5s steps(40, end),     blink-caret .75s step-end infinite;
 
-@keyframes typing {     
-from { width: 0 }     
-to { width: 100% }
-}
-@keyframes blink-caret {     
-from, to { border-color: transparent }  50% { border-color: white; }
-}
+  @keyframes typing {     
+  from { width: 0 }     
+  to { width: 100% }
+  }
+  @keyframes blink-caret {     
+  from, to { border-color: transparent }  50% { border-color: white; }
+  }
 `
 
 const LoaderContainer = styled.div`
-width: 100px;
-height: 100px;
-background-color: #263038;
-padding: 2px;
-margin: 20px;
+  width: 100px;
+  height: 100px;
+  background-color: #263038;
+  padding: 2px;
+  margin: 20px;
 `
 const LoaderWrapper = styled.div`
   display: flex;

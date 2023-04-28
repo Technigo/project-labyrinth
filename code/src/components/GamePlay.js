@@ -92,7 +92,6 @@ const MainSection = styled.section`
         background-image: ${(props) => `url(${props.backgroundImage})`};
         `
 const InnerWrapper = styled.div`
-        /* height: 55vh; */
         display: flex;
         flex-direction: column;
         align-items: center;
