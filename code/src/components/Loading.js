@@ -11,11 +11,6 @@ background-color: none;
 `
 
 const LoadingText = styled.h1`
-  color: black;
-  font-family: "Press Start 2P";
-  font-size: 30px;
-  display: flex;
-  align-items: center;
   
 
   @media (min-width: 770px) {

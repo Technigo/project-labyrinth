@@ -11,6 +11,10 @@ color: white;
     background-color: #7cb51b;
     cursor: pointer;
 }
+@media (max-width : 428px)  {
+    font-size: 10px;
+}
+
 `
 
 export const DirectionButton = styled.button`

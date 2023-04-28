@@ -37,7 +37,7 @@ export const StartGame = () => {
         <Form
           className="UsernameForm"
           onSubmit={onAddUsername}>
-          <label htmlFor="usernameForm">
+          <label htmlFor="usernameForm" className="usernameForm">
             <input
               id="usernameForm"
               value={inputValue}

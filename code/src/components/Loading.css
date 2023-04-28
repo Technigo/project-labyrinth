@@ -11,3 +11,10 @@
 .runner {
 scale: 70%;
 }
+
+@media (max-width : 428px)  {
+    .loadingText {
+        scale: 45%;
+    }
+}
+

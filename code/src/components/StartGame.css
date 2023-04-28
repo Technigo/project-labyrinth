@@ -2,3 +2,12 @@
     font-family: "Press Start 2P";
     text-align: center;
 }
+
+@media (max-width : 428px)  {
+    .usernameForm {
+        scale: 55%;
+    }
+    #usernameForm {
+        font-size: 15px;
+    }
+}

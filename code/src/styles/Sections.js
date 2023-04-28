@@ -40,6 +40,10 @@ margin-left: auto;
 padding: 2%;
 margin-bottom: 2%;
 
+@media (max-width : 428px) {
+    font-size: 10px;
+}
+
 @media (min-width: 770px) {
     width: 40%;
 }`

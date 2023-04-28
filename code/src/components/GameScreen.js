@@ -4,6 +4,7 @@ import { getStory } from 'reducers/Game';
 import { Loading } from './Loading';
 import { EndGame } from './EndGame';
 import { DirectionButton } from '../styles/Button';
+import './GameScreen.css';
 import { GameScreenSection, GameSection } from '../styles/Sections';
 
 export const GameScreen = () => {
