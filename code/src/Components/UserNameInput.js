@@ -28,7 +28,7 @@ const UserNameInput = ({ onStartGame }) => {
       <form onSubmit={(event) => onFormSubmit(event)}>
         <label htmlFor="name-input">
           Provide a user name
-          <input required id="name-input" type="text" placeholder="Write your username here" onChange={(event) => setUserNameInputValue(event.target.value)} />
+          <input required id="name-input" type="text" placeholder="Write your username here" maxLength="16" onChange={(event) => setUserNameInputValue(event.target.value)} />
         </label>
         <SubmitBtn type="submit">START GAME</SubmitBtn>
       </form>

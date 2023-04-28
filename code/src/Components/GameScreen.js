@@ -18,7 +18,7 @@ const GameScreen = () => {
 
   return (
     <>
-      <p>{gameDescription}</p>
+      <h2><strong>{gameDescription}</strong></h2>
       {actions.map((action) => {
         return (
           <div className="actionsContainer" key={action.description}>
