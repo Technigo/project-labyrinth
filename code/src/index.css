@@ -1,13 +1,72 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Nunito', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(./assets/stable.jpg);
+  background-size: cover;
+  background-repeat: repeat;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: 'Nunito', sans-serif;
 }
+
+:root {
+  --primaryBlack: #161616af;
+  --primaryWhite: #fbfbfbef;
+  --mainGreen: #b3b813;
+  --secondaryGreen: rgb(232, 247, 180); 
+  --darkGreen: rgba(1, 15, 1, 0.226);
+  --pink: #e15ff7;
+
+} 
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 0.3rem;
+
+}
+input {
+  max-width: 250px;
+
+}
+
+h2 {
+  text-align: center;
+  font-size: 1rem;
+}
+
+h3 {
+  margin-bottom: 5rem;
+  color: white;
+}
+
+h6 {
+  font-size: 2rem;
+  color: white;
+}
+
+p {
+  color: white;
+  text-align: center;
+}
+
+span {
+  color: white;
+}
+
+/* .profileContainer {
+  justify-content: flex-end;
+  max-width: 1050px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
+  gap: 5px;
+} */
