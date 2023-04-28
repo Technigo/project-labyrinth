@@ -6,7 +6,8 @@ const actionURL = 'https://labyrinth.technigo.io/action'
 
 const initialState = {
   username: null,
-  currentGameState: {}
+  currentGameState: {},
+  playerHistory: []
 }
 export const labyrinth = createSlice({
   name: 'labyrinth',
@@ -19,6 +20,10 @@ export const labyrinth = createSlice({
 
     setcurrentGameState: (store, action) => {
       store.currentGameState = action.payload
+    },
+
+    setPlayerHistory: (store, action) => {
+      store.playerHistory = [...store.playerHistory, action.payload]
     },
 
     restart: (store) => {
@@ -68,6 +73,7 @@ export const continueGame = (direction) => {
       .then((respons) => respons.json())
       .then((data) => {
         dispatch(labyrinth.actions.setcurrentGameState(data));
+        dispatch(labyrinth.actions.setPlayerHistory(direction))
         dispatch(loading.actions.setLoading(false));
       })
       .catch((error) => {
