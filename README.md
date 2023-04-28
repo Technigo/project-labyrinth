@@ -1,6 +1,6 @@
 # Project Labyrinth
 
-A project which allows a user to navigate a maze, in the form of a text-based adventure, provided by a backend. This week dug deeper into redux and went through things such as async actions and other ways of writing Redux, without Redux toolkit.
+A project which allows a user to navigate a maze, in the form of a text-based adventure, provided by a backend. This week dug deeper into redux and went through things such as async actions and other ways of writing Redux, without Redux toolkit. This project was built by Sandra Olsson, Nina Ströyer and Emilia G. Anundi. 
 
 ## The problem
 
