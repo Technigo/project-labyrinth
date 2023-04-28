@@ -15,7 +15,6 @@ background-size: cover;
 @media (max-width : 428px) {
 background-image: url(${startScreenBg});
 height: 100vh;
-display: grid;
 background-size: cover;
 }
 `
