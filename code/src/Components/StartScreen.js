@@ -29,7 +29,13 @@ const StartScreen = () => {
         </>
       ) : (
         <div>
-          <h1>Welcome to the Space Labyrinth </h1>
+          <section className="text-animation">
+            <div className="crawl">
+              <div className="title">
+                <h1>Welcome to the Space Labyrinth</h1>
+              </div>
+            </div>
+          </section>
           <UserNameInput onStartGame={handleStartGame} />
           <Player
             autoplay

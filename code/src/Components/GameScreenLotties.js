@@ -3,9 +3,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Player } from '@lottiefiles/react-lottie-player';
 
+// unique lottie displayed for each coordinate. Else will show a 404 error lottie.
 const GameScreenLotties = () => {
   const coordinates = useSelector((store) => store.labyrinth.coordinates)
-  console.log('coordinates:', coordinates)
 
   let lottieURL;
 
@@ -37,5 +37,3 @@ const GameScreenLotties = () => {
 }
 
 export default GameScreenLotties;
-
-// <img src={lottieURL} alt="background" />

@@ -7,10 +7,7 @@ const GameScreen = () => {
   const actions = useSelector((store) => store.labyrinth.actions)
   const gameDescription = useSelector((store) => store.labyrinth.description)
   const coordinates = useSelector((store) => store.labyrinth.coordinates)
-  console.log(gameDescription)
   const dispatch = useDispatch()
-  // gameActions within an object. map through the actions.
-  console.log('actions:', actions)
 
   const handleRestart = () => {
     window.location.reload();
@@ -18,7 +15,9 @@ const GameScreen = () => {
 
   return (
     <>
-      <h2><strong>{gameDescription}</strong></h2>
+      <div className="storyContainer">
+        <h2>{gameDescription}</h2>
+      </div>
       {actions.map((action) => {
         return (
           <div className="actionsContainer" key={action.description}>
@@ -37,5 +36,3 @@ const GameScreen = () => {
 }
 
 export default GameScreen;
-
-// end coordinates:'1,3' actions array is empty = the end.

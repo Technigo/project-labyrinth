@@ -3,7 +3,7 @@ import React from 'react';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import labyrinth from 'reducers/labyrinth';
 import loading from 'reducers/loading';
-import SpaceBackground from 'components/SpaceBackground';
+import Space from 'components/Space';
 import StartScreen from 'components/StartScreen';
 import { Provider } from 'react-redux';
 
@@ -17,7 +17,7 @@ const store = configureStore({ reducer });
 
   return (
     <Provider store={store}>
-      <SpaceBackground />
+      <Space />
       <StartScreen />
     </Provider>
   )

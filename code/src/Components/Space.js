@@ -1,7 +1,7 @@
 import React from 'react';
 import '../background.css';
 
-const SpaceBackground = () => {
+const Space = () => {
   return (
     <>
       <div className="star1" />
@@ -23,4 +23,4 @@ const SpaceBackground = () => {
   )
 }
 
-export default SpaceBackground;
+export default Space;
