@@ -1,9 +1,9 @@
-import styled from 'styled-components/macro';
 import React from 'react';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded'; // East
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded'; // West
 import ArrowDownwardRoundedIcon from '@mui/icons-material/ArrowDownwardRounded'; // South
 import ArrowUpwardRoundedIcon from '@mui/icons-material/ArrowUpwardRounded'; // North
+import { Button } from 'reusableComponents/Button';
 
 const iconsMap = {
   East: ArrowForwardRoundedIcon,
@@ -12,19 +12,7 @@ const iconsMap = {
   North: ArrowUpwardRoundedIcon
 };
 
-export const DirectionButton = ({ direction, onClick }) => {
-  const Icon = iconsMap[direction] || null;
-  return <ArrowButton onClick={onClick}>{Icon ? <Icon /> : 'nothing'}</ArrowButton>;
+export const DirectionButton = ({ route, onClick }) => {
+  const Icon = iconsMap[route] || null;
+  return <Button direction onClick={onClick}>{Icon ? <Icon /> : 'nothing'}</Button>;
 };
-
-const ArrowButton = styled.button`
-
-
-&&:hover,:focus-visible{
-
-}
-
-&&:active {
-
-}
-`

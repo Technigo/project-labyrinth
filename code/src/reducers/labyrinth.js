@@ -13,28 +13,22 @@ export const labyrinth = createSlice({
   reducers: {
     setUsername: (store, action) => {
       store.username = action.payload;
-      console.log('username:', action.payload)
     },
     setLoading: (store, action) => {
       store.isLoading = action.payload
-      console.log('isLoading:', action.payload)
     },
     setDescription: (store, action) => {
       store.description = action.payload
-      console.log('description:', action.payload)
     },
     setMoves: (store, action) => {
       store.moves = action.payload
-      console.log('moves:', action.payload)
     },
     setCoordinates: (store, action) => {
       store.coordinates = action.payload
       store.history.push(store.coordinates)
-      console.log('coordinates:', action.payload)
     },
     setDirection: (store, action) => {
       store.direction = action.payload
-      console.log('direction:', action.payload)
     }
   }
 });

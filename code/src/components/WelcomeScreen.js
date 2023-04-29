@@ -40,7 +40,7 @@ export const WelcomeScreen = () => {
             required
             onChange={(event) => setUsername(event.target.value)}
             value={userName} />
-          <Button type="submit"> Enter the Labyrinth </Button>
+          <Button type="submit"> Start your adventure! </Button>
         </Form>
       </WelcomeWrapper>
     ) : (

@@ -4,7 +4,7 @@ export const Button = styled.button`
   --b: 3px;   /* border thickness */
   --s: .45em; /* size of the corner */
   --color: #fff;
-  width:${(props) => (props.direction ? '10em' : '15em')};
+  width:${(props) => (props.direction === true ? 'max-content' : '15em')};
   padding: calc(.5em + var(--s)) calc(.9em + var(--s));
   color: var(--color);
   --_p: var(--s);

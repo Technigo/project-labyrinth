@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { labyrinthProgress } from 'reducers/labyrinth';
-// import { Button } from 'reusableComponents/Button';
 import { Description } from 'reusableComponents/Description';
 import { Title } from 'reusableComponents/Title';
 import styled from 'styled-components/macro';
@@ -36,7 +35,7 @@ export const GameBoard = () => {
             <Card key={item.direction} direction={item.direction}>
               <Description>{item.description}</Description>
               <DirectionButton
-                direction={item.direction}
+                route={item.direction}
                 onClick={() => selectDirection(item.direction)} />
             </Card>
           ))}
