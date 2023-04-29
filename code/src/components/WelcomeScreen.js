@@ -15,8 +15,8 @@ export const WelcomeScreen = () => {
   const startGame = (e) => {
     e.preventDefault();
     if (userName !== '') {
-      dispatch(labyrinth.actions.setUsername(userName));
-      dispatch(startLabyrinth());
+      dispatch(labyrinth.actions.setUsername(userName))
+      dispatch(startLabyrinth())
     }
   }
 
@@ -25,7 +25,7 @@ export const WelcomeScreen = () => {
       <WelcomeWrapper>
         <BackgroundImage />
         <Form onSubmit={startGame}>
-          <Title>Welcome adventurer, would you like to enter the Labyrinth?</Title>
+          <Title>Welcome to the Labyrinth, adventurer!</Title>
           <Input
             type="text"
             className="userName"
@@ -35,6 +35,7 @@ export const WelcomeScreen = () => {
             value={userName} />
           <Button type="submit"> Enter the Labyrinth </Button>
         </Form>
+        {/* {userName !== '' && <Title>Good luck, {userName}! </Title>} */}
       </WelcomeWrapper>
     ) : (
       <LoadingScreen />

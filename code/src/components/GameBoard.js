@@ -11,7 +11,7 @@ import { DirectionButton } from './DirectionButton';
 import { Map } from './Map'
 
 export const GameBoard = () => {
-  const gameboard = useSelector((store) => store.labyrinth.setMoves);
+  const gameboard = useSelector((store) => store.labyrinth.moves);
   const description = useSelector((store) => store.labyrinth.description);
   const isLoading = useSelector((store) => store.ui.isLoading);
   const coordinates = useSelector((store) => store.labyrinth.coordinates);

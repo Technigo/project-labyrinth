@@ -24,7 +24,7 @@ export const labyrinth = createSlice({
       console.log('description:', action.payload)
     },
     setMoves: (store, action) => {
-      store.setMoves = action.payload
+      store.moves = action.payload
       console.log('moves:', action.payload)
     },
     setCoordinates: (store, action) => {

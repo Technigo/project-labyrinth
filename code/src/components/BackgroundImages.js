@@ -16,7 +16,7 @@ export const BackgroundImage = () => {
   const backgroundImageSrc = BACKGROUND_IMAGES[coordinates] || './images/backgroundImages/WelcomeScreen.jpg';
   console.log(backgroundImageSrc)
   const backgroundStyle = {
-    backgroundImage: `url(${backgroundImageSrc})`,
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundImageSrc})`,
     backgroundSize: 'cover',
     width: '100%',
     position: 'absolute',

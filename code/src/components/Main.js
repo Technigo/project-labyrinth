@@ -19,6 +19,3 @@ export const Main = () => {
     </div>
   )
 }
-
-// need something here like??? const isLoading = useSelector((store) => store.ui.isLoading);
-// {isLoading && <LoadingScreen />}
