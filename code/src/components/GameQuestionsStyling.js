@@ -3,13 +3,13 @@ import HeroPlayerInputContainer from '../assets/hero-start-page.jpg';
 
 export const DirectionText = styled.div`
 font-family: var(--second-headings-font-family);
-font-size: 25px;
-color: white;
+font-size: 1rem;
+color: black;
 border-radius: 10px;
 margin-top: 1rem;
 padding: 10px 5px;
 width: 100%;
-animation: fadeIn 20s; 
+animation: fadeIn 4s; 
 &.instructions {
   display: block;
 }
@@ -28,13 +28,13 @@ font-family: var(--second-headings-font-family);
   flex-direction: column;
   margin: 10px;
   text-align: center;
-  font-size: 40px;
-  color:white;
+  font-size: 1.2rem;
+  color:black;
 border-radius: 10px;
 margin-top: 1rem;
 padding: 10px 5px;
 width: 100%;
-animation: fadeIn 5s; 
+animation: fadeIn 2s; 
 &.instructions {
   display: block;
 }
@@ -69,3 +69,14 @@ export const Wrapper = styled.div`
     max-width: 50rem;
   }
 `;
+
+export const DirectionWrapper = styled.div`
+border: dotted;
+color: black;
+border-radius: 20px;
+margin: 10px;
+padding: 10px;
+display: flex;
+align-items: center;
+flex-direction: column;
+`

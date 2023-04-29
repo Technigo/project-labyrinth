@@ -4,7 +4,7 @@ import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons';
 import games, { GenerateQuestion } from '../reducers/games';
 import { DirectionButton, GoBackButton, ResetButton, StyledIcon } from './GlobalStyling';
 import { EndGame } from './EndGame';
-import { DescriptionText, DirectionText, StyledContainer, Wrapper } from './GameQuestionsStyling';
+import { DescriptionText, DirectionText, DirectionWrapper, StyledContainer, Wrapper } from './GameQuestionsStyling';
 
 const GameQuestions = () => {
   const description = useSelector((store) => store.games.description);
@@ -40,7 +40,7 @@ const GameQuestions = () => {
         <div>
           <DescriptionText>{description}</DescriptionText>
           {moves && moves.map((move) => (
-            <div key={move.description}>
+            <DirectionWrapper key={move.description}>
               <DirectionText>{move.description}</DirectionText>
               <DirectionButton
                 type="button"
@@ -48,7 +48,7 @@ const GameQuestions = () => {
                 onClick={(event) => onChooseDirection(event)}>
               Go {move.direction}
               </DirectionButton>
-            </div>
+            </DirectionWrapper>
           ))}
           {coordinates === '1,3' ? <EndGame /> : null}
         </div>
