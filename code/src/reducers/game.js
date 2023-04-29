@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { ui } from './ui'
 
 export const game = createSlice({
   name: 'game',
-  initialState: { username: null, currentLocation: [], loading: false },
+  initialState: { username: '', currentLocation: [], loading: false },
   reducers: {
     setCurrentLocation: (state, action) => {
       state.currentLocation = action.payload
@@ -16,7 +17,7 @@ export const game = createSlice({
 // first thunk: posts username to start the game
 export const postUsername = () => {
   return (dispatch, getState) => {
-    /* dispatch(ui.actions.setLoading(true)) */
+    dispatch(ui.actions.setLoading(true))
     const username = { username: getState().game.username }
     fetch('labyrinth.technigo.io/start', {
       method: 'POST',
@@ -30,8 +31,8 @@ export const postUsername = () => {
       .then((json) => {
         dispatch(game.actions.setCurrentLocation(json.coordinates));
       })
-    /* Found this syntax in other projects - slightly different, but does the same
-      const options = {
+    // Found this syntax in other projects - slightly different, but does the same
+    /* const options = {
       method: 'Post',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(username)
@@ -40,6 +41,6 @@ export const postUsername = () => {
     fetch('https://labyrinth.technigo.io/start', options)
       .then((res) => res.json())
       .then((json) => dispatch(game.actions.setCurrentLocation(json))) */
-    /* .finally(() => dispatch(ui.actions.setLoading(false))) */
+      .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000))
   }
 }
