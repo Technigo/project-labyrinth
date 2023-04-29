@@ -3,15 +3,19 @@ import { Player } from '@lottiefiles/react-lottie-player';
 import styled from 'styled-components/macro';
 
 const LottieContainer = styled.div`
-width: 100%;
-  height: 75%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 
   & > div {
-    width: 20%;
-    height: 20%;
+    width: 25%;
+    height: 25%;
+  }
+
+  .lottie {
+    margin: auto;
   }
 `;
 
@@ -26,4 +30,4 @@ export const LoadingMaze = () => {
         speed={1} />
     </LottieContainer>
   )
-}
+};

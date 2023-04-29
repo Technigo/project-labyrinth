@@ -10,16 +10,10 @@ const GameBoardWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 20% 0 20% 0;
   padding-bottom: 20px;
   background: rgba(255,255,255, 0.4);
   max-height: 100vh;
-  @media (min-width: 767px) {
- 
-  }
-  @media (min-width: 1024px) {
-  
-  }
+  overflow-y: hidden;
 `;
 
 const MasterContainer = styled.div`
