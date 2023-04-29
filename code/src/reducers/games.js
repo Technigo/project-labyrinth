@@ -1,4 +1,13 @@
+/* eslint-disable max-len */
 import { createSlice } from '@reduxjs/toolkit';
+
+// The slice of state includes fields for the game state, such as the username, description, direction, moves, history, loading, and coordinates.
+// The code defines several reducers, which are functions that modify the state based on specific actions.
+// Reducers set the username, description, direction, moves, and loading state fields.
+// The reducers are used to update the state in response to actions triggered by the user or by asynchronous events, such as network requests.
+// The code exports two functions, createPlayer and GenerateQuestion, which are action creators that dispatch actions to update the game state based on network requests.
+// These functions use the fetch API to make HTTP requests to a game server, and then update the state based on the response data.
+// The dispatch function is passed in as an argument to these functions, which allows them to dispatch actions to update the state through the reducers defined earlier in the code.
 
 const games = createSlice({
   name: 'games',
@@ -14,7 +23,8 @@ const games = createSlice({
 
   reducers: {
     setUserName: (store, action) => {
-      store.username = action.payload;
+      store.username = `${new Date().getTime()}+${action.payload}`
+      // Add time to make the username unique
     },
     setDescription: (store, action) => {
       store.description = action.payload;

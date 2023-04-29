@@ -1,6 +1,9 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons';
 import games, { GenerateQuestion } from '../reducers/games';
+import { DirectionButton, GoBackButton, ResetButton, StyledIcon } from './GlobalStyling';
+import { EndGame } from './EndGame';
 
 const GameQuestions = () => {
   const description = useSelector((store) => store.games.description);
@@ -28,27 +31,29 @@ const GameQuestions = () => {
     <div>
       <div>
         {history.length > 0 && (
-          <button type="button" onClick={goToPreviousMove}>
-        Go back
-          </button>
+          <GoBackButton type="button" onClick={goToPreviousMove}>
+            <StyledIcon icon={faArrowLeftLong} />
+            Go back
+          </GoBackButton>
         )}
       </div>
-      <button type="button" onClick={onRestartButton}>Restart</button>
       <div>
         <h1>{description}</h1>
         {moves && moves.map((move) => (
           <div key={move.description}>
             <h2>{move.description}</h2>
-            <button
+            <DirectionButton
               type="button"
               value={move.direction}
               onClick={(event) => onChooseDirection(event)}>
               Go {move.direction}
-            </button>
+            </DirectionButton>
           </div>
         ))}
-        {coordinates === '1,3' ? <div>Your JSX element here</div> : null}
+        {coordinates === '1,3' ? <EndGame /> : null}
       </div>
+      <ResetButton type="button" onClick={onRestartButton}>Reset
+      </ResetButton>
     </div>
   );
 };
