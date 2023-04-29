@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable jsx-a11y/no-autofocus */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'

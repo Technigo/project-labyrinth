@@ -1,9 +1,11 @@
+/* eslint-disable linebreak-style */
 import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import StartScreen from './StartScreen'
 import { GameBoard } from './GameBoard'
 import { Loading } from './Loading'
+import { Footer } from './Footer'
 
 export const Main = () => {
   const { coordinates } = useSelector((store) => store.game.currentLocation)
@@ -31,6 +33,7 @@ export const Main = () => {
       {coordinates
         ? <GameBoard coordinates={coordinates} />
         : <StartScreen />}
+      <Footer />
     </div>
   )
 }
