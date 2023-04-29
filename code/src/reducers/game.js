@@ -3,17 +3,16 @@
 /* eslint-disable no-unused-vars */
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {};
-
 export const game = createSlice({
   name: 'game',
   initialState: {
-
+    username: '',
+    game: null,
+    loading: false
   },
 
   reducers: {
-
-    userName: (state, action) => {
+    username: (state, action) => {
       state.username = action.payload;
     },
     game: (state, action) => {
@@ -23,9 +22,8 @@ export const game = createSlice({
       state.loading = action.payload;
     },
     setCurrentPosition: (store, action) => {
-      store.position = action.payload
+      store.position = action.payload;
     }
-
   }
 });
 
@@ -39,7 +37,7 @@ export const startGame = () => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ username: 'username' })
+      body: JSON.stringify({ username: getState().game.username })
     };
     fetch('https://labyrinth.technigo.io/start/', options)
       .then((response) => {
@@ -50,7 +48,11 @@ export const startGame = () => {
         // get the data from the api - save it as the game in global state
         dispatch(game.actions.game(data));
         console.log(data);
-
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
         // set loading to false
         dispatch(game.actions.loading(false));
       });
@@ -60,24 +62,23 @@ export const startGame = () => {
 export const nextStep = (direction) => {
   return (dispatch, getState) => {
     dispatch(game.actions.loading(true));
-    fetch('https://labyrinth.technigo.io/action', {
+    const options = {
       method: 'POST',
       headers: {
-        Accept: 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        username: `${getState().game.username}`,
+        username: getState().game.username,
         type: 'move',
         direction
       })
-    })
-      .then((response) => response.json())
+    };
+    fetch('https://labyrinth.technigo.io/action', options)
+      .then((res) => res.json())
       .then((data) => {
         dispatch(game.actions.game(data));
-        console.log(data);
-        dispatch(game.actions.loading(false));
-      });
+      })
+      .catch((error) => console.error(error))
+      .finally(() => dispatch(game.actions.loading(false)));
   };
 };
-

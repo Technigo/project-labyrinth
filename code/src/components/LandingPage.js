@@ -1,4 +1,8 @@
-import React from 'react';
+/* eslint-disable react/jsx-closing-bracket-location */
+/* eslint-disable no-unused-vars */
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { game, startGame } from 'reducers/game';
 import styled from 'styled-components';
 
 const Background = styled.div`
@@ -26,13 +30,13 @@ const Description = styled.p`
 
 const FrostedButton = styled.button`
   background-color: rgba(255, 255, 255, 0.2);
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   border: none;
   border-radius: 10px;
   padding: 10px 20px;
   font-size: 16px;
-  color:#ffffff;
+  color: #ffffff;
   cursor: pointer;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
@@ -55,14 +59,34 @@ const Container = styled.div`
 `;
 
 const LandingPage = ({ onStartGame }) => {
+  const [username, setUsername] = useState('');
+  const dispatch = useDispatch();
+
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+    dispatch(game.actions.username(username));
+    dispatch(startGame());
+  };
+
   return (
     <Background>
       <Container>
         <Title>Welcome to the Adventure!</Title>
         <Description>Are you ready to begin your adventure?</Description>
-        <FrostedButton type="button" onClick={onStartGame}>
+        <form onSubmit={(event) => onFormSubmit(event)}>
+          <label htmlFor="username">
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+            />
+          </label>
+          <button type="submit">Start Game</button>
+        </form>
+        {/* <FrostedButton type="button" onClick={onStartGame}>
           Start Game
-        </FrostedButton>
+        </FrostedButton> */}
       </Container>
     </Background>
   );

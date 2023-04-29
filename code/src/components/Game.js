@@ -1,3 +1,8 @@
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable no-nested-ternary */
+/* eslint-disable no-unused-vars */
+/* eslint-disable operator-linebreak */
+/* eslint-disable react/jsx-closing-bracket-location */
 // src/components/Game.js
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -6,20 +11,21 @@ import styled from 'styled-components';
 import LandingPage from './LandingPage';
 import backgroundImages from './backgroundImages';
 import Loading from './Loading';
+import GameBoard from './GameBoard';
 
 const StyledButton = styled.button`
   background-color: rgba(255, 255, 255, 0.2);
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   border: none;
   border-radius: 10px;
   padding: 10px 20px;
   font-size: 16px;
-  color:#ffffff;
+  color: #ffffff;
   cursor: pointer;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
-  margin-bottom:20px;
+  margin-bottom: 20px;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.3);
@@ -45,61 +51,38 @@ const Container = styled.div`
   box-sizing: border-box;
 `;
 
-const Game = ({ showLandingPage, setShowLandingPage }) => {
+const Game = () => {
   const dispatch = useDispatch();
   const gameState = useSelector((state) => state.game.game);
+  const username = useSelector((state) => state.game.username);
   const loading = useSelector((state) => state.game.loading);
-
-  useEffect(() => {
-    if (!showLandingPage) {
-      dispatch(startGame());
-    }
-  }, [dispatch, showLandingPage]);
-
-  const handleActionClick = (direction) => {
-    dispatch(nextStep(direction));
-  };
-
-  const handleStartGame = () => {
-    setShowLandingPage(false);
-  };
-
-  if (loading) {
-    return <Loading />;
-  }
-
-  if (showLandingPage) {
-    return <LandingPage onStartGame={handleStartGame} />;
-  }
-
-  if (!gameState) {
-    return null;
-  }
-
-  const currentBackground = gameState && backgroundImages[gameState.coordinates];
-
+  console.log(gameState);
+  console.log(loading);
   return (
     <div
       style={{
-        backgroundImage: `url(${currentBackground})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         minHeight: '100vh'
-      }}>
+      }}
+    >
       <Container>
-        <StyledText>{gameState.description}</StyledText>
+        {loading ? (
+          <Loading />
+        ) : username === '' ? (
+          <LandingPage />
+        ) : (
+          <GameBoard />
+        )}
+        {/* <StyledText>{gameState.description}</StyledText>
         {gameState.actions.map((action) => (
-          <StyledButton
-            type="button"
-            key={action.direction}
-            onClick={() => handleActionClick(action.direction)}>
+          <StyledButton type="button" key={action.direction}> 
             {action.description}
           </StyledButton>
-        ))}
+        ))} */}
       </Container>
     </div>
   );
 };
 
 export default Game;
-

@@ -16,7 +16,7 @@ export const App = () => {
   const [showLandingPage, setShowLandingPage] = useState(true);
   return (
     <Provider store={store}>
-      <Game showLandingPage={showLandingPage} setShowLandingPage={setShowLandingPage} />
+      <Game />
     </Provider>
   );
 };
