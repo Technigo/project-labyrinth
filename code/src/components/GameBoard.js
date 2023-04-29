@@ -11,12 +11,12 @@ flex-direction: column;
 align-items: center;
 margin: 8px 0 0 0;
 padding-bottom: 20px;
-background: rgba(255,255,255, 0.5);
+background: rgba(255,255,255, 0.4);
 @media (min-width: 767px) {
   margin: 60px 0 0 0;
   }
 @media (min-width: 767px) {
-  margin: 270px 0 0 0;
+  margin: 150px 0 0 0;
 }
 `;
 
@@ -61,7 +61,7 @@ color: var(--text-color);
 font-size: 13px;
 font-weight: 300;
 text-align: center;
-background: rgba(255,255,255, 0.6);
+background: rgba(255,255,255, 0.4);
 margin: 10px;
 padding: 10px;
 display: flex;

@@ -28,6 +28,7 @@ text-align: center;
 padding: 20px 0 50px 0;
 font-size: 24px;
 max-width: 460px;
+text-shadow: 2px 2px 3px #ff00d9e1;
 `;
 
 const HeaderText = styled.h1`
@@ -35,7 +36,8 @@ text-align: center;
 margin: 0 auto;
 font-size: 34px;
 color: white;
-padding-top: 50px;
+padding-top: 60px;
+text-shadow: 2px 2px 3px #ff00d9e1;
 `;
 
 const Main = () => {
