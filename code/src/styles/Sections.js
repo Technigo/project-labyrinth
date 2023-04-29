@@ -28,9 +28,8 @@ display: flex;
 flex-direction: column;
 gap: 10px;
 font-family: "Press Start 2P";
-font-size: 10px;
-font-size: 1em;
-line-height: 1.6em;
+font-size: 0.8em;
+line-height: 1.7em;
 background: white;
 border: 10px solid black;
 align-self: center;
@@ -41,7 +40,7 @@ padding: 2%;
 margin-bottom: 2%;
 
 @media (max-width : 428px) {
-    font-size: 10px;
+    font-size: 0.5em;
 }
 `
 

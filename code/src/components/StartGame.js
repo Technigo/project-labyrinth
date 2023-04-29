@@ -23,17 +23,23 @@ export const StartGame = () => {
   return (
     <StartScreenSection>
       <GameSection>
-        From right to left, and to and fro,
+        <p>From right to left, and to and fro,
         Caught in a labyrinth you go,
         And turn, and turn, and turn again,
         To solve the mystery, but in vain;
+        </p>
+        <p>
         Stand still, and breathe, and take from me
         A clue, that soon shall set you free!
         Not Ariadne, if you met her,
         Herself could serve you with a better.
+        </p>
+        <p>
         You enter d easily--find where--
         And make with ease your exit there!
+          <br />
         by William Cowper
+        </p>
         <Form
           className="UsernameForm"
           onSubmit={onAddUsername}>
