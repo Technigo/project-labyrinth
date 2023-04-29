@@ -5,7 +5,7 @@ import styled from 'styled-components/macro';
 const LottieContainer = styled.div`
 width: 100%;
   height: 75%;
-display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 

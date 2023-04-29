@@ -21,17 +21,20 @@ position: absolute;
 `
 
 const EnterText = styled.h1`
-display: flex;
-justify-content: center;
-margin: 15rem 0rem 0 0rem;
+margin: 0 auto;
 color: white;
+text-align: center;
+padding: 20px 0 50px 0;
 font-size: 24px;
+max-width: 460px;
 `;
 
-const HeaderText = styled.h2`
-display: flex;
-justify-content: center;
+const HeaderText = styled.h1`
+text-align: center;
+margin: 0 auto;
+font-size: 34px;
 color: white;
+padding-top: 50px;
 `;
 
 const Main = () => {
@@ -41,21 +44,21 @@ const Main = () => {
   let imageUrl;
 
   if (coordinates === '0,0') {
-    imageUrl = 'https://i.postimg.cc/9FDv5xNX/1maze.png';
+    imageUrl = 'https://i.postimg.cc/5ymByDxQ/1maze.png';
   } else if (coordinates === '0,1') {
-    imageUrl = 'https://i.postimg.cc/t4mKL32G/4maze.png';
+    imageUrl = 'https://i.postimg.cc/ZYPFwvrY/4maze.png';
   } else if (coordinates === '0,2') {
-    imageUrl = 'https://i.postimg.cc/BQnw488S/5maze.png';
+    imageUrl = 'https://i.postimg.cc/YqpNZ236/5maze.png';
   } else if (coordinates === '0,3') {
-    imageUrl = 'https://i.postimg.cc/zX9D9H7M/44.png';
+    imageUrl = 'https://i.postimg.cc/L5SkHmMM/6maze.png';
   } else if (coordinates === '1,0') {
-    imageUrl = 'https://i.postimg.cc/pTkpHc7L/2maze.png';
+    imageUrl = 'https://i.postimg.cc/vH37sRqp/2maze.png';
   } else if (coordinates === '1,1') {
     imageUrl = 'https://i.postimg.cc/Hks8kyXL/3maze.png';
   } else if (coordinates === '1,3') {
-    imageUrl = 'https://i.postimg.cc/zX9D9H7M/44.png';
+    imageUrl = 'https://i.postimg.cc/HxX4DVR2/7maze.png';
   } else {
-    imageUrl = 'https://i.postimg.cc/zX9D9H7M/44.png';
+    imageUrl = 'https://i.postimg.cc/7LpMWgsh/start.png';
   }
 
   return (
@@ -66,8 +69,8 @@ const Main = () => {
         <GameBoard />
       ) : (
         <section className="start-section">
-          <EnterText>You are now entering the labyrinth so beware and tred carefully</EnterText>
           <HeaderText>The Labyrinth</HeaderText>
+          <EnterText>You are now entering the labyrinth, beware and tred carefully</EnterText>
           <UserNameInput />
         </section>
       )}
