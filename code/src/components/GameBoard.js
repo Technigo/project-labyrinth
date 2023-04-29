@@ -16,7 +16,7 @@ background: rgba(255,255,255, 0.5);
   margin: 60px 0 0 0;
   }
 @media (min-width: 767px) {
-  margin: 100px 0 0 0;
+  margin: 270px 0 0 0;
 }
 `;
 
@@ -30,7 +30,7 @@ padding: 0 8px 0 8px;
 text-shadow: 2px 2px 3px #bfff00;
 @media (min-width: 767px) {
   font-size: 28px;
-  margin: 15px 0 15px 0;
+  margin: 15px 30px 15px 30px;
   max-width: 80vw;
   }
 @media (min-width: 767px) {

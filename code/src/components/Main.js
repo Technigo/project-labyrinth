@@ -9,6 +9,7 @@ import { GameBoard } from './GameBoard';
 const Background = styled.div`
 width: 100vw;
 height: 100vh;
+margin: 0;
 top: 0;
 left: 0;
 position: absolute;
@@ -52,9 +53,9 @@ const Main = () => {
   } else if (coordinates === '0,3') {
     imageUrl = 'https://i.postimg.cc/L5SkHmMM/6maze.png';
   } else if (coordinates === '1,0') {
-    imageUrl = 'https://i.postimg.cc/vH37sRqp/2maze.png';
+    imageUrl = 'https://i.postimg.cc/wvxzcKhQ/2maze.png';
   } else if (coordinates === '1,1') {
-    imageUrl = 'https://i.postimg.cc/Hks8kyXL/3maze.png';
+    imageUrl = 'https://i.postimg.cc/wM7dZh4t/3maze.png';
   } else if (coordinates === '1,3') {
     imageUrl = 'https://i.postimg.cc/HxX4DVR2/7maze.png';
   } else {
