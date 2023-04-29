@@ -1,13 +1,11 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+A project where a simple labyrinth game was made by the help of an API, the goal for us students was to be able to make use of React Redux, creating and using our own store and reducers.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Creating the store and reducers took a fair amount of time but was not the largest consumer of time. The challenge was having enough time to make the CSS flow somewhat fluently. Creating the image render using props from the API was slightly challenging and came together well with a switch eventually.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://projectlabyrinthbyltandym.netlify.app/
