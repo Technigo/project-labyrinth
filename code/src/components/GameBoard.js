@@ -12,7 +12,6 @@ const GameBoardWrapper = styled.div`
   justify-content: center;
   padding-bottom: 20px;
   background: rgba(255,255,255, 0.4);
-  max-height: 100vh;
   overflow-y: hidden;
 `;
 
