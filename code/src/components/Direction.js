@@ -40,7 +40,7 @@ export const Direction = ({ actions = [] }) => {
   `
 
   const MoveBtn = styled.button`
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Castoro Titling', cursive;
   background-color: #000;
   border-radius: 5px;
   padding: 5px 10px;

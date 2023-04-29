@@ -10,7 +10,7 @@ flex-direction: column;
 align-items: center;
 `
 const StyledInput = styled.input`
-font-family: 'Ubuntu Mono', monospace;
+font-family: 'Castoro Titling', cursive;
 background-color: #FEF5BD;
 border: none;
 padding: 7px 5px 7px 10px;
@@ -26,10 +26,11 @@ border-radius: 5px;
 }
 `
 const StyledBtn = styled.button`
-font-family: 'JetBrains Mono', monospace;
-background-color: #F8E152;
+font-family: 'Castoro Titling', cursive;
+background-color: #408000;
+color: white;
 border: none;
-border-radius: 5px;
+border-radius: 20px;
 padding: 5px 10px;
 font-size: 1rem;
 cursor: pointer;
