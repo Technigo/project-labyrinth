@@ -19,6 +19,15 @@ export const GameBoard = () => {
   const selectDirection = (direction) => {
     dispatch(labyrinthProgress('move', direction))
   }
+  const handleKeyDown = (event, direction) => {
+    console.log(event.key)
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight' || event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+      console.log('Arrow key pressed!', event.key);
+      dispatch(labyrinthProgress('move', direction))
+    }
+    console.log(event.key)
+  }
+
   return (
     <GameWrapper>
       <BackgroundImage />
@@ -36,7 +45,8 @@ export const GameBoard = () => {
               <Description>{item.description}</Description>
               <DirectionButton
                 route={item.direction}
-                onClick={() => selectDirection(item.direction)} />
+                onClick={() => selectDirection(item.direction)}
+                onKeyDown={(e) => handleKeyDown(e, item.direction)} />
             </Card>
           ))}
         </CardsContainer>
