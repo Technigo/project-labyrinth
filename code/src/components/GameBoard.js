@@ -14,6 +14,7 @@ export const GameBoard = () => {
   const gameboard = useSelector((store) => store.labyrinth.setMoves);
   const description = useSelector((store) => store.labyrinth.description);
   const isLoading = useSelector((store) => store.ui.isLoading);
+  const coordinates = useSelector((store) => store.labyrinth.coordinates);
   const dispatch = useDispatch();
   const [active, setActive] = useState(false)
   const selectDirection = (direction) => {
@@ -25,7 +26,7 @@ export const GameBoard = () => {
       {active === false && (
         <>
           <Title>{description}</Title>
-          <Button onClick={() => setActive(true)}>Choose your path</Button>
+          {coordinates === '1,3' ? <Button onClick={() => window.location.reload()}>Restart game</Button> : <Button onClick={() => setActive(true)}>Choose your path</Button>}
           <Map />
         </>
       )}
