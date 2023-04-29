@@ -1,14 +1,19 @@
 import React from 'react'
-// import { useDispatch } from 'react-redux';
-// import { postUsername, game } from 'reducers/game';
+import { useSelector } from 'react-redux';
+// import { game } from 'reducers/game';
 import StartingPage from './StartingPage'
+import GamePage from './GamePage';
 
 const Main = () => {
   // const dispatch = useDispatch()
 
   // dispatch(postUsername())
 
-  return (<StartingPage />);
+  const username = useSelector((state) => state.game.username)
+  console.log(`username: ${username}`)
+
+  return (username ? (<GamePage />) : (<StartingPage />)
+  );
 }
 
 export default Main;
