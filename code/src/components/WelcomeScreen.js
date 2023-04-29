@@ -4,6 +4,7 @@ import styled from 'styled-components/macro';
 import { labyrinth, startLabyrinth } from 'reducers/labyrinth'
 import { Button } from 'reusableComponents/Button';
 import { Title } from 'reusableComponents/Title';
+import Typewriter from 'typewriter-effect';
 import { LoadingScreen } from './LoadingScreen';
 import { BackgroundImage } from './BackgroundImages';
 
@@ -25,7 +26,13 @@ export const WelcomeScreen = () => {
       <WelcomeWrapper>
         <BackgroundImage />
         <Form onSubmit={startGame}>
-          <Title>Welcome to the Labyrinth, adventurer!</Title>
+          <Title><Typewriter
+            onInit={(typewriter) => {
+              typewriter.typeString('Welcome to the Labyrinth!')
+                .pauseFor(2500)
+                .start();
+            }} />
+          </Title>
           <Input
             type="text"
             className="userName"
@@ -35,7 +42,6 @@ export const WelcomeScreen = () => {
             value={userName} />
           <Button type="submit"> Enter the Labyrinth </Button>
         </Form>
-        {/* {userName !== '' && <Title>Good luck, {userName}! </Title>} */}
       </WelcomeWrapper>
     ) : (
       <LoadingScreen />
@@ -43,10 +49,6 @@ export const WelcomeScreen = () => {
 };
 
 const WelcomeWrapper = styled.section`
-
-  background-image: url('/images/welcomeScreen.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -85,5 +87,4 @@ const Input = styled.input`
       outline: none;
       color: #f5f5f5;
     }
-
 `

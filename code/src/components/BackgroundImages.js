@@ -14,7 +14,6 @@ const BACKGROUND_IMAGES = {
 export const BackgroundImage = () => {
   const coordinates = useSelector((store) => store.labyrinth.coordinates);
   const backgroundImageSrc = BACKGROUND_IMAGES[coordinates] || './images/backgroundImages/WelcomeScreen.jpg';
-  console.log(backgroundImageSrc)
   const backgroundStyle = {
     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundImageSrc})`,
     backgroundSize: 'cover',

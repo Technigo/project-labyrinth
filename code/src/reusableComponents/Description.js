@@ -6,4 +6,7 @@ export const Description = styled.h2`
   margin: 1em;
   color: #fff;
   overflow-wrap: break-word;
+     @media (min-width: 768px) {
+          font-size: 1.5em;
+    }
 `;
