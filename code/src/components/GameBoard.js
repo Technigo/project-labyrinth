@@ -16,7 +16,7 @@ const GameBoardWrapper = styled.div`
 `;
 
 const MasterContainer = styled.div`
-height: 100vh;
+height: calc(100vh - <height of status/address bar>);
 width: 100vw;
 display: flex;
 justify-content: center;
