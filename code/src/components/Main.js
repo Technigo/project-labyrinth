@@ -9,15 +9,15 @@ import { GameBoard } from './GameBoard';
 const Background = styled.div`
 width: 100vw;
 height: 100vh;
+top: 0;
+left: 0;
+position: absolute;
 ${({ imageUrl }) => `
   background-image: url(${imageUrl});
 `}
 background-position: center;
 background-size: cover;
 background-repeat: no-repeat;
-top: 0;
-left: 0;
-position: absolute;
 `
 
 const EnterText = styled.h1`
