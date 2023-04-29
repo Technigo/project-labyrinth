@@ -87,7 +87,7 @@ export const fetchTwo = (direction) => {
             dispatch(loading.actions.setLoading(false));
           });
         });
-    }, 5000);
+    }, 4500);
   };
 };
 
