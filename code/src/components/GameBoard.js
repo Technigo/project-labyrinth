@@ -16,7 +16,7 @@ const GameBoardWrapper = styled.div`
 `;
 
 const MasterContainer = styled.div`
-height: calc(100vh - <height of status/address bar>);
+height: 100vh;
 width: 100vw;
 display: flex;
 justify-content: center;
@@ -115,21 +115,17 @@ export const GameBoard = () => {
       </RestartBtn>
       <GameBoardWrapper>
         <Description>{description}</Description>
-        <div className="CompassWrapper">
-          {actions.length > 0 && actions.map((action) => (
-            <div className="description-container">
-              <ActionDescription>
-                {action.description}
-                <GoBtn
-                  className={action.direction}
-                  direction={action.direction}
-                  onClick={() => dispatch(generateMoves(action.direction))}>
-                  {action.direction}
-                </GoBtn>
-              </ActionDescription>
-            </div>
-          ))}
-        </div>
+        {actions.length > 0 && actions.map((action) => (
+          <ActionDescription>
+            {action.description}
+            <GoBtn
+              className={action.direction}
+              direction={action.direction}
+              onClick={() => dispatch(generateMoves(action.direction))}>
+              {action.direction}
+            </GoBtn>
+          </ActionDescription>
+        ))}
       </GameBoardWrapper>
     </MasterContainer>
   );
