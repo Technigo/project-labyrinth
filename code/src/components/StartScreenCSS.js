@@ -3,28 +3,31 @@ import rockIMG from '../assets/RockBTN.png';
 import ScrollIMG from '../assets/scroll.png'
 
 export const StartScreenWrapper = styled.div`
-  padding-top: 140px;
   display: flex;
   width: 90%;
   flex-direction: column;
-  align-items: center;`
+  align-items: center;
+  justify-content: space-evenly;
+  height: 92vh;`
 
 export const WelcomeText = styled.p`
   width: 60%;
-  line-height: 30px;
+  line-height: 26px;
   text-align: center;
+  font-size: 12px;
 `
 
 export const WelcomeTextWrapper = styled.div`
   display: flex;
   background-image: url(${ScrollIMG});
   background-size: cover;
-  height: 50%;
-  width: 100%;
+  height: 59%;
+  width: 65%;
+  max-height: 340px;
   align-items: center;
   justify-content: center;
   background-repeat: no-repeat;
-  max-width: 380px;`
+  max-width: 292px;`
 
 export const NameForm = styled.form`
   display: flex;
@@ -38,10 +41,10 @@ export const Btn = styled.button`
     background-color: transparent;
     border: none;
     background-size: cover;
-    height: 98px;
-    width: 253px;
+    height: 45px;
+    width: 124px;
     color: black;
-    font-size: 14px;`
+    font-size: 12px;`
 
 export const NameInput = styled.input`
   line-height: 26px;
