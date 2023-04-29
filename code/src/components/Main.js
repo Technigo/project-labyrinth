@@ -8,7 +8,7 @@ import { GameBoard } from './GameBoard';
 
 const Background = styled.div`
 width: 100vw;
-height: calc(100vh - 30px);
+height: 100vh;
 margin: 0;
 top: 0;
 left: 0;
