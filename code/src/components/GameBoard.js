@@ -6,18 +6,28 @@ import { game, generateMoves } from 'reducers/game';
 import styled from 'styled-components/macro';
 
 const GameBoardWrapper = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-margin: 8px 0 0 0;
-padding-bottom: 20px;
-background: rgba(255,255,255, 0.4);
-@media (min-width: 767px) {
-  margin: 60px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20% 0 20% 0;
+  padding-bottom: 20px;
+  background: rgba(255,255,255, 0.4);
+  max-height: 100vh;
+  @media (min-width: 767px) {
+ 
   }
-@media (min-width: 767px) {
-  margin: 150px 0 0 0;
-}
+  @media (min-width: 1024px) {
+  
+  }
+`;
+
+const MasterContainer = styled.div`
+height: 100vh;
+width: 100vw;
+display: flex;
+justify-content: center;
+align-items: center;
 `;
 
 const Description = styled.h1`
@@ -75,6 +85,9 @@ box-shadow: 3px 5px 44px -7px rgba(0,0,0,0.75);
 `;
 
 const RestartBtn = styled.button`
+position: absolute;
+  top: 0;
+  left: 0;
 background: var(--Rebtn-color);
 border-radius: 0 0 20px;
 padding: 8px 12px;
@@ -103,7 +116,7 @@ export const GameBoard = () => {
   };
 
   return (
-    <>
+    <MasterContainer>
       <RestartBtn restart type="button" onClick={onRestartButton}>
         Restart Game
       </RestartBtn>
@@ -111,21 +124,20 @@ export const GameBoard = () => {
         <Description>{description}</Description>
         <div className="CompassWrapper">
           {actions.length > 0 && actions.map((action) => (
-            <>
+            <div className="description-container">
               <ActionDescription>
                 {action.description}
                 <GoBtn
                   className={action.direction}
                   direction={action.direction}
-                  key={action.direction}
                   onClick={() => dispatch(generateMoves(action.direction))}>
                   {action.direction}
                 </GoBtn>
               </ActionDescription>
-            </>
+            </div>
           ))}
         </div>
       </GameBoardWrapper>
-    </>
+    </MasterContainer>
   );
 };
