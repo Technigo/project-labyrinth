@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import TypeIt from 'typeit-react'
 import styled from 'styled-components/macro'
@@ -7,19 +7,11 @@ import { maze } from 'reducers/maze'
 import { FetchGame } from './FetchGame'
 import { Loading } from './Loading'
 import { Button } from './Buttons'
-import beachWaves from '../sounds/beach.mp3'
 
 export const Start = () => {
   const currentLocation = useSelector((store) => store.maze)
   const [userName, setUserName] = useState('')
-  const [audio] = useState(new Audio(beachWaves))
   const dispatch = useDispatch()
-
-  useEffect(() => {
-    audio.loop = true
-    audio.play()
-    return () => audio.pause()
-  }, [audio])
 
   const onNameSubmit = (event) => {
     event.preventDefault()

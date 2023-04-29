@@ -99,6 +99,8 @@ background-position: center;
 const MuteButton = styled(Button)`
 animation: none;
 position: absolute;
-right: -5px;
+right: 2px;
 font-size: 20px;
+padding: 0px;
+margin: 0px;
 `

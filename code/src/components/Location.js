@@ -1,3 +1,4 @@
+/* eslint-disable no-confusing-arrow */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable max-len */
 /* eslint-disable no-restricted-globals */
@@ -14,7 +15,6 @@ import { Loading } from './Loading'
 import compass from '../lotties/compass.json'
 import woodenSign from '../images/plank.jpg'
 import { Button } from './Buttons'
-import { GrandFinal } from './GrandFinal'
 
 export const Location = () => {
   const currentLocation = useSelector((store) => store.maze)
@@ -39,7 +39,7 @@ export const Location = () => {
 
     return (
       <>
-        <Sign className={action.direction}>
+        <Sign key={action.Location} className={action.direction}>
           <Button
             value={action.direction}
             type="button"
@@ -78,7 +78,6 @@ export const Location = () => {
           </CompassSquare>
           {currentLocation.coordinates === '1,3' ? (
             <FinalStep />) : null}
-          {currentLocation.isGameEnded ? <GrandFinal /> : null}
         </LocationsDiv>}
     </div>
   )
@@ -102,6 +101,7 @@ height: 100vh;
 
 const DirectionHeading = styled.p`
 margin: 0;
+
 @media (min-width: 768px) {
 display: none;
 }
@@ -139,9 +139,9 @@ text-shadow: 0px 1px whitesmoke;
   width: 190px;
 
   @media (min-width: 768px) {
-  top: calc(-45%);
-  right: calc(-10%);
-  width: 300px;
+  top: calc(-50%);
+  right: calc(-45%);
+  width: 500px;
 }
 }
 &.South{
@@ -151,9 +151,9 @@ text-shadow: 0px 1px whitesmoke;
   border-radius: 30px 60px 50px 20px;
 
   @media (min-width: 768px) {
-  bottom: calc(-30%);
-  right: calc(-15%);
-  width: 300px;
+  bottom: calc(-40%);
+  right: calc(-30%);
+  width: 400px;
 }
 }
 
@@ -176,7 +176,7 @@ text-shadow: 0px 1px whitesmoke;
   border-radius: 30px 25px 40px 2px;
 
   @media (min-width: 768px){
-    top: calc(30%);
+    top: calc(10%);
     left: calc(110%);
   }
 }
@@ -187,6 +187,10 @@ font-size: 16px;
 color: whitesmoke;
 text-shadow: black 1px 1px;
 margin: 0;
+
+@media (min-width: 768px){
+   font-size: 22px;
+  }
 `
 
 const CompassSquare = styled.div`

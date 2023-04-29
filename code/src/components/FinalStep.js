@@ -11,11 +11,23 @@ export const FinalStep = () => {
 
   return (
     <div>
-      <Lottie style={{ width: '400px', margin: 'auto' }} animationData={ship} />
+      <LottieDiv>
+        <Lottie style={{ width: '400px', margin: 'auto' }} animationData={ship} />
+      </LottieDiv>
       <RestartButton type="button" onClick={() => onClickRestart()}>Restart</RestartButton>
     </div>
   )
 }
+
+const LottieDiv = styled.div`
+display: flex;
+align-self: center;
+margin-top: -350px;
+
+@media (min-width: 768px) {
+  margin-top: 0px;
+}
+`
 
 const RestartButton = styled(Button)`
 color: goldenrod;
