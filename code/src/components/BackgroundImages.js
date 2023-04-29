@@ -1,38 +1,29 @@
 import { useSelector } from 'react-redux';
 import React from 'react';
 
+const BACKGROUND_IMAGES = {
+  '0,0': './images/ScreenTwo.jpg',
+  '0,1': './images/ScreenFive.jpg',
+  '0,2': './images/ScreenSix.jpg',
+  '0,3': './images/ScreenSeven.jpg',
+  '1,0': './images/ScreenThree.jpg',
+  '1,1': './images/ScreenFour.jpg',
+  '1,3': './images/FinalScreen.jpg'
+};
+
 export const BackgroundImage = () => {
-  const coordinates = useSelector((store) => store.labyrinth.coordinates)
+  const coordinates = useSelector((store) => store.labyrinth.coordinates);
+  const backgroundImageSrc = BACKGROUND_IMAGES[coordinates] || './images/welcomeScreen.jpg';
 
-  let backgroundImageSrc;
-
-  if (coordinates === '0,0') {
-    backgroundImageSrc = './images/ScreenTwo.jpg'
-  } else if (coordinates === '0,1') {
-    backgroundImageSrc = './images/ScreenFive.jpg'
-  } else if (coordinates === '0,2') {
-    backgroundImageSrc = './images/ScreenSix.jpg'
-  } else if (coordinates === '0,3') {
-    backgroundImageSrc = './images/ScreenSeven.jpg'
-  } else if (coordinates === '1,0') {
-    backgroundImageSrc = './images/ScreenThree.jpg'
-  } else if (coordinates === '1,1') {
-    backgroundImageSrc = './images/ScreenFour.jpg'
-  } else if (coordinates === '1,3') {
-    backgroundImageSrc = './images/FinalScreen.jpg'
-  } else if (coordinates === '') {
-    backgroundImageSrc = './images/welcomeScreen.jpg'
-  } else { backgroundImageSrc = './images/welcomeScreen.jpg' }
-
-  const background = {
+  const backgroundStyle = {
     backgroundImage: `url(${backgroundImageSrc})`,
     backgroundSize: 'cover',
-    backgroundPosition: 'center',
     width: '100%',
-    height: '100vh'
-  }
+    position: 'absolute',
+    top: '0',
+    height: '100%',
+    zIndex: '-1'
+  };
 
-  return (
-    <section style={background} />
-  )
+  return <div style={backgroundStyle} />;
 };

@@ -15,8 +15,7 @@ export const Main = () => {
         {coordinates === '' && <WelcomeScreen />}
         {coordinates !== '' && <GameBoard />}
       </div>
-    ) : (<LoadingScreen />
-    )}
+    ) : <LoadingScreen />}
     </div>
   )
 }

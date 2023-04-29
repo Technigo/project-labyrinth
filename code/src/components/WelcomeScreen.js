@@ -27,7 +27,7 @@ export const WelcomeScreen = () => {
     !loading ? (
       <WelcomeWrapper>
         <Form onSubmit={onAction}>
-          <Title>Welcome player 1 would you like to enter the Labyrinth?</Title>
+          <Title>Welcome adventurer, would you like to enter the Labyrinth?</Title>
           <Input
             type="text"
             className="userName"
