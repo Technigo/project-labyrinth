@@ -1,6 +1,7 @@
 import React from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
 import styled from 'styled-components/macro';
+import mazeAnimation from '../assets/Lotties/mazeAnimation.json'
 
 export const LoadingScreen = () => {
   return (
@@ -9,7 +10,7 @@ export const LoadingScreen = () => {
         <Player
           loop
           autoplay
-          src="https://assets6.lottiefiles.com/packages/lf20_LHHbJ8.json"
+          src={mazeAnimation}
           className="lottie"
           speed={1} />
       </div>
