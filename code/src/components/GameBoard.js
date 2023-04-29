@@ -17,7 +17,7 @@ const GameBoardWrapper = styled.div`
 
 const MasterContainer = styled.div`
 width: 100vw;
-height: 100vh;
+height: calc(100vh - 30px);
 display: flex;
 justify-content: center;
 align-items: center;
