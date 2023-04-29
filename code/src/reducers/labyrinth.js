@@ -5,23 +5,15 @@ export const labyrinth = createSlice({
   name: 'labyrinth',
   initialState: {
     username: '',
-    progress: {},
     history: [],
     moves: '',
     coordinates: '',
-    description: '',
-
-    // need this to store how people have moved in the labyrinth so they can go back steps
-    isLoading: false
+    description: ''
   },
   reducers: {
     setUsername: (store, action) => {
       store.username = action.payload;
       console.log('username:', action.payload)
-    },
-    setProgress: (store, action) => {
-      store.progress = action.payload
-      console.log('progress:', action.payload)
     },
     setLoading: (store, action) => {
       store.isLoading = action.payload
@@ -37,6 +29,7 @@ export const labyrinth = createSlice({
     },
     setCoordinates: (store, action) => {
       store.coordinates = action.payload
+      store.history.push(store.coordinates)
       console.log('coordinates:', action.payload)
     },
     setDirection: (store, action) => {

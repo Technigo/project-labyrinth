@@ -15,6 +15,9 @@ export const GameBoard = () => {
   const isLoading = useSelector((store) => store.ui.isLoading);
   const dispatch = useDispatch();
   const [active, setActive] = useState(false)
+  const selectDirection = (direction) => {
+    dispatch(labyrinthProgress('move', direction))
+  }
   return (
     <GameWrapper>
       <BackgroundImage />
@@ -29,7 +32,9 @@ export const GameBoard = () => {
           {gameboard.map((item) => (
             <Card key={item.direction} direction={item.direction}>
               <Description>{item.description}</Description>
-              <DirectionButton direction={item.direction} onClick={() => dispatch(labyrinthProgress('move', item.direction))} />
+              <DirectionButton
+                direction={item.direction}
+                onClick={() => selectDirection(item.direction)} />
             </Card>
           ))}
         </CardsContainer>

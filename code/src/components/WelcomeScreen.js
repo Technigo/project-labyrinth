@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { labyrinth, startLabyrinth } from 'reducers/labyrinth'
 import { Button } from 'reusableComponents/Button';
@@ -8,25 +8,21 @@ import { LoadingScreen } from './LoadingScreen';
 
 export const WelcomeScreen = () => {
   const [userName, setUsername] = useState('');
-  const [loading, setLoading] = useState(false)
+  const isLoading = useSelector((store) => store.ui.isLoading);
   const dispatch = useDispatch();
 
-  const onAction = (e) => {
+  const startGame = (e) => {
     e.preventDefault();
     if (userName !== '') {
-      setTimeout(() => {
-        setLoading(true);
-      }, 100);
       dispatch(labyrinth.actions.setUsername(userName));
       dispatch(startLabyrinth());
-      setTimeout(() => { setLoading(false); }, 5000);
     }
   }
 
   return (
-    !loading ? (
+    !isLoading ? (
       <WelcomeWrapper>
-        <Form onSubmit={onAction}>
+        <Form onSubmit={startGame}>
           <Title>Welcome adventurer, would you like to enter the Labyrinth?</Title>
           <Input
             type="text"

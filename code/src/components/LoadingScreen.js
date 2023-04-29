@@ -17,15 +17,15 @@ export const LoadingScreen = () => {
   )
 };
 
-const LottieWrapper = styled.section`
+const LottieWrapper = styled.div`
     width: 100vw;
     height: 100vh;
-    background-color:lightgrey;
-    z-index: 1;
+    background-color:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     .lottie{
-      height: 60vh;
-      width: 60vw;
-      align-items: center;
-      padding-top: 13%;
+      height: 40vh;
+      width: 40vw;
     }
     `
