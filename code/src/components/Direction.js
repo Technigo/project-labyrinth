@@ -49,7 +49,7 @@ export const Direction = ({ actions = [] }) => {
   margin-bottom: 20px;
   color: lightgoldenrodyellow;
   &:hover {
-  background-color: lightgreen;
+  background-color: #999966;
   color: #000;
   }
   @media (min-width: 668px) {
