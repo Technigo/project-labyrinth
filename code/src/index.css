@@ -11,3 +11,151 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+p {
+  color: white;
+}
+
+
+
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.spinner {
+  height: 200px;
+  width: 200px;
+  margin-top: 40px;
+}
+h1 {
+  color: white;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 2.5rem;
+  width: 260px;
+}
+.top-lottie-container {
+  margin-top: 60px;
+}
+.top-lottie {
+  width: 100px;
+}
+.maze-span {
+  color: #F8E152;
+}
+.large-span {
+  white-space: nowrap;
+}
+.game-div {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 200px;
+}
+.game-p {
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-align: center;
+  width: 80vw;
+  color: #dbd5aa;
+  margin-bottom: 30px;
+}
+.direction-div {
+  width: 90vw;
+  height: auto;
+  background-color: rgba(128, 128, 128, 0.5);
+  color: #e7e3c8;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.direction-div p {
+  text-align: justify;
+  width: 80vw;
+  padding: 5px 15px;
+  font-size: 1rem;
+  word-spacing: -3px;
+}
+.credits {
+  color: #fef5bd;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.credits a {
+  color: #F8E152;
+}
+@media (min-width: 668px) and (max-width: 1023px) {
+  .top-lottie {
+    width: 150px;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  .spinner {
+    height: 300px;
+    width: 300px;
+  }
+  .game-p {
+    font-size: 2rem;
+  }
+  .direction-div {
+    margin-bottom: 20px;
+  }
+  .direction-div p {
+    font-size: 1.3rem;
+    width: auto;
+  }
+  .credits {
+    font-size: 1.3rem;
+    position: relative;
+    top: 400px;
+  }
+}
+@media (min-width: 1024px) {
+  .top-lottie-container {
+    position: absolute;
+    top: 2vh;
+    left: 2vh;
+    margin: 0;
+  }
+  .top-lottie {
+    width: 100px;
+  }
+  .main-container {
+    margin-top: 10px;
+    width: 1024px;
+  }
+  .game-div {
+    margin-top: 40px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .game-p {
+    width: 70vw;
+    font-size: 1.6rem;
+    max-width: 1024px;
+  }
+  .direction-div {
+    width: 70vw;
+    max-width: 1024px;
+  }
+  .direction-div p {
+    width: 60vw;
+    font-size: 1.3rem;
+    max-width: 924px;
+  }
+  .credits {
+    font-size: 1.3rem;
+    position: relative;
+    top: 350px;
+  }
+}

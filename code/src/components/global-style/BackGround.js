@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import backgroundImage from '../images/background.jpg'
+import backgroundImage from 'images/background.jpg'
 
 const StyledBackground = styled.div`
   background-image: url(${backgroundImage}); // replace with your image path

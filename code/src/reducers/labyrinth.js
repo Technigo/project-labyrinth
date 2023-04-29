@@ -1,79 +1,75 @@
 import { createSlice } from '@reduxjs/toolkit';
-import uniqid from 'uniqid';
 
-export const labyrinth = createSlice({
-  name: 'labyrinth',
-  initialState: {
-    username: '',
-    coordinates: '',
-    description: '',
-    actions: [],
-    loading: false
-  },
+const initialState = {
+  user: '',
+  isStarted: false,
+  description: '',
+  isLoading: false,
+  move: []
+}
 
+export const game = createSlice({
+  name: 'game',
+  initialState,
   reducers: {
-    storeUsername: (store, action) => {
-      store.username = `${uniqid()}+${action.payload}}`
+    setUserName: (store, action) => {
+      store.user = action.payload
     },
-    storeCoordinates: (store, action) => {
-      store.coordinates = action.payload
+    gameIsStarted: (store, action) => {
+      store.isStarted = action.payload
     },
-    storeDescription: (store, action) => {
+    setDescription: (store, action) => {
       store.description = action.payload
     },
-    storeActions: (store, action) => {
-      store.actions = action.payload
+    setMove: (store, action) => {
+      store.move = [...store.move, action.payload]
+    },
+    isLoading: (store, action) => {
+      store.loading = action.payload
     }
   }
+
 })
-// first thunk
-export const startLabyrinth = () => {
+
+export const labyrinth = () => {
   return (dispatch, getState) => {
-    dispatch(labyrinth.actions.setLoading(true))
-    const options = {
+    dispatch(game.actions.isLoading(true))
+
+    const start = {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        username: getState().game.username
-      })
-    };
-    fetch('https://labyrinth.technigo.io/start', options)
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({ username: getState().game.user })
+    }
+    fetch('https://labyrinth.technigo.io/start', start)
       .then((res) => res.json())
       .then((data) => {
-        dispatch(labyrinth.actions.setPosition(data))
+        dispatch(game.actions.setDescription(data))
+        dispatch(game.actions.gameIsStarted(true))
       })
-      .catch((error) => console.error(error))
-      .finally(() => dispatch(labyrinth.actions.setLoading(false)))
-  }
-}
-// second thunk
-export const nextMove = (direction) => {
-  return (dispatch, getState) => {
-    dispatch(labyrinth.actions.setLoading(true))
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        username: getState().labyrinth.username,
-        type: 'move',
-        direction
+      .finally(() => {
+        dispatch(game.actions.isLoading(false))
       })
-    };
-    fetch('https://labyrinth.technigo.io/action', options)
-      .then((res) => res.json())
-      .then((data) => {
-        dispatch(labyrinth.actions.setPosition(data))
-      })
-      .catch((error) => console.error(error))
-      .finally(() => dispatch(labyrinth.actions.setLoading(false)))
   }
 }
 
-// uniqid is a package that provides a simple function to generate
-// unique IDs based on the current time and a random number.
-// Overall, uniqid is a simple and lightweight package that can
-//  be useful when you need to generate unique IDs in your project.
+export const nextMove = (direction) => {
+  return (dispatch, getState) => {
+    dispatch(game.actions.isLoading(true))
+
+    const move = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: getState().game.user,
+        type: 'move',
+        direction })
+    }
+    fetch('https://labyrinth.technigo.io/action', move)
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(game.actions.setDescription(data))
+      })
+      .finally(() => {
+        dispatch(game.actions.isLoading(false))
+      })
+  }
+}
