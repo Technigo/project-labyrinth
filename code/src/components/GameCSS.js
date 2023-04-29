@@ -16,7 +16,7 @@ export const GameWrapper = styled.div`
   width: 90%;
   max-width: 650px;
   text-align: center;
-  animation: ${fadeInAnimation} 0.5s ease-in-out;
+  animation: ${fadeInAnimation} 1.0s ease-in-out;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -46,8 +46,8 @@ export const EnImg = styled.img`
   }
   
   @media (min-width: 1050px) {
-    max-width: 400px;
-    margin-left: 400px;
+    max-width: 350px;
+    margin-left: 30%;
   }
 `
 
@@ -59,6 +59,7 @@ export const ActionWrapper = styled.div`
   font-size: 10px;
   align-items: center;
   width: 90%;
+  overflow-x: hidden;
 
   ::-webkit-scrollbar {
   width: 5px;
@@ -74,12 +75,12 @@ export const ActionWrapper = styled.div`
 
   @media (min-width: 600px) {
     max-height: 40%;
-    overflow-x: hidden;
     overflow-y: auto; 
   }
 
   @media (min-width: 850px) {
     flex-direction: row;
+    max-width: 65%;
   }
 `
 
@@ -87,7 +88,7 @@ export const SingleActionWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    animation: ${fadeInAnimation} 1.2s ease-in-out;
+    animation: ${fadeInAnimation} 2.0s ease-in-out;
     background-color: rgba(255, 234, 142, 0.83);
     margin-top: 5%;
     padding: 10px;
@@ -117,18 +118,20 @@ export const CurrentRoomDescriptionText = styled.p`
     max-width: 320px;
     margin-top: 4.5%;
     margin-right: 44%;
-    background-color: rgba(255, 234, 142, 0.83);
     color: black;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
+    background-color: rgba(255, 234, 142, 0.83);
   }
   
   @media (min-width: 1050px) {
     text-align: center;
-    margin-right: 400px;
+    margin-right: 32%;
+    padding: 10px;
+    height: 36%;
+    max-width: 268px;
   }
-
   `
 
 export const NextRoomDescriptionText = styled.p`

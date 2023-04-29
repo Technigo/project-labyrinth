@@ -27,16 +27,16 @@ export const RestartBtn = styled.button`
   background-color: transparent;
   border: none;
   background-size: cover;
-  width: 28px;
-  height: 57px;
+  width: 45px;
+  height: 102px;
   rotate: 90deg;
   position: absolute;
-  bottom: -1px;
-  right: 28px;
-  box-shadow: none; /* Remove default box-shadow */
+  bottom: -19px;
+  right: 46px;
+  box-shadow: none;
 
   &:hover {
-    animation: pulsate 1s ease-in-out infinite; /* Add pulsating effect on hover */
+    animation: pulsate 1s ease-in-out infinite;
   }
 
   &:hover::before {
@@ -77,13 +77,20 @@ export const WelcomeTextWrapper = styled.div`
   display: flex;
   background-image: url(${ScrollIMG});
   background-size: cover;
-  height: 59%;
+  height: 48%;
   width: 65%;
   max-height: 360px;
   align-items: center;
   justify-content: center;
   background-repeat: no-repeat;
-  max-width: 215px;`
+  max-width: 205px;
+  
+  @media (min-width: 850px) {
+    height:100%;
+    width: 100%;
+    max-width: 260px;
+    max-height:327px;
+  }`
 
 export const NameForm = styled.form`
   display: flex;
