@@ -59,6 +59,8 @@ justify-content:center;
 align-items:center;
 gap: 1rem;
 flex-wrap: wrap;
+margin-bottom: 10px;
+
 `
 
 export const ArrowText = styled.p`

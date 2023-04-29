@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { InnerWrapper, Th1, DirectionContainer, GameBtn, ActionContainer, RestartBtn, InfoText, HistoryContainer, ArrowText } from 'styles/GameStyles';
 import TypeIt from 'typeit-react';
 import { v4 as uuidv4 } from 'uuid';
+import { LabyrinthMap } from './LabyrinthMap';
 
 import arch from '../assets/arch.jpg';
 import bridge from '../assets/bridge.jpg';
@@ -82,6 +83,7 @@ export const GameScreen = () => {
             )))
             : ''}
         </HistoryContainer>
+        <LabyrinthMap />
         <RestartBtn
           type="button"
           onClick={onClickRestart}>Restart
