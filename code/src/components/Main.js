@@ -7,8 +7,7 @@ import { LoadingMaze } from './LoadingIndicator';
 import { GameBoard } from './GameBoard';
 
 const Background = styled.div`
-width: 100%;
-height: 100%;
+width: 100vw;
 margin: 0;
 top: 0;
 left: 0;
