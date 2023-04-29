@@ -30,7 +30,7 @@ export const game = createSlice({
   }
 
 })
-
+// the two thunks:
 export const labyrinth = () => {
   return (dispatch, getState) => {
     dispatch(game.actions.isLoading(true))

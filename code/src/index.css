@@ -10,12 +10,6 @@ code {
   font-family: 'Castoro Titling', cursive;
 }
 
-p {
-  color: white;
-}
-
-
-
 
 .main-container {
   display: flex;
@@ -60,7 +54,7 @@ h1 {
   font-size: 1.4rem;
   text-align: center;
   width: 80vw;
-  color: #f3f2e9;
+  color: #0c0c0c;
   background-color: rgba(128, 128, 128, 0.5);
   border-radius: 10px;
   margin-bottom: 30px;

@@ -11,8 +11,8 @@ export const Game = () => {
   }
 
   const ResetBtn = styled.button`
-  font-family: 'JetBrains Mono', monospace;
-  background-color: #000;
+  font-family: 'Castoro Titling', cursive;
+  background-color: #293d3d;
   border-radius: 5px;
   padding: 5px 10px;
   font-size: 1rem;
@@ -31,6 +31,13 @@ export const Game = () => {
     margin-top: 30px;
   }
   `
+  const StyledParagraph = styled.p`
+    background-color: #c2d6d6;
+    border-radius: 30px;
+    padding: 10px;
+    text-align: center;
+    margin-top: 100px;
+ `
 
   return (
     <div className="game-div">
@@ -39,7 +46,9 @@ export const Game = () => {
       {description.coordinates === '1,3' && (
         <>
           <ResetBtn type="button" onClick={onRestartButtonClick}>Play again</ResetBtn>
-          <p>By NinaW</p>
+          <div>
+            <StyledParagraph>~By Nina W~ <br /> Student at Technigo</StyledParagraph>
+          </div>
         </>
       )}
     </div>
