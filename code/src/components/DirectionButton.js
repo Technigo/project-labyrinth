@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import React from 'react';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded'; // East
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded'; // West

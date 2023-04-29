@@ -4,10 +4,11 @@ import { labyrinthProgress } from 'reducers/labyrinth';
 // import { Button } from 'reusableComponents/Button';
 import { Description } from 'reusableComponents/Description';
 import { Title } from 'reusableComponents/Title';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { Button } from 'reusableComponents/Button'
 import { BackgroundImage } from './BackgroundImages';
 import { DirectionButton } from './DirectionButton';
+import { Map } from './Map'
 
 export const GameBoard = () => {
   const gameboard = useSelector((store) => store.labyrinth.setMoves);
@@ -25,6 +26,7 @@ export const GameBoard = () => {
         <>
           <Title>{description}</Title>
           <Button onClick={() => setActive(true)}>Choose your path</Button>
+          <Map />
         </>
       )}
       {isLoading === false && active === true && (

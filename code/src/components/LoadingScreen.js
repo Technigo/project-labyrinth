@@ -1,6 +1,6 @@
 import React from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const LoadingScreen = () => {
   return (

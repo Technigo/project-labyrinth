@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { labyrinth, startLabyrinth } from 'reducers/labyrinth'
 import { Button } from 'reusableComponents/Button';
 import { Title } from 'reusableComponents/Title';
 import { LoadingScreen } from './LoadingScreen';
+import { BackgroundImage } from './BackgroundImages';
 
 export const WelcomeScreen = () => {
   const [userName, setUsername] = useState('');
@@ -22,6 +23,7 @@ export const WelcomeScreen = () => {
   return (
     !isLoading ? (
       <WelcomeWrapper>
+        <BackgroundImage />
         <Form onSubmit={startGame}>
           <Title>Welcome adventurer, would you like to enter the Labyrinth?</Title>
           <Input
