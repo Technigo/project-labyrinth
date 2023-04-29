@@ -1,18 +1,20 @@
 /* eslint-disable implicit-arrow-linebreak */
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { labyrinth } from 'reducers/labyrinth'
-import { RestartBtn, RestartWrapper } from './GameCSS'
+import { RestartBtn, RestartWrapper } from './StartScreenCSS'
 
 export const Restart = () => {
   const dispatch = useDispatch()
+  const isLoading = useSelector((state) => state.labyrinth.isLoading)
   const onRestartButton = () => {
+    dispatch(labyrinth.actions.setUsername(''))
     dispatch(labyrinth.actions.restart())
   }
 
   return (
     <RestartWrapper>
-      <RestartBtn type="button" onClick={onRestartButton} />
+      {!isLoading && <RestartBtn type="button" onClick={onRestartButton} />}
     </RestartWrapper>
   )
 }

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { labyrinth, gameProgress } from '../reducers/labyrinth';
 import Game from './Game';
-import { StartScreenWrapper, WelcomeText, WelcomeTextWrapper, NameForm, Btn, NameInput } from './StartScreenCSS';
+import { StartScreenWrapper, WelcomeText, WelcomeTextWrapper, NameForm, Btn, NameInput, GameRestartWrapper } from './StartScreenCSS';
+import { Restart } from './Restart';
 
 const StartScreen = () => {
   const dispatch = useDispatch()
@@ -20,7 +21,12 @@ const StartScreen = () => {
   const gameStarted = useSelector((state) => state.labyrinth.gameStarted)
 
   if (gameStarted) {
-    return <Game />
+    return (
+      <GameRestartWrapper>
+        <Game />
+        <Restart />
+      </GameRestartWrapper>
+    )
   } else {
     return (
       <StartScreenWrapper>
@@ -37,7 +43,7 @@ const StartScreen = () => {
             value={usernameInput}
             onChange={(event) => setUsernameInput(event.target.value)}
             required />
-          <Btn type="submit">Enter the maze </Btn>
+          <Btn type="submit">Enter</Btn>
         </NameForm>
       </StartScreenWrapper>
     )

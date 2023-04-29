@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components/macro';
-import orbIMG from '../assets/The Orb in the Wall (128x64).png'
 
 const fadeInAnimation = keyframes`
   from {
@@ -24,52 +23,64 @@ export const GameWrapper = styled.div`
   flex-flow: row wrap;
   align-content: flex-start;
   height: 100vh;
-`;
 
-export const RestartWrapper = styled.div`
-  height: 0px;
-  display: flex;
-  justify-content: flex-end;`
-
-export const RestartBtn = styled.button`
-  background-image: url(${orbIMG});
-  background-color: transparent;
-  border: none;
-  background-size: cover;
-  width: 40px;
-  height: 82px;
-  rotate: 90deg;
-  position: relative;
-
-  &:hover::before {
-    content: "You sense that touching this orb will return you to a place where your story is yet to be written"; /* Tooltip text */
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%) rotate(-90deg);
-    background-color: rgba(255, 255, 255, 0.75);
-    color: black;
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 12px;
+  @media (min-width: 850px) {
+    max-width: 90%;
   }
 `;
 
 export const EnImg = styled.img`
   height: 40%;
   width: 92%;
+  max-width: 290px;
   margin-top: 5%;
   z-index: 1;
+
+  @media (min-width: 600px) {
+    margin-bottom: 2%;
+  }
+
+  @media (min-width: 850px) {
+    object-fit: cover;
+    margin-left: 55%;
+  }
+  
+  @media (min-width: 1050px) {
+    max-width: 400px;
+    margin-left: 400px;
+  }
 `
 
 export const ActionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   overflow: scroll;
-  max-height: 45%;
+  max-height: 46%;
   font-size: 10px;
   align-items: center;
   width: 90%;
+
+  ::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.8);
+}
+
+  @media (min-width: 600px) {
+    max-height: 40%;
+    overflow-x: hidden;
+    overflow-y: auto; 
+  }
+
+  @media (min-width: 850px) {
+    flex-direction: row;
+  }
 `
 
 export const SingleActionWrapper = styled.div`
@@ -91,13 +102,34 @@ export const ActionBottom = styled.div`
 
 export const CurrentRoomDescriptionText = styled.p`
   position: absolute;
-    margin-top: 28%;
-    line-height: 20px;
-    width: 83%;
-    color: white;
-    max-width: 650px;
-    font-size: 12px;
-    z-index: 1;`
+  margin-top: 5%;
+  line-height: 20px;
+  width: 83%;
+  color: white;
+  max-width: 250px;
+  font-size: 10px;
+  z-index: 1;
+  height: 40%;
+  overflow: auto;
+  backdrop-filter: brightness(0.8);
+  
+  @media (min-width: 850px) {
+    max-width: 320px;
+    margin-top: 4.5%;
+    margin-right: 44%;
+    background-color: rgba(255, 234, 142, 0.83);
+    color: black;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+  
+  @media (min-width: 1050px) {
+    text-align: center;
+    margin-right: 400px;
+  }
+
+  `
 
 export const NextRoomDescriptionText = styled.p`
 line-height: 20px;

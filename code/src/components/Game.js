@@ -3,7 +3,6 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { gameProgress } from 'reducers/labyrinth';
 import { Loader } from './Loader';
-import { Restart } from './Restart';
 import { GameWrapper, ActionWrapper, SingleActionWrapper, ActionTop, CurrentRoomDescriptionText, NextRoomDescriptionText } from './GameCSS';
 import { Btn } from './StartScreenCSS';
 import { EnvironmentIMG } from './EnvironmentIMG';
@@ -35,7 +34,6 @@ const Game = () => {
               Go {userAction.direction}
               </Btn>
             </SingleActionWrapper>)}
-          <Restart />
         </ActionWrapper>
       </GameWrapper>)
   }
