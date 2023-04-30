@@ -11,17 +11,18 @@ display: flex;
 flex-direction: column;
 justify-content: space-evenly;
 align-items: center;
-height: 80vh;
 background: rgba(213, 146, 131, 0.59);
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 backdrop-filter: blur(3.9px);
 -webkit-backdrop-filter: blur(3.9px);
 border: 1px solid rgba(213, 146, 131, 0.3);
-  border: 2px solid yellow;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 30px;
+border: 2px solid yellow;
+padding-left: 20px;
+padding-right: 20px;
+padding-bottom: 30px;
+overflow: auto;
+
 `
 const HeaderTitle = styled.h1`
 margin-right: 5rem;
