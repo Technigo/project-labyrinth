@@ -25,7 +25,6 @@ const DescriptionContainer = styled.div`
 const MapContainer = styled.div`
   width: 110px;
   height: 110px;
-  border: purple 2px dotted;
   margin-right: 7px;
 `
 
