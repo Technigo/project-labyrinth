@@ -4,8 +4,12 @@ import { Player } from '@lottiefiles/react-lottie-player'
 import animationData from '../lotties/blueman'
 
 const LoaderContainer = styled.div`
-border: blue dotted 2px;
-width: 200px;`
+  width: 200px;
+  height: 410px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
 
 const LoadingPage = () => {
   return (
