@@ -19,13 +19,11 @@ const Footer = () => {
 }
 
 const FooterWrapper = styled.div`
-  /* max-width: 1300px; */
   margin: auto;
   padding: 0 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* flex-wrap: wrap-reverse; */
   background-color: rgb(138 106 148 / 80%);
   border-top: 2px solid black;
   opacity: 0.95;

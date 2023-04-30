@@ -10,6 +10,7 @@ const StartWrapper = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: space-evenly;
+height: 100vh;
 align-items: center;
 background: rgba(213, 146, 131, 0.59);
 border-radius: 16px;
@@ -21,13 +22,12 @@ border: 2px solid yellow;
 padding-left: 20px;
 padding-right: 20px;
 padding-bottom: 30px;
-overflow: auto;
-
+/* overflow: auto; */
 `
 const HeaderTitle = styled.h1`
-margin-right: 5rem;
-    margin-left: 5rem;
-    text-align: center;
+margin-right: 1.5rem;
+margin-left: 1.5rem;
+text-align: center;
 `
 const GreetText = styled.p`
 margin-bottom: 0.5rem;
