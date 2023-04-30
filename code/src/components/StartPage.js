@@ -63,7 +63,7 @@ const StartPage = () => {
         renderer={defaultOptions.renderer}
         rendererSettings={defaultOptions.rendererSettings}
         style={{ width: '300px', height: '300px' }} />
-      <HeaderTitle>Welcome to The Rabbit Hole Maze, my friend!</HeaderTitle>
+      <HeaderTitle>Welcome to The Rabbit Hole Labyrinth, my friend!</HeaderTitle>
       <GreetText> Every adventure requires a first step...</GreetText>
       <GreetText>Please start by entering your name. </GreetText>
       <form onSubmit={(event) => onFormSubmit(event)}>
