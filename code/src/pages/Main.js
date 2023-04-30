@@ -1,18 +1,17 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
-// import { game } from 'reducers/game';
+import { useSelector } from 'react-redux'
 import StartingPage from './StartingPage'
-import GamePage from './GamePage';
+import LoadingPage from './LoadingPage'
+import GamePage from './GamePage'
 
 const Main = () => {
-  // const dispatch = useDispatch()
+  const isUserNameSubmitted = useSelector((store) => store.game.username)
+  const isLoading = useSelector((store) => store.ui.loading)
 
-  // dispatch(postUsername())
-
-  const username = useSelector((state) => state.game.username)
-  console.log(`username: ${username}`)
-
-  return (username ? (<GamePage />) : (<StartingPage />)
+  return (
+    <section>
+      {isLoading ? <LoadingPage /> : (<> {isUserNameSubmitted === '' ? <StartingPage /> : <GamePage />}  </>)}
+    </section>
   );
 }
 

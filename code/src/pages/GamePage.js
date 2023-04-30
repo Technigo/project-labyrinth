@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
 import { postAction } from '../reducers/game'
+import Map from '../components/Map'
 
 const DescriptionContainer = styled.div``
 
@@ -23,6 +24,7 @@ const GamePage = () => {
     <>
       {gameResponse && (
         <DescriptionContainer>
+          <Map />
           <Description>{gameResponse.description}</Description>
         </DescriptionContainer>)}
       {gameResponse.actions && (
