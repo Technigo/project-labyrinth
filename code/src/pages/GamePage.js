@@ -43,7 +43,8 @@ const OptionContainer = styled.div`
   width: 100%;
   @media (min-width: 490px) {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 15px;
   }
 `
 
@@ -57,9 +58,9 @@ const Option = styled.div`
   padding: 20px;
   text-align: center;
   @media (min-width: 490px) {
-    width: 45%;
+    width: 100%;
     min-width: 215px;
-    max-width: 240px;
+    /* max-width: 240px; */
     justify-content: space-between;
   }
 `
