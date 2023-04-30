@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 // Import necessary libraries
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
 import UserNameInput from './UserNameInput';
@@ -9,37 +9,37 @@ import { GameBoard } from './GameBoard';
 
 // Styled components
 const Background = styled.div`
-width: 100vw;
-height: 100vh;
-margin: 0;
-top: 0;
-left: 0;
-position: absolute;
-${({ imageUrl }) => `
-  background-image: url(${imageUrl});
-`}
-background-position: center;
-background-size: cover;
-background-repeat: no-repeat;
-`
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  top: 0;
+  left: 0;
+  position: absolute;
+  ${({ imageUrl }) => `
+    background-image: url(${imageUrl});
+  `}
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+`;
 
 const EnterText = styled.h1`
-margin: 0 auto;
-color: white;
-text-align: center;
-padding: 20px 0 50px 0;
-font-size: 24px;
-max-width: 460px;
-text-shadow: 2px 2px 3px #ff00d9e1;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+  padding: 20px 0 50px 0;
+  font-size: 24px;
+  max-width: 460px;
+  text-shadow: 2px 2px 3px #ff00d9e1;
 `;
 
 const HeaderText = styled.h1`
-text-align: center;
-margin: 0 auto;
-font-size: 34px;
-color: white;
-padding-top: 60px;
-text-shadow: 2px 2px 3px #ff00d9e1;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 34px;
+  color: white;
+  padding-top: 60px;
+  text-shadow: 2px 2px 3px #ff00d9e1;
 `;
 
 // The isLoading, username, and coordinates variables are
@@ -49,6 +49,23 @@ const Main = () => {
   const username = useSelector((store) => store.game.username);
   const coordinates = useSelector((store) => store.game.coordinates);
 
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    const audio = new Audio('/sounds/background-music.mp3');
+    audio.loop = true;
+    audio.addEventListener('ended', () => setIsPlaying(false));
+    if (isPlaying) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+    return () => {
+      audio.removeEventListener('ended', () => setIsPlaying(false));
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, [isPlaying]);
   // The images object contains URLs for the different maze images to be displayed.
   // The imageUrl variable is set based on the coordinates variable and
   // is used as the background image for the Background styled-component.
@@ -69,20 +86,26 @@ const Main = () => {
   // If the username variable is truthy, the GameBoard component is rendered.
   // If the username variable is falsy, the EnterText message and
   // UserNameInput component are rendered.
+
   return (
-    <Background imageUrl={imageUrl}>
-      {isLoading ? (
-        <LoadingMaze />
-      ) : username ? (
-        <GameBoard />
-      ) : (
-        <section className="start-section">
-          <HeaderText>The Labyrinth</HeaderText>
-          <EnterText>You are now entering the labyrinth, beware and tred carefully</EnterText>
-          <UserNameInput />
-        </section>
-      )}
-    </Background>
+    <>
+      <audio src="/songs/serenity-ilya-kuznetsov-main-version-03-38-3939.mp3" type="audio/mpeg" loop autoPlay>
+        <track kind="captions" srcLang="en" label="English Captions" />
+      </audio>
+      <Background imageUrl={imageUrl}>
+        {isLoading ? (
+          <LoadingMaze />
+        ) : username ? (
+          <GameBoard />
+        ) : (
+          <section className="start-section">
+            <HeaderText>The Labyrinth</HeaderText>
+            <EnterText>You are now entering the labyrinth, beware and tred carefully</EnterText>
+            <UserNameInput />
+          </section>
+        )}
+      </Background>
+    </>
   )
 };
 
