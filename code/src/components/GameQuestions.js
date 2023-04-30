@@ -11,12 +11,14 @@ const GameQuestions = () => {
   const moves = useSelector((store) => store.games.moves);
   const history = useSelector((store) => store.games.history);
   const coordinates = useSelector((store) => store.games.coordinates);
+  // const store = useSelector((state) => state.games);
 
   const dispatch = useDispatch();
 
   const onChooseDirection = (event) => {
     dispatch(games.actions.setDirection(event.target.value));
     dispatch(GenerateQuestion());
+    // console.log('store:', store);
   };
 
   const onRestartButton = () => {
