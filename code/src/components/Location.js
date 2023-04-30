@@ -10,17 +10,18 @@ import Lottie from 'lottie-react'
 import styled from 'styled-components/macro'
 import TypeIt from 'typeit-react'
 import { MakeMove } from './MakeMove'
-import { FinalStep } from './FinalStep'
 import { Loading } from './Loading'
 import compass from '../lotties/compass.json'
 import woodenSign from '../images/plank.jpg'
 import { Button } from './Buttons'
 import { GrandFinal } from './GrandFinal'
+import bottle from '../lotties/bottle.json'
 
 export const Location = () => {
   const currentLocation = useSelector((store) => store.maze)
   const dispatch = useDispatch()
   const [clickCount, setClickCount] = useState(0)
+  const [showGrandFinal, setShowGrandFinal] = useState(false)
 
   const actionDirections = currentLocation.actions.map((action) => {
     const chooseDirection = (direction) => {
@@ -43,6 +44,7 @@ export const Location = () => {
       <>
         <Sign key={action.Location} className={action.direction}>
           <Button
+            key={action.Location}
             value={action.direction}
             type="button"
             onClick={((event) => handleClicks(event.target.value))}>
@@ -65,23 +67,32 @@ export const Location = () => {
   return (
 
     <div>
-      {currentLocation.isLoading ? <LoadingDiv><Loading /></LoadingDiv>
-        : <LocationsDiv>
-          <div>
-            <TypeIt options={{ speed: 50, cursor: false }}>
-              <LocationText>
-                {currentLocation.description}
-              </LocationText>
-            </TypeIt>
-          </div>
-          <CompassSquare>
-            {/* Here we are rendering either the compass animation or our own ending text */}
-            {currentLocation.coordinates === '1,3' ? <GrandFinal /> : <Lottie style={{ width: '150px', position: 'relative' }} animationData={compass} loop />}
-            {actionDirections}
-          </CompassSquare>
-          {currentLocation.coordinates === '1,3' ? (
-            <FinalStep />) : null}
-        </LocationsDiv>}
+      {showGrandFinal ? (<GrandFinal />
+      )
+        : currentLocation.isLoading ? <LoadingDiv><Loading /></LoadingDiv>
+          : <LocationsDiv>
+            <div>
+              <TypeIt options={{ speed: 50, cursor: false }}>
+                <LocationText>
+                  {currentLocation.description}
+                </LocationText>
+              </TypeIt>
+            </div>
+            <CompassSquare>
+              {/* Here we are rendering either the compass animation or our own ending text */}
+              {currentLocation.coordinates === '1,3' ? (
+                <Button
+                  onClick={() => setShowGrandFinal(true)}
+                  style={{ fontSize: '16px' }}>
+                  <Lottie
+                    style={{ width: '150px' }}
+                    animationData={bottle}
+                    loop />
+                  Open bottle
+                </Button>) : <Lottie style={{ width: '150px', position: 'relative' }} animationData={compass} loop />}
+              {actionDirections}
+            </CompassSquare>
+          </LocationsDiv>}
     </div>
   )
 }
@@ -251,6 +262,5 @@ margin: 10px;
   left: calc(-10%);
   border-radius: 20px 0px 8px 20px;
 }
-
 `
 
