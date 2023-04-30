@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import HeroPlayerInputContainer from '../assets/hero-start-page.jpg';
 
 export const DirectionText = styled.div`
-font-family: var(--second-headings-font-family);
+font-family: var(--headings-font-family);
+font-weight: 100;
 font-size: 1rem;
 color: black;
 border-radius: 10px;
@@ -21,15 +22,15 @@ animation: fadeIn 4s;
 `
 
 export const DescriptionText = styled.div`
-font-family: var(--second-headings-font-family);
-  font-weight: 100;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
-  text-align: center;
-  font-size: 1.2rem;
-  color:black;
+font-family: var(--headings-font-family);
+font-weight: 100;
+text-align: center;
+display: flex;
+flex-direction: column;
+margin: 10px;
+text-align: center;
+font-size: 1.2rem;
+color:black;
 border-radius: 10px;
 margin-top: 1rem;
 padding: 10px 5px;
