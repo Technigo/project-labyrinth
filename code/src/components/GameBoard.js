@@ -1,10 +1,13 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable react/button-has-type */
+// Import necessary libraries (React, Redux, and styled-components)
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { game, generateMoves } from 'reducers/game';
 import styled from 'styled-components/macro';
 
+// Define styled components for game board wrapper, master container,
+// description, "Go" button, action description, and restart button.
 const GameBoardWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -18,6 +21,7 @@ const GameBoardWrapper = styled.div`
 const MasterContainer = styled.div`
 width: 100vw;
 height: 100vh;
+min-height: 100vh;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -100,14 +104,22 @@ color: var(--Rehover-color);
 `;
 
 export const GameBoard = () => {
+  // Access the description and actions from the Redux store using the "useSelector" hook.
   const description = useSelector((store) => store.game.description);
   const actions = useSelector((store) => store.game.actions);
+  // Get the dispatch function using the "useDispatch" hook.
   const dispatch = useDispatch();
 
+  // Define a function called "onRestartButton" to dispatch the "restartGame" action
+  // when the restart button is clicked.
   const onRestartButton = () => {
     dispatch(game.actions.restartGame());
   };
 
+  // Render the "GameBoard" component with styled components wrapped inside the "MasterContainer"
+  // component.
+  // Show the "Restart Game" button and the action descriptions with "Go" buttons
+  // based on the actions from the Redux store.
   return (
     <MasterContainer>
       <RestartBtn restart type="button" onClick={onRestartButton}>
@@ -116,7 +128,7 @@ export const GameBoard = () => {
       <GameBoardWrapper>
         <Description>{description}</Description>
         {actions.length > 0 && actions.map((action) => (
-          <ActionDescription>
+          <ActionDescription key={action.id}>
             {action.description}
             <GoBtn
               className={action.direction}

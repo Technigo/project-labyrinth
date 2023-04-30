@@ -1,8 +1,10 @@
+// Import necessary libraries
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { game, generateGame } from 'reducers/game';
 import styled from 'styled-components/macro';
 
+// Styled components
 const StartContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -50,14 +52,20 @@ color: var(--hover-color);
 } 
 `;
 
+// Define the UserNameInput component
 const UserNameInput = () => {
+  // Define the state for the user input value
   const [UsernameInputValue, setUsernameInputValue] = useState('');
 
+  // Get the dispatch function from Redux
   const dispatch = useDispatch();
+  // Define the function to be called when the form is submitted
   const onFormSubmit = (event) => {
     event.preventDefault();
     dispatch(game.actions.setUsername(UsernameInputValue));
+    // The generateGame action generates a new game board.
     dispatch(generateGame());
+    // The setUsername action sets the username in the game state.
     setUsernameInputValue('');
   };
 
@@ -71,7 +79,8 @@ const UserNameInput = () => {
             id="user-name-input"
             placeholder="Enter your name..."
             onChange={(event) => setUsernameInputValue(event.target.value)}
-            value={UsernameInputValue} />
+            value={UsernameInputValue}
+            minLength={3} />
         </LabelName>
         <StartBtn type="submit">Start game</StartBtn>
       </FormContainer>
