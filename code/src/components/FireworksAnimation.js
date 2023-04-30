@@ -9,7 +9,8 @@ export const FireworksAnimation = () => {
         autoplay
         src="https://assets4.lottiefiles.com/private_files/lf30_dUMbpm.json"
         className="lottie"
-        speed={1} />
+        speed={1}
+        style={{ height: '150px', width: '150px' }} />
     </div>
   );
 }
