@@ -1,13 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Castoro+Titling&display=swap');
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Castoro Titling', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: 'Castoro Titling', cursive;
+}
+
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+h1 {
+  color: white;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 2.5rem;
+  width: 260px;
+}
+.top-lottie-container {
+  margin-top: 60px;
+}
+.top-lottie {
+  width: 100px;
+}
+
+.maze-span {
+  color: #F8E152;
+}
+.large-span {
+  white-space: nowrap;
+}
+.game-div {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+.game-p {
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-align: center;
+  width: 80vw;
+  color: white;
+  background-color: rgba(128, 128, 128, 0.5);
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+.direction-div {
+  width: 90vw;
+  height: auto;
+  background-color: rgba(128, 128, 128, 0.5);
+  color: #e7e3c8;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.direction-div p {
+  text-align: justify;
+  width: 80vw;
+  padding: 5px 15px;
+  font-size: 1rem;
+  word-spacing: -3px;
+}
+
+@media (min-width: 668px) and (max-width: 1023px) {
+  .top-lottie {
+    width: 150px;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  .spinner {
+    height: 300px;
+    width: 300px;
+  }
+
+  .game-p {
+    font-size: 2rem;
+  }
+  .direction-div {
+    margin-bottom: 20px;
+  }
+  .direction-div p {
+    font-size: 1.3rem;
+    width: auto;
+  }
+
+
+@media (min-width: 1024px) {
+  .top-lottie-container {
+    position: absolute;
+    top: 2vh;
+    left: 2vh;
+    margin: 0;
+  }
+  .top-lottie {
+    width: 100px;
+  }
+  }
+  .main-container {
+    margin-top: 10px;
+    width: 1024px;
+  }
+  .game-div {
+    margin-top: 40px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .game-p {
+    width: 70vw;
+    font-size: 1.6rem;
+    max-width: 1024px;
+  }
+  .direction-div {
+    width: 70vw;
+    max-width: 1024px;
+  }
+  .direction-div p {
+    width: 60vw;
+    font-size: 1.3rem;
+    max-width: 924px;
+  }
+ 
 }
