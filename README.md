@@ -22,4 +22,4 @@ Photo by <a href="https://unsplash.com/@eugi1492?utm_source=unsplash&utm_medium=
 
 ## View it live
 
-Deployed link: 
+Deployed link: https://labyrinth-project-week-12.netlify.app/
