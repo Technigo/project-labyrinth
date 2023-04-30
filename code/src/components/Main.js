@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 // Import necessary libraries
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
 import UserNameInput from './UserNameInput';
@@ -49,23 +49,6 @@ const Main = () => {
   const username = useSelector((store) => store.game.username);
   const coordinates = useSelector((store) => store.game.coordinates);
 
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  useEffect(() => {
-    const audio = new Audio('/sounds/background-music.mp3');
-    audio.loop = true;
-    audio.addEventListener('ended', () => setIsPlaying(false));
-    if (isPlaying) {
-      audio.play();
-    } else {
-      audio.pause();
-    }
-    return () => {
-      audio.removeEventListener('ended', () => setIsPlaying(false));
-      audio.pause();
-      audio.currentTime = 0;
-    };
-  }, [isPlaying]);
   // The images object contains URLs for the different maze images to be displayed.
   // The imageUrl variable is set based on the coordinates variable and
   // is used as the background image for the Background styled-component.
@@ -88,24 +71,19 @@ const Main = () => {
   // UserNameInput component are rendered.
 
   return (
-    <>
-      <audio src="/songs/serenity-ilya-kuznetsov-main-version-03-38-3939.mp3" type="audio/mpeg" loop autoPlay>
-        <track kind="captions" srcLang="en" label="English Captions" />
-      </audio>
-      <Background imageUrl={imageUrl}>
-        {isLoading ? (
-          <LoadingMaze />
-        ) : username ? (
-          <GameBoard />
-        ) : (
-          <section className="start-section">
-            <HeaderText>The Labyrinth</HeaderText>
-            <EnterText>You are now entering the labyrinth, beware and tred carefully</EnterText>
-            <UserNameInput />
-          </section>
-        )}
-      </Background>
-    </>
+    <Background imageUrl={imageUrl}>
+      {isLoading ? (
+        <LoadingMaze />
+      ) : username ? (
+        <GameBoard />
+      ) : (
+        <section className="start-section">
+          <HeaderText>The Labyrinth</HeaderText>
+          <EnterText>You are now entering the labyrinth, beware and tred carefully</EnterText>
+          <UserNameInput />
+        </section>
+      )}
+    </Background>
   )
 };
 

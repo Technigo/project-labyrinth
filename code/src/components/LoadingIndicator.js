@@ -12,8 +12,8 @@ justify-content: center;
 align-items: center;
 
   & > div {
-    width: 25vw; // Set the width of the Lottie animation to 25% of the viewport width
-    height: 25vh; // Set the height of the Lottie animation to 25% of the viewport height
+    width: 15vw; // Set the width of the Lottie animation to 25% of the viewport width
+    height: 15vh; // Set the height of the Lottie animation to 25% of the viewport height
   }
 
   .lottie {

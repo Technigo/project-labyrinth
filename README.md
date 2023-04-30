@@ -1,4 +1,4 @@
-Project Labyrinth - add netlify link here.
+Project Labyrinth - https://project-labyrinth-jhs.netlify.app/
 
 🏁 Goals:
 
@@ -20,8 +20,12 @@ Must-have requirements:
 
 🚧 The problem:
 
+We started by going through the design and sketching the different components out along with the design, deciding on how to structure the app. We used a mob-programming approach, starting off by fetching from the API using thunks. Then we moved on to build the base of the code structure and building the LoadingIndicator.js using a Lottie. Then we put time and effort into styling the page and making sure everything works as it should.
+
+If we had more time, we would have added arrows that point the player into the direction displayed. We would also have added a background song where the player is able to toggle the sound on and off.
+
 💻 Tech stack:
 
-JavaScript React Redux CSS HTML Figma
+React Redux CSS HTML Figma
 
-View it live 
+View it live https://project-labyrinth-jhs.netlify.app/
