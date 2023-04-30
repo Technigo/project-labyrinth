@@ -7,7 +7,6 @@ import EndingPage from './EndingPage'
 import { Button } from '../lib/Button'
 
 const GamePageContainer = styled.div`
-  /* border: red solid 3px; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +19,6 @@ const GamePageContainer = styled.div`
 
 const DescriptionContainer = styled.div`
   display: flex;
-  /* border: red 1px dotted;  */
   margin-bottom: 30px;
 `
 
@@ -38,7 +36,6 @@ const Description = styled.p`
 `
 
 const OptionContainer = styled.div`
-  /* border: pink 2px dotted; */
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -61,7 +58,6 @@ const Option = styled.div`
   @media (min-width: 490px) {
     width: 100%;
     min-width: 215px;
-    /* max-width: 240px; */
     justify-content: space-between;
   }
 `

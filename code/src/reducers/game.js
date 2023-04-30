@@ -41,16 +41,6 @@ export const postUsername = () => {
         dispatch(game.actions.setCurrentLocation(json.coordinates));
         dispatch(game.actions.setResponse(json))
       })
-    // Found this syntax in other projects - slightly different, but does the same
-    /* const options = {
-      method: 'Post',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(username)
-    }
-
-    fetch('https://labyrinth.technigo.io/start', options)
-      .then((res) => res.json())
-      .then((json) => dispatch(game.actions.setCurrentLocation(json))) */
       .finally(setTimeout(() => dispatch(ui.actions.setLoading(false)), 2000))
   }
 }
