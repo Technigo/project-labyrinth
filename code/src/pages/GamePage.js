@@ -1,16 +1,79 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import { useDispatch, useSelector } from 'react-redux'
 import { postAction } from '../reducers/game'
 import Map from '../components/Map'
+import { Button } from '../lib/Button'
 
-const DescriptionContainer = styled.div``
+const GamePageContainer = styled.div`
+  /* border: red solid 3px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  min-width: 360px;
+  max-width: 550px;
+  padding: 5px;
+  `
 
-const Description = styled.div``
+const DescriptionContainer = styled.div`
+  display: flex;
+  /* border: red 1px dotted;  */
+  margin-bottom: 30px;
+`
 
-const OptionContainer = styled.div``
+const MapContainer = styled.div`
+  width: 110px;
+  height: 110px;
+  border: purple 2px dotted;
+  margin-right: 7px;
+`
 
-const Option = styled.div``
+const Description = styled.p`
+  line-height: 20px;
+  font-size: 16px;
+  font-weight: 400;
+`
+
+const OptionContainer = styled.div`
+  /* border: pink 2px dotted; */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  @media (min-width: 490px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`
+
+const Option = styled.div`
+  border: var(--blue) 4px dashed;
+  margin-bottom: 15px;
+  background: var(--pink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  @media (min-width: 490px) {
+    width: 45%;
+    min-width: 215px;
+    max-width: 240px;
+    justify-content: space-between;
+  }
+`
+
+const OptionText = styled.p`
+  margin-bottom: 15px;
+  line-height: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Courier New', Courier, monospace;
+  @media (min-width: 490px) {
+    margin-bottom: 25px;
+  }
+`
 
 const GamePage = () => {
   const dispatch = useDispatch();
@@ -21,25 +84,24 @@ const GamePage = () => {
 
   const gameResponse = useSelector((state) => state.game.response)
   return (
-    <>
+    <GamePageContainer>
       {gameResponse && (
         <DescriptionContainer>
-          <Map />
+          <MapContainer><Map /></MapContainer>
           <Description>{gameResponse.description}</Description>
         </DescriptionContainer>)}
       {gameResponse.actions && (
 
         <OptionContainer>
           {gameResponse.actions.map((action) => (
-            <>
-              <p>{action.description}</p>
-              <button type="button" onClick={() => doAction(action.type, action.direction)}>{action.type} {action.direction.toLowerCase()}</button>
-            </>
+            <Option>
+              <OptionText>{action.description}</OptionText>
+              <Button type="button" onClick={() => doAction(action.type, action.direction)}>{action.type} {action.direction.toLowerCase()}</Button>
+            </Option>
           ))}
-          <Option />
         </OptionContainer>
       )}
-    </>
+    </GamePageContainer>
   )
 }
 

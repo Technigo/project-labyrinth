@@ -1,7 +1,13 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const MapImg = styled.div`
+  height: 110px;
+  width: 110px;
+  `
 
 const Map = () => {
-  return (<h1>map</h1>);
+  return (<MapImg>map</MapImg>);
 }
 
 export default Map;

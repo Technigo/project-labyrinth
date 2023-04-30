@@ -1,7 +1,7 @@
 import React from 'react'
 
 const EndingPage = () => {
-    return (  );
+  return (  );
 }
- 
+
 export default EndingPage;
