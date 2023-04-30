@@ -1,13 +1,12 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This React project was focused on delving deeper into Redux. The project includes Redux-related topics, such as using thunks for async actions, working with APIs, and using Redux Toolkit. We worked in a pair and gained a more understanding of working with APIs with Redux, using thunks, and structuring our Redux store to best suit our data. We also learned about creating reusable components and sending JSON in the body of a request.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We planned which components and animations to use in a Trello board. We started out pair-programming in the Master branch. We then branched out in different branches. We met up and did a merge on each branch, and then we branched out again. We merged and pair-programmed again and attempted to make some changes regarding the background images. If we hade more time, we would have had one backround image for the startpage, another for the game questions and a third background image for the end page. We consuled ChatGPT with various results. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://cecilia-michelle-project-labyrinth.netlify.app/
+
