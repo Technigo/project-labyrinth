@@ -45,9 +45,6 @@ export const CardContainer = styled.div`
     justify-content: flex-start;
     border: 2px solid red;
 
-    @media (min-width: 668px) {
-    height: 80vh;
-  } 
 `
 export const StyledButton = styled.button`
 

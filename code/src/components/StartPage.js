@@ -11,7 +11,7 @@ display: flex;
 flex-direction: column;
 justify-content: space-evenly;
 align-items: center;
-/* max-height: 70vh; */
+height: 80vh;
 background: rgba(213, 146, 131, 0.59);
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
