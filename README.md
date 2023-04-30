@@ -4,8 +4,9 @@ This React project was focused on delving deeper into Redux. The project include
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+We planned which components and animations to use in a Trello board. We started out pair-programming in the Master branch. We then branched out in different branches. We met up and did a merge on each branch, and then we branched out again. We merged and pair-programmed again and attempted to make some changes regarding the background images. If we hade more time, we would have had one backround image for the startpage, another for the game questions and a third background image for the end page. We consuled ChatGPT with various results. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://cecilia-michelle-project-labyrinth.netlify.app/
+
