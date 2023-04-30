@@ -24,3 +24,5 @@ This week's project comes in the form of a text-based adventure. Classic games l
 ## View it live
 
 https://labyrinth-game-redux.netlify.app/
+
+Sound Effect by <a href="https://pixabay.com/users/maxou-yt-30144327/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=141426">MAXOU-YT</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=141426">Pixabay</a>

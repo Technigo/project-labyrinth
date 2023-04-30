@@ -1,8 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import endPageImage from 'images/end-game-image.jpg'
+import soundFile from 'images/angels-singing.mp3'
 import { Direction } from './Direction';
 
 export const Game = () => {
@@ -11,6 +12,12 @@ export const Game = () => {
   const onRestartButtonClick = () => {
     window.location.reload()
   }
+  useEffect(() => {
+    const audio = new Audio(soundFile); // Create an Audio object with the sound file
+    if (showEndPage) {
+      audio.play(); // Play the sound when showEndPage becomes true
+    }
+  }, [showEndPage]);
 
   const ResetBtn = styled.button`
   font-family: 'Castoro Titling', cursive;
