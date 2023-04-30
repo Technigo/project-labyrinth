@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Footer = () => {
   return (
     <FooterWrapper>
-      <p>Created by Annika and Fiona</p>
+      <FooterText>Created by Annika and Fiona</FooterText>
       <IconContainer>
         <a href="https://annikalindberg-portfolio.netlify.app/">
           <FooterImage src="/images/Annika-Lindberg.jpg" className="contact-logo" alt="link to Annika's portfolio" />
@@ -13,14 +13,14 @@ const Footer = () => {
           <FooterImage src="/images/Fiona-Klacar.jpg" className="contact-logo" alt="link to Fiona's portfolio" />
         </a>
       </IconContainer>
-      <p>Technigo Bootcamp Spring 2023</p>
+      <FooterText>Technigo Bootcamp Spring 2023</FooterText>
     </FooterWrapper>
   )
 }
 
 const FooterWrapper = styled.div`
   margin: auto;
-  padding: 0 20px;
+  padding: 0 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,6 +43,12 @@ const IconContainer = styled.div`
   margin-right: 8px;
 `
 
+const FooterText = styled.p`
+
+@media(max-width: 604px) {
+  font-size: 15px;
+}
+`
 const FooterImage = styled.img`
   width: 30px;
   padding-left: 5px;
@@ -52,6 +58,10 @@ const FooterImage = styled.img`
   &:hover {
     transform: scale(1.2);
   }
+
+  @media(max-width: 604px) {
+  width: 15px;
+}
   `
 
 export default Footer;
