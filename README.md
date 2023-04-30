@@ -4,7 +4,7 @@ We created a game that worked through fetching clues and information from an API
 
 ## The problem
 
-We began by checking out the API on the Postman and figuring out the structure of the game and what should show to the player. We then set up the components and reducers of the game, and got our API calls to work and all the data to show in the correct place. We did this all through pair-programming. After this we split up to work on styling using styled components, and setting up the Lottie animations to handle the Start, Loading and Finish pages. We then came back together to ensure all of the game was working correctly. If we had more time we would create a visual representation of the labyrinth that the player is navigating. 
+We began by checking out the API on the Postman and figuring out the structure of the game and what should show to the player. We then set up the components and reducers of the game, and got our API calls to work and all the data to show in the correct place. We did this all through pair-programming. After this we split up to work on styling using styled components, and setting up the Lottie animations for the Start, Loading and Finish pages. We then came back together to ensure all of the game was working correctly. If we had more time we would create a visual representation of the labyrinth that the player is navigating. 
 
 ## View it live
 
