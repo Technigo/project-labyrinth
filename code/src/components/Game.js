@@ -56,11 +56,12 @@ export const Game = () => {
   const StyledImage = styled.img`
     max-width: 100%;
     max-height: 500px;
+    border-radius: 30px;
     `;
 
   return (
     <div className="game-div">
-      <p className="game-p">{description.description}</p>
+      <p className="game-p">{description.description} <br /> <mark style={{ backgroundColor: 'lightyellow' }}>which path will you choose?</mark></p>
       <Direction actions={description.actions} />
       {description.coordinates === '1,3' && (
         <>

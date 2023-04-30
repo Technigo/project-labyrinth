@@ -17,11 +17,7 @@ code {
   align-items: center;
   margin-bottom: 30px;
 }
-.spinner {
-  height: 200px;
-  width: 200px;
-  margin-top: 40px;
-}
+
 h1 {
   color: white;
   display: flex;
@@ -30,12 +26,7 @@ h1 {
   font-size: 2.5rem;
   width: 260px;
 }
-.top-lottie-container {
-  margin-top: 60px;
-}
-.top-lottie {
-  width: 100px;
-}
+
 .maze-span {
   color: #F8E152;
 }
@@ -87,16 +78,12 @@ h1 {
   color: #F8E152;
 }
 @media (min-width: 668px) and (max-width: 1023px) {
-  .top-lottie {
-    width: 150px;
+  
   }
   h1 {
     font-size: 3rem;
   }
-  .spinner {
-    height: 300px;
-    width: 300px;
-  }
+
   .game-p {
     font-size: 2rem;
   }
@@ -112,16 +99,9 @@ h1 {
     position: relative;
     top: 400px;
   }
-}
+
 @media (min-width: 1024px) {
-  .top-lottie-container {
-    position: absolute;
-    top: 2vh;
-    left: 2vh;
-    margin: 0;
-  }
-  .top-lottie {
-    width: 100px;
+
   }
   .main-container {
     margin-top: 10px;
@@ -152,4 +132,3 @@ h1 {
     position: relative;
     top: 350px;
   }
-}
