@@ -14,8 +14,8 @@ const Option = styled.div``
 const GamePage = () => {
   const dispatch = useDispatch();
 
-  const goDirection = (direction) => {
-    dispatch(postAction('move', direction));
+  const doAction = (type, direction) => {
+    dispatch(postAction(type, direction));
   }
 
   const gameResponse = useSelector((state) => state.game.response)
@@ -31,7 +31,7 @@ const GamePage = () => {
           {gameResponse.actions.map((action) => (
             <>
               <p>{action.description}</p>
-              <button type="button" onClick={() => goDirection(action.direction)}>{action.type} {action.direction.toLowerCase()}</button>
+              <button type="button" onClick={() => doAction(action.type, action.direction)}>{action.type} {action.direction.toLowerCase()}</button>
             </>
           ))}
           <Option />

@@ -67,7 +67,6 @@ export const postAction = (action, direction) => {
       .then((res) => res.json())
       .then((json) => {
         dispatch(game.actions.setResponse(json))
-        console.log(`response: ${json}`)
       })
   }
 }
