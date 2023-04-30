@@ -128,7 +128,7 @@ export const GameBoard = () => {
       <GameBoardWrapper>
         <Description>{description}</Description>
         {actions.length > 0 && actions.map((action) => (
-          <ActionDescription key={action.id}>
+          <ActionDescription key={`action-${action.id}`}>
             {action.description}
             <GoBtn
               className={action.direction}
