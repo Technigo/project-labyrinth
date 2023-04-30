@@ -19,7 +19,7 @@ const Footer = () => {
 }
 
 const FooterWrapper = styled.div`
-  max-width: 1300px;
+  /* max-width: 1300px; */
   margin: auto;
   padding: 0 20px;
   display: flex;

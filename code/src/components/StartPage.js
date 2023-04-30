@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux'
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 import { game, getGameStarted } from '../reducers/game'
 import { StyledButton } from './GlobalStyles';
 import animationData from '../lotties/rabbit.json';
@@ -21,6 +21,7 @@ border: 1px solid rgba(213, 146, 131, 0.3);
   border: 2px solid yellow;
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 30px;
 `
 const HeaderTitle = styled.h1`
 margin-right: 5rem;
@@ -37,6 +38,7 @@ const StartPage = () => {
     loop: true,
     autoplay: true,
     animationData,
+    renderer: 'svg',
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice'
     }
@@ -55,9 +57,12 @@ const StartPage = () => {
   return (
     <StartWrapper>
       <Lottie
-        options={defaultOptions}
-        height={350}
-        width={350} />
+        animationData={defaultOptions.animationData}
+        loop={defaultOptions.loop}
+        autoplay={defaultOptions.autoplay}
+        renderer={defaultOptions.renderer}
+        rendererSettings={defaultOptions.rendererSettings}
+        style={{ width: '300px', height: '300px' }} />
       <HeaderTitle>Welcome to The Rabbit Hole Maze, my friend!</HeaderTitle>
       <GreetText> Every adventure requires a first step...</GreetText>
       <GreetText>Please start by entering your name. </GreetText>
