@@ -56,7 +56,7 @@ padding: 20px;
 `
 
 export const StartText = styled.div`
-max-width: 400px;
+max-width: 350px;
 height: 265px;
 font-size: 24px;
 text-shadow: whitesmoke 2px 2px;
@@ -64,6 +64,7 @@ text-shadow: whitesmoke 2px 2px;
 @media (min-width: 768px) {
   font-size: 32px;
   height: 400px;
+  max-width: 500px;
 }
 `
 

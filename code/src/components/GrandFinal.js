@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-// import Lottie from 'lottie-react'
 import { StartText } from './Start'
-// import ship from '../lotties/ship.json'
 
 export const GrandFinal = () => {
   return (
@@ -19,10 +17,10 @@ export const GrandFinal = () => {
   )
 }
 
-/* const EndSection = styled.div`
-display:flex;
-width: 500px;
-` */
 const EndText = styled(StartText)`
-font-size: 22px;
+font-size: 18px;
+
+@media (min-width: 768px) {
+  font-size: 22px;
+}
 `

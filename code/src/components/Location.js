@@ -29,6 +29,7 @@ export const Location = () => {
       setClickCount(0)
     }
 
+    // First click shows directions, second click chooses direction
     const handleClicks = () => {
       if (clickCount === 0) {
         console.log(currentLocation)
@@ -74,6 +75,7 @@ export const Location = () => {
             </TypeIt>
           </div>
           <CompassSquare>
+            {/* Here we are rendering either the compass animation or our own ending text */}
             {currentLocation.coordinates === '1,3' ? <GrandFinal /> : <Lottie style={{ width: '150px', position: 'relative' }} animationData={compass} loop />}
             {actionDirections}
           </CompassSquare>
