@@ -123,6 +123,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 max-height: fit-content;
+height: -moz-max-content;
 background-image: url(${woodenSign});
 background-size: cover;
 width: 160px;

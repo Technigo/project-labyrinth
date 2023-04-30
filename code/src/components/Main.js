@@ -82,7 +82,7 @@ export const Main = () => {
   return (
     <MainSection backgroundImage={backgroundImage}>
       {username === '' ? (<Start />) : (<Location />)}
-      <MuteButton onClick={() => setIsMuted(!isMuted)}>{isMuted ? '🔈 ' : '🔇'}</MuteButton>
+      <MuteButton onClick={() => setIsMuted(!isMuted)}>{isMuted ? '🔇' : '🔈 '}</MuteButton>
     </MainSection>
   )
 }

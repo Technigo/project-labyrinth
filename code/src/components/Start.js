@@ -39,7 +39,7 @@ export const Start = () => {
       <form onSubmit={(event) => onNameSubmit(event)}>
         <label htmlFor="name">
           <FormDiv>
-            <Input type="text" id="name" onChange={(event) => setUserName(event.target.value)} />
+            <Input required type="text" id="name" onChange={(event) => setUserName(event.target.value)} />
             <Button type="submit">Enter</Button>
           </FormDiv>
         </label>
