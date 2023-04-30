@@ -12,6 +12,7 @@ export const Game = () => {
   const onRestartButtonClick = () => {
     window.location.reload()
   }
+
   useEffect(() => {
     const audio = new Audio(soundFile); // Create an Audio object with the sound file
     if (showEndPage) {
@@ -61,7 +62,7 @@ export const Game = () => {
 
   return (
     <div className="game-div">
-      <p className="game-p">{description.description} <br /> <mark style={{ backgroundColor: 'lightyellow' }}>which path will you choose?</mark></p>
+      <p className="game-p">{description.description} <br /> <span style={{ textDecoration: 'underline' }}>which path will you choose?</span></p>
       <Direction actions={description.actions} />
       {description.coordinates === '1,3' && (
         <>

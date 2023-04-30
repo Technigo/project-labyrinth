@@ -56,7 +56,6 @@ export const Direction = ({ actions = [] }) => {
     font-size: 1.2rem;
   }
   `
-
   const moveOnClick = (direction) => {
     dispatch(nextMove(direction))
   }
@@ -71,6 +70,5 @@ export const Direction = ({ actions = [] }) => {
         </div>
       </DirectionSection>
     ))
-
-  )
-}
+  );
+};
