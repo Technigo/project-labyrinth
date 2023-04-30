@@ -44,14 +44,14 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 200px;
+  margin-top: 100px;
 }
 .game-p {
   font-weight: 700;
   font-size: 1.4rem;
   text-align: center;
   width: 80vw;
-  color: #0c0c0c;
+  color: white;
   background-color: rgba(128, 128, 128, 0.5);
   border-radius: 10px;
   margin-bottom: 30px;
@@ -74,15 +74,7 @@ h1 {
   font-size: 1rem;
   word-spacing: -3px;
 }
-.credits {
-  color: #fef5bd;
-  text-align: center;
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-.credits a {
-  color: #F8E152;
-}
+
 @media (min-width: 668px) and (max-width: 1023px) {
   .top-lottie {
     width: 150px;
@@ -105,11 +97,7 @@ h1 {
     font-size: 1.3rem;
     width: auto;
   }
-  .credits {
-    font-size: 1.3rem;
-    position: relative;
-    top: 400px;
-  }
+
 
 @media (min-width: 1024px) {
   .top-lottie-container {
@@ -146,9 +134,5 @@ h1 {
     font-size: 1.3rem;
     max-width: 924px;
   }
-  .credits {
-    font-size: 1.3rem;
-    position: relative;
-    top: 350px;
-  }
+ 
 }
