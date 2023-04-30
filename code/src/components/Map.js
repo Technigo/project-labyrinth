@@ -10,7 +10,7 @@ import Map4 from '../assets/10.png'
 import Map5 from '../assets/11.png'
 import Map6 from '../assets/13.png'
 
-const MapImg = styled.div`
+const MapImg = styled.img`
   height: 110px;
   width: 110px;
   `
@@ -51,7 +51,7 @@ const Map = () => {
   }
 
   return (
-    currentLocation && (<MapImg src={imageUrl} alt="map" />)
+    <MapImg src={imageUrl} alt="map" />
 
   );
 }
