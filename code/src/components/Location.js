@@ -15,6 +15,7 @@ import { Loading } from './Loading'
 import compass from '../lotties/compass.json'
 import woodenSign from '../images/plank.jpg'
 import { Button } from './Buttons'
+import { GrandFinal } from './GrandFinal'
 
 export const Location = () => {
   const currentLocation = useSelector((store) => store.maze)
@@ -73,7 +74,7 @@ export const Location = () => {
             </TypeIt>
           </div>
           <CompassSquare>
-            {currentLocation.coordinates === '1,3' ? null : <Lottie style={{ width: '150px', position: 'relative' }} animationData={compass} loop />}
+            {currentLocation.coordinates === '1,3' ? <GrandFinal /> : <Lottie style={{ width: '150px', position: 'relative' }} animationData={compass} loop />}
             {actionDirections}
           </CompassSquare>
           {currentLocation.coordinates === '1,3' ? (

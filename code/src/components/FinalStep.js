@@ -22,10 +22,10 @@ export const FinalStep = () => {
 const LottieDiv = styled.div`
 display: flex;
 align-self: center;
-margin-top: -350px;
+margin-top: -100px;
 
 @media (min-width: 768px) {
-  margin-top: 0px;
+  margin-top: -50px;
 }
 `
 
