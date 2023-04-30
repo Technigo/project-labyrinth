@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import Default from '../assets/map0.png'
 import Map0 from '../assets/00.png'
 import Map1 from '../assets/01.png'
@@ -17,38 +17,41 @@ const MapImg = styled.div`
 
 const Map = () => {
   const currentLocation = useSelector((state) => state.game.response.coordinates)
-  const currentLocationString = currentLocation.split(',').join('')
-  let imageUrl = '';
+  let imageUrl = Default;
 
-  switch (currentLocationString) {
-    case '00':
-      imageUrl = Map0;
-      break;
-    case '01':
-      imageUrl = Map1;
-      break;
-    case '02':
-      imageUrl = Map2;
-      break;
-    case '03':
-      imageUrl = Map3;
-      break;
-    case '10':
-      imageUrl = Map4;
-      break;
-    case '11':
-      imageUrl = Map5;
-      break;
-    case '13':
-      imageUrl = Map6;
-      break;
-    default:
-      imageUrl = Default;
-      break;
+  if (currentLocation) {
+    const currentLocationString = currentLocation.split(',').join('')
+
+    switch (currentLocationString) {
+      case '00':
+        imageUrl = Map0;
+        break;
+      case '01':
+        imageUrl = Map1;
+        break;
+      case '02':
+        imageUrl = Map2;
+        break;
+      case '03':
+        imageUrl = Map3;
+        break;
+      case '10':
+        imageUrl = Map4;
+        break;
+      case '11':
+        imageUrl = Map5;
+        break;
+      case '13':
+        imageUrl = Map6;
+        break;
+      default:
+        imageUrl = Default;
+        break;
+    }
   }
 
   return (
-    <MapImg src={imageUrl} alt="map" />
+    currentLocation && (<MapImg src={imageUrl} alt="map" />)
 
   );
 }
