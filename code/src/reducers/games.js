@@ -51,6 +51,9 @@ const games = createSlice({
       if (store.history.length) {
         store.moves = store.history[store.history.length - 1]
         store.history = store.history.slice(0, store.history.length - 1)
+        // Reset the API result
+        store.description = null;
+        store.coordinates = null;
       }
     }
   }
