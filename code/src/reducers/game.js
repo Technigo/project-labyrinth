@@ -1,9 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { ui } from './ui'
 
+const initialState = { username: '', currentLocation: [], loading: false, response: {} }
+
 export const game = createSlice({
   name: 'game',
-  initialState: { username: '', currentLocation: [], loading: false, response: {} },
+  initialState,
   reducers: {
     setCurrentLocation: (state, action) => {
       state.currentLocation = action.payload
@@ -13,6 +15,9 @@ export const game = createSlice({
     },
     setResponse: (state, action) => {
       state.response = action.payload
+    },
+    restart: () => {
+      return initialState;
     }
 
   }
