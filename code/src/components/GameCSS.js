@@ -22,7 +22,7 @@ export const GameWrapper = styled.div`
   justify-content: center;
   flex-flow: row wrap;
   align-content: flex-start;
-  height: 100vh;
+  height: 95%;
 
   @media (min-width: 850px) {
     max-width: 90%;
@@ -131,9 +131,14 @@ export const CurrentRoomDescriptionText = styled.p`
     padding: 10px;
     height: 36%;
     max-width: 268px;
+    font-size: 18px;
   }
   `
 
 export const NextRoomDescriptionText = styled.p`
 line-height: 20px;
+
+  @media (min-width: 850px) {
+    font-size: 18px;
+  }
 `

@@ -52,7 +52,6 @@ export const RestartBtn = styled.button`
     font-size: 12px;
   }
 
-  /* Define the pulsating animation */
   @keyframes pulsate {
     0% {
       box-shadow: 0 0 15px 2px rgba(139, 0, 0, 2.0);
@@ -71,25 +70,27 @@ export const WelcomeText = styled.p`
   line-height: 26px;
   text-align: center;
   font-size: 12px;
+
+  @media (min-width: 850px) {
+    font-size: 18px;
+  }
 `
 
 export const WelcomeTextWrapper = styled.div`
   display: flex;
   background-image: url(${ScrollIMG});
   background-size: cover;
-  height: 48%;
-  width: 65%;
-  max-height: 360px;
+  height: 400px;
+  width: 330px;
   align-items: center;
   justify-content: center;
   background-repeat: no-repeat;
-  max-width: 205px;
   
   @media (min-width: 850px) {
-    height:100%;
+    height: 100%;
     width: 100%;
-    max-width: 260px;
-    max-height:327px;
+    max-width: 450px;
+    max-height: 539px;
   }`
 
 export const NameForm = styled.form`
@@ -107,7 +108,13 @@ export const Btn = styled.button`
     height: 45px;
     width: 124px;
     color: black;
-    font-size: 8px;`
+    font-size: 8px;
+    
+    @media (min-width: 850px) {
+    height: 75px;
+    width: 184px;
+    font-size: 18px;
+  }`
 
 export const NameInput = styled.input`
   line-height: 26px;
@@ -115,4 +122,8 @@ export const NameInput = styled.input`
   background-color: rgba(255, 234, 142, 0.83);
   width: 220px;
   height: 40px;
+
+  @media (min-width: 850px) {
+  font-size: 18px;
+  }
 `
