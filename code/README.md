@@ -1,13 +1,13 @@
 # Project Labyrinth
-
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The goals of this project was to create a labyrinth game in Redux, using thunks to deal with API calls.
 
 ## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+As always, the hardest part was getting started. Once we'd set up the files, components and reducers (and created the first thunk), we quickly branched out. We ended up doing almost everything in branches, with a couple of merges throughout the week. To make the game functional, we created two thunks: one to deal with posting the username and one that deals with moves in the game. We nested everything in a Main-component, using conditionals to show either the loading-page, start-page or game-page. We also some customization, showing a different map on every page + different design for the final game-page.
+Tools we used: Redux, React, JavaScript, HTML5, CSS, Figma, Canva.
+If we had more time:
+- Create more styling-customisation for the individual pages.
+- Make more use of the username throughout the game.
+- Create more "intuitive" gameplay, like having the buttons placement match the direction.
 
 ## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://thriving-alfajores-975fbc.netlify.app/
