@@ -19,6 +19,10 @@ const GameBoard = () => {
     dispatch(nextStep(direction));
   };
 
+  const reloadGame = () => {
+    window.location.reload();
+  };
+
   const currentBackground = game && backgroundImages[coordinates];
 
   const Container = styled.div`
@@ -66,17 +70,27 @@ const GameBoard = () => {
         minHeight: '100vh'
       }}
     >
-      <button>RESTART</button>
+      <button
+        type="button"
+        onClick={() => {
+          reloadGame();
+        }}
+      >
+        RESTART
+      </button>
       <Container>
         <StyledText>{description}</StyledText>
         {actions.map((singularAction) => (
-          <StyledButton
-            onClick={() => {
-              onDirectionButtonClick(singularAction.direction);
-            }}
-          >
-            {singularAction.direction}: {singularAction.description}
-          </StyledButton>
+          <>
+            <p>{singularAction.description}</p>
+            <StyledButton
+              onClick={() => {
+                onDirectionButtonClick(singularAction.direction);
+              }}
+            >
+              Go {singularAction.direction}
+            </StyledButton>
+          </>
         ))}
       </Container>
     </div>
