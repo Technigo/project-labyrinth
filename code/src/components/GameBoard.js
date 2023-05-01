@@ -61,6 +61,26 @@ const GameBoard = () => {
       transform: scale(1.05);
     }
   `;
+
+  const FrostedButton = styled.button`
+    background-color: rgba(255, 255, 255, 0.2);
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    margin: 2rem 2rem;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: scale(1.05);
+    }
+  `;
   return (
     <div
       style={{
@@ -70,19 +90,19 @@ const GameBoard = () => {
         minHeight: '100vh'
       }}
     >
-      <button
+      <FrostedButton
         type="button"
         onClick={() => {
           reloadGame();
         }}
       >
         RESTART
-      </button>
+      </FrostedButton>
       <Container>
         <StyledText>{description}</StyledText>
         {actions.map((singularAction) => (
           <>
-            <p>{singularAction.description}</p>
+            <p style={{ color: 'white' }}>{singularAction.description}</p>
             <StyledButton
               onClick={() => {
                 onDirectionButtonClick(singularAction.direction);
