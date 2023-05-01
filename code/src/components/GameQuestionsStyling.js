@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import HeroPlayerInputContainer from '../assets/hero-start-page.jpg';
 
 export const DirectionText = styled.div`
-font-family: var(--second-headings-font-family);
+font-family: var(--headings-font-family);
 font-size: 1rem;
 color: black;
 border-radius: 10px;
@@ -21,7 +21,7 @@ animation: fadeIn 4s;
 `
 
 export const DescriptionText = styled.div`
-font-family: var(--second-headings-font-family);
+font-family: var(--headings-font-family);
   font-weight: 100;
   text-align: center;
   display: flex;
