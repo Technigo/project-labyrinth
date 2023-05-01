@@ -82,7 +82,8 @@ const LandingPage = ({ onStartGame }) => {
               onChange={(event) => setUsername(event.target.value)}
             />
           </label>
-          <button type="submit">Start Game</button>
+          <FrostedButton type="submit">Start Game</FrostedButton>
+          {/* <button type="submit">Start Game</button> */}
         </form>
         {/* <FrostedButton type="button" onClick={onStartGame}>
           Start Game
