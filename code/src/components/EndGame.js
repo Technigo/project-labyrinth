@@ -1,10 +1,11 @@
 import React from 'react';
 import { FireworksAnimation } from './FireworksAnimation';
+import { StyledHeroContainer } from './EndGameStyling';
 
 export const EndGame = () => {
   return (
-
-    <FireworksAnimation />
-
+    <StyledHeroContainer>
+      <FireworksAnimation />
+    </StyledHeroContainer>
   );
 }
