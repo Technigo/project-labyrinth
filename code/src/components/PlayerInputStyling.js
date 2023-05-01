@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import HeroPlayerInputContainer from '../assets/hero-start-page.jpg';
+import HeroContainer from '../assets/hero.jpg';
 
-export const StyledHeroPlayerInputContainer = styled.div`
-  background-image: url(${HeroPlayerInputContainer});
+export const StyledHeroContainer = styled.div`
+  background-image: url(${HeroContainer});
   background-size: cover;
   background-position: center;
   display: flex;

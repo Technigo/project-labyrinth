@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import games, { createPlayer } from 'reducers/games';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import Header from './Header';
-import { OuterWrapper, StyledHeroPlayerInputContainer, SecondHeading, SecondHeadingLabel, StyledInput, UserNameForm } from './PlayerInputStyling';
+import { OuterWrapper, StyledHeroContainer, SecondHeading, SecondHeadingLabel, StyledInput, UserNameForm } from './PlayerInputStyling';
 import { StartButton, StyledIcon } from './GlobalStyling';
 import { MazeAnimation } from './MazeAnimation';
 
@@ -24,7 +24,7 @@ const PlayerInput = () => {
   }
 
   return (
-    <StyledHeroPlayerInputContainer>
+    <StyledHeroContainer>
       <OuterWrapper>
         <Header />
         <SecondHeading>Do You Want to Play a Game?</SecondHeading>
@@ -39,7 +39,7 @@ const PlayerInput = () => {
         </UserNameForm>
         <MazeAnimation />
       </OuterWrapper>
-    </StyledHeroPlayerInputContainer>
+    </StyledHeroContainer>
   )
 }
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import HeroPlayerInputContainer from '../assets/hero-start-page.jpg';
+import HeroContainer from '../assets/game.jpg';
 
 export const DirectionText = styled.div`
 font-family: var(--headings-font-family);
@@ -46,9 +46,9 @@ animation: fadeIn 2s;
 `
 
 export const StyledContainer = styled.div`
-  background-image: url(${HeroPlayerInputContainer});
+  background-image: url(${HeroContainer});
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
   display: flex;
   flex-direction: column;
   object-fit: cover;
