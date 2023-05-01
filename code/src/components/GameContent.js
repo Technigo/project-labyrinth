@@ -20,31 +20,31 @@ export const GameContent = () => {
   }
 
   return (
-    <gamecontentcontainer>
+    <div className="name-content-container">
       <player>
         <h2>{username}</h2>
         <button type="button" onClick={onRestartBtnClick}>Restart game
         </button>
       </player>
-      <gamecontainer>
-        <navigationcontainer>
-          <actionscontainer>
+      <div className="game-container">
+        <div className="navigation-container">
+          <div className="actions-container">
             {actions.map((singleAction) => (
-              <actionmove>
+              <section className="action-move">
                 <p>{singleAction.description}</p>
                 <button
                   // buttonText={`Go ${singleAction.direction}`}
                   type="button"
                   onClick={() => onDirectionBtnClick(singleAction.direction)}>Button
                 </button>
-              </actionmove>
+              </section>
             ))}
-          </actionscontainer>
-        </navigationcontainer>
+          </div>
+        </div>
         {/* <Map coordinates={coordinates} /> */}
         <p>coordinates={coordinates}</p>
-      </gamecontainer>
-    </gamecontentcontainer>
+      </div>
+    </div>
   )
 }
 

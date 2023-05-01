@@ -15,7 +15,7 @@ export const GameScreen = () => {
 
   return (
     <form onSubmit={(event) => onFormSubmit(event)}>
-      <h1>Please enter your name to enter labyrinth:
+      <h1>Please enter your name:
       </h1>
       <label htmlFor="username">
         <input
@@ -24,7 +24,7 @@ export const GameScreen = () => {
           placeholder="Please enter name"
           value={userNameInputValue}
           onChange={(event) => setUserNameInputValue(event.target.value)} />
-        <button type="submit" onClick={onFormSubmit}>Start Game</button>
+        <button type="submit" onClick={onFormSubmit}>Start the game</button>
       </label>
     </form>
   )

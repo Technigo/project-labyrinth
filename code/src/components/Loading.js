@@ -5,16 +5,15 @@ import { Player } from '@lottiefiles/react-lottie-player'
 
 export const Loading = () => {
   return (
-    <loadingcontainer>
+    <div className="loading-container">
       <Player
         autoplay
         loop
-        src="https://assets2.lottiefiles.com/packages/lf20_rwbbf6ns.json"
-        // style={{ height: '150px', width: '150px' }}
-        speed={1}>
+        src="https://assets2.lottiefiles.com/packages/lf20_rwbbf6ns.json">
+        {/* {style={{ height: '150px', width: '150px' }} */}
         {/* <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} /> */}
       </Player>
-    </loadingcontainer>
+    </div>
   )
 }
 
