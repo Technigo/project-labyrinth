@@ -4,9 +4,6 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import games from 'reducers/games';
 import StartGame from './StartGame';
 
-// import GameQuestions from './GameQuestions';
-// import EndGame from './EndGame';
-
 export const Main = () => {
   const reducer = combineReducers({
     games: games.reducer
@@ -16,8 +13,6 @@ export const Main = () => {
   return (
     <Provider store={store}>
       <StartGame />
-      {/* <GameQuestions />
-      <EndGame /> */}
     </Provider>
   )
 }
