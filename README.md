@@ -1,6 +1,7 @@
 # Project Labyrinth
 
-This React project was focused on delving deeper into Redux. The project includes Redux-related topics, such as using thunks for async actions, working with APIs, and using Redux Toolkit. We worked in a pair and gained a more understanding of working with APIs with Redux, using thunks, and structuring our Redux store to best suit our data. We also learned about creating reusable components and sending JSON in the body of a request.
+The React project includes Redux-related topics, such as using thunks for async actions, working with APIs, and using Redux Toolkit. The project was pair-programmed.
+The project uses APIs with Redux, using thunks and reusable components and sends JSON in the body of a request.
 
 ## The problem
 
