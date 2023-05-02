@@ -15,7 +15,7 @@ export const MapContainer = styled.div`
 
 export const Grid = styled.div`
  span {
-    display: ${(props) => props.spDisplay || 'none'};
+    display: ${(props) => props.spanDisplay || 'none'};
     text-align: center;
     margin: 0;
     padding: 14px;
