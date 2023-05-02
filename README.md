@@ -1,13 +1,16 @@
 # Project Labyrinth
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week's project is all about tying together the skills learnt to build an app that retrieves a list of actions from the backend and presents them to the user as interactable items.
+We used redux to store the current state of the game and thunks to wrap the API calls.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+First we laid out our design on figma - which included the goals,  the components needed and some preliminary design ideas. The we worked on setting up the redux store with reducers and thunks together. We then split up to work on functionality and design. We drew help from other team mates, stackoverflow and google in general. If we had more time, we would create a blinking red dot on the map and store player moves to local storage.
 
 ## View it live
+https://the-labyrinth-es-jp.netlify.app/
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+
+## Image credits
+"https://www.flaticon.com/free-icons/maze" Maze icons created by Freepik - Flaticon
+https://www.artstation.com/artwork/nYB6y6
