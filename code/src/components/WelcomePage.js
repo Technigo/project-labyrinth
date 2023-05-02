@@ -7,6 +7,7 @@ import { Button } from './global-style/Button';
 import { Wrapper } from './global-style/Wrapper';
 import { Header1, BodyText } from './global-style/Text';
 import { Background } from './global-style/Background';
+import { Footer } from './footer/Footer';
 
 export const WelcomePage = () => {
   const coordinates = useSelector((store) => store.maze.coordinates);
@@ -32,6 +33,7 @@ export const WelcomePage = () => {
           <Button type="submit">I am ready!</Button>
         </FormWrapper>
       </Wrapper>
+      <Footer />
     </Background>
   )
 };

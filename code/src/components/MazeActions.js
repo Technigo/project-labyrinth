@@ -11,6 +11,7 @@ import { DescriptionHeader, BodyText } from './global-style/Text';
 import { Background } from './global-style/Background';
 import { UserHistory } from './user-history/UserHistory';
 import { MiniMap } from './mini-map/MiniMap';
+import { Footer } from './footer/Footer';
 
 export const MazeActions = () => {
   const isLoading = useSelector((state) => state.ui.isLoading)
@@ -53,6 +54,7 @@ export const MazeActions = () => {
             <UserHistory />
             {coordinates === '1,3' && (<Button type="button" onClick={handleRestart}>Restart</Button>)}
           </Wrapper>
+          <Footer />
         </Background>
       )}
     </>
