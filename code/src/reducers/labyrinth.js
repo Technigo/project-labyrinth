@@ -14,9 +14,6 @@ export const labyrinth = createSlice({
     setUsername: (store, action) => {
       store.username = action.payload;
     },
-    setLoading: (store, action) => {
-      store.isLoading = action.payload
-    },
     setDescription: (store, action) => {
       store.description = action.payload
     },
@@ -26,9 +23,6 @@ export const labyrinth = createSlice({
     setCoordinates: (store, action) => {
       store.coordinates = action.payload
       store.history.push(store.coordinates)
-    },
-    setDirection: (store, action) => {
-      store.direction = action.payload
     }
   }
 });
@@ -73,7 +67,6 @@ export const labyrinthProgress = (type, direction) => {
         dispatch(labyrinth.actions.setDescription(json.description));
         dispatch(labyrinth.actions.setMoves(json.actions));
         dispatch(labyrinth.actions.setCoordinates(json.coordinates))
-        dispatch(labyrinth.actions.setDirection(json.actions.direction))
       })
       .finally(() => dispatch(ui.actions.setLoading(false)))
   };
