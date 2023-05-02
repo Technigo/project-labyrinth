@@ -1,13 +1,15 @@
-# Project Labyrinth
+Project Labyrinth
 
-Replace this readme with your own information about your project.
+This week was pair-programming. I worked with Andreas and we made a Labyrinth with Redux. Both of us did separate styling to get full benefit out of learning experience.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The problem
 
-## The problem
+We have talked A LOT with Andreas to make everything more understandable for each other. And at least my polite Swedish friend has told me that even he has learned a lot by doing this as well. ;-)
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I feel tired but happy, and at least all this crosslinking between React files makes slightly more sense now.
 
-## View it live
+Despite the project, we have also managed to talk about what ideal work would be for us, etc. –Good week.
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+View it live
+
+https://labyrinth-peki.netlify.app/
