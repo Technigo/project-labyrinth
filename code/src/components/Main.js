@@ -79,7 +79,7 @@ const Main = () => {
       ) : (
         <section className="start-section">
           <HeaderText>The Labyrinth</HeaderText>
-          <EnterText>You are now entering the labyrinth, beware and tred carefully</EnterText>
+          <EnterText>You are now entering the labyrinth, beware and tread carefully</EnterText>
           <UserNameInput />
         </section>
       )}
