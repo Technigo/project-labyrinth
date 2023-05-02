@@ -5,20 +5,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { labyrinth, nextMove } from '../reducers/labyrinth';
 import './Labyrinth.css'
+import { StartBtn } from './StartScreenStyles';
 
 import caveImg from '../images/cave.jpg'
 import bridgeImg from '../images/bridge.jpg';
-import stonesImg from '../images/stones.jpg';
+import stonesImg from '../images/stones2.jpg';
 import gearsImg from '../images/gears.jpg';
 import treasureImg from '../images/treasure.jpg';
 import lightCaveImg from '../images/light-cave.jpg';
-import forestImg from '../images/forest.jpg';
+import forestImg from '../images/green-forest.jpg';
 // For some reason, when dealing with thunks - they have to be imported.
-
-const LabyrinthWrapper = styled.div`
-position: relative; //This is needed for the Loading-component to be placed on top.
-z-index: 1;
-`
 
 export const Labyrinth = () => {
   const position = useSelector((store) => store.labyrinth.currentPosition);
@@ -55,38 +51,50 @@ export const Labyrinth = () => {
     }
   };
 
+  const LabyrinthWrapper = styled.div`
+  background: url(${positionImages()});
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  z-index: 1;
+  position: relative; //This is needed for the Loading-component to be placed on top.
+
+  @media (min-width: 767px) {
+  gap: 2rem;
+  }`
+
   return (
-    <section
-      className="backgroundImages"
-      style={{
-        backgroundImage: `url(${positionImages()})`,
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        height: '100vh'
-      }}>
-      <LabyrinthWrapper className="labyrinthWrapper">
-        <p>{position.username}</p>
-        {/* <p>{position.coordinates}</p> not sure if we want to keep this in or not */}
-        <p className="currentPosition">{position.description}</p>
-        {/* The only thing above that renders as it should is the username and the coordinates.' */}
+    <LabyrinthWrapper>
+      <div className="labyrint-box">
+        <div className="description-box">
+          <p>{position.description}</p>
+        </div>
         <div className="moveActionWrapper">
-          <div className="moveAction">
-            {position.actions.map((action, index) => (
-              <div>
+
+          {position.actions.map((action, index) => (
+            <div className="moveAction">
+              <div className="text-container">
                 <p>{action.description}</p>
-                {/* I added the description that is in the actions array. */}
-                <button className="moveBtn" key={index} type="button" onClick={() => handleMoveButtonClick(action.type, action.direction)}>{action.direction}</button>
               </div>
-            ))}
-          </div>
+              <StartBtn w80 key={index} type="button" onClick={() => handleMoveButtonClick(action.type, action.direction)}>{action.direction}</StartBtn>
+            </div>
+          ))}
+
         </div>
         {position.coordinates === '1,3' && (
-          <button type="button" onClick={() => handleRestartButtonClick()}>
+          <StartBtn m2rem type="button" onClick={() => handleRestartButtonClick()}>
         Restart
-          </button>
+          </StartBtn>
         )}
         {/* if the coordinates is 1,3, then the restart-button above will be rendered. */}
-      </LabyrinthWrapper>
-    </section>
+      </div>
+    </LabyrinthWrapper>
   )
 }

@@ -2,8 +2,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { labyrinth, startGame } from 'reducers/labyrinth'
-import Lottie from 'react-lottie'
-import { StartScreenWrapper, IconContainer, Form, StartScreenText, TextContainer, defaultOptions, Input, StartBtn } from './StartScreenStyles'
+import { Player } from '@lottiefiles/react-lottie-player';
+import { StartScreenWrapper, Form, StartScreenText, TextContainer, Input, StartBtn } from './StartScreenStyles'
 
 const StartScreen = () => {
   const dispatch = useDispatch()
@@ -14,12 +14,10 @@ const StartScreen = () => {
   const handleInputChange = (event) => {
     dispatch(labyrinth.actions.setUserName(event.target.value))
   }
+
   return (
     <StartScreenWrapper>
-      <IconContainer>
-        <Lottie
-          options={defaultOptions} />
-      </IconContainer>
+      <Player src="https://lottie.host/d5b1057b-d602-459c-86b6-74ffabc185b5/uk9CP34IQi.json" loop autoplay className="maze" />
       <TextContainer>
         <StartScreenText>
           Welcome to the Labyrinth!<br /><br />
@@ -35,7 +33,7 @@ const StartScreen = () => {
             required
             onChange={handleInputChange}
             placeholder="Enter name" />
-          <StartBtn type="submit">Start game</StartBtn>
+          <StartBtn type="submit">Start</StartBtn>
         </Form>
       </TextContainer>
     </StartScreenWrapper>

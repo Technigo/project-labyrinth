@@ -10,7 +10,7 @@ const LoadingContainer = styled.div`
     align-items: center;
     background-color: rgba(0,0,0,.7);
     position: absolute;
-    z-index: 1;` // This is needed for the Loading component to be placed on top of the Labyrinth-component.
+    z-index: 2;` // This is needed for the Loading component to be placed on top of the Labyrinth-component.
 
 const Spinner = styled.span`
   width: 100px;

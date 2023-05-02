@@ -1,123 +1,81 @@
-.labyrinthWrapper {
+.labyrint-box {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    border: 2px solid black;
-    background-color: aliceblue;
-    opacity: 30%;
-    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,.7);
+    max-width: 35rem;
+    border-radius: 2rem;
+    padding: 1rem;
+    margin: 3rem 1rem 10rem 1rem;
 }
 
-.backgroundImages {
-    display: flex;
-    max-width: 766px;
-    object-fit: contain;
-  }
-
-.currentPosition {
-    display: flex;
-    text-align: center;
-    width: 320px;
-    max-width: 766px;
-    font-size: 24px;
+.description-box {
+    color: white;
     border: 2px solid;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 10px;
 }
+
+.moveActionWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .moveAction {
     display: flex;
     flex-direction: column;
-    max-width: 766px;
-    width: 320px;
-    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    font-size: 0.9rem;
     text-align: center;
-}
+    color: white;
 
-.moveBtn {
-    font-size: 20px;
-    border: 2px solid green;
-    text-align: center;
-}
+} 
 
-@media screen and (min-width: 767px) {
-    
-    .labyrinthWrapper {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        width: 100vw;
-        height: 50vh;
-        border: 2px solid black;
-        margin: 0 auto;
-        background-color: aliceblue;
+.moveAction p {
+        padding: 0px;
+        margin: 0;
     }
 
-    .backgroundImages {
-        flex-direction: column;
-        padding: 15px;
-        width: 767px;
-        object-fit: contain;
-      }
-    
-    .currentPosition {
-        text-align: center;
-        width: 80%;
-        font-size: 24px;
-        border: 2px solid;
-    }
-    
-    .moveActionWrapper {
-        display: flex;
-        flex-direction: row;
+.text-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+@media (min-width: 767px) {
+    .description-box {
+        font-size: 1.5rem;
     }
 
     .moveAction {
-        width: 50%;
-        margin-bottom: 4rem;
-        font-size: 18px;
-        text-align: center;
-    }
-    
-    .moveBtn {
-        font-size: 20px;
-        border: 2px solid green;
-    }
+        display: flex;
+        gap: 25px;
+        padding: 25px;
+        font-size: 1.2rem;
+    } 
+
 }
 
-@media screen and (min-width: 1024px) {
-    .labyrinthWrapper {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        border: 2px solid black;
-        margin: 0 auto;
-        max-width: fit-content;
-        background-color: aliceblue;
+@media (min-width: 1024px) {
+    .description-box {
+        font-size: 1.5rem;
     }
 
-    .backgroundImages {
-        flex-direction: column;
-        width: 1440px;
-        object-fit: cover;
-      }
-    
-    .currentPosition {
-        text-align: center;
-        align-self: center;
-        font-size: 24px;
-        border: 2px solid;
-    }
-    
     .moveAction {
         display: flex;
-        flex-direction: row;
-        margin-bottom: 4rem;
-        font-size: 18px;
-        text-align: center;
-    }
-    
-    .moveBtn {
-        font-size: 20px;
-        border: 2px solid green;
-        width: fit-content
-    }
+        gap: 25px;
+        padding: 25px;
+        font-size: 1.2rem;
+    } 
+
+
 }

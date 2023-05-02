@@ -19,7 +19,6 @@ align-items: center;
 }
 `
 export const FooterText = styled.p`
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 color: white;
 font-size: 0.8rem;
 margin: 0 auto;
