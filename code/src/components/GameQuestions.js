@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons';
+import TypeIt from 'typeit-react';
 import games, { GenerateQuestion } from '../reducers/games';
 import { DirectionButton, GoBackButton, ResetButton, StyledIcon } from './GlobalStyling';
 import { EndGame } from './EndGame';
@@ -11,14 +12,12 @@ const GameQuestions = () => {
   const moves = useSelector((store) => store.games.moves);
   const history = useSelector((store) => store.games.history);
   const coordinates = useSelector((store) => store.games.coordinates);
-  // const store = useSelector((state) => state.games);
 
   const dispatch = useDispatch();
 
   const onChooseDirection = (event) => {
     dispatch(games.actions.setDirection(event.target.value));
     dispatch(GenerateQuestion());
-    // console.log('store:', store);
   };
 
   const onRestartButton = () => {
@@ -40,7 +39,10 @@ const GameQuestions = () => {
           </GoBackButton>
         )}
         <div>
-          <DescriptionText>{description}</DescriptionText>
+          <TypeIt
+            options={{ speed: 100 }}>
+            <DescriptionText>{description}</DescriptionText>
+          </TypeIt>
           {moves && moves.map((move) => (
             <DirectionWrapper key={move.description}>
               <DirectionText>{move.description}</DirectionText>
