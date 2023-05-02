@@ -26,7 +26,7 @@ export const WelcomePage = () => {
   return (
     <Background coordinates={coordinates}>
       <Wrapper>
-        <Header1>Are you reade to enter the Maze?</Header1>
+        <Header1>Are you ready to enter the Maze?</Header1>
         <BodyText>First we need your name..</BodyText>
         <FormWrapper onSubmit={handleSubmit}>
           <input type="text" placeholder="Type your name here" onChange={(event) => setUsername(event.target.value)} value={username} />
