@@ -1,13 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,300;0,500;0,900;1,900&display=swap');
+
+:root {
+  --h1-color: #4c002c;
+  --text-color: #004c2a;
+
+  --text2-color: #bbff00f0;
+  --btn-color: #ff00d9e1;
+  --hover-color: #bbff00f0;
+
+  --Rebtn-color: #ff00d9b9;
+  --Rehover-color: #bbff00c5;
+  --hoverStart-color: #00ff5187;
+  }
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  padding: 0;
+  font-family: 'Kanit', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: 'Righteous', cursive;
 }
+
+/* 'Righteous', cursive, @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap'); */
