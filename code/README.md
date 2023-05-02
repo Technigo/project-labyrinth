@@ -12,4 +12,4 @@ Despite the project, we have also discussed what ideal work would be for us, etc
 
 View it live
 
-https://labyrinth-peki.netlify.app/
+https://road-labyrinth.netlify.app/
