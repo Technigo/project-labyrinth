@@ -171,4 +171,22 @@ font-size: 2.4rem;
 font-family: "sora", sans-serif;
 font-weight: 600;
 color: #F5F5F5;
+
+  @media (max-width: 680px) {
+   
+    font-size: 2rem;
+
+  }
+
+  @media (max-width: 490px) {
+   
+    font-size: 1.4rem;
+   
+  }
+
+  @media (max-width: 375px) {
+    
+    font-size: 1.2rem;
+   
+  }
 `;
