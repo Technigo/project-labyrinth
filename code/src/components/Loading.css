@@ -1,0 +1,20 @@
+.loadingScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    background-image: url(../components/img/forest.gif);
+    background-size: cover;
+}
+
+.runner {
+scale: 70%;
+}
+
+@media (max-width : 428px)  {
+    .loadingText {
+        scale: 45%;
+    }
+}
+
