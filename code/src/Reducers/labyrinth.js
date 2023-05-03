@@ -19,28 +19,35 @@ export const labyrinthMango = createSlice({
   name: 'labyrinthMango',
   initialState,
   reducers: {
+    // Set user name and generate unique user ID
     setUserName: (store, action) => {
       const input = action.payload;
       const userId = uuidv4(input);
       store.userName = userId;
       store.name = input;
     },
+    // Set description in the store
     setDescription: (store, action) => {
       store.description = action.payload;
     },
+    // Set moves in the store
     setMoves: (store, action) => {
       store.moves = action.payload
     },
+    // Set direction and update history in the store
     setDirection: (store, action) => {
       store.direction = action.payload
       store.history = [...store.history, store.direction]
     },
+    // Set loading state in the store
     setLoading: (store, action) => {
       store.loading = action.payload
     },
+    // Set coordinates in the store
     setCoordinates: (store, action) => {
       store.coordinates = action.payload
     },
+    // Reset game
     restartGame: () => {
       return initialState;
     }
