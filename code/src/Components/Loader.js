@@ -24,7 +24,7 @@ export const Loader = ({ onContentLoaded }) => {
     }
   }, [coordinates, name, imageLoaded]);
 
-  // Show the loading text for at least 1 second or until the image is loaded
+  // Show the loading text for at least 1 seconds or until the image is loaded
   useEffect(() => {
     if (!imageLoaded) {
       setDisplayLoadingText(true);
