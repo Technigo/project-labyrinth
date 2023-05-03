@@ -1,7 +1,8 @@
+// Import libraries to create the component
 import React from 'react';
 import styled from 'styled-components';
 
-// Import background images
+// Import the background images for the labyrinth
 import background1 from './background1_web.jpg';
 import background2 from './background2_web.jpg';
 import background3 from './background3_web.jpg';
@@ -10,7 +11,7 @@ import background5 from './background5_web.jpg';
 import background6 from './background6_web.jpg';
 import background7 from './background4_web.jpg';
 
-// Styled-component for the background image
+// Create a styled-component for the background image
 const BackgroundImage = styled.div`
   position: fixed;
   top: 0;
@@ -26,16 +27,17 @@ const BackgroundImage = styled.div`
   }
 `;
 
-// Styled-component to hide the image used for onLoad event
+// Create a styled-component to hide the image used for the onLoad event
 const HiddenImage = styled.img`
   display: none;
 `;
 
+// This component displays the correct background image based on the current coordinates
 export const CoordsImageDisplay = ({ coordinates = '0,0', onImageLoad, onContentLoaded }) => {
   const currentCoordinates = coordinates;
   let imageToShow = null;
 
-  // Determine which image to show based on the current coordinates
+  // Choose the correct image based on the current coordinates
   if (currentCoordinates === '0,0') {
     imageToShow = background1;
   } else if (currentCoordinates === '1,0') {

@@ -1,34 +1,30 @@
+// Import necessary React and Redux hooks and components
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { CoordsImageDisplay } from './CoordsImageDisplay';
 import { GameWrapper, LoadingText } from '../Styles/Globalstyles';
 
+// This component shows a loading text and loads the background images
 export const Loader = ({ onContentLoaded }) => {
-  // Retrieve labyrinth coordinates and name from the Redux store
+  // Get the labyrinth coordinates and player's name from the Redux store
   const coordinates = useSelector((store) => store.labyrinthMango.coordinates);
   const name = useSelector((store) => store.labyrinthMango.name);
 
-  // State variables
+  // Create state variables to handle loading status
   const [loaderCoordinates, setLoaderCoordinates] = useState(coordinates || (name ? '0,0' : null));
   const [imageLoaded, setImageLoaded] = useState(false);
   const [displayLoadingText, setDisplayLoadingText] = useState(false);
   const [minDisplayTimeElapsed, setMinDisplayTimeElapsed] = useState(false);
 
-  // Handle game restart
+  // When the game restarts, reset the imageLoaded state to false
   useEffect(() => {
-    const handleRestart = () => {
-      setLoaderCoordinates(coordinates || (name ? '0,0' : null));
+    if (coordinates || (name && !imageLoaded)) {
+      setLoaderCoordinates(coordinates || '0,0');
       setImageLoaded(false); // Reset imageLoaded state to false on restart
-    };
+    }
+  }, [coordinates, name, imageLoaded]);
 
-    window.addEventListener('restart', handleRestart);
-
-    return () => {
-      window.removeEventListener('restart', handleRestart);
-    };
-  }, [coordinates, name]);
-
-  // Show loading text for at least 1 second, or until the image is loaded
+  // Show the loading text for at least 1 second or until the image is loaded
   useEffect(() => {
     if (!imageLoaded) {
       setDisplayLoadingText(true);
@@ -37,13 +33,13 @@ export const Loader = ({ onContentLoaded }) => {
         if (imageLoaded) {
           setDisplayLoadingText(false);
         }
-      }, 2000);
+      }, 1000);
 
       return () => clearTimeout(timer);
     }
   }, [imageLoaded]);
 
-  // Handle image load event
+  // When the image is loaded, set the imageLoaded state to true
   const handleImageLoad = () => {
     setImageLoaded(true);
     if (minDisplayTimeElapsed) {

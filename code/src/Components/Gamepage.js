@@ -19,6 +19,7 @@ export const Gamepage = () => {
   const coordinates = useSelector((store) => store.labyrinthMango.coordinates);
   const [showContent, setShowContent] = useState(false);
 
+  // Function to show the game content when it's loaded
   const handleContentLoaded = () => {
     setShowContent(true);
   };
@@ -36,21 +37,23 @@ export const Gamepage = () => {
 
   // Return component content
   return (
-    // Show loader if loading
+    // Show the loader if the game is loading
     loading ? (
       <Loader onContentLoaded={handleContentLoaded} />
     ) : (
+      // Show the game content when it's loaded
       showContent && (
         <>
           <GameWrapper>
             <DescriptionWrapper>
+              {/* Display the background image */}
               <CoordsImageDisplay key={coordinates} coordinates={coordinates} />
               {/* Display welcome message if there's no history */}
               {history.length === 0 ? `Welcome, ${name}.` : ''} {/* name comes from the state */}
               <p>{description}</p>
             </DescriptionWrapper>
             <DirectionWrapper id={moves.length <= 1 ? 'oneMove' : 'twoMoves'}> {/* styling for 1or2 buttons from gamepage.styled */}
-              {/* Map through moves and display buttons */}
+              {/* Show buttons for available moves */}
               {moves && moves.map((action) => (
                 <div key={action.direction}>
                   <DirectionBtn
@@ -65,11 +68,12 @@ export const Gamepage = () => {
                 </div>
               ))}
             </DirectionWrapper>
-            {/* Show win message if no moves left */}
+            {/* Show a win message if there are no moves left */}
             {moves.length === 0 && (
               <GameEnd>Wohoo! You have made it, {name}!</GameEnd>
             )}
           </GameWrapper>
+          {/* Show a restart button */}
           <RestartBtn onClick={restartGame}>Restart</RestartBtn>
           {/* This is defined in the begining of the page */}
         </>
