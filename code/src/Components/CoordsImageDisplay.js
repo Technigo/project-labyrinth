@@ -33,7 +33,7 @@ const HiddenImage = styled.img`
 `;
 
 // This component displays the correct background image based on the current coordinates
-export const CoordsImageDisplay = ({ coordinates = '0,0', onImageLoad, onContentLoaded }) => {
+export const CoordsImageDisplay = ({ coordinates = '0,0', onImageLoad }) => {
   const currentCoordinates = coordinates;
   let imageToShow = null;
 
@@ -62,12 +62,10 @@ export const CoordsImageDisplay = ({ coordinates = '0,0', onImageLoad, onContent
       <HiddenImage
         src={imageToShow}
         onLoad={() => {
-          (() => {
-            if (onImageLoad) onImageLoad();
-            if (onContentLoaded) onContentLoaded();
-          })();
+          if (onImageLoad) onImageLoad();
+        // Remove the following line
+        // if (onContentLoaded) onContentLoaded();
         }} />
-
     </>
   );
 };
