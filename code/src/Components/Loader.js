@@ -10,21 +10,27 @@ export const Loader = ({ onContentLoaded }) => {
   const coordinates = useSelector((store) => store.labyrinthMango.coordinates);
   const name = useSelector((store) => store.labyrinthMango.name);
 
-  // Create state variables to handle loading status
+  // State variables
   const [loaderCoordinates, setLoaderCoordinates] = useState(coordinates || (name ? '0,0' : null));
   const [imageLoaded, setImageLoaded] = useState(false);
   const [displayLoadingText, setDisplayLoadingText] = useState(false);
   const [minDisplayTimeElapsed, setMinDisplayTimeElapsed] = useState(false);
 
-  // When the game restarts, reset the imageLoaded state to false
+  // Handle game restart
   useEffect(() => {
-    if (coordinates || (name && !imageLoaded)) {
-      setLoaderCoordinates(coordinates || '0,0');
+    const handleRestart = () => {
+      setLoaderCoordinates(coordinates || (name ? '0,0' : null));
       setImageLoaded(false); // Reset imageLoaded state to false on restart
-    }
-  }, [coordinates, name, imageLoaded]);
+    };
 
-  // Show the loading text for at least 1 seconds or until the image is loaded
+    window.addEventListener('restart', handleRestart);
+
+    return () => {
+      window.removeEventListener('restart', handleRestart);
+    };
+  }, [coordinates, name]);
+
+  // Show loading text for at least 1 second, or until the image is loaded
   useEffect(() => {
     if (!imageLoaded) {
       setDisplayLoadingText(true);
@@ -39,7 +45,7 @@ export const Loader = ({ onContentLoaded }) => {
     }
   }, [imageLoaded]);
 
-  // When the image is loaded, set the imageLoaded state to true
+  // Handle image load event
   const handleImageLoad = () => {
     setImageLoaded(true);
     if (minDisplayTimeElapsed) {
