@@ -33,7 +33,7 @@ export const Loader = ({ onContentLoaded }) => {
         if (imageLoaded) {
           setDisplayLoadingText(false);
         }
-      }, 1000);
+      }, 2000);
 
       return () => clearTimeout(timer);
     }
