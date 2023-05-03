@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons';
-import TypeIt from 'typeit-react';
 import games, { GenerateQuestion } from '../reducers/games';
 import { DirectionButton, GoBackButton, ResetButton, StyledIcon } from './GlobalStyling';
 import { EndGame } from './EndGame';
@@ -39,10 +38,7 @@ const GameQuestions = () => {
           </GoBackButton>
         )}
         <div>
-          <TypeIt
-            options={{ speed: 100 }}>
-            <DescriptionText>{description}</DescriptionText>
-          </TypeIt>
+          <DescriptionText>{description}</DescriptionText>
           {moves && moves.map((move) => (
             <DirectionWrapper key={move.description}>
               <DirectionText>{move.description}</DirectionText>
