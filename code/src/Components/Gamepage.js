@@ -1,5 +1,5 @@
 // Import React and necessary Redux hooks and components
-import React from 'react';
+import React, { useState } from 'react';
 import { labyrinthMango, continueGame } from 'Reducers/labyrinth';
 import { useDispatch, useSelector } from 'react-redux';
 import { Loader } from './Loader';
@@ -17,6 +17,11 @@ export const Gamepage = () => {
   const name = useSelector((store) => store.labyrinthMango.name)
   const history = useSelector((store) => store.labyrinthMango.history);
   const coordinates = useSelector((store) => store.labyrinthMango.coordinates);
+  const [showContent, setShowContent] = useState(false);
+
+  const handleContentLoaded = () => {
+    setShowContent(true);
+  };
 
   // Function to restart the game
   const restartGame = () => {
@@ -33,40 +38,41 @@ export const Gamepage = () => {
   return (
     // Show loader if loading
     loading ? (
-      <Loader />
+      <Loader onContentLoaded={handleContentLoaded} />
     ) : (
-      <>
-        <GameWrapper>
-          <DescriptionWrapper>
-            <CoordsImageDisplay key={coordinates} coordinates={coordinates} />
-            {/* Display welcome message if there's no history */}
-            {history.length === 0 ? `Welcome, ${name}.` : ''} {/* name comes from the state */}
-            <p>{description}</p>
-          </DescriptionWrapper>
-          <DirectionWrapper id={moves.length <= 1 ? 'oneMove' : 'twoMoves'}> {/* styling for 1or2 buttons from gamepage.styled */}
-            {/* Map through moves and display buttons */}
-            {moves && moves.map((action) => (
-              <div key={action.direction}>
-                <DirectionBtn
-                  key={action.direction}
-                  type="button"
-                  id="nextBtn"
-                  value={action.direction}
-                  onClick={(e) => goToNextStep(e)}>
+      showContent && (
+        <>
+          <GameWrapper>
+            <DescriptionWrapper>
+              <CoordsImageDisplay key={coordinates} coordinates={coordinates} />
+              {/* Display welcome message if there's no history */}
+              {history.length === 0 ? `Welcome, ${name}.` : ''} {/* name comes from the state */}
+              <p>{description}</p>
+            </DescriptionWrapper>
+            <DirectionWrapper id={moves.length <= 1 ? 'oneMove' : 'twoMoves'}> {/* styling for 1or2 buttons from gamepage.styled */}
+              {/* Map through moves and display buttons */}
+              {moves && moves.map((action) => (
+                <div key={action.direction}>
+                  <DirectionBtn
+                    key={action.direction}
+                    type="button"
+                    id="nextBtn"
+                    value={action.direction}
+                    onClick={(e) => goToNextStep(e)}>
                   Go {action.direction} {/* the "Go" + the direction from the api
                   will have same styling */}
-                </DirectionBtn>
-              </div>
-            ))}
-          </DirectionWrapper>
-          {/* Show win message if no moves left */}
-          {moves.length === 0 && (
-            <GameEnd>Wohoo! You have made it, {name}!</GameEnd>
-          )}
-        </GameWrapper>
-        <RestartBtn onClick={restartGame}>Restart</RestartBtn>
-        {/* This is defined in the begining of the page */}
-      </>
-    )
-  )
+                  </DirectionBtn>
+                </div>
+              ))}
+            </DirectionWrapper>
+            {/* Show win message if no moves left */}
+            {moves.length === 0 && (
+              <GameEnd>Wohoo! You have made it, {name}!</GameEnd>
+            )}
+          </GameWrapper>
+          <RestartBtn onClick={restartGame}>Restart</RestartBtn>
+          {/* This is defined in the begining of the page */}
+        </>
+      )
+    ))
 }

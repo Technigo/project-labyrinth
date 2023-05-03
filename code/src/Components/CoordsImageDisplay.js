@@ -31,7 +31,7 @@ const HiddenImage = styled.img`
   display: none;
 `;
 
-export const CoordsImageDisplay = ({ coordinates = '0,0', onImageLoad }) => {
+export const CoordsImageDisplay = ({ coordinates = '0,0', onImageLoad, onContentLoaded }) => {
   const currentCoordinates = coordinates;
   let imageToShow = null;
 
@@ -57,7 +57,15 @@ export const CoordsImageDisplay = ({ coordinates = '0,0', onImageLoad }) => {
       {/* Set the background image based on the selected image */}
       <BackgroundImage style={{ backgroundImage: `url(${imageToShow})` }} />
       {/* Hidden image to trigger the onLoad event when the image is loaded */}
-      <HiddenImage src={imageToShow} onLoad={onImageLoad} />
+      <HiddenImage
+        src={imageToShow}
+        onLoad={() => {
+          (() => {
+            if (onImageLoad) onImageLoad();
+            if (onContentLoaded) onContentLoaded();
+          })();
+        }} />
+
     </>
   );
 };

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { CoordsImageDisplay } from './CoordsImageDisplay';
 import { GameWrapper, LoadingText } from '../Styles/Globalstyles';
 
-export const Loader = () => {
+export const Loader = ({ onContentLoaded }) => {
   // Retrieve labyrinth coordinates and name from the Redux store
   const coordinates = useSelector((store) => store.labyrinthMango.coordinates);
   const name = useSelector((store) => store.labyrinthMango.name);
@@ -48,6 +48,7 @@ export const Loader = () => {
     setImageLoaded(true);
     if (minDisplayTimeElapsed) {
       setDisplayLoadingText(false);
+      onContentLoaded();
     }
   };
 
@@ -55,7 +56,10 @@ export const Loader = () => {
     <GameWrapper>
       {/* Display the CoordsImageDisplay component if loaderCoordinates is available */}
       {loaderCoordinates && (
-        <CoordsImageDisplay coordinates={loaderCoordinates} onImageLoad={handleImageLoad} />
+        <CoordsImageDisplay
+          coordinates={loaderCoordinates}
+          onImageLoad={handleImageLoad}
+          onContentLoaded={onContentLoaded} />
       )}
       {/* Display the Loading.. if the image is not loaded OR displayLoadingText is true */}
       {(!imageLoaded || displayLoadingText) && <LoadingText>Loading..</LoadingText>}
