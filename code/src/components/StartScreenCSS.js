@@ -91,7 +91,23 @@ export const WelcomeTextWrapper = styled.div`
     width: 100%;
     max-width: 450px;
     max-height: 539px;
-  }`
+  }
+
+  @media (max-height: 1000px) {
+    max-width: 400px;
+    max-height: 500px;
+  }
+
+  @media (max-height: 1200px) {
+    max-width: 380px;
+    max-height: 500px;
+  }
+
+  @media (max-height: 1200px) and (max-width: 1400px) {
+    max-height: 450px;
+    max-width: 300px;
+  }
+`
 
 export const NameForm = styled.form`
   display: flex;
