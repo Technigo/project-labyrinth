@@ -1,60 +1,48 @@
-// Import necessary React and Redux hooks and components
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { CoordsImageDisplay } from './CoordsImageDisplay';
-import { GameWrapper, LoadingText } from '../Styles/Globalstyles';
+// Import necessary libraries
+import React, { useState, useEffect } from 'react';// We use React for creating components, useState for state management, and useEffect for side effects
+import { useSelector } from 'react-redux'; // useSelector allows us to extract data from the Redux store state
+import { CoordsImageDisplay } from './CoordsImageDisplay'; // This is our custom component that displays the correct background image based on the current coordinates
+import { GameWrapper, LoadingText } from '../Styles/Globalstyles'; // These are styled components for the game wrapper and loading text
 
-// This component shows a loading text and loads the background images
-export const Loader = ({ onContentLoaded }) => {
-// Get the labyrinth coordinates and player's name from the Redux store
+// Define the Loader component
+export const Loader = () => {
+  // Define and initialize state variable 'loaded' with
+  // initial value 'false'. This state represents whether the image has loaded
+  const [loaded, setLoaded] = useState(false);
+
+  // Get the current game's coordinates from the Redux store
   const coordinates = useSelector((store) => store.labyrinthMango.coordinates);
-  const name = useSelector((store) => store.labyrinthMango.name);
-  // Create state variables to handle loading status
-  const [loaderCoordinates, setLoaderCoordinates] = useState(coordinates || (name ? '0,0' : null));
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const [displayLoadingText, setDisplayLoadingText] = useState(false);
-  const [minDisplayTimeElapsed, setMinDisplayTimeElapsed] = useState(false);
-  // When the game restarts, reset the imageLoaded state to false
-  useEffect(() => {
-    if (coordinates || (name && !imageLoaded)) {
-      setLoaderCoordinates(coordinates || '0,0');
-      setImageLoaded(false); // Reset imageLoaded state to false on restart
-    }
-  }, [coordinates, name, imageLoaded]);
-  // Show the loading text for at least 1 second or until the image is loaded
-  useEffect(() => {
-    if (!imageLoaded) {
-      setDisplayLoadingText(true);
-      const timer = setTimeout(() => {
-        setMinDisplayTimeElapsed(true);
-        if (imageLoaded) {
-          setDisplayLoadingText(false);
-        }
-      }, 1000);
 
-      return () => clearTimeout(timer);
-    }
-  }, [imageLoaded]);
+  // useEffect is a hook that lets us perform side effects in function components.
+  // Here, we are using it to set the 'loaded' state to 'false' every time the coordinates change.
+  // This means that every time the user moves in the labyrinth, we reset the loading state
+  useEffect(() => {
+    setLoaded(false); // Reset the loaded state to 'false'
 
-  // When the image is loaded, set the imageLoaded state to true
-  const handleImageLoad = () => {
-    setImageLoaded(true);
-    if (minDisplayTimeElapsed) {
-      setDisplayLoadingText(false);
-      onContentLoaded();
-    }
-  };
+    // Set a timer to change the loaded state to 'true' after 2.4 seconds.
+    // This gives the impression of loading while the new image is being fetched
+    const timer = setTimeout(() => {
+      setLoaded(true); // Set the loaded state to 'true' after 2.4 seconds
+    }, 2400);
+
+    // Clean up function: We clear the timeout when the component
+    // unmounts or before the next time the effect runs
+    // This prevents memory leaks and ensures that we
+    // don't have multiple timers running at the same time
+    return () => clearTimeout(timer);
+  }, [coordinates]);
+  // The second argument to useEffect is an array of
+  // dependencies. Our effect depends on the 'coordinates' state
+
+  // Our component returns JSX to render
   return (
     <GameWrapper>
-      {/* Display the CoordsImageDisplay component if loaderCoordinates is available */}
-      {loaderCoordinates && (
-        <CoordsImageDisplay
-          coordinates={loaderCoordinates}
-          onImageLoad={handleImageLoad}
-          onContentLoaded={onContentLoaded} />
-      )}
-      {/* Display the Loading.. if the image is not loaded OR displayLoadingText is true */}
-      {(!imageLoaded || displayLoadingText) && <LoadingText>Loading..</LoadingText>}
+      {/* If the image has loaded, we do not display loading text, else display the loading text */}
+      {loaded ? null : <LoadingText>Loading.. </LoadingText>}
+      {/* Here, we are rendering the CoordsImageDisplay component with the current coordinates */}
+      {/* If coordinates are not yet set, we pass a default value of '0,0' */}
+      <CoordsImageDisplay
+        coordinates={coordinates || '0,0'} />
     </GameWrapper>
   );
 };
