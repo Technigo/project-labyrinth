@@ -9,6 +9,7 @@ export const Loader = () => {
   // Define and initialize state variable 'loaded' with
   // initial value 'false'. This state represents whether the image has loaded
   const [loaded, setLoaded] = useState(false);
+  const [timerDone, setTimerDone] = useState(false);
 
   // Get the current game's coordinates from the Redux store
   const coordinates = useSelector((store) => store.labyrinthMango.coordinates);
@@ -18,21 +19,29 @@ export const Loader = () => {
   // This means that every time the user moves in the labyrinth, we reset the loading state
   useEffect(() => {
     setLoaded(false); // Reset the loaded state to 'false'
+    setTimerDone(false); // Reset the timer state when coordinates change
 
-    // Set a timer to change the loaded state to 'true' after 2.4 seconds.
-    // This gives the impression of loading while the new image is being fetched
     const timer = setTimeout(() => {
-      setLoaded(true); // Set the loaded state to 'true' after 2.4 seconds
-    }, 2400);
+      setTimerDone(true); // Set the timer state to 'true' after 1.8 seconds
+      if (timerDone && loaded) { // If img has loaded and timer has finished, set 'loaded' to true
+        setLoaded(true);
+      }
+    }, 1800);
 
     // Clean up function: We clear the timeout when the component
     // unmounts or before the next time the effect runs
     // This prevents memory leaks and ensures that we
     // don't have multiple timers running at the same time
     return () => clearTimeout(timer);
-  }, [coordinates]);
-  // The second argument to useEffect is an array of
-  // dependencies. Our effect depends on the 'coordinates' state
+  }, [coordinates, loaded, timerDone]);
+  // Add 'loaded' and 'timerDone' to the dependencies array
+
+  const handleImageLoad = () => {
+    setLoaded(true); // Set 'loaded' to true when the image finishes loading
+    if (timerDone && loaded) { // If image has loaded and timer has finished, set 'loaded' to true
+      setLoaded(true);
+    }
+  };
 
   // Our component returns JSX to render
   return (
@@ -42,7 +51,8 @@ export const Loader = () => {
       {/* Here, we are rendering the CoordsImageDisplay component with the current coordinates */}
       {/* If coordinates are not yet set, we pass a default value of '0,0' */}
       <CoordsImageDisplay
-        coordinates={coordinates || '0,0'} />
+        coordinates={coordinates || '0,0'}
+        onImageLoad={handleImageLoad} />
     </GameWrapper>
   );
 };
