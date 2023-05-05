@@ -32,7 +32,7 @@ export const Loader = () => {
     setTimeout(() => {
       // After 1 second, we set 'loaded' to true
       setLoaded(true);
-    }, 1600); // Delay of 1.6 second
+    }, 2200); // Delay of 2.2 second
   };
 
   // Our component returns JSX to render
