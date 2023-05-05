@@ -10,13 +10,18 @@ export const Loader = () => {
   // initial value 'false'. This state represents whether the image has loaded
   const [loaded, setLoaded] = useState(false);
   const [timerDone, setTimerDone] = useState(false);
+  // useState: This is like a switch. It can be turned on or off.
+  // We have two switches here, loaded and timerDone.
+  // loaded tells us if the background image for the new room is ready to be shown,
+  // and timerDone tells us if 1.8 seconds have passed.
 
   // Get the current game's coordinates from the Redux store
   const coordinates = useSelector((store) => store.labyrinthMango.coordinates);
 
   // useEffect is a hook that lets us perform side effects in function components.
   // Here, we are using it to set the 'loaded' state to 'false' every time the coordinates change.
-  // This means that every time the user moves in the labyrinth, we reset the loading state
+  // Here, we are using it to set the 'timer' state to 'false' every time the coordinates change.
+  // Meaning: every time user moves in the labyrinth, we reset (or kind of "activate") loading state
   useEffect(() => {
     setLoaded(false); // Reset the loaded state to 'false'
     setTimerDone(false); // Reset the timer state when coordinates change
@@ -36,6 +41,9 @@ export const Loader = () => {
   }, [coordinates, loaded, timerDone]);
   // Add 'loaded' and 'timerDone' to the dependencies array
 
+  // This is our helper. Whenever the new background image for the room is fully loaded
+  // and ready to be shown, handleImageLoad turns the loaded switch on.
+  // If the timerDone switch is also on, it turns the loaded switch off and then on again.
   const handleImageLoad = () => {
     setLoaded(true); // Set 'loaded' to true when the image finishes loading
     if (timerDone && loaded) { // If image has loaded and timer has finished, set 'loaded' to true
@@ -56,3 +64,9 @@ export const Loader = () => {
     </GameWrapper>
   );
 };
+
+// Finally, our Loader does two main things:
+
+// If the loaded switch is off, it shows "Loading.." message. If it's on, it doesn't show anything.
+// It calls upon the CoordsImageDisplay, that finds the right background image for the current room.
+// CoordsImageDisplay also tells handleImageLoad when the image is loaded and ready to be shown.

@@ -17,16 +17,26 @@ export const Gamepage = () => {
   const name = useSelector((store) => store.labyrinthMango.name)
   const history = useSelector((store) => store.labyrinthMango.history);
   const coordinates = useSelector((store) => store.labyrinthMango.coordinates);
+  // useDispatch and useSelector: These are like our magic wand and magic telescope.
+  // useSelector is like a magic telescope: Lets us look into the (Redux store) to see current state
+  // of our hero's journey, such as location, available moves, and history of hero/user's journey.
+  // useDispatch is our magic wand that lets us change these states, just like casting a spell
+  // to move the hero, start a new game, or change the game's state in any other way.
 
   // Function to restart the game
   const restartGame = () => {
     dispatch(labyrinthMango.actions.restartGame())
   }
+  // restartGame: When this spell is cast, it uses the magic wand aka. dispatch
+  // to start the hero's journey from the beginning.
+
   // Function to go to the next step
   const goToNextStep = (e) => {
     dispatch(labyrinthMango.actions.setDirection(e.target.value)) // setDirection working?
     dispatch(continueGame())
   }
+  // goToNextStep: This "dispatch spell" directs the hero to move
+  // in a chosen direction and continue journey.
 
   // Return component content
   return (
@@ -71,3 +81,8 @@ export const Gamepage = () => {
     )
   )
 }
+
+// Gamepage component tells the story of a hero's journey through a magical maze.
+// It shows the maze, describes each room, directs the hero's moves,
+// and restarts the journey when needed.
+
