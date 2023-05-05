@@ -99,7 +99,7 @@ export const WelcomeTextWrapper = styled.div`
   }
 
   @media (max-height: 1200px) {
-    max-width: 380px;
+    max-width: 400px;
     max-height: 500px;
   }
 

@@ -26,6 +26,7 @@ export const GameWrapper = styled.div`
 
   @media (min-width: 850px) {
     max-width: 90%;
+    margin-top: 5%;
   }
 `;
 
@@ -35,6 +36,7 @@ export const EnImg = styled.img`
   max-width: 290px;
   margin-top: 5%;
   z-index: 1;
+  background-position: center;
 
   @media (min-width: 600px) {
     margin-bottom: 2%;
@@ -46,7 +48,7 @@ export const EnImg = styled.img`
   }
   
   @media (min-width: 1050px) {
-    max-width: 350px;
+    max-width: 520px;
     margin-left: 30%;
   }
 `
@@ -93,6 +95,11 @@ export const SingleActionWrapper = styled.div`
     margin-top: 5%;
     padding: 10px;
     border-style: inset;
+
+    @media (min-width: 1000px) {
+      height: 270px;
+      
+    }
 `
 
 export const ActionTop = styled.div`
@@ -130,7 +137,7 @@ export const CurrentRoomDescriptionText = styled.p`
     margin-right: 32%;
     padding: 10px;
     height: 36%;
-    max-width: 268px;
+    max-width: 325px;
     font-size: 18px;
   }
   `
