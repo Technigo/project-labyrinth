@@ -30,9 +30,9 @@ export const Loader = () => {
   const handleImageLoad = () => {
     // When the image is loaded, we start a timeout of 1 second
     setTimeout(() => {
-      // After 1 second, we set 'loaded' to true
+      // After 4 second, we set 'loaded' to true
       setLoaded(true);
-    }, 3200); // Delay of 3.2 second
+    }, 4000); // Delay of 4 second
   };
 
   // Our component returns JSX to render
