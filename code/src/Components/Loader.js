@@ -9,11 +9,10 @@ export const Loader = () => {
   // Define and initialize state variable 'loaded' with
   // initial value 'false'. This state represents whether the image has loaded
   const [loaded, setLoaded] = useState(false);
-  const [timerDone, setTimerDone] = useState(false);
   // useState: This is like a switch. It can be turned on or off.
-  // We have two switches here, loaded and timerDone.
+  // We have one switch here, loaded.
   // loaded tells us if the background image for the new room is ready to be shown,
-  // and timerDone tells us if 1.8 seconds have passed.
+  // and we are currently waiting still 1 second after that tha t image have time to be loaded.
 
   // Get the current game's coordinates from the Redux store
   const coordinates = useSelector((store) => store.labyrinthMango.coordinates);
@@ -24,31 +23,16 @@ export const Loader = () => {
   // Meaning: every time user moves in the labyrinth, we reset (or kind of "activate") loading state
   useEffect(() => {
     setLoaded(false); // Reset the loaded state to 'false'
-    setTimerDone(false); // Reset the timer state when coordinates change
-
-    const timer = setTimeout(() => {
-      setTimerDone(true); // Set the timer state to 'true' after 1.8 seconds
-      if (timerDone && loaded) { // If img has loaded and timer has finished, set 'loaded' to true
-        setLoaded(true);
-      }
-    }, 1800);
-
-    // Clean up function: We clear the timeout when the component
-    // unmounts or before the next time the effect runs
-    // This prevents memory leaks and ensures that we
-    // don't have multiple timers running at the same time
-    return () => clearTimeout(timer);
-  }, [coordinates, loaded, timerDone]);
-  // Add 'loaded' and 'timerDone' to the dependencies array
+  }, [coordinates]); // We only need to add 'coordinates' to the dependencies array
 
   // This is our helper. Whenever the new background image for the room is fully loaded
-  // and ready to be shown, handleImageLoad turns the loaded switch on.
-  // If the timerDone switch is also on, it turns the loaded switch off and then on again.
+  // and ready to be shown, handleImageLoad turns the loaded switch on, nad wait 1 second.
   const handleImageLoad = () => {
-    setLoaded(true); // Set 'loaded' to true when the image finishes loading
-    if (timerDone && loaded) { // If image has loaded and timer has finished, set 'loaded' to true
+    // When the image is loaded, we start a timeout of 1 second
+    setTimeout(() => {
+      // After 1 second, we set 'loaded' to true
       setLoaded(true);
-    }
+    }, 1600); // Delay of 1.6 second
   };
 
   // Our component returns JSX to render
