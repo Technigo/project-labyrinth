@@ -1,7 +1,9 @@
 // Import React library for creating the component
 // and styled-components for styling it
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
+import { labyrinthMango } from '../Reducers/labyrinth';
 
 // Import the background images for the labyrinth
 // Each background corresponds to a specific location in the labyrinth
@@ -30,51 +32,43 @@ const BackgroundImage = styled.div`
    background-size: cover;
   }
 `;
-
-// Create a styled-component to hide the image used for the onLoad event
-// This image is not visible on the page, but it's used to trigger an event when the image loads
-const HiddenImage = styled.img`
-  display: none;
-`;
-
 // This component displays the correct background image based on the current coordinates
 // It takes the current coordinates and two optional functions: onImageLoad
-export const CoordsImageDisplay = ({ coordinates = '0,0', onImageLoad }) => {
+export const CoordsImageDisplay = ({ coordinates = '0,0' }) => {
   const currentCoordinates = coordinates;
-  let imageToShow = null;
-
+  const [imageToShow, setImageToShow] = useState(null)
+  const dispatch = useDispatch();
+  const loading = useSelector((store) => store.labyrinthMango.loading);
   // Choose the correct image based on the current coordinates
   // Depending on where the player is in the labyrinth, we show a different background
-  if (currentCoordinates === '0,0') {
-    imageToShow = background1;
-  } else if (currentCoordinates === '1,0') {
-    imageToShow = background2;
-  } else if (currentCoordinates === '1,1') {
-    imageToShow = background3;
-  } else if (currentCoordinates === '0,1') {
-    imageToShow = background4;
-  } else if (currentCoordinates === '0,2') {
-    imageToShow = background5;
-  } else if (currentCoordinates === '0,3') {
-    imageToShow = background6;
-  } else if (currentCoordinates === '1,3') {
-    imageToShow = background7;
-  }
+  useEffect(() => {
+    if (currentCoordinates === '0,0') {
+      setImageToShow(background1);
+    } else if (currentCoordinates === '1,0') {
+      setImageToShow(background2);
+    } else if (currentCoordinates === '1,1') {
+      setImageToShow(background3);
+    } else if (currentCoordinates === '0,1') {
+      setImageToShow(background4);
+    } else if (currentCoordinates === '0,2') {
+      setImageToShow(background5);
+    } else if (currentCoordinates === '0,3') {
+      setImageToShow(background6);
+    } else if (currentCoordinates === '1,3') {
+      setImageToShow(background7);
+    }
+  }, [currentCoordinates])
 
   // Return the component to render
   return (
     <>
       {/* Set the background image based on the selected image */}
-      <BackgroundImage style={{ backgroundImage: `url(${imageToShow})` }} />
-      {/* Hidden image to trigger the onLoad event when the image is loaded */}
-      {/* When the image finishes loading, we call the onImageLoad functions */}
-      <HiddenImage
+      <BackgroundImage style={loading ? { display: 'none' } : { backgroundImage: `url(${imageToShow})` }} />
+      <img
+        alt="test"
+        style={{ display: 'none' }}
         src={imageToShow}
-        onLoad={() => {
-          (() => {
-            if (onImageLoad) onImageLoad(); // Call onImageLoad, if it exists
-          })();
-        }} />
+        onLoad={() => { dispatch(labyrinthMango.actions.setLoading(false)) }} />
     </>
   );
 };
