@@ -32,6 +32,7 @@ export const Gamepage = () => {
 
   // Function to go to the next step
   const goToNextStep = (e) => {
+    dispatch(labyrinthMango.actions.setLoading(true));
     dispatch(labyrinthMango.actions.setDirection(e.target.value)) // setDirection working?
     dispatch(continueGame())
   }
@@ -47,10 +48,9 @@ export const Gamepage = () => {
       <>
         <GameWrapper>
           <DescriptionWrapper>
-            {/* Display the background image */}
-            <CoordsImageDisplay key={coordinates} coordinates={coordinates} />
-            {/* Display welcome message if there's no history */}
-            {history.length === 0 ? `Welcome, ${name}.` : ''} {/* name comes from the state */}
+            <CoordsImageDisplay
+              coordinates={coordinates || '0,0'} />
+            {history.length === 0 ? `Welcome, ${name}.` : ''}
             <p>{description}</p>
           </DescriptionWrapper>
           <DirectionWrapper id={moves.length <= 1 ? 'oneMove' : 'twoMoves'}> {/* styling for 1or2 buttons from gamepage.styled */}
@@ -85,4 +85,3 @@ export const Gamepage = () => {
 // Gamepage component tells the story of a hero's journey through a magical maze.
 // It shows the maze, describes each room, directs the hero's moves,
 // and restarts the journey when needed.
-
