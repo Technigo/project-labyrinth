@@ -49,55 +49,65 @@ export const labyrinthMango = createSlice({
   }
 });
 
-// These "spells" interact with the game's server
-export const startGame = () => { // This spell starts the game
-  return (dispatch, getState) => { // Return a function with "dispatch" and "getState" as arguments
-    dispatch(labyrinthMango.actions.setLoading(true)); // We set the game to "busy"
+export const startGame = () => {
+  return async (dispatch, getState) => {
+    dispatch(labyrinthMango.actions.setLoading(true));
+
     const options = {
-      method: 'POST', // We're going to send some data to the server
+      method: 'POST',
       headers: {
-        'Content-Type': 'application/json' // The data we're sending is in JSON format
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({ username: getState().labyrinthMango.userName })
-      // The data we're sending is the player's username
     };
-    fetch('https://labyrinth.technigo.io/start', options) // We send the data to the server
-      .then((res) => res.json()) // When we get a response, we convert it to JSON
-      .then((json) => { // When we have the JSON, we update the game's memory with the new details
-        dispatch(labyrinthMango.actions.setDescription(json.description));
-        // We set the new description
-        dispatch(labyrinthMango.actions.setMoves(json.actions));
-        // We set the new moves
-        dispatch(labyrinthMango.actions.setCoordinates(json.coordinates));
-        // We set the new coordinates
-      })
-      .finally(() => dispatch(labyrinthMango.actions.setLoading(false)));
-    // We set the game to "not busy"
+
+    try {
+      const response = await fetch('https://labyrinth.technigo.io/start', options);
+      const json = await response.json();
+
+      dispatch(labyrinthMango.actions.setDescription(json.description));
+      dispatch(labyrinthMango.actions.setMoves(json.actions));
+      dispatch(labyrinthMango.actions.setCoordinates(json.coordinates));
+    } catch (error) {
+      console.error('Error starting the game:', error);
+    } finally {
+      dispatch(labyrinthMango.actions.setLoading(false));
+      if (!getState().labyrinthMango.coordinates) {
+        dispatch(labyrinthMango.actions.setCoordinates('0,0')); // Set initial coordinates to '0,0' if not already set
+      }
+    }
   };
 };
 
-export const continueGame = () => { // This spell continues the game
-  return (dispatch, getState) => { // Return a function. "dispatch" and "getState" as arguments
-    dispatch(labyrinthMango.actions.setLoading(true)); // We set the game to "busy"
+export const continueGame = () => {
+  return async (dispatch, getState) => {
+    dispatch(labyrinthMango.actions.setLoading(true));
+
     const options = {
-      method: 'POST', // We're going to send some data to the server
+      method: 'POST',
       headers: {
-        'content-type': 'application/json' // The data we're sending is in JSON format
+        'content-type': 'application/json'
       },
-      body: JSON.stringify({ // The data we're sending: username, the type of action, and direction
-        username: getState().labyrinthMango.userName, // We get the username from the game's memory
-        type: 'move', // The type of action is a "move"
-        direction: getState().labyrinthMango.direction // We get the direction from game's memory
+      body: JSON.stringify({
+        username: getState().labyrinthMango.userName,
+        type: 'move',
+        direction: getState().labyrinthMango.direction
       })
     };
-    fetch('https://labyrinth.technigo.io/action', options) // We send the data to the server
-      .then((res) => res.json()) // When we get a response, we convert it to JSON
-      .then((json) => { // When we have the JSON, we update the game's memory with the new details
-        dispatch(labyrinthMango.actions.setDescription(json.description)); // New description
-        dispatch(labyrinthMango.actions.setMoves(json.actions)); // We set the new moves
-        dispatch(labyrinthMango.actions.setCoordinates(json.coordinates)); // New coordinates
-        dispatch(labyrinthMango.actions.setDirection(json.actions.direction)); // New direction
-      })
-      .finally(() => dispatch(labyrinthMango.actions.setLoading(false))); // Set Loading to false
+
+    try {
+      const response = await fetch('https://labyrinth.technigo.io/action', options);
+      const json = await response.json();
+
+      dispatch(labyrinthMango.actions.setDescription(json.description));
+      dispatch(labyrinthMango.actions.setMoves(json.actions));
+      dispatch(labyrinthMango.actions.setCoordinates(json.coordinates));
+      dispatch(labyrinthMango.actions.setDirection(json.actions.direction));
+    } catch (error) {
+      console.error('Error continuing the game:', error);
+    } finally {
+      dispatch(labyrinthMango.actions.setLoading(false));
+    }
   };
 };
+
