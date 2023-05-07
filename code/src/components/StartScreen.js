@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { labyrinth, gameProgress } from '../reducers/labyrinth';
 import Game from './Game';
-import { StartScreenWrapper, WelcomeText, WelcomeTextWrapper, NameForm, Btn, NameInput, GameRestartWrapper } from './StartScreenCSS';
+import { StartScreenWrapper, WelcomeText, WelcomeTextWrapper, NameForm, Btn, NameInput, GameRestartWrapper, WelcomeIMG } from './StartScreenCSS';
 import { Restart } from './Restart';
+import ScrollIMG from '../assets/scroll.png'
 
 const StartScreen = () => {
   const dispatch = useDispatch()
@@ -32,6 +33,7 @@ const StartScreen = () => {
       <StartScreenWrapper>
         <WelcomeTextWrapper>
           <WelcomeText>Welcome! Let the annals of man know thy name</WelcomeText>
+          <WelcomeIMG src={ScrollIMG} alt="background scroll" />
         </WelcomeTextWrapper>
         <NameForm
           type="submit"

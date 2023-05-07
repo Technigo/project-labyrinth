@@ -18,14 +18,14 @@ const Game = () => {
   } else {
     return (
       <GameWrapper>
-        <EnvironmentIMG coordinates={resp.coordinates} />
-        <CurrentRoomDescriptionText>{labyrinth.response.description}</CurrentRoomDescriptionText>
+        <ActionTop>
+          <EnvironmentIMG coordinates={resp.coordinates} />
+          <CurrentRoomDescriptionText>{labyrinth.response.description}</CurrentRoomDescriptionText>
+        </ActionTop>
         <ActionWrapper>
           {labyrinth.response.actions && labyrinth.response.actions.map((userAction) =>
             <SingleActionWrapper key={userAction.type && userAction.direction}>
-              <ActionTop>
-                <NextRoomDescriptionText>{userAction.description}</NextRoomDescriptionText>
-              </ActionTop>
+              <NextRoomDescriptionText>{userAction.description}</NextRoomDescriptionText>
               <Btn
                 type="button"
                 onClick={

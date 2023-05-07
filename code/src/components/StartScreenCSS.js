@@ -1,6 +1,5 @@
 import styled from 'styled-components/macro';
 import rockIMG from '../assets/RockBTN.png';
-import ScrollIMG from '../assets/scroll.png'
 import orbIMG from '../assets/The Orb in the Wall (128x64).png'
 
 export const StartScreenWrapper = styled.div`
@@ -16,6 +15,18 @@ export const GameRestartWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;`
+
+export const WelcomeIMG = styled.img`
+  position: absolute;
+  height: 65%;
+  width: 90%;
+  max-width: 500px;
+
+  @media (min-width: 850px) {
+    font-size: 18px;
+    width: 70%;
+  }
+`
 
 export const RestartWrapper = styled.div`
   height: 0px;
@@ -66,41 +77,44 @@ export const RestartBtn = styled.button`
 `;
 
 export const WelcomeText = styled.p`
-  width: 60%;
+  width: 100%;
   line-height: 26px;
   text-align: center;
   font-size: 12px;
+  z-index: 1;
 
-  @media (min-width: 850px) {
+  @media (min-width: 800px) {
     font-size: 18px;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 24px;
   }
 `
 
 export const WelcomeTextWrapper = styled.div`
   display: flex;
-  background-image: url(${ScrollIMG});
-  background-size: cover;
-  height: 400px;
-  width: 330px;
+  height: 50%;
+  width: 40%;
   align-items: center;
   justify-content: center;
   background-repeat: no-repeat;
+  z-index: 1;
+  max-width: 360px;
+  margin-top: 5%;
   
   @media (min-width: 850px) {
     height: 100%;
     width: 100%;
-    max-width: 450px;
+
     max-height: 539px;
   }
 
   @media (max-height: 1000px) {
-    max-width: 400px;
     max-height: 500px;
   }
 
   @media (max-height: 1200px) {
-    max-width: 400px;
-    max-height: 500px;
   }
 
   @media (max-height: 1200px) and (max-width: 1400px) {
@@ -114,7 +128,8 @@ export const NameForm = styled.form`
   flex-direction: column;
   align-items: center;
   height: 30%;
-  justify-content: space-around;`
+  justify-content: space-around;
+  z-index: 1;`
 
 export const Btn = styled.button`
     background-image: url(${rockIMG});
