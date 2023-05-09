@@ -32,6 +32,16 @@ const StartScreen = () => {
     width: 50%;
     align-self:center;
   }
+  
+  @media (max-width:667px) {
+    margin: 5%; 
+  h1 {
+    font-size: 20px;
+  }
+  input {
+    width: 80%;
+  }
+  }
   `
 
   const ButtonContainer = styled.div`
