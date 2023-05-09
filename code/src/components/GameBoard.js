@@ -92,6 +92,7 @@ font-size: 24px;
 const OptionBox = styled.div`
 display: flex; 
 flex-direction:column;
+justify-content: center;
 
 @media (min-width: 667px) {
   flex-direction: row; 
