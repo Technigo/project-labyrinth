@@ -1,4 +1,5 @@
 # Project Labyrinth
+### Week 12 Technigo Bootcamp
 
 Using React, Redux toolkit,Redux thunks, Lotties animation and an API built by Technigo in order to create a labyrinth game. This game was built by Jennifer Feenstra-Arengard, Nora Terbocs.
 ## The problem
